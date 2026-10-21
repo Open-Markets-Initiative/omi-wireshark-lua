@@ -26,7 +26,22 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.anti_wash_instruction = ProtoField.n
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.assigned_price = ProtoField.new("Assigned Price", "tmx.mx.solaorderentry.sail.v1.21.assignedprice", ftypes.STRING, nil, nil, nil, "Price assigned by the system")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_command_acknowledgement_occurrence = ProtoField.new("Bulk Command Acknowledgement Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkcommandacknowledgementoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 1000 occurrences).")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_acknowledgement_occurrence = ProtoField.new("Bulk Quote Acknowledgement Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteacknowledgementoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 280 occurrences).")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_occurrence = ProtoField.new("Bulk Quote Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 280 occurrences).")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_occurrence = ProtoField.new("Bulk Quote Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteoccurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_2_occurrence = ProtoField.new("Bulk Quote Price 10 Quantity 2 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity2occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_4_occurrence = ProtoField.new("Bulk Quote Price 10 Quantity 4 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity4occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_6_occurrence = ProtoField.new("Bulk Quote Price 10 Quantity 6 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity6occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_2_occurrence = ProtoField.new("Bulk Quote Price 4 Quantity 2 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity2occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_4_occurrence = ProtoField.new("Bulk Quote Price 4 Quantity 4 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity4occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_6_occurrence = ProtoField.new("Bulk Quote Price 4 Quantity 6 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity6occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_8_occurrence = ProtoField.new("Bulk Quote Price 4 Quantity 8 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity8occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_2_occurrence = ProtoField.new("Bulk Quote Price 6 Quantity 2 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity2occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_4_occurrence = ProtoField.new("Bulk Quote Price 6 Quantity 4 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity4occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_6_occurrence = ProtoField.new("Bulk Quote Price 6 Quantity 6 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity6occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_8_occurrence = ProtoField.new("Bulk Quote Price 6 Quantity 8 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity8occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_2_occurrence = ProtoField.new("Bulk Quote Price 8 Quantity 2 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity2occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_4_occurrence = ProtoField.new("Bulk Quote Price 8 Quantity 4 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity4occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_6_occurrence = ProtoField.new("Bulk Quote Price 8 Quantity 6 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity6occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_8_occurrence = ProtoField.new("Bulk Quote Price 8 Quantity 8 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity8occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.buying_clearing_data = ProtoField.new("Buying Clearing Data", "tmx.mx.solaorderentry.sail.v1.21.buyingclearingdata", ftypes.STRING, nil, nil, nil, "Clearing Data for the buying side, which OX: Cross Entry carries alongside the other side.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.buying_owner_data = ProtoField.new("Buying Owner Data", "tmx.mx.solaorderentry.sail.v1.21.buyingownerdata", ftypes.STRING, nil, nil, nil, "Owner Data for the buying side, which OX: Cross Entry carries alongside the other side.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.calculation_time_interval = ProtoField.new("Calculation Time Interval", "tmx.mx.solaorderentry.sail.v1.21.calculationtimeinterval", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
@@ -143,10 +158,16 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.owner_data = ProtoField.new("Owner D
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.password_md_5_encryption = ProtoField.new("Password Md 5 Encryption", "tmx.mx.solaorderentry.sail.v1.21.passwordmd5encryption", ftypes.STRING, nil, nil, nil, "Contact MX’s Technical Help Desk for details. (MD5 Encryption)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.preceding_user_sequence_id_received_zeroes_if_none = ProtoField.new("Preceding User Sequence Id Received Zeroes If None", "tmx.mx.solaorderentry.sail.v1.21.precedingusersequenceidreceivedzeroesifnone", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.price = ProtoField.new("Price", "tmx.mx.solaorderentry.sail.v1.21.price", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_4 = ProtoField.new("Price 4", "tmx.mx.solaorderentry.sail.v1.21.price4", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_6 = ProtoField.new("Price 6", "tmx.mx.solaorderentry.sail.v1.21.price6", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_8 = ProtoField.new("Price 8", "tmx.mx.solaorderentry.sail.v1.21.price8", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_type = ProtoField.new("Price Type", "tmx.mx.solaorderentry.sail.v1.21.pricetype", ftypes.STRING, nil, nil, nil, "Must contain one of the following Price Types: C = Committed L = Limit (price set in message) O = At opening price M = At best opposite price (Top Order)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.protection_type_advanced_protection_advanced_protection_disabled = ProtoField.new("Protection Type Advanced Protection Advanced Protection Disabled", "tmx.mx.solaorderentry.sail.v1.21.protectiontypeadvancedprotectionadvancedprotectiondisabled", ftypes.STRING, nil, nil, nil, "Type of protection requested by the Bulk Quote Participant (BQP): A = Advanced Protection N = Advanced Protection Disabled Note: If no RP: Bulk Quote Participant (BQP) Protection Subscription message is sent, MX will assume that the BQP did not request an Advanced Protection. BQP will be required to enable the Advanced Protection.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.protocol_id = ProtoField.new("Protocol Id", "tmx.mx.solaorderentry.sail.v1.21.protocolid", ftypes.STRING, nil, nil, nil, "Version of the protocol used by this connection")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity = ProtoField.new("Quantity", "tmx.mx.solaorderentry.sail.v1.21.quantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_2 = ProtoField.new("Quantity 2", "tmx.mx.solaorderentry.sail.v1.21.quantity2", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_4 = ProtoField.new("Quantity 4", "tmx.mx.solaorderentry.sail.v1.21.quantity4", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_6 = ProtoField.new("Quantity 6", "tmx.mx.solaorderentry.sail.v1.21.quantity6", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "tmx.mx.solaorderentry.sail.v1.21.quantityremaining", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_sign = ProtoField.new("Quantity Sign", "tmx.mx.solaorderentry.sail.v1.21.quantitysign", ftypes.STRING, nil, nil, nil, "For an order or quote update, it identifies how to handle the quantity: ‘+’ adds the incoming quantity to the booked quantity ‘-’ subtracts the incoming quantity from the booked quantity ‘=’ replaces the booked quantity with the incoming quantity")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_sign_or = ProtoField.new("Quantity Sign Or", "tmx.mx.solaorderentry.sail.v1.21.quantitysignor", ftypes.STRING, nil, nil, nil, "For an order or quote update, it identifies how to handle the quantity: ‘+’ adds the incoming quantity to the booked quantity ‘-’ subtracts the incoming quantity from the booked quantity ‘=’ replaces the booked quantity with the incoming quantity")
@@ -205,11 +226,26 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_packet = ProtoField.new("Firm P
 
 -- Tmx Mx SolaOrderEntry 1.21 Application Messages
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_command_acknowledgement = ProtoField.new("Bulk Command Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.bulkcommandacknowledgement", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote = ProtoField.new("Bulk Quote", "tmx.mx.solaorderentry.sail.v1.21.bulkquote", ftypes.STRING, nil, nil, nil, "The guide states this as Q<i>, a family of sixteen messages QA to QP whose second letter gives the Price and Quantity widths. QP is the variant the field types measure: Price 10 and Quantity 8.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote = ProtoField.new("Bulk Quote", "tmx.mx.solaorderentry.sail.v1.21.bulkquote", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_acknowledgement = ProtoField.new("Bulk Quote Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteacknowledgement", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_data = ProtoField.new("Bulk Quote Data", "tmx.mx.solaorderentry.sail.v1.21.bulkquotedata", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_data_acknowledgement = ProtoField.new("Bulk Quote Data Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.bulkquotedataacknowledgement", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_participant_bqp_protection_subscription = ProtoField.new("Bulk Quote Participant Bqp Protection Subscription", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteparticipantbqpprotectionsubscription", ftypes.STRING)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_2 = ProtoField.new("Bulk Quote Price 10 Quantity 2", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity2", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_4 = ProtoField.new("Bulk Quote Price 10 Quantity 4", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity4", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_6 = ProtoField.new("Bulk Quote Price 10 Quantity 6", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity6", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_2 = ProtoField.new("Bulk Quote Price 4 Quantity 2", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity2", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_4 = ProtoField.new("Bulk Quote Price 4 Quantity 4", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity4", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_6 = ProtoField.new("Bulk Quote Price 4 Quantity 6", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity6", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_8 = ProtoField.new("Bulk Quote Price 4 Quantity 8", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity8", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_2 = ProtoField.new("Bulk Quote Price 6 Quantity 2", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity2", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_4 = ProtoField.new("Bulk Quote Price 6 Quantity 4", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity4", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_6 = ProtoField.new("Bulk Quote Price 6 Quantity 6", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity6", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_8 = ProtoField.new("Bulk Quote Price 6 Quantity 8", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity8", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_2 = ProtoField.new("Bulk Quote Price 8 Quantity 2", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity2", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_4 = ProtoField.new("Bulk Quote Price 8 Quantity 4", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity4", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_6 = ProtoField.new("Bulk Quote Price 8 Quantity 6", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity6", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_8 = ProtoField.new("Bulk Quote Price 8 Quantity 8", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity8", ftypes.STRING, nil, nil, nil, "This is a set of messages sent by the Participant to enter Bulk Quotes. The second letter of Message Type indicates the quantity and price formats. It is acknowledged by the LA: Bulk Quote Acknowledgement message.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.cancellation_of_all_quotes_notice = ProtoField.new("Cancellation Of All Quotes Notice", "tmx.mx.solaorderentry.sail.v1.21.cancellationofallquotesnotice", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.connection_acknowledgement = ProtoField.new("Connection Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.connectionacknowledgement", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.cross_entry = ProtoField.new("Cross Entry", "tmx.mx.solaorderentry.sail.v1.21.crossentry", ftypes.STRING)
@@ -218,27 +254,27 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.disconnection_instruction = ProtoFie
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.disconnection_instruction_acknowledgement = ProtoField.new("Disconnection Instruction Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.disconnectioninstructionacknowledgement", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.end_of_transmission = ProtoField.new("End Of Transmission", "tmx.mx.solaorderentry.sail.v1.21.endoftransmission", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_notice = ProtoField.new("Error Notice", "tmx.mx.solaorderentry.sail.v1.21.errornotice", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.excluded_instrument_notice = ProtoField.new("Excluded Instrument Notice", "tmx.mx.solaorderentry.sail.v1.21.excludedinstrumentnotice", ftypes.STRING, nil, nil, nil, "The guide prints Incoming Messages Header against this message, which it sends from the Exchange; the Outgoing header is the one an Exchange message carries.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.execution_cancellation_notice = ProtoField.new("Execution Cancellation Notice", "tmx.mx.solaorderentry.sail.v1.21.executioncancellationnotice", ftypes.STRING, nil, nil, nil, "Stated by the guide as having the same number of bytes and format as the NT message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.excluded_instrument_notice = ProtoField.new("Excluded Instrument Notice", "tmx.mx.solaorderentry.sail.v1.21.excludedinstrumentnotice", ftypes.STRING, nil, nil, nil, "This message is sent by the Exchange to specify a list of instruments excluded from the next KG: Global Cancellation Confirmation or NP: Cancellation of All Quotes Notice messages.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.execution_cancellation_notice = ProtoField.new("Execution Cancellation Notice", "tmx.mx.solaorderentry.sail.v1.21.executioncancellationnotice", ftypes.STRING, nil, nil, nil, "This message is sent by the Exchange to report the execution of a trade cancellation by the MOD. This message has the same number of bytes and format as the NT: SAIL Execution Notice messages.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.execution_notice = ProtoField.new("Execution Notice", "tmx.mx.solaorderentry.sail.v1.21.executionnotice", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_risk_config = ProtoField.new("Firm Risk Config", "tmx.mx.solaorderentry.sail.v1.21.firmriskconfig", ftypes.STRING, nil, nil, nil, "The guide repeats a Trader block inside the Trader Team block, each counted by a field of the block around it.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_risk_config = ProtoField.new("Firm Risk Config", "tmx.mx.solaorderentry.sail.v1.21.firmriskconfig", ftypes.STRING, nil, nil, nil, "This message is sent by the Participant to configure Trader Teams and Risk Netting options. It is acknowledged by the LB: Bulk Command Acknowledgement message.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.global_cancellation = ProtoField.new("Global Cancellation", "tmx.mx.solaorderentry.sail.v1.21.globalcancellation", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.global_cancellation_confirmation = ProtoField.new("Global Cancellation Confirmation", "tmx.mx.solaorderentry.sail.v1.21.globalcancellationconfirmation", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.group_state_change = ProtoField.new("Group State Change", "tmx.mx.solaorderentry.sail.v1.21.groupstatechange", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.heartbeat_question = ProtoField.new("Heartbeat Question", "tmx.mx.solaorderentry.sail.v1.21.heartbeatquestion", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.heartbeat_response = ProtoField.new("Heartbeat Response", "tmx.mx.solaorderentry.sail.v1.21.heartbeatresponse", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.instrument_state_change = ProtoField.new("Instrument State Change", "tmx.mx.solaorderentry.sail.v1.21.instrumentstatechange", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_execution_cancellation_notice = ProtoField.new("Leg Execution Cancellation Notice", "tmx.mx.solaorderentry.sail.v1.21.legexecutioncancellationnotice", ftypes.STRING, nil, nil, nil, "Stated by the guide as having the same number of bytes and format as the NL message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_execution_cancellation_notice = ProtoField.new("Leg Execution Cancellation Notice", "tmx.mx.solaorderentry.sail.v1.21.legexecutioncancellationnotice", ftypes.STRING, nil, nil, nil, "This message is sent by the Exchange to report the execution of a cancellation by the MOD for a leg of the strategy trade. This message has the same number of bytes and format as the NL: Leg Execution Notice message.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_execution_notice = ProtoField.new("Leg Execution Notice", "tmx.mx.solaorderentry.sail.v1.21.legexecutionnotice", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.new_strategy_instrument = ProtoField.new("New Strategy Instrument", "tmx.mx.solaorderentry.sail.v1.21.newstrategyinstrument", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.new_strategy_instrument_acknowledgement = ProtoField.new("New Strategy Instrument Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.newstrategyinstrumentacknowledgement", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.orderacknowledgement", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_cancellation = ProtoField.new("Order Cancellation", "tmx.mx.solaorderentry.sail.v1.21.ordercancellation", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_cancellation_acknowledgement = ProtoField.new("Order Cancellation Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.ordercancellationacknowledgement", ftypes.STRING, nil, nil, nil, "Stated by the guide as having the same number of bytes and format as the KE message.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_cancellation_notice_by_mod_or_system = ProtoField.new("Order Cancellation Notice By Mod Or System", "tmx.mx.solaorderentry.sail.v1.21.ordercancellationnoticebymodorsystem", ftypes.STRING, nil, nil, nil, "Stated by the guide as having the same number of bytes and format as the KE message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_cancellation_acknowledgement = ProtoField.new("Order Cancellation Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.ordercancellationacknowledgement", ftypes.STRING, nil, nil, nil, "This message is to acknowledge an XE: Order Cancellation message. This message has the same number of bytes and format as the KE: Order Acknowledgement (the extensive list of fields is only described there), the KM: Order Modification Acknowledgement and the NZ: Order Cancellation Notice (by MOD or System) messages.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_cancellation_notice_by_mod_or_system = ProtoField.new("Order Cancellation Notice By Mod Or System", "tmx.mx.solaorderentry.sail.v1.21.ordercancellationnoticebymodorsystem", ftypes.STRING, nil, nil, nil, "This triggered message is sent by the Exchange to report the cancellation of an order by the MOD or by the System. This message has the same number of bytes and format as the KE: Order Acknowledgement, KM: Order Modification Acknowledgement and KZ: Order Cancellation Acknowledgement messages.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_entry = ProtoField.new("Order Entry", "tmx.mx.solaorderentry.sail.v1.21.orderentry", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_modification = ProtoField.new("Order Modification", "tmx.mx.solaorderentry.sail.v1.21.ordermodification", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_modification_acknowledgement = ProtoField.new("Order Modification Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.ordermodificationacknowledgement", ftypes.STRING, nil, nil, nil, "Stated by the guide as having the same number of bytes and format as the KE message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_modification_acknowledgement = ProtoField.new("Order Modification Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.ordermodificationacknowledgement", ftypes.STRING, nil, nil, nil, "This message is sent by the Exchange to acknowledge an OM: Order Modification message. This message has the same format as the KE: Order Acknowledgement (the extensive list of fields is only described there), KZ: Order Cancellation Acknowledgement and NZ: Order Cancellation Notice (by MOD or System) messages.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_reply = ProtoField.new("Order Reply", "tmx.mx.solaorderentry.sail.v1.21.orderreply", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_request = ProtoField.new("Order Request", "tmx.mx.solaorderentry.sail.v1.21.orderrequest", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "tmx.mx.solaorderentry.sail.v1.21.outofsequence", ftypes.STRING)
@@ -259,6 +295,21 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_global_cancellation = ProtoFiel
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_command_acknowledgement_occurrence_index = ProtoField.new("Bulk Command Acknowledgement Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkcommandacknowledgementoccurrenceindex", ftypes.UINT16)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_acknowledgement_occurrence_index = ProtoField.new("Bulk Quote Acknowledgement Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteacknowledgementoccurrenceindex", ftypes.UINT16)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_occurrence_index = ProtoField.new("Bulk Quote Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteoccurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_2_occurrence_index = ProtoField.new("Bulk Quote Price 10 Quantity 2 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity2occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_4_occurrence_index = ProtoField.new("Bulk Quote Price 10 Quantity 4 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity4occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_6_occurrence_index = ProtoField.new("Bulk Quote Price 10 Quantity 6 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice10quantity6occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_2_occurrence_index = ProtoField.new("Bulk Quote Price 4 Quantity 2 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity2occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_4_occurrence_index = ProtoField.new("Bulk Quote Price 4 Quantity 4 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity4occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_6_occurrence_index = ProtoField.new("Bulk Quote Price 4 Quantity 6 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity6occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_8_occurrence_index = ProtoField.new("Bulk Quote Price 4 Quantity 8 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice4quantity8occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_2_occurrence_index = ProtoField.new("Bulk Quote Price 6 Quantity 2 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity2occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_4_occurrence_index = ProtoField.new("Bulk Quote Price 6 Quantity 4 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity4occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_6_occurrence_index = ProtoField.new("Bulk Quote Price 6 Quantity 6 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity6occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_8_occurrence_index = ProtoField.new("Bulk Quote Price 6 Quantity 8 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice6quantity8occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_2_occurrence_index = ProtoField.new("Bulk Quote Price 8 Quantity 2 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity2occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_4_occurrence_index = ProtoField.new("Bulk Quote Price 8 Quantity 4 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity4occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_6_occurrence_index = ProtoField.new("Bulk Quote Price 8 Quantity 6 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity6occurrenceindex", ftypes.UINT16)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_8_occurrence_index = ProtoField.new("Bulk Quote Price 8 Quantity 8 Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity8occurrenceindex", ftypes.UINT16)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.disconnection_instruction_occurrence_index = ProtoField.new("Disconnection Instruction Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.disconnectioninstructionoccurrenceindex", ftypes.UINT16)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.excluded_instrument_notice_occurrence_index = ProtoField.new("Excluded Instrument Notice Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.excludedinstrumentnoticeoccurrenceindex", ftypes.UINT16)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_risk_config_trader_team_index = ProtoField.new("Firm Risk Config Trader Team Index", "tmx.mx.solaorderentry.sail.v1.21.firmriskconfigtraderteamindex", ftypes.UINT16)
@@ -331,6 +382,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Tmx Mx SolaOrderEntry Sail 1.21 Fields
@@ -344,7 +406,44 @@ tmx_mx_solaorderentry_sail_v1_21.account_type.size = 1
 
 -- Display: Account Type
 tmx_mx_solaorderentry_sail_v1_21.account_type.display = function(value)
-  return "Account Type: "..value
+  if value == "1" then
+    return "Account Type: Customer (1)"
+  end
+  if value == "2" then
+    return "Account Type: House (2)"
+  end
+  if value == "4" then
+    return "Account Type: Pro (4)"
+  end
+  if value == "5" then
+    return "Account Type: Non Client (5)"
+  end
+  if value == "D" then
+    return "Account Type: Non Client Shareholder (D)"
+  end
+  if value == "H" then
+    return "Account Type: Customer Shareholder (H)"
+  end
+  if value == "I" then
+    return "Account Type: Customer Insider (I)"
+  end
+  if value == "L" then
+    return "Account Type: Pro Shareholder (L)"
+  end
+  if value == "N" then
+    return "Account Type: House Insider (N)"
+  end
+  if value == "O" then
+    return "Account Type: House Shareholder (O)"
+  end
+  if value == "R" then
+    return "Account Type: Non Client Insider (R)"
+  end
+  if value == "S" then
+    return "Account Type: Pro Insider (S)"
+  end
+
+  return "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -390,7 +489,14 @@ tmx_mx_solaorderentry_sail_v1_21.active_y_on_n_off.size = 1
 
 -- Display: Active Y On N Off
 tmx_mx_solaorderentry_sail_v1_21.active_y_on_n_off.display = function(value)
-  return "Active Y On N Off: "..value
+  if value == "Y" then
+    return "Active Y On N Off: Yes (Y)"
+  end
+  if value == "N" then
+    return "Active Y On N Off: No (N)"
+  end
+
+  return "Active Y On N Off: Unknown("..value..")"
 end
 
 -- Dissect: Active Y On N Off
@@ -465,7 +571,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.alignment_padding = {}
 
 -- Size: Alignment Padding
-tmx_mx_solaorderentry_sail_v1_21.alignment_padding.size = 1
+tmx_mx_solaorderentry_sail_v1_21.alignment_padding.size = 0
 
 -- Display: Alignment Padding
 tmx_mx_solaorderentry_sail_v1_21.alignment_padding.display = function(value)
@@ -515,12 +621,17 @@ tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.size = 1
 
 -- Display: Anti Wash Instruction
 tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Anti Wash Instruction: No Value"
+  if value == "B" then
+    return "Anti Wash Instruction: Cancel Both Inbound Order And Opposite Resting Order (B)"
+  end
+  if value == "I" then
+    return "Anti Wash Instruction: Cancel Inbound Order (I)"
+  end
+  if value == "O" then
+    return "Anti Wash Instruction: Cancel Opposite Resting Order (O)"
   end
 
-  return "Anti Wash Instruction: "..value
+  return "Anti Wash Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Anti Wash Instruction
@@ -607,7 +718,44 @@ tmx_mx_solaorderentry_sail_v1_21.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 tmx_mx_solaorderentry_sail_v1_21.cancel_reason.display = function(value)
-  return "Cancel Reason: "..value
+  if value == "A" then
+    return "Cancel Reason: Cancelled By Trader (A)"
+  end
+  if value == "C" then
+    return "Cancel Reason: Cancelled By Circuit Breaker (C)"
+  end
+  if value == "G" then
+    return "Cancel Reason: Cancelled By Supervisor (G)"
+  end
+  if value == "I" then
+    return "Cancel Reason: Eliminated By Disconnection (I)"
+  end
+  if value == "M" then
+    return "Cancel Reason: Cancelled By Mod (M)"
+  end
+  if value == "N" then
+    return "Cancel Reason: Bqm Maximum Delta Volume Has Been Reached (N)"
+  end
+  if value == "P" then
+    return "Cancel Reason: Bqm Maximum Number Of Trades Has Been Reached (P)"
+  end
+  if value == "R" then
+    return "Cancel Reason: Bqm Maximum Value Has Been Reached (R)"
+  end
+  if value == "S" then
+    return "Cancel Reason: Cancelled By System (S)"
+  end
+  if value == "T" then
+    return "Cancel Reason: Bqm Maximum Volume Has Been Reached (T)"
+  end
+  if value == "V" then
+    return "Cancel Reason: Bqm Maximum Delta Value Has Been Reached (V)"
+  end
+  if value == "W" then
+    return "Cancel Reason: Cancel Pending (W)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -750,7 +898,14 @@ tmx_mx_solaorderentry_sail_v1_21.creation_status.size = 1
 
 -- Display: Creation Status
 tmx_mx_solaorderentry_sail_v1_21.creation_status.display = function(value)
-  return "Creation Status: "..value
+  if value == "C" then
+    return "Creation Status: Created as specified (C)"
+  end
+  if value == "M" then
+    return "Creation Status: Created with modifications (M)"
+  end
+
+  return "Creation Status: Unknown("..value..")"
 end
 
 -- Dissect: Creation Status
@@ -819,7 +974,20 @@ tmx_mx_solaorderentry_sail_v1_21.default_long_exposure_action.size = 1
 
 -- Display: Default Long Exposure Action
 tmx_mx_solaorderentry_sail_v1_21.default_long_exposure_action.display = function(value)
-  return "Default Long Exposure Action: "..value
+  if value == "?" then
+    return "Default Long Exposure Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Default Long Exposure Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Default Long Exposure Action: None (N)"
+  end
+  if value == "W" then
+    return "Default Long Exposure Action: Warning (W)"
+  end
+
+  return "Default Long Exposure Action: Unknown("..value..")"
 end
 
 -- Dissect: Default Long Exposure Action
@@ -842,6 +1010,11 @@ tmx_mx_solaorderentry_sail_v1_21.default_long_exposure_limit.size = 10
 
 -- Display: Default Long Exposure Limit
 tmx_mx_solaorderentry_sail_v1_21.default_long_exposure_limit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Default Long Exposure Limit: No Value"
+  end
+
   return "Default Long Exposure Limit: "..value
 end
 
@@ -849,7 +1022,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.default_long_exposure_limit.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.default_long_exposure_limit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.default_long_exposure_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_long_exposure_limit, range, value, display)
@@ -865,7 +1038,20 @@ tmx_mx_solaorderentry_sail_v1_21.default_long_position_action.size = 1
 
 -- Display: Default Long Position Action
 tmx_mx_solaorderentry_sail_v1_21.default_long_position_action.display = function(value)
-  return "Default Long Position Action: "..value
+  if value == "?" then
+    return "Default Long Position Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Default Long Position Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Default Long Position Action: None (N)"
+  end
+  if value == "W" then
+    return "Default Long Position Action: Warning (W)"
+  end
+
+  return "Default Long Position Action: Unknown("..value..")"
 end
 
 -- Dissect: Default Long Position Action
@@ -949,7 +1135,20 @@ tmx_mx_solaorderentry_sail_v1_21.default_net_exposure_action.size = 1
 
 -- Display: Default Net Exposure Action
 tmx_mx_solaorderentry_sail_v1_21.default_net_exposure_action.display = function(value)
-  return "Default Net Exposure Action: "..value
+  if value == "?" then
+    return "Default Net Exposure Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Default Net Exposure Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Default Net Exposure Action: None (N)"
+  end
+  if value == "W" then
+    return "Default Net Exposure Action: Warning (W)"
+  end
+
+  return "Default Net Exposure Action: Unknown("..value..")"
 end
 
 -- Dissect: Default Net Exposure Action
@@ -972,6 +1171,11 @@ tmx_mx_solaorderentry_sail_v1_21.default_net_exposure_limit.size = 10
 
 -- Display: Default Net Exposure Limit
 tmx_mx_solaorderentry_sail_v1_21.default_net_exposure_limit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Default Net Exposure Limit: No Value"
+  end
+
   return "Default Net Exposure Limit: "..value
 end
 
@@ -979,7 +1183,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.default_net_exposure_limit.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.default_net_exposure_limit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.default_net_exposure_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_net_exposure_limit, range, value, display)
@@ -995,7 +1199,20 @@ tmx_mx_solaorderentry_sail_v1_21.default_net_position_action.size = 1
 
 -- Display: Default Net Position Action
 tmx_mx_solaorderentry_sail_v1_21.default_net_position_action.display = function(value)
-  return "Default Net Position Action: "..value
+  if value == "?" then
+    return "Default Net Position Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Default Net Position Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Default Net Position Action: None (N)"
+  end
+  if value == "W" then
+    return "Default Net Position Action: Warning (W)"
+  end
+
+  return "Default Net Position Action: Unknown("..value..")"
 end
 
 -- Dissect: Default Net Position Action
@@ -1051,7 +1268,20 @@ tmx_mx_solaorderentry_sail_v1_21.default_short_exposure_action.size = 1
 
 -- Display: Default Short Exposure Action
 tmx_mx_solaorderentry_sail_v1_21.default_short_exposure_action.display = function(value)
-  return "Default Short Exposure Action: "..value
+  if value == "?" then
+    return "Default Short Exposure Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Default Short Exposure Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Default Short Exposure Action: None (N)"
+  end
+  if value == "W" then
+    return "Default Short Exposure Action: Warning (W)"
+  end
+
+  return "Default Short Exposure Action: Unknown("..value..")"
 end
 
 -- Dissect: Default Short Exposure Action
@@ -1074,6 +1304,11 @@ tmx_mx_solaorderentry_sail_v1_21.default_short_exposure_limit.size = 10
 
 -- Display: Default Short Exposure Limit
 tmx_mx_solaorderentry_sail_v1_21.default_short_exposure_limit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Default Short Exposure Limit: No Value"
+  end
+
   return "Default Short Exposure Limit: "..value
 end
 
@@ -1081,7 +1316,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.default_short_exposure_limit.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.default_short_exposure_limit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.default_short_exposure_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_short_exposure_limit, range, value, display)
@@ -1097,7 +1332,20 @@ tmx_mx_solaorderentry_sail_v1_21.default_short_position_action.size = 1
 
 -- Display: Default Short Position Action
 tmx_mx_solaorderentry_sail_v1_21.default_short_position_action.display = function(value)
-  return "Default Short Position Action: "..value
+  if value == "?" then
+    return "Default Short Position Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Default Short Position Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Default Short Position Action: None (N)"
+  end
+  if value == "W" then
+    return "Default Short Position Action: Warning (W)"
+  end
+
+  return "Default Short Position Action: Unknown("..value..")"
 end
 
 -- Dissect: Default Short Position Action
@@ -1219,7 +1467,23 @@ tmx_mx_solaorderentry_sail_v1_21.disconnection_instruction_note_cancel_quotes_on
 
 -- Display: Disconnection Instruction Note Cancel Quotes Only Q Quotes Only
 tmx_mx_solaorderentry_sail_v1_21.disconnection_instruction_note_cancel_quotes_only_q_quotes_only.display = function(value)
-  return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: "..value
+  if value == "A" then
+    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: All (A)"
+  end
+  if value == "Q" then
+    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Quotes Only (Q)"
+  end
+  if value == "O" then
+    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Orders Only (O)"
+  end
+  if value == "S" then
+    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Stop Orders Only (S)"
+  end
+  if value == "M" then
+    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Market Orders Only (M)"
+  end
+
+  return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Unknown("..value..")"
 end
 
 -- Dissect: Disconnection Instruction Note Cancel Quotes Only Q Quotes Only
@@ -1242,7 +1506,26 @@ tmx_mx_solaorderentry_sail_v1_21.duration_type.size = 1
 
 -- Display: Duration Type
 tmx_mx_solaorderentry_sail_v1_21.duration_type.display = function(value)
-  return "Duration Type: "..value
+  if value == "D" then
+    return "Duration Type: Good Till Date (D)"
+  end
+  if value == "E" then
+    return "Duration Type: Fill And Kill (E)"
+  end
+  if value == "F" then
+    return "Duration Type: Good Till Cancel (F)"
+  end
+  if value == "J" then
+    return "Duration Type: Day (J)"
+  end
+  if value == "P" then
+    return "Duration Type: Preopening (P)"
+  end
+  if value == "W" then
+    return "Duration Type: While Connected (W)"
+  end
+
+  return "Duration Type: Unknown("..value..")"
 end
 
 -- Dissect: Duration Type
@@ -1315,7 +1598,284 @@ tmx_mx_solaorderentry_sail_v1_21.error_code.size = 4
 
 -- Display: Error Code
 tmx_mx_solaorderentry_sail_v1_21.error_code.display = function(value)
-  return "Error Code: "..value
+  if value == 0001 then
+    return "Error Code: User Identification Is Incorrect (0001)"
+  end
+  if value == 0002 then
+    return "Error Code: Protocol Version Is Not Supported (0002)"
+  end
+  if value == 0003 then
+    return "Error Code: Message Type Is Not Supported (0003)"
+  end
+  if value == 0004 then
+    return "Error Code: Session Id Is Not Active (0004)"
+  end
+  if value == 0006 then
+    return "Error Code: Message Type Requested Is Not Supported (0006)"
+  end
+  if value == 0008 then
+    return "Error Code: Message Is Too Short (0008)"
+  end
+  if value == 0009 then
+    return "Error Code: Message Is Too Long (0009)"
+  end
+  if value == 0010 then
+    return "Error Code: Message Contains Binary Data (0010)"
+  end
+  if value == 0011 then
+    return "Error Code: No Heartbeat Activity Disconnection (0011)"
+  end
+  if value == 0012 then
+    return "Error Code: Message Type Is Out Of Context (0012)"
+  end
+  if value == 0013 then
+    return "Error Code: User Id Has Been Deactivated Disconnection (0013)"
+  end
+  if value == 0014 then
+    return "Error Code: Syntax Error Detailed Text (0014)"
+  end
+  if value == 0100 then
+    return "Error Code: Firm Is Forbidden To Trade On This Group (0100)"
+  end
+  if value == 0101 then
+    return "Error Code: Duration Type Is Forbidden For Current Group State (0101)"
+  end
+  if value == 0102 then
+    return "Error Code: Verb Field Side Cannot Be Modified (0102)"
+  end
+  if value == 0103 then
+    return "Error Code: Order Is Not Active (0103)"
+  end
+  if value == 0104 then
+    return "Error Code: Price Type Is Forbidden For This Instrument (0104)"
+  end
+  if value == 0105 then
+    return "Error Code: Price Term Is Forbidden For Current Instrument State (0105)"
+  end
+  if value == 0108 then
+    return "Error Code: Duration Type Is Forbidden For Current Instrument State (0108)"
+  end
+  if value == 0109 then
+    return "Error Code: Order Cannot Be Processed No Opposite Limit (0109)"
+  end
+  if value == 0110 then
+    return "Error Code: Price Does Not Represent A Valid Tick Increment For This Instrument (0110)"
+  end
+  if value == 0111 then
+    return "Error Code: Duration Type Is Invalid For This Price Type (0111)"
+  end
+  if value == 0112 then
+    return "Error Code: Cross Order Price Must Be Within The Instrument Trading Limits (0112)"
+  end
+  if value == 0113 then
+    return "Error Code: Order Price Outside Price Spread (0113)"
+  end
+  if value == 0114 then
+    return "Error Code: Opposite Firm Must Be Filled For Committed Order (0114)"
+  end
+  if value == 0119 then
+    return "Error Code: Quantity Is Out Of Range (0119)"
+  end
+  if value == 0120 then
+    return "Error Code: Functionality Is Not Supported (0120)"
+  end
+  if value == 0201 then
+    return "Error Code: Gtd Date Must Be Equal To Or Greater Than Current Day (0201)"
+  end
+  if value == 0202 then
+    return "Error Code: Gtd Date Must Be Equal To Or Less Than Instrument Expiration Date (0202)"
+  end
+  if value == 0203 then
+    return "Error Code: Gtd Date Must Be Filled Only If Duration Type Is Equal To Gtd (0203)"
+  end
+  if value == 0300 then
+    return "Error Code: Quantity Term Is Forbidden For Current Instrument State (0300)"
+  end
+  if value == 0302 then
+    return "Error Code: Quantity Must Be Less Than Or Equal To Maximum Improvement Quantity (0302)"
+  end
+  if value == 0303 then
+    return "Error Code: Quantity Term Is Not Authorized For This Order Type (0303)"
+  end
+  if value == 0304 then
+    return "Error Code: Additional Quantity Must Be Less Than Order Quantity (0304)"
+  end
+  if value == 0305 then
+    return "Error Code: Additional Quantity Is Too Small (0305)"
+  end
+  if value == 0306 then
+    return "Error Code: Minimum Quantity Cannot Be Modified (0306)"
+  end
+  if value == 0307 then
+    return "Error Code: Quantity Term Is Forbidden For Duration Type (0307)"
+  end
+  if value == 0308 then
+    return "Error Code: Order Quantity Is Outside The Instrument Quantity Threshold (0308)"
+  end
+  if value == 0309 then
+    return "Error Code: Quantities Must Be Multiples Of Lot Size (0309)"
+  end
+  if value == 0402 then
+    return "Error Code: Trader Id Field Cannot Be Modified (0402)"
+  end
+  if value == 0403 then
+    return "Error Code: Bulk Quote Participant Not Authorized For Group (0403)"
+  end
+  if value == 0500 then
+    return "Error Code: Order Price Is Outside The Instrument Price Threshold (0500)"
+  end
+  if value == 0501 then
+    return "Error Code: Price Field Is Mandatory For Limit Orders (0501)"
+  end
+  if value == 0502 then
+    return "Error Code: Price Field Must Not Be Filled For This Price Type (0502)"
+  end
+  if value == 0503 then
+    return "Error Code: Order Cannot Be Modified Or Cancelled (0503)"
+  end
+  if value == 0504 then
+    return "Error Code: Additional Price Is Forbidden For Price Term (0504)"
+  end
+  if value == 0505 then
+    return "Error Code: Order Price Must Be Greater Than Additional Price (0505)"
+  end
+  if value == 0506 then
+    return "Error Code: Order Price Must Be Lower Than Additional Price (0506)"
+  end
+  if value == 0507 then
+    return "Error Code: Additional Price Must Be Lower Than Last Price Or Last Day Price (0507)"
+  end
+  if value == 0508 then
+    return "Error Code: Additional Price Must Be Greater Than Last Price Or Last Day Price (0508)"
+  end
+  if value == 0509 then
+    return "Error Code: Order Rejected Cannot Trade Outside Instrument Price Thresholds (0509)"
+  end
+  if value == 0510 then
+    return "Error Code: Order Cannot Be Modified (0510)"
+  end
+  if value == 0513 then
+    return "Error Code: Instrument Allows Only Closing Orders (0513)"
+  end
+  if value == 0514 then
+    return "Error Code: Instrument Leg Allows Only Closing Orders (0514)"
+  end
+  if value == 0515 then
+    return "Error Code: Order Quantity Limit Exceeded (0515)"
+  end
+  if value == 0516 then
+    return "Error Code: Privileges Are Limited To Closing Orders Only (0516)"
+  end
+  if value == 0517 then
+    return "Error Code: Anti Wash Protections Is Forbidden For This Price Type (0517)"
+  end
+  if value == 0518 then
+    return "Error Code: Anti Wash Protection Is Forbidden For This Quantity Term (0518)"
+  end
+  if value == 0700 then
+    return "Error Code: Only One Quote Per Instrument And Per Side Is Accepted (0700)"
+  end
+  if value == 0701 then
+    return "Error Code: Quote Is Not Present In The Instrument Book (0701)"
+  end
+  if value == 0702 then
+    return "Error Code: Bulk Quote Participant Protection In Progress Quote Not Processed (0702)"
+  end
+  if value == 0703 then
+    return "Error Code: Advanced Bulk Quote Participant Protection Not Enabled For This Group (0703)"
+  end
+  if value == 0704 then
+    return "Error Code: Buy And Sell Must Not Cross For The Same Instrument (0704)"
+  end
+  if value == 0705 then
+    return "Error Code: Number Of Quotes Is Not In Sync With The Message Length (0705)"
+  end
+  if value == 0707 then
+    return "Error Code: Bulk Quote Participant Protection State Must Be Reactivated (0707)"
+  end
+  if value == 0708 then
+    return "Error Code: Trader Id Has No Quote For This Group (0708)"
+  end
+  if value == 0709 then
+    return "Error Code: All The Instruments Must Belong To The Same Group (0709)"
+  end
+  if value == 0710 then
+    return "Error Code: Clearing Data Has Not Been Initialized (0710)"
+  end
+  if value == 1000 then
+    return "Error Code: Cross Orders Forbidden In Preopening Phase (1000)"
+  end
+  if value == 1001 then
+    return "Error Code: Instrument Does Not Exist (1001)"
+  end
+  if value == 1002 then
+    return "Error Code: Group Id Does Not Exist (1002)"
+  end
+  if value == 1003 then
+    return "Error Code: Trader Id Is Invalid (1003)"
+  end
+  if value == 1004 then
+    return "Error Code: Message Type Is Forbidden For Current Instrument State (1004)"
+  end
+  if value == 2000 then
+    return "Error Code: Technical Error Function Not Performed Contact Technical Help Desk (2000)"
+  end
+  if value == 2001 then
+    return "Error Code: Gateway State Forbids This Command Contact Technical Help Desk (2001)"
+  end
+  if value == 2002 then
+    return "Error Code: Function Only Partially Performed Contact Technical Help Desk (2002)"
+  end
+  if value == 3101 then
+    return "Error Code: Trader Long Position Limit Exceeded (3101)"
+  end
+  if value == 3102 then
+    return "Error Code: Trader Short Position Limit Exceeded (3102)"
+  end
+  if value == 3103 then
+    return "Error Code: Trader Net Position Limit Exceeded (3103)"
+  end
+  if value == 3104 then
+    return "Error Code: Trader Long Exposure Limit Exceeded (3104)"
+  end
+  if value == 3105 then
+    return "Error Code: Trader Short Exposure Limit Exceeded (3105)"
+  end
+  if value == 3106 then
+    return "Error Code: Trader Net Exposure Limit Exceeded (3106)"
+  end
+  if value == 3107 then
+    return "Error Code: Firm Long Position Limit Exceeded (3107)"
+  end
+  if value == 3108 then
+    return "Error Code: Firm Short Position Limit Exceeded (3108)"
+  end
+  if value == 3109 then
+    return "Error Code: Firm Net Position Limit Exceeded (3109)"
+  end
+  if value == 3110 then
+    return "Error Code: Firm Long Exposure Limit Exceeded (3110)"
+  end
+  if value == 3111 then
+    return "Error Code: Firm Short Exposure Limit Exceeded (3111)"
+  end
+  if value == 3112 then
+    return "Error Code: Firm Net Exposure Limit Exceeded (3112)"
+  end
+  if value == 3113 then
+    return "Error Code: Trader Global Net Exposure Limit Exceeded (3113)"
+  end
+  if value == 3114 then
+    return "Error Code: Firm Global Net Exposure Limit Exceeded (3114)"
+  end
+  if value == 3115 then
+    return "Error Code: Not Allowed On A Strategy Group (3115)"
+  end
+  if value == 3116 then
+    return "Error Code: Risk Limits For This Group Must Be Set On The Associated Group (3116)"
+  end
+
+  return "Error Code: Unknown("..value..")"
 end
 
 -- Dissect: Error Code
@@ -1629,7 +2189,20 @@ tmx_mx_solaorderentry_sail_v1_21.firm_level_risk_option.size = 1
 
 -- Display: Firm Level Risk Option
 tmx_mx_solaorderentry_sail_v1_21.firm_level_risk_option.display = function(value)
-  return "Firm Level Risk Option: "..value
+  if value == " " then
+    return "Firm Level Risk Option: Netting Is Disabled (<whitespace>)"
+  end
+  if value == "T" then
+    return "Firm Level Risk Option: Cancel Post Trader Team Level Netting (T)"
+  end
+  if value == "N" then
+    return "Firm Level Risk Option: Netting Is Enabled (N)"
+  end
+  if value == "P" then
+    return "Firm Level Risk Option: Cancel Post Firm Level Netting (P)"
+  end
+
+  return "Firm Level Risk Option: Unknown("..value..")"
 end
 
 -- Dissect: Firm Level Risk Option
@@ -1680,7 +2253,20 @@ tmx_mx_solaorderentry_sail_v1_21.global_net_exposure_action.size = 1
 
 -- Display: Global Net Exposure Action
 tmx_mx_solaorderentry_sail_v1_21.global_net_exposure_action.display = function(value)
-  return "Global Net Exposure Action: "..value
+  if value == "?" then
+    return "Global Net Exposure Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Global Net Exposure Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Global Net Exposure Action: None (N)"
+  end
+  if value == "W" then
+    return "Global Net Exposure Action: Warning (W)"
+  end
+
+  return "Global Net Exposure Action: Unknown("..value..")"
 end
 
 -- Dissect: Global Net Exposure Action
@@ -1703,6 +2289,11 @@ tmx_mx_solaorderentry_sail_v1_21.global_net_exposure_limit.size = 10
 
 -- Display: Global Net Exposure Limit
 tmx_mx_solaorderentry_sail_v1_21.global_net_exposure_limit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Global Net Exposure Limit: No Value"
+  end
+
   return "Global Net Exposure Limit: "..value
 end
 
@@ -1710,7 +2301,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.global_net_exposure_limit.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.global_net_exposure_limit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.global_net_exposure_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.global_net_exposure_limit, range, value, display)
@@ -1749,7 +2340,41 @@ tmx_mx_solaorderentry_sail_v1_21.group_state.size = 1
 
 -- Display: Group State
 tmx_mx_solaorderentry_sail_v1_21.group_state.display = function(value)
-  return "Group State: "..value
+  if value == "C" then
+    return "Group State: Consultation Start (C)"
+  end
+  if value == "E" then
+    return "Group State: No Cancel Period (E)"
+  end
+  if value == "P" then
+    return "Group State: Preopening (P)"
+  end
+  if value == "O" then
+    return "Group State: Opening (O)"
+  end
+  if value == "S" then
+    return "Group State: Continuous Trading Session (S)"
+  end
+  if value == "F" then
+    return "Group State: Consultation End (F)"
+  end
+  if value == "N" then
+    return "Group State: Mod Intervention (N)"
+  end
+  if value == "M" then
+    return "Group State: Mini Batch (M)"
+  end
+  if value == "B" then
+    return "Group State: Post Session (B)"
+  end
+  if value == "I" then
+    return "Group State: Prohibited (I)"
+  end
+  if value == "Z" then
+    return "Group State: Interrupted (Z)"
+  end
+
+  return "Group State: Unknown("..value..")"
 end
 
 -- Dissect: Group State
@@ -1772,14 +2397,23 @@ tmx_mx_solaorderentry_sail_v1_21.gtd_date.size = 8
 
 -- Display: Gtd Date
 tmx_mx_solaorderentry_sail_v1_21.gtd_date.display = function(value)
-  return "Gtd Date: "..value
+  -- Check if field has value
+  if tonumber(value) == 0 then
+    return "Gtd Date: No Value"
+  end
+
+  if #value < 8 then
+    return "Gtd Date: "..value
+  end
+
+  return "Gtd Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Gtd Date
 tmx_mx_solaorderentry_sail_v1_21.gtd_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.gtd_date.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.gtd_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.gtd_date, range, value, display)
@@ -1795,7 +2429,14 @@ tmx_mx_solaorderentry_sail_v1_21.hedge_spec.size = 1
 
 -- Display: Hedge Spec
 tmx_mx_solaorderentry_sail_v1_21.hedge_spec.display = function(value)
-  return "Hedge Spec: "..value
+  if value == "H" then
+    return "Hedge Spec: Hedger (H)"
+  end
+  if value == "S" then
+    return "Hedge Spec: Speculator (S)"
+  end
+
+  return "Hedge Spec: Unknown("..value..")"
 end
 
 -- Dissect: Hedge Spec
@@ -1841,11 +2482,6 @@ tmx_mx_solaorderentry_sail_v1_21.inactivity_interval.size = 2
 
 -- Display: Inactivity Interval
 tmx_mx_solaorderentry_sail_v1_21.inactivity_interval.display = function(value)
-  -- Check if field has value
-  if value == 0 then
-    return "Inactivity Interval: No Value"
-  end
-
   return "Inactivity Interval: "..value
 end
 
@@ -1897,7 +2533,17 @@ tmx_mx_solaorderentry_sail_v1_21.instrument_state.size = 1
 
 -- Display: Instrument State
 tmx_mx_solaorderentry_sail_v1_21.instrument_state.display = function(value)
-  return "Instrument State: "..value
+  if value == "N" then
+    return "Instrument State: Normal (N)"
+  end
+  if value == "F" then
+    return "Instrument State: Forbidden (F)"
+  end
+  if value == "R" then
+    return "Instrument State: Orders And Quotes Are Processed In Preopening If The Group Is In Trading Status (R)"
+  end
+
+  return "Instrument State: Unknown("..value..")"
 end
 
 -- Dissect: Instrument State
@@ -2111,7 +2757,14 @@ tmx_mx_solaorderentry_sail_v1_21.leg_verb.size = 1
 
 -- Display: Leg Verb
 tmx_mx_solaorderentry_sail_v1_21.leg_verb.display = function(value)
-  return "Leg Verb: "..value
+  if value == "B" then
+    return "Leg Verb: Buy (B)"
+  end
+  if value == "S" then
+    return "Leg Verb: Sell (S)"
+  end
+
+  return "Leg Verb: Unknown("..value..")"
 end
 
 -- Dissect: Leg Verb
@@ -2134,7 +2787,26 @@ tmx_mx_solaorderentry_sail_v1_21.limit_type.size = 1
 
 -- Display: Limit Type
 tmx_mx_solaorderentry_sail_v1_21.limit_type.display = function(value)
-  return "Limit Type: "..value
+  if value == "1" then
+    return "Limit Type: Net Exposure (1)"
+  end
+  if value == "2" then
+    return "Limit Type: Long Exposure (2)"
+  end
+  if value == "3" then
+    return "Limit Type: Short Exposure (3)"
+  end
+  if value == "4" then
+    return "Limit Type: Net Position (4)"
+  end
+  if value == "5" then
+    return "Limit Type: Long Position (5)"
+  end
+  if value == "6" then
+    return "Limit Type: Short Position (6)"
+  end
+
+  return "Limit Type: Unknown("..value..")"
 end
 
 -- Dissect: Limit Type
@@ -2180,7 +2852,20 @@ tmx_mx_solaorderentry_sail_v1_21.long_exposure_action.size = 1
 
 -- Display: Long Exposure Action
 tmx_mx_solaorderentry_sail_v1_21.long_exposure_action.display = function(value)
-  return "Long Exposure Action: "..value
+  if value == "?" then
+    return "Long Exposure Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Long Exposure Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Long Exposure Action: None (N)"
+  end
+  if value == "W" then
+    return "Long Exposure Action: Warning (W)"
+  end
+
+  return "Long Exposure Action: Unknown("..value..")"
 end
 
 -- Dissect: Long Exposure Action
@@ -2203,6 +2888,11 @@ tmx_mx_solaorderentry_sail_v1_21.long_exposure_limit.size = 10
 
 -- Display: Long Exposure Limit
 tmx_mx_solaorderentry_sail_v1_21.long_exposure_limit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Long Exposure Limit: No Value"
+  end
+
   return "Long Exposure Limit: "..value
 end
 
@@ -2210,7 +2900,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.long_exposure_limit.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.long_exposure_limit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.long_exposure_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.long_exposure_limit, range, value, display)
@@ -2226,7 +2916,20 @@ tmx_mx_solaorderentry_sail_v1_21.long_position_action.size = 1
 
 -- Display: Long Position Action
 tmx_mx_solaorderentry_sail_v1_21.long_position_action.display = function(value)
-  return "Long Position Action: "..value
+  if value == "?" then
+    return "Long Position Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Long Position Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Long Position Action: None (N)"
+  end
+  if value == "W" then
+    return "Long Position Action: Warning (W)"
+  end
+
+  return "Long Position Action: Unknown("..value..")"
 end
 
 -- Dissect: Long Position Action
@@ -2282,7 +2985,17 @@ tmx_mx_solaorderentry_sail_v1_21.market_side.size = 1
 
 -- Display: Market Side
 tmx_mx_solaorderentry_sail_v1_21.market_side.display = function(value)
-  return "Market Side: "..value
+  if value == "B" then
+    return "Market Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Market Side: Sell (S)"
+  end
+  if value == 2 then
+    return "Market Side: Both (2)"
+  end
+
+  return "Market Side: Unknown("..value..")"
 end
 
 -- Dissect: Market Side
@@ -2615,6 +3328,51 @@ tmx_mx_solaorderentry_sail_v1_21.message_type.display = function(value)
   if value == "OX" then
     return "Message Type: Cross Entry (OX)"
   end
+  if value == "QA" then
+    return "Message Type: Bulk Quote Price 4 Quantity 2 (QA)"
+  end
+  if value == "QB" then
+    return "Message Type: Bulk Quote Price 6 Quantity 2 (QB)"
+  end
+  if value == "QC" then
+    return "Message Type: Bulk Quote Price 8 Quantity 2 (QC)"
+  end
+  if value == "QD" then
+    return "Message Type: Bulk Quote Price 10 Quantity 2 (QD)"
+  end
+  if value == "QE" then
+    return "Message Type: Bulk Quote Price 4 Quantity 4 (QE)"
+  end
+  if value == "QF" then
+    return "Message Type: Bulk Quote Price 6 Quantity 4 (QF)"
+  end
+  if value == "QG" then
+    return "Message Type: Bulk Quote Price 8 Quantity 4 (QG)"
+  end
+  if value == "QH" then
+    return "Message Type: Bulk Quote Price 10 Quantity 4 (QH)"
+  end
+  if value == "QI" then
+    return "Message Type: Bulk Quote Price 4 Quantity 6 (QI)"
+  end
+  if value == "QJ" then
+    return "Message Type: Bulk Quote Price 6 Quantity 6 (QJ)"
+  end
+  if value == "QK" then
+    return "Message Type: Bulk Quote Price 8 Quantity 6 (QK)"
+  end
+  if value == "QL" then
+    return "Message Type: Bulk Quote Price 10 Quantity 6 (QL)"
+  end
+  if value == "QM" then
+    return "Message Type: Bulk Quote Price 4 Quantity 8 (QM)"
+  end
+  if value == "QN" then
+    return "Message Type: Bulk Quote Price 6 Quantity 8 (QN)"
+  end
+  if value == "QO" then
+    return "Message Type: Bulk Quote Price 8 Quantity 8 (QO)"
+  end
   if value == "QP" then
     return "Message Type: Bulk Quote (QP)"
   end
@@ -2764,7 +3522,20 @@ tmx_mx_solaorderentry_sail_v1_21.net_exposure_action.size = 1
 
 -- Display: Net Exposure Action
 tmx_mx_solaorderentry_sail_v1_21.net_exposure_action.display = function(value)
-  return "Net Exposure Action: "..value
+  if value == "?" then
+    return "Net Exposure Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Net Exposure Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Net Exposure Action: None (N)"
+  end
+  if value == "W" then
+    return "Net Exposure Action: Warning (W)"
+  end
+
+  return "Net Exposure Action: Unknown("..value..")"
 end
 
 -- Dissect: Net Exposure Action
@@ -2787,6 +3558,11 @@ tmx_mx_solaorderentry_sail_v1_21.net_exposure_limit.size = 10
 
 -- Display: Net Exposure Limit
 tmx_mx_solaorderentry_sail_v1_21.net_exposure_limit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Net Exposure Limit: No Value"
+  end
+
   return "Net Exposure Limit: "..value
 end
 
@@ -2794,7 +3570,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.net_exposure_limit.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.net_exposure_limit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.net_exposure_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.net_exposure_limit, range, value, display)
@@ -2810,7 +3586,20 @@ tmx_mx_solaorderentry_sail_v1_21.net_position_action.size = 1
 
 -- Display: Net Position Action
 tmx_mx_solaorderentry_sail_v1_21.net_position_action.display = function(value)
-  return "Net Position Action: "..value
+  if value == "?" then
+    return "Net Position Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Net Position Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Net Position Action: None (N)"
+  end
+  if value == "W" then
+    return "Net Position Action: Warning (W)"
+  end
+
+  return "Net Position Action: Unknown("..value..")"
 end
 
 -- Dissect: Net Position Action
@@ -3146,7 +3935,80 @@ tmx_mx_solaorderentry_sail_v1_21.open_close.size = 1
 
 -- Display: Open Close
 tmx_mx_solaorderentry_sail_v1_21.open_close.display = function(value)
-  return "Open Close: "..value
+  if value == "O" then
+    return "Open Close: All Legs Are Open Or Single Security (O)"
+  end
+  if value == "C" then
+    return "Open Close: All Legs Are Closed Or Single Security (C)"
+  end
+  if value == "1" then
+    return "Open Close: 1st Leg Open, 2nd Leg Close (1)"
+  end
+  if value == "2" then
+    return "Open Close: 1st Leg Close, 2nd Leg Open (2)"
+  end
+  if value == "3" then
+    return "Open Close: 1st Leg Open, 2nd Leg Open, 3rd Leg Close (3)"
+  end
+  if value == "4" then
+    return "Open Close: 1st Leg Open, 2nd Leg Close, 3rd Leg Open (4)"
+  end
+  if value == "5" then
+    return "Open Close: 1st Leg Open, 2nd Leg Close, 3rd Leg Close (5)"
+  end
+  if value == "6" then
+    return "Open Close: 1st Leg Close, 2nd Leg Open, 3rd Leg Open (6)"
+  end
+  if value == "7" then
+    return "Open Close: 1st Leg Close, 2nd Leg Open, 3rd Leg Close (7)"
+  end
+  if value == "8" then
+    return "Open Close: 1st Leg Close, 2nd Leg Close, 3rd Leg Open (8)"
+  end
+  if value == "A" then
+    return "Open Close: 1st Leg Open, 2nd Leg Open, 3rd Leg Open, 4th Leg Close (A)"
+  end
+  if value == "B" then
+    return "Open Close: 1st Leg Open, 2nd Leg Open, 3rd Leg Close, 4th Leg Open (B)"
+  end
+  if value == "D" then
+    return "Open Close: 1st Leg Open, 2nd Leg Open, 3rd Leg Close, 4th Leg Close (D)"
+  end
+  if value == "E" then
+    return "Open Close: 1st Leg Open, 2nd Leg Close, 3rd Leg Open, 4th Leg Open (E)"
+  end
+  if value == "F" then
+    return "Open Close: 1st Leg Open, 2nd Leg Close, 3rd Leg Open, 4th Leg Close (F)"
+  end
+  if value == "G" then
+    return "Open Close: 1st Leg Open, 2nd Leg Close, 3rd Leg Close, 4th Leg Open (G)"
+  end
+  if value == "H" then
+    return "Open Close: 1st Leg Open, 2nd Leg Close, 3rd Leg Close, 4th Leg Close (H)"
+  end
+  if value == "I" then
+    return "Open Close: 1st Leg Close, 2nd Leg Open, 3rd Leg Open, 4th Leg Open (I)"
+  end
+  if value == "J" then
+    return "Open Close: 1st Leg Close, 2nd Leg Open, 3rd Leg Open, 4th Leg Close (J)"
+  end
+  if value == "K" then
+    return "Open Close: 1st Leg Close, 2nd Leg Open, 3rd Leg Close, 4th Leg Open (K)"
+  end
+  if value == "L" then
+    return "Open Close: 1st Leg Close, 2nd Leg Open, 3rd Leg Close, 4th Leg Close (L)"
+  end
+  if value == "M" then
+    return "Open Close: 1st Leg Close, 2nd Leg Close, 3rd Leg Open, 4th Leg Open (M)"
+  end
+  if value == "N" then
+    return "Open Close: 1st Leg Close, 2nd Leg Close, 3rd Leg Open, 4th Leg Close (N)"
+  end
+  if value == "P" then
+    return "Open Close: 1st Leg Close, 2nd Leg Close, 3rd Leg Close, 4th Leg Open (P)"
+  end
+
+  return "Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Open Close
@@ -3192,7 +4054,14 @@ tmx_mx_solaorderentry_sail_v1_21.order_type.size = 1
 
 -- Display: Order Type
 tmx_mx_solaorderentry_sail_v1_21.order_type.display = function(value)
-  return "Order Type: "..value
+  if value == "O" then
+    return "Order Type: Order (O)"
+  end
+  if value == "Q" then
+    return "Order Type: Quote (Q)"
+  end
+
+  return "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -3335,6 +4204,11 @@ tmx_mx_solaorderentry_sail_v1_21.price.size = 10
 
 -- Display: Price
 tmx_mx_solaorderentry_sail_v1_21.price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
@@ -3342,10 +4216,94 @@ end
 tmx_mx_solaorderentry_sail_v1_21.price.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.price.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 4
+tmx_mx_solaorderentry_sail_v1_21.price_4 = {}
+
+-- Size: Price 4
+tmx_mx_solaorderentry_sail_v1_21.price_4.size = 4
+
+-- Display: Price 4
+tmx_mx_solaorderentry_sail_v1_21.price_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price 4: No Value"
+  end
+
+  return "Price 4: "..value
+end
+
+-- Dissect: Price 4
+tmx_mx_solaorderentry_sail_v1_21.price_4.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.price_4.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = tmx_mx_solaorderentry_sail_v1_21.price_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 6
+tmx_mx_solaorderentry_sail_v1_21.price_6 = {}
+
+-- Size: Price 6
+tmx_mx_solaorderentry_sail_v1_21.price_6.size = 6
+
+-- Display: Price 6
+tmx_mx_solaorderentry_sail_v1_21.price_6.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price 6: No Value"
+  end
+
+  return "Price 6: "..value
+end
+
+-- Dissect: Price 6
+tmx_mx_solaorderentry_sail_v1_21.price_6.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.price_6.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = tmx_mx_solaorderentry_sail_v1_21.price_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_6, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 8
+tmx_mx_solaorderentry_sail_v1_21.price_8 = {}
+
+-- Size: Price 8
+tmx_mx_solaorderentry_sail_v1_21.price_8.size = 8
+
+-- Display: Price 8
+tmx_mx_solaorderentry_sail_v1_21.price_8.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price 8: No Value"
+  end
+
+  return "Price 8: "..value
+end
+
+-- Dissect: Price 8
+tmx_mx_solaorderentry_sail_v1_21.price_8.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.price_8.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = tmx_mx_solaorderentry_sail_v1_21.price_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_8, range, value, display)
 
   return offset + length, value
 end
@@ -3358,7 +4316,20 @@ tmx_mx_solaorderentry_sail_v1_21.price_type.size = 1
 
 -- Display: Price Type
 tmx_mx_solaorderentry_sail_v1_21.price_type.display = function(value)
-  return "Price Type: "..value
+  if value == "C" then
+    return "Price Type: Committed (C)"
+  end
+  if value == "L" then
+    return "Price Type: Limit Price Set In Message (L)"
+  end
+  if value == "O" then
+    return "Price Type: At Opening Price (O)"
+  end
+  if value == "M" then
+    return "Price Type: At Best Opposite Price Top Order (M)"
+  end
+
+  return "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -3381,7 +4352,14 @@ tmx_mx_solaorderentry_sail_v1_21.protection_type_advanced_protection_advanced_pr
 
 -- Display: Protection Type Advanced Protection Advanced Protection Disabled
 tmx_mx_solaorderentry_sail_v1_21.protection_type_advanced_protection_advanced_protection_disabled.display = function(value)
-  return "Protection Type Advanced Protection Advanced Protection Disabled: "..value
+  if value == "A" then
+    return "Protection Type Advanced Protection Advanced Protection Disabled: Advanced Protection (A)"
+  end
+  if value == "N" then
+    return "Protection Type Advanced Protection Advanced Protection Disabled: Advanced Protection Disabled (N)"
+  end
+
+  return "Protection Type Advanced Protection Advanced Protection Disabled: Unknown("..value..")"
 end
 
 -- Dissect: Protection Type Advanced Protection Advanced Protection Disabled
@@ -3452,6 +4430,105 @@ tmx_mx_solaorderentry_sail_v1_21.quantity.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.quantity_2 = {}
+
+-- Size: Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.quantity_2.size = 2
+
+-- Display: Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.quantity_2.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Quantity 2: No Value"
+  end
+
+  return "Quantity 2: "..value
+end
+
+-- Dissect: Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.quantity_2.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.quantity_2.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solaorderentry_sail_v1_21.quantity_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.quantity_4 = {}
+
+-- Size: Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.quantity_4.size = 4
+
+-- Display: Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.quantity_4.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Quantity 4: No Value"
+  end
+
+  return "Quantity 4: "..value
+end
+
+-- Dissect: Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.quantity_4.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.quantity_4.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solaorderentry_sail_v1_21.quantity_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.quantity_6 = {}
+
+-- Size: Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.quantity_6.size = 6
+
+-- Display: Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.quantity_6.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Quantity 6: No Value"
+  end
+
+  return "Quantity 6: "..value
+end
+
+-- Dissect: Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.quantity_6.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.quantity_6.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solaorderentry_sail_v1_21.quantity_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_6, range, value, display)
+
+  return offset + length, value
+end
+
 -- Quantity Remaining
 tmx_mx_solaorderentry_sail_v1_21.quantity_remaining = {}
 
@@ -3488,7 +4565,17 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_sign.size = 1
 
 -- Display: Quantity Sign
 tmx_mx_solaorderentry_sail_v1_21.quantity_sign.display = function(value)
-  return "Quantity Sign: "..value
+  if value == "+" then
+    return "Quantity Sign: Adds The Incoming Quantity To The Booked Quantity (+)"
+  end
+  if value == "-" then
+    return "Quantity Sign: Subtracts The Incoming Quantity From The Booked Quantity (-)"
+  end
+  if value == "=" then
+    return "Quantity Sign: Replaces The Booked Quantity With The Incoming Quantity (=)"
+  end
+
+  return "Quantity Sign: Unknown("..value..")"
 end
 
 -- Dissect: Quantity Sign
@@ -3511,7 +4598,17 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size = 1
 
 -- Display: Quantity Sign Or
 tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.display = function(value)
-  return "Quantity Sign Or: "..value
+  if value == "+" then
+    return "Quantity Sign Or: Adds The Incoming Quantity To The Booked Quantity (+)"
+  end
+  if value == "-" then
+    return "Quantity Sign Or: Subtracts The Incoming Quantity From The Booked Quantity (-)"
+  end
+  if value == "=" then
+    return "Quantity Sign Or: Replaces The Booked Quantity With The Incoming Quantity (=)"
+  end
+
+  return "Quantity Sign Or: Unknown("..value..")"
 end
 
 -- Dissect: Quantity Sign Or
@@ -3534,27 +4631,24 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_term.size = 1
 
 -- Display: Quantity Term
 tmx_mx_solaorderentry_sail_v1_21.quantity_term.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Quantity Term: No Value"
+  if value == " " then
+    return "Quantity Term: None (<whitespace>)"
+  end
+  if value == "D" then
+    return "Quantity Term: Disclosed (D)"
+  end
+  if value == "M" then
+    return "Quantity Term: Minimum (M)"
   end
 
-  return "Quantity Term: "..value
+  return "Quantity Term: Unknown("..value..")"
 end
 
 -- Dissect: Quantity Term
 tmx_mx_solaorderentry_sail_v1_21.quantity_term.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.quantity_term.size
   local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = tmx_mx_solaorderentry_sail_v1_21.quantity_term.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_term, range, value, display)
@@ -3746,7 +4840,14 @@ tmx_mx_solaorderentry_sail_v1_21.reset_all_groups.size = 1
 
 -- Display: Reset All Groups
 tmx_mx_solaorderentry_sail_v1_21.reset_all_groups.display = function(value)
-  return "Reset All Groups: "..value
+  if value == "Y" then
+    return "Reset All Groups: Yes (Y)"
+  end
+  if value == "N" then
+    return "Reset All Groups: No (N)"
+  end
+
+  return "Reset All Groups: Unknown("..value..")"
 end
 
 -- Dissect: Reset All Groups
@@ -3792,7 +4893,20 @@ tmx_mx_solaorderentry_sail_v1_21.short_exposure_action.size = 1
 
 -- Display: Short Exposure Action
 tmx_mx_solaorderentry_sail_v1_21.short_exposure_action.display = function(value)
-  return "Short Exposure Action: "..value
+  if value == "?" then
+    return "Short Exposure Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Short Exposure Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Short Exposure Action: None (N)"
+  end
+  if value == "W" then
+    return "Short Exposure Action: Warning (W)"
+  end
+
+  return "Short Exposure Action: Unknown("..value..")"
 end
 
 -- Dissect: Short Exposure Action
@@ -3815,6 +4929,11 @@ tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.size = 10
 
 -- Display: Short Exposure Limit
 tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Short Exposure Limit: No Value"
+  end
+
   return "Short Exposure Limit: "..value
 end
 
@@ -3822,7 +4941,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.short_exposure_limit, range, value, display)
@@ -3838,7 +4957,20 @@ tmx_mx_solaorderentry_sail_v1_21.short_position_action.size = 1
 
 -- Display: Short Position Action
 tmx_mx_solaorderentry_sail_v1_21.short_position_action.display = function(value)
-  return "Short Position Action: "..value
+  if value == "?" then
+    return "Short Position Action: Not Set (?)"
+  end
+  if value == "E" then
+    return "Short Position Action: Enforce Limit (E)"
+  end
+  if value == "N" then
+    return "Short Position Action: None (N)"
+  end
+  if value == "W" then
+    return "Short Position Action: Warning (W)"
+  end
+
+  return "Short Position Action: Unknown("..value..")"
 end
 
 -- Dissect: Short Position Action
@@ -3894,27 +5026,21 @@ tmx_mx_solaorderentry_sail_v1_21.special_price_term.size = 1
 
 -- Display: Special Price Term
 tmx_mx_solaorderentry_sail_v1_21.special_price_term.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Special Price Term: No Value"
+  if value == " " then
+    return "Special Price Term: None (<whitespace>)"
+  end
+  if value == "S" then
+    return "Special Price Term: Stop Order (S)"
   end
 
-  return "Special Price Term: "..value
+  return "Special Price Term: Unknown("..value..")"
 end
 
 -- Dissect: Special Price Term
 tmx_mx_solaorderentry_sail_v1_21.special_price_term.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.special_price_term.size
   local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = tmx_mx_solaorderentry_sail_v1_21.special_price_term.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.special_price_term, range, value, display)
@@ -3930,7 +5056,68 @@ tmx_mx_solaorderentry_sail_v1_21.special_trade_indicator.size = 1
 
 -- Display: Special Trade Indicator
 tmx_mx_solaorderentry_sail_v1_21.special_trade_indicator.display = function(value)
-  return "Special Trade Indicator: "..value
+  if value == " " then
+    return "Special Trade Indicator: Normal Trade (<whitespace>)"
+  end
+  if value == "A" then
+    return "Special Trade Indicator: As Of Trade (A)"
+  end
+  if value == "B" then
+    return "Special Trade Indicator: Block Trade (B)"
+  end
+  if value == "C" then
+    return "Special Trade Indicator: Contingent Trade (C)"
+  end
+  if value == "D" then
+    return "Special Trade Indicator: Cross (D)"
+  end
+  if value == "E" then
+    return "Special Trade Indicator: Exchange For Physical (E)"
+  end
+  if value == "H" then
+    return "Special Trade Indicator: Hidden Trade (H)"
+  end
+  if value == "I" then
+    return "Special Trade Indicator: Implied (I)"
+  end
+  if value == "J" then
+    return "Special Trade Indicator: Delta Trade (J)"
+  end
+  if value == "K" then
+    return "Special Trade Indicator: Committed Block (K)"
+  end
+  if value == "L" then
+    return "Special Trade Indicator: Late Trade (L)"
+  end
+  if value == "M" then
+    return "Special Trade Indicator: For Future Use (M)"
+  end
+  if value == "N" then
+    return "Special Trade Indicator: For Future Use (N)"
+  end
+  if value == "O" then
+    return "Special Trade Indicator: For Future Use (O)"
+  end
+  if value == "P" then
+    return "Special Trade Indicator: For Future Use (P)"
+  end
+  if value == "Q" then
+    return "Special Trade Indicator: For Future Use (Q)"
+  end
+  if value == "T" then
+    return "Special Trade Indicator: Committed (T)"
+  end
+  if value == "U" then
+    return "Special Trade Indicator: Basis On Close (U)"
+  end
+  if value == "V" then
+    return "Special Trade Indicator: Trade Correction (V)"
+  end
+  if value == "Z" then
+    return "Special Trade Indicator: Price Volume Adjustment Trade (Z)"
+  end
+
+  return "Special Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Special Trade Indicator
@@ -3976,7 +5163,53 @@ tmx_mx_solaorderentry_sail_v1_21.status.size = 1
 
 -- Display: Status
 tmx_mx_solaorderentry_sail_v1_21.status.display = function(value)
-  return "Status: "..value
+  if value == " " then
+    return "Status: Put In The Order Book Having Possibly Been Partially Executed (<whitespace>)"
+  end
+  if value == "A" then
+    return "Status: Cancelled By The Trader (A)"
+  end
+  if value == "C" then
+    return "Status: Eliminated By The Circuit Breaker (C)"
+  end
+  if value == "E" then
+    return "Status: Order Eliminated By The System (E)"
+  end
+  if value == "F" then
+    return "Status: Eliminated Due To Wash Trade Prevention (F)"
+  end
+  if value == "G" then
+    return "Status: Cancelled By The Firm Supervisor User Global Cancel (G)"
+  end
+  if value == "I" then
+    return "Status: Eliminated On Participant Disconnection (I)"
+  end
+  if value == "M" then
+    return "Status: Eliminated By Mod (M)"
+  end
+  if value == "N" then
+    return "Status: Eliminated Due To Wash Trade Prevention In Nontrading State (N)"
+  end
+  if value == "Q" then
+    return "Status: Eliminated Due To Wash Trade Prevention Against Quote (Q)"
+  end
+  if value == "S" then
+    return "Status: Put In The Order Book As Stop Order (S)"
+  end
+  if value == "T" then
+    return "Status: Eliminated Due To Trade Limit Exceeded (T)"
+  end
+  if value == "U" then
+    return "Status: Eliminated Due To Unpriced Leg (U)"
+  end
+  if value == "W" then
+    return "Status: Cancel Pending (W)"
+  end
+  if value == "X" then
+    return "Status: Order Executed In Full Or Partially And The Remaining Part Could Not Be Put In The Order Book Fak (X)"
+  end
+
+  return "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -4119,7 +5352,20 @@ tmx_mx_solaorderentry_sail_v1_21.team_level_risk_option.size = 1
 
 -- Display: Team Level Risk Option
 tmx_mx_solaorderentry_sail_v1_21.team_level_risk_option.display = function(value)
-  return "Team Level Risk Option: "..value
+  if value == " " then
+    return "Team Level Risk Option: Netting Is Disabled (<whitespace>)"
+  end
+  if value == "T" then
+    return "Team Level Risk Option: Cancel Post Trader Team Level Netting (T)"
+  end
+  if value == "N" then
+    return "Team Level Risk Option: Netting Is Enabled (N)"
+  end
+  if value == "P" then
+    return "Team Level Risk Option: Cancel Post Firm Level Netting (P)"
+  end
+
+  return "Team Level Risk Option: Unknown("..value..")"
 end
 
 -- Dissect: Team Level Risk Option
@@ -4193,6 +5439,11 @@ tmx_mx_solaorderentry_sail_v1_21.trade_price.size = 10
 
 -- Display: Trade Price
 tmx_mx_solaorderentry_sail_v1_21.trade_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Price: No Value"
+  end
+
   return "Trade Price: "..value
 end
 
@@ -4200,7 +5451,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.trade_price.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_left_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_price, range, value, display)
@@ -4216,7 +5467,17 @@ tmx_mx_solaorderentry_sail_v1_21.trade_type.size = 1
 
 -- Display: Trade Type
 tmx_mx_solaorderentry_sail_v1_21.trade_type.display = function(value)
-  return "Trade Type: "..value
+  if value == "F" then
+    return "Trade Type: Traded During Continuous Trading Following Fifo Algorithm (F)"
+  end
+  if value == "M" then
+    return "Trade Type: Trade Entered By Mod (M)"
+  end
+  if value == "O" then
+    return "Trade Type: Traded During Opening (O)"
+  end
+
+  return "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -4285,19 +5546,18 @@ tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_local_hhmmss.size = 6
 
 -- Display: Trading Engine Timestamp Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_local_hhmmss.display = function(value)
-  return "Trading Engine Timestamp Local Hhmmss: "..value
+  if #value < 6 then
+    return "Trading Engine Timestamp Local Hhmmss: "..value
+  end
+
+  return "Trading Engine Timestamp Local Hhmmss: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Trading Engine Timestamp Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_local_hhmmss.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_local_hhmmss.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = range:string()
   local display = tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_local_hhmmss.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.trading_engine_timestamp_local_hhmmss, range, value, display)
@@ -4313,19 +5573,18 @@ tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_of_the_trade_local_hhm
 
 -- Display: Trading Engine Timestamp Of The Trade Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_of_the_trade_local_hhmmss.display = function(value)
-  return "Trading Engine Timestamp Of The Trade Local Hhmmss: "..value
+  if #value < 6 then
+    return "Trading Engine Timestamp Of The Trade Local Hhmmss: "..value
+  end
+
+  return "Trading Engine Timestamp Of The Trade Local Hhmmss: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Trading Engine Timestamp Of The Trade Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_of_the_trade_local_hhmmss.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_of_the_trade_local_hhmmss.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = range:string()
   local display = tmx_mx_solaorderentry_sail_v1_21.trading_engine_timestamp_of_the_trade_local_hhmmss.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.trading_engine_timestamp_of_the_trade_local_hhmmss, range, value, display)
@@ -4341,7 +5600,23 @@ tmx_mx_solaorderentry_sail_v1_21.type_of_cancellation.size = 1
 
 -- Display: Type Of Cancellation
 tmx_mx_solaorderentry_sail_v1_21.type_of_cancellation.display = function(value)
-  return "Type Of Cancellation: "..value
+  if value == "A" then
+    return "Type Of Cancellation: All (A)"
+  end
+  if value == "Q" then
+    return "Type Of Cancellation: Quotes Only (Q)"
+  end
+  if value == "O" then
+    return "Type Of Cancellation: Orders Only (O)"
+  end
+  if value == "S" then
+    return "Type Of Cancellation: Stop Orders Only (S)"
+  end
+  if value == "M" then
+    return "Type Of Cancellation: Market Orders Only (M)"
+  end
+
+  return "Type Of Cancellation: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Cancellation
@@ -4364,7 +5639,23 @@ tmx_mx_solaorderentry_sail_v1_21.type_of_cancellation_only_q_quotes_only_can_be_
 
 -- Display: Type Of Cancellation Only Q Quotes Only Can Be Returned
 tmx_mx_solaorderentry_sail_v1_21.type_of_cancellation_only_q_quotes_only_can_be_returned.display = function(value)
-  return "Type Of Cancellation Only Q Quotes Only Can Be Returned: "..value
+  if value == "A" then
+    return "Type Of Cancellation Only Q Quotes Only Can Be Returned: All (A)"
+  end
+  if value == "Q" then
+    return "Type Of Cancellation Only Q Quotes Only Can Be Returned: Quotes Only (Q)"
+  end
+  if value == "O" then
+    return "Type Of Cancellation Only Q Quotes Only Can Be Returned: Orders Only (O)"
+  end
+  if value == "S" then
+    return "Type Of Cancellation Only Q Quotes Only Can Be Returned: Stop Orders Only (S)"
+  end
+  if value == "M" then
+    return "Type Of Cancellation Only Q Quotes Only Can Be Returned: Market Orders Only (M)"
+  end
+
+  return "Type Of Cancellation Only Q Quotes Only Can Be Returned: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Cancellation Only Q Quotes Only Can Be Returned
@@ -4387,7 +5678,23 @@ tmx_mx_solaorderentry_sail_v1_21.type_of_cancellation_q_quotes_only.size = 1
 
 -- Display: Type Of Cancellation Q Quotes Only
 tmx_mx_solaorderentry_sail_v1_21.type_of_cancellation_q_quotes_only.display = function(value)
-  return "Type Of Cancellation Q Quotes Only: "..value
+  if value == "A" then
+    return "Type Of Cancellation Q Quotes Only: All (A)"
+  end
+  if value == "Q" then
+    return "Type Of Cancellation Q Quotes Only: Quotes Only (Q)"
+  end
+  if value == "O" then
+    return "Type Of Cancellation Q Quotes Only: Orders Only (O)"
+  end
+  if value == "S" then
+    return "Type Of Cancellation Q Quotes Only: Stop Orders Only (S)"
+  end
+  if value == "M" then
+    return "Type Of Cancellation Q Quotes Only: Market Orders Only (M)"
+  end
+
+  return "Type Of Cancellation Q Quotes Only: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Cancellation Q Quotes Only
@@ -4410,7 +5717,20 @@ tmx_mx_solaorderentry_sail_v1_21.usage_status.size = 1
 
 -- Display: Usage Status
 tmx_mx_solaorderentry_sail_v1_21.usage_status.display = function(value)
-  return "Usage Status: "..value
+  if value == "I" then
+    return "Usage Status: Info (I)"
+  end
+  if value == "L" then
+    return "Usage Status: Limit (L)"
+  end
+  if value == "R" then
+    return "Usage Status: Rejection (R)"
+  end
+  if value == "W" then
+    return "Usage Status: Warning (W)"
+  end
+
+  return "Usage Status: Unknown("..value..")"
 end
 
 -- Dissect: Usage Status
@@ -4456,19 +5776,18 @@ tmx_mx_solaorderentry_sail_v1_21.user_message_timestamp_local_hhmmss.size = 6
 
 -- Display: User Message Timestamp Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.user_message_timestamp_local_hhmmss.display = function(value)
-  return "User Message Timestamp Local Hhmmss: "..value
+  if #value < 6 then
+    return "User Message Timestamp Local Hhmmss: "..value
+  end
+
+  return "User Message Timestamp Local Hhmmss: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: User Message Timestamp Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.user_message_timestamp_local_hhmmss.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.user_message_timestamp_local_hhmmss.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = range:string()
   local display = tmx_mx_solaorderentry_sail_v1_21.user_message_timestamp_local_hhmmss.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_message_timestamp_local_hhmmss, range, value, display)
@@ -4545,19 +5864,18 @@ tmx_mx_solaorderentry_sail_v1_21.user_timestamp_local_hhmmss.size = 6
 
 -- Display: User Timestamp Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.user_timestamp_local_hhmmss.display = function(value)
-  return "User Timestamp Local Hhmmss: "..value
+  if #value < 6 then
+    return "User Timestamp Local Hhmmss: "..value
+  end
+
+  return "User Timestamp Local Hhmmss: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: User Timestamp Local Hhmmss
 tmx_mx_solaorderentry_sail_v1_21.user_timestamp_local_hhmmss.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.user_timestamp_local_hhmmss.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = range:string()
   local display = tmx_mx_solaorderentry_sail_v1_21.user_timestamp_local_hhmmss.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_timestamp_local_hhmmss, range, value, display)
@@ -4573,7 +5891,14 @@ tmx_mx_solaorderentry_sail_v1_21.verb.size = 1
 
 -- Display: Verb
 tmx_mx_solaorderentry_sail_v1_21.verb.display = function(value)
-  return "Verb: "..value
+  if value == "B" then
+    return "Verb: Buy (B)"
+  end
+  if value == "S" then
+    return "Verb: Sell (S)"
+  end
+
+  return "Verb: Unknown("..value..")"
 end
 
 -- Dissect: Verb
@@ -4596,7 +5921,14 @@ tmx_mx_solaorderentry_sail_v1_21.verb_side.size = 1
 
 -- Display: Verb Side
 tmx_mx_solaorderentry_sail_v1_21.verb_side.display = function(value)
-  return "Verb Side: "..value
+  if value == "B" then
+    return "Verb Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Verb Side: Sell (S)"
+  end
+
+  return "Verb Side: Unknown("..value..")"
 end
 
 -- Dissect: Verb Side
@@ -4825,6 +6157,7 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_notice_by_mod_or_system = {}
 
 -- Size: Order Cancellation Notice By Mod Or System
 tmx_mx_solaorderentry_sail_v1_21.order_cancellation_notice_by_mod_or_system.size =
+  tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.size + 
   tmx_mx_solaorderentry_sail_v1_21.group.size + 
   tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
   tmx_mx_solaorderentry_sail_v1_21.trader_id.size + 
@@ -4846,6 +6179,9 @@ end
 -- Dissect Fields: Order Cancellation Notice By Mod Or System
 tmx_mx_solaorderentry_sail_v1_21.order_cancellation_notice_by_mod_or_system.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Outgoing Messages Header: Struct of 4 fields
+  index, outgoing_messages_header = tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.dissect(buffer, index, packet, parent)
 
   -- Group: Group ID
   index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
@@ -4909,6 +6245,7 @@ tmx_mx_solaorderentry_sail_v1_21.leg_execution_cancellation_notice = {}
 
 -- Size: Leg Execution Cancellation Notice
 tmx_mx_solaorderentry_sail_v1_21.leg_execution_cancellation_notice.size =
+  tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.size + 
   tmx_mx_solaorderentry_sail_v1_21.group.size + 
   tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
   tmx_mx_solaorderentry_sail_v1_21.trader_id.size + 
@@ -4941,6 +6278,9 @@ end
 -- Dissect Fields: Leg Execution Cancellation Notice
 tmx_mx_solaorderentry_sail_v1_21.leg_execution_cancellation_notice.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Outgoing Messages Header: Struct of 4 fields
+  index, outgoing_messages_header = tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.dissect(buffer, index, packet, parent)
 
   -- Group: Group ID
   index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
@@ -5037,6 +6377,7 @@ tmx_mx_solaorderentry_sail_v1_21.execution_cancellation_notice = {}
 
 -- Size: Execution Cancellation Notice
 tmx_mx_solaorderentry_sail_v1_21.execution_cancellation_notice.size =
+  tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.size + 
   tmx_mx_solaorderentry_sail_v1_21.group.size + 
   tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
   tmx_mx_solaorderentry_sail_v1_21.trader_id.size + 
@@ -5064,6 +6405,9 @@ end
 -- Dissect Fields: Execution Cancellation Notice
 tmx_mx_solaorderentry_sail_v1_21.execution_cancellation_notice.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Outgoing Messages Header: Struct of 4 fields
+  index, outgoing_messages_header = tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.dissect(buffer, index, packet, parent)
 
   -- Group: Group ID
   index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
@@ -6139,6 +7483,7 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_acknowledgement = {}
 
 -- Size: Order Cancellation Acknowledgement
 tmx_mx_solaorderentry_sail_v1_21.order_cancellation_acknowledgement.size =
+  tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.size + 
   tmx_mx_solaorderentry_sail_v1_21.group.size + 
   tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
   tmx_mx_solaorderentry_sail_v1_21.trader_id.size + 
@@ -6160,6 +7505,9 @@ end
 -- Dissect Fields: Order Cancellation Acknowledgement
 tmx_mx_solaorderentry_sail_v1_21.order_cancellation_acknowledgement.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Outgoing Messages Header: Struct of 4 fields
+  index, outgoing_messages_header = tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.dissect(buffer, index, packet, parent)
 
   -- Group: Group ID
   index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
@@ -6407,6 +7755,7 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification_acknowledgement = {}
 
 -- Size: Order Modification Acknowledgement
 tmx_mx_solaorderentry_sail_v1_21.order_modification_acknowledgement.size =
+  tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.size + 
   tmx_mx_solaorderentry_sail_v1_21.group.size + 
   tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
   tmx_mx_solaorderentry_sail_v1_21.trader_id.size + 
@@ -6428,6 +7777,9 @@ end
 -- Dissect Fields: Order Modification Acknowledgement
 tmx_mx_solaorderentry_sail_v1_21.order_modification_acknowledgement.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Outgoing Messages Header: Struct of 4 fields
+  index, outgoing_messages_header = tmx_mx_solaorderentry_sail_v1_21.outgoing_messages_header.dissect(buffer, index, packet, parent)
 
   -- Group: Group ID
   index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
@@ -7301,7 +8653,12 @@ tmx_mx_solaorderentry_sail_v1_21.exchange_packet.dissect = function(buffer, pack
   local alignment_padding_exists = (index % 4 ~= 0)
 
   if alignment_padding_exists then
-    index, alignment_padding = tmx_mx_solaorderentry_sail_v1_21.alignment_padding.dissect(buffer, index, packet, parent)
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = ((4 - index % 4) % 4)
+
+    -- Alignment Padding: Binary
+    index, alignment_padding = tmx_mx_solaorderentry_sail_v1_21.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -7695,6 +9052,2031 @@ tmx_mx_solaorderentry_sail_v1_21.bulk_quote.dissect = function(buffer, offset, p
   else
     -- Skip element, add fields directly
     return tmx_mx_solaorderentry_sail_v1_21.bulk_quote.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence = {}
+
+-- Size: Bulk Quote Price 8 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_8.size
+
+-- Display: Bulk Quote Price 8 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_8_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 8 Quantity 8 Occurrence Index
+  if bulk_quote_price_8_quantity_8_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_8_occurrence_index, bulk_quote_price_8_quantity_8_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Quantity
+  index, quantity = tmx_mx_solaorderentry_sail_v1_21.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price 8: Price (8)
+  index, price_8 = tmx_mx_solaorderentry_sail_v1_21.price_8.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_8_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_8_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_8_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_8_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8 = {}
+
+-- Calculate size of: Bulk Quote Price 8 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_8_quantity_8_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_8_quantity_8_occurrence_count * 24
+
+  return index
+end
+
+-- Display: Bulk Quote Price 8 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 8 Quantity 8 Occurrence
+  for bulk_quote_price_8_quantity_8_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_8_quantity_8_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_8_quantity_8_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_8, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence = {}
+
+-- Size: Bulk Quote Price 6 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_6.size
+
+-- Display: Bulk Quote Price 6 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_8_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 6 Quantity 8 Occurrence Index
+  if bulk_quote_price_6_quantity_8_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_8_occurrence_index, bulk_quote_price_6_quantity_8_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Quantity
+  index, quantity = tmx_mx_solaorderentry_sail_v1_21.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price 6: Price (6)
+  index, price_6 = tmx_mx_solaorderentry_sail_v1_21.price_6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_8_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_8_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_8_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_8_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8 = {}
+
+-- Calculate size of: Bulk Quote Price 6 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_6_quantity_8_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_6_quantity_8_occurrence_count * 22
+
+  return index
+end
+
+-- Display: Bulk Quote Price 6 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 6 Quantity 8 Occurrence
+  for bulk_quote_price_6_quantity_8_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_6_quantity_8_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_6_quantity_8_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_8, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence = {}
+
+-- Size: Bulk Quote Price 4 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_4.size
+
+-- Display: Bulk Quote Price 4 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_8_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 4 Quantity 8 Occurrence Index
+  if bulk_quote_price_4_quantity_8_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_8_occurrence_index, bulk_quote_price_4_quantity_8_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Quantity
+  index, quantity = tmx_mx_solaorderentry_sail_v1_21.quantity.dissect(buffer, index, packet, parent)
+
+  -- Price 4: Price (4)
+  index, price_4 = tmx_mx_solaorderentry_sail_v1_21.price_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 8 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_8_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_8_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_8_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_8_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8 = {}
+
+-- Calculate size of: Bulk Quote Price 4 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_4_quantity_8_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_4_quantity_8_occurrence_count * 20
+
+  return index
+end
+
+-- Display: Bulk Quote Price 4 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 4 Quantity 8 Occurrence
+  for bulk_quote_price_4_quantity_8_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_4_quantity_8_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_4_quantity_8_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 8
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_8, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 10 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence = {}
+
+-- Size: Bulk Quote Price 10 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price.size
+
+-- Display: Bulk Quote Price 10 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 10 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_10_quantity_6_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 10 Quantity 6 Occurrence Index
+  if bulk_quote_price_10_quantity_6_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_6_occurrence_index, bulk_quote_price_10_quantity_6_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 6: Quantity (6)
+  index, quantity_6 = tmx_mx_solaorderentry_sail_v1_21.quantity_6.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = tmx_mx_solaorderentry_sail_v1_21.price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 10 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_10_quantity_6_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_6_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_10_quantity_6_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_10_quantity_6_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 10 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6 = {}
+
+-- Calculate size of: Bulk Quote Price 10 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_10_quantity_6_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_10_quantity_6_occurrence_count * 24
+
+  return index
+end
+
+-- Display: Bulk Quote Price 10 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 10 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 10 Quantity 6 Occurrence
+  for bulk_quote_price_10_quantity_6_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_10_quantity_6_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_10_quantity_6_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 10 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_6, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence = {}
+
+-- Size: Bulk Quote Price 8 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_8.size
+
+-- Display: Bulk Quote Price 8 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_6_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 8 Quantity 6 Occurrence Index
+  if bulk_quote_price_8_quantity_6_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_6_occurrence_index, bulk_quote_price_8_quantity_6_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 6: Quantity (6)
+  index, quantity_6 = tmx_mx_solaorderentry_sail_v1_21.quantity_6.dissect(buffer, index, packet, parent)
+
+  -- Price 8: Price (8)
+  index, price_8 = tmx_mx_solaorderentry_sail_v1_21.price_8.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_6_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_6_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_6_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_6_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6 = {}
+
+-- Calculate size of: Bulk Quote Price 8 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_8_quantity_6_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_8_quantity_6_occurrence_count * 22
+
+  return index
+end
+
+-- Display: Bulk Quote Price 8 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 8 Quantity 6 Occurrence
+  for bulk_quote_price_8_quantity_6_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_8_quantity_6_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_8_quantity_6_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_6, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence = {}
+
+-- Size: Bulk Quote Price 6 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_6.size
+
+-- Display: Bulk Quote Price 6 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_6_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 6 Quantity 6 Occurrence Index
+  if bulk_quote_price_6_quantity_6_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_6_occurrence_index, bulk_quote_price_6_quantity_6_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 6: Quantity (6)
+  index, quantity_6 = tmx_mx_solaorderentry_sail_v1_21.quantity_6.dissect(buffer, index, packet, parent)
+
+  -- Price 6: Price (6)
+  index, price_6 = tmx_mx_solaorderentry_sail_v1_21.price_6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_6_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_6_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_6_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_6_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6 = {}
+
+-- Calculate size of: Bulk Quote Price 6 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_6_quantity_6_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_6_quantity_6_occurrence_count * 20
+
+  return index
+end
+
+-- Display: Bulk Quote Price 6 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 6 Quantity 6 Occurrence
+  for bulk_quote_price_6_quantity_6_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_6_quantity_6_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_6_quantity_6_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_6, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence = {}
+
+-- Size: Bulk Quote Price 4 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_4.size
+
+-- Display: Bulk Quote Price 4 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_6_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 4 Quantity 6 Occurrence Index
+  if bulk_quote_price_4_quantity_6_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_6_occurrence_index, bulk_quote_price_4_quantity_6_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 6: Quantity (6)
+  index, quantity_6 = tmx_mx_solaorderentry_sail_v1_21.quantity_6.dissect(buffer, index, packet, parent)
+
+  -- Price 4: Price (4)
+  index, price_4 = tmx_mx_solaorderentry_sail_v1_21.price_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 6 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_6_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_6_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_6_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_6_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6 = {}
+
+-- Calculate size of: Bulk Quote Price 4 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_4_quantity_6_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_4_quantity_6_occurrence_count * 18
+
+  return index
+end
+
+-- Display: Bulk Quote Price 4 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 4 Quantity 6 Occurrence
+  for bulk_quote_price_4_quantity_6_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_4_quantity_6_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_4_quantity_6_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 6
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_6, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 10 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence = {}
+
+-- Size: Bulk Quote Price 10 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_4.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price.size
+
+-- Display: Bulk Quote Price 10 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 10 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_10_quantity_4_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 10 Quantity 4 Occurrence Index
+  if bulk_quote_price_10_quantity_4_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_4_occurrence_index, bulk_quote_price_10_quantity_4_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 4: Quantity (4)
+  index, quantity_4 = tmx_mx_solaorderentry_sail_v1_21.quantity_4.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = tmx_mx_solaorderentry_sail_v1_21.price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 10 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_10_quantity_4_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_4_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_10_quantity_4_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_10_quantity_4_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 10 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4 = {}
+
+-- Calculate size of: Bulk Quote Price 10 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_10_quantity_4_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_10_quantity_4_occurrence_count * 22
+
+  return index
+end
+
+-- Display: Bulk Quote Price 10 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 10 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 10 Quantity 4 Occurrence
+  for bulk_quote_price_10_quantity_4_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_10_quantity_4_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_10_quantity_4_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 10 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_4, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence = {}
+
+-- Size: Bulk Quote Price 8 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_4.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_8.size
+
+-- Display: Bulk Quote Price 8 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_4_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 8 Quantity 4 Occurrence Index
+  if bulk_quote_price_8_quantity_4_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_4_occurrence_index, bulk_quote_price_8_quantity_4_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 4: Quantity (4)
+  index, quantity_4 = tmx_mx_solaorderentry_sail_v1_21.quantity_4.dissect(buffer, index, packet, parent)
+
+  -- Price 8: Price (8)
+  index, price_8 = tmx_mx_solaorderentry_sail_v1_21.price_8.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_4_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_4_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_4_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_4_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4 = {}
+
+-- Calculate size of: Bulk Quote Price 8 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_8_quantity_4_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_8_quantity_4_occurrence_count * 20
+
+  return index
+end
+
+-- Display: Bulk Quote Price 8 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 8 Quantity 4 Occurrence
+  for bulk_quote_price_8_quantity_4_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_8_quantity_4_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_8_quantity_4_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_4, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence = {}
+
+-- Size: Bulk Quote Price 6 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_4.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_6.size
+
+-- Display: Bulk Quote Price 6 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_4_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 6 Quantity 4 Occurrence Index
+  if bulk_quote_price_6_quantity_4_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_4_occurrence_index, bulk_quote_price_6_quantity_4_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 4: Quantity (4)
+  index, quantity_4 = tmx_mx_solaorderentry_sail_v1_21.quantity_4.dissect(buffer, index, packet, parent)
+
+  -- Price 6: Price (6)
+  index, price_6 = tmx_mx_solaorderentry_sail_v1_21.price_6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_4_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_4_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_4_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_4_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4 = {}
+
+-- Calculate size of: Bulk Quote Price 6 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_6_quantity_4_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_6_quantity_4_occurrence_count * 18
+
+  return index
+end
+
+-- Display: Bulk Quote Price 6 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 6 Quantity 4 Occurrence
+  for bulk_quote_price_6_quantity_4_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_6_quantity_4_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_6_quantity_4_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_4, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence = {}
+
+-- Size: Bulk Quote Price 4 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_4.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_4.size
+
+-- Display: Bulk Quote Price 4 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_4_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 4 Quantity 4 Occurrence Index
+  if bulk_quote_price_4_quantity_4_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_4_occurrence_index, bulk_quote_price_4_quantity_4_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 4: Quantity (4)
+  index, quantity_4 = tmx_mx_solaorderentry_sail_v1_21.quantity_4.dissect(buffer, index, packet, parent)
+
+  -- Price 4: Price (4)
+  index, price_4 = tmx_mx_solaorderentry_sail_v1_21.price_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 4 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_4_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_4_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_4_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_4_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4 = {}
+
+-- Calculate size of: Bulk Quote Price 4 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_4_quantity_4_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_4_quantity_4_occurrence_count * 16
+
+  return index
+end
+
+-- Display: Bulk Quote Price 4 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 4 Quantity 4 Occurrence
+  for bulk_quote_price_4_quantity_4_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_4_quantity_4_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_4_quantity_4_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 4
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_4, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 10 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence = {}
+
+-- Size: Bulk Quote Price 10 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_2.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price.size
+
+-- Display: Bulk Quote Price 10 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 10 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_10_quantity_2_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 10 Quantity 2 Occurrence Index
+  if bulk_quote_price_10_quantity_2_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_2_occurrence_index, bulk_quote_price_10_quantity_2_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 2: Quantity (2)
+  index, quantity_2 = tmx_mx_solaorderentry_sail_v1_21.quantity_2.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = tmx_mx_solaorderentry_sail_v1_21.price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 10 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_10_quantity_2_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_2_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_10_quantity_2_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_10_quantity_2_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 10 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2 = {}
+
+-- Calculate size of: Bulk Quote Price 10 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_10_quantity_2_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_10_quantity_2_occurrence_count * 20
+
+  return index
+end
+
+-- Display: Bulk Quote Price 10 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 10 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 10 Quantity 2 Occurrence
+  for bulk_quote_price_10_quantity_2_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_10_quantity_2_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_10_quantity_2_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 10 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_10_quantity_2, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence = {}
+
+-- Size: Bulk Quote Price 8 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_2.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_8.size
+
+-- Display: Bulk Quote Price 8 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_2_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 8 Quantity 2 Occurrence Index
+  if bulk_quote_price_8_quantity_2_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_2_occurrence_index, bulk_quote_price_8_quantity_2_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 2: Quantity (2)
+  index, quantity_2 = tmx_mx_solaorderentry_sail_v1_21.quantity_2.dissect(buffer, index, packet, parent)
+
+  -- Price 8: Price (8)
+  index, price_8 = tmx_mx_solaorderentry_sail_v1_21.price_8.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_8_quantity_2_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_2_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_2_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_8_quantity_2_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 8 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2 = {}
+
+-- Calculate size of: Bulk Quote Price 8 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_8_quantity_2_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_8_quantity_2_occurrence_count * 18
+
+  return index
+end
+
+-- Display: Bulk Quote Price 8 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 8 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 8 Quantity 2 Occurrence
+  for bulk_quote_price_8_quantity_2_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_8_quantity_2_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_8_quantity_2_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 8 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_2, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence = {}
+
+-- Size: Bulk Quote Price 6 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_2.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_6.size
+
+-- Display: Bulk Quote Price 6 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_2_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 6 Quantity 2 Occurrence Index
+  if bulk_quote_price_6_quantity_2_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_2_occurrence_index, bulk_quote_price_6_quantity_2_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 2: Quantity (2)
+  index, quantity_2 = tmx_mx_solaorderentry_sail_v1_21.quantity_2.dissect(buffer, index, packet, parent)
+
+  -- Price 6: Price (6)
+  index, price_6 = tmx_mx_solaorderentry_sail_v1_21.price_6.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_6_quantity_2_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_2_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_2_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_6_quantity_2_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 6 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2 = {}
+
+-- Calculate size of: Bulk Quote Price 6 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_6_quantity_2_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_6_quantity_2_occurrence_count * 16
+
+  return index
+end
+
+-- Display: Bulk Quote Price 6 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 6 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 6 Quantity 2 Occurrence
+  for bulk_quote_price_6_quantity_2_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_6_quantity_2_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_6_quantity_2_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 6 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_6_quantity_2, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence = {}
+
+-- Size: Bulk Quote Price 4 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.size =
+  tmx_mx_solaorderentry_sail_v1_21.group.size + 
+  tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
+  tmx_mx_solaorderentry_sail_v1_21.verb_side.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.size + 
+  tmx_mx_solaorderentry_sail_v1_21.quantity_2.size + 
+  tmx_mx_solaorderentry_sail_v1_21.price_4.size
+
+-- Display: Bulk Quote Price 4 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.fields = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_2_occurrence_index)
+  local index = offset
+
+  -- Implicit Bulk Quote Price 4 Quantity 2 Occurrence Index
+  if bulk_quote_price_4_quantity_2_occurrence_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_2_occurrence_index, bulk_quote_price_4_quantity_2_occurrence_index)
+    iteration:set_generated()
+  end
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Instrument: Instrument ID
+  index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
+
+  -- Verb Side: Verb
+  index, verb_side = tmx_mx_solaorderentry_sail_v1_21.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Sign Or: Quantity Sign
+  index, quantity_sign_or = tmx_mx_solaorderentry_sail_v1_21.quantity_sign_or.dissect(buffer, index, packet, parent)
+
+  -- Quantity 2: Quantity (2)
+  index, quantity_2 = tmx_mx_solaorderentry_sail_v1_21.quantity_2.dissect(buffer, index, packet, parent)
+
+  -- Price 4: Price (4)
+  index, price_4 = tmx_mx_solaorderentry_sail_v1_21.price_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 2 Occurrence
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.dissect = function(buffer, offset, packet, parent, bulk_quote_price_4_quantity_2_occurrence_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_2_occurrence, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_2_occurrence_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.fields(buffer, offset, packet, parent, bulk_quote_price_4_quantity_2_occurrence_index)
+  end
+end
+
+-- Bulk Quote Price 4 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2 = {}
+
+-- Calculate size of: Bulk Quote Price 4 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.size
+
+  index = index + tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.size
+
+  -- Calculate field size from count
+  local bulk_quote_price_4_quantity_2_occurrence_count = buffer(offset + index - 3, 3):string()
+  index = index + bulk_quote_price_4_quantity_2_occurrence_count * 14
+
+  return index
+end
+
+-- Display: Bulk Quote Price 4 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bulk Quote Price 4 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  -- Group: Group ID
+  index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
+
+  -- Quote Identifier On This Group: Order ID
+  index, quote_identifier_on_this_group = tmx_mx_solaorderentry_sail_v1_21.quote_identifier_on_this_group.dissect(buffer, index, packet, parent)
+
+  -- Number Of Quotes: Numeric (3)
+  index, number_of_quotes = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Bulk Quote Price 4 Quantity 2 Occurrence
+  for bulk_quote_price_4_quantity_2_occurrence_index = 1, number_of_quotes do
+    index, bulk_quote_price_4_quantity_2_occurrence = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2_occurrence.dissect(buffer, index, packet, parent, bulk_quote_price_4_quantity_2_occurrence_index)
+  end
+
+  return index
+end
+
+-- Dissect: Bulk Quote Price 4 Quantity 2
+tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_4_quantity_2, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9413,6 +12795,66 @@ tmx_mx_solaorderentry_sail_v1_21.firm_message.dissect = function(buffer, offset,
   if message_type == "OX" then
     return tmx_mx_solaorderentry_sail_v1_21.cross_entry.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Bulk Quote Price 4 Quantity 2
+  if message_type == "QA" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_2.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 6 Quantity 2
+  if message_type == "QB" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_2.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 8 Quantity 2
+  if message_type == "QC" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_2.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 10 Quantity 2
+  if message_type == "QD" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_2.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 4 Quantity 4
+  if message_type == "QE" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_4.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 6 Quantity 4
+  if message_type == "QF" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_4.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 8 Quantity 4
+  if message_type == "QG" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_4.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 10 Quantity 4
+  if message_type == "QH" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_4.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 4 Quantity 6
+  if message_type == "QI" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_6.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 6 Quantity 6
+  if message_type == "QJ" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_6.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 8 Quantity 6
+  if message_type == "QK" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_6.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 10 Quantity 6
+  if message_type == "QL" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_10_quantity_6.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 4 Quantity 8
+  if message_type == "QM" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_4_quantity_8.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 6 Quantity 8
+  if message_type == "QN" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_6_quantity_8.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Price 8 Quantity 8
+  if message_type == "QO" then
+    return tmx_mx_solaorderentry_sail_v1_21.bulk_quote_price_8_quantity_8.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Bulk Quote
   if message_type == "QP" then
     return tmx_mx_solaorderentry_sail_v1_21.bulk_quote.dissect(buffer, offset, packet, parent)
@@ -9455,7 +12897,7 @@ tmx_mx_solaorderentry_sail_v1_21.firm_packet.dissect = function(buffer, packet, 
   -- Message Type: X
   index, message_type = tmx_mx_solaorderentry_sail_v1_21.message_type.dissect(buffer, index, packet, parent)
 
-  -- Firm Message: Runtime Type with 20 branches
+  -- Firm Message: Runtime Type with 35 branches
   index = tmx_mx_solaorderentry_sail_v1_21.firm_message.dissect(buffer, index, packet, parent, message_type)
 
   -- End Of Text: Binary
@@ -9467,7 +12909,12 @@ tmx_mx_solaorderentry_sail_v1_21.firm_packet.dissect = function(buffer, packet, 
   local alignment_padding_exists = (index % 4 ~= 0)
 
   if alignment_padding_exists then
-    index, alignment_padding = tmx_mx_solaorderentry_sail_v1_21.alignment_padding.dissect(buffer, index, packet, parent)
+
+    -- Runtime Size Of: Alignment Padding
+    local size_of_alignment_padding = ((4 - index % 4) % 4)
+
+    -- Alignment Padding: Binary
+    index, alignment_padding = tmx_mx_solaorderentry_sail_v1_21.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
   end
 
   return index
@@ -9689,6 +13136,81 @@ tmx_mx_solaorderentry_sail_v1_21.firm_packet.fingerprint = function(buffer)
 
   -- Cross Entry
   if message_type == "OX" then
+    return true
+  end
+
+  -- Bulk Quote Price 4 Quantity 2
+  if message_type == "QA" then
+    return true
+  end
+
+  -- Bulk Quote Price 6 Quantity 2
+  if message_type == "QB" then
+    return true
+  end
+
+  -- Bulk Quote Price 8 Quantity 2
+  if message_type == "QC" then
+    return true
+  end
+
+  -- Bulk Quote Price 10 Quantity 2
+  if message_type == "QD" then
+    return true
+  end
+
+  -- Bulk Quote Price 4 Quantity 4
+  if message_type == "QE" then
+    return true
+  end
+
+  -- Bulk Quote Price 6 Quantity 4
+  if message_type == "QF" then
+    return true
+  end
+
+  -- Bulk Quote Price 8 Quantity 4
+  if message_type == "QG" then
+    return true
+  end
+
+  -- Bulk Quote Price 10 Quantity 4
+  if message_type == "QH" then
+    return true
+  end
+
+  -- Bulk Quote Price 4 Quantity 6
+  if message_type == "QI" then
+    return true
+  end
+
+  -- Bulk Quote Price 6 Quantity 6
+  if message_type == "QJ" then
+    return true
+  end
+
+  -- Bulk Quote Price 8 Quantity 6
+  if message_type == "QK" then
+    return true
+  end
+
+  -- Bulk Quote Price 10 Quantity 6
+  if message_type == "QL" then
+    return true
+  end
+
+  -- Bulk Quote Price 4 Quantity 8
+  if message_type == "QM" then
+    return true
+  end
+
+  -- Bulk Quote Price 6 Quantity 8
+  if message_type == "QN" then
+    return true
+  end
+
+  -- Bulk Quote Price 8 Quantity 8
+  if message_type == "QO" then
     return true
   end
 

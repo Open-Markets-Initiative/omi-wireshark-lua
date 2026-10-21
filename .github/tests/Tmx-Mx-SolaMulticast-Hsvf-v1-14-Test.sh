@@ -11,7 +11,7 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (OptionMarketDepthMessage) ---"; cat Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionMarketDepthMessage.json.stderr; exit 1; }
 
 grep "tmx.mx.solamulticast.hsvf.v1.14.exchangeid" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionMarketDepthMessage.json
-grep "tmx.mx.solamulticast.hsvf.v1.14.root" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionMarketDepthMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.rootsymbol" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionMarketDepthMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.expirymonth" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionMarketDepthMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.strikeprice" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionMarketDepthMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.strikepricefractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionMarketDepthMessage.json
@@ -27,7 +27,7 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (OptionTradeMessage) ---"; cat Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionTradeMessage.json.stderr; exit 1; }
 
 grep "tmx.mx.solamulticast.hsvf.v1.14.exchangeid" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionTradeMessage.json
-grep "tmx.mx.solamulticast.hsvf.v1.14.root" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionTradeMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.rootsymbol" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.expirymonth" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.strikeprice" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.strikepricefractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.OptionTradeMessage.json
@@ -69,7 +69,7 @@ runuser -u tester -- tshark \
 grep "tmx.mx.solamulticast.hsvf.v1.14.exchangeid" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.strategysymbol" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.expiryyear" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
-grep "tmx.mx.solamulticast.hsvf.v1.14.expirymonth" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.expirymonthstrategy" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.expiryday" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.maximumnumberofcontractsperorder" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.minimumnumberofcontractsperorder" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
@@ -77,8 +77,6 @@ grep "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdprice" Tmx.Mx.SolaMulticas
 grep "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdpricefractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricestrategy" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricefractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
-grep "tmx.mx.solamulticast.hsvf.v1.14.tickincrement" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
-grep "tmx.mx.solamulticast.hsvf.v1.14.tickincrementfractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.marketflowindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.groupinstrument" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.instrument" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json

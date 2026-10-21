@@ -1495,7 +1495,11 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.size = 1
 
 -- Display: Hsvf Etx
 box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_etx.display = function(value)
-  return "Hsvf Etx: "..value
+  if value == 3 then
+    return "Hsvf Etx: Etx"
+  end
+
+  return "Hsvf Etx: Unknown("..value..")"
 end
 
 -- Dissect: Hsvf Etx

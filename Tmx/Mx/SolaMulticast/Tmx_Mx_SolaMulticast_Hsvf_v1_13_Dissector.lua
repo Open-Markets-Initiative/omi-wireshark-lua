@@ -16,18 +16,51 @@ local tmx_mx_solamulticast_hsvf_v1_13 = {}
 
 -- Tmx Mx SolaMulticast Hsvf 1.13 Fields
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.askpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote = ProtoField.new("Ask Price Quote", "tmx.mx.solamulticast.hsvf.v1.13.askpricequote", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair = ProtoField.new("Ask Price Futures Depth Futures Market Depth Trading Instrument Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricefuturesdepthfuturesmarketdepthtradinginstrumentnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair = ProtoField.new("Ask Price Futures Depth Futures Market Depth Trading Instrument Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricefuturesdepthfuturesmarketdepthtradinginstrumentopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_numeric = ProtoField.new("Ask Price Futures Depth Numeric", "tmx.mx.solamulticast.hsvf.v1.13.askpricefuturesdepthnumeric", ftypes.STRING, nil, nil, nil, "Ask Price for the future contract For Implied, it represents the best (1st limit) indicative implied ask price")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_opening = ProtoField.new("Ask Price Futures Depth Opening", "tmx.mx.solamulticast.hsvf.v1.13.askpricefuturesdepthopening", ftypes.STRING, nil, nil, nil, "Ask Price for the future contract For Implied, it represents the best (1st limit) indicative implied ask price")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair = ProtoField.new("Ask Price Quote Future Options Market Depth Trading Instrument Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotefutureoptionsmarketdepthtradinginstrumentnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair = ProtoField.new("Ask Price Quote Future Options Market Depth Trading Instrument Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotefutureoptionsmarketdepthtradinginstrumentopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_futures_quote_message_numeric_pair = ProtoField.new("Ask Price Quote Futures Quote Message Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotefuturesquotemessagenumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_futures_quote_message_opening_pair = ProtoField.new("Ask Price Quote Futures Quote Message Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotefuturesquotemessageopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_numeric = ProtoField.new("Ask Price Quote Numeric", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotenumeric", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_numeric_pair = ProtoField.new("Ask Price Quote Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotenumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_opening = ProtoField.new("Ask Price Quote Opening", "tmx.mx.solamulticast.hsvf.v1.13.askpricequoteopening", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_opening_pair = ProtoField.new("Ask Price Quote Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequoteopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_option_market_depth_level_numeric_pair = ProtoField.new("Ask Price Quote Option Market Depth Level Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequoteoptionmarketdepthlevelnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_option_market_depth_level_opening_pair = ProtoField.new("Ask Price Quote Option Market Depth Level Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequoteoptionmarketdepthlevelopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair = ProtoField.new("Ask Price Quote Strategy Market Depth Trading Instrument Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotestrategymarketdepthtradinginstrumentnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair = ProtoField.new("Ask Price Quote Strategy Market Depth Trading Instrument Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotestrategymarketdepthtradinginstrumentopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_quote_message_numeric_pair = ProtoField.new("Ask Price Quote Strategy Quote Message Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotestrategyquotemessagenumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_quote_message_opening_pair = ProtoField.new("Ask Price Quote Strategy Quote Message Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.askpricequotestrategyquotemessageopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "tmx.mx.solamulticast.hsvf.v1.13.askpricesign", ftypes.STRING, nil, nil, nil, "For Ask Price field")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_summary = ProtoField.new("Ask Price Summary", "tmx.mx.solamulticast.hsvf.v1.13.askpricesummary", ftypes.STRING, nil, nil, nil, "Closing or most recent ask price")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_size = ProtoField.new("Ask Size", "tmx.mx.solamulticast.hsvf.v1.13.asksize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by the Ask Price. If size is greater than 99999, the 5th character becomes an exponent")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.associated_product = ProtoField.new("Associated Product", "tmx.mx.solamulticast.hsvf.v1.13.associatedproduct", ftypes.STRING, nil, nil, nil, "Associated future product symbology")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.bidpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote = ProtoField.new("Bid Price Quote", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequote", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair = ProtoField.new("Bid Price Quote Future Options Market Depth Trading Instrument Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotefutureoptionsmarketdepthtradinginstrumentnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair = ProtoField.new("Bid Price Quote Future Options Market Depth Trading Instrument Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotefutureoptionsmarketdepthtradinginstrumentopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair = ProtoField.new("Bid Price Quote Futures Market Depth Trading Instrument Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotefuturesmarketdepthtradinginstrumentnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_market_depth_trading_instrument_opening_pair = ProtoField.new("Bid Price Quote Futures Market Depth Trading Instrument Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotefuturesmarketdepthtradinginstrumentopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_quote_message_numeric_pair = ProtoField.new("Bid Price Quote Futures Quote Message Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotefuturesquotemessagenumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_quote_message_opening_pair = ProtoField.new("Bid Price Quote Futures Quote Message Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotefuturesquotemessageopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_numeric = ProtoField.new("Bid Price Quote Numeric", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotenumeric", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_numeric_pair = ProtoField.new("Bid Price Quote Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotenumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_opening = ProtoField.new("Bid Price Quote Opening", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequoteopening", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_opening_pair = ProtoField.new("Bid Price Quote Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequoteopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_option_market_depth_level_numeric_pair = ProtoField.new("Bid Price Quote Option Market Depth Level Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequoteoptionmarketdepthlevelnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_option_market_depth_level_opening_pair = ProtoField.new("Bid Price Quote Option Market Depth Level Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequoteoptionmarketdepthlevelopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair = ProtoField.new("Bid Price Quote Strategy Market Depth Trading Instrument Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotestrategymarketdepthtradinginstrumentnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair = ProtoField.new("Bid Price Quote Strategy Market Depth Trading Instrument Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotestrategymarketdepthtradinginstrumentopeningpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_quote_message_numeric_pair = ProtoField.new("Bid Price Quote Strategy Quote Message Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotestrategyquotemessagenumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_quote_message_opening_pair = ProtoField.new("Bid Price Quote Strategy Quote Message Opening Pair", "tmx.mx.solamulticast.hsvf.v1.13.bidpricequotestrategyquotemessageopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "tmx.mx.solamulticast.hsvf.v1.13.bidpricesign", ftypes.STRING, nil, nil, nil, "For Bid Price field")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_summary = ProtoField.new("Bid Price Summary", "tmx.mx.solamulticast.hsvf.v1.13.bidpricesummary", ftypes.STRING, nil, nil, nil, "Closing or most recent bid price")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_size = ProtoField.new("Bid Size", "tmx.mx.solamulticast.hsvf.v1.13.bidsize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by the Bid Price. If size is greater than 99999, the 5th character becomes an exponent")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bond_definition = ProtoField.new("Bond Definition", "tmx.mx.solamulticast.hsvf.v1.13.bonddefinition", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bulletin_type = ProtoField.new("Bulletin Type", "tmx.mx.solamulticast.hsvf.v1.13.bulletintype", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.business_date = ProtoField.new("Business Date", "tmx.mx.solamulticast.hsvf.v1.13.businessdate", ftypes.STRING, nil, nil, nil, "Current Business date, YYYYMMDD")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.call_put_code = ProtoField.new("Call Put Code", "tmx.mx.solamulticast.hsvf.v1.13.callputcode", ftypes.STRING, nil, nil, nil, "Call or Put")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.continue_marker = ProtoField.new("Continue Marker", "tmx.mx.solamulticast.hsvf.v1.13.continuemarker", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.contract_size = ProtoField.new("Contract Size", "tmx.mx.solamulticast.hsvf.v1.13.contractsize", ftypes.STRING, nil, nil, nil, "Defines the quantity of an underlying per contract")
@@ -36,12 +69,12 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.conversion_factor_fraction_indicator 
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.coupon = ProtoField.new("Coupon", "tmx.mx.solamulticast.hsvf.v1.13.coupon", ftypes.STRING, nil, nil, nil, "Bond Coupon rate")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.coupon_fraction_indicator = ProtoField.new("Coupon Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.couponfractionindicator", ftypes.STRING, nil, nil, nil, "Coupon rate decimal indicator")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.currency = ProtoField.new("Currency", "tmx.mx.solamulticast.hsvf.v1.13.currency", ftypes.STRING, nil, nil, nil, "Defines the currency of an underlying")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.delivery_month = ProtoField.new("Delivery Month", "tmx.mx.solamulticast.hsvf.v1.13.deliverymonth", ftypes.STRING, nil, nil, nil, "Delivery month for the contract")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.delivery_type = ProtoField.new("Delivery Type", "tmx.mx.solamulticast.hsvf.v1.13.deliverytype", ftypes.STRING, nil, nil, nil, "Indicates the delivery type of the instrument")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.exchange_id = ProtoField.new("Exchange Id", "tmx.mx.solamulticast.hsvf.v1.13.exchangeid", ftypes.STRING, nil, nil, nil, "Exchange on which the trade occurred")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.expiry_date = ProtoField.new("Expiry Date", "tmx.mx.solamulticast.hsvf.v1.13.expirydate", ftypes.STRING, nil, nil, nil, "Expiry Date, YYMMDD")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.expiry_day = ProtoField.new("Expiry Day", "tmx.mx.solamulticast.hsvf.v1.13.expiryday", ftypes.STRING, nil, nil, nil, "Expiry day of the option")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.expiry_month = ProtoField.new("Expiry Month", "tmx.mx.solamulticast.hsvf.v1.13.expirymonth", ftypes.STRING, nil, nil, nil, "Option expiry month code")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.expiry_month_strategy = ProtoField.new("Expiry Month Strategy", "tmx.mx.solamulticast.hsvf.v1.13.expirymonthstrategy", ftypes.STRING, nil, nil, nil, "Contract expiry month from the first expiring leg")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.expiry_year = ProtoField.new("Expiry Year", "tmx.mx.solamulticast.hsvf.v1.13.expiryyear", ftypes.STRING, nil, nil, nil, "Last two digits of the option expiry year")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.external_price_at_source = ProtoField.new("External Price At Source", "tmx.mx.solamulticast.hsvf.v1.13.externalpriceatsource", ftypes.STRING, nil, nil, nil, "Last price obtained from an external pricing source")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.external_price_fraction_indicator = ProtoField.new("External Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.externalpricefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction indicator for last price obtained from external pricing source")
@@ -79,7 +112,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.maximum_number_of_contracts_per_order
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.maximumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.maximum_threshold_price_futures = ProtoField.new("Maximum Threshold Price Futures", "tmx.mx.solamulticast.hsvf.v1.13.maximumthresholdpricefutures", ftypes.STRING, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.maximum_threshold_price_options = ProtoField.new("Maximum Threshold Price Options", "tmx.mx.solamulticast.hsvf.v1.13.maximumthresholdpriceoptions", ftypes.STRING, nil, nil, nil, "Maximum threshold price authorized for an option contract")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.message_timestamp = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.13.messagetimestamp", ftypes.STRING, nil, nil, nil, "System timestamp")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.message_timestamp = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.13.messagetimestamp", ftypes.STRING, nil, nil, nil, "System timestamp, YYYYMMDDHHMMSSmmmuuu.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.message_type = ProtoField.new("Message Type", "tmx.mx.solamulticast.hsvf.v1.13.messagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of message being sent")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.min_price = ProtoField.new("Min Price", "tmx.mx.solamulticast.hsvf.v1.13.minprice", ftypes.STRING, nil, nil, nil, "Starting price for this tick entry")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.min_price_fraction_indicator = ProtoField.new("Min Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.minpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
@@ -96,7 +129,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.number_of_bonds = ProtoField.new("Num
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.number_of_entries = ProtoField.new("Number Of Entries", "tmx.mx.solamulticast.hsvf.v1.13.numberofentries", ftypes.STRING, nil, nil, nil, "Indicates the number of entries in the table (from 1 to 30)")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.number_of_legs = ProtoField.new("Number Of Legs", "tmx.mx.solamulticast.hsvf.v1.13.numberoflegs", ftypes.STRING, nil, nil, nil, "Number of legs in the strategy")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.number_of_levels = ProtoField.new("Number Of Levels", "tmx.mx.solamulticast.hsvf.v1.13.numberoflevels", ftypes.STRING, nil, nil, nil, "Number of level for the trading instrument. 1 to 5")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.open_interest = ProtoField.new("Open Interest", "tmx.mx.solamulticast.hsvf.v1.13.openinterest", ftypes.STRING, nil, nil, nil, "This field contains the outstanding number of contracts in the series")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.open_interest = ProtoField.new("Open Interest", "tmx.mx.solamulticast.hsvf.v1.13.openinterest", ftypes.STRING, nil, nil, nil, "This field contains current outstanding number of contracts in the series Updated on a trade by trade basis Refer to Indicator Code")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.open_interest_date = ProtoField.new("Open Interest Date", "tmx.mx.solamulticast.hsvf.v1.13.openinterestdate", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.open_price = ProtoField.new("Open Price", "tmx.mx.solamulticast.hsvf.v1.13.openprice", ftypes.STRING, nil, nil, nil, "Price of the first trade of the day")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.openpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
@@ -106,6 +139,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.opening_price_fraction_indicator = Pr
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_marker = ProtoField.new("Option Marker", "tmx.mx.solamulticast.hsvf.v1.13.optionmarker", ftypes.STRING, nil, nil, nil, "Refer to Options Markers")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_market_depth_level = ProtoField.new("Option Market Depth Level", "tmx.mx.solamulticast.hsvf.v1.13.optionmarketdepthlevel", ftypes.STRING, nil, nil, nil, "Option Market Depth")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_symbol = ProtoField.new("Option Symbol", "tmx.mx.solamulticast.hsvf.v1.13.optionsymbol", ftypes.STRING, nil, nil, nil, "Option symbology")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_symbol_schedule_notice = ProtoField.new("Option Symbol Schedule Notice", "tmx.mx.solamulticast.hsvf.v1.13.optionsymbolschedulenotice", ftypes.STRING, nil, nil, nil, "Option symbology")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_type = ProtoField.new("Option Type", "tmx.mx.solamulticast.hsvf.v1.13.optiontype", ftypes.STRING, nil, nil, nil, "Type of option")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.outstanding_bond_value = ProtoField.new("Outstanding Bond Value", "tmx.mx.solamulticast.hsvf.v1.13.outstandingbondvalue", ftypes.STRING, nil, nil, nil, "Outstanding amount")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.previous_settlement = ProtoField.new("Previous Settlement", "tmx.mx.solamulticast.hsvf.v1.13.previoussettlement", ftypes.STRING, nil, nil, nil, "Settlement Price for the previous day")
@@ -121,31 +155,35 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.regular_text_bulletin = ProtoField.ne
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.requested_market_side = ProtoField.new("Requested Market Side", "tmx.mx.solamulticast.hsvf.v1.13.requestedmarketside", ftypes.STRING, nil, nil, nil, "Requested quote side")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.requested_size = ProtoField.new("Requested Size", "tmx.mx.solamulticast.hsvf.v1.13.requestedsize", ftypes.STRING, nil, nil, nil, "Size of the market requested")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.reserved = ProtoField.new("Reserved", "tmx.mx.solamulticast.hsvf.v1.13.reserved", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.root = ProtoField.new("Root", "tmx.mx.solamulticast.hsvf.v1.13.root", ftypes.STRING, nil, nil, nil, "Root symbol")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.root_symbol = ProtoField.new("Root Symbol", "tmx.mx.solamulticast.hsvf.v1.13.rootsymbol", ftypes.STRING, nil, nil, nil, "Option base symbol (symbol of the underlying)")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.root_symbol_group = ProtoField.new("Root Symbol Group", "tmx.mx.solamulticast.hsvf.v1.13.rootsymbolgroup", ftypes.STRING, nil, nil, nil, "Root of the instrument group")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scheduled_status_change_time = ProtoField.new("Scheduled Status Change Time", "tmx.mx.solamulticast.hsvf.v1.13.scheduledstatuschangetime", ftypes.STRING, nil, nil, nil, "Time at which the status change is scheduled. HHMMSS")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.solamulticast.hsvf.v1.13.sequencenumber", ftypes.STRING, nil, nil, nil, "Sequence numbers will range from ascii decimal 000000001 to 999999999")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.solamulticast.hsvf.v1.13.sequencenumber", ftypes.STRING, nil, nil, nil, "The sequence numbers will range from 0000000001 to 9999999999 (decimal, ASCII).")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.series_status = ProtoField.new("Series Status", "tmx.mx.solamulticast.hsvf.v1.13.seriesstatus", ftypes.STRING, nil, nil, nil, "Series status of the trading instrument")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.solamulticast.hsvf.v1.13.settlementprice", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator = ProtoField.new("Settlement Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.settlementpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.special_bulletin_contents = ProtoField.new("Special Bulletin Contents", "tmx.mx.solamulticast.hsvf.v1.13.specialbulletincontents", ftypes.STRING, nil, nil, nil, "Bulletin in textual form")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.solamulticast.hsvf.v1.13.specialtextbulletin", ftypes.STRING, nil, nil, nil, "Used for bulletins relating to a specific trading instrument")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.solamulticast.hsvf.v1.13.specialtextbulletin", ftypes.STRING, nil, nil, nil, "This bulletin type will be used for bulletins relating to a specific trading instrument.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_allow_implied = ProtoField.new("Strategy Allow Implied", "tmx.mx.solamulticast.hsvf.v1.13.strategyallowimplied", ftypes.STRING, nil, nil, nil, "Indicates if the Strategy supports Implied Pricing")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_code = ProtoField.new("Strategy Code", "tmx.mx.solamulticast.hsvf.v1.13.strategycode", ftypes.STRING, nil, nil, nil, "Defines the code of the strategy")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_instrument_leg = ProtoField.new("Strategy Instrument Leg", "tmx.mx.solamulticast.hsvf.v1.13.strategyinstrumentleg", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_market_depth_trading_instrument = ProtoField.new("Strategy Market Depth Trading Instrument", "tmx.mx.solamulticast.hsvf.v1.13.strategymarketdepthtradinginstrument", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "tmx.mx.solamulticast.hsvf.v1.13.strategysymbol", ftypes.STRING, nil, nil, nil, "Identification of the strategy. The legs (underlying) are defined in message type NS")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "tmx.mx.solamulticast.hsvf.v1.13.strategysymbol", ftypes.STRING, nil, nil, nil, "Identifies the strategy The legs are defined in message type JS")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_type = ProtoField.new("Strategy Type", "tmx.mx.solamulticast.hsvf.v1.13.strategytype", ftypes.STRING, nil, nil, nil, "Defines the type of the strategy")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price = ProtoField.new("Strike Price", "tmx.mx.solamulticast.hsvf.v1.13.strikeprice", ftypes.STRING, nil, nil, nil, "Strike price of the option in full")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "tmx.mx.solamulticast.hsvf.v1.13.strikepricecurrency", ftypes.STRING, nil, nil, nil, "Currency used for the option Strike Price")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.symbol = ProtoField.new("Symbol", "tmx.mx.solamulticast.hsvf.v1.13.symbol", ftypes.STRING, nil, nil, nil, "Identifies the strategy. The legs (underlying) are defined in message type NS. Alphanumeric with \".\", \"+\", \"-\"")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price_schedule_notice = ProtoField.new("Strike Price Schedule Notice", "tmx.mx.solamulticast.hsvf.v1.13.strikepriceschedulenotice", ftypes.STRING, nil, nil, nil, "Strike price of the option in full")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.symbol = ProtoField.new("Symbol", "tmx.mx.solamulticast.hsvf.v1.13.symbol", ftypes.STRING, nil, nil, nil, "Identifies the strategy The legs are defined in message type JS Alphanumeric with \".\",\"+\",\"-\"")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.symbol_month = ProtoField.new("Symbol Month", "tmx.mx.solamulticast.hsvf.v1.13.symbolmonth", ftypes.STRING, nil, nil, nil, "Option symbol month code")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.symbol_year = ProtoField.new("Symbol Year", "tmx.mx.solamulticast.hsvf.v1.13.symbolyear", ftypes.STRING, nil, nil, nil, "Last two digits of the option symbol year")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick = ProtoField.new("Tick", "tmx.mx.solamulticast.hsvf.v1.13.tick", ftypes.STRING, nil, nil, nil, "Determined by the difference between last price and the previous different trade price")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_entry = ProtoField.new("Tick Entry", "tmx.mx.solamulticast.hsvf.v1.13.tickentry", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment = ProtoField.new("Tick Increment", "tmx.mx.solamulticast.hsvf.v1.13.tickincrement", ftypes.STRING, nil, nil, nil, "Contains the Tick Table Short Name if available. If so, field starts with TT=. Otherwise, indicates precision with which the price of an order limit can be expressed")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.tickincrementfractionindicator", ftypes.STRING, nil, nil, nil, "If Tick Increment starts with TT= (Table Name available), Fraction Indicator is blank. Otherwise, defines number of decimal places or fraction positions")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_numeric = ProtoField.new("Tick Increment Numeric", "tmx.mx.solamulticast.hsvf.v1.13.tickincrementnumeric", ftypes.STRING, nil, nil, nil, "Contains the Tick Table Short Name if available. If so, field starts with TT=. Otherwise, indicates precision with which the price of an order limit can be expressed")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_numeric_pair = ProtoField.new("Tick Increment Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.13.tickincrementnumericpair", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_raw = ProtoField.new("Tick Increment Raw", "tmx.mx.solamulticast.hsvf.v1.13.tickincrementraw", ftypes.STRING, nil, nil, nil, "Contains the Tick Table Short Name if available. If so, field starts with TT=. Otherwise, indicates precision with which the price of an order limit can be expressed")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_raw_pair = ProtoField.new("Tick Increment Raw Pair", "tmx.mx.solamulticast.hsvf.v1.13.tickincrementrawpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_price = ProtoField.new("Tick Price", "tmx.mx.solamulticast.hsvf.v1.13.tickprice", ftypes.STRING, nil, nil, nil, "Used for this instrument if the price is higher than Min Price")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_price_fraction_indicator = ProtoField.new("Tick Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.tickpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_table_name = ProtoField.new("Tick Table Name", "tmx.mx.solamulticast.hsvf.v1.13.ticktablename", ftypes.STRING)
@@ -169,32 +207,32 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.message_header = ProtoField.new("Mess
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.packet = ProtoField.new("Packet", "tmx.mx.solamulticast.hsvf.v1.13.packet", ftypes.STRING, nil, nil, nil, "Hsvf Udp Packet")
 
 -- Tmx Mx SolaMulticast 1.13 Application Messages
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_future_options_summary_message = ProtoField.new("Beginning Of Future Options Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningoffutureoptionssummarymessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_futures_summary_message = ProtoField.new("Beginning Of Futures Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningoffuturessummarymessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningofoptionssummarymessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_strategy_summary_message = ProtoField.new("Beginning Of Strategy Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningofstrategysummarymessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bulletins_message = ProtoField.new("Bulletins Message", "tmx.mx.solamulticast.hsvf.v1.13.bulletinsmessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.circuit_assurance_message = ProtoField.new("Circuit Assurance Message", "tmx.mx.solamulticast.hsvf.v1.13.circuitassurancemessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.end_of_sales_message = ProtoField.new("End Of Sales Message", "tmx.mx.solamulticast.hsvf.v1.13.endofsalesmessage", ftypes.STRING, nil, nil, nil, "Sent when there is no more trading activity to be transmitted")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.end_of_transmission_message = ProtoField.new("End Of Transmission Message", "tmx.mx.solamulticast.hsvf.v1.13.endoftransmissionmessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_future_options_summary_message = ProtoField.new("Beginning Of Future Options Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningoffutureoptionssummarymessage", ftypes.STRING, nil, nil, nil, "This message indicates that the beginning and the end of day NB: Future Options Summary messages are to follow. Other messages (such as bulletins) can be interspersed with the summaries.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_futures_summary_message = ProtoField.new("Beginning Of Futures Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningoffuturessummarymessage", ftypes.STRING, nil, nil, nil, "This message indicates that the beginning or end-of-day NF: Future Summary messages are to follow. Other messages can be interspersed with the summaries.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningofoptionssummarymessage", ftypes.STRING, nil, nil, nil, "This message indicates that the beginning and the end of day N: Option Summary messages are to follow. Other messages (such as bulletins) can be interspersed with the summaries.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.beginning_of_strategy_summary_message = ProtoField.new("Beginning Of Strategy Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.beginningofstrategysummarymessage", ftypes.STRING, nil, nil, nil, "This message indicates that the beginning or the end of day NS: Strategy Summary messages are to follow. Other messages can be interspersed with the summaries.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bulletins_message = ProtoField.new("Bulletins Message", "tmx.mx.solamulticast.hsvf.v1.13.bulletinsmessage", ftypes.STRING, nil, nil, nil, "Bulletins will be sent throughout the trading day. More than one message will be used if the bulletin is longer than 79 characters. The continuation character ‘0’ indicates that the bulletin continues to the next record. When a Trading instrument has been halted by the Bourse de Montréal Inc., a Bulletin Message explaining the reason for the halt will be transmitted. When the trading instrument is reinstated, another bulletin message explaining the news that accompanied the reinstatement will be transmitted. All records that make up a particular bulletin will be sent out together. No other message will be interspersed among the records that make up a complete bulletin.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.circuit_assurance_message = ProtoField.new("Circuit Assurance Message", "tmx.mx.solamulticast.hsvf.v1.13.circuitassurancemessage", ftypes.STRING, nil, nil, nil, "This message is sent out if no messages are sent by SAM for more than one minute after the broadcast has started (i.e., at the termination of the Test Loop message). This will be an assurance that the line is up. This message will continue to be sent until the U: End of Transmission message is sent. The Circuit Assurance message will repeat the sequence number of the previous record transmitted (except if it is a re-transmit message), i.e. it will not increase the sequence number")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.end_of_sales_message = ProtoField.new("End Of Sales Message", "tmx.mx.solamulticast.hsvf.v1.13.endofsalesmessage", ftypes.STRING, nil, nil, nil, "The S: End of Sales message is sent when there is no more trading activity to be transmitted. This occurs after the closing of the market.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.end_of_transmission_message = ProtoField.new("End Of Transmission Message", "tmx.mx.solamulticast.hsvf.v1.13.endoftransmissionmessage", ftypes.STRING, nil, nil, nil, "This message will be sent daily to indicate that the day’s transmission is complete. No HSVF messages will be transmitted afterwards. Transmission will resume the following day.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_deliverables_message = ProtoField.new("Future Deliverables Message", "tmx.mx.solamulticast.hsvf.v1.13.futuredeliverablesmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_instrument_keys_message = ProtoField.new("Future Options Instrument Keys Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionsinstrumentkeysmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_market_depth_message = ProtoField.new("Future Options Market Depth Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionsmarketdepthmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_quote_message = ProtoField.new("Future Options Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionsquotemessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_request_for_quote_message = ProtoField.new("Future Options Request For Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionsrequestforquotemessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_summary_message = ProtoField.new("Future Options Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionssummarymessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_trade_cancellation_message = ProtoField.new("Future Options Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionstradecancellationmessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_trade_message = ProtoField.new("Future Options Trade Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionstrademessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_summary_message = ProtoField.new("Future Options Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionssummarymessage", ftypes.STRING, nil, nil, nil, "A Future Options Summary is sent following a future option trade cancellation. A Future options summary is also sent each day at the start of the day in order to provide a list of Future options which will be trading each day. At that point, all price fields with the exception of Previous Settlement Price (closing from previous day) will contain zero values. Any Future Options Summary sent after the QB: Beginning of Future Options Summary message contains the list of trading instruments for the day (sent prior to market opening) or the summaries after the close of the market for Bourse de Montréal Inc. Future options.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_trade_cancellation_message = ProtoField.new("Future Options Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionstradecancellationmessage", ftypes.STRING, nil, nil, nil, "A cancellation will reduce the total volume, value and transactions by the amount of the cancelled trade. A cancellation message is followed by a NB: Future Options Summary message which will reflect the corrected market.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_options_trade_message = ProtoField.new("Future Options Trade Message", "tmx.mx.solamulticast.hsvf.v1.13.futureoptionstrademessage", ftypes.STRING, nil, nil, nil, "Before the closing settlement prices are determined and transmitted for all OGB (Options on the 10-Year Canadian Government Bond Futures) and OBX (Options on the 3-Month Canadian Bankers' Acceptance Futures), most fields for each series will be blank/zero filled except for the Price field, which will contain the closing settlement price.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_request_for_quote_message = ProtoField.new("Future Request For Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.futurerequestforquotemessage", ftypes.STRING, nil, nil, nil, "Futures Request for Quote message")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_trade_cancellation_message = ProtoField.new("Future Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.futuretradecancellationmessage", ftypes.STRING, nil, nil, nil, "Futures Trade Cancellation message")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.future_trade_cancellation_message = ProtoField.new("Future Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.futuretradecancellationmessage", ftypes.STRING, nil, nil, nil, "A cancellation will reduce the total volume, value and transactions by the amount of the cancelled trade. A cancellation message is followed by a NF: Future Summary message which will reflect the corrected market.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_instrument_keys_message = ProtoField.new("Futures Instrument Keys Message", "tmx.mx.solamulticast.hsvf.v1.13.futuresinstrumentkeysmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_market_depth_message = ProtoField.new("Futures Market Depth Message", "tmx.mx.solamulticast.hsvf.v1.13.futuresmarketdepthmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_quote_message = ProtoField.new("Futures Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.futuresquotemessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_summary_message = ProtoField.new("Futures Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.futuressummarymessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_summary_message = ProtoField.new("Futures Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.futuressummarymessage", ftypes.STRING, nil, nil, nil, "A Futures Summary is sent following a Futures trade cancellation. A Futures summary is also sent each day at the start of the day in order to provide a list of Futures which will be trading each day. At that point, all price fields with the exception of previous settlement will contain zero values. Any summary sent after the QF: Beginning of Future Summary message contains the list of trading instruments for the day (sent prior to market opening) or the summaries after the close of the market for Bourse de Montréal Inc. Futures.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_trade_correction_message = ProtoField.new("Futures Trade Correction Message", "tmx.mx.solamulticast.hsvf.v1.13.futurestradecorrectionmessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_trade_message = ProtoField.new("Futures Trade Message", "tmx.mx.solamulticast.hsvf.v1.13.futurestrademessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.group_status_message = ProtoField.new("Group Status Message", "tmx.mx.solamulticast.hsvf.v1.13.groupstatusmessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.group_status_strategies_message = ProtoField.new("Group Status Strategies Message", "tmx.mx.solamulticast.hsvf.v1.13.groupstatusstrategiesmessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.futures_trade_message = ProtoField.new("Futures Trade Message", "tmx.mx.solamulticast.hsvf.v1.13.futurestrademessage", ftypes.STRING, nil, nil, nil, "Before the closing settlement prices are determined and transmitted for all CGB (10-Year Canadian Government Bond Futures) and BAX (3-Month Canadian Bankers' Acceptance Futures) products, most fields for each series will be blank/zero filled except for the Price field, which will contain the closing settlement price.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.group_status_message = ProtoField.new("Group Status Message", "tmx.mx.solamulticast.hsvf.v1.13.groupstatusmessage", ftypes.STRING, nil, nil, nil, "This message will be sent when a group of trading instruments enters a new status.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.group_status_strategies_message = ProtoField.new("Group Status Strategies Message", "tmx.mx.solamulticast.hsvf.v1.13.groupstatusstrategiesmessage", ftypes.STRING, nil, nil, nil, "This message will be sent when a strategy group of trading instruments enters a new status. All strategies have a predetermined group that can be found in the JS: Strategy Instrument Keys message.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.instrument_schedule_notice_future_message = ProtoField.new("Instrument Schedule Notice Future Message", "tmx.mx.solamulticast.hsvf.v1.13.instrumentschedulenoticefuturemessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.instrument_schedule_notice_futures_option_message = ProtoField.new("Instrument Schedule Notice Futures Option Message", "tmx.mx.solamulticast.hsvf.v1.13.instrumentschedulenoticefuturesoptionmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.instrument_schedule_notice_option_message = ProtoField.new("Instrument Schedule Notice Option Message", "tmx.mx.solamulticast.hsvf.v1.13.instrumentschedulenoticeoptionmessage", ftypes.STRING)
@@ -203,18 +241,19 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_instrument_keys_message = Prot
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_market_depth_message = ProtoField.new("Option Market Depth Message", "tmx.mx.solamulticast.hsvf.v1.13.optionmarketdepthmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_quote_message = ProtoField.new("Option Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.optionquotemessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_request_for_quote_message = ProtoField.new("Option Request For Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.optionrequestforquotemessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_summary_message = ProtoField.new("Option Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.optionsummarymessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_trade_cancellation_message = ProtoField.new("Option Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.optiontradecancellationmessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_summary_message = ProtoField.new("Option Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.optionsummarymessage", ftypes.STRING, nil, nil, nil, "An option summary message is sent following an option trade cancellation. An option summary message is also sent each day at the start of the day in order to provide a list of options which will be trading each day. At that point, all price fields with the exception of Last Price (closing from the previous day), will contain zero values. Any option summary sent after the Q: Beginning of Option Summary message contains the list of trading instruments for the day (sent prior to market opening) or the summaries after the close of the market for Bourse de Montréal Inc. options.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_trade_cancellation_message = ProtoField.new("Option Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.optiontradecancellationmessage", ftypes.STRING, nil, nil, nil, "A cancellation will reduce the total volume, value and transactions by the amount of the cancelled trade. A cancellation message is followed by a N: Option Summary which will reflect the corrected market.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_trade_message = ProtoField.new("Option Trade Message", "tmx.mx.solamulticast.hsvf.v1.13.optiontrademessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "tmx.mx.solamulticast.hsvf.v1.13.startofdaymessage", ftypes.STRING, nil, nil, nil, "This message is sent at the beginning of the day to provide the Business Date.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_instrument_keys_message = ProtoField.new("Strategy Instrument Keys Message", "tmx.mx.solamulticast.hsvf.v1.13.strategyinstrumentkeysmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_market_depth_message = ProtoField.new("Strategy Market Depth Message", "tmx.mx.solamulticast.hsvf.v1.13.strategymarketdepthmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_quote_message = ProtoField.new("Strategy Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.strategyquotemessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_request_for_quote_message = ProtoField.new("Strategy Request For Quote Message", "tmx.mx.solamulticast.hsvf.v1.13.strategyrequestforquotemessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_summary_message = ProtoField.new("Strategy Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.strategysummarymessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_trade_cancellation_message = ProtoField.new("Strategy Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.strategytradecancellationmessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_summary_message = ProtoField.new("Strategy Summary Message", "tmx.mx.solamulticast.hsvf.v1.13.strategysummarymessage", ftypes.STRING, nil, nil, nil, "A Strategy Summary is sent following a Strategy Trade Cancellation. A Strategy Summary is also sent each day at the start of the day in order to provide a list of Strategies which will be trading each day. At that point, all price fields will contain zero values. Any Strategy Summary sent after the QS: Beginning of Strategy Summary message contains the list of trading instruments for the day (sent prior to market opening) or the summaries after the close of the market for Bourse de Montréal Inc. Strategies.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_trade_cancellation_message = ProtoField.new("Strategy Trade Cancellation Message", "tmx.mx.solamulticast.hsvf.v1.13.strategytradecancellationmessage", ftypes.STRING, nil, nil, nil, "A cancellation will reduce the total volume, value and transactions by the amount of the cancelled trade. A cancellation message is followed by a NS: Strategy Summary message which will reflect the corrected market.")
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_trade_message = ProtoField.new("Strategy Trade Message", "tmx.mx.solamulticast.hsvf.v1.13.strategytrademessage", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_table_message = ProtoField.new("Tick Table Message", "tmx.mx.solamulticast.hsvf.v1.13.ticktablemessage", ftypes.STRING, nil, nil, nil, "Used to send the Tick Table information via HSVF")
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.underlying_instrument_keys_message = ProtoField.new("Underlying Instrument Keys Message", "tmx.mx.solamulticast.hsvf.v1.13.underlyinginstrumentkeysmessage", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_table_message = ProtoField.new("Tick Table Message", "tmx.mx.solamulticast.hsvf.v1.13.ticktablemessage", ftypes.STRING, nil, nil, nil, "The TT: Tick Table message is used to send the Tick Table information via HSVF.")
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.underlying_instrument_keys_message = ProtoField.new("Underlying Instrument Keys Message", "tmx.mx.solamulticast.hsvf.v1.13.underlyinginstrumentkeysmessage", ftypes.STRING, nil, nil, nil, "The 'Underlying Instrument Keys' message will be the first messages sent during the day. There is no 'Underlying Summary' message attached to the 'Instrument Keys' messages")
 
 -- Tmx Mx SolaMulticast Hsvf 1.13 Generated Fields
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bond_definition_index = ProtoField.new("Bond Definition Index", "tmx.mx.solamulticast.hsvf.v1.13.bonddefinitionindex", ftypes.UINT16)
@@ -224,6 +263,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_market_depth_level_index = Pro
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_instrument_leg_index = ProtoField.new("Strategy Instrument Leg Index", "tmx.mx.solamulticast.hsvf.v1.13.strategyinstrumentlegindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_market_depth_trading_instrument_index = ProtoField.new("Strategy Market Depth Trading Instrument Index", "tmx.mx.solamulticast.hsvf.v1.13.strategymarketdepthtradinginstrumentindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_entry_index = ProtoField.new("Tick Entry Index", "tmx.mx.solamulticast.hsvf.v1.13.tickentryindex", ftypes.UINT16)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_futures_depth = ProtoField.new("Scaled Ask Price Futures Depth", "tmx.mx.solamulticast.hsvf.v1.13.scaledaskpricefuturesdepth", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_quote = ProtoField.new("Scaled Ask Price Quote", "tmx.mx.solamulticast.hsvf.v1.13.scaledaskpricequote", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_summary = ProtoField.new("Scaled Ask Price Summary", "tmx.mx.solamulticast.hsvf.v1.13.scaledaskpricesummary", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_bid_price_quote = ProtoField.new("Scaled Bid Price Quote", "tmx.mx.solamulticast.hsvf.v1.13.scaledbidpricequote", ftypes.DOUBLE)
@@ -249,6 +289,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_previous_settlement_price = Pr
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_price = ProtoField.new("Scaled Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledprice", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_settlement_price = ProtoField.new("Scaled Settlement Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledsettlementprice", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledstrikeprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_strike_price_schedule_notice = ProtoField.new("Scaled Strike Price Schedule Notice", "tmx.mx.solamulticast.hsvf.v1.13.scaledstrikepriceschedulenotice", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_increment = ProtoField.new("Scaled Tick Increment", "tmx.mx.solamulticast.hsvf.v1.13.scaledtickincrement", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_price = ProtoField.new("Scaled Tick Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledtickprice", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_value = ProtoField.new("Scaled Tick Value", "tmx.mx.solamulticast.hsvf.v1.13.scaledtickvalue", ftypes.DOUBLE)
@@ -387,6 +428,27 @@ tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.display = function(
   if value == "G" then
     return "Ask Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Ask Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Ask Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Ask Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Ask Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Ask Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Ask Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Ask Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Ask Price Fraction Indicator: Unknown("..value..")"
 end
@@ -403,25 +465,104 @@ tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect = function(
   return offset + length, value
 end
 
--- Ask Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote = {}
+-- Ask Price Futures Depth Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric = {}
 
--- Size: Ask Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size = 7
+-- Size: Ask Price Futures Depth Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.size = 7
 
--- Display: Ask Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.display = function(value)
-  return "Ask Price Quote: "..value
+-- Display: Ask Price Futures Depth Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.display = function(value)
+  return "Ask Price Futures Depth Numeric: "..value
 end
 
--- Dissect: Ask Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size
+-- Dissect: Ask Price Futures Depth Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_numeric, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Futures Depth Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening = {}
+
+-- Size: Ask Price Futures Depth Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening.size = 7
+
+-- Display: Ask Price Futures Depth Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening.display = function(value)
+  return "Ask Price Futures Depth Opening: "..value
+end
+
+-- Dissect: Ask Price Futures Depth Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_opening, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric = {}
+
+-- Size: Ask Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size = 7
+
+-- Display: Ask Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.display = function(value)
+  return "Ask Price Quote Numeric: "..value
+end
+
+-- Dissect: Ask Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_numeric, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening = {}
+
+-- Size: Ask Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size = 7
+
+-- Display: Ask Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.display = function(value)
+  return "Ask Price Quote Opening: "..value
+end
+
+-- Dissect: Ask Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_opening, range, value, display)
 
   return offset + length, value
 end
@@ -434,7 +575,14 @@ tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.size = 1
 
 -- Display: Ask Price Sign
 tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.display = function(value)
-  return "Ask Price Sign: "..value
+  if value == "+" then
+    return "Ask Price Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "Ask Price Sign: Negative (-)"
+  end
+
+  return "Ask Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Sign
@@ -574,6 +722,27 @@ tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.display = function(
   if value == "G" then
     return "Bid Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Bid Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Bid Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Bid Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Bid Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Bid Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Bid Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Bid Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Bid Price Fraction Indicator: Unknown("..value..")"
 end
@@ -590,25 +759,53 @@ tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect = function(
   return offset + length, value
 end
 
--- Bid Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote = {}
+-- Bid Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric = {}
 
--- Size: Bid Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size = 7
+-- Size: Bid Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size = 7
 
--- Display: Bid Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.display = function(value)
-  return "Bid Price Quote: "..value
+-- Display: Bid Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.display = function(value)
+  return "Bid Price Quote Numeric: "..value
 end
 
--- Dissect: Bid Price Quote
-tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size
+-- Dissect: Bid Price Quote Numeric
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_numeric, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening = {}
+
+-- Size: Bid Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size = 7
+
+-- Display: Bid Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.display = function(value)
+  return "Bid Price Quote Opening: "..value
+end
+
+-- Dissect: Bid Price Quote Opening
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_opening, range, value, display)
 
   return offset + length, value
 end
@@ -621,7 +818,14 @@ tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.size = 1
 
 -- Display: Bid Price Sign
 tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.display = function(value)
-  return "Bid Price Sign: "..value
+  if value == "+" then
+    return "Bid Price Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "Bid Price Sign: Negative (-)"
+  end
+
+  return "Bid Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Bid Price Sign
@@ -732,6 +936,34 @@ tmx_mx_solamulticast_hsvf_v1_13.bulletin_type.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Business Date
+tmx_mx_solamulticast_hsvf_v1_13.business_date = {}
+
+-- Size: Business Date
+tmx_mx_solamulticast_hsvf_v1_13.business_date.size = 8
+
+-- Display: Business Date
+tmx_mx_solamulticast_hsvf_v1_13.business_date.display = function(value)
+  return "Business Date: "..value
+end
+
+-- Dissect: Business Date
+tmx_mx_solamulticast_hsvf_v1_13.business_date.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.business_date.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solamulticast_hsvf_v1_13.business_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.business_date, range, value, display)
+
+  return offset + length, value
+end
+
 -- Call Put Code
 tmx_mx_solamulticast_hsvf_v1_13.call_put_code = {}
 
@@ -770,7 +1002,14 @@ tmx_mx_solamulticast_hsvf_v1_13.continue_marker.size = 1
 
 -- Display: Continue Marker
 tmx_mx_solamulticast_hsvf_v1_13.continue_marker.display = function(value)
-  return "Continue Marker: "..value
+  if value == 0 then
+    return "Continue Marker: Bulletin Continues In Next Record (0)"
+  end
+  if value == 1 then
+    return "Continue Marker: Bulletin Ended (1)"
+  end
+
+  return "Continue Marker: Unknown("..value..")"
 end
 
 -- Dissect: Continue Marker
@@ -905,6 +1144,27 @@ tmx_mx_solamulticast_hsvf_v1_13.conversion_factor_fraction_indicator.display = f
   if value == "G" then
     return "Conversion Factor Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Conversion Factor Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Conversion Factor Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Conversion Factor Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Conversion Factor Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Conversion Factor Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Conversion Factor Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Conversion Factor Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Conversion Factor Fraction Indicator: Unknown("..value..")"
 end
@@ -1008,6 +1268,27 @@ tmx_mx_solamulticast_hsvf_v1_13.coupon_fraction_indicator.display = function(val
   if value == "G" then
     return "Coupon Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Coupon Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Coupon Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Coupon Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Coupon Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Coupon Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Coupon Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Coupon Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Coupon Fraction Indicator: Unknown("..value..")"
 end
@@ -1032,7 +1313,17 @@ tmx_mx_solamulticast_hsvf_v1_13.currency.size = 3
 
 -- Display: Currency
 tmx_mx_solamulticast_hsvf_v1_13.currency.display = function(value)
-  return "Currency: "..value
+  if value == "USD" then
+    return "Currency: Us (USD)"
+  end
+  if value == "CAD" then
+    return "Currency: Canadian (CAD)"
+  end
+  if value == "   " then
+    return "Currency: Not Provided (<whitespace>)"
+  end
+
+  return "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -1043,29 +1334,6 @@ tmx_mx_solamulticast_hsvf_v1_13.currency.dissect = function(buffer, offset, pack
   local display = tmx_mx_solamulticast_hsvf_v1_13.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.currency, range, value, display)
-
-  return offset + length, value
-end
-
--- Delivery Month
-tmx_mx_solamulticast_hsvf_v1_13.delivery_month = {}
-
--- Size: Delivery Month
-tmx_mx_solamulticast_hsvf_v1_13.delivery_month.size = 1
-
--- Display: Delivery Month
-tmx_mx_solamulticast_hsvf_v1_13.delivery_month.display = function(value)
-  return "Delivery Month: "..value
-end
-
--- Dissect: Delivery Month
-tmx_mx_solamulticast_hsvf_v1_13.delivery_month.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.delivery_month.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_13.delivery_month.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.delivery_month, range, value, display)
 
   return offset + length, value
 end
@@ -1192,40 +1460,76 @@ tmx_mx_solamulticast_hsvf_v1_13.expiry_month.size = 1
 -- Display: Expiry Month
 tmx_mx_solamulticast_hsvf_v1_13.expiry_month.display = function(value)
   if value == "A" then
-    return "Expiry Month: January (A)"
+    return "Expiry Month: January Call (A)"
   end
   if value == "B" then
-    return "Expiry Month: February (B)"
+    return "Expiry Month: February Call (B)"
   end
   if value == "C" then
-    return "Expiry Month: March (C)"
+    return "Expiry Month: March Call (C)"
   end
   if value == "D" then
-    return "Expiry Month: April (D)"
+    return "Expiry Month: April Call (D)"
   end
   if value == "E" then
-    return "Expiry Month: May (E)"
+    return "Expiry Month: May Call (E)"
   end
   if value == "F" then
-    return "Expiry Month: June (F)"
+    return "Expiry Month: June Call (F)"
   end
   if value == "G" then
-    return "Expiry Month: July (G)"
+    return "Expiry Month: July Call (G)"
   end
   if value == "H" then
-    return "Expiry Month: August (H)"
+    return "Expiry Month: August Call (H)"
   end
   if value == "I" then
-    return "Expiry Month: September (I)"
+    return "Expiry Month: September Call (I)"
   end
   if value == "J" then
-    return "Expiry Month: October (J)"
+    return "Expiry Month: October Call (J)"
   end
   if value == "K" then
-    return "Expiry Month: November (K)"
+    return "Expiry Month: November Call (K)"
   end
   if value == "L" then
-    return "Expiry Month: December (L)"
+    return "Expiry Month: December Call (L)"
+  end
+  if value == "M" then
+    return "Expiry Month: January Put (M)"
+  end
+  if value == "N" then
+    return "Expiry Month: February Put (N)"
+  end
+  if value == "O" then
+    return "Expiry Month: March Put (O)"
+  end
+  if value == "P" then
+    return "Expiry Month: April Put (P)"
+  end
+  if value == "Q" then
+    return "Expiry Month: May Put (Q)"
+  end
+  if value == "R" then
+    return "Expiry Month: June Put (R)"
+  end
+  if value == "S" then
+    return "Expiry Month: July Put (S)"
+  end
+  if value == "T" then
+    return "Expiry Month: August Put (T)"
+  end
+  if value == "U" then
+    return "Expiry Month: September Put (U)"
+  end
+  if value == "V" then
+    return "Expiry Month: October Put (V)"
+  end
+  if value == "W" then
+    return "Expiry Month: November Put (W)"
+  end
+  if value == "X" then
+    return "Expiry Month: December Put (X)"
   end
 
   return "Expiry Month: Unknown("..value..")"
@@ -1239,6 +1543,29 @@ tmx_mx_solamulticast_hsvf_v1_13.expiry_month.dissect = function(buffer, offset, 
   local display = tmx_mx_solamulticast_hsvf_v1_13.expiry_month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.expiry_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiry Month Strategy
+tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy = {}
+
+-- Size: Expiry Month Strategy
+tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy.size = 1
+
+-- Display: Expiry Month Strategy
+tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy.display = function(value)
+  return "Expiry Month Strategy: "..value
+end
+
+-- Dissect: Expiry Month Strategy
+tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.expiry_month_strategy, range, value, display)
 
   return offset + length, value
 end
@@ -1358,6 +1685,27 @@ tmx_mx_solamulticast_hsvf_v1_13.external_price_fraction_indicator.display = func
   if value == "G" then
     return "External Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "External Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "External Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "External Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "External Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "External Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "External Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "External Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "External Price Fraction Indicator: Unknown("..value..")"
 end
@@ -1405,7 +1753,35 @@ tmx_mx_solamulticast_hsvf_v1_13.group_status.size = 1
 
 -- Display: Group Status
 tmx_mx_solamulticast_hsvf_v1_13.group_status.display = function(value)
-  return "Group Status: "..value
+  if value == "Y" then
+    return "Group Status: Preopening (Y)"
+  end
+  if value == "O" then
+    return "Group Status: Opening (O)"
+  end
+  if value == "T" then
+    return "Group Status: Continuous Trading (T)"
+  end
+  if value == "F" then
+    return "Group Status: Forbidden (F)"
+  end
+  if value == "E" then
+    return "Group Status: Intervention Before Opening (E)"
+  end
+  if value == "H" then
+    return "Group Status: Halted Trading (H)"
+  end
+  if value == "A" then
+    return "Group Status: Surveillance Intervention (A)"
+  end
+  if value == "C" then
+    return "Group Status: Endof Day Inquiries (C)"
+  end
+  if value == " " then
+    return "Group Status: If Not Used (<whitespace>)"
+  end
+
+  return "Group Status: Unknown("..value..")"
 end
 
 -- Dissect: Group Status
@@ -1507,6 +1883,27 @@ tmx_mx_solamulticast_hsvf_v1_13.high_price_fraction_indicator.display = function
   if value == "G" then
     return "High Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "High Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "High Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "High Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "High Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "High Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "High Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "High Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "High Price Fraction Indicator: Unknown("..value..")"
 end
@@ -1531,7 +1928,14 @@ tmx_mx_solamulticast_hsvf_v1_13.high_price_sign.size = 1
 
 -- Display: High Price Sign
 tmx_mx_solamulticast_hsvf_v1_13.high_price_sign.display = function(value)
-  return "High Price Sign: "..value
+  if value == "+" then
+    return "High Price Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "High Price Sign: Negative (-)"
+  end
+
+  return "High Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: High Price Sign
@@ -1654,7 +2058,41 @@ tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size = 1
 
 -- Display: Instrument Status Marker
 tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.display = function(value)
-  return "Instrument Status Marker: "..value
+  if value == "Y" then
+    return "Instrument Status Marker: Preopening (Y)"
+  end
+  if value == "O" then
+    return "Instrument Status Marker: Opening (O)"
+  end
+  if value == "T" then
+    return "Instrument Status Marker: Continuous Trading (T)"
+  end
+  if value == "F" then
+    return "Instrument Status Marker: Forbidden (F)"
+  end
+  if value == "E" then
+    return "Instrument Status Marker: Intervention Before Opening (E)"
+  end
+  if value == "H" then
+    return "Instrument Status Marker: Halted Trading (H)"
+  end
+  if value == "R" then
+    return "Instrument Status Marker: Reserved (R)"
+  end
+  if value == "S" then
+    return "Instrument Status Marker: Suspended (S)"
+  end
+  if value == "A" then
+    return "Instrument Status Marker: Surveillance Intervention (A)"
+  end
+  if value == "C" then
+    return "Instrument Status Marker: Endof Day Inquiries (C)"
+  end
+  if value == " " then
+    return "Instrument Status Marker: If Not Used (<whitespace>)"
+  end
+
+  return "Instrument Status Marker: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Status Marker
@@ -1756,6 +2194,27 @@ tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.display = function
   if value == "G" then
     return "Last Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Last Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Last Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Last Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Last Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Last Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Last Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Last Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Last Price Fraction Indicator: Unknown("..value..")"
 end
@@ -1780,7 +2239,14 @@ tmx_mx_solamulticast_hsvf_v1_13.last_price_sign.size = 1
 
 -- Display: Last Price Sign
 tmx_mx_solamulticast_hsvf_v1_13.last_price_sign.display = function(value)
-  return "Last Price Sign: "..value
+  if value == "+" then
+    return "Last Price Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "Last Price Sign: Negative (-)"
+  end
+
+  return "Last Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Last Price Sign
@@ -1956,6 +2422,27 @@ tmx_mx_solamulticast_hsvf_v1_13.leg_price_fraction_indicator.display = function(
   if value == "G" then
     return "Leg Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Leg Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Leg Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Leg Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Leg Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Leg Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Leg Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Leg Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Leg Price Fraction Indicator: Unknown("..value..")"
 end
@@ -2059,6 +2546,27 @@ tmx_mx_solamulticast_hsvf_v1_13.leg_ratio_or_delta_fraction_indicator.display = 
   if value == "G" then
     return "Leg Ratio Or Delta Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Leg Ratio Or Delta Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Leg Ratio Or Delta Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Leg Ratio Or Delta Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Leg Ratio Or Delta Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Leg Ratio Or Delta Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Leg Ratio Or Delta Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Leg Ratio Or Delta Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Leg Ratio Or Delta Fraction Indicator: Unknown("..value..")"
 end
@@ -2083,7 +2591,26 @@ tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size = 1
 
 -- Display: Level Of Market Depth
 tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.display = function(value)
-  return "Level Of Market Depth: "..value
+  if value == "1" then
+    return "Level Of Market Depth: Level 1 (1)"
+  end
+  if value == "2" then
+    return "Level Of Market Depth: Level 2 (2)"
+  end
+  if value == "3" then
+    return "Level Of Market Depth: Level 3 (3)"
+  end
+  if value == "4" then
+    return "Level Of Market Depth: Level 4 (4)"
+  end
+  if value == "5" then
+    return "Level Of Market Depth: Level 5 (5)"
+  end
+  if value == "A" then
+    return "Level Of Market Depth: Implied (A)"
+  end
+
+  return "Level Of Market Depth: Unknown("..value..")"
 end
 
 -- Dissect: Level Of Market Depth
@@ -2185,6 +2712,27 @@ tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.display = function(
   if value == "G" then
     return "Low Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Low Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Low Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Low Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Low Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Low Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Low Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Low Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Low Price Fraction Indicator: Unknown("..value..")"
 end
@@ -2209,7 +2757,14 @@ tmx_mx_solamulticast_hsvf_v1_13.low_price_sign.size = 1
 
 -- Display: Low Price Sign
 tmx_mx_solamulticast_hsvf_v1_13.low_price_sign.display = function(value)
-  return "Low Price Sign: "..value
+  if value == "+" then
+    return "Low Price Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "Low Price Sign: Negative (-)"
+  end
+
+  return "Low Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Sign
@@ -2352,6 +2907,27 @@ tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.displ
   if value == "G" then
     return "Maximum Threshold Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Maximum Threshold Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Maximum Threshold Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Maximum Threshold Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Maximum Threshold Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Maximum Threshold Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Maximum Threshold Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Maximum Threshold Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Maximum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
@@ -2411,7 +2987,12 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.maximum_threshold_price_options, range, value, display)
@@ -2597,6 +3178,9 @@ tmx_mx_solamulticast_hsvf_v1_13.message_type.display = function(value)
   if value == "V" then
     return "Message Type: Circuit Assurance Message (V)"
   end
+  if value == "SD" then
+    return "Message Type: Start Of Day Message (SD)"
+  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -2700,6 +3284,27 @@ tmx_mx_solamulticast_hsvf_v1_13.min_price_fraction_indicator.display = function(
   if value == "G" then
     return "Min Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Min Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Min Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Min Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Min Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Min Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Min Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Min Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Min Price Fraction Indicator: Unknown("..value..")"
 end
@@ -2798,6 +3403,27 @@ tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.displ
   if value == "G" then
     return "Minimum Threshold Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Minimum Threshold Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Minimum Threshold Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Minimum Threshold Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Minimum Threshold Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Minimum Threshold Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Minimum Threshold Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Minimum Threshold Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Minimum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
@@ -2857,7 +3483,12 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.minimum_threshold_price_options, range, value, display)
@@ -2952,6 +3583,27 @@ tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.display = function
   if value == "G" then
     return "Net Change Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Net Change Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Net Change Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Net Change Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Net Change Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Net Change Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Net Change Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Net Change Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Net Change Fraction Indicator: Unknown("..value..")"
 end
@@ -2976,7 +3628,14 @@ tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.size = 1
 
 -- Display: Net Change Sign
 tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.display = function(value)
-  return "Net Change Sign: "..value
+  if value == "+" then
+    return "Net Change Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "Net Change Sign: Negative (-)"
+  end
+
+  return "Net Change Sign: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Sign
@@ -3322,6 +3981,27 @@ tmx_mx_solamulticast_hsvf_v1_13.open_price_fraction_indicator.display = function
   if value == "G" then
     return "Open Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Open Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Open Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Open Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Open Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Open Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Open Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Open Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Open Price Fraction Indicator: Unknown("..value..")"
 end
@@ -3346,7 +4026,14 @@ tmx_mx_solamulticast_hsvf_v1_13.open_price_sign.size = 1
 
 -- Display: Open Price Sign
 tmx_mx_solamulticast_hsvf_v1_13.open_price_sign.display = function(value)
-  return "Open Price Sign: "..value
+  if value == "+" then
+    return "Open Price Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "Open Price Sign: Negative (-)"
+  end
+
+  return "Open Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Sign
@@ -3448,6 +4135,27 @@ tmx_mx_solamulticast_hsvf_v1_13.opening_price_fraction_indicator.display = funct
   if value == "G" then
     return "Opening Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Opening Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Opening Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Opening Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Opening Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Opening Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Opening Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Opening Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Opening Price Fraction Indicator: Unknown("..value..")"
 end
@@ -3472,7 +4180,38 @@ tmx_mx_solamulticast_hsvf_v1_13.option_marker.size = 2
 
 -- Display: Option Marker
 tmx_mx_solamulticast_hsvf_v1_13.option_marker.display = function(value)
-  return "Option Marker: "..value
+  if value == "B" then
+    return "Option Marker: Trading In British Pound (B)"
+  end
+  if value == "C" then
+    return "Option Marker: Trading In Canadian Dollar (C)"
+  end
+  if value == "D" then
+    return "Option Marker: Danish Krone (D)"
+  end
+  if value == "E" then
+    return "Option Marker: Trading In Swiss Franc (E)"
+  end
+  if value == "F" then
+    return "Option Marker: Trading In Euro (F)"
+  end
+  if value == "N" then
+    return "Option Marker: Norwegian Krone (N)"
+  end
+  if value == "S" then
+    return "Option Marker: Swedish Krona (S)"
+  end
+  if value == "U" then
+    return "Option Marker: Trading In Us Dollar (U)"
+  end
+  if value == "Y" then
+    return "Option Marker: Trading In Japanese Yen (Y)"
+  end
+  if value == "X" then
+    return "Option Marker: British Pence (X)"
+  end
+
+  return "Option Marker: Unknown("..value..")"
 end
 
 -- Dissect: Option Marker
@@ -3632,6 +4371,27 @@ tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_fraction_indicator.display =
   if value == "G" then
     return "Previous Settlement Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Previous Settlement Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Previous Settlement Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Previous Settlement Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Previous Settlement Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Previous Settlement Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Previous Settlement Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Previous Settlement Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Previous Settlement Fraction Indicator: Unknown("..value..")"
 end
@@ -3734,6 +4494,27 @@ tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.dis
   end
   if value == "G" then
     return "Previous Settlement Price Fraction Indicator: Negative Million (G)"
+  end
+  if value == "Z" then
+    return "Previous Settlement Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Previous Settlement Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Previous Settlement Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Previous Settlement Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Previous Settlement Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Previous Settlement Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Previous Settlement Price Fraction Indicator: Empty (<whitespace>)"
   end
 
   return "Previous Settlement Price Fraction Indicator: Unknown("..value..")"
@@ -3838,6 +4619,27 @@ tmx_mx_solamulticast_hsvf_v1_13.price_fraction_indicator.display = function(valu
   if value == "G" then
     return "Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Price Fraction Indicator: Unknown("..value..")"
 end
@@ -3862,7 +4664,77 @@ tmx_mx_solamulticast_hsvf_v1_13.price_indicator_marker.size = 1
 
 -- Display: Price Indicator Marker
 tmx_mx_solamulticast_hsvf_v1_13.price_indicator_marker.display = function(value)
-  return "Price Indicator Marker: "..value
+  if value == "A" then
+    return "Price Indicator Marker: Asof Trade (A)"
+  end
+  if value == "B" then
+    return "Price Indicator Marker: Block Trade (B)"
+  end
+  if value == " " then
+    return "Price Indicator Marker: Actual Transaction Took Place (<whitespace>)"
+  end
+  if value == "D" then
+    return "Price Indicator Marker: Crossed (D)"
+  end
+  if value == "E" then
+    return "Price Indicator Marker: Efp Reporting (E)"
+  end
+  if value == "G" then
+    return "Price Indicator Marker: Contingent Trade (G)"
+  end
+  if value == "H" then
+    return "Price Indicator Marker: Riskless Basis Cross (H)"
+  end
+  if value == "I" then
+    return "Price Indicator Marker: Implied Trade (I)"
+  end
+  if value == "J" then
+    return "Price Indicator Marker: Delta Trade (J)"
+  end
+  if value == "K" then
+    return "Price Indicator Marker: Committed Block (K)"
+  end
+  if value == "L" then
+    return "Price Indicator Marker: Late Trade (L)"
+  end
+  if value == "M" then
+    return "Price Indicator Marker: For Future Use (M)"
+  end
+  if value == "N" then
+    return "Price Indicator Marker: For Future Use (N)"
+  end
+  if value == "P" then
+    return "Price Indicator Marker: Strategy Reporting (P)"
+  end
+  if value == "Q" then
+    return "Price Indicator Marker: For Future Use (Q)"
+  end
+  if value == "R" then
+    return "Price Indicator Marker: Efr Reporting (R)"
+  end
+  if value == "S" then
+    return "Price Indicator Marker: Reference Price (S)"
+  end
+  if value == "t" then
+    return "Price Indicator Marker: Trade Correction (t)"
+  end
+  if value == "T" then
+    return "Price Indicator Marker: Committed (T)"
+  end
+  if value == "U" then
+    return "Price Indicator Marker: Basis On Close (U)"
+  end
+  if value == "V" then
+    return "Price Indicator Marker: Price Volume Adjustment (V)"
+  end
+  if value == "Y" then
+    return "Price Indicator Marker: For Future Use (Y)"
+  end
+  if value == "Z" then
+    return "Price Indicator Marker: For Future Use (Z)"
+  end
+
+  return "Price Indicator Marker: Unknown("..value..")"
 end
 
 -- Dissect: Price Indicator Marker
@@ -4015,29 +4887,6 @@ tmx_mx_solamulticast_hsvf_v1_13.reserved.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Root
-tmx_mx_solamulticast_hsvf_v1_13.root = {}
-
--- Size: Root
-tmx_mx_solamulticast_hsvf_v1_13.root.size = 6
-
--- Display: Root
-tmx_mx_solamulticast_hsvf_v1_13.root.display = function(value)
-  return "Root: "..value
-end
-
--- Dissect: Root
-tmx_mx_solamulticast_hsvf_v1_13.root.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.root.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_solamulticast_hsvf_v1_13.root.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.root, range, value, display)
-
-  return offset + length, value
-end
-
 -- Root Symbol
 tmx_mx_solamulticast_hsvf_v1_13.root_symbol = {}
 
@@ -4057,6 +4906,29 @@ tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect = function(buffer, offset, p
   local display = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.root_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Root Symbol Group
+tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group = {}
+
+-- Size: Root Symbol Group
+tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group.size = 6
+
+-- Display: Root Symbol Group
+tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group.display = function(value)
+  return "Root Symbol Group: "..value
+end
+
+-- Dissect: Root Symbol Group
+tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.root_symbol_group, range, value, display)
 
   return offset + length, value
 end
@@ -4125,7 +4997,41 @@ tmx_mx_solamulticast_hsvf_v1_13.series_status.size = 1
 
 -- Display: Series Status
 tmx_mx_solamulticast_hsvf_v1_13.series_status.display = function(value)
-  return "Series Status: "..value
+  if value == "Y" then
+    return "Series Status: Preopening (Y)"
+  end
+  if value == "O" then
+    return "Series Status: Opening (O)"
+  end
+  if value == "T" then
+    return "Series Status: Continuous Trading (T)"
+  end
+  if value == "F" then
+    return "Series Status: Forbidden (F)"
+  end
+  if value == "E" then
+    return "Series Status: Intervention Before Opening (E)"
+  end
+  if value == "H" then
+    return "Series Status: Halted Trading (H)"
+  end
+  if value == "R" then
+    return "Series Status: Reserved (R)"
+  end
+  if value == "S" then
+    return "Series Status: Suspended (S)"
+  end
+  if value == "A" then
+    return "Series Status: Surveillance Intervention (A)"
+  end
+  if value == "C" then
+    return "Series Status: Endof Day Inquiries (C)"
+  end
+  if value == " " then
+    return "Series Status: If Not Used (<whitespace>)"
+  end
+
+  return "Series Status: Unknown("..value..")"
 end
 
 -- Dissect: Series Status
@@ -4226,6 +5132,27 @@ tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.display = fu
   end
   if value == "G" then
     return "Settlement Price Fraction Indicator: Negative Million (G)"
+  end
+  if value == "Z" then
+    return "Settlement Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Settlement Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Settlement Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Settlement Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Settlement Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Settlement Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Settlement Price Fraction Indicator: Empty (<whitespace>)"
   end
 
   return "Settlement Price Fraction Indicator: Unknown("..value..")"
@@ -4414,7 +5341,17 @@ tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.size = 3
 
 -- Display: Strike Price Currency
 tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.display = function(value)
-  return "Strike Price Currency: "..value
+  if value == "USD" then
+    return "Strike Price Currency: Us (USD)"
+  end
+  if value == "CAD" then
+    return "Strike Price Currency: Canadian (CAD)"
+  end
+  if value == "   " then
+    return "Strike Price Currency: Not Provided (<whitespace>)"
+  end
+
+  return "Strike Price Currency: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Currency
@@ -4488,6 +5425,27 @@ tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.display = functi
   if value == "G" then
     return "Strike Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Strike Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Strike Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Strike Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Strike Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Strike Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Strike Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Strike Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Strike Price Fraction Indicator: Unknown("..value..")"
 end
@@ -4500,6 +5458,34 @@ tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.dissect = functi
   local display = tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strike Price Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice = {}
+
+-- Size: Strike Price Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.size = 7
+
+-- Display: Strike Price Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.display = function(value)
+  return "Strike Price Schedule Notice: "..value
+end
+
+-- Dissect: Strike Price Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price_schedule_notice, range, value, display)
 
   return offset + length, value
 end
@@ -4535,7 +5521,44 @@ tmx_mx_solamulticast_hsvf_v1_13.symbol_month.size = 1
 
 -- Display: Symbol Month
 tmx_mx_solamulticast_hsvf_v1_13.symbol_month.display = function(value)
-  return "Symbol Month: "..value
+  if value == "F" then
+    return "Symbol Month: January (F)"
+  end
+  if value == "G" then
+    return "Symbol Month: February (G)"
+  end
+  if value == "H" then
+    return "Symbol Month: March (H)"
+  end
+  if value == "J" then
+    return "Symbol Month: April (J)"
+  end
+  if value == "K" then
+    return "Symbol Month: May (K)"
+  end
+  if value == "M" then
+    return "Symbol Month: June (M)"
+  end
+  if value == "N" then
+    return "Symbol Month: July (N)"
+  end
+  if value == "Q" then
+    return "Symbol Month: August (Q)"
+  end
+  if value == "U" then
+    return "Symbol Month: September (U)"
+  end
+  if value == "V" then
+    return "Symbol Month: October (V)"
+  end
+  if value == "X" then
+    return "Symbol Month: November (X)"
+  end
+  if value == "Z" then
+    return "Symbol Month: December (Z)"
+  end
+
+  return "Symbol Month: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Month
@@ -4608,29 +5631,6 @@ tmx_mx_solamulticast_hsvf_v1_13.tick.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Tick Increment
-tmx_mx_solamulticast_hsvf_v1_13.tick_increment = {}
-
--- Size: Tick Increment
-tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size = 7
-
--- Display: Tick Increment
-tmx_mx_solamulticast_hsvf_v1_13.tick_increment.display = function(value)
-  return "Tick Increment: "..value
-end
-
--- Dissect: Tick Increment
-tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tick Increment Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator = {}
 
@@ -4690,6 +5690,27 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.display = func
   if value == "G" then
     return "Tick Increment Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Tick Increment Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Tick Increment Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Tick Increment Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Tick Increment Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Tick Increment Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Tick Increment Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Tick Increment Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Tick Increment Fraction Indicator: Unknown("..value..")"
 end
@@ -4702,6 +5723,57 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect = func
   local display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_fraction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Increment Numeric
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric = {}
+
+-- Size: Tick Increment Numeric
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.size = 7
+
+-- Display: Tick Increment Numeric
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.display = function(value)
+  return "Tick Increment Numeric: "..value
+end
+
+-- Dissect: Tick Increment Numeric
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_numeric, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tick Increment Raw
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw = {}
+
+-- Size: Tick Increment Raw
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw.size = 7
+
+-- Display: Tick Increment Raw
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw.display = function(value)
+  return "Tick Increment Raw: "..value
+end
+
+-- Dissect: Tick Increment Raw
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_raw, range, value, display)
 
   return offset + length, value
 end
@@ -4793,6 +5865,27 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_price_fraction_indicator.display = function
   if value == "G" then
     return "Tick Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Tick Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Tick Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Tick Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Tick Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Tick Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Tick Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Tick Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Tick Price Fraction Indicator: Unknown("..value..")"
 end
@@ -4824,7 +5917,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.tick_table_name.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.tick_table_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solamulticast_hsvf_v1_13.tick_table_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_table_name, range, value, display)
@@ -4941,6 +6034,27 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.display = function
   end
   if value == "G" then
     return "Tick Value Fraction Indicator: Negative Million (G)"
+  end
+  if value == "Z" then
+    return "Tick Value Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Tick Value Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Tick Value Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Tick Value Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Tick Value Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Tick Value Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Tick Value Fraction Indicator: Empty (<whitespace>)"
   end
 
   return "Tick Value Fraction Indicator: Unknown("..value..")"
@@ -5096,6 +6210,27 @@ tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.display = functio
   if value == "G" then
     return "Trade Price Fraction Indicator: Negative Million (G)"
   end
+  if value == "Z" then
+    return "Trade Price Fraction Indicator: Times Ten (Z)"
+  end
+  if value == "Y" then
+    return "Trade Price Fraction Indicator: Times Hundred (Y)"
+  end
+  if value == "X" then
+    return "Trade Price Fraction Indicator: Times Thousand (X)"
+  end
+  if value == "W" then
+    return "Trade Price Fraction Indicator: Times Ten Thousand (W)"
+  end
+  if value == "V" then
+    return "Trade Price Fraction Indicator: Times Hundred Thousand (V)"
+  end
+  if value == "U" then
+    return "Trade Price Fraction Indicator: Times Million (U)"
+  end
+  if value == " " then
+    return "Trade Price Fraction Indicator: Empty (<whitespace>)"
+  end
 
   return "Trade Price Fraction Indicator: Unknown("..value..")"
 end
@@ -5120,7 +6255,14 @@ tmx_mx_solamulticast_hsvf_v1_13.trade_price_sign.size = 1
 
 -- Display: Trade Price Sign
 tmx_mx_solamulticast_hsvf_v1_13.trade_price_sign.display = function(value)
-  return "Trade Price Sign: "..value
+  if value == "+" then
+    return "Trade Price Sign: Positive (+)"
+  end
+  if value == "-" then
+    return "Trade Price Sign: Negative (-)"
+  end
+
+  return "Trade Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Trade Price Sign
@@ -5173,7 +6315,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.underlying_symbol, range, value, display)
@@ -5189,7 +6331,44 @@ tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_month.size = 1
 
 -- Display: Underlying Symbol Month
 tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_month.display = function(value)
-  return "Underlying Symbol Month: "..value
+  if value == "F" then
+    return "Underlying Symbol Month: January (F)"
+  end
+  if value == "G" then
+    return "Underlying Symbol Month: February (G)"
+  end
+  if value == "H" then
+    return "Underlying Symbol Month: March (H)"
+  end
+  if value == "J" then
+    return "Underlying Symbol Month: April (J)"
+  end
+  if value == "K" then
+    return "Underlying Symbol Month: May (K)"
+  end
+  if value == "M" then
+    return "Underlying Symbol Month: June (M)"
+  end
+  if value == "N" then
+    return "Underlying Symbol Month: July (N)"
+  end
+  if value == "Q" then
+    return "Underlying Symbol Month: August (Q)"
+  end
+  if value == "U" then
+    return "Underlying Symbol Month: September (U)"
+  end
+  if value == "V" then
+    return "Underlying Symbol Month: October (V)"
+  end
+  if value == "X" then
+    return "Underlying Symbol Month: November (X)"
+  end
+  if value == "Z" then
+    return "Underlying Symbol Month: December (Z)"
+  end
+
+  return "Underlying Symbol Month: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Symbol Month
@@ -5219,7 +6398,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.underlying_symbol_root, range, value, display)
@@ -5283,6 +6462,91 @@ tmx_mx_solamulticast_hsvf_v1_13.volume.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Scaled Ask Price Futures Depth
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth = {}
+
+-- Display: Scaled Ask Price Futures Depth
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display = function(value)
+  return "Scaled Ask Price Futures Depth: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Ask Price Futures Depth with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display_uncoded = function(value)
+  return "Scaled Ask Price Futures Depth: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Ask Price Futures Depth
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if ask_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  elseif ask_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_futures_depth, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_numeric, range, mantissa, mantissa_display)
+
+  local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
+  ask_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
 -- Scaled Ask Price Quote
 tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote = {}
 
@@ -5298,7 +6562,7 @@ end
 
 -- Composite: Scaled Ask Price Quote
 tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
 
@@ -5334,15 +6598,33 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect = function(buffer
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display_uncoded(value)
   end
 
   local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_quote, range, value, display)
-  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.display(mantissa)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.display(mantissa)
 
-  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote, range, mantissa, mantissa_display)
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_numeric, range, mantissa, mantissa_display)
 
   local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
   ask_price_fraction_indicator_entry:set_generated()
@@ -5401,6 +6683,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.dissect = function(buff
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display_uncoded(value)
@@ -5432,7 +6732,7 @@ end
 
 -- Composite: Scaled Bid Price Quote
 tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size
+  local length = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
 
@@ -5468,15 +6768,33 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect = function(buffer
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display_uncoded(value)
   end
 
   local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_bid_price_quote, range, value, display)
-  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.display(mantissa)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.display(mantissa)
 
-  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote, range, mantissa, mantissa_display)
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_numeric, range, mantissa, mantissa_display)
 
   local bid_price_fraction_indicator_entry = field_tree:add("Bid Price Fraction Indicator: " .. tostring(bid_price_fraction_indicator))
   bid_price_fraction_indicator_entry:set_generated()
@@ -5534,6 +6852,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.dissect = function(buff
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
   else
     value = mantissa
@@ -5602,6 +6938,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.dissect = function(buff
   elseif conversion_factor_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display_uncoded(value)
@@ -5668,6 +7022,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.dissect = function(buffer, offset,
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
   elseif coupon_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
   else
     value = mantissa
@@ -5736,6 +7108,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.dissect = functi
   elseif external_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display_uncoded(value)
@@ -5802,6 +7192,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.dissect = function(buffer, off
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
   elseif high_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
   else
     value = mantissa
@@ -5870,6 +7278,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.dissect = function(buffer, off
   elseif last_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display_uncoded(value)
@@ -5936,6 +7362,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.dissect = function(buffer, offs
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
   elseif leg_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
   else
     value = mantissa
@@ -6004,6 +7448,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.dissect = function(buf
   elseif leg_ratio_or_delta_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display_uncoded(value)
@@ -6070,6 +7532,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.dissect = function(buffer, offs
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
   elseif low_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
   else
     value = mantissa
@@ -6138,6 +7618,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.dissect =
   elseif maximum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display_uncoded(value)
@@ -6204,6 +7702,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.dissect =
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
   elseif maximum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
   else
     value = mantissa
@@ -6272,6 +7788,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.dissect = function(buffer, offs
   elseif min_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display_uncoded(value)
@@ -6338,6 +7872,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.dissect =
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
   elseif minimum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
   else
     value = mantissa
@@ -6406,6 +7958,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.dissect =
   elseif minimum_threshold_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display_uncoded(value)
@@ -6472,6 +8042,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect = function(buffer, off
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
   elseif net_change_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
   else
     value = mantissa
@@ -6540,6 +8128,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.dissect = function(buffer, off
   elseif open_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display_uncoded(value)
@@ -6606,6 +8212,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.dissect = function(buffer, 
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
   elseif opening_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
   else
     value = mantissa
@@ -6674,6 +8298,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.dissect = function(bu
   elseif previous_settlement_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display_uncoded(value)
@@ -6740,6 +8382,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.dissect = funct
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
   elseif previous_settlement_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
   else
     value = mantissa
@@ -6808,6 +8468,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_price.dissect = function(buffer, offset, 
   elseif price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display_uncoded(value)
@@ -6874,6 +8552,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.dissect = function(buffe
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
   elseif settlement_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
   else
     value = mantissa
@@ -6942,6 +8638,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.dissect = function(buffer, o
   elseif strike_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display_uncoded(value)
@@ -6951,6 +8665,91 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.dissect = function(buffer, o
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.strike_price.display(mantissa)
 
   field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price, range, mantissa, mantissa_display)
+
+  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
+  strike_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Strike Price Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice = {}
+
+-- Display: Scaled Strike Price Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display = function(value)
+  return "Scaled Strike Price Schedule Notice: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Strike Price Schedule Notice with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display_uncoded = function(value)
+  return "Scaled Strike Price Schedule Notice: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Strike Price Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if strike_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  elseif strike_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_strike_price_schedule_notice, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price_schedule_notice, range, mantissa, mantissa_display)
 
   local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
   strike_price_fraction_indicator_entry:set_generated()
@@ -6973,7 +8772,7 @@ end
 
 -- Composite: Scaled Tick Increment
 tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size
+  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
 
@@ -7009,15 +8808,33 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect = function(buffer,
   elseif tick_increment_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display_uncoded(value)
   end
 
   local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_increment, range, value, display)
-  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.display(mantissa)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.display(mantissa)
 
-  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment, range, mantissa, mantissa_display)
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_numeric, range, mantissa, mantissa_display)
 
   local tick_increment_fraction_indicator_entry = field_tree:add("Tick Increment Fraction Indicator: " .. tostring(tick_increment_fraction_indicator))
   tick_increment_fraction_indicator_entry:set_generated()
@@ -7075,6 +8892,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.dissect = function(buffer, off
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
   elseif tick_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
   else
     value = mantissa
@@ -7143,6 +8978,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.dissect = function(buffer, off
   elseif tick_value_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display_uncoded(value)
@@ -7210,6 +9063,24 @@ tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect = function(buffer, of
   elseif trade_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "Z" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "Y" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "X" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "W" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "V" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "U" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
   else
     value = mantissa
     display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display_uncoded(value)
@@ -7230,6 +9101,50 @@ end
 -----------------------------------------------------------------------
 -- Dissect Tmx Mx SolaMulticast Hsvf 1.13
 -----------------------------------------------------------------------
+
+-- Start Of Day Message
+tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message = {}
+
+-- Size: Start Of Day Message
+tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.size =
+  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.business_date.size
+
+-- Display: Start Of Day Message
+tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Start Of Day Message
+tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Exchange Id: A
+  index, exchange_id = tmx_mx_solamulticast_hsvf_v1_13.exchange_id.dissect(buffer, index, packet, parent)
+
+  -- Business Date: N
+  index, business_date = tmx_mx_solamulticast_hsvf_v1_13.business_date.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Start Of Day Message
+tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.start_of_day_message, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Circuit Assurance Message
 tmx_mx_solamulticast_hsvf_v1_13.circuit_assurance_message = {}
@@ -7695,7 +9610,7 @@ tmx_mx_solamulticast_hsvf_v1_13.bond_definition.fields = function(buffer, offset
   -- Conversion Factor: N
   index, conversion_factor = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.dissect(buffer, index, packet, parent)
 
-  -- Conversion Factor Fraction Indicator: X
+  -- Conversion Factor Fraction Indicator: A
   index, conversion_factor_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.conversion_factor_fraction_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -7724,7 +9639,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_product = {}
 
 -- Size: Future Product
 tmx_mx_solamulticast_hsvf_v1_13.future_product.size =
-  tmx_mx_solamulticast_hsvf_v1_13.root.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.root_symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_13.symbol_month.size + 
   tmx_mx_solamulticast_hsvf_v1_13.symbol_year.size + 
   tmx_mx_solamulticast_hsvf_v1_13.expiry_day.size
@@ -7738,8 +9653,8 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.future_product.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root: A
-  index, root = tmx_mx_solamulticast_hsvf_v1_13.root.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Symbol Month: A
   index, symbol_month = tmx_mx_solamulticast_hsvf_v1_13.symbol_month.dissect(buffer, index, packet, parent)
@@ -7889,7 +9804,7 @@ tmx_mx_solamulticast_hsvf_v1_13.group_status_message = {}
 -- Size: Group Status Message
 tmx_mx_solamulticast_hsvf_v1_13.group_status_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group.size + 
   tmx_mx_solamulticast_hsvf_v1_13.group_status.size
 
 -- Display: Group Status Message
@@ -7904,8 +9819,8 @@ tmx_mx_solamulticast_hsvf_v1_13.group_status_message.fields = function(buffer, o
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_13.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol: X
-  index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
+  -- Root Symbol Group: X
+  index, root_symbol_group = tmx_mx_solamulticast_hsvf_v1_13.root_symbol_group.dissect(buffer, index, packet, parent)
 
   -- Group Status: A
   index, group_status = tmx_mx_solamulticast_hsvf_v1_13.group_status.dissect(buffer, index, packet, parent)
@@ -7971,16 +9886,16 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_trade_correction_message.fields = functi
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign: A
+  -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: A
+  -- Price Indicator Marker: X
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_13.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
@@ -8209,7 +10124,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Exchange Id: A
+  -- Exchange Id: X
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_13.exchange_id.dissect(buffer, index, packet, parent)
 
   -- Strategy Symbol: X
@@ -8275,13 +10190,13 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign: A
+  -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -8406,16 +10321,16 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_summary_message.fields = function(buffer
   -- Settlement Price: N
   index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator: N
+  -- Settlement Price Fraction Indicator: X
   index, settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign: A
+  -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -8468,7 +10383,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol = {}
 
 -- Size: Future Option Symbol
 tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.size =
-  tmx_mx_solamulticast_hsvf_v1_13.root.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.root_symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_13.symbol_month.size + 
   tmx_mx_solamulticast_hsvf_v1_13.symbol_year.size + 
   tmx_mx_solamulticast_hsvf_v1_13.expiry_day.size + 
@@ -8485,8 +10400,8 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root: A
-  index, root = tmx_mx_solamulticast_hsvf_v1_13.root.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Symbol Month: A
   index, symbol_month = tmx_mx_solamulticast_hsvf_v1_13.symbol_month.dissect(buffer, index, packet, parent)
@@ -8497,7 +10412,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.fields = function(buffer, o
   -- Expiry Day: N
   index, expiry_day = tmx_mx_solamulticast_hsvf_v1_13.expiry_day.dissect(buffer, index, packet, parent)
 
-  -- Call Put Code: A
+  -- Call Put Code: S
   index, call_put_code = tmx_mx_solamulticast_hsvf_v1_13.call_put_code.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
@@ -8612,13 +10527,13 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.fields = function
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign: A
+  -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Opening Price: N
@@ -8642,7 +10557,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.fields = function
   -- Settlement Price: N
   index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator: N
+  -- Settlement Price Fraction Indicator: X
   index, settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price: N
@@ -8680,7 +10595,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_symbol = {}
 
 -- Size: Option Symbol
 tmx_mx_solamulticast_hsvf_v1_13.option_symbol.size =
-  tmx_mx_solamulticast_hsvf_v1_13.root.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.root_symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_13.expiry_month.size + 
   tmx_mx_solamulticast_hsvf_v1_13.strike_price.size + 
   tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.size + 
@@ -8696,8 +10611,8 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.option_symbol.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root: A
-  index, root = tmx_mx_solamulticast_hsvf_v1_13.root.dissect(buffer, index, packet, parent)
+  -- Root Symbol: X
+  index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_13.expiry_month.dissect(buffer, index, packet, parent)
@@ -8821,13 +10736,13 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.fields = function(buffer,
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign: A
+  -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
@@ -8953,6 +10868,196 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_leg.dissect = function(buffe
   end
 end
 
+-- Tick Increment Raw Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair = {}
+
+-- Size: Tick Increment Raw Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.size
+
+-- Display: Tick Increment Raw Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tick Increment Raw Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tick Increment Raw: X
+  index, tick_increment_raw = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw.dissect(buffer, index, packet, parent)
+
+  -- Tick Increment Fraction Indicator: X
+  index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Tick Increment Raw Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_raw_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Tick Increment Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair = {}
+
+-- Size: Tick Increment Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.size
+
+-- Display: Tick Increment Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tick Increment Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tick Increment Numeric: X
+  index, tick_increment_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
+
+  -- Tick Increment Fraction Indicator: X
+  index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Tick Increment Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Tick Increment
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment = {}
+
+-- Dissect: Tick Increment
+tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect = function(buffer, offset, packet, parent, tick_increment_fraction_indicator)
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "1" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "2" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "3" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "4" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "5" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "6" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "7" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "8" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "9" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "A" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "B" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "C" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "D" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "E" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "F" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "G" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "Z" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "Y" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "X" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "W" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "V" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tick Increment Numeric Pair
+  if tick_increment_fraction_indicator == "U" then
+    return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Tick Increment Raw Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.tick_increment_raw_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Strategy Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_keys_message = {}
 
@@ -8966,7 +11071,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_keys_message.size = function
 
   index = index + tmx_mx_solamulticast_hsvf_v1_13.expiry_year.size
 
-  index = index + tmx_mx_solamulticast_hsvf_v1_13.delivery_month.size
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy.size
 
   index = index + tmx_mx_solamulticast_hsvf_v1_13.expiry_day.size
 
@@ -8982,9 +11087,10 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_keys_message.size = function
 
   index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size
 
-  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size
-
-  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.size
+  -- Calculate runtime size of Tick Increment field
+  local tick_increment_offset = offset + index
+  local tick_increment_type = buffer(tick_increment_offset + 7, 1):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
 
   index = index + tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.size
 
@@ -9029,8 +11135,8 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_keys_message.fields = functi
   -- Expiry Year: N
   index, expiry_year = tmx_mx_solamulticast_hsvf_v1_13.expiry_year.dissect(buffer, index, packet, parent)
 
-  -- Delivery Month: A
-  index, delivery_month = tmx_mx_solamulticast_hsvf_v1_13.delivery_month.dissect(buffer, index, packet, parent)
+  -- Expiry Month Strategy: A
+  index, expiry_month_strategy = tmx_mx_solamulticast_hsvf_v1_13.expiry_month_strategy.dissect(buffer, index, packet, parent)
 
   -- Expiry Day: N
   index, expiry_day = tmx_mx_solamulticast_hsvf_v1_13.expiry_day.dissect(buffer, index, packet, parent)
@@ -9053,11 +11159,11 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_keys_message.fields = functi
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
+  -- Dependency element: Tick Increment Fraction Indicator
+  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
 
-  -- Tick Increment Fraction Indicator: X
-  index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Tick Increment: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
 
   -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.dissect(buffer, index, packet, parent)
@@ -9131,7 +11237,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.associated_product.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root Symbol: X
+  -- Root Symbol: A
   index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Symbol Month: A
@@ -9167,31 +11273,59 @@ end
 -- Futures Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message = {}
 
--- Size: Futures Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.size =
-  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.future_product.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.expiry_date.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_number_of_contracts_per_order.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_futures.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_futures.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.group_instrument.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument_external_code.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.contract_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_value.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.currency.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.delivery_type.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.associated_product.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.size
+-- Calculate size of: Futures Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.future_product.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.expiry_date.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_number_of_contracts_per_order.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_futures.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_futures.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size
+
+  -- Calculate runtime size of Tick Increment field
+  local tick_increment_offset = offset + index
+  local tick_increment_type = buffer(tick_increment_offset + 7, 1):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.group_instrument.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument_external_code.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.contract_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_value.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.currency.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.delivery_type.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.associated_product.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.size
+
+  return index
+end
 
 -- Display: Futures Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.display = function(packet, parent, length)
@@ -9229,11 +11363,11 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.fields = functio
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
+  -- Dependency element: Tick Increment Fraction Indicator
+  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
 
-  -- Tick Increment Fraction Indicator: X
-  index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Tick Increment: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
 
   -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.dissect(buffer, index, packet, parent)
@@ -9262,7 +11396,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.fields = functio
   -- Underlying Symbol: X
   index, underlying_symbol = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Delivery Type: X
+  -- Delivery Type: A
   index, delivery_type = tmx_mx_solamulticast_hsvf_v1_13.delivery_type.dissect(buffer, index, packet, parent)
 
   -- Associated Product: Struct of 4 fields
@@ -9347,33 +11481,63 @@ end
 -- Future Options Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message = {}
 
--- Size: Future Options Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.size =
-  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.expiry_date.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_number_of_contracts_per_order.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.group_instrument.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument_external_code.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.contract_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_value.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.currency.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.delivery_type.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.underlying_root_symbol.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_month.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_year.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.size
+-- Calculate size of: Future Options Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.expiry_date.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_number_of_contracts_per_order.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size
+
+  -- Calculate runtime size of Tick Increment field
+  local tick_increment_offset = offset + index
+  local tick_increment_type = buffer(tick_increment_offset + 7, 1):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.group_instrument.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument_external_code.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.contract_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_value.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.currency.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.delivery_type.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.underlying_root_symbol.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_month.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_year.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.size
+
+  return index
+end
 
 -- Display: Future Options Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.display = function(packet, parent, length)
@@ -9414,11 +11578,11 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.fields = 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
+  -- Dependency element: Tick Increment Fraction Indicator
+  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
 
-  -- Tick Increment Fraction Indicator: X
-  index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Tick Increment: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
 
   -- Market Flow Indicator: X
   index, market_flow_indicator = tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.dissect(buffer, index, packet, parent)
@@ -9444,7 +11608,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.fields = 
   -- Currency: A
   index, currency = tmx_mx_solamulticast_hsvf_v1_13.currency.dissect(buffer, index, packet, parent)
 
-  -- Delivery Type: X
+  -- Delivery Type: A
   index, delivery_type = tmx_mx_solamulticast_hsvf_v1_13.delivery_type.dissect(buffer, index, packet, parent)
 
   -- Underlying Root Symbol: A
@@ -9483,32 +11647,61 @@ end
 -- Option Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.option_instrument_keys_message = {}
 
--- Size: Option Instrument Keys Message
-tmx_mx_solamulticast_hsvf_v1_13.option_instrument_keys_message.size =
-  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.option_symbol.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_number_of_contracts_per_order.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.option_type.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.group_instrument.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument_external_code.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.option_marker.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.contract_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_value.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.currency.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.delivery_type.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.size
+-- Calculate size of: Option Instrument Keys Message
+tmx_mx_solamulticast_hsvf_v1_13.option_instrument_keys_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.option_symbol.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_number_of_contracts_per_order.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size
+
+  -- Calculate runtime size of Tick Increment field
+  local tick_increment_offset = offset + index
+  local tick_increment_type = buffer(tick_increment_offset + 7, 1):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size(buffer, tick_increment_offset, tick_increment_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.option_type.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.market_flow_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.group_instrument.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument_external_code.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.option_marker.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.contract_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_value.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.currency.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.delivery_type.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.size
+
+  return index
+end
 
 -- Display: Option Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.option_instrument_keys_message.display = function(packet, parent, length)
@@ -9546,11 +11739,11 @@ tmx_mx_solamulticast_hsvf_v1_13.option_instrument_keys_message.fields = function
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
+  -- Dependency element: Tick Increment Fraction Indicator
+  local tick_increment_fraction_indicator = buffer(index + 7, 1):string()
 
-  -- Tick Increment Fraction Indicator: X
-  index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Tick Increment: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent, tick_increment_fraction_indicator)
 
   -- Option Type: A
   index, option_type = tmx_mx_solamulticast_hsvf_v1_13.option_type.dissect(buffer, index, packet, parent)
@@ -9713,7 +11906,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_trade_cancellation_message.fields = funct
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: A
+  -- Price Indicator Marker: X
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_13.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
@@ -9868,22 +12061,243 @@ tmx_mx_solamulticast_hsvf_v1_13.option_trade_cancellation_message.dissect = func
   end
 end
 
+-- Ask Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair = {}
+
+-- Size: Ask Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Numeric: X
+  index, ask_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair = {}
+
+-- Size: Ask Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Opening: X
+  index, ask_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Strategy Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument = {}
+
+-- Dissect: Ask Price Quote Strategy Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument.dissect = function(buffer, offset, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
+  -- Dissect Ask Price Quote Strategy Market Depth Trading Instrument Opening Pair
+  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Ask Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair = {}
+
+-- Size: Bid Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Numeric: X
+  index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair = {}
+
+-- Size: Bid Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Opening: X
+  index, bid_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Strategy Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Strategy Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument = {}
+
+-- Dissect: Bid Price Quote Strategy Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
+  -- Dissect Bid Price Quote Strategy Market Depth Trading Instrument Opening Pair
+  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Bid Price Quote Strategy Market Depth Trading Instrument Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Strategy Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument = {}
 
--- Size: Strategy Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.size =
-  tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+-- Calculate size of: Strategy Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.size
+
+  -- Calculate runtime size of Bid Price Quote Strategy Market Depth Trading Instrument field
+  local bid_price_quote_strategy_market_depth_trading_instrument_offset = offset + index
+  local bid_price_quote_strategy_market_depth_trading_instrument_type = buffer(bid_price_quote_strategy_market_depth_trading_instrument_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument.size(buffer, bid_price_quote_strategy_market_depth_trading_instrument_offset, bid_price_quote_strategy_market_depth_trading_instrument_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.size
+
+  -- Calculate runtime size of Ask Price Quote Strategy Market Depth Trading Instrument field
+  local ask_price_quote_strategy_market_depth_trading_instrument_offset = offset + index
+  local ask_price_quote_strategy_market_depth_trading_instrument_type = buffer(ask_price_quote_strategy_market_depth_trading_instrument_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument.size(buffer, ask_price_quote_strategy_market_depth_trading_instrument_offset, ask_price_quote_strategy_market_depth_trading_instrument_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+
+  return index
+end
 
 -- Display: Strategy Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -9906,11 +12320,14 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.fields 
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote Strategy Market Depth Trading Instrument: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_market_depth_trading_instrument.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
@@ -9921,11 +12338,14 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.fields 
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Quote Opening
+  local ask_price_quote_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Quote Strategy Market Depth Trading Instrument: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_market_depth_trading_instrument.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
@@ -9971,8 +12391,9 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_message.size = function(bu
 
   -- Calculate field size from count
   local strategy_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  index = index + strategy_market_depth_trading_instrument_count * 33
-
+  for i = 1, strategy_market_depth_trading_instrument_count do
+    index = index + tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.size(buffer, offset + index)
+  end
   return index
 end
 
@@ -10023,20 +12444,239 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_message.dissect = function
   end
 end
 
+-- Ask Price Futures Depth Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair = {}
+
+-- Size: Ask Price Futures Depth Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Futures Depth Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Futures Depth Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Futures Depth Numeric: N
+  index, ask_price_futures_depth_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_futures_depth.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Futures Depth Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Futures Depth Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair = {}
+
+-- Size: Ask Price Futures Depth Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Futures Depth Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Futures Depth Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Futures Depth Opening: N
+  index, ask_price_futures_depth_opening = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_opening.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Futures Depth Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Futures Depth Futures Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument = {}
+
+-- Dissect: Ask Price Futures Depth Futures Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument.dissect = function(buffer, offset, packet, parent, ask_price_futures_depth_opening, ask_price_fraction_indicator)
+  -- Dissect Ask Price Futures Depth Futures Market Depth Trading Instrument Opening Pair
+  if ask_price_futures_depth_opening == "OUV" and ask_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Ask Price Futures Depth Futures Market Depth Trading Instrument Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Quote Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair = {}
+
+-- Size: Bid Price Quote Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Numeric: X
+  index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Futures Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair = {}
+
+-- Size: Bid Price Quote Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Opening: X
+  index, bid_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Futures Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_market_depth_trading_instrument_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Futures Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument = {}
+
+-- Dissect: Bid Price Quote Futures Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
+  -- Dissect Bid Price Quote Futures Market Depth Trading Instrument Opening Pair
+  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Bid Price Quote Futures Market Depth Trading Instrument Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Futures Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument = {}
 
--- Size: Futures Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.size =
-  tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+-- Calculate size of: Futures Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size
+
+  -- Calculate runtime size of Bid Price Quote Futures Market Depth Trading Instrument field
+  local bid_price_quote_futures_market_depth_trading_instrument_offset = offset + index
+  local bid_price_quote_futures_market_depth_trading_instrument_type = buffer(bid_price_quote_futures_market_depth_trading_instrument_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument.size(buffer, bid_price_quote_futures_market_depth_trading_instrument_offset, bid_price_quote_futures_market_depth_trading_instrument_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size
+
+  -- Calculate runtime size of Ask Price Futures Depth Futures Market Depth Trading Instrument field
+  local ask_price_futures_depth_futures_market_depth_trading_instrument_offset = offset + index
+  local ask_price_futures_depth_futures_market_depth_trading_instrument_type = buffer(ask_price_futures_depth_futures_market_depth_trading_instrument_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument.size(buffer, ask_price_futures_depth_futures_market_depth_trading_instrument_offset, ask_price_futures_depth_futures_market_depth_trading_instrument_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+
+  return index
+end
 
 -- Display: Futures Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -10056,11 +12696,14 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.fields =
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote Futures Market Depth Trading Instrument: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_market_depth_trading_instrument.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
@@ -10068,11 +12711,14 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.fields =
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Futures Depth Opening
+  local ask_price_futures_depth_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Futures Depth Futures Market Depth Trading Instrument: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_futures_depth_futures_market_depth_trading_instrument.dissect(buffer, index, packet, parent, ask_price_futures_depth_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
@@ -10118,8 +12764,9 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_message.size = function(buf
 
   -- Calculate field size from count
   local futures_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  index = index + futures_market_depth_trading_instrument_count * 31
-
+  for i = 1, futures_market_depth_trading_instrument_count do
+    index = index + tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.size(buffer, offset + index)
+  end
   return index
 end
 
@@ -10170,20 +12817,239 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_message.dissect = function(
   end
 end
 
+-- Ask Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair = {}
+
+-- Size: Ask Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Numeric: X
+  index, ask_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair = {}
+
+-- Size: Ask Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Opening: X
+  index, ask_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Future Options Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument = {}
+
+-- Dissect: Ask Price Quote Future Options Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument.dissect = function(buffer, offset, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
+  -- Dissect Ask Price Quote Future Options Market Depth Trading Instrument Opening Pair
+  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Ask Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair = {}
+
+-- Size: Bid Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Numeric: X
+  index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair = {}
+
+-- Size: Bid Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Opening: X
+  index, bid_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Future Options Market Depth Trading Instrument Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Future Options Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument = {}
+
+-- Dissect: Bid Price Quote Future Options Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
+  -- Dissect Bid Price Quote Future Options Market Depth Trading Instrument Opening Pair
+  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Bid Price Quote Future Options Market Depth Trading Instrument Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Future Options Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument = {}
 
--- Size: Future Options Market Depth Trading Instrument
-tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.size =
-  tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+-- Calculate size of: Future Options Market Depth Trading Instrument
+tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size
+
+  -- Calculate runtime size of Bid Price Quote Future Options Market Depth Trading Instrument field
+  local bid_price_quote_future_options_market_depth_trading_instrument_offset = offset + index
+  local bid_price_quote_future_options_market_depth_trading_instrument_type = buffer(bid_price_quote_future_options_market_depth_trading_instrument_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument.size(buffer, bid_price_quote_future_options_market_depth_trading_instrument_offset, bid_price_quote_future_options_market_depth_trading_instrument_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size
+
+  -- Calculate runtime size of Ask Price Quote Future Options Market Depth Trading Instrument field
+  local ask_price_quote_future_options_market_depth_trading_instrument_offset = offset + index
+  local ask_price_quote_future_options_market_depth_trading_instrument_type = buffer(ask_price_quote_future_options_market_depth_trading_instrument_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument.size(buffer, ask_price_quote_future_options_market_depth_trading_instrument_offset, ask_price_quote_future_options_market_depth_trading_instrument_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+
+  return index
+end
 
 -- Display: Future Options Market Depth Trading Instrument
 tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.display = function(packet, parent, length)
@@ -10203,11 +13069,14 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.f
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote Future Options Market Depth Trading Instrument: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_future_options_market_depth_trading_instrument.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
@@ -10215,11 +13084,14 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.f
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Quote Opening
+  local ask_price_quote_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Quote Future Options Market Depth Trading Instrument: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_future_options_market_depth_trading_instrument.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
@@ -10265,8 +13137,9 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_message.size = funct
 
   -- Calculate field size from count
   local future_options_market_depth_trading_instrument_count = buffer(offset + index - 1, 1):string()
-  index = index + future_options_market_depth_trading_instrument_count * 31
-
+  for i = 1, future_options_market_depth_trading_instrument_count do
+    index = index + tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.size(buffer, offset + index)
+  end
   return index
 end
 
@@ -10317,20 +13190,239 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_message.dissect = fu
   end
 end
 
+-- Ask Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair = {}
+
+-- Size: Ask Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Numeric: X
+  index, ask_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_option_market_depth_level_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair = {}
+
+-- Size: Ask Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Opening: X
+  index, ask_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_option_market_depth_level_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Option Market Depth Level
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level = {}
+
+-- Dissect: Ask Price Quote Option Market Depth Level
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level.dissect = function(buffer, offset, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
+  -- Dissect Ask Price Quote Option Market Depth Level Opening Pair
+  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Ask Price Quote Option Market Depth Level Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair = {}
+
+-- Size: Bid Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Numeric: X
+  index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Option Market Depth Level Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_option_market_depth_level_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair = {}
+
+-- Size: Bid Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Opening: X
+  index, bid_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Option Market Depth Level Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_option_market_depth_level_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Option Market Depth Level
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level = {}
+
+-- Dissect: Bid Price Quote Option Market Depth Level
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
+  -- Dissect Bid Price Quote Option Market Depth Level Opening Pair
+  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Bid Price Quote Option Market Depth Level Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Option Market Depth Level
 tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level = {}
 
--- Size: Option Market Depth Level
-tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.size =
-  tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+-- Calculate size of: Option Market Depth Level
+tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.size
+
+  -- Calculate runtime size of Bid Price Quote Option Market Depth Level field
+  local bid_price_quote_option_market_depth_level_offset = offset + index
+  local bid_price_quote_option_market_depth_level_type = buffer(bid_price_quote_option_market_depth_level_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level.size(buffer, bid_price_quote_option_market_depth_level_offset, bid_price_quote_option_market_depth_level_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.size
+
+  -- Calculate runtime size of Ask Price Quote Option Market Depth Level field
+  local ask_price_quote_option_market_depth_level_offset = offset + index
+  local ask_price_quote_option_market_depth_level_type = buffer(ask_price_quote_option_market_depth_level_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level.size(buffer, ask_price_quote_option_market_depth_level_offset, ask_price_quote_option_market_depth_level_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.number_of_ask_orders.size
+
+  return index
+end
 
 -- Display: Option Market Depth Level
 tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.display = function(packet, parent, length)
@@ -10350,11 +13442,14 @@ tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.fields = function(buff
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote Option Market Depth Level: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_option_market_depth_level.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
@@ -10362,11 +13457,14 @@ tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.fields = function(buff
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Quote Opening
+  local ask_price_quote_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Quote Option Market Depth Level: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_option_market_depth_level.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
@@ -10412,8 +13510,9 @@ tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_message.size = function(buff
 
   -- Calculate field size from count
   local option_market_depth_level_count = buffer(offset + index - 1, 1):string()
-  index = index + option_market_depth_level_count * 31
-
+  for i = 1, option_market_depth_level_count do
+    index = index + tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.size(buffer, offset + index)
+  end
   return index
 end
 
@@ -10464,22 +13563,243 @@ tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_message.dissect = function(b
   end
 end
 
+-- Ask Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair = {}
+
+-- Size: Ask Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Numeric: X
+  index, ask_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_quote_message_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair = {}
+
+-- Size: Ask Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Opening: X
+  index, ask_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_strategy_quote_message_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Strategy Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message = {}
+
+-- Dissect: Ask Price Quote Strategy Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message.dissect = function(buffer, offset, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
+  -- Dissect Ask Price Quote Strategy Quote Message Opening Pair
+  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Ask Price Quote Strategy Quote Message Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair = {}
+
+-- Size: Bid Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Numeric: X
+  index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Strategy Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_quote_message_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair = {}
+
+-- Size: Bid Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Opening: X
+  index, bid_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Strategy Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_strategy_quote_message_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Strategy Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message = {}
+
+-- Dissect: Bid Price Quote Strategy Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
+  -- Dissect Bid Price Quote Strategy Quote Message Opening Pair
+  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Bid Price Quote Strategy Quote Message Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Strategy Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message = {}
 
--- Size: Strategy Quote Message
-tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.size =
-  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.symbol.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+-- Calculate size of: Strategy Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.symbol.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.size
+
+  -- Calculate runtime size of Bid Price Quote Strategy Quote Message field
+  local bid_price_quote_strategy_quote_message_offset = offset + index
+  local bid_price_quote_strategy_quote_message_type = buffer(bid_price_quote_strategy_quote_message_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message.size(buffer, bid_price_quote_strategy_quote_message_offset, bid_price_quote_strategy_quote_message_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.size
+
+  -- Calculate runtime size of Ask Price Quote Strategy Quote Message field
+  local ask_price_quote_strategy_quote_message_offset = offset + index
+  local ask_price_quote_strategy_quote_message_type = buffer(ask_price_quote_strategy_quote_message_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message.size(buffer, ask_price_quote_strategy_quote_message_offset, ask_price_quote_strategy_quote_message_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+
+  return index
+end
 
 -- Display: Strategy Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.display = function(packet, parent, length)
@@ -10499,11 +13819,14 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.fields = function(buffer,
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote Strategy Quote Message: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_strategy_quote_message.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
@@ -10511,16 +13834,19 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.fields = function(buffer,
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Quote Opening
+  local ask_price_quote_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Quote Strategy Quote Message: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_strategy_quote_message.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Instrument Status Marker: A
+  -- Instrument Status Marker: X
   index, instrument_status_marker = tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.dissect(buffer, index, packet, parent)
 
   return index
@@ -10544,20 +13870,239 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.dissect = function(buffer
   end
 end
 
+-- Ask Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair = {}
+
+-- Size: Ask Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Numeric: X
+  index, ask_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_futures_quote_message_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair = {}
+
+-- Size: Ask Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Opening: X
+  index, ask_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_futures_quote_message_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Futures Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message = {}
+
+-- Dissect: Ask Price Quote Futures Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message.dissect = function(buffer, offset, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
+  -- Dissect Ask Price Quote Futures Quote Message Opening Pair
+  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Ask Price Quote Futures Quote Message Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair = {}
+
+-- Size: Bid Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Numeric: X
+  index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Futures Quote Message Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_quote_message_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair = {}
+
+-- Size: Bid Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Opening: X
+  index, bid_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Futures Quote Message Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_futures_quote_message_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Futures Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message = {}
+
+-- Dissect: Bid Price Quote Futures Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
+  -- Dissect Bid Price Quote Futures Quote Message Opening Pair
+  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Bid Price Quote Futures Quote Message Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Futures Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message = {}
 
--- Size: Futures Quote Message
-tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message.size =
-  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.future_product.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+-- Calculate size of: Futures Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.future_product.size
+
+  -- Calculate runtime size of Bid Price Quote Futures Quote Message field
+  local bid_price_quote_futures_quote_message_offset = offset + index
+  local bid_price_quote_futures_quote_message_type = buffer(bid_price_quote_futures_quote_message_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message.size(buffer, bid_price_quote_futures_quote_message_offset, bid_price_quote_futures_quote_message_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  -- Calculate runtime size of Ask Price Quote Futures Quote Message field
+  local ask_price_quote_futures_quote_message_offset = offset + index
+  local ask_price_quote_futures_quote_message_type = buffer(ask_price_quote_futures_quote_message_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message.size(buffer, ask_price_quote_futures_quote_message_offset, ask_price_quote_futures_quote_message_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+
+  return index
+end
 
 -- Display: Futures Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message.display = function(packet, parent, length)
@@ -10574,20 +14119,26 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message.fields = function(buffer, 
   -- Future Product: Struct of 4 fields
   index, future_product = tmx_mx_solamulticast_hsvf_v1_13.future_product.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote Futures Quote Message: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_futures_quote_message.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Quote Opening
+  local ask_price_quote_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Quote Futures Quote Message: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_futures_quote_message.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
@@ -10616,20 +14167,239 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message.dissect = function(buffer,
   end
 end
 
+-- Ask Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair = {}
+
+-- Size: Ask Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Numeric: X
+  index, ask_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair = {}
+
+-- Size: Ask Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size
+
+-- Display: Ask Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ask Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ask Price Quote Opening: X
+  index, ask_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Fraction Indicator: X
+  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ask Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ask Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote = {}
+
+-- Dissect: Ask Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect = function(buffer, offset, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
+  -- Dissect Ask Price Quote Opening Pair
+  if ask_price_quote_opening == "OUV" and ask_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Ask Price Quote Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair = {}
+
+-- Size: Bid Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Numeric: X
+  index, bid_price_quote_numeric = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Numeric Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_numeric_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair = {}
+
+-- Size: Bid Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.size =
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size
+
+-- Display: Bid Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Bid Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Quote Opening: X
+  index, bid_price_quote_opening = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Fraction Indicator: X
+  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price Quote Opening Pair
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote_opening_pair, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote = {}
+
+-- Dissect: Bid Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect = function(buffer, offset, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
+  -- Dissect Bid Price Quote Opening Pair
+  if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+    return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_opening_pair.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Bid Price Quote Numeric Pair
+  return tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote_numeric_pair.dissect(buffer, offset, packet, parent)
+end
+
 -- Future Options Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.future_options_quote_message = {}
 
--- Size: Future Options Quote Message
-tmx_mx_solamulticast_hsvf_v1_13.future_options_quote_message.size =
-  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+-- Calculate size of: Future Options Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.future_options_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.size
+
+  -- Calculate runtime size of Bid Price Quote field
+  local bid_price_quote_offset = offset + index
+  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  -- Calculate runtime size of Ask Price Quote field
+  local ask_price_quote_offset = offset + index
+  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+
+  return index
+end
 
 -- Display: Future Options Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.future_options_quote_message.display = function(packet, parent, length)
@@ -10646,20 +14416,26 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_quote_message.fields = function(b
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Quote Opening
+  local ask_price_quote_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Quote: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
@@ -10691,17 +14467,32 @@ end
 -- Option Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.option_quote_message = {}
 
--- Size: Option Quote Message
-tmx_mx_solamulticast_hsvf_v1_13.option_quote_message.size =
-  tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.option_symbol.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.bid_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+-- Calculate size of: Option Quote Message
+tmx_mx_solamulticast_hsvf_v1_13.option_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.option_symbol.size
+
+  -- Calculate runtime size of Bid Price Quote field
+  local bid_price_quote_offset = offset + index
+  local bid_price_quote_type = buffer(bid_price_quote_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size(buffer, bid_price_quote_offset, bid_price_quote_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.bid_size.size
+
+  -- Calculate runtime size of Ask Price Quote field
+  local ask_price_quote_offset = offset + index
+  local ask_price_quote_type = buffer(ask_price_quote_offset - 0, 7):string()
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size(buffer, ask_price_quote_offset, ask_price_quote_type)
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.ask_size.size
+
+  index = index + tmx_mx_solamulticast_hsvf_v1_13.instrument_status_marker.size
+
+  return index
+end
 
 -- Display: Option Quote Message
 tmx_mx_solamulticast_hsvf_v1_13.option_quote_message.display = function(packet, parent, length)
@@ -10718,20 +14509,26 @@ tmx_mx_solamulticast_hsvf_v1_13.option_quote_message.fields = function(buffer, o
   -- Option Symbol: Struct of 6 fields
   index, option_symbol = tmx_mx_solamulticast_hsvf_v1_13.option_symbol.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Quote Opening
+  local bid_price_quote_opening = buffer(index, 7):string()
 
-  -- Bid Price Fraction Indicator: X
-  index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Bid Price Fraction Indicator
+  local bid_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Bid Price Quote: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent, bid_price_quote_opening, bid_price_fraction_indicator)
 
   -- Bid Size: X
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Quote Opening
+  local ask_price_quote_opening = buffer(index, 7):string()
 
-  -- Ask Price Fraction Indicator: X
-  index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
+  -- Dependency element: Ask Price Fraction Indicator
+  local ask_price_fraction_indicator = buffer(index + 7, 1):string()
+
+  -- Ask Price Quote: Runtime Type with 2 branches
+  index = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent, ask_price_quote_opening, ask_price_fraction_indicator)
 
   -- Ask Size: X
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
@@ -10916,13 +14713,73 @@ tmx_mx_solamulticast_hsvf_v1_13.instrument_schedule_notice_futures_option_messag
   end
 end
 
+-- Option Symbol Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice = {}
+
+-- Size: Option Symbol Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.size =
+  tmx_mx_solamulticast_hsvf_v1_13.root_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.expiry_month.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.strike_price_schedule_notice.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.expiry_year.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.expiry_day.size
+
+-- Display: Option Symbol Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Option Symbol Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Root Symbol: X
+  index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiry Month: A
+  index, expiry_month = tmx_mx_solamulticast_hsvf_v1_13.expiry_month.dissect(buffer, index, packet, parent)
+
+  -- Strike Price Schedule Notice: X
+  index, strike_price_schedule_notice = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price_schedule_notice.dissect(buffer, index, packet, parent)
+
+  -- Strike Price Fraction Indicator: X
+  index, strike_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Expiry Year: N
+  index, expiry_year = tmx_mx_solamulticast_hsvf_v1_13.expiry_year.dissect(buffer, index, packet, parent)
+
+  -- Expiry Day: N
+  index, expiry_day = tmx_mx_solamulticast_hsvf_v1_13.expiry_day.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Option Symbol Schedule Notice
+tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_symbol_schedule_notice, buffer(offset, 0))
+    local index = tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Instrument Schedule Notice Option Message
 tmx_mx_solamulticast_hsvf_v1_13.instrument_schedule_notice_option_message = {}
 
 -- Size: Instrument Schedule Notice Option Message
 tmx_mx_solamulticast_hsvf_v1_13.instrument_schedule_notice_option_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.option_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.size + 
   tmx_mx_solamulticast_hsvf_v1_13.series_status.size + 
   tmx_mx_solamulticast_hsvf_v1_13.scheduled_status_change_time.size
 
@@ -10938,8 +14795,8 @@ tmx_mx_solamulticast_hsvf_v1_13.instrument_schedule_notice_option_message.fields
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_13.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Option Symbol: Struct of 6 fields
-  index, option_symbol = tmx_mx_solamulticast_hsvf_v1_13.option_symbol.dissect(buffer, index, packet, parent)
+  -- Option Symbol Schedule Notice: Struct of 6 fields
+  index, option_symbol_schedule_notice = tmx_mx_solamulticast_hsvf_v1_13.option_symbol_schedule_notice.dissect(buffer, index, packet, parent)
 
   -- Series Status: A
   index, series_status = tmx_mx_solamulticast_hsvf_v1_13.series_status.dissect(buffer, index, packet, parent)
@@ -11220,16 +15077,16 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_trade_message.fields = function(buffer,
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign: A
+  -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: A
+  -- Price Indicator Marker: X
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_13.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
@@ -11296,16 +15153,16 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_trade_message.fields = function(buffer, 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign: A
+  -- Net Change Sign: X
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker: A
+  -- Price Indicator Marker: X
   index, price_indicator_marker = tmx_mx_solamulticast_hsvf_v1_13.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
@@ -11454,7 +15311,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_trade_message.fields = function(buffer, o
   -- Net Change: N
   index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: A
+  -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
@@ -11673,6 +15530,10 @@ tmx_mx_solamulticast_hsvf_v1_13.message_body.dissect = function(buffer, offset, 
   if message_type == "V" then
     return tmx_mx_solamulticast_hsvf_v1_13.circuit_assurance_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Start Of Day Message
+  if message_type == "SD" then
+    return tmx_mx_solamulticast_hsvf_v1_13.start_of_day_message.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -11751,7 +15612,7 @@ tmx_mx_solamulticast_hsvf_v1_13.packet.dissect = function(buffer, packet, parent
     -- Dependency element: Message Type
     local message_type = trim_right_spaces(buffer(index - 22, 2):string())
 
-    -- Message Body: Runtime Type with 46 branches
+    -- Message Body: Runtime Type with 47 branches
     index = tmx_mx_solamulticast_hsvf_v1_13.message_body.dissect(buffer, index, packet, parent, message_type)
 
     -- Hsvf Etx: character

@@ -16,8 +16,11 @@ local tmx_tsx_quantumfeedlevel2_xmt_v2_1 = {}
 
 -- Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Fields
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.ack_required_poss_dup = ProtoField.new("Ack Required Poss Dup", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.ackrequiredpossdup", ftypes.STRING)
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.admin_body = ProtoField.new("Admin Body", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.adminbody", ftypes.STRING)
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.admin_id = ProtoField.new("Admin Id", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.adminid", ftypes.UINT8, nil, nil, nil, "Admin ID for short window (1 to 255). Note: 0 is not allowed as a value.")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.boardlot", ftypes.UINT16, nil, nil, nil, "Contains The Board Lot Size")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.broker_number = ProtoField.new("Broker Number", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.brokernumber", ftypes.UINT16, nil, nil, nil, "An Exchangeassigned Public Number Uniquely Identifying A Participating Organization")
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.business_bodies = ProtoField.new("Business Bodies", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.businessbodies", ftypes.STRING)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.buybrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchangeassigned Public Number Uniquely Identifying A Participating Organization Associated With A Buy Order")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.buy_display_volume = ProtoField.new("Buy Display Volume", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.buydisplayvolume", ftypes.UINT32, nil, nil, nil, "Public Remaining Display Volume For The Buy Order")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.buy_maximum_quantity = ProtoField.new("Buy Maximum Quantity", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.buymaximumquantity", ftypes.UINT32, nil, nil, nil, "The Maximum Quantity Of A Mutual Fund Allowed To Purchase")
@@ -33,6 +36,7 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.currency = ProtoField.new("Currenc
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cusip = ProtoField.new("Cusip", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.cusip", ftypes.STRING, nil, nil, nil, "Clearing And Settlement Registration Number")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.face_value = ProtoField.new("Face Value", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.facevalue", ftypes.DOUBLE, nil, nil, nil, "The Face Value Of A Debenture")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.far_indicative_closing_price = ProtoField.new("Far Indicative Closing Price", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.farindicativeclosingprice", ftypes.DOUBLE, nil, nil, nil, "The Calculated Closing Price That Will Maximize The Number Of Shares Matched Based On Closing Interest Only Moc Loc This Calculation Excludes Continuous Market Orders")
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.hb_interval = ProtoField.new("Hb Interval", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.hbinterval", ftypes.UINT16, nil, nil, nil, "Heartbeat interval in milliseconds (1 to 65536).")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.imbalance_reference_price = ProtoField.new("Imbalance Reference Price", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.imbalancereferenceprice", ftypes.DOUBLE, nil, nil, nil, "The Price That Determines If A Given Limitpriced Market On Close Loc Order Can Contribute To The Moc Imbalance All Loc Orders That Are Priced Equal To Or More Aggressively Than This Price Will Contribute To The Moc Imbalance")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.imbalance_side = ProtoField.new("Imbalance Side", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.imbalanceside", ftypes.STRING, nil, nil, nil, "Marker To Indicate Which Side Has An Imbalance Volume For Market On Close")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.imbalancevolume", ftypes.UINT32, nil, nil, nil, "Identifies The Volume Of Shares Of The Imbalance Side For Market On Close")
@@ -48,7 +52,7 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.market_state = ProtoField.new("Mar
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.message_length = ProtoField.new("Message Length", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.messagelength", ftypes.UINT16, nil, nil, nil, "Length of message from Header to Body inclusive")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.moc_eligible = ProtoField.new("Moc Eligible", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.moceligible", ftypes.STRING, nil, nil, nil, "Identifies Whether The Stock Is Eligible To Trade In The Market On Close Session Each Trading Day")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.msg_length = ProtoField.new("Msg Length", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.msglength", ftypes.UINT16, nil, nil, nil, "Length of this message")
-omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.msg_type = ProtoField.new("Msg Type", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.msgtype", ftypes.STRING, nil, nil, nil, "Business message type")
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.msg_type = ProtoField.new("Msg Type", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.msgtype", ftypes.STRING)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.msg_version = ProtoField.new("Msg Version", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.msgversion", ftypes.UINT8, nil, nil, nil, "Message version number")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.near_indicative_closing_price = ProtoField.new("Near Indicative Closing Price", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.nearindicativeclosingprice", ftypes.DOUBLE, nil, nil, nil, "The Calculated Closing Price That Will Maximize The Number Of Shares Matched Based On Onclose Orders Moc Loc And Visible Continuous Market Orders Effectively This Is The Price At Which The Closing Print Would Occur At The Time Of Publication")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.non_resident = ProtoField.new("Non Resident", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.nonresident", ftypes.STRING, nil, nil, nil, "A Terms Marker Indicating That Trade Participant Is Not A Canadian Resident")
@@ -91,6 +95,7 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.body_header = ProtoField.new("Body
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.body_message = ProtoField.new("Body Message", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.bodymessage", ftypes.STRING, nil, nil, nil, "Xmt Body Header")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.business_header = ProtoField.new("Business Header", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.businessheader", ftypes.STRING, nil, nil, nil, "Xmt Business Header")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.frameheader", ftypes.STRING, nil, nil, nil, "Xmt Udp Packet Frame Header")
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.heartbeat_body = ProtoField.new("Heartbeat Body", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.heartbeatbody", ftypes.STRING)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.packet = ProtoField.new("Packet", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.packet", ftypes.STRING, nil, nil, nil, "Xmt Udp Packet")
 
 -- Tmx Tsx QuantumFeedLevel2 2.1 Application Messages
@@ -116,7 +121,11 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.trade_correction_terms_message = P
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.tradereportmessage", ftypes.STRING)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.trade_report_terms_message = ProtoField.new("Trade Report Terms Message", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.tradereporttermsmessage", ftypes.STRING)
 
+-- Tmx Tsx QuantumFeedLevel2 2.1 Session Messages
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.heartbeat_body = ProtoField.new("Heartbeat Body", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.heartbeatbody", ftypes.STRING)
+
 -- Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Generated Fields
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.admin_body_index = ProtoField.new("Admin Body Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.adminbodyindex", ftypes.UINT16)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.body_index = ProtoField.new("Body Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.bodyindex", ftypes.UINT16)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_limit_index = ProtoField.new("Cop Limit Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coplimitindex", ftypes.UINT16)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_order_index = ProtoField.new("Cop Order Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coporderindex", ftypes.UINT16)
@@ -128,15 +137,17 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_order_index = ProtoField.new("
 local show = {}
 
 -- Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Element Dissection Options
-show.application_messages = true
 show.structs = true
+show.application_messages = true
 show.headers = true
+show.session_messages = true
 show.indexes = true
 
 -- Register Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Show Options
-omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -148,6 +159,9 @@ function omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs_changed()
   end
   if show.headers ~= omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_headers then
     show.headers = omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_headers
+  end
+  if show.session_messages ~= omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_session_messages then
+    show.session_messages = omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_session_messages
   end
   if show.structs ~= omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_structs then
     show.structs = omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.prefs.show_structs
@@ -189,6 +203,12 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.ack_required_poss_dup.display = function(valu
   if value == "0" then
     return "Ack Required Poss Dup: Unused (0)"
   end
+  if value == "A" then
+    return "Ack Required Poss Dup: Ack Required (A)"
+  end
+  if value == "D" then
+    return "Ack Required Poss Dup: Poss Dup (D)"
+  end
 
   return "Ack Required Poss Dup: Unknown("..value..")"
 end
@@ -201,6 +221,29 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.ack_required_poss_dup.dissect = function(buff
   local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.ack_required_poss_dup.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.ack_required_poss_dup, range, value, display)
+
+  return offset + length, value
+end
+
+-- Admin Id
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_id = {}
+
+-- Size: Admin Id
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_id.size = 1
+
+-- Display: Admin Id
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_id.display = function(value)
+  return "Admin Id: "..value
+end
+
+-- Dissect: Admin Id
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_id.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.admin_id, range, value, display)
 
   return offset + length, value
 end
@@ -668,6 +711,29 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.far_indicative_closing_price.dissect = functi
   local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.far_indicative_closing_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.far_indicative_closing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Hb Interval
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.hb_interval = {}
+
+-- Size: Hb Interval
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.hb_interval.size = 2
+
+-- Display: Hb Interval
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.hb_interval.display = function(value)
+  return "Hb Interval: "..value
+end
+
+-- Dissect: Hb Interval
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.hb_interval.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_tsx_quantumfeedlevel2_xmt_v2_1.hb_interval.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.hb_interval.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.hb_interval, range, value, display)
 
   return offset + length, value
 end
@@ -1199,6 +1265,9 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.msg_type.size = 1
 
 -- Display: Msg Type
 tmx_tsx_quantumfeedlevel2_xmt_v2_1.msg_type.display = function(value)
+  if value == "0" then
+    return "Msg Type: Heartbeat (0)"
+  end
   if value == "J" then
     return "Msg Type: Symbol Status Message (J)"
   end
@@ -1814,7 +1883,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.sequence_0.size = 1
 
 -- Display: Sequence 0
 tmx_tsx_quantumfeedlevel2_xmt_v2_1.sequence_0.display = function(value)
-  return "Sequence 0: "..value
+  if value == 0 then
+    return "Sequence 0: Reserved"
+  end
+
+  return "Sequence 0: Unknown("..value..")"
 end
 
 -- Dissect: Sequence 0
@@ -1953,7 +2026,20 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.source_id.size = 1
 
 -- Display: Source Id
 tmx_tsx_quantumfeedlevel2_xmt_v2_1.source_id.display = function(value)
-  return "Source Id: "..value
+  if value == "0" then
+    return "Source Id: Non Source Related (0)"
+  end
+  if value == "Q" then
+    return "Source Id: TSX (Q)"
+  end
+  if value == "V" then
+    return "Source Id: TSX Venture (V)"
+  end
+  if value == "A" then
+    return "Source Id: Alpha (A)"
+  end
+
+  return "Source Id: Unknown("..value..")"
 end
 
 -- Dissect: Source Id
@@ -4194,6 +4280,198 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.body.dissect = function(buffer, offset, packe
   end
 end
 
+-- Business Bodies
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies = {}
+
+-- Calculate size of: Business Bodies
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Body
+  index = index + buffer(offset + index - 0, 2):le_uint()
+
+  return index
+end
+
+-- Display: Business Bodies
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Business Bodies
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Num Body
+  local num_body = buffer(offset - 1, 1):uint()
+
+  -- Repeating: Body
+  for body_index = 1, num_body do
+
+    -- Dependency element: Msg Length
+    local msg_length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Body
+    index, body = tmx_tsx_quantumfeedlevel2_xmt_v2_1.body.dissect(buffer, index, packet, parent, msg_length, body_index)
+  end
+
+  return index
+end
+
+-- Dissect: Business Bodies
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.business_bodies, buffer(offset, 0))
+    local index = tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Admin Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body = {}
+
+-- Size: Admin Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.size =
+  tmx_tsx_quantumfeedlevel2_xmt_v2_1.source_id.size + 
+  tmx_tsx_quantumfeedlevel2_xmt_v2_1.stream_id.size + 
+  tmx_tsx_quantumfeedlevel2_xmt_v2_1.sequence_0.size + 
+  tmx_tsx_quantumfeedlevel2_xmt_v2_1.sequence_1.size
+
+-- Display: Admin Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Admin Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.fields = function(buffer, offset, packet, parent, admin_body_index)
+  local index = offset
+
+  -- Implicit Admin Body Index
+  if admin_body_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.admin_body_index, admin_body_index)
+    iteration:set_generated()
+  end
+
+  -- Source Id: A
+  index, source_id = tmx_tsx_quantumfeedlevel2_xmt_v2_1.source_id.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: B
+  index, stream_id = tmx_tsx_quantumfeedlevel2_xmt_v2_1.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence 0: B
+  index, sequence_0 = tmx_tsx_quantumfeedlevel2_xmt_v2_1.sequence_0.dissect(buffer, index, packet, parent)
+
+  -- Sequence 1: B
+  index, sequence_1 = tmx_tsx_quantumfeedlevel2_xmt_v2_1.sequence_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Admin Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.dissect = function(buffer, offset, packet, parent, admin_body_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.admin_body, buffer(offset, 0))
+    local index = tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.fields(buffer, offset, packet, parent, admin_body_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.fields(buffer, offset, packet, parent, admin_body_index)
+  end
+end
+
+-- Heartbeat Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body = {}
+
+-- Read runtime size of: Heartbeat Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Heartbeat Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.fields = function(buffer, offset, packet, parent, size_of_heartbeat_body)
+  local index = offset
+
+  -- Body Header: Struct of 2 fields
+  index, body_header = tmx_tsx_quantumfeedlevel2_xmt_v2_1.body_header.dissect(buffer, index, packet, parent)
+
+  -- Admin Id: B
+  index, admin_id = tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_id.dissect(buffer, index, packet, parent)
+
+  -- Hb Interval: B
+  index, hb_interval = tmx_tsx_quantumfeedlevel2_xmt_v2_1.hb_interval.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num Body
+  local num_body = buffer(offset - 1, 1):uint()
+
+  -- Repeating: Admin Body
+  for admin_body_index = 1, num_body do
+    index, admin_body = tmx_tsx_quantumfeedlevel2_xmt_v2_1.admin_body.dissect(buffer, index, packet, parent, admin_body_index)
+  end
+
+  return index
+end
+
+-- Dissect: Heartbeat Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.dissect = function(buffer, offset, packet, parent, size_of_heartbeat_body)
+  local size_of_heartbeat_body = tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.size(buffer, offset)
+  local index = offset + size_of_heartbeat_body
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.heartbeat_body, buffer(offset, 0))
+    local current = tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.fields(buffer, offset, packet, parent, size_of_heartbeat_body)
+    parent:set_len(size_of_heartbeat_body)
+    local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.fields(buffer, offset, packet, parent, size_of_heartbeat_body)
+
+    return index
+  end
+end
+
+-- Packet Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.packet_body = {}
+
+-- Dissect: Packet Body
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.packet_body.dissect = function(buffer, offset, packet, parent, msg_type)
+  -- Dissect Heartbeat Body
+  if msg_type == "0" then
+    return tmx_tsx_quantumfeedlevel2_xmt_v2_1.heartbeat_body.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Business Bodies
+  return tmx_tsx_quantumfeedlevel2_xmt_v2_1.business_bodies.dissect(buffer, offset, packet, parent)
+end
+
 -- Frame Header
 tmx_tsx_quantumfeedlevel2_xmt_v2_1.frame_header = {}
 
@@ -4263,7 +4541,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.packet = {}
 
 -- Verify required size of Udp packet
 tmx_tsx_quantumfeedlevel2_xmt_v2_1.packet.requiredsize = function(buffer)
-  return buffer:len() >= tmx_tsx_quantumfeedlevel2_xmt_v2_1.frame_header.size
+  return buffer:len() >= tmx_tsx_quantumfeedlevel2_xmt_v2_1.frame_header.size + 2 + tmx_tsx_quantumfeedlevel2_xmt_v2_1.msg_type.size
 end
 
 -- Dissect Packet
@@ -4278,17 +4556,21 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.packet.dissect = function(buffer, packet, par
     -- Frame Header: Struct of 7 fields
     index, frame_header = tmx_tsx_quantumfeedlevel2_xmt_v2_1.frame_header.dissect(buffer, index, packet, parent)
 
-    -- Dependency element: Num Body
-    local num_body = buffer(index - 1, 1):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(index - 8, 2):le_uint()
 
-    -- Repeating: Body
-    for body_index = 1, num_body do
+    -- Runtime optional field: Packet Body
+    local packet_body = nil
 
-      -- Dependency element: Msg Length
-      local msg_length = buffer(index, 2):le_uint()
+    local packet_body_exists = message_length > 6
 
-      -- Runtime Size Of: Body
-      index, body = tmx_tsx_quantumfeedlevel2_xmt_v2_1.body.dissect(buffer, index, packet, parent, msg_length, body_index)
+    if packet_body_exists then
+
+      -- Dependency element: Msg Type
+      local msg_type = buffer(index + 2, 1):string()
+
+      -- Packet Body: Runtime Type with 2 branches
+      index = tmx_tsx_quantumfeedlevel2_xmt_v2_1.packet_body.dissect(buffer, index, packet, parent, msg_type)
     end
   end
 

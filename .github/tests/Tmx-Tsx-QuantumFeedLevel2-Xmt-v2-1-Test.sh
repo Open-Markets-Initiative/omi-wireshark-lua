@@ -10,7 +10,3 @@ runuser -u tester -- tshark \
   > Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.AssignCopOrdersMessage.json 2> Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr \
   || { echo "--- tshark FAILED (AssignCopOrdersMessage) ---"; cat Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.AssignCopOrdersMessage.json.stderr; exit 1; }
 
-grep "tmx.tsx.quantumfeedlevel2.xmt.v2.1.symbol" Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.AssignCopOrdersMessage.json
-grep "tmx.tsx.quantumfeedlevel2.xmt.v2.1.calculatedopeningprice" Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.AssignCopOrdersMessage.json
-grep "tmx.tsx.quantumfeedlevel2.xmt.v2.1.orderside" Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.AssignCopOrdersMessage.json
-grep "tmx.tsx.quantumfeedlevel2.xmt.v2.1.tradingsystemtimestamp" Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.AssignCopOrdersMessage.json

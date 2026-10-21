@@ -449,15 +449,7 @@ end
 tmx_tsx_globalfx_gfx_v1_0.price_terms.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsx_globalfx_gfx_v1_0.price_terms.size
   local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = tmx_tsx_globalfx_gfx_v1_0.price_terms.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.price_terms, range, value, display)
@@ -645,11 +637,6 @@ tmx_tsx_globalfx_gfx_v1_0.valid_for_seconds.size = 2
 
 -- Display: Valid For Seconds
 tmx_tsx_globalfx_gfx_v1_0.valid_for_seconds.display = function(value)
-  -- Check if field has value
-  if value == 0 then
-    return "Valid For Seconds: No Value"
-  end
-
   return "Valid For Seconds: "..value
 end
 
