@@ -16,13 +16,13 @@ local otcmarkets_linkats_referencedata_link_v4_10_4 = {}
 
 -- OtcMarkets LinkAts ReferenceData Link 4.10.4 Fields
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.adr_level = ProtoField.new("Adr Level", "otcmarkets.linkats.referencedata.link.v4.10.4.adrlevel", ftypes.STRING, nil, nil, nil, "ADR level. Equity ADR/GDR only.")
-omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.referencedata.link.v4.10.4.adrratio", ftypes.UINT64, nil, nil, nil, "ADR ratio with 6 decimal places assumed. Equity ADR/GDR only.")
+omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.referencedata.link.v4.10.4.adrratio", ftypes.DOUBLE, nil, nil, nil, "ADR ratio with 6 decimal places assumed. Equity ADR/GDR only.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.asset_class = ProtoField.new("Asset Class", "otcmarkets.linkats.referencedata.link.v4.10.4.assetclass", ftypes.UINT8, nil, nil, nil, "Asset class of the security.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.callable = ProtoField.new("Callable", "otcmarkets.linkats.referencedata.link.v4.10.4.callable", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Indicates if the security is callable")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.callable_date_milli = ProtoField.new("Callable Date Milli", "otcmarkets.linkats.referencedata.link.v4.10.4.callabledatemilli", ftypes.UINT64, nil, nil, nil, "Callable date in milliseconds since UTC epoch. Fixed income only.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.caveat_emptor_warning = ProtoField.new("Caveat Emptor Warning", "otcmarkets.linkats.referencedata.link.v4.10.4.caveatemptorwarning", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Caveat Emptor warning applied")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otcmarkets.linkats.referencedata.link.v4.10.4.channelseqnum", ftypes.UINT32, nil, nil, nil, "Monotonically increasing message sequence number at the channel level.")
-omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.coupon = ProtoField.new("Coupon", "otcmarkets.linkats.referencedata.link.v4.10.4.coupon", ftypes.UINT64, nil, nil, nil, "Coupon rate with 6 decimal places assumed. Fixed income only.")
+omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.coupon = ProtoField.new("Coupon", "otcmarkets.linkats.referencedata.link.v4.10.4.coupon", ftypes.DOUBLE, nil, nil, nil, "Coupon rate with 6 decimal places assumed. Fixed income only.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.cusip = ProtoField.new("Cusip", "otcmarkets.linkats.referencedata.link.v4.10.4.cusip", ftypes.STRING, nil, nil, nil, "CUSIP identifier.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.disclosure_status = ProtoField.new("Disclosure Status", "otcmarkets.linkats.referencedata.link.v4.10.4.disclosurestatus", ftypes.UINT8, nil, nil, nil, "Current disclosure status of the issuer.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.extended_security_flags = ProtoField.new("Extended Security Flags", "otcmarkets.linkats.referencedata.link.v4.10.4.extendedsecurityflags", ftypes.STRING, nil, nil, nil, "notes security level attributes")
@@ -46,7 +46,7 @@ omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.otc_link_messaging_disa
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.referencedata.link.v4.10.4.packetflag", ftypes.STRING, nil, nil, nil, "Packet Flags")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.referencedata.link.v4.10.4.packetmilli", ftypes.UINT32, nil, nil, nil, "Milliseconds since local time midnight (EST/EDT)")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.referencedata.link.v4.10.4.packetsize", ftypes.UINT16, nil, nil, nil, "Size of packet in bytes")
-omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.par_value = ProtoField.new("Par Value", "otcmarkets.linkats.referencedata.link.v4.10.4.parvalue", ftypes.UINT64, nil, nil, nil, "Par value with 6 decimal places assumed. Zero indicates not available.")
+omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.par_value = ProtoField.new("Par Value", "otcmarkets.linkats.referencedata.link.v4.10.4.parvalue", ftypes.DOUBLE, nil, nil, nil, "Par value with 6 decimal places assumed. Zero indicates not available.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.piggyback = ProtoField.new("Piggyback", "otcmarkets.linkats.referencedata.link.v4.10.4.piggyback", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Rule 15c2-11 Piggyback exemption")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.primary_market = ProtoField.new("Primary Market", "otcmarkets.linkats.referencedata.link.v4.10.4.primarymarket", ftypes.STRING, nil, nil, nil, "Primary market or exchange where the security trades.")
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.qualified_institutional_buyers_only = ProtoField.new("Qualified Institutional Buyers Only", "otcmarkets.linkats.referencedata.link.v4.10.4.qualifiedinstitutionalbuyersonly", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
@@ -172,11 +172,17 @@ otcmarkets_linkats_referencedata_link_v4_10_4.adr_ratio.display = function(value
   return "Adr Ratio: "..value
 end
 
+-- Translate: Adr Ratio
+otcmarkets_linkats_referencedata_link_v4_10_4.adr_ratio.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Adr Ratio
 otcmarkets_linkats_referencedata_link_v4_10_4.adr_ratio.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_referencedata_link_v4_10_4.adr_ratio.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_referencedata_link_v4_10_4.adr_ratio.translate(raw)
   local display = otcmarkets_linkats_referencedata_link_v4_10_4.adr_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.adr_ratio, range, value, display)
@@ -271,11 +277,17 @@ otcmarkets_linkats_referencedata_link_v4_10_4.coupon.display = function(value)
   return "Coupon: "..value
 end
 
+-- Translate: Coupon
+otcmarkets_linkats_referencedata_link_v4_10_4.coupon.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Coupon
 otcmarkets_linkats_referencedata_link_v4_10_4.coupon.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_referencedata_link_v4_10_4.coupon.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_referencedata_link_v4_10_4.coupon.translate(raw)
   local display = otcmarkets_linkats_referencedata_link_v4_10_4.coupon.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.coupon, range, value, display)
@@ -707,11 +719,17 @@ otcmarkets_linkats_referencedata_link_v4_10_4.par_value.display = function(value
   return "Par Value: "..value
 end
 
+-- Translate: Par Value
+otcmarkets_linkats_referencedata_link_v4_10_4.par_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Par Value
 otcmarkets_linkats_referencedata_link_v4_10_4.par_value.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_referencedata_link_v4_10_4.par_value.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_referencedata_link_v4_10_4.par_value.translate(raw)
   local display = otcmarkets_linkats_referencedata_link_v4_10_4.par_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.par_value, range, value, display)

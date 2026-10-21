@@ -15,13 +15,13 @@ local otcmarkets_linkats_quotereferenceprice_link_v4_10_4 = {}
 -----------------------------------------------------------------------
 
 -- OtcMarkets LinkAts QuoteReferencePrice Link 4.10.4 Fields
-omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.askprice", ftypes.UINT64, nil, nil, nil, "Ask price with 6 decimal places assumed.")
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.askprice", ftypes.DOUBLE, nil, nil, nil, "Ask price with 6 decimal places assumed.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_priced = ProtoField.new("Ask Priced", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.askpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_size = ProtoField.new("Ask Size", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.asksize", ftypes.UINT32, nil, nil, nil, "Always set to 1.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_time_milli = ProtoField.new("Ask Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.asktimemilli", ftypes.UINT64, nil, nil, nil, "Ask timestamp in milliseconds since UTC epoch.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.asset_class = ProtoField.new("Asset Class", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.assetclass", ftypes.UINT8, nil, nil, nil, "Asset class of the security.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bb_quoted = ProtoField.new("Bb Quoted", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bbquoted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Indicates if the security is quoted on the OTC Bulletin Board.")
-omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_price = ProtoField.new("Bid Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidprice", ftypes.UINT64, nil, nil, nil, "Bid price with 6 decimal places assumed.")
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_price = ProtoField.new("Bid Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidprice", ftypes.DOUBLE, nil, nil, nil, "Bid price with 6 decimal places assumed.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_priced = ProtoField.new("Bid Priced", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Bid Priced Actual")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_size = ProtoField.new("Bid Size", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidsize", ftypes.UINT32, nil, nil, nil, "Always set to 1.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_time_milli = ProtoField.new("Bid Time Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.bidtimemilli", ftypes.UINT64, nil, nil, nil, "Bid timestamp in milliseconds since UTC epoch.")
@@ -42,7 +42,7 @@ omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.otc_link_messagin
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.packetflag", ftypes.STRING, nil, nil, nil, "Packet Flags")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.packetmilli", ftypes.UINT32, nil, nil, nil, "Milliseconds since local time midnight (EST/EDT)")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.packetsize", ftypes.UINT16, nil, nil, nil, "Size of packet in bytes")
-omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.price = ProtoField.new("Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.price", ftypes.UINT64, nil, nil, nil, "Price with 6 decimal places assumed.")
+omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.price = ProtoField.new("Price", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.price", ftypes.DOUBLE, nil, nil, nil, "Price with 6 decimal places assumed.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.proprietary_quote_eligible = ProtoField.new("Proprietary Quote Eligible", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.proprietaryquoteeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Security is eligible for proprietary quoting under SEC Rule 15c-211.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.qualified_institutional_buyers_only = ProtoField.new("Qualified Institutional Buyers Only", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.qualifiedinstitutionalbuyersonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Indicates if the security is restricted to Qualified Institutional Buyers.")
 omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.quote_flags = ProtoField.new("Quote Flags", "otcmarkets.linkats.quotereferenceprice.link.v4.10.4.quoteflags", ftypes.STRING, nil, nil, nil, "Reference Price Quote Information")
@@ -148,11 +148,17 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.ask_price.display = function
   return "Ask Price: "..value
 end
 
+-- Translate: Ask Price
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.ask_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Ask Price
 otcmarkets_linkats_quotereferenceprice_link_v4_10_4.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.ask_price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.ask_price.translate(raw)
   local display = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.ask_price, range, value, display)
@@ -247,11 +253,17 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.bid_price.display = function
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.bid_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Bid Price
 otcmarkets_linkats_quotereferenceprice_link_v4_10_4.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.bid_price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.bid_price.translate(raw)
   local display = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.bid_price, range, value, display)
@@ -611,11 +623,17 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.price.display = function(val
   return "Price: "..value
 end
 
+-- Translate: Price
+otcmarkets_linkats_quotereferenceprice_link_v4_10_4.price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Price
 otcmarkets_linkats_quotereferenceprice_link_v4_10_4.price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.price.translate(raw)
   local display = otcmarkets_linkats_quotereferenceprice_link_v4_10_4.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_quotereferenceprice_link_v4_10_4.fields.price, range, value, display)

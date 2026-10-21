@@ -16,10 +16,10 @@ local otcmarkets_linkats_multicast_link_v4_10_4 = {}
 
 -- OtcMarkets LinkAts Multicast Link 4.10.4 Fields
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.adr_level = ProtoField.new("Adr Level", "otcmarkets.linkats.multicast.link.v4.10.4.adrlevel", ftypes.STRING, nil, nil, nil, "ADR level. Equity ADR/GDR only.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.multicast.link.v4.10.4.adrratio", ftypes.UINT64, nil, nil, nil, "ADR ratio with 6 decimal places assumed. Equity ADR/GDR only.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.adr_ratio = ProtoField.new("Adr Ratio", "otcmarkets.linkats.multicast.link.v4.10.4.adrratio", ftypes.DOUBLE, nil, nil, nil, "ADR ratio with 6 decimal places assumed. Equity ADR/GDR only.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_bid_wanted = ProtoField.new("Ask Bid Wanted", "otcmarkets.linkats.multicast.link.v4.10.4.askbidwanted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_num_priced_mp = ProtoField.new("Ask Num Priced Mp", "otcmarkets.linkats.multicast.link.v4.10.4.asknumpricedmp", ftypes.UINT8, nil, nil, nil, "Number of market participants at the ask inside price level.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.multicast.link.v4.10.4.askprice", ftypes.UINT64, nil, nil, nil, "Ask price, 6 decimal places assumed.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_price = ProtoField.new("Ask Price", "otcmarkets.linkats.multicast.link.v4.10.4.askprice", ftypes.DOUBLE, nil, nil, nil, "Ask price, 6 decimal places assumed.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_priced = ProtoField.new("Ask Priced", "otcmarkets.linkats.multicast.link.v4.10.4.askpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_qap = ProtoField.new("Ask Qap", "otcmarkets.linkats.multicast.link.v4.10.4.askqap", ftypes.INT8, nil, nil, nil, "Specifies the access fee or rebate for the offer. Positive values (1 to 30) indicate a rebate, negative values (-1 to -30) indicate an access fee, and 0 indicates no rebate or access fee.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_size = ProtoField.new("Ask Size", "otcmarkets.linkats.multicast.link.v4.10.4.asksize", ftypes.UINT32, nil, nil, nil, "Number of shares on the ask.")
@@ -30,7 +30,7 @@ omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bb_quoted = ProtoField.new(
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_ask_wanted = ProtoField.new("Bid Ask Wanted", "otcmarkets.linkats.multicast.link.v4.10.4.bidaskwanted", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_auto_ex = ProtoField.new("Bid Auto Ex", "otcmarkets.linkats.multicast.link.v4.10.4.bidautoex", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "If the AutoEx flag is set for the bid side, responses to OTC Link trade messages are immediate.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_num_priced_mp = ProtoField.new("Bid Num Priced Mp", "otcmarkets.linkats.multicast.link.v4.10.4.bidnumpricedmp", ftypes.UINT8, nil, nil, nil, "Number of market participants at the bid inside price level.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_price = ProtoField.new("Bid Price", "otcmarkets.linkats.multicast.link.v4.10.4.bidprice", ftypes.UINT64, nil, nil, nil, "Bid price, 6 decimal places assumed.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_price = ProtoField.new("Bid Price", "otcmarkets.linkats.multicast.link.v4.10.4.bidprice", ftypes.DOUBLE, nil, nil, nil, "Bid price, 6 decimal places assumed.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_priced = ProtoField.new("Bid Priced", "otcmarkets.linkats.multicast.link.v4.10.4.bidpriced", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_qap = ProtoField.new("Bid Qap", "otcmarkets.linkats.multicast.link.v4.10.4.bidqap", ftypes.INT8, nil, nil, nil, "Specifies the access fee or rebate for the bid. Positive values (1 to 30) indicate a rebate, negative values (-1 to -30) indicate an access fee, and 0 indicates no rebate or access fee.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_size = ProtoField.new("Bid Size", "otcmarkets.linkats.multicast.link.v4.10.4.bidsize", ftypes.UINT32, nil, nil, nil, "Number of shares on the bid.")
@@ -40,12 +40,13 @@ omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.callable = ProtoField.new("
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.callable_date_milli = ProtoField.new("Callable Date Milli", "otcmarkets.linkats.multicast.link.v4.10.4.callabledatemilli", ftypes.UINT64, nil, nil, nil, "Callable date in milliseconds since UTC epoch. Fixed income only.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.caveat_emptor_warning = ProtoField.new("Caveat Emptor Warning", "otcmarkets.linkats.multicast.link.v4.10.4.caveatemptorwarning", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Indicates whether a Caveat Emptor warning has been applied.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otcmarkets.linkats.multicast.link.v4.10.4.channelseqnum", ftypes.UINT32, nil, nil, nil, "Monotonically increasing message sequence number at the channel level.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.coupon = ProtoField.new("Coupon", "otcmarkets.linkats.multicast.link.v4.10.4.coupon", ftypes.UINT64, nil, nil, nil, "Coupon rate with 6 decimal places assumed. Fixed income only.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.coupon = ProtoField.new("Coupon", "otcmarkets.linkats.multicast.link.v4.10.4.coupon", ftypes.DOUBLE, nil, nil, nil, "Coupon rate with 6 decimal places assumed. Fixed income only.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.cusip = ProtoField.new("Cusip", "otcmarkets.linkats.multicast.link.v4.10.4.cusip", ftypes.STRING, nil, nil, nil, "CUSIP identifier.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.deprecated_utf_85 = ProtoField.new("Deprecated Utf 85", "otcmarkets.linkats.multicast.link.v4.10.4.deprecatedutf85", ftypes.STRING, nil, nil, nil, "Deprecated field. Spaces will be sent in message.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.disclosure_status = ProtoField.new("Disclosure Status", "otcmarkets.linkats.multicast.link.v4.10.4.disclosurestatus", ftypes.UINT8, nil, nil, nil, "Current disclosure status of the issuer.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.extended_quote_flags = ProtoField.new("Extended Quote Flags", "otcmarkets.linkats.multicast.link.v4.10.4.extendedquoteflags", ftypes.STRING, nil, nil, nil, "Extended Quote Information")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.extended_security_flags = ProtoField.new("Extended Security Flags", "otcmarkets.linkats.multicast.link.v4.10.4.extendedsecurityflags", ftypes.STRING, nil, nil, nil, "notes security level attributes")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.extended_trade_price = ProtoField.new("Extended Trade Price", "otcmarkets.linkats.multicast.link.v4.10.4.extendedtradeprice", ftypes.DOUBLE, nil, nil, nil, "Trade price. Eight decimal places assumed.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.multicast.link.v4.10.4.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "A Heartbeat is sent if no business level message has been published for more than a second")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.inside_action = ProtoField.new("Inside Action", "otcmarkets.linkats.multicast.link.v4.10.4.insideaction", ftypes.UINT8, nil, nil, nil, "Inside action indicator (Add, Delete, Spin).")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.inside_id = ProtoField.new("Inside Id", "otcmarkets.linkats.multicast.link.v4.10.4.insideid", ftypes.UINT32, nil, nil, nil, "Unique inside quote identifier.")
@@ -74,9 +75,9 @@ omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.otc_link_messaging_disabled
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.multicast.link.v4.10.4.packetflag", ftypes.STRING, nil, nil, nil, "Packet Flags")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.multicast.link.v4.10.4.packetmilli", ftypes.UINT32, nil, nil, nil, "Milliseconds since local time midnight (EST/EDT)")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.multicast.link.v4.10.4.packetsize", ftypes.UINT16, nil, nil, nil, "Size of packet in bytes")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.par_value = ProtoField.new("Par Value", "otcmarkets.linkats.multicast.link.v4.10.4.parvalue", ftypes.UINT64, nil, nil, nil, "Par value with 6 decimal places assumed. Zero indicates not available.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.par_value = ProtoField.new("Par Value", "otcmarkets.linkats.multicast.link.v4.10.4.parvalue", ftypes.DOUBLE, nil, nil, nil, "Par value with 6 decimal places assumed. Zero indicates not available.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.piggyback = ProtoField.new("Piggyback", "otcmarkets.linkats.multicast.link.v4.10.4.piggyback", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Rule 15c2-11 Piggyback exemption")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.price = ProtoField.new("Price", "otcmarkets.linkats.multicast.link.v4.10.4.price", ftypes.UINT64, nil, nil, nil, "Price with 6 decimal places assumed.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.price = ProtoField.new("Price", "otcmarkets.linkats.multicast.link.v4.10.4.price", ftypes.DOUBLE, nil, nil, nil, "Price with 6 decimal places assumed.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.primary_market = ProtoField.new("Primary Market", "otcmarkets.linkats.multicast.link.v4.10.4.primarymarket", ftypes.STRING, nil, nil, nil, "Primary market or exchange where the security trades.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.proprietary_quote_eligible = ProtoField.new("Proprietary Quote Eligible", "otcmarkets.linkats.multicast.link.v4.10.4.proprietaryquoteeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Security is eligible for proprietary quoting under SEC Rule 15c-211.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.qap = ProtoField.new("Qap", "otcmarkets.linkats.multicast.link.v4.10.4.qap", ftypes.INT8, nil, nil, nil, "Specifies the access fee or rebate for the bid/offer. Positive values (1 to 30) indicate a rebate, negative values (-1 to -30) indicate an access fee, and 0 indicates no rebate or access fee.")
@@ -123,9 +124,9 @@ omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_action = ProtoField.n
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_flags = ProtoField.new("Trade Flags", "otcmarkets.linkats.multicast.link.v4.10.4.tradeflags", ftypes.UINT8, nil, nil, nil, "Trade flags. See TradeFlag definition.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_id_unsigned_integer_4 = ProtoField.new("Trade Id Unsigned Integer 4", "otcmarkets.linkats.multicast.link.v4.10.4.tradeidunsignedinteger4", ftypes.UINT32, nil, nil, nil, "Unique Trade ID.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_id_unsigned_integer_8 = ProtoField.new("Trade Id Unsigned Integer 8", "otcmarkets.linkats.multicast.link.v4.10.4.tradeidunsignedinteger8", ftypes.UINT64, nil, nil, nil, "Unique Trade ID.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_price = ProtoField.new("Trade Price", "otcmarkets.linkats.multicast.link.v4.10.4.tradeprice", ftypes.UINT64, nil, nil, nil, "Trade price. Six decimal places assumed.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_price = ProtoField.new("Trade Price", "otcmarkets.linkats.multicast.link.v4.10.4.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Trade price. Six decimal places assumed.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_size_unsigned_integer_4 = ProtoField.new("Trade Size Unsigned Integer 4", "otcmarkets.linkats.multicast.link.v4.10.4.tradesizeunsignedinteger4", ftypes.UINT32, nil, nil, nil, "Number of shares.")
-omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_size_unsigned_integer_8 = ProtoField.new("Trade Size Unsigned Integer 8", "otcmarkets.linkats.multicast.link.v4.10.4.tradesizeunsignedinteger8", ftypes.UINT64, nil, nil, nil, "Number of shares. Eight decimal places assumed for fractional shares.")
+omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_size_unsigned_integer_8 = ProtoField.new("Trade Size Unsigned Integer 8", "otcmarkets.linkats.multicast.link.v4.10.4.tradesizeunsignedinteger8", ftypes.DOUBLE, nil, nil, nil, "Number of shares. Eight decimal places assumed for fractional shares.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_status = ProtoField.new("Trade Status", "otcmarkets.linkats.multicast.link.v4.10.4.tradestatus", ftypes.STRING, nil, nil, nil, "Trade Status Information")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_time_milli = ProtoField.new("Trade Time Milli", "otcmarkets.linkats.multicast.link.v4.10.4.tradetimemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds from UTC epoch.")
 omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trading_flat = ProtoField.new("Trading Flat", "otcmarkets.linkats.multicast.link.v4.10.4.tradingflat", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Indicates if the security is trading flat (no coupon)")
@@ -237,11 +238,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.adr_ratio.display = function(value)
   return "Adr Ratio: "..value
 end
 
+-- Translate: Adr Ratio
+otcmarkets_linkats_multicast_link_v4_10_4.adr_ratio.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Adr Ratio
 otcmarkets_linkats_multicast_link_v4_10_4.adr_ratio.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.adr_ratio.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.adr_ratio.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.adr_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.adr_ratio, range, value, display)
@@ -283,11 +290,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.ask_price.display = function(value)
   return "Ask Price: "..value
 end
 
+-- Translate: Ask Price
+otcmarkets_linkats_multicast_link_v4_10_4.ask_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Ask Price
 otcmarkets_linkats_multicast_link_v4_10_4.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.ask_price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.ask_price.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.ask_price, range, value, display)
@@ -428,11 +441,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.bid_price.display = function(value)
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+otcmarkets_linkats_multicast_link_v4_10_4.bid_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Bid Price
 otcmarkets_linkats_multicast_link_v4_10_4.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.bid_price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.bid_price.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.bid_price, range, value, display)
@@ -566,11 +585,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.coupon.display = function(value)
   return "Coupon: "..value
 end
 
+-- Translate: Coupon
+otcmarkets_linkats_multicast_link_v4_10_4.coupon.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Coupon
 otcmarkets_linkats_multicast_link_v4_10_4.coupon.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.coupon.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.coupon.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.coupon.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.coupon, range, value, display)
@@ -656,6 +681,35 @@ otcmarkets_linkats_multicast_link_v4_10_4.disclosure_status.dissect = function(b
   local display = otcmarkets_linkats_multicast_link_v4_10_4.disclosure_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.disclosure_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Extended Trade Price
+otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price = {}
+
+-- Size: Extended Trade Price
+otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.size = 8
+
+-- Display: Extended Trade Price
+otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.display = function(value)
+  return "Extended Trade Price: "..value
+end
+
+-- Translate: Extended Trade Price
+otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Extended Trade Price
+otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.translate(raw)
+  local display = otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.extended_trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -1180,11 +1234,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.par_value.display = function(value)
   return "Par Value: "..value
 end
 
+-- Translate: Par Value
+otcmarkets_linkats_multicast_link_v4_10_4.par_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Par Value
 otcmarkets_linkats_multicast_link_v4_10_4.par_value.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.par_value.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.par_value.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.par_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.par_value, range, value, display)
@@ -1203,11 +1263,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+otcmarkets_linkats_multicast_link_v4_10_4.price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Price
 otcmarkets_linkats_multicast_link_v4_10_4.price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.price.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.price, range, value, display)
@@ -2117,11 +2183,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+otcmarkets_linkats_multicast_link_v4_10_4.trade_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Trade Price
 otcmarkets_linkats_multicast_link_v4_10_4.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.trade_price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.trade_price.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_price, range, value, display)
@@ -2163,11 +2235,17 @@ otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.display 
   return "Trade Size Unsigned Integer 8: "..value
 end
 
+-- Translate: Trade Size Unsigned Integer 8
+otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Trade Size Unsigned Integer 8
 otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.translate(raw)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.trade_size_unsigned_integer_8, range, value, display)
@@ -2282,7 +2360,7 @@ otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_message.size =
   otcmarkets_linkats_multicast_link_v4_10_4.trade_status.size + 
   otcmarkets_linkats_multicast_link_v4_10_4.venue.size + 
   otcmarkets_linkats_multicast_link_v4_10_4.deprecated_utf_85.size + 
-  otcmarkets_linkats_multicast_link_v4_10_4.trade_price.size + 
+  otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.size + 
   otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.size + 
   otcmarkets_linkats_multicast_link_v4_10_4.trade_time_milli.size
 
@@ -2319,8 +2397,8 @@ otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_message.fields = functi
   -- Deprecated Utf 85: UTF-8
   index, deprecated_utf_85 = otcmarkets_linkats_multicast_link_v4_10_4.deprecated_utf_85.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: Unsigned Integer
-  index, trade_price = otcmarkets_linkats_multicast_link_v4_10_4.trade_price.dissect(buffer, index, packet, parent)
+  -- Extended Trade Price: Unsigned Integer
+  index, extended_trade_price = otcmarkets_linkats_multicast_link_v4_10_4.extended_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Size Unsigned Integer 8: Unsigned Integer
   index, trade_size_unsigned_integer_8 = otcmarkets_linkats_multicast_link_v4_10_4.trade_size_unsigned_integer_8.dissect(buffer, index, packet, parent)

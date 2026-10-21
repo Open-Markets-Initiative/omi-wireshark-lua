@@ -44,7 +44,7 @@ omi_otcmarkets_linkats_trade_link_v4_10_4.fields.test = ProtoField.new("Test", "
 omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_action = ProtoField.new("Trade Action", "otcmarkets.linkats.trade.link.v4.10.4.tradeaction", ftypes.UINT8, nil, nil, nil, "Trade action indicator.")
 omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_flags = ProtoField.new("Trade Flags", "otcmarkets.linkats.trade.link.v4.10.4.tradeflags", ftypes.UINT8, nil, nil, nil, "Trade flags. See TradeFlag definition.")
 omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_id = ProtoField.new("Trade Id", "otcmarkets.linkats.trade.link.v4.10.4.tradeid", ftypes.UINT32, nil, nil, nil, "Unique Trade ID.")
-omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_price = ProtoField.new("Trade Price", "otcmarkets.linkats.trade.link.v4.10.4.tradeprice", ftypes.UINT64, nil, nil, nil, "Trade price. Six decimal places assumed.")
+omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_price = ProtoField.new("Trade Price", "otcmarkets.linkats.trade.link.v4.10.4.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Trade price. Six decimal places assumed.")
 omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_size = ProtoField.new("Trade Size", "otcmarkets.linkats.trade.link.v4.10.4.tradesize", ftypes.UINT32, nil, nil, nil, "Number of shares.")
 omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_status = ProtoField.new("Trade Status", "otcmarkets.linkats.trade.link.v4.10.4.tradestatus", ftypes.STRING, nil, nil, nil, "Trade Status Information")
 omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_time_milli = ProtoField.new("Trade Time Milli", "otcmarkets.linkats.trade.link.v4.10.4.tradetimemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds from UTC epoch.")
@@ -654,11 +654,17 @@ otcmarkets_linkats_trade_link_v4_10_4.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+otcmarkets_linkats_trade_link_v4_10_4.trade_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Trade Price
 otcmarkets_linkats_trade_link_v4_10_4.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_trade_link_v4_10_4.trade_price.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = otcmarkets_linkats_trade_link_v4_10_4.trade_price.translate(raw)
   local display = otcmarkets_linkats_trade_link_v4_10_4.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_trade_link_v4_10_4.fields.trade_price, range, value, display)
