@@ -478,6 +478,13 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_order_value_limit_update_message 
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_trade_modify_cancel_status_change_request_message = ProtoField.new("User Trade Modify Cancel Status Change Request Message", "nse.nsefo.orderentry.nnf.v9.50.usertrademodifycancelstatuschangerequestmessage", ftypes.STRING, nil, nil, nil, "Changes whether a user may modify or cancel trades")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_trade_modify_cancel_status_change_response_message = ProtoField.new("User Trade Modify Cancel Status Change Response Message", "nse.nsefo.orderentry.nnf.v9.50.usertrademodifycancelstatuschangeresponsemessage", ftypes.STRING, nil, nil, nil, "Confirms the trade modify and cancel permission change")
 
+-- Nse NseFo OrderEntry 9.50 Session Messages
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.header_record_message = ProtoField.new("Header Record Message", "nse.nsefo.orderentry.nnf.v9.50.headerrecordmessage", ftypes.BYTES, nil, nil, nil, "Opens the message download for a stream")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsefo.orderentry.nnf.v9.50.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "Either side keeps the connection alive")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.secure_box_registration_response_out_message = ProtoField.new("Secure Box Registration Response Out Message", "nse.nsefo.orderentry.nnf.v9.50.secureboxregistrationresponseoutmessage", ftypes.BYTES, nil, nil, nil, "Confirms the box registration, carrying only the message header")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.sign_off_request_in_message = ProtoField.new("Sign Off Request In Message", "nse.nsefo.orderentry.nnf.v9.50.signoffrequestinmessage", ftypes.BYTES, nil, nil, nil, "A trader signs off")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.trailer_record_message = ProtoField.new("Trailer Record Message", "nse.nsefo.orderentry.nnf.v9.50.trailerrecordmessage", ftypes.BYTES, nil, nil, nil, "Signals the message download is complete for a stream")
+
 -- Nse NseFo OrderEntry Nnf 9.50 Generated Fields
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_limits_index = ProtoField.new("Branch Limits Index", "nse.nsefo.orderentry.nnf.v9.50.branchlimitsindex", ftypes.UINT16)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.enhncd_mkt_stats_data_index = ProtoField.new("Enhncd Mkt Stats Data Index", "nse.nsefo.orderentry.nnf.v9.50.enhncdmktstatsdataindex", ftypes.UINT16)
@@ -1878,7 +1885,7 @@ end
 nse_nsefo_orderentry_nnf_v9_50.cryptographic_additional_key.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.cryptographic_additional_key.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_orderentry_nnf_v9_50.cryptographic_additional_key.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.cryptographic_additional_key, range, value, display)
@@ -1901,7 +1908,7 @@ end
 nse_nsefo_orderentry_nnf_v9_50.cryptographic_iv.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.cryptographic_iv.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_orderentry_nnf_v9_50.cryptographic_iv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.cryptographic_iv, range, value, display)
@@ -4259,7 +4266,7 @@ end
 nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_alpha_char, range, value, display)
@@ -4358,7 +4365,7 @@ end
 nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_time_stamp_1, range, value, display)
@@ -4381,7 +4388,7 @@ end
 nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_time_stamp_2, range, value, display)
@@ -8333,7 +8340,7 @@ end
 nse_nsefo_orderentry_nnf_v9_50.static_cryptographic_iv.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.static_cryptographic_iv.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_orderentry_nnf_v9_50.static_cryptographic_iv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.static_cryptographic_iv, range, value, display)

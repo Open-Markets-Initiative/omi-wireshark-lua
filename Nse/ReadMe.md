@@ -63,8 +63,11 @@
 
 | Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [Nnf][Omi.Encoding.Nnf] | [9.50][Nse.NseFo.OrderEntry.Nnf.v9.50.Dissector] | 7/27/2026 | 16662 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseFo.OrderEntry.Nnf.v9.50.Pdf] - [url][Nse.NseFo.OrderEntry.Nnf.v9.50.Url] |
-| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfDirect][Omi.Encoding.NnfDirect] | [9.50][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Dissector] | 7/27/2026 | 1711 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Pdf] |
+| [NseCm][NseCm.Exchange] | [OrderEntry][Nse.NseCm.OrderEntry] | [Nnf][Omi.Encoding.Nnf] | [6.6][Nse.NseCm.OrderEntry.Nnf.v6.6.Dissector] | 8/3/2026 | 10646 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseCm.OrderEntry.Nnf.v6.6.Url] - [pdf][Nse.NseCm.OrderEntry.Nnf.v6.6.Pdf] |
+| [NseCm][NseCm.Exchange] | [OrderEntry][Nse.NseCm.OrderEntry] | [NnfDirect][Omi.Encoding.NnfDirect] | [6.6][Nse.NseCm.OrderEntry.NnfDirect.v6.6.Dissector] | 8/3/2026 | 10773 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseCm.OrderEntry.NnfDirect.v6.6.Url] - [pdf][Nse.NseCm.OrderEntry.NnfDirect.v6.6.Pdf] |
+| [NseCm][NseCm.Exchange] | [OrderEntry][Nse.NseCm.OrderEntry] | [NnfTrimmed][Omi.Encoding.NnfTrimmed] | [6.6][Nse.NseCm.OrderEntry.NnfTrimmed.v6.6.Dissector] | 8/3/2026 | 2686 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseCm.OrderEntry.NnfTrimmed.v6.6.Url] - [pdf][Nse.NseCm.OrderEntry.NnfTrimmed.v6.6.Pdf] |
+| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [Nnf][Omi.Encoding.Nnf] | [9.50][Nse.NseFo.OrderEntry.Nnf.v9.50.Dissector] | 7/27/2026 | 16669 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseFo.OrderEntry.Nnf.v9.50.Pdf] - [url][Nse.NseFo.OrderEntry.Nnf.v9.50.Url] |
+| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfDirect][Omi.Encoding.NnfDirect] | [9.50][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Dissector] | 7/27/2026 | 16795 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Pdf] |
 | [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfTrimmed][Omi.Encoding.NnfTrimmed] | [9.50][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Dissector] | 7/27/2026 | 2940 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Pdf] - [url][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Url] |
 
 
@@ -72,7 +75,7 @@
 
 | Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [NseFo][NseFo.Exchange] | [Broadcast][Nse.NseFo.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [9.50][Nse.NseFo.Broadcast.NnfBcast.v9.50.Dissector] | 7/27/2026 | 9300 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseFo.Broadcast.NnfBcast.v9.50.Pdf] - [url][Nse.NseFo.Broadcast.NnfBcast.v9.50.Url] |
+| [NseFo][NseFo.Exchange] | [Broadcast][Nse.NseFo.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [9.50][Nse.NseFo.Broadcast.NnfBcast.v9.50.Dissector] | 7/27/2026 | 9462 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseFo.Broadcast.NnfBcast.v9.50.Pdf] - [url][Nse.NseFo.Broadcast.NnfBcast.v9.50.Url] |
 
 
 <p align="center"><a href="https://www.nseindia.com" title="National Stock Exchange of India Ltd Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/nseindia" title="National Stock Exchange of India Ltd on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/National_Stock_Exchange_of_India" title="National Stock Exchange of India Ltd on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
@@ -95,10 +98,10 @@
 [Omi.Nse.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Nse/Protocols "Nse Protocol Directory"
 [Omi.Nse.Specifications]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Nse/Specifications "Nse Specifications Directory"
 [Omi.Encoding.Binary]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Binary.md "Binary Encoding"
-[Omi.Encoding.NnfBcast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfBcast.md "NnfBcast Encoding"
 [Omi.Encoding.Nnf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Nnf.md "Nnf Encoding"
 [Omi.Encoding.NnfDirect]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfDirect.md "NnfDirect Encoding"
 [Omi.Encoding.NnfTrimmed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfTrimmed.md "NnfTrimmed Encoding"
+[Omi.Encoding.NnfBcast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/NnfBcast.md "NnfBcast Encoding"
 [NseCd.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Nse/Protocols/NseCd "Nse NseCd"
 [NseCm.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Nse/Protocols/NseCm "Nse NseCm"
 [NseCom.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Nse/Protocols/NseCom "Nse NseCom"
@@ -109,6 +112,7 @@
 [Nse.NseCd.Snapshot]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Protocols/NseCd/Snapshot.md "Mtbt Order Book Snapshot Recovery"
 [Nse.NseCm.Mtbt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Protocols/NseCm/Mtbt.md "Multicast Tick By Tick"
 [Nse.NseCm.MtbtNdal]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Protocols/NseCm/MtbtNdal.md "Multicast Tick By Tick Data Feed"
+[Nse.NseCm.OrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Protocols/NseCm/OrderEntry.md "Order Entry"
 [Nse.NseCm.Recovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Protocols/NseCm/Recovery.md "Mtbt Tick Data Recovery"
 [Nse.NseCm.Snapshot]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Protocols/NseCm/Snapshot.md "Mtbt Order Book Snapshot Recovery"
 [Nse.NseCom.Mtbt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Protocols/NseCom/Mtbt.md "Multicast Tick By Tick"
@@ -174,6 +178,15 @@
 [Nse.NseCm.MtbtNdal.Binary.v6.5.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Nse/NseCm/MtbtNdal/Nse_NseCm_MtbtNdal_Binary_v6_5_Dissector.lua "Nse NseCm MtbtNdal Binary v6.5 Wireshark Dissector"
 [Nse.NseCm.MtbtNdal.Binary.v6.5.Url]: https://www.nseindia.com/static/market-data/real-time-data-subscription "National Stock Exchange of India Ltd 6.5 Url"
 [Nse.NseCm.MtbtNdal.Binary.v6.5.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Specifications/Nse.MtbtNdal.Binary.v6.5.pdf "National Stock Exchange of India Ltd 6.5 Pdf"
+[Nse.NseCm.OrderEntry.Nnf.v6.6.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Nse/NseCm/OrderEntry/Nse_NseCm_OrderEntry_Nnf_v6_6_Dissector.lua "Nse NseCm OrderEntry Nnf v6.6 Wireshark Dissector"
+[Nse.NseCm.OrderEntry.Nnf.v6.6.Url]: https://www.nseindia.com/trade/members-trading-software-vendors-api-download "National Stock Exchange of India Ltd 6.6 Url"
+[Nse.NseCm.OrderEntry.Nnf.v6.6.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Specifications/NseCm/OrderEntry/Nse.NseCm.OrderEntry.Nnf.v6.6.pdf "National Stock Exchange of India Ltd 6.6 Pdf"
+[Nse.NseCm.OrderEntry.NnfDirect.v6.6.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Nse/NseCm/OrderEntry/Nse_NseCm_OrderEntry_NnfDirect_v6_6_Dissector.lua "Nse NseCm OrderEntry NnfDirect v6.6 Wireshark Dissector"
+[Nse.NseCm.OrderEntry.NnfDirect.v6.6.Url]: https://www.nseindia.com/trade/members-trading-software-vendors-api-download "National Stock Exchange of India Ltd 6.6 Url"
+[Nse.NseCm.OrderEntry.NnfDirect.v6.6.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Specifications/NseCm/OrderEntry/Nse.NseCm.OrderEntry.NnfDirect.v6.6.pdf "National Stock Exchange of India Ltd 6.6 Pdf"
+[Nse.NseCm.OrderEntry.NnfTrimmed.v6.6.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Nse/NseCm/OrderEntry/Nse_NseCm_OrderEntry_NnfTrimmed_v6_6_Dissector.lua "Nse NseCm OrderEntry NnfTrimmed v6.6 Wireshark Dissector"
+[Nse.NseCm.OrderEntry.NnfTrimmed.v6.6.Url]: https://www.nseindia.com/trade/members-trading-software-vendors-api-download "National Stock Exchange of India Ltd 6.6 Url"
+[Nse.NseCm.OrderEntry.NnfTrimmed.v6.6.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Specifications/NseCm/OrderEntry/Nse.NseCm.OrderEntry.NnfTrimmed.v6.6.pdf "National Stock Exchange of India Ltd 6.6 Pdf"
 [Nse.NseCm.Recovery.Binary.v6.8.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Nse/NseCm/Recovery/Nse_NseCm_Recovery_Binary_v6_8_Dissector.lua "Nse NseCm Recovery Binary v6.8 Wireshark Dissector"
 [Nse.NseCm.Recovery.Binary.v6.8.Url]: https://www.nseindia.com/static/trade/platform-services-neat-trading-system-protocols "National Stock Exchange of India Ltd 6.8 Url"
 [Nse.NseCm.Recovery.Binary.v6.8.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nse/Specifications/Nse.NseFo.Mtbt.Binary.v6.8.pdf "National Stock Exchange of India Ltd 6.8 Pdf"

@@ -24,11 +24,11 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.asset_name = ProtoField.new("Asset
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.asset_open_interest = ProtoField.new("Asset Open Interest", "nse.nsefo.broadcast.nnfbcast.v9.50.assetopeninterest", ftypes.STRING, nil, nil, nil, "ASSET_OPEN_INTEREST")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.asset_token = ProtoField.new("Asset Token", "nse.nsefo.broadcast.nnfbcast.v9.50.assettoken", ftypes.INT32, nil, nil, nil, "Token of the underlying asset")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.auction_number = ProtoField.new("Auction Number", "nse.nsefo.broadcast.nnfbcast.v9.50.auctionnumber", ftypes.INT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.auction_price = ProtoField.new("Auction Price", "nse.nsefo.broadcast.nnfbcast.v9.50.auctionprice", ftypes.INT32, nil, nil, nil, "Price of the auction")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.auction_price = ProtoField.new("Auction Price", "nse.nsefo.broadcast.nnfbcast.v9.50.auctionprice", ftypes.DOUBLE, nil, nil, nil, "Price of the auction")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.auction_quantity = ProtoField.new("Auction Quantity", "nse.nsefo.broadcast.nnfbcast.v9.50.auctionquantity", ftypes.INT32, nil, nil, nil, "Quantity of the auction")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.auction_status = ProtoField.new("Auction Status", "nse.nsefo.broadcast.nnfbcast.v9.50.auctionstatus", ftypes.INT16, nil, nil, nil, "Status of the auction")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.average_trade_price = ProtoField.new("Average Trade Price", "nse.nsefo.broadcast.nnfbcast.v9.50.averagetradeprice", ftypes.INT32)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.base_price = ProtoField.new("Base Price", "nse.nsefo.broadcast.nnfbcast.v9.50.baseprice", ftypes.INT32, nil, nil, nil, "Base price of the security")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.average_trade_price = ProtoField.new("Average Trade Price", "nse.nsefo.broadcast.nnfbcast.v9.50.averagetradeprice", ftypes.DOUBLE)
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.base_price = ProtoField.new("Base Price", "nse.nsefo.broadcast.nnfbcast.v9.50.baseprice", ftypes.DOUBLE, nil, nil, nil, "Base price of the security")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bb_buy_sell_flag = ProtoField.new("Bb Buy Sell Flag", "nse.nsefo.broadcast.nnfbcast.v9.50.bbbuysellflag", ftypes.INT16, nil, nil, nil, "Buy or sell side")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bb_total_buy_flag = ProtoField.new("Bb Total Buy Flag", "nse.nsefo.broadcast.nnfbcast.v9.50.bbtotalbuyflag", ftypes.INT16, nil, nil, nil, "Buy side best price flag")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bb_total_sell_flag = ProtoField.new("Bb Total Sell Flag", "nse.nsefo.broadcast.nnfbcast.v9.50.bbtotalsellflag", ftypes.INT16, nil, nil, nil, "Sell side best price flag")
@@ -36,7 +36,7 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bc_seq_no = ProtoField.new("Bc Seq
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bcast_header = ProtoField.new("Bcast Header", "nse.nsefo.broadcast.nnfbcast.v9.50.bcastheader", ftypes.STRING, nil, nil, nil, "BCAST_HEADER")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bcast_market_type = ProtoField.new("Bcast Market Type", "nse.nsefo.broadcast.nnfbcast.v9.50.bcastmarkettype", ftypes.STRING, nil, nil, nil, "Market the broadcast belongs to, 2 for Futures and Options")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bcast_pack_data = ProtoField.new("Bcast Pack Data", "nse.nsefo.broadcast.nnfbcast.v9.50.bcastpackdata", ftypes.STRING, nil, nil, nil, "BcastPackData sequential packing envelope")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bcast_reserved = ProtoField.new("Bcast Reserved", "nse.nsefo.broadcast.nnfbcast.v9.50.bcastreserved", ftypes.STRING, nil, nil, nil, "Ignored, the header begins at the ninth byte")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bcast_reserved = ProtoField.new("Bcast Reserved", "nse.nsefo.broadcast.nnfbcast.v9.50.bcastreserved", ftypes.BYTES, nil, nil, nil, "Ignored, the header begins at the ninth byte")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.board_lot_quantity = ProtoField.new("Board Lot Quantity", "nse.nsefo.broadcast.nnfbcast.v9.50.boardlotquantity", ftypes.INT32, nil, nil, nil, "Regular lot quantity")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bonus = ProtoField.new("Bonus", "nse.nsefo.broadcast.nnfbcast.v9.50.bonus", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.book_closure_end_date = ProtoField.new("Book Closure End Date", "nse.nsefo.broadcast.nnfbcast.v9.50.bookclosureenddate", ftypes.INT32, nil, nil, nil, "End of book closure")
@@ -49,12 +49,12 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.broadcast_message_length = ProtoFi
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.broker_code = ProtoField.new("Broker Code", "nse.nsefo.broadcast.nnfbcast.v9.50.brokercode", ftypes.STRING, nil, nil, nil, "Trading member whose limit was exceeded")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.broker_number = ProtoField.new("Broker Number", "nse.nsefo.broadcast.nnfbcast.v9.50.brokernumber", ftypes.STRING, nil, nil, nil, "Trading member Id of the broker")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.buy = ProtoField.new("Buy", "nse.nsefo.broadcast.nnfbcast.v9.50.buy", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000, "Buy side present")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.buy_price = ProtoField.new("Buy Price", "nse.nsefo.broadcast.nnfbcast.v9.50.buyprice", ftypes.INT32, nil, nil, nil, "Best buy price")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.buy_price = ProtoField.new("Buy Price", "nse.nsefo.broadcast.nnfbcast.v9.50.buyprice", ftypes.DOUBLE, nil, nil, nil, "Best buy price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.buy_volume_long = ProtoField.new("Buy Volume Long", "nse.nsefo.broadcast.nnfbcast.v9.50.buyvolumelong", ftypes.INT64, nil, nil, nil, "Quantity at the best buy price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.buy_volume_short = ProtoField.new("Buy Volume Short", "nse.nsefo.broadcast.nnfbcast.v9.50.buyvolumeshort", ftypes.INT32, nil, nil, nil, "Quantity at the best buy price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.ca_level = ProtoField.new("Ca Level", "nse.nsefo.broadcast.nnfbcast.v9.50.calevel", ftypes.INT16, nil, nil, nil, "Corporate action level")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.closing_index = ProtoField.new("Closing Index", "nse.nsefo.broadcast.nnfbcast.v9.50.closingindex", ftypes.INT32, nil, nil, nil, "Closing value")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.closing_price = ProtoField.new("Closing Price", "nse.nsefo.broadcast.nnfbcast.v9.50.closingprice", ftypes.INT32)
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.closing_price = ProtoField.new("Closing Price", "nse.nsefo.broadcast.nnfbcast.v9.50.closingprice", ftypes.DOUBLE)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.compression_length = ProtoField.new("Compression Length", "nse.nsefo.broadcast.nnfbcast.v9.50.compressionlength", ftypes.INT16, nil, nil, nil, "Length after compression, zero when the data is uncompressed")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.control_work_station = ProtoField.new("Control Work Station", "nse.nsefo.broadcast.nnfbcast.v9.50.controlworkstation", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "Destined for the control workstation")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.counter_broker_code = ProtoField.new("Counter Broker Code", "nse.nsefo.broadcast.nnfbcast.v9.50.counterbrokercode", ftypes.STRING, nil, nil, nil, "Counter party trading member")
@@ -63,10 +63,10 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.current_oi_long = ProtoField.new("
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.current_oi_short = ProtoField.new("Current Oi Short", "nse.nsefo.broadcast.nnfbcast.v9.50.currentoishort", ftypes.UINT32, nil, nil, nil, "Current open interest")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_hi_oi_long = ProtoField.new("Day Hi Oi Long", "nse.nsefo.broadcast.nnfbcast.v9.50.dayhioilong", ftypes.INT64, nil, nil, nil, "Highest open interest of the day")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_hi_oi_short = ProtoField.new("Day Hi Oi Short", "nse.nsefo.broadcast.nnfbcast.v9.50.dayhioishort", ftypes.UINT32, nil, nil, nil, "Highest open interest of the day")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_high_price_difference = ProtoField.new("Day High Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.dayhighpricedifference", ftypes.INT32, nil, nil, nil, "Highest price difference of the day")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_high_price_difference = ProtoField.new("Day High Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.dayhighpricedifference", ftypes.DOUBLE, nil, nil, nil, "Highest price difference of the day")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_lo_oi_long = ProtoField.new("Day Lo Oi Long", "nse.nsefo.broadcast.nnfbcast.v9.50.daylooilong", ftypes.INT64, nil, nil, nil, "Lowest open interest of the day")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_lo_oi_short = ProtoField.new("Day Lo Oi Short", "nse.nsefo.broadcast.nnfbcast.v9.50.daylooishort", ftypes.UINT32, nil, nil, nil, "Lowest open interest of the day")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_low_price_difference = ProtoField.new("Day Low Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.daylowpricedifference", ftypes.INT32, nil, nil, nil, "Lowest price difference of the day")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_low_price_difference = ProtoField.new("Day Low Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.daylowpricedifference", ftypes.DOUBLE, nil, nil, nil, "Lowest price difference of the day")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.delete_flag = ProtoField.new("Delete Flag", "nse.nsefo.broadcast.nnfbcast.v9.50.deleteflag", ftypes.STRING, nil, nil, nil, "Whether the record is deleted")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.dividend = ProtoField.new("Dividend", "nse.nsefo.broadcast.nnfbcast.v9.50.dividend", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.egm = ProtoField.new("Egm", "nse.nsefo.broadcast.nnfbcast.v9.50.egm", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Extraordinary general meeting")
@@ -85,22 +85,22 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.exercise_style = ProtoField.new("E
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.broadcast.nnfbcast.v9.50.expirydate", ftypes.INT32, nil, nil, nil, "Date the contract expires")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expulsion_date = ProtoField.new("Expulsion Date", "nse.nsefo.broadcast.nnfbcast.v9.50.expulsiondate", ftypes.INT32, nil, nil, nil, "Date the security was expelled")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.extrinsic_value = ProtoField.new("Extrinsic Value", "nse.nsefo.broadcast.nnfbcast.v9.50.extrinsicvalue", ftypes.INT32)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.broadcast.nnfbcast.v9.50.fillprice", ftypes.INT32, nil, nil, nil, "Price the trade occurred at")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.broadcast.nnfbcast.v9.50.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price the trade occurred at")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.fill_volume = ProtoField.new("Fill Volume", "nse.nsefo.broadcast.nnfbcast.v9.50.fillvolume", ftypes.INT32, nil, nil, nil, "Quantity traded")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.broadcast.nnfbcast.v9.50.filler", ftypes.STRING)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler_2 = ProtoField.new("Filler 2", "nse.nsefo.broadcast.nnfbcast.v9.50.filler2", ftypes.STRING, nil, nil, nil, "Padding, documented as Byte but eight bytes wide")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler_2 = ProtoField.new("Filler 2", "nse.nsefo.broadcast.nnfbcast.v9.50.filler2", ftypes.BYTES, nil, nil, nil, "Padding, documented as Byte but eight bytes wide")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.final = ProtoField.new("Final", "nse.nsefo.broadcast.nnfbcast.v9.50.final", ftypes.STRING, nil, nil, nil, "Whether this is the final message")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.freeze_quantity = ProtoField.new("Freeze Quantity", "nse.nsefo.broadcast.nnfbcast.v9.50.freezequantity", ftypes.INT32, nil, nil, nil, "Quantity above which an order freezes")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_exec_band = ProtoField.new("High Exec Band", "nse.nsefo.broadcast.nnfbcast.v9.50.highexecband", ftypes.INT32, nil, nil, nil, "Upper execution band")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_exec_band = ProtoField.new("High Exec Band", "nse.nsefo.broadcast.nnfbcast.v9.50.highexecband", ftypes.DOUBLE, nil, nil, nil, "Upper execution band")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_index_value = ProtoField.new("High Index Value", "nse.nsefo.broadcast.nnfbcast.v9.50.highindexvalue", ftypes.INT32, nil, nil, nil, "Highest value of the day")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_price = ProtoField.new("High Price", "nse.nsefo.broadcast.nnfbcast.v9.50.highprice", ftypes.INT32, nil, nil, nil, "Highest price")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_price_range = ProtoField.new("High Price Range", "nse.nsefo.broadcast.nnfbcast.v9.50.highpricerange", ftypes.INT32, nil, nil, nil, "Highest price allowed")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_price = ProtoField.new("High Price", "nse.nsefo.broadcast.nnfbcast.v9.50.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest price")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_price_range = ProtoField.new("High Price Range", "nse.nsefo.broadcast.nnfbcast.v9.50.highpricerange", ftypes.DOUBLE, nil, nil, nil, "Highest price allowed")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.imbalance_qty_at_iop = ProtoField.new("Imbalance Qty At Iop", "nse.nsefo.broadcast.nnfbcast.v9.50.imbalanceqtyatiop", ftypes.INT64, nil, nil, nil, "Imbalance quantity at the indicative open price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.index_name = ProtoField.new("Index Name", "nse.nsefo.broadcast.nnfbcast.v9.50.indexname", ftypes.STRING, nil, nil, nil, "Name of the index")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.index_value = ProtoField.new("Index Value", "nse.nsefo.broadcast.nnfbcast.v9.50.indexvalue", ftypes.INT32, nil, nil, nil, "Current value of the index")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.industry_indices = ProtoField.new("Industry Indices", "nse.nsefo.broadcast.nnfbcast.v9.50.industryindices", ftypes.STRING, nil, nil, nil, "INDUSTRY_INDICES")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.industry_name = ProtoField.new("Industry Name", "nse.nsefo.broadcast.nnfbcast.v9.50.industryname", ftypes.STRING, nil, nil, nil, "Name of the industry")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.initiator_price = ProtoField.new("Initiator Price", "nse.nsefo.broadcast.nnfbcast.v9.50.initiatorprice", ftypes.INT32, nil, nil, nil, "Price offered by the initiator")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.initiator_price = ProtoField.new("Initiator Price", "nse.nsefo.broadcast.nnfbcast.v9.50.initiatorprice", ftypes.DOUBLE, nil, nil, nil, "Price offered by the initiator")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.initiator_quantity = ProtoField.new("Initiator Quantity", "nse.nsefo.broadcast.nnfbcast.v9.50.initiatorquantity", ftypes.INT32, nil, nil, nil, "Quantity offered by the initiator")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.initiator_type = ProtoField.new("Initiator Type", "nse.nsefo.broadcast.nnfbcast.v9.50.initiatortype", ftypes.INT16, nil, nil, nil, "Type of the auction initiator")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.instrument_description = ProtoField.new("Instrument Description", "nse.nsefo.broadcast.nnfbcast.v9.50.instrumentdescription", ftypes.STRING, nil, nil, nil, "Description of the instrument")
@@ -121,21 +121,21 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.journalling_required = ProtoField.
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_active_time = ProtoField.new("Last Active Time", "nse.nsefo.broadcast.nnfbcast.v9.50.lastactivetime", ftypes.INT32, nil, nil, nil, "Time the spread was last active")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_trade_less = ProtoField.new("Last Trade Less", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradeless", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "Last trade was below the previous")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_trade_more = ProtoField.new("Last Trade More", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttrademore", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "Last trade was above the previous")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_trade_price = ProtoField.new("Last Trade Price", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradeprice", ftypes.INT32, nil, nil, nil, "Price of the last trade")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_trade_price = ProtoField.new("Last Trade Price", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "Price of the last trade")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradequantity", ftypes.INT32, nil, nil, nil, "Quantity of the last trade")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_trade_time = ProtoField.new("Last Trade Time", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradetime", ftypes.INT32, nil, nil, nil, "Time of the last trade")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_traded_price = ProtoField.new("Last Traded Price", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradedprice", ftypes.INT32, nil, nil, nil, "Price of the last trade")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_traded_price_difference = ProtoField.new("Last Traded Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradedpricedifference", ftypes.INT32)
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_traded_price = ProtoField.new("Last Traded Price", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradedprice", ftypes.DOUBLE, nil, nil, nil, "Price of the last trade")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_traded_price_difference = ProtoField.new("Last Traded Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.lasttradedpricedifference", ftypes.DOUBLE)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_update_time = ProtoField.new("Last Update Time", "nse.nsefo.broadcast.nnfbcast.v9.50.lastupdatetime", ftypes.INT32, nil, nil, nil, "Time the record was last updated")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.limit_price_protection_range_data = ProtoField.new("Limit Price Protection Range Data", "nse.nsefo.broadcast.nnfbcast.v9.50.limitpriceprotectionrangedata", ftypes.STRING, nil, nil, nil, "LIMIT_PRICE_PROTECTION_RANGE_DATA")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.limit_price_protection_range_detail = ProtoField.new("Limit Price Protection Range Detail", "nse.nsefo.broadcast.nnfbcast.v9.50.limitpriceprotectionrangedetail", ftypes.STRING, nil, nil, nil, "LIMIT_PRICE_PROTECTION_RANGE_DETAIL")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.listing_date = ProtoField.new("Listing Date", "nse.nsefo.broadcast.nnfbcast.v9.50.listingdate", ftypes.INT32, nil, nil, nil, "Date the security was listed")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.local_update_date_time = ProtoField.new("Local Update Date Time", "nse.nsefo.broadcast.nnfbcast.v9.50.localupdatedatetime", ftypes.INT32, nil, nil, nil, "Time the record was last updated")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.broadcast.nnfbcast.v9.50.logtime", ftypes.INT32, nil, nil, nil, "Time the message was generated by the trading system")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_exec_band = ProtoField.new("Low Exec Band", "nse.nsefo.broadcast.nnfbcast.v9.50.lowexecband", ftypes.INT32, nil, nil, nil, "Lower execution band")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_exec_band = ProtoField.new("Low Exec Band", "nse.nsefo.broadcast.nnfbcast.v9.50.lowexecband", ftypes.DOUBLE, nil, nil, nil, "Lower execution band")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_index_value = ProtoField.new("Low Index Value", "nse.nsefo.broadcast.nnfbcast.v9.50.lowindexvalue", ftypes.INT32, nil, nil, nil, "Lowest value of the day")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_price = ProtoField.new("Low Price", "nse.nsefo.broadcast.nnfbcast.v9.50.lowprice", ftypes.INT32, nil, nil, nil, "Lowest price")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_price_range = ProtoField.new("Low Price Range", "nse.nsefo.broadcast.nnfbcast.v9.50.lowpricerange", ftypes.INT32, nil, nil, nil, "Lowest price allowed")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_price = ProtoField.new("Low Price", "nse.nsefo.broadcast.nnfbcast.v9.50.lowprice", ftypes.DOUBLE, nil, nil, nil, "Lowest price")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_price_range = ProtoField.new("Low Price Range", "nse.nsefo.broadcast.nnfbcast.v9.50.lowpricerange", ftypes.DOUBLE, nil, nil, nil, "Lowest price allowed")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.margin_percentage = ProtoField.new("Margin Percentage", "nse.nsefo.broadcast.nnfbcast.v9.50.marginpercentage", ftypes.INT32)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.market_capitalisation = ProtoField.new("Market Capitalisation", "nse.nsefo.broadcast.nnfbcast.v9.50.marketcapitalisation", ftypes.DOUBLE)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.market_type = ProtoField.new("Market Type", "nse.nsefo.broadcast.nnfbcast.v9.50.markettype", ftypes.INT16, nil, nil, nil, "Market the contract trades in")
@@ -154,7 +154,7 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.msg_count = ProtoField.new("Msg Co
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.name = ProtoField.new("Name", "nse.nsefo.broadcast.nnfbcast.v9.50.name", ftypes.STRING, nil, nil, nil, "Name of the security")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.net_change_indicator = ProtoField.new("Net Change Indicator", "nse.nsefo.broadcast.nnfbcast.v9.50.netchangeindicator", ftypes.STRING, nil, nil, nil, "Direction of the net price change")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.net_id = ProtoField.new("Net Id", "nse.nsefo.broadcast.nnfbcast.v9.50.netid", ftypes.STRING, nil, nil, nil, "Identifies the segment, 2 for Equity Derivative")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.net_price_change_from_closing_price = ProtoField.new("Net Price Change From Closing Price", "nse.nsefo.broadcast.nnfbcast.v9.50.netpricechangefromclosingprice", ftypes.INT32, nil, nil, nil, "Net price change from the closing price")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.net_price_change_from_closing_price = ProtoField.new("Net Price Change From Closing Price", "nse.nsefo.broadcast.nnfbcast.v9.50.netpricechangefromclosingprice", ftypes.DOUBLE, nil, nil, nil, "Net price change from the closing price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.no_delivery_end_date = ProtoField.new("No Delivery End Date", "nse.nsefo.broadcast.nnfbcast.v9.50.nodeliveryenddate", ftypes.INT32, nil, nil, nil, "End of the no delivery period")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.no_delivery_start_date = ProtoField.new("No Delivery Start Date", "nse.nsefo.broadcast.nnfbcast.v9.50.nodeliverystartdate", ftypes.INT32, nil, nil, nil, "Start of the no delivery period")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.no_of_downmoves = ProtoField.new("No Of Downmoves", "nse.nsefo.broadcast.nnfbcast.v9.50.noofdownmoves", ftypes.INT32, nil, nil, nil, "Number of downward moves")
@@ -169,10 +169,10 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.number_of_records = ProtoField.new
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.old_token = ProtoField.new("Old Token", "nse.nsefo.broadcast.nnfbcast.v9.50.oldtoken", ftypes.INT32, nil, nil, nil, "Previous token number")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_interest_long = ProtoField.new("Open Interest Long", "nse.nsefo.broadcast.nnfbcast.v9.50.openinterestlong", ftypes.INT64, nil, nil, nil, "Open interest")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_interest_short = ProtoField.new("Open Interest Short", "nse.nsefo.broadcast.nnfbcast.v9.50.openinterestshort", ftypes.UINT32, nil, nil, nil, "Open interest")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_price = ProtoField.new("Open Price", "nse.nsefo.broadcast.nnfbcast.v9.50.openprice", ftypes.INT32, nil, nil, nil, "Opening price")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_price_difference = ProtoField.new("Open Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.openpricedifference", ftypes.INT32, nil, nil, nil, "Opening price difference")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_price = ProtoField.new("Open Price", "nse.nsefo.broadcast.nnfbcast.v9.50.openprice", ftypes.DOUBLE, nil, nil, nil, "Opening price")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_price_difference = ProtoField.new("Open Price Difference", "nse.nsefo.broadcast.nnfbcast.v9.50.openpricedifference", ftypes.DOUBLE, nil, nil, nil, "Opening price difference")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.opening_index = ProtoField.new("Opening Index", "nse.nsefo.broadcast.nnfbcast.v9.50.openingindex", ftypes.INT32, nil, nil, nil, "Opening value")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.opening_price = ProtoField.new("Opening Price", "nse.nsefo.broadcast.nnfbcast.v9.50.openingprice", ftypes.INT32, nil, nil, nil, "Price at which the security opened")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.opening_price = ProtoField.new("Opening Price", "nse.nsefo.broadcast.nnfbcast.v9.50.openingprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the security opened")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.option_type = ProtoField.new("Option Type", "nse.nsefo.broadcast.nnfbcast.v9.50.optiontype", ftypes.STRING, nil, nil, nil, "Whether the option is a call or a put")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.participant_id = ProtoField.new("Participant Id", "nse.nsefo.broadcast.nnfbcast.v9.50.participantid", ftypes.STRING, nil, nil, nil, "Identifier of the participant")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.participant_name = ProtoField.new("Participant Name", "nse.nsefo.broadcast.nnfbcast.v9.50.participantname", ftypes.STRING, nil, nil, nil, "Name of the participant")
@@ -182,15 +182,15 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.participate_in_market_index = Prot
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.percent_change = ProtoField.new("Percent Change", "nse.nsefo.broadcast.nnfbcast.v9.50.percentchange", ftypes.INT32, nil, nil, nil, "Percentage change")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.permitted_to_trade = ProtoField.new("Permitted To Trade", "nse.nsefo.broadcast.nnfbcast.v9.50.permittedtotrade", ftypes.INT16, nil, nil, nil, "Whether the security may be traded")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.pl_allowed = ProtoField.new("Pl Allowed", "nse.nsefo.broadcast.nnfbcast.v9.50.plallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "Position liquidation allowed")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.price = ProtoField.new("Price", "nse.nsefo.broadcast.nnfbcast.v9.50.price", ftypes.INT32, nil, nil, nil, "Price of the order")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.price = ProtoField.new("Price", "nse.nsefo.broadcast.nnfbcast.v9.50.price", ftypes.DOUBLE, nil, nil, nil, "Price of the order")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.qty = ProtoField.new("Qty", "nse.nsefo.broadcast.nnfbcast.v9.50.qty", ftypes.INT32, nil, nil, nil, "Quantity of the order")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.quantity_long = ProtoField.new("Quantity Long", "nse.nsefo.broadcast.nnfbcast.v9.50.quantitylong", ftypes.INT64, nil, nil, nil, "Quantity at this price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.quantity_short = ProtoField.new("Quantity Short", "nse.nsefo.broadcast.nnfbcast.v9.50.quantityshort", ftypes.INT32, nil, nil, nil, "Quantity at this price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.re_admission_date = ProtoField.new("Re Admission Date", "nse.nsefo.broadcast.nnfbcast.v9.50.readmissiondate", ftypes.INT32, nil, nil, nil, "Date the security was re admitted")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.record_date = ProtoField.new("Record Date", "nse.nsefo.broadcast.nnfbcast.v9.50.recorddate", ftypes.INT32)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reference_price = ProtoField.new("Reference Price", "nse.nsefo.broadcast.nnfbcast.v9.50.referenceprice", ftypes.INT32, nil, nil, nil, "Call auction reference price")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reference_price = ProtoField.new("Reference Price", "nse.nsefo.broadcast.nnfbcast.v9.50.referenceprice", ftypes.DOUBLE, nil, nil, nil, "Call auction reference price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.remark = ProtoField.new("Remark", "nse.nsefo.broadcast.nnfbcast.v9.50.remark", ftypes.STRING)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_0 = ProtoField.new("Reserved 0", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved0", ftypes.STRING, nil, nil, nil, "Reserved")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_0 = ProtoField.new("Reserved 0", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved0", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_1 = ProtoField.new("Reserved 1", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_10 = ProtoField.new("Reserved 10", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved10", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Reserved")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_112 = ProtoField.new("Reserved 112", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved112", ftypes.UINT16, nil, base.DEC, 0x0FFF, "Reserved")
@@ -199,15 +199,15 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_114 = ProtoField.new("Res
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_13 = ProtoField.new("Reserved 13", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved13", ftypes.UINT16, nil, base.DEC, 0x0007, "Reserved")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_14 = ProtoField.new("Reserved 14", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved14", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_17 = ProtoField.new("Reserved 17", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved17", ftypes.UINT8, nil, base.DEC, 0x7F, "Reserved")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_18 = ProtoField.new("Reserved 18", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved18", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_19 = ProtoField.new("Reserved 19", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved19", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_2 = ProtoField.new("Reserved 2", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved2", ftypes.STRING, nil, nil, nil, "Reserved")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_18 = ProtoField.new("Reserved 18", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved18", ftypes.BYTES, nil, nil, nil, "Reserved")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_19 = ProtoField.new("Reserved 19", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved19", ftypes.BYTES, nil, nil, nil, "Reserved")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_2 = ProtoField.new("Reserved 2", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_26 = ProtoField.new("Reserved 26", "nse.nsefo.broadcast.nnfbcast.v9.50.reserved26", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.rights = ProtoField.new("Rights", "nse.nsefo.broadcast.nnfbcast.v9.50.rights", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.sec_info = ProtoField.new("Sec Info", "nse.nsefo.broadcast.nnfbcast.v9.50.secinfo", ftypes.STRING, nil, nil, nil, "SEC_INFO")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.security_eligibility_flags = ProtoField.new("Security Eligibility Flags", "nse.nsefo.broadcast.nnfbcast.v9.50.securityeligibilityflags", ftypes.STRING, nil, nil, nil, "Whether the security is eligible in this market")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.sell = ProtoField.new("Sell", "nse.nsefo.broadcast.nnfbcast.v9.50.sell", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000, "Sell side present")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.sell_price = ProtoField.new("Sell Price", "nse.nsefo.broadcast.nnfbcast.v9.50.sellprice", ftypes.INT32, nil, nil, nil, "Best sell price")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.sell_price = ProtoField.new("Sell Price", "nse.nsefo.broadcast.nnfbcast.v9.50.sellprice", ftypes.DOUBLE, nil, nil, nil, "Best sell price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.sell_volume_long = ProtoField.new("Sell Volume Long", "nse.nsefo.broadcast.nnfbcast.v9.50.sellvolumelong", ftypes.INT64, nil, nil, nil, "Quantity at the best sell price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.sell_volume_short = ProtoField.new("Sell Volume Short", "nse.nsefo.broadcast.nnfbcast.v9.50.sellvolumeshort", ftypes.INT32, nil, nil, nil, "Quantity at the best sell price")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.series = ProtoField.new("Series", "nse.nsefo.broadcast.nnfbcast.v9.50.series", ftypes.STRING, nil, nil, nil, "Series of the security")
@@ -228,7 +228,7 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_sec_eligibility_per_mkt = Proto
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_sec_status_per_market = ProtoField.new("St Sec Status Per Market", "nse.nsefo.broadcast.nnfbcast.v9.50.stsecstatuspermarket", ftypes.STRING, nil, nil, nil, "ST_SEC_STATUS_PER_MARKET")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_ticker_index_info = ProtoField.new("St Ticker Index Info", "nse.nsefo.broadcast.nnfbcast.v9.50.sttickerindexinfo", ftypes.STRING, nil, nil, nil, "ST_TICKER_INDEX_INFO")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.status = ProtoField.new("Status", "nse.nsefo.broadcast.nnfbcast.v9.50.status", ftypes.INT16, nil, nil, nil, "Status of the security in this market")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.strike_price = ProtoField.new("Strike Price", "nse.nsefo.broadcast.nnfbcast.v9.50.strikeprice", ftypes.INT32, nil, nil, nil, "Strike price of an option")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.strike_price = ProtoField.new("Strike Price", "nse.nsefo.broadcast.nnfbcast.v9.50.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Strike price of an option")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.symbol = ProtoField.new("Symbol", "nse.nsefo.broadcast.nnfbcast.v9.50.symbol", ftypes.STRING, nil, nil, nil, "Symbol of the security")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.tandem = ProtoField.new("Tandem", "nse.nsefo.broadcast.nnfbcast.v9.50.tandem", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000, "Destined for Tandem")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.terms_aon = ProtoField.new("Terms Aon", "nse.nsefo.broadcast.nnfbcast.v9.50.termsaon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "All or none order")
@@ -250,7 +250,7 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.total_sell_quantity_double = Proto
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.total_sell_quantity_long = ProtoField.new("Total Sell Quantity Long", "nse.nsefo.broadcast.nnfbcast.v9.50.totalsellquantitylong", ftypes.INT64, nil, nil, nil, "Total quantity on the sell side")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.total_traded_value = ProtoField.new("Total Traded Value", "nse.nsefo.broadcast.nnfbcast.v9.50.totaltradedvalue", ftypes.DOUBLE, nil, nil, nil, "Total value traded")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.trade_number = ProtoField.new("Trade Number", "nse.nsefo.broadcast.nnfbcast.v9.50.tradenumber", ftypes.INT32, nil, nil, nil, "Number of the trade")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.trade_price = ProtoField.new("Trade Price", "nse.nsefo.broadcast.nnfbcast.v9.50.tradeprice", ftypes.INT32, nil, nil, nil, "Price of the trade")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.trade_price = ProtoField.new("Trade Price", "nse.nsefo.broadcast.nnfbcast.v9.50.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Price of the trade")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.trade_volume = ProtoField.new("Trade Volume", "nse.nsefo.broadcast.nnfbcast.v9.50.tradevolume", ftypes.INT32, nil, nil, nil, "Quantity of the trade")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.traded_volume_long = ProtoField.new("Traded Volume Long", "nse.nsefo.broadcast.nnfbcast.v9.50.tradedvolumelong", ftypes.INT64, nil, nil, nil, "Quantity traded")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.traded_volume_short = ProtoField.new("Traded Volume Short", "nse.nsefo.broadcast.nnfbcast.v9.50.tradedvolumeshort", ftypes.UINT32, nil, nil, nil, "Quantity traded")
@@ -593,7 +593,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.alpha_char.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.alpha_char.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.alpha_char.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.alpha_char, range, value, display)
@@ -704,11 +704,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.display = function(value)
   return "Auction Price: "..value
 end
 
+-- Translate: Auction Price
+nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Auction Price
 nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.auction_price, range, value, display)
@@ -789,11 +795,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.average_trade_price.display = function(value)
   return "Average Trade Price: "..value
 end
 
+-- Translate: Average Trade Price
+nse_nsefo_broadcast_nnfbcast_v9_50.average_trade_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Average Trade Price
 nse_nsefo_broadcast_nnfbcast_v9_50.average_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.average_trade_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.average_trade_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.average_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.average_trade_price, range, value, display)
@@ -812,11 +824,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.base_price.display = function(value)
   return "Base Price: "..value
 end
 
+-- Translate: Base Price
+nse_nsefo_broadcast_nnfbcast_v9_50.base_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Base Price
 nse_nsefo_broadcast_nnfbcast_v9_50.base_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.base_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.base_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.base_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.base_price, range, value, display)
@@ -954,7 +972,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.bcast_reserved.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.bcast_reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.bcast_reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.bcast_reserved, range, value, display)
@@ -1202,11 +1220,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.buy_price.display = function(value)
   return "Buy Price: "..value
 end
 
+-- Translate: Buy Price
+nse_nsefo_broadcast_nnfbcast_v9_50.buy_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Buy Price
 nse_nsefo_broadcast_nnfbcast_v9_50.buy_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.buy_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.buy_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.buy_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.buy_price, range, value, display)
@@ -1317,11 +1341,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.closing_price.display = function(value)
   return "Closing Price: "..value
 end
 
+-- Translate: Closing Price
+nse_nsefo_broadcast_nnfbcast_v9_50.closing_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Closing Price
 nse_nsefo_broadcast_nnfbcast_v9_50.closing_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.closing_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.closing_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.closing_price, range, value, display)
@@ -1501,11 +1531,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.display = function(
   return "Day High Price Difference: "..value
 end
 
+-- Translate: Day High Price Difference
+nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Day High Price Difference
 nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_high_price_difference, range, value, display)
@@ -1570,11 +1606,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.day_low_price_difference.display = function(v
   return "Day Low Price Difference: "..value
 end
 
+-- Translate: Day Low Price Difference
+nse_nsefo_broadcast_nnfbcast_v9_50.day_low_price_difference.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Day Low Price Difference
 nse_nsefo_broadcast_nnfbcast_v9_50.day_low_price_difference.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.day_low_price_difference.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.day_low_price_difference.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.day_low_price_difference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.day_low_price_difference, range, value, display)
@@ -1768,11 +1810,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.fill_price.display = function(value)
   return "Fill Price: "..value
 end
 
+-- Translate: Fill Price
+nse_nsefo_broadcast_nnfbcast_v9_50.fill_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Fill Price
 nse_nsefo_broadcast_nnfbcast_v9_50.fill_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.fill_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.fill_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.fill_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.fill_price, range, value, display)
@@ -1841,7 +1889,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler_2, range, value, display)
@@ -1906,11 +1954,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.high_exec_band.display = function(value)
   return "High Exec Band: "..value
 end
 
+-- Translate: High Exec Band
+nse_nsefo_broadcast_nnfbcast_v9_50.high_exec_band.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: High Exec Band
 nse_nsefo_broadcast_nnfbcast_v9_50.high_exec_band.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.high_exec_band.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.high_exec_band.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.high_exec_band.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_exec_band, range, value, display)
@@ -1952,11 +2006,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.high_price.display = function(value)
   return "High Price: "..value
 end
 
+-- Translate: High Price
+nse_nsefo_broadcast_nnfbcast_v9_50.high_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: High Price
 nse_nsefo_broadcast_nnfbcast_v9_50.high_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.high_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.high_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_price, range, value, display)
@@ -1975,11 +2035,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.high_price_range.display = function(value)
   return "High Price Range: "..value
 end
 
+-- Translate: High Price Range
+nse_nsefo_broadcast_nnfbcast_v9_50.high_price_range.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: High Price Range
 nse_nsefo_broadcast_nnfbcast_v9_50.high_price_range.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.high_price_range.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.high_price_range.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.high_price_range.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.high_price_range, range, value, display)
@@ -2090,11 +2156,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.initiator_price.display = function(value)
   return "Initiator Price: "..value
 end
 
+-- Translate: Initiator Price
+nse_nsefo_broadcast_nnfbcast_v9_50.initiator_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Initiator Price
 nse_nsefo_broadcast_nnfbcast_v9_50.initiator_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.initiator_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.initiator_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.initiator_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.initiator_price, range, value, display)
@@ -2412,11 +2484,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.last_trade_price.display = function(value)
   return "Last Trade Price: "..value
 end
 
+-- Translate: Last Trade Price
+nse_nsefo_broadcast_nnfbcast_v9_50.last_trade_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Last Trade Price
 nse_nsefo_broadcast_nnfbcast_v9_50.last_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.last_trade_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.last_trade_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.last_trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_trade_price, range, value, display)
@@ -2481,11 +2559,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price.display = function(value)
   return "Last Traded Price: "..value
 end
 
+-- Translate: Last Traded Price
+nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Last Traded Price
 nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_traded_price, range, value, display)
@@ -2504,11 +2588,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price_difference.display = functi
   return "Last Traded Price Difference: "..value
 end
 
+-- Translate: Last Traded Price Difference
+nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price_difference.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Last Traded Price Difference
 nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price_difference.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price_difference.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price_difference.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.last_traded_price_difference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.last_traded_price_difference, range, value, display)
@@ -2619,11 +2709,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.low_exec_band.display = function(value)
   return "Low Exec Band: "..value
 end
 
+-- Translate: Low Exec Band
+nse_nsefo_broadcast_nnfbcast_v9_50.low_exec_band.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Low Exec Band
 nse_nsefo_broadcast_nnfbcast_v9_50.low_exec_band.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.low_exec_band.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.low_exec_band.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.low_exec_band.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_exec_band, range, value, display)
@@ -2665,11 +2761,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.low_price.display = function(value)
   return "Low Price: "..value
 end
 
+-- Translate: Low Price
+nse_nsefo_broadcast_nnfbcast_v9_50.low_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Low Price
 nse_nsefo_broadcast_nnfbcast_v9_50.low_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.low_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.low_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_price, range, value, display)
@@ -2688,11 +2790,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.low_price_range.display = function(value)
   return "Low Price Range: "..value
 end
 
+-- Translate: Low Price Range
+nse_nsefo_broadcast_nnfbcast_v9_50.low_price_range.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Low Price Range
 nse_nsefo_broadcast_nnfbcast_v9_50.low_price_range.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.low_price_range.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.low_price_range.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.low_price_range.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.low_price_range, range, value, display)
@@ -2991,7 +3099,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.net_id.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.net_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.net_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.net_id, range, value, display)
@@ -3010,11 +3118,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.net_price_change_from_closing_price.display =
   return "Net Price Change From Closing Price: "..value
 end
 
+-- Translate: Net Price Change From Closing Price
+nse_nsefo_broadcast_nnfbcast_v9_50.net_price_change_from_closing_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Net Price Change From Closing Price
 nse_nsefo_broadcast_nnfbcast_v9_50.net_price_change_from_closing_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.net_price_change_from_closing_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.net_price_change_from_closing_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.net_price_change_from_closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.net_price_change_from_closing_price, range, value, display)
@@ -3355,11 +3469,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.open_price.display = function(value)
   return "Open Price: "..value
 end
 
+-- Translate: Open Price
+nse_nsefo_broadcast_nnfbcast_v9_50.open_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Open Price
 nse_nsefo_broadcast_nnfbcast_v9_50.open_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.open_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.open_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_price, range, value, display)
@@ -3378,11 +3498,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.display = function(valu
   return "Open Price Difference: "..value
 end
 
+-- Translate: Open Price Difference
+nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Open Price Difference
 nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.open_price_difference, range, value, display)
@@ -3424,11 +3550,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.opening_price.display = function(value)
   return "Opening Price: "..value
 end
 
+-- Translate: Opening Price
+nse_nsefo_broadcast_nnfbcast_v9_50.opening_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Opening Price
 nse_nsefo_broadcast_nnfbcast_v9_50.opening_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.opening_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.opening_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.opening_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.opening_price, range, value, display)
@@ -3635,11 +3767,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+nse_nsefo_broadcast_nnfbcast_v9_50.price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 nse_nsefo_broadcast_nnfbcast_v9_50.price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.price, range, value, display)
@@ -3773,11 +3911,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.reference_price.display = function(value)
   return "Reference Price: "..value
 end
 
+-- Translate: Reference Price
+nse_nsefo_broadcast_nnfbcast_v9_50.reference_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Reference Price
 nse_nsefo_broadcast_nnfbcast_v9_50.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.reference_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.reference_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reference_price, range, value, display)
@@ -3823,7 +3967,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.reserved_0.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_0.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_0.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_0, range, value, display)
@@ -3892,7 +4036,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.reserved_18.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_18.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_18.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_18, range, value, display)
@@ -3915,7 +4059,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.reserved_19.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_19.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_19.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_19, range, value, display)
@@ -3938,7 +4082,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.reserved_2, range, value, display)
@@ -3980,11 +4124,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.sell_price.display = function(value)
   return "Sell Price: "..value
 end
 
+-- Translate: Sell Price
+nse_nsefo_broadcast_nnfbcast_v9_50.sell_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Sell Price
 nse_nsefo_broadcast_nnfbcast_v9_50.sell_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.sell_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.sell_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.sell_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.sell_price, range, value, display)
@@ -4114,11 +4264,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.strike_price.display = function(value)
   return "Strike Price: "..value
 end
 
+-- Translate: Strike Price
+nse_nsefo_broadcast_nnfbcast_v9_50.strike_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Strike Price
 nse_nsefo_broadcast_nnfbcast_v9_50.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.strike_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.strike_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.strike_price, range, value, display)
@@ -4187,7 +4343,7 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.time_stamp_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.time_stamp_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.time_stamp_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.time_stamp_2, range, value, display)
@@ -4505,11 +4661,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.trade_price.display = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+nse_nsefo_broadcast_nnfbcast_v9_50.trade_price.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Trade Price
 nse_nsefo_broadcast_nnfbcast_v9_50.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.trade_price.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = nse_nsefo_broadcast_nnfbcast_v9_50.trade_price.translate(raw)
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.trade_price, range, value, display)
