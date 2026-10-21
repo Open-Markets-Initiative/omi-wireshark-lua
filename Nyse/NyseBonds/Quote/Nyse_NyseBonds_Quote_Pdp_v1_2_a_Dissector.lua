@@ -108,7 +108,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.ask_price_numerator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.ask_price_numerator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.ask_price_numerator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.ask_price_numerator, range, value, display)
@@ -131,7 +131,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.ask_size.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.ask_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.ask_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.ask_size, range, value, display)
@@ -154,7 +154,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.begin_seq_num.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.begin_seq_num.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.begin_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.begin_seq_num, range, value, display)
@@ -177,7 +177,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.bid_price_numerator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.bid_price_numerator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.bid_price_numerator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.bid_price_numerator, range, value, display)
@@ -200,7 +200,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.bid_size.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.bid_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.bid_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.bid_size, range, value, display)
@@ -262,7 +262,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.end_seq_num.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.end_seq_num.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.end_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.end_seq_num, range, value, display)
@@ -557,7 +557,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.next_seq_number.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.next_seq_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.next_seq_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.next_seq_number, range, value, display)
@@ -603,7 +603,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.price_scale_code, range, value, display)
@@ -719,7 +719,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.quote_link_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.quote_link_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.quote_link_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.quote_link_id, range, value, display)
@@ -848,7 +848,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.source_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.source_time.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.source_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.source_time, range, value, display)
@@ -910,7 +910,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.symbol_index.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.symbol_index.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.symbol_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.symbol_index, range, value, display)
@@ -967,7 +967,7 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.trading_action.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.trading_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_quote_pdp_v1_2_a.trading_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.trading_action, range, value, display)

@@ -238,7 +238,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.closing_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.closing_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.closing_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.closing_price, range, value, display)
@@ -261,7 +261,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.closing_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.closing_time.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.closing_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.closing_time, range, value, display)
@@ -452,7 +452,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.last_sale_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.last_sale_time.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.last_sale_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.last_sale_time, range, value, display)
@@ -834,7 +834,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.price, range, value, display)
@@ -915,7 +915,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.quantity.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.quantity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.quantity, range, value, display)
@@ -994,7 +994,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.security_type, range, value, display)
@@ -1017,7 +1017,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.sequence_number, range, value, display)
@@ -1142,7 +1142,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.trade_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.trade_condition.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.trade_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.trade_condition, range, value, display)
@@ -1165,7 +1165,7 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.trade_reference_number.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.trade_reference_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_trades_abp_v1_07_a.trade_reference_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.trade_reference_number, range, value, display)

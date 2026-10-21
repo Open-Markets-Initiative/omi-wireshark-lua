@@ -616,7 +616,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.market_imbalance.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.market_imbalance.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.market_imbalance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.market_imbalance, range, value, display)
@@ -639,7 +639,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.match_quantity.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.match_quantity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.match_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.match_quantity, range, value, display)
@@ -736,7 +736,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.minimum_quantity.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.minimum_quantity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.minimum_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.minimum_quantity, range, value, display)
@@ -759,7 +759,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.next_expected_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.next_expected_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.next_expected_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.next_expected_sequence_number, range, value, display)
@@ -821,7 +821,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.order_reference_number.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.order_reference_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.order_reference_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.order_reference_number, range, value, display)
@@ -854,7 +854,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.order_type, range, value, display)
@@ -1060,7 +1060,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.price, range, value, display)
@@ -1141,7 +1141,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.quantity.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.quantity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.quantity, range, value, display)
@@ -1164,7 +1164,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.quote_condition, range, value, display)
@@ -1282,7 +1282,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.security_type, range, value, display)
@@ -1305,7 +1305,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.sequence_number, range, value, display)
@@ -1430,7 +1430,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.time.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.time, range, value, display)
@@ -1453,7 +1453,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.total_imbalance.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.total_imbalance.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.total_imbalance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.total_imbalance, range, value, display)
@@ -1507,7 +1507,7 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.trading_action, range, value, display)

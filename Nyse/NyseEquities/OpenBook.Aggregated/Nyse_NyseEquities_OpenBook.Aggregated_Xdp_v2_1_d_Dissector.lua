@@ -34,8 +34,6 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_count = Proto
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messagesize", ftypes.UINT16, nil, nil, nil, "The size of this message in bytes")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.mpv", ftypes.UINT16, nil, nil, nil, "This field contains the minimum price variation")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.msg_size = ProtoField.new("Msg Size", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.msgsize", ftypes.UINT16, nil, nil, nil, "Size of the message: 21 Bytes")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.msg_type = ProtoField.new("Msg Type", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.msgtype", ftypes.UINT16, nil, nil, nil, "This field identifies the type of message. 11 - Request Response message")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.nanoseconds", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the Send Time")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.nextsourceseqnum", ftypes.UINT32, nil, nil, nil, "The sequence number in the next message for this symbol.")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.num_orders = ProtoField.new("Num Orders", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.numorders", ftypes.UINT16, nil, nil, nil, "This field contains the number of orders at the current price point")
@@ -106,7 +104,9 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.symbol_index_mapping_
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.symbolindexmappingrequestmessage", ftypes.STRING, nil, nil, nil, "This message is sent by clients via TCP/IP requesting the Symbol Index Mapping messages for one or all symbols in a specified channel.")
 
 -- Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Generated Fields
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.delta_price_point_index = ProtoField.new("Delta Price Point Index", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.deltapricepointindex", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messageindex", ftypes.UINT16)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point_index = ProtoField.new("Snapshot Price Point Index", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.snapshotpricepointindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Formatting
@@ -791,52 +791,6 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.mpv.dissect = function(buffer, o
   local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.mpv.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.mpv, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Size
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size = {}
-
--- Size: Msg Size
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.size = 2
-
--- Display: Msg Size
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.display = function(value)
-  return "Msg Size: "..value
-end
-
--- Dissect: Msg Size
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.msg_size, range, value, display)
-
-  return offset + length, value
-end
-
--- Msg Type
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type = {}
-
--- Size: Msg Type
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.size = 2
-
--- Display: Msg Type
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.display = function(value)
-  return "Msg Type: "..value
-end
-
--- Dissect: Msg Type
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.msg_type, range, value, display)
 
   return offset + length, value
 end
@@ -2248,8 +2202,14 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.display = func
 end
 
 -- Dissect Fields: Delta Price Point
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields = function(buffer, offset, packet, parent)
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields = function(buffer, offset, packet, parent, delta_price_point_index)
   local index = offset
+
+  -- Implicit Delta Price Point Index
+  if delta_price_point_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.delta_price_point_index, delta_price_point_index)
+    iteration:set_generated()
+  end
 
   -- Price: Binary
   index, price = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.dissect(buffer, index, packet, parent)
@@ -2267,11 +2227,11 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields = funct
 end
 
 -- Dissect: Delta Price Point
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.dissect = function(buffer, offset, packet, parent)
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.dissect = function(buffer, offset, packet, parent, delta_price_point_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.delta_price_point, buffer(offset, 0))
-    local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields(buffer, offset, packet, parent)
+    local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields(buffer, offset, packet, parent, delta_price_point_index)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.display(packet, parent, length)
@@ -2280,25 +2240,37 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.dissect = func
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields(buffer, offset, packet, parent)
+    return nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.fields(buffer, offset, packet, parent, delta_price_point_index)
   end
 end
 
 -- Orderbook Delta Update Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message = {}
 
--- Size: Orderbook Delta Update Message
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.size =
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.ultra_last_seq_num.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.trading_status.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.remaining_count.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.update_count.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.size
+-- Calculate size of: Orderbook Delta Update Message
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.ultra_last_seq_num.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.trading_status.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.remaining_count.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.update_count.size
+
+  -- Calculate field size from count
+  local delta_price_point_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + delta_price_point_count * 11
+
+  return index
+end
 
 -- Display: Orderbook Delta Update Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.display = function(packet, parent, length)
@@ -2308,12 +2280,6 @@ end
 -- Dissect Fields: Orderbook Delta Update Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Msg Size: Binary
-  index, msg_size = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.dissect(buffer, index, packet, parent)
-
-  -- Msg Type: Binary
-  index, msg_type = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.dissect(buffer, index, packet, parent)
 
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
@@ -2336,8 +2302,10 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.f
   -- Update Count: Binary
   index, update_count = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.update_count.dissect(buffer, index, packet, parent)
 
-  -- Delta Price Point: Struct of 4 fields
-  index, delta_price_point = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.dissect(buffer, index, packet, parent)
+  -- Repeating: Delta Price Point
+  for delta_price_point_index = 1, update_count do
+    index, delta_price_point = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.delta_price_point.dissect(buffer, index, packet, parent, delta_price_point_index)
+  end
 
   return index
 end
@@ -2376,8 +2344,14 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.display = f
 end
 
 -- Dissect Fields: Snapshot Price Point
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields = function(buffer, offset, packet, parent)
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields = function(buffer, offset, packet, parent, snapshot_price_point_index)
   local index = offset
+
+  -- Implicit Snapshot Price Point Index
+  if snapshot_price_point_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point_index, snapshot_price_point_index)
+    iteration:set_generated()
+  end
 
   -- Price: Binary
   index, price = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price.dissect(buffer, index, packet, parent)
@@ -2395,11 +2369,11 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields = fu
 end
 
 -- Dissect: Snapshot Price Point
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.dissect = function(buffer, offset, packet, parent)
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.dissect = function(buffer, offset, packet, parent, snapshot_price_point_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point, buffer(offset, 0))
-    local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields(buffer, offset, packet, parent)
+    local index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields(buffer, offset, packet, parent, snapshot_price_point_index)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.display(packet, parent, length)
@@ -2408,28 +2382,43 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.dissect = f
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields(buffer, offset, packet, parent)
+    return nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.fields(buffer, offset, packet, parent, snapshot_price_point_index)
   end
 end
 
 -- Orderbook Snapshot Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message = {}
 
--- Size: Orderbook Snapshot Message
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message.size =
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.ultra_last_seq_num.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price_scale_code.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.trading_status.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.remaining_count.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.mpv.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.update_count.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.size
+-- Calculate size of: Orderbook Snapshot Message
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.ultra_last_seq_num.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price_scale_code.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.trading_status.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.remaining_count.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.mpv.size
+
+  index = index + nyse_nyseequities_openbookaggregated_xdp_v2_1_d.update_count.size
+
+  -- Calculate field size from count
+  local snapshot_price_point_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + snapshot_price_point_count * 11
+
+  return index
+end
 
 -- Display: Orderbook Snapshot Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message.display = function(packet, parent, length)
@@ -2439,12 +2428,6 @@ end
 -- Dissect Fields: Orderbook Snapshot Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Msg Size: Binary
-  index, msg_size = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.dissect(buffer, index, packet, parent)
-
-  -- Msg Type: Binary
-  index, msg_type = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.dissect(buffer, index, packet, parent)
 
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
@@ -2476,8 +2459,10 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message.field
   -- Update Count: Binary
   index, update_count = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.update_count.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Price Point: Struct of 4 fields
-  index, snapshot_price_point = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.dissect(buffer, index, packet, parent)
+  -- Repeating: Snapshot Price Point
+  for snapshot_price_point_index = 1, update_count do
+    index, snapshot_price_point = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.snapshot_price_point.dissect(buffer, index, packet, parent, snapshot_price_point_index)
+  end
 
   return index
 end
@@ -2545,8 +2530,6 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.request_response_message = {}
 
 -- Size: Request Response Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.request_response_message.size =
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.size + 
-  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.size + 
   nyse_nyseequities_openbookaggregated_xdp_v2_1_d.request_seq_num.size + 
   nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_id.size + 
   nyse_nyseequities_openbookaggregated_xdp_v2_1_d.product_id.size + 
@@ -2561,12 +2544,6 @@ end
 -- Dissect Fields: Request Response Message
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Msg Size: Binary
-  index, msg_size = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_size.dissect(buffer, index, packet, parent)
-
-  -- Msg Type: Binary
-  index, msg_type = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.msg_type.dissect(buffer, index, packet, parent)
 
   -- Request Seq Num: Binary
   index, request_seq_num = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.request_seq_num.dissect(buffer, index, packet, parent)
