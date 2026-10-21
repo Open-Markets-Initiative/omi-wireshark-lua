@@ -298,6 +298,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NasdaqCanada OrderEntry Ouch 5.0.1.4 Fields
@@ -346,7 +357,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.accepted_session, range, value, display)
@@ -3364,7 +3375,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.requested_session, range, value, display)

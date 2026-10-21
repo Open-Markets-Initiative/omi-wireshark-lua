@@ -257,7 +257,7 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.accepted_sequence_number, range, value, display)
@@ -280,7 +280,7 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.accepted_session, range, value, display)
@@ -925,7 +925,7 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.messages_total.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.messages_total.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.messages_total.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.messages_total, range, value, display)
@@ -1064,7 +1064,7 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.requested_sequence_number, range, value, display)
@@ -1087,7 +1087,7 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.requested_session, range, value, display)

@@ -207,6 +207,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Asx AsxSecurities Trade Ouch 2.0 Fields
@@ -255,7 +266,7 @@ end
 asx_asxsecurities_trade_ouch_v2_0.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_ouch_v2_0.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = asx_asxsecurities_trade_ouch_v2_0.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_session, range, value, display)
@@ -1147,7 +1158,7 @@ end
 asx_asxsecurities_trade_ouch_v2_0.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_ouch_v2_0.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = asx_asxsecurities_trade_ouch_v2_0.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.requested_session, range, value, display)

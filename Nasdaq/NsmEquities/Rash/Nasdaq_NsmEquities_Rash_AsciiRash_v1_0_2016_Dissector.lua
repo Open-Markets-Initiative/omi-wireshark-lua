@@ -344,7 +344,7 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_0_2016.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_rash_asciirash_v1_0_2016.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nsmequities_rash_asciirash_v1_0_2016.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0_2016.fields.accepted_session, range, value, display)
@@ -1703,7 +1703,7 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_0_2016.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_rash_asciirash_v1_0_2016.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nsmequities_rash_asciirash_v1_0_2016.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0_2016.fields.requested_session, range, value, display)

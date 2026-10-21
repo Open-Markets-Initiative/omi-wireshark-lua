@@ -940,7 +940,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.requested_sequence_number, range, value, display)
@@ -963,7 +963,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.requested_session, range, value, display)
@@ -1119,7 +1119,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sequence_number, range, value, display)
@@ -1217,7 +1217,7 @@ end
 cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.session, range, value, display)

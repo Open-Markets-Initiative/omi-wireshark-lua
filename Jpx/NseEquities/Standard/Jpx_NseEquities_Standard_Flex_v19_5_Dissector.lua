@@ -291,7 +291,7 @@ end
 jpx_nseequities_standard_flex_v19_5.blank_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.blank_issue_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.blank_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.blank_issue_code, range, value, display)
@@ -314,7 +314,7 @@ end
 jpx_nseequities_standard_flex_v19_5.cb_proper_name_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.cb_proper_name_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.cb_proper_name_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.cb_proper_name_code, range, value, display)
@@ -373,7 +373,7 @@ end
 jpx_nseequities_standard_flex_v19_5.cb_space.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.cb_space.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.cb_space.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.cb_space, range, value, display)
@@ -858,7 +858,7 @@ end
 jpx_nseequities_standard_flex_v19_5.issue_status.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.issue_status.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.issue_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.issue_status, range, value, display)
@@ -983,7 +983,7 @@ end
 jpx_nseequities_standard_flex_v19_5.message_length.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.message_length.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.message_length, range, value, display)
@@ -1138,7 +1138,7 @@ end
 jpx_nseequities_standard_flex_v19_5.quantity.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.quantity.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.quantity, range, value, display)
@@ -1238,7 +1238,7 @@ end
 jpx_nseequities_standard_flex_v19_5.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.reserved_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.reserved_2, range, value, display)
@@ -1261,7 +1261,7 @@ end
 jpx_nseequities_standard_flex_v19_5.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.reserved_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.reserved_4, range, value, display)
@@ -1587,7 +1587,7 @@ end
 jpx_nseequities_standard_flex_v19_5.status_flag.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.status_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.status_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.status_flag, range, value, display)
@@ -1610,7 +1610,7 @@ end
 jpx_nseequities_standard_flex_v19_5.stock_proper_name_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.stock_proper_name_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.stock_proper_name_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.stock_proper_name_code, range, value, display)
@@ -1656,7 +1656,7 @@ end
 jpx_nseequities_standard_flex_v19_5.stock_space.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.stock_space.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.stock_space.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.stock_space, range, value, display)
@@ -1880,7 +1880,7 @@ end
 jpx_nseequities_standard_flex_v19_5.time_symbol.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.time_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.time_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.time_symbol, range, value, display)
@@ -1903,7 +1903,7 @@ end
 jpx_nseequities_standard_flex_v19_5.trading_volume_c_14.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.trading_volume_c_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.trading_volume_c_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.trading_volume_c_14, range, value, display)
@@ -1983,7 +1983,7 @@ end
 jpx_nseequities_standard_flex_v19_5.turnover_value.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.turnover_value.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.turnover_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.turnover_value, range, value, display)
@@ -2048,7 +2048,7 @@ end
 jpx_nseequities_standard_flex_v19_5.update_no.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_standard_flex_v19_5.update_no.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_nseequities_standard_flex_v19_5.update_no.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.update_no, range, value, display)

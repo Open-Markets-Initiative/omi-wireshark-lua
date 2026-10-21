@@ -123,6 +123,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Cboe CxeEquities LastSale AsciiPitch 1.7 Fields
@@ -945,7 +956,7 @@ end
 cboe_cxeequities_lastsale_asciipitch_v1_7.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_lastsale_asciipitch_v1_7.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_cxeequities_lastsale_asciipitch_v1_7.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.requested_sequence_number, range, value, display)
@@ -968,7 +979,7 @@ end
 cboe_cxeequities_lastsale_asciipitch_v1_7.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_lastsale_asciipitch_v1_7.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_cxeequities_lastsale_asciipitch_v1_7.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.requested_session, range, value, display)
@@ -991,7 +1002,7 @@ end
 cboe_cxeequities_lastsale_asciipitch_v1_7.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_lastsale_asciipitch_v1_7.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_cxeequities_lastsale_asciipitch_v1_7.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.sequence_number, range, value, display)
@@ -1044,7 +1055,7 @@ end
 cboe_cxeequities_lastsale_asciipitch_v1_7.session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_lastsale_asciipitch_v1_7.session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = cboe_cxeequities_lastsale_asciipitch_v1_7.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_7.fields.session, range, value, display)

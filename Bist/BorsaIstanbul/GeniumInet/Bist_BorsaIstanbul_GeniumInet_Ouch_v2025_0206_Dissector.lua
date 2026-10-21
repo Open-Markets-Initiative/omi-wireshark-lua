@@ -225,6 +225,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Bist BorsaIstanbul GeniumInet Ouch 2025.0206 Fields
@@ -273,7 +284,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.accepted_session, range, value, display)
@@ -1418,7 +1429,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.requested_session, range, value, display)

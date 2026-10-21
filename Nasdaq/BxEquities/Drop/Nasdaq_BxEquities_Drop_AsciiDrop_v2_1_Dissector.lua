@@ -95,6 +95,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq BxEquities Drop AsciiDrop 2.1 Fields
@@ -477,7 +488,7 @@ end
 nasdaq_bxequities_drop_asciidrop_v2_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxequities_drop_asciidrop_v2_1.price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_bxequities_drop_asciidrop_v2_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxequities_drop_asciidrop_v2_1.fields.price, range, value, display)
@@ -653,7 +664,7 @@ end
 nasdaq_bxequities_drop_asciidrop_v2_1.time_stamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxequities_drop_asciidrop_v2_1.time_stamp.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_bxequities_drop_asciidrop_v2_1.time_stamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxequities_drop_asciidrop_v2_1.fields.time_stamp, range, value, display)

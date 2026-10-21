@@ -180,6 +180,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Tradelogiq OmegaAts TcpLevel1 Itch 1.01 Fields
@@ -200,7 +211,7 @@ end
 tradelogiq_omegaats_tcplevel1_itch_v1_01.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = tradelogiq_omegaats_tcplevel1_itch_v1_01.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = tradelogiq_omegaats_tcplevel1_itch_v1_01.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tradelogiq_omegaats_tcplevel1_itch_v1_01.fields.accepted_sequence_number, range, value, display)
@@ -223,7 +234,7 @@ end
 tradelogiq_omegaats_tcplevel1_itch_v1_01.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = tradelogiq_omegaats_tcplevel1_itch_v1_01.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = tradelogiq_omegaats_tcplevel1_itch_v1_01.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tradelogiq_omegaats_tcplevel1_itch_v1_01.fields.accepted_session, range, value, display)
@@ -1001,7 +1012,7 @@ end
 tradelogiq_omegaats_tcplevel1_itch_v1_01.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = tradelogiq_omegaats_tcplevel1_itch_v1_01.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = tradelogiq_omegaats_tcplevel1_itch_v1_01.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tradelogiq_omegaats_tcplevel1_itch_v1_01.fields.requested_sequence_number, range, value, display)

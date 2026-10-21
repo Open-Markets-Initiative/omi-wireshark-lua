@@ -268,7 +268,7 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.accepted_session, range, value, display)
@@ -796,7 +796,7 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.requested_session, range, value, display)

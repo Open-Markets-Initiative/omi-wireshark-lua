@@ -228,6 +228,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Jnx JnxEquities Pts Glimpse 1.3 Fields
@@ -276,7 +287,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_session, range, value, display)
@@ -946,7 +957,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.requested_session, range, value, display)

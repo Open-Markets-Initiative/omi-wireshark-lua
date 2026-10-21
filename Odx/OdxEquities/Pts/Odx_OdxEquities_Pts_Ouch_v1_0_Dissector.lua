@@ -222,6 +222,17 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
 
 -----------------------------------------------------------------------
 -- Odx OdxEquities Pts Ouch 1.0 Fields
@@ -270,7 +281,7 @@ end
 odx_odxequities_pts_ouch_v1_0.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = odx_odxequities_pts_ouch_v1_0.accepted_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = odx_odxequities_pts_ouch_v1_0.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_ouch_v1_0.fields.accepted_session, range, value, display)
@@ -1230,7 +1241,7 @@ end
 odx_odxequities_pts_ouch_v1_0.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = odx_odxequities_pts_ouch_v1_0.requested_session.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = odx_odxequities_pts_ouch_v1_0.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_ouch_v1_0.fields.requested_session, range, value, display)

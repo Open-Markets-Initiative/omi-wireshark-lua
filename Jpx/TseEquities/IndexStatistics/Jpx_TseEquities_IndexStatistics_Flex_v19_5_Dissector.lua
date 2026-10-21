@@ -312,7 +312,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.aggregate_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.aggregate_trading_volume.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.aggregate_trading_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.aggregate_trading_volume, range, value, display)
@@ -335,7 +335,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.aggregate_turnover.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.aggregate_turnover.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.aggregate_turnover.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.aggregate_turnover, range, value, display)
@@ -358,7 +358,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_c_14, range, value, display)
@@ -381,7 +381,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_c_8, range, value, display)
@@ -404,7 +404,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.blank_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.blank_issue_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.blank_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.blank_issue_code, range, value, display)
@@ -427,7 +427,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.cb_proper_name_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.cb_proper_name_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.cb_proper_name_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.cb_proper_name_code, range, value, display)
@@ -486,7 +486,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.cb_space.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.cb_space.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.cb_space.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.cb_space, range, value, display)
@@ -509,7 +509,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.closing_price_transaction.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.closing_price_transaction.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.closing_price_transaction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.closing_price_transaction, range, value, display)
@@ -788,7 +788,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_trading_volume_c_14, range, value, display)
@@ -811,7 +811,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_turnover_c_14, range, value, display)
@@ -1282,7 +1282,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.index_type.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.index_type.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.index_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.index_type, range, value, display)
@@ -1443,7 +1443,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.industry_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.industry_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.industry_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.industry_code, range, value, display)
@@ -1518,7 +1518,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.issue_classification_code, range, value, display)
@@ -1627,7 +1627,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.message_length.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.message_length.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.message_length, range, value, display)
@@ -1812,7 +1812,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.number_of_issues.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.number_of_issues.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.number_of_issues.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.number_of_issues, range, value, display)
@@ -1835,7 +1835,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.number_of_listed_companies.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.number_of_listed_companies.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.number_of_listed_companies.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.number_of_listed_companies, range, value, display)
@@ -1858,7 +1858,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.number_of_listed_issues.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.number_of_listed_issues.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.number_of_listed_issues.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.number_of_listed_issues, range, value, display)
@@ -1891,7 +1891,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.other_classification_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.other_classification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.other_classification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.other_classification_code, range, value, display)
@@ -1930,7 +1930,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.other_classification_flag.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.other_classification_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.other_classification_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.other_classification_flag, range, value, display)
@@ -2022,7 +2022,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.rank.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.rank.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.rank.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.rank, range, value, display)
@@ -2045,7 +2045,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.ranked_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.ranked_issue_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.ranked_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.ranked_issue_code, range, value, display)
@@ -2126,7 +2126,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.reserved_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.reserved_2, range, value, display)
@@ -2531,7 +2531,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.singleissue_transaction_c_14.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.singleissue_transaction_c_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.singleissue_transaction_c_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.singleissue_transaction_c_14, range, value, display)
@@ -2554,7 +2554,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.singleissue_transaction_c_8.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.singleissue_transaction_c_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.singleissue_transaction_c_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.singleissue_transaction_c_8, range, value, display)
@@ -2599,7 +2599,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.sq_type.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.sq_type.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.sq_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.sq_type, range, value, display)
@@ -2744,7 +2744,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.stock_proper_name_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.stock_proper_name_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.stock_proper_name_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.stock_proper_name_code, range, value, display)
@@ -2790,7 +2790,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.stock_space.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.stock_space.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.stock_space.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.stock_space, range, value, display)
@@ -3042,7 +3042,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.time_symbol.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.time_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.time_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.time_symbol, range, value, display)
@@ -3100,7 +3100,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.trading_volume_c_14, range, value, display)
@@ -3180,7 +3180,7 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_left_spaces(range:string())
   local display = jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.turnover_c_14, range, value, display)
