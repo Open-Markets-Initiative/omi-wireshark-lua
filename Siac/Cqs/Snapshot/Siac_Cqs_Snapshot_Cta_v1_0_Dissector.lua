@@ -68,7 +68,8 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.primary_listing_market_participant_id = Pr
 omi_siac_cqs_snapshot_cta_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.snapshot.cta.v1.0.quotecondition", ftypes.STRING, nil, nil, nil, "Denotes a particular condition applicable to the quote.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.reserved = ProtoField.new("Reserved", "siac.cqs.snapshot.cta.v1.0.reserved", ftypes.UINT8, nil, nil, nil, "Field is reserved for future use.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.snapshot.cta.v1.0.retailinterestindicator", ftypes.STRING, nil, nil, nil, "When Retail Price Improvement (RPI) interest is priced better than the Protected Best Bid or Offer (PBBO) by a minimum of $0.001, an indication of interest on the Bid, Offer, or both the Bid and Offer will identify that interest will be eligible to interact with incoming Retail Order interest.")
-omi_siac_cqs_snapshot_cta_v1_0.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v1.0.seconds", ftypes.UINT32, nil, nil, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_cqs_snapshot_cta_v1_0.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v1.0.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_cqs_snapshot_cta_v1_0.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v1.0.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_cqs_snapshot_cta_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v1.0.securitysymbol", ftypes.STRING, nil, nil, nil, "Contains the security symbol")
 omi_siac_cqs_snapshot_cta_v1_0.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v1.0.settlementcondition", ftypes.STRING, nil, nil, nil, "Identifies the settlement condition for a security")
 omi_siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v1.0.shortsalerestrictionindicator", ftypes.STRING, nil, nil, nil, "Identifies whether or not a Short Sale Restriction is in effect")
@@ -2123,20 +2124,20 @@ siac_cqs_snapshot_cta_v1_0.seconds = {}
 -- Size: Seconds
 siac_cqs_snapshot_cta_v1_0.seconds.size = 4
 
--- Display: Seconds
-siac_cqs_snapshot_cta_v1_0.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_cqs_snapshot_cta_v1_0.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v1_0.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_cqs_snapshot_cta_v1_0.fields.seconds
+  if siac_cqs_snapshot_cta_v1_0.absolute_time_base == 1 then field = omi_siac_cqs_snapshot_cta_v1_0.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

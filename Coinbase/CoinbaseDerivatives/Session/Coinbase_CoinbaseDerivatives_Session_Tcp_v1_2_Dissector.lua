@@ -36,7 +36,8 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved = ProtoField.n
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.session.tcp.v1.2.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.session.tcp.v1.2.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.session.tcp.v1.2.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.session.tcp.v1.2.sendtimeepochnanos", ftypes.INT64, nil, nil, nil, "sendTimeEpochNanos")
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.session.tcp.v1.2.sendtimeepochnanos", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendTimeEpochNanos")
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos_utc = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.session.tcp.v1.2.sendtimeepochnanos.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendTimeEpochNanos")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.sequencenumber", ftypes.UINT32, nil, nil, nil, "Outbound sequence number per session")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.template_id = ProtoField.new("Template Id", "coinbase.coinbasederivatives.session.tcp.v1.2.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.tosequencenumber", ftypes.UINT32, nil, nil, nil, "toSequenceNumber")
@@ -60,6 +61,20 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.resend_request_message 
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.test_request_message = ProtoField.new("Test Request Message", "coinbase.coinbasederivatives.session.tcp.v1.2.testrequestmessage", ftypes.STRING, nil, nil, nil, "TestRequestMessage")
 
 -----------------------------------------------------------------------
+-- Coinbase CoinbaseDerivatives Session Tcp 1.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+coinbase_coinbasederivatives_session_tcp_v1_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -75,6 +90,8 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_structs = Pref.bool
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()
 
@@ -87,6 +104,9 @@ function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()
   end
   if show.structs ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_structs then
     show.structs = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_structs
+  end
+  if coinbase_coinbasederivatives_session_tcp_v1_2.absolute_time_base ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.absolute_time_base then
+    coinbase_coinbasederivatives_session_tcp_v1_2.absolute_time_base = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.absolute_time_base
   end
 end
 
@@ -583,23 +603,20 @@ coinbase_coinbasederivatives_session_tcp_v1_2.send_time_epoch_nanos = {}
 -- Size: Send Time Epoch Nanos
 coinbase_coinbasederivatives_session_tcp_v1_2.send_time_epoch_nanos.size = 8
 
--- Display: Send Time Epoch Nanos
-coinbase_coinbasederivatives_session_tcp_v1_2.send_time_epoch_nanos.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time Epoch Nanos: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time Epoch Nanos
 coinbase_coinbasederivatives_session_tcp_v1_2.send_time_epoch_nanos.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_session_tcp_v1_2.send_time_epoch_nanos.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_session_tcp_v1_2.send_time_epoch_nanos.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos
+  if coinbase_coinbasederivatives_session_tcp_v1_2.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

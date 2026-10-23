@@ -60,7 +60,8 @@ omi_cme_globex_settlements_sbe_v7_0.fields.schema_id = ProtoField.new("Schema Id
 omi_cme_globex_settlements_sbe_v7_0.fields.security_exchange = ProtoField.new("Security Exchange", "cme.globex.settlements.sbe.v7.0.securityexchange", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.security_id = ProtoField.new("Security Id", "cme.globex.settlements.sbe.v7.0.securityid", ftypes.UINT32)
 omi_cme_globex_settlements_sbe_v7_0.fields.security_type = ProtoField.new("Security Type", "cme.globex.settlements.sbe.v7.0.securitytype", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.settlements.sbe.v7.0.sendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
+omi_cme_globex_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.settlements.sbe.v7.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
+omi_cme_globex_settlements_sbe_v7_0.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.settlements.sbe.v7.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
 omi_cme_globex_settlements_sbe_v7_0.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.settlements.sbe.v7.0.settlpricetype", ftypes.STRING, nil, nil, nil, "SettlPriceType bit set")
 omi_cme_globex_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.settlements.sbe.v7.0.strikeprice", ftypes.STRING, nil, nil, nil, "Number of data blocks")
 omi_cme_globex_settlements_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "cme.globex.settlements.sbe.v7.0.symbol", ftypes.STRING, nil, nil, nil, "Contract name, symbol")
@@ -68,7 +69,8 @@ omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message_size = ProtoField.new("Tc
 omi_cme_globex_settlements_sbe_v7_0.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.settlements.sbe.v7.0.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
 omi_cme_globex_settlements_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "cme.globex.settlements.sbe.v7.0.templateid", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.globex.settlements.sbe.v7.0.tradingreferencedate", ftypes.UINT16, nil, nil, nil, "Business date corresponding to a statistic entry")
-omi_cme_globex_settlements_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.settlements.sbe.v7.0.transacttime", ftypes.UINT64, nil, nil, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
+omi_cme_globex_settlements_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.settlements.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
+omi_cme_globex_settlements_sbe_v7_0.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.settlements.sbe.v7.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_clearing_product_code = ProtoField.new("Underlying Clearing Product Code", "cme.globex.settlements.sbe.v7.0.underlyingclearingproductcode", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.globex.settlements.sbe.v7.0.underlyingmaturitymonthyear", ftypes.STRING, nil, nil, nil, "Number of data blocks")
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.globex.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
@@ -101,6 +103,20 @@ omi_cme_globex_settlements_sbe_v7_0.fields.incremental_refresh_settle_group_inde
 omi_cme_globex_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_index = ProtoField.new("Incremental Refresh Voi Group Index", "cme.globex.settlements.sbe.v7.0.incrementalrefreshvoigroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cme Globex Settlements Sbe 7.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cme_globex_settlements_sbe_v7_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -120,6 +136,8 @@ omi_cme_globex_settlements_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Sho
 omi_cme_globex_settlements_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_globex_settlements_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cme_globex_settlements_sbe_v7_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cme_globex_settlements_sbe_v7_0.prefs_changed()
 
@@ -138,6 +156,9 @@ function omi_cme_globex_settlements_sbe_v7_0.prefs_changed()
   end
   if show.indexes ~= omi_cme_globex_settlements_sbe_v7_0.prefs.show_indexes then
     show.indexes = omi_cme_globex_settlements_sbe_v7_0.prefs.show_indexes
+  end
+  if cme_globex_settlements_sbe_v7_0.absolute_time_base ~= omi_cme_globex_settlements_sbe_v7_0.prefs.absolute_time_base then
+    cme_globex_settlements_sbe_v7_0.absolute_time_base = omi_cme_globex_settlements_sbe_v7_0.prefs.absolute_time_base
   end
 end
 
@@ -992,23 +1013,20 @@ cme_globex_settlements_sbe_v7_0.sending_time = {}
 -- Size: Sending Time
 cme_globex_settlements_sbe_v7_0.sending_time.size = 8
 
--- Display: Sending Time
-cme_globex_settlements_sbe_v7_0.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 cme_globex_settlements_sbe_v7_0.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_settlements_sbe_v7_0.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_settlements_sbe_v7_0.fields.sending_time
+  if cme_globex_settlements_sbe_v7_0.absolute_time_base == 1 then field = omi_cme_globex_settlements_sbe_v7_0.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1168,23 +1186,20 @@ cme_globex_settlements_sbe_v7_0.transact_time = {}
 -- Size: Transact Time
 cme_globex_settlements_sbe_v7_0.transact_time.size = 8
 
--- Display: Transact Time
-cme_globex_settlements_sbe_v7_0.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 cme_globex_settlements_sbe_v7_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_settlements_sbe_v7_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_settlements_sbe_v7_0.fields.transact_time
+  if cme_globex_settlements_sbe_v7_0.absolute_time_base == 1 then field = omi_cme_globex_settlements_sbe_v7_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

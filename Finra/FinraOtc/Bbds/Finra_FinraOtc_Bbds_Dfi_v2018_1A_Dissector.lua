@@ -145,14 +145,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -241,7 +247,7 @@ finra_finraotc_bbds_dfi_v2018_1a.ask_price.dissect = function(buffer, offset, pa
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price, range, value, "Ask Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -326,7 +332,7 @@ finra_finraotc_bbds_dfi_v2018_1a.bid_price.dissect = function(buffer, offset, pa
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price, range, value, "Bid Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -599,7 +605,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.dissect = function(buffer, off
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, "Inside Ask Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Ask Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -653,7 +659,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.dissect = function(buffer, offs
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, "Inside Ask Size: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Ask Size is not a number: '"..range:string().."'")
     return offset + length, value
@@ -684,7 +690,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.dissect = function(buffer, off
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, "Inside Bid Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Bid Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -738,7 +744,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.dissect = function(buffer, offs
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, "Inside Bid Size: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Bid Size is not a number: '"..range:string().."'")
     return offset + length, value

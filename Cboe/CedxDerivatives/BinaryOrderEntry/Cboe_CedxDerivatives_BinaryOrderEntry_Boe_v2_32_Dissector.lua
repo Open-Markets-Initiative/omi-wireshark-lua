@@ -1101,7 +1101,8 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.exec_id = ProtoField.
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.execrefid", ftypes.UINT64, nil, nil, nil, "Corresponds to ExecRefID (19) in Cboe FIX. Refers to the ExecID (o)f the fill being cancelled or corrected.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.executor_id = ProtoField.new("Executor Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.executorid", ftypes.UINT32)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.executor_qualified_role = ProtoField.new("Executor Qualified Role", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.executorqualifiedrole", ftypes.UINT8)
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.expire_time = ProtoField.new("Expire Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.expiretime", ftypes.UINT64)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.expire_time = ProtoField.new("Expire Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.ext_exec_inst = ProtoField.new("Ext Exec Inst", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.extexecinst", ftypes.STRING)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.fee_code = ProtoField.new("Fee Code", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.feecode", ftypes.STRING)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.gross_trade_amt = ProtoField.new("Gross Trade Amt", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.grosstradeamt", ftypes.DOUBLE)
@@ -2422,7 +2423,8 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.order_restated_v_2_re
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.order_restated_v_2_return_bitfield_9_order_category = ProtoField.new("Order Restated V 2 Return Bitfield 9 Order Category", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.orderrestatedv2returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.order_restated_v_2_return_bitfield_9_target_party_id = ProtoField.new("Order Restated V 2 Return Bitfield 9 Target Party Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.orderrestatedv2returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.origclordid", ftypes.STRING, nil, nil, nil, "Corresponds to OrigClOrdID (41) in Cboe FIX. ClOrdID of the order to cancel.")
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.orig_time = ProtoField.new("Orig Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.origtime", ftypes.UINT64, nil, nil, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.orig_time = ProtoField.new("Orig Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.orig_time_utc = ProtoField.new("Orig Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.param_group = ProtoField.new("Param Group", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.paramgroup", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfParamGroups times.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.paramgrouplength", ftypes.UINT16, nil, nil, nil, "Number of bytes for the parameter group, in- cluding this field.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.paramgrouptype", ftypes.UINT8, nil, nil, nil, "0x80")
@@ -2631,7 +2633,8 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.quote_result = ProtoF
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.quote_update_acknowledgment_quote = ProtoField.new("Quote Update Acknowledgment Quote", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.quoteupdateacknowledgmentquote", ftypes.STRING, nil, nil, nil, "Repeating group stated QuoteCnt times.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.quoteupdateid", ftypes.STRING, nil, nil, nil, "ID chosen by the client. Characters in the ASCII range 33–126 are allowed, except for comma, semicolon, and pipe, the ’at’ symbol and double quotes. Responses, both to the Quote Update and any Quote Executions, Quote Cancellations, and Quote Modification messages will include this identifier. Note: Cboe only enforces uniqueness of QuoteUpdateID values among those not yet acknowledged by the matching en- gine. However, we strongly recommend that you keep your QuoteUpdateID values day- unique.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.reason = ProtoField.new("Reason", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.reason", ftypes.STRING, nil, nil, nil, "Reason for a Trade Capture Report reject or decline. See Reason Codes (§ 7.1, p. 196) for a list of possible reasons.")
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.report_time = ProtoField.new("Report Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.reporttime", ftypes.UINT64)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.report_time = ProtoField.new("Report Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.reporttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.report_time_utc = ProtoField.new("Report Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.reporttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for Cboe internal use. To maintain for- ward compatibility, fill with 0.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.reserved_17 = ProtoField.new("Reserved 17", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.reserved17", ftypes.BYTES, nil, nil, nil, "Reserved for Cboe internal use. Filled with 0.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved for Cboe internal use. To maintain for- ward compatibility, fill with 0.")
@@ -2643,7 +2646,8 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.risk_reset_result = P
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.riskstatusid", ftypes.STRING, nil, nil, nil, "Unique identifier for this Reset Risk request. Response message will have this corresponding identifier. Note: Cboe only enforces uniqueness of RiskStatusID values among currently unac- knowledged requests. However, we strongly recommend that you keep your RiskSta- tusID values day-unique.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.routingfirmid", ftypes.STRING)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.routinginst", ftypes.STRING)
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.rpttime", ftypes.UINT64)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.rpttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.rpt_time_utc = ProtoField.new("Rpt Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.rpttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.secondaryexecid", ftypes.UINT64)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.secondaryorderid", ftypes.UINT64)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.security_id = ProtoField.new("Security Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.securityid", ftypes.STRING)
@@ -3581,9 +3585,11 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_report_ref_id =
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_report_trans_type = ProtoField.new("Trade Report Trans Type", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.tradereporttranstype", ftypes.UINT8)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_report_type = ProtoField.new("Trade Report Type", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.tradereporttype", ftypes.UINT8)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_report_type_return = ProtoField.new("Trade Report Type Return", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.tradereporttypereturn", ftypes.UINT16)
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_time = ProtoField.new("Trade Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.tradetime", ftypes.UINT64)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_time = ProtoField.new("Trade Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_time_utc = ProtoField.new("Trade Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.transactioncategory", ftypes.STRING)
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the event occurred in the Cboe match- ing engine (not the time the message was sent). Nanosecond precision.")
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Cboe match- ing engine (not the time the message was sent). Nanosecond precision.")
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Cboe match- ing engine (not the time the message was sent). Nanosecond precision.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trd_cap_ack_side_grp = ProtoField.new("Trd Cap Ack Side Grp", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.trdcapacksidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.trdsubtype", ftypes.UINT8)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.unit_number = ProtoField.new("Unit Number", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
@@ -3832,6 +3838,20 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trd_cap_ack_side_grp_
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.units_index = ProtoField.new("Units Index", "cboe.cedxderivatives.binaryorderentry.boe.v2.32.unitsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cboe CedxDerivatives BinaryOrderEntry Boe 2.32 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -3851,6 +3871,8 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.show_repeating_groups 
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs_changed()
 
@@ -3869,6 +3891,9 @@ function omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs_changed()
   end
   if show.indexes ~= omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.show_indexes then
     show.indexes = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.show_indexes
+  end
+  if cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base ~= omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.absolute_time_base then
+    cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.prefs.absolute_time_base
   end
 end
 
@@ -5344,23 +5369,20 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_32.expire_time = {}
 -- Size: Expire Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.expire_time.size = 8
 
--- Display: Expire Time
-cboe_cedxderivatives_binaryorderentry_boe_v2_32.expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Expire Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_binaryorderentry_boe_v2_32.expire_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_32.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.expire_time
+  if cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base == 1 then field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7478,23 +7500,20 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_32.orig_time = {}
 -- Size: Orig Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.orig_time.size = 8
 
--- Display: Orig Time
-cboe_cedxderivatives_binaryorderentry_boe_v2_32.orig_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Orig Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.orig_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_binaryorderentry_boe_v2_32.orig_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_32.orig_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.orig_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.orig_time
+  if cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base == 1 then field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.orig_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8343,23 +8362,20 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_32.report_time = {}
 -- Size: Report Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.report_time.size = 8
 
--- Display: Report Time
-cboe_cedxderivatives_binaryorderentry_boe_v2_32.report_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Report Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Report Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.report_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_binaryorderentry_boe_v2_32.report_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_32.report_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.report_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.report_time
+  if cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base == 1 then field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.report_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8774,23 +8790,20 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_32.rpt_time = {}
 -- Size: Rpt Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.rpt_time.size = 8
 
--- Display: Rpt Time
-cboe_cedxderivatives_binaryorderentry_boe_v2_32.rpt_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Rpt Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Rpt Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.rpt_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_binaryorderentry_boe_v2_32.rpt_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_32.rpt_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.rpt_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.rpt_time
+  if cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base == 1 then field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.rpt_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9655,23 +9668,20 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_time = {}
 -- Size: Trade Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_time.size = 8
 
--- Display: Trade Time
-cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trade Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_time
+  if cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base == 1 then field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9728,23 +9738,20 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time = {}
 -- Size: Transaction Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.size = 8
 
--- Display: Transaction Time
-cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.transaction_time
+  if cboe_cedxderivatives_binaryorderentry_boe_v2_32.absolute_time_base == 1 then field = omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

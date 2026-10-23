@@ -84,7 +84,8 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.protocol_version = ProtoField.new("
 omi_asx_asxderivatives_t24_itch_v1_13.fields.quantity = ProtoField.new("Quantity", "asx.asxderivatives.t24.itch.v1.13.quantity", ftypes.UINT32, nil, nil, nil, "Number of lots added to the book (all volume is visible).")
 omi_asx_asxderivatives_t24_itch_v1_13.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "asx.asxderivatives.t24.itch.v1.13.quantityremaining", ftypes.UINT32, nil, nil, nil, "Volume remaining on Order after matching, if 0, order has traded out and should be deleted.")
 omi_asx_asxderivatives_t24_itch_v1_13.fields.ratio = ProtoField.new("Ratio", "asx.asxderivatives.t24.itch.v1.13.ratio", ftypes.UINT16, nil, nil, nil, "Volume Ratio of this leg.")
-omi_asx_asxderivatives_t24_itch_v1_13.fields.second = ProtoField.new("Second", "asx.asxderivatives.t24.itch.v1.13.second", ftypes.UINT32, nil, nil, nil, "Second message will be disseminated for every second change where there is at least one payload message")
+omi_asx_asxderivatives_t24_itch_v1_13.fields.second = ProtoField.new("Second", "asx.asxderivatives.t24.itch.v1.13.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Second message will be disseminated for every second change where there is at least one payload message")
+omi_asx_asxderivatives_t24_itch_v1_13.fields.second_utc = ProtoField.new("Second", "asx.asxderivatives.t24.itch.v1.13.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Second message will be disseminated for every second change where there is at least one payload message")
 omi_asx_asxderivatives_t24_itch_v1_13.fields.second_leg_contract_number = ProtoField.new("Second Leg Contract Number", "asx.asxderivatives.t24.itch.v1.13.secondlegcontractnumber", ftypes.UINT32, nil, nil, nil, "Underlying Contract Number Field Element Identifier of the second contract leg.")
 omi_asx_asxderivatives_t24_itch_v1_13.fields.secondary_ratio = ProtoField.new("Secondary Ratio", "asx.asxderivatives.t24.itch.v1.13.secondaryratio", ftypes.UINT8, nil, nil, nil, "Ratio of the second contract leg.")
 omi_asx_asxderivatives_t24_itch_v1_13.fields.seller_contract_number = ProtoField.new("Seller Contract Number", "asx.asxderivatives.t24.itch.v1.13.sellercontractnumber", ftypes.UINT32, nil, nil, nil, "Seller’s Contract Number Field Element Identifier.")
@@ -173,6 +174,15 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.timestamp = ProtoField.new("Timesta
 -- Asx AsxDerivatives T24 Itch 1.13 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+asx_asxderivatives_t24_itch_v1_13.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 asx_asxderivatives_t24_itch_v1_13.format_timestamp = true
 
@@ -198,6 +208,8 @@ omi_asx_asxderivatives_t24_itch_v1_13.prefs.show_indexes = Pref.bool("Show Index
 omi_asx_asxderivatives_t24_itch_v1_13.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_asx_asxderivatives_t24_itch_v1_13.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_asx_asxderivatives_t24_itch_v1_13.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_asx_asxderivatives_t24_itch_v1_13.prefs_changed()
 
@@ -219,6 +231,9 @@ function omi_asx_asxderivatives_t24_itch_v1_13.prefs_changed()
   end
   if asx_asxderivatives_t24_itch_v1_13.format_timestamp ~= omi_asx_asxderivatives_t24_itch_v1_13.prefs.format_timestamp then
     asx_asxderivatives_t24_itch_v1_13.format_timestamp = omi_asx_asxderivatives_t24_itch_v1_13.prefs.format_timestamp
+  end
+  if asx_asxderivatives_t24_itch_v1_13.absolute_time_base ~= omi_asx_asxderivatives_t24_itch_v1_13.prefs.absolute_time_base then
+    asx_asxderivatives_t24_itch_v1_13.absolute_time_base = omi_asx_asxderivatives_t24_itch_v1_13.prefs.absolute_time_base
   end
 end
 
@@ -1948,20 +1963,20 @@ asx_asxderivatives_t24_itch_v1_13.second.generated = function(value, range, pack
   second:set_generated()
 end
 
--- Display: Second
-asx_asxderivatives_t24_itch_v1_13.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 asx_asxderivatives_t24_itch_v1_13.second.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_asxderivatives_t24_itch_v1_13.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_asx_asxderivatives_t24_itch_v1_13.fields.second
+  if asx_asxderivatives_t24_itch_v1_13.absolute_time_base == 1 then field = omi_asx_asxderivatives_t24_itch_v1_13.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

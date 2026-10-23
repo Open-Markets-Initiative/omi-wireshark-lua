@@ -76,7 +76,8 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.reserved = ProtoField.new("Reserved", "sia
 omi_siac_cqs_snapshot_cta_v2_1.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.snapshot.cta.v2.1.retailinterestindicator", ftypes.STRING, nil, nil, nil, "Indicates Retail Price Improvement (RPI) interest priced better than the Protected Best Bid or Offer (PBBO) by a minimum of $0.001")
 omi_siac_cqs_snapshot_cta_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "siac.cqs.snapshot.cta.v2.1.roundlotsize", ftypes.UINT16, nil, nil, nil, "Round-lot size for a symbol can consist of 1, 10, 40 or 100 shares")
 omi_siac_cqs_snapshot_cta_v2_1.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cqs.snapshot.cta.v2.1.secondreserved", ftypes.STRING, nil, nil, nil, "Space-filled, reserved for future use")
-omi_siac_cqs_snapshot_cta_v2_1.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds", ftypes.UINT32, nil, nil, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
+omi_siac_cqs_snapshot_cta_v2_1.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
+omi_siac_cqs_snapshot_cta_v2_1.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cqs_snapshot_cta_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v2.1.securitysymbol", ftypes.STRING, nil, nil, nil, "Contains the security symbol, left justified, space filled")
 omi_siac_cqs_snapshot_cta_v2_1.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v2.1.settlementcondition", ftypes.STRING, nil, nil, nil, "Identifies the settlement condition for a security")
 omi_siac_cqs_snapshot_cta_v2_1.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v2.1.shortsalerestrictionindicator", ftypes.STRING, nil, nil, nil, "Identifies whether a Short Sale Restriction is in effect")
@@ -2059,20 +2060,20 @@ siac_cqs_snapshot_cta_v2_1.seconds = {}
 -- Size: Seconds
 siac_cqs_snapshot_cta_v2_1.seconds.size = 4
 
--- Display: Seconds
-siac_cqs_snapshot_cta_v2_1.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_cqs_snapshot_cta_v2_1.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v2_1.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_cqs_snapshot_cta_v2_1.fields.seconds
+  if siac_cqs_snapshot_cta_v2_1.absolute_time_base == 1 then field = omi_siac_cqs_snapshot_cta_v2_1.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

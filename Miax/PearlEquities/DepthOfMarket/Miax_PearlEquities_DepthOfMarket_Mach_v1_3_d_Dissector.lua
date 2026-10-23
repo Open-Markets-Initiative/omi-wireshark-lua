@@ -59,7 +59,8 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_7 = ProtoField.
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retail_trade_indicator = ProtoField.new("Retail Trade Indicator", "miax.pearlequities.depthofmarket.mach.v1.3.d.retailtradeindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "0 - Neither side is Retail; 1 - At least one side is Retail.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.depthofmarket.mach.v1.3.d.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.d.secondreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.d.seconds", ftypes.UINT32, nil, nil, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.d.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds_utc = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.d.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.d.sequencenumber", ftypes.UINT64, nil, nil, nil, "For Symbol Update/Trading Status/System State refreshes this is the original sequence number from the live feed; for Order Book refresh this is the last sequence number on the live feed at the time of the refresh request.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The ESesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.sequencedmessagetype", ftypes.UINT8, nil, nil, nil, "Market-data application message type carried over the ESesM sequenced channel (matches the MACH UDP Message Type byte)")
@@ -115,6 +116,15 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.timestamp = ProtoField.n
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_pearlequities_depthofmarket_mach_v1_3_d.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 miax_pearlequities_depthofmarket_mach_v1_3_d.format_timestamp = true
 
@@ -136,6 +146,8 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs = Pref.bool(
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
 
@@ -151,6 +163,9 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
   end
   if miax_pearlequities_depthofmarket_mach_v1_3_d.format_timestamp ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.format_timestamp then
     miax_pearlequities_depthofmarket_mach_v1_3_d.format_timestamp = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.format_timestamp
+  end
+  if miax_pearlequities_depthofmarket_mach_v1_3_d.absolute_time_base ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.absolute_time_base then
+    miax_pearlequities_depthofmarket_mach_v1_3_d.absolute_time_base = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.absolute_time_base
   end
 end
 
@@ -1175,20 +1190,20 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.generated = function(value,
   seconds:set_generated()
 end
 
--- Display: Seconds
-miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds
+  if miax_pearlequities_depthofmarket_mach_v1_3_d.absolute_time_base == 1 then field = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

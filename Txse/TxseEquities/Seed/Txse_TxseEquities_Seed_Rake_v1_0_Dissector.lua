@@ -151,7 +151,8 @@ omi_txse_txseequities_seed_rake_v1_0.fields.is_test = ProtoField.new("Is Test", 
 omi_txse_txseequities_seed_rake_v1_0.fields.leaves_qty = ProtoField.new("Leaves Qty", "txse.txseequities.seed.rake.v1.0.leavesqty", ftypes.INT32, nil, nil, nil, "Number of shares that were still available to execute after the modify.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_bit_fields = ProtoField.new("Limit Order Accepted Bit Fields", "txse.txseequities.seed.rake.v1.0.limitorderacceptedbitfields", ftypes.STRING, nil, nil, nil, "Bitfield used in LimitOrder, LimitOrderAccepted, and LimitOrderRejected messages.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_display_price = ProtoField.new("Limit Order Accepted Display Price", "txse.txseequities.seed.rake.v1.0.limitorderaccepteddisplayprice", ftypes.DOUBLE, nil, nil, nil, "Optional display price, when different from limit price.")
-omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_expire_time = ProtoField.new("Limit Order Accepted Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderacceptedexpiretime", ftypes.INT64, nil, nil, nil, "Timestamp at which the order's open quantity will be canceled, valid only with GTT time in force.")
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_expire_time = ProtoField.new("Limit Order Accepted Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderacceptedexpiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp at which the order's open quantity will be canceled, valid only with GTT time in force.")
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_expire_time_utc = ProtoField.new("Limit Order Accepted Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderacceptedexpiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp at which the order's open quantity will be canceled, valid only with GTT time in force.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_locate_broker = ProtoField.new("Limit Order Accepted Locate Broker", "txse.txseequities.seed.rake.v1.0.limitorderacceptedlocatebroker", ftypes.STRING, nil, nil, nil, "Identifies the broker that has loaned the stock to settle the short sale.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_max_floor_qty = ProtoField.new("Limit Order Accepted Max Floor Qty", "txse.txseequities.seed.rake.v1.0.limitorderacceptedmaxfloorqty", ftypes.INT32, nil, nil, nil, "Quantity to be displayed at one time with remaining quantity not displayed on the book.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_max_replenish_qty_range = ProtoField.new("Limit Order Accepted Max Replenish Qty Range", "txse.txseequities.seed.rake.v1.0.limitorderacceptedmaxreplenishqtyrange", ftypes.INT32, nil, nil, nil, "Defines the maximum range to be used when calculating a random refresh quantity.")
@@ -167,7 +168,8 @@ omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_self_match_inst
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_self_match_scope = ProtoField.new("Limit Order Accepted Self Match Scope", "txse.txseequities.seed.rake.v1.0.limitorderacceptedselfmatchscope", ftypes.INT8, nil, nil, nil, "Enum SelfMatchScope.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_user_data = ProtoField.new("Limit Order Accepted User Data", "txse.txseequities.seed.rake.v1.0.limitorderaccepteduserdata", ftypes.INT64, nil, nil, nil, "Pass-through field for use by clients, not used by the Exchange.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_bit_fields = ProtoField.new("Limit Order Bit Fields", "txse.txseequities.seed.rake.v1.0.limitorderbitfields", ftypes.STRING, nil, nil, nil, "Bitfield used in LimitOrder, LimitOrderAccepted, and LimitOrderRejected messages.")
-omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_expire_time = ProtoField.new("Limit Order Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderexpiretime", ftypes.INT64, nil, nil, nil, "Timestamp at which the order's open quantity will be canceled, valid only with GTT time in force.")
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_expire_time = ProtoField.new("Limit Order Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderexpiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp at which the order's open quantity will be canceled, valid only with GTT time in force.")
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_expire_time_utc = ProtoField.new("Limit Order Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderexpiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp at which the order's open quantity will be canceled, valid only with GTT time in force.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_locate_broker = ProtoField.new("Limit Order Locate Broker", "txse.txseequities.seed.rake.v1.0.limitorderlocatebroker", ftypes.STRING, nil, nil, nil, "Identifies the broker that has loaned the stock to settle the short sale.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_max_floor_qty = ProtoField.new("Limit Order Max Floor Qty", "txse.txseequities.seed.rake.v1.0.limitordermaxfloorqty", ftypes.INT32, nil, nil, nil, "Quantity to be displayed at one time with remaining quantity not displayed on the book.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_max_replenish_qty_range = ProtoField.new("Limit Order Max Replenish Qty Range", "txse.txseequities.seed.rake.v1.0.limitordermaxreplenishqtyrange", ftypes.INT32, nil, nil, nil, "Defines the maximum range to be used when calculating a random refresh quantity.")
@@ -179,7 +181,8 @@ omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_presence_bits = ProtoFie
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_price_slide_instruction = ProtoField.new("Limit Order Price Slide Instruction", "txse.txseequities.seed.rake.v1.0.limitorderpriceslideinstruction", ftypes.INT8, nil, nil, nil, "Enum LimitOrderPriceSlideInstruction.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_reference_price_target = ProtoField.new("Limit Order Reference Price Target", "txse.txseequities.seed.rake.v1.0.limitorderreferencepricetarget", ftypes.INT16, nil, nil, nil, "The target relative to the reference base price in basis points of the NBBO spread.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_bit_fields = ProtoField.new("Limit Order Rejected Bit Fields", "txse.txseequities.seed.rake.v1.0.limitorderrejectedbitfields", ftypes.STRING, nil, nil, nil, "Bitfield used in LimitOrder, LimitOrderAccepted, and LimitOrderRejected messages.")
-omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_expire_time = ProtoField.new("Limit Order Rejected Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderrejectedexpiretime", ftypes.INT64, nil, nil, nil, "Timestamp at which the order will be canceled.")
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_expire_time = ProtoField.new("Limit Order Rejected Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderrejectedexpiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp at which the order will be canceled.")
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_expire_time_utc = ProtoField.new("Limit Order Rejected Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderrejectedexpiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp at which the order will be canceled.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_locate_broker = ProtoField.new("Limit Order Rejected Locate Broker", "txse.txseequities.seed.rake.v1.0.limitorderrejectedlocatebroker", ftypes.STRING, nil, nil, nil, "Locate broker.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_max_floor_qty = ProtoField.new("Limit Order Rejected Max Floor Qty", "txse.txseequities.seed.rake.v1.0.limitorderrejectedmaxfloorqty", ftypes.INT32, nil, nil, nil, "Quantity to be displayed at one time.")
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_max_replenish_qty_range = ProtoField.new("Limit Order Rejected Max Replenish Qty Range", "txse.txseequities.seed.rake.v1.0.limitorderrejectedmaxreplenishqtyrange", ftypes.INT32, nil, nil, nil, "Maximum range for random refresh quantity.")
@@ -344,7 +347,8 @@ omi_txse_txseequities_seed_rake_v1_0.fields.token = ProtoField.new("Token", "txs
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_operational_halt_reason = ProtoField.new("Trading Session Status Operational Halt Reason", "txse.txseequities.seed.rake.v1.0.tradingsessionstatusoperationalhaltreason", ftypes.INT8, nil, nil, nil, "Enum TradingSessionStatusOperationalHaltReason.")
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_presence_bits = ProtoField.new("Trading Session Status Presence Bits", "txse.txseequities.seed.rake.v1.0.tradingsessionstatuspresencebits", ftypes.STRING, nil, nil, nil, "Presence bit flags for optional fields in the enclosing message.")
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_regulatory_halt_reason = ProtoField.new("Trading Session Status Regulatory Halt Reason", "txse.txseequities.seed.rake.v1.0.tradingsessionstatusregulatoryhaltreason", ftypes.INT8, nil, nil, nil, "Enum TradingSessionStatusRegulatoryHaltReason.")
-omi_txse_txseequities_seed_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.seed.rake.v1.0.transacttime", ftypes.INT64, nil, nil, nil, "Transaction time.")
+omi_txse_txseequities_seed_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.seed.rake.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time.")
+omi_txse_txseequities_seed_rake_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "txse.txseequities.seed.rake.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction time.")
 
 -- Txse TxseEquities Seed Rake 1.0 Framing
 omi_txse_txseequities_seed_rake_v1_0.fields.client_packet = ProtoField.new("Client Packet", "txse.txseequities.seed.rake.v1.0.clientpacket", ftypes.STRING, nil, nil, nil, "Rake Packet sent by the Member")
@@ -384,6 +388,15 @@ omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_message = Pro
 -- Txse TxseEquities Seed Rake 1.0 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+txse_txseequities_seed_rake_v1_0.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -411,6 +424,8 @@ omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages = Pref.bool
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_txse_txseequities_seed_rake_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_txse_txseequities_seed_rake_v1_0.prefs_changed()
 
@@ -423,6 +438,9 @@ function omi_txse_txseequities_seed_rake_v1_0.prefs_changed()
   end
   if show.structs ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs then
     show.structs = omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs
+  end
+  if txse_txseequities_seed_rake_v1_0.absolute_time_base ~= omi_txse_txseequities_seed_rake_v1_0.prefs.absolute_time_base then
+    txse_txseequities_seed_rake_v1_0.absolute_time_base = omi_txse_txseequities_seed_rake_v1_0.prefs.absolute_time_base
   end
 end
 
@@ -937,23 +955,20 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time = {}
 -- Size: Limit Order Accepted Expire Time
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time.size = 8
 
--- Display: Limit Order Accepted Expire Time
-txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Limit Order Accepted Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Limit Order Accepted Expire Time
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_expire_time
+  if txse_txseequities_seed_rake_v1_0.absolute_time_base == 1 then field = omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1301,23 +1316,20 @@ txse_txseequities_seed_rake_v1_0.limit_order_expire_time = {}
 -- Size: Limit Order Expire Time
 txse_txseequities_seed_rake_v1_0.limit_order_expire_time.size = 8
 
--- Display: Limit Order Expire Time
-txse_txseequities_seed_rake_v1_0.limit_order_expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Limit Order Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Limit Order Expire Time
 txse_txseequities_seed_rake_v1_0.limit_order_expire_time.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_expire_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = txse_txseequities_seed_rake_v1_0.limit_order_expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_expire_time
+  if txse_txseequities_seed_rake_v1_0.absolute_time_base == 1 then field = omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1548,23 +1560,20 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time = {}
 -- Size: Limit Order Rejected Expire Time
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time.size = 8
 
--- Display: Limit Order Rejected Expire Time
-txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Limit Order Rejected Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Limit Order Rejected Expire Time
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_expire_time
+  if txse_txseequities_seed_rake_v1_0.absolute_time_base == 1 then field = omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5643,23 +5652,20 @@ txse_txseequities_seed_rake_v1_0.transact_time = {}
 -- Size: Transact Time
 txse_txseequities_seed_rake_v1_0.transact_time.size = 8
 
--- Display: Transact Time
-txse_txseequities_seed_rake_v1_0.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 txse_txseequities_seed_rake_v1_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = txse_txseequities_seed_rake_v1_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_txse_txseequities_seed_rake_v1_0.fields.transact_time
+  if txse_txseequities_seed_rake_v1_0.absolute_time_base == 1 then field = omi_txse_txseequities_seed_rake_v1_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

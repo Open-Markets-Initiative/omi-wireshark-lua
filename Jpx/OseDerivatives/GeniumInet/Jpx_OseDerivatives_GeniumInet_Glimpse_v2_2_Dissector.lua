@@ -66,7 +66,8 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_7_b = ProtoField.
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_8_a = ProtoField.new("Reserved 8 A", "jpx.osederivatives.geniuminet.glimpse.v2.2.reserved8a", ftypes.BYTES, nil, nil, nil, "Reserved item, if any value is set ignore it")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_8_b = ProtoField.new("Reserved 8 B", "jpx.osederivatives.geniuminet.glimpse.v2.2.reserved8b", ftypes.BYTES, nil, nil, nil, "Reserved item, if any value is set ignore it")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "jpx.osederivatives.geniuminet.glimpse.v2.2.roundlotsize", ftypes.UINT32, nil, nil, nil, "Fixed at 1")
-omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second = ProtoField.new("Second", "jpx.osederivatives.geniuminet.glimpse.v2.2.second", ftypes.UINT32, nil, nil, nil, "UNIX time, the time elapsed since January 1 1970 00:00:00 GMT")
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second = ProtoField.new("Second", "jpx.osederivatives.geniuminet.glimpse.v2.2.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time, the time elapsed since January 1 1970 00:00:00 GMT")
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second_utc = ProtoField.new("Second", "jpx.osederivatives.geniuminet.glimpse.v2.2.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX time, the time elapsed since January 1 1970 00:00:00 GMT")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.sequence = ProtoField.new("Sequence", "jpx.osederivatives.geniuminet.glimpse.v2.2.sequence", ftypes.STRING, nil, nil, nil, "The sequence number of the multicast data to be received just after snapshot data is received")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jpx.osederivatives.geniuminet.glimpse.v2.2.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.server_packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.glimpse.v2.2.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -129,6 +130,15 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.experts = { jpx_osederivatives_ge
 -- Jpx OseDerivatives GeniumInet Glimpse 2.2 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+jpx_osederivatives_geniuminet_glimpse_v2_2.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 jpx_osederivatives_geniuminet_glimpse_v2_2.format_timestamp = true
 
@@ -164,6 +174,8 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_application_messages =
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs_changed()
 
@@ -185,6 +197,9 @@ function omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs_changed()
   end
   if jpx_osederivatives_geniuminet_glimpse_v2_2.format_timestamp ~= omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.format_timestamp then
     jpx_osederivatives_geniuminet_glimpse_v2_2.format_timestamp = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.format_timestamp
+  end
+  if jpx_osederivatives_geniuminet_glimpse_v2_2.absolute_time_base ~= omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.absolute_time_base then
+    jpx_osederivatives_geniuminet_glimpse_v2_2.absolute_time_base = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.absolute_time_base
   end
 end
 
@@ -258,14 +273,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -291,7 +312,7 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.accepted_sequence_number.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(jpx_osederivatives_geniuminet_glimpse_v2_2.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1322,7 +1343,7 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.requested_sequence_number.dissect = f
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(jpx_osederivatives_geniuminet_glimpse_v2_2.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1558,20 +1579,20 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.second.generated = function(value, ra
   second:set_generated()
 end
 
--- Display: Second
-jpx_osederivatives_geniuminet_glimpse_v2_2.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 jpx_osederivatives_geniuminet_glimpse_v2_2.second.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_glimpse_v2_2.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_glimpse_v2_2.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second
+  if jpx_osederivatives_geniuminet_glimpse_v2_2.absolute_time_base == 1 then field = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -18,7 +18,8 @@ local bse_bseindia_eti_fbe_v1_6_14 = {}
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.account = ProtoField.new("Account", "bse.bseindia.eti.fbe.v1.6.14.account", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.account_type = ProtoField.new("Account Type", "bse.bseindia.eti.fbe.v1.6.14.accounttype", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.accrued_interest_amt = ProtoField.new("Accrued Interest Amt", "bse.bseindia.eti.fbe.v1.6.14.accruedinterestamt", ftypes.DOUBLE)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time = ProtoField.new("Activity Time", "bse.bseindia.eti.fbe.v1.6.14.activitytime", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time = ProtoField.new("Activity Time", "bse.bseindia.eti.fbe.v1.6.14.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time_utc = ProtoField.new("Activity Time", "bse.bseindia.eti.fbe.v1.6.14.activitytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "bse.bseindia.eti.fbe.v1.6.14.aggressorindicator", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.algo_id = ProtoField.new("Algo Id", "bse.bseindia.eti.fbe.v1.6.14.algoid", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.alignment_padding = ProtoField.new("Alignment Padding", "bse.bseindia.eti.fbe.v1.6.14.alignmentpadding", ftypes.BYTES, nil, nil, nil, "Alignment")
@@ -61,7 +62,8 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.default_cstm_appl_ver_id = ProtoField.ne
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.delta_qty_flag = ProtoField.new("Delta Qty Flag", "bse.bseindia.eti.fbe.v1.6.14.deltaqtyflag", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.duration = ProtoField.new("Duration", "bse.bseindia.eti.fbe.v1.6.14.duration", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.enrichment_rule_id = ProtoField.new("Enrichment Rule Id", "bse.bseindia.eti.fbe.v1.6.14.enrichmentruleid", ftypes.UINT16)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id = ProtoField.new("Exec Id", "bse.bseindia.eti.fbe.v1.6.14.execid", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id = ProtoField.new("Exec Id", "bse.bseindia.eti.fbe.v1.6.14.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id_utc = ProtoField.new("Exec Id", "bse.bseindia.eti.fbe.v1.6.14.execid.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_inst = ProtoField.new("Exec Inst", "bse.bseindia.eti.fbe.v1.6.14.execinst", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "bse.bseindia.eti.fbe.v1.6.14.execrestatementreason", ftypes.UINT16)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_type = ProtoField.new("Exec Type", "bse.bseindia.eti.fbe.v1.6.14.exectype", ftypes.STRING)
@@ -94,7 +96,8 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.initialization_vector = ProtoField.new("
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.instrmnt_leg_exec_grp_comp = ProtoField.new("Instrmnt Leg Exec Grp Comp", "bse.bseindia.eti.fbe.v1.6.14.instrmntlegexecgrpcomp", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_fragment = ProtoField.new("Last Fragment", "bse.bseindia.eti.fbe.v1.6.14.lastfragment", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_ip = ProtoField.new("Last Login Ip", "bse.bseindia.eti.fbe.v1.6.14.lastloginip", ftypes.UINT32)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time = ProtoField.new("Last Login Time", "bse.bseindia.eti.fbe.v1.6.14.lastlogintime", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time = ProtoField.new("Last Login Time", "bse.bseindia.eti.fbe.v1.6.14.lastlogintime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time_utc = ProtoField.new("Last Login Time", "bse.bseindia.eti.fbe.v1.6.14.lastlogintime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_px = ProtoField.new("Last Px", "bse.bseindia.eti.fbe.v1.6.14.lastpx", ftypes.DOUBLE)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_qty = ProtoField.new("Last Qty", "bse.bseindia.eti.fbe.v1.6.14.lastqty", ftypes.INT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.leaves_qty = ProtoField.new("Leaves Qty", "bse.bseindia.eti.fbe.v1.6.14.leavesqty", ftypes.INT32)
@@ -110,7 +113,8 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.list_update_action = ProtoField.new("Lis
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.market_id = ProtoField.new("Market Id", "bse.bseindia.eti.fbe.v1.6.14.marketid", ftypes.UINT16)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.market_segment_id = ProtoField.new("Market Segment Id", "bse.bseindia.eti.fbe.v1.6.14.marketsegmentid", ftypes.INT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_reason = ProtoField.new("Mass Action Reason", "bse.bseindia.eti.fbe.v1.6.14.massactionreason", ftypes.UINT8)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "bse.bseindia.eti.fbe.v1.6.14.massactionreportid", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "bse.bseindia.eti.fbe.v1.6.14.massactionreportid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id_utc = ProtoField.new("Mass Action Report Id", "bse.bseindia.eti.fbe.v1.6.14.massactionreportid.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.match_date = ProtoField.new("Match Date", "bse.bseindia.eti.fbe.v1.6.14.matchdate", ftypes.UINT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.match_sub_type = ProtoField.new("Match Sub Type", "bse.bseindia.eti.fbe.v1.6.14.matchsubtype", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.match_type = ProtoField.new("Match Type", "bse.bseindia.eti.fbe.v1.6.14.matchtype", ftypes.UINT8)
@@ -160,7 +164,8 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.order_qty = ProtoField.new("Order Qty", 
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.order_routing_indicator = ProtoField.new("Order Routing Indicator", "bse.bseindia.eti.fbe.v1.6.14.orderroutingindicator", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.order_side = ProtoField.new("Order Side", "bse.bseindia.eti.fbe.v1.6.14.orderside", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "bse.bseindia.eti.fbe.v1.6.14.origclordid", ftypes.UINT64)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time = ProtoField.new("Orig Time", "bse.bseindia.eti.fbe.v1.6.14.origtime", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time = ProtoField.new("Orig Time", "bse.bseindia.eti.fbe.v1.6.14.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time_utc = ProtoField.new("Orig Time", "bse.bseindia.eti.fbe.v1.6.14.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_trade_id = ProtoField.new("Orig Trade Id", "bse.bseindia.eti.fbe.v1.6.14.origtradeid", ftypes.UINT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad1 = ProtoField.new("Pad1", "bse.bseindia.eti.fbe.v1.6.14.pad1", ftypes.BYTES)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad2 = ProtoField.new("Pad2", "bse.bseindia.eti.fbe.v1.6.14.pad2", ftypes.BYTES)
@@ -205,7 +210,8 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_event_type = ProtoField.new("Quote
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_id = ProtoField.new("Quote Id", "bse.bseindia.eti.fbe.v1.6.14.quoteid", ftypes.UINT64)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_leg_exec_grp_comp = ProtoField.new("Quote Leg Exec Grp Comp", "bse.bseindia.eti.fbe.v1.6.14.quotelegexecgrpcomp", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_msg_id = ProtoField.new("Quote Msg Id", "bse.bseindia.eti.fbe.v1.6.14.quotemsgid", ftypes.UINT64)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id = ProtoField.new("Quote Response Id", "bse.bseindia.eti.fbe.v1.6.14.quoteresponseid", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id = ProtoField.new("Quote Response Id", "bse.bseindia.eti.fbe.v1.6.14.quoteresponseid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id_utc = ProtoField.new("Quote Response Id", "bse.bseindia.eti.fbe.v1.6.14.quoteresponseid.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_size_type = ProtoField.new("Quote Size Type", "bse.bseindia.eti.fbe.v1.6.14.quotesizetype", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.rbc_header_comp = ProtoField.new("Rbc Header Comp", "bse.bseindia.eti.fbe.v1.6.14.rbcheadercomp", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.rbc_header_me_comp = ProtoField.new("Rbc Header Me Comp", "bse.bseindia.eti.fbe.v1.6.14.rbcheadermecomp", ftypes.STRING)
@@ -219,14 +225,17 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.related_product_complex = ProtoField.new
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.related_security_id = ProtoField.new("Related Security Id", "bse.bseindia.eti.fbe.v1.6.14.relatedsecurityid", ftypes.INT64)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.related_symbol = ProtoField.new("Related Symbol", "bse.bseindia.eti.fbe.v1.6.14.relatedsymbol", ftypes.INT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_header_comp = ProtoField.new("Request Header Comp", "bse.bseindia.eti.fbe.v1.6.14.requestheadercomp", ftypes.STRING)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out = ProtoField.new("Request Out", "bse.bseindia.eti.fbe.v1.6.14.requestout", ftypes.UINT64)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time = ProtoField.new("Request Time", "bse.bseindia.eti.fbe.v1.6.14.requesttime", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out = ProtoField.new("Request Out", "bse.bseindia.eti.fbe.v1.6.14.requestout", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out_utc = ProtoField.new("Request Out", "bse.bseindia.eti.fbe.v1.6.14.requestout.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time = ProtoField.new("Request Time", "bse.bseindia.eti.fbe.v1.6.14.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time_utc = ProtoField.new("Request Time", "bse.bseindia.eti.fbe.v1.6.14.requesttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.requesting_party_clearing_firm = ProtoField.new("Requesting Party Clearing Firm", "bse.bseindia.eti.fbe.v1.6.14.requestingpartyclearingfirm", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.requesting_party_entering_firm = ProtoField.new("Requesting Party Entering Firm", "bse.bseindia.eti.fbe.v1.6.14.requestingpartyenteringfirm", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.requesting_party_id_executing_system = ProtoField.new("Requesting Party Id Executing System", "bse.bseindia.eti.fbe.v1.6.14.requestingpartyidexecutingsystem", ftypes.UINT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_header_comp = ProtoField.new("Response Header Comp", "bse.bseindia.eti.fbe.v1.6.14.responseheadercomp", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_header_me_comp = ProtoField.new("Response Header Me Comp", "bse.bseindia.eti.fbe.v1.6.14.responseheadermecomp", ftypes.STRING)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in = ProtoField.new("Response In", "bse.bseindia.eti.fbe.v1.6.14.responsein", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in = ProtoField.new("Response In", "bse.bseindia.eti.fbe.v1.6.14.responsein", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in_utc = ProtoField.new("Response In", "bse.bseindia.eti.fbe.v1.6.14.responsein.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.risk_limit_action = ProtoField.new("Risk Limit Action", "bse.bseindia.eti.fbe.v1.6.14.risklimitaction", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.risk_mode_status = ProtoField.new("Risk Mode Status", "bse.bseindia.eti.fbe.v1.6.14.riskmodestatus", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.rollover_flag = ProtoField.new("Rollover Flag", "bse.bseindia.eti.fbe.v1.6.14.rolloverflag", ftypes.UINT8)
@@ -250,7 +259,8 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.security_key = ProtoField.new("Security 
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.segment_indicator = ProtoField.new("Segment Indicator", "bse.bseindia.eti.fbe.v1.6.14.segmentindicator", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.sender_location_id = ProtoField.new("Sender Location Id", "bse.bseindia.eti.fbe.v1.6.14.senderlocationid", ftypes.UINT64)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.sender_sub_id = ProtoField.new("Sender Sub Id", "bse.bseindia.eti.fbe.v1.6.14.sendersubid", ftypes.UINT32)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time = ProtoField.new("Sending Time", "bse.bseindia.eti.fbe.v1.6.14.sendingtime", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time = ProtoField.new("Sending Time", "bse.bseindia.eti.fbe.v1.6.14.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time_utc = ProtoField.new("Sending Time", "bse.bseindia.eti.fbe.v1.6.14.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.session_instance_id = ProtoField.new("Session Instance Id", "bse.bseindia.eti.fbe.v1.6.14.sessioninstanceid", ftypes.UINT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.session_mode = ProtoField.new("Session Mode", "bse.bseindia.eti.fbe.v1.6.14.sessionmode", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.session_reject_reason = ProtoField.new("Session Reject Reason", "bse.bseindia.eti.fbe.v1.6.14.sessionrejectreason", ftypes.UINT32)
@@ -287,13 +297,18 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.trade_manager_trade_date = ProtoField.ne
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.trade_report_type = ProtoField.new("Trade Report Type", "bse.bseindia.eti.fbe.v1.6.14.tradereporttype", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.trading_capacity = ProtoField.new("Trading Capacity", "bse.bseindia.eti.fbe.v1.6.14.tradingcapacity", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bse.bseindia.eti.fbe.v1.6.14.tradingsessionsubid", ftypes.UINT8)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time = ProtoField.new("Transact Time", "bse.bseindia.eti.fbe.v1.6.14.transacttime", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time = ProtoField.new("Transact Time", "bse.bseindia.eti.fbe.v1.6.14.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time_utc = ProtoField.new("Transact Time", "bse.bseindia.eti.fbe.v1.6.14.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.transfer_reason = ProtoField.new("Transfer Reason", "bse.bseindia.eti.fbe.v1.6.14.transferreason", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_match_id = ProtoField.new("Trd Match Id", "bse.bseindia.eti.fbe.v1.6.14.trdmatchid", ftypes.UINT32)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time = ProtoField.new("Trd Reg Ts Entry Time", "bse.bseindia.eti.fbe.v1.6.14.trdregtsentrytime", ftypes.UINT64)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimein", ftypes.UINT64)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out = ProtoField.new("Trd Reg Ts Time Out", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimeout", ftypes.UINT64)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimepriority", ftypes.UINT64)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time = ProtoField.new("Trd Reg Ts Entry Time", "bse.bseindia.eti.fbe.v1.6.14.trdregtsentrytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time_utc = ProtoField.new("Trd Reg Ts Entry Time", "bse.bseindia.eti.fbe.v1.6.14.trdregtsentrytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimein", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in_utc = ProtoField.new("Trd Reg Ts Time In", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimein.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out = ProtoField.new("Trd Reg Ts Time Out", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimeout", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out_utc = ProtoField.new("Trd Reg Ts Time Out", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimeout.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority_utc = ProtoField.new("Trd Reg Ts Time Priority", "bse.bseindia.eti.fbe.v1.6.14.trdregtstimepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.triggered = ProtoField.new("Triggered", "bse.bseindia.eti.fbe.v1.6.14.triggered", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.underlying_dirty_price = ProtoField.new("Underlying Dirty Price", "bse.bseindia.eti.fbe.v1.6.14.underlyingdirtyprice", ftypes.DOUBLE)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.underlying_px = ProtoField.new("Underlying Px", "bse.bseindia.eti.fbe.v1.6.14.underlyingpx", ftypes.DOUBLE)
@@ -411,6 +426,15 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.sessions_grp_comp_index = ProtoField.new
 -- Bse BseIndia Eti Fbe 1.6.14 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+bse_bseindia_eti_fbe_v1_6_14.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -442,6 +466,8 @@ omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_repeating_groups = Pref.bool("Show R
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_bse_bseindia_eti_fbe_v1_6_14.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_bse_bseindia_eti_fbe_v1_6_14.prefs_changed()
 
@@ -460,6 +486,9 @@ function omi_bse_bseindia_eti_fbe_v1_6_14.prefs_changed()
   end
   if show.indexes ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes then
     show.indexes = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes
+  end
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.absolute_time_base then
+    bse_bseindia_eti_fbe_v1_6_14.absolute_time_base = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.absolute_time_base
   end
 end
 
@@ -590,29 +619,27 @@ bse_bseindia_eti_fbe_v1_6_14.activity_time = {}
 -- Size: Activity Time
 bse_bseindia_eti_fbe_v1_6_14.activity_time.size = 8
 
--- Display: Activity Time
-bse_bseindia_eti_fbe_v1_6_14.activity_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Activity Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Activity Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Activity Time
 bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.activity_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.activity_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Activity Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2019,29 +2046,27 @@ bse_bseindia_eti_fbe_v1_6_14.exec_id = {}
 -- Size: Exec Id
 bse_bseindia_eti_fbe_v1_6_14.exec_id.size = 8
 
--- Display: Exec Id
-bse_bseindia_eti_fbe_v1_6_14.exec_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Exec Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Exec Id
 bse_bseindia_eti_fbe_v1_6_14.exec_id.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.exec_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.exec_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_id_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Exec Id: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3182,29 +3207,27 @@ bse_bseindia_eti_fbe_v1_6_14.last_login_time = {}
 -- Size: Last Login Time
 bse_bseindia_eti_fbe_v1_6_14.last_login_time.size = 8
 
--- Display: Last Login Time
-bse_bseindia_eti_fbe_v1_6_14.last_login_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Last Login Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Login Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Last Login Time
 bse_bseindia_eti_fbe_v1_6_14.last_login_time.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.last_login_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.last_login_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_login_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Last Login Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3721,29 +3744,27 @@ bse_bseindia_eti_fbe_v1_6_14.mass_action_report_id = {}
 -- Size: Mass Action Report Id
 bse_bseindia_eti_fbe_v1_6_14.mass_action_report_id.size = 8
 
--- Display: Mass Action Report Id
-bse_bseindia_eti_fbe_v1_6_14.mass_action_report_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Mass Action Report Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Mass Action Report Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Mass Action Report Id
 bse_bseindia_eti_fbe_v1_6_14.mass_action_report_id.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.mass_action_report_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.mass_action_report_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_report_id_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Mass Action Report Id: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5026,29 +5047,27 @@ bse_bseindia_eti_fbe_v1_6_14.orig_time = {}
 -- Size: Orig Time
 bse_bseindia_eti_fbe_v1_6_14.orig_time.size = 8
 
--- Display: Orig Time
-bse_bseindia_eti_fbe_v1_6_14.orig_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Orig Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Orig Time
 bse_bseindia_eti_fbe_v1_6_14.orig_time.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.orig_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.orig_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.orig_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Orig Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6389,29 +6408,27 @@ bse_bseindia_eti_fbe_v1_6_14.quote_response_id = {}
 -- Size: Quote Response Id
 bse_bseindia_eti_fbe_v1_6_14.quote_response_id.size = 8
 
--- Display: Quote Response Id
-bse_bseindia_eti_fbe_v1_6_14.quote_response_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quote Response Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Quote Response Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Quote Response Id
 bse_bseindia_eti_fbe_v1_6_14.quote_response_id.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_response_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.quote_response_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_response_id_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Quote Response Id: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6730,29 +6747,27 @@ bse_bseindia_eti_fbe_v1_6_14.request_out = {}
 -- Size: Request Out
 bse_bseindia_eti_fbe_v1_6_14.request_out.size = 8
 
--- Display: Request Out
-bse_bseindia_eti_fbe_v1_6_14.request_out.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Request Out: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Out: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Request Out
 bse_bseindia_eti_fbe_v1_6_14.request_out.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.request_out.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.request_out.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_out_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Request Out: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6763,29 +6778,27 @@ bse_bseindia_eti_fbe_v1_6_14.request_time = {}
 -- Size: Request Time
 bse_bseindia_eti_fbe_v1_6_14.request_time.size = 8
 
--- Display: Request Time
-bse_bseindia_eti_fbe_v1_6_14.request_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Request Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Request Time
 bse_bseindia_eti_fbe_v1_6_14.request_time.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.request_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.request_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.request_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Request Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6882,29 +6895,27 @@ bse_bseindia_eti_fbe_v1_6_14.response_in = {}
 -- Size: Response In
 bse_bseindia_eti_fbe_v1_6_14.response_in.size = 8
 
--- Display: Response In
-bse_bseindia_eti_fbe_v1_6_14.response_in.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Response In: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Response In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Response In
 bse_bseindia_eti_fbe_v1_6_14.response_in.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.response_in.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.response_in.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.response_in_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Response In: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7653,29 +7664,27 @@ bse_bseindia_eti_fbe_v1_6_14.sending_time = {}
 -- Size: Sending Time
 bse_bseindia_eti_fbe_v1_6_14.sending_time.size = 8
 
--- Display: Sending Time
-bse_bseindia_eti_fbe_v1_6_14.sending_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Sending Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 bse_bseindia_eti_fbe_v1_6_14.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.sending_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Sending Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9076,29 +9085,27 @@ bse_bseindia_eti_fbe_v1_6_14.transact_time = {}
 -- Size: Transact Time
 bse_bseindia_eti_fbe_v1_6_14.transact_time.size = 8
 
--- Display: Transact Time
-bse_bseindia_eti_fbe_v1_6_14.transact_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Transact Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 bse_bseindia_eti_fbe_v1_6_14.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.transact_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Transact Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9170,29 +9177,27 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_entry_time = {}
 -- Size: Trd Reg Ts Entry Time
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_entry_time.size = 8
 
--- Display: Trd Reg Ts Entry Time
-bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_entry_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Entry Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Entry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trd Reg Ts Entry Time
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_entry_time.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_entry_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_entry_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_entry_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Trd Reg Ts Entry Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9203,29 +9208,27 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_in = {}
 -- Size: Trd Reg Ts Time In
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_in.size = 8
 
--- Display: Trd Reg Ts Time In
-bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_in.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Time In: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Time In: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trd Reg Ts Time In
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_in.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_in.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_in.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_in_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Trd Reg Ts Time In: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9236,29 +9239,27 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_out = {}
 -- Size: Trd Reg Ts Time Out
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_out.size = 8
 
--- Display: Trd Reg Ts Time Out
-bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_out.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Time Out: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Time Out: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trd Reg Ts Time Out
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_out.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_out.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_out.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_out_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Trd Reg Ts Time Out: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9269,29 +9270,27 @@ bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority = {}
 -- Size: Trd Reg Ts Time Priority
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority.size = 8
 
--- Display: Trd Reg Ts Time Priority
-bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trd Reg Ts Time Priority: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trd Reg Ts Time Priority: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trd Reg Ts Time Priority
 bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority
+  if bse_bseindia_eti_fbe_v1_6_14.absolute_time_base == 1 then field = omi_bse_bseindia_eti_fbe_v1_6_14.fields.trd_reg_ts_time_priority_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Trd Reg Ts Time Priority: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

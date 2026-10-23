@@ -74,7 +74,8 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_8 = ProtoField.new
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.restricted_option = ProtoField.new("Restricted Option", "miax.emeraldoptions.orderfeed.mach.v1.1.a.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.emeraldoptions.orderfeed.mach.v1.1.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request a retransmission server to retransmit a range of packets")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.route_instruction = ProtoField.new("Route Instruction", "miax.emeraldoptions.orderfeed.mach.v1.1.a.routeinstruction", ftypes.STRING, nil, nil, nil, "Route instruction that came with the order.")
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.seconds = ProtoField.new("Seconds", "miax.emeraldoptions.orderfeed.mach.v1.1.a.seconds", ftypes.UINT32, nil, nil, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.seconds = ProtoField.new("Seconds", "miax.emeraldoptions.orderfeed.mach.v1.1.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.seconds_utc = ProtoField.new("Seconds", "miax.emeraldoptions.orderfeed.mach.v1.1.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.security_symbol = ProtoField.new("Security Symbol", "miax.emeraldoptions.orderfeed.mach.v1.1.a.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed.")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
@@ -129,6 +130,15 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.timestamp = ProtoField.new(
 -- Miax EmeraldOptions OrderFeed Mach 1.1.a Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_emeraldoptions_orderfeed_mach_v1_1_a.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 miax_emeraldoptions_orderfeed_mach_v1_1_a.format_timestamp = true
 
@@ -154,6 +164,8 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_headers = Pref.bool("Sh
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs_changed()
 
@@ -175,6 +187,9 @@ function omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs_changed()
   end
   if miax_emeraldoptions_orderfeed_mach_v1_1_a.format_timestamp ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.format_timestamp then
     miax_emeraldoptions_orderfeed_mach_v1_1_a.format_timestamp = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.format_timestamp
+  end
+  if miax_emeraldoptions_orderfeed_mach_v1_1_a.absolute_time_base ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.absolute_time_base then
+    miax_emeraldoptions_orderfeed_mach_v1_1_a.absolute_time_base = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.absolute_time_base
   end
 end
 
@@ -1730,20 +1745,20 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.seconds.generated = function(value, ra
   seconds:set_generated()
 end
 
--- Display: Seconds
-miax_emeraldoptions_orderfeed_mach_v1_1_a.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 miax_emeraldoptions_orderfeed_mach_v1_1_a.seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.seconds
+  if miax_emeraldoptions_orderfeed_mach_v1_1_a.absolute_time_base == 1 then field = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

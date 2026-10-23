@@ -38,7 +38,8 @@ omi_cme_brokertec_ustreasury_sbe_v10_1.fields.price_type = ProtoField.new("Price
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.schema_id = ProtoField.new("Schema Id", "cme.brokertec.ustreasury.sbe.v10.1.schemaid", ftypes.UINT16)
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.security_alt_id = ProtoField.new("Security Alt Id", "cme.brokertec.ustreasury.sbe.v10.1.securityaltid", ftypes.STRING, nil, nil, nil, "CUSIP")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.brokertec.ustreasury.sbe.v10.1.securityaltidsource", ftypes.STRING, nil, nil, nil, "Identifies class or source of the SecurityAltID (455) value")
-omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time = ProtoField.new("Sending Time", "cme.brokertec.ustreasury.sbe.v10.1.sendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
+omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time = ProtoField.new("Sending Time", "cme.brokertec.ustreasury.sbe.v10.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
+omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.brokertec.ustreasury.sbe.v10.1.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.symbol = ProtoField.new("Symbol", "cme.brokertec.ustreasury.sbe.v10.1.symbol", ftypes.STRING, nil, nil, nil, "Contract symbol, name")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.brokertec.ustreasury.sbe.v10.1.tcpmessagesize", ftypes.UINT16, nil, nil, nil, "Message Size")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.brokertec.ustreasury.sbe.v10.1.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
@@ -46,7 +47,8 @@ omi_cme_brokertec_ustreasury_sbe_v10_1.fields.template_id = ProtoField.new("Temp
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.trade_condition = ProtoField.new("Trade Condition", "cme.brokertec.ustreasury.sbe.v10.1.tradecondition", ftypes.STRING, nil, nil, nil, "List of conditions describing a trade. H= Hit, T=Take")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.trade_date = ProtoField.new("Trade Date", "cme.brokertec.ustreasury.sbe.v10.1.tradedate", ftypes.UINT16)
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.trade_volume = ProtoField.new("Trade Volume", "cme.brokertec.ustreasury.sbe.v10.1.tradevolume", ftypes.UINT32, nil, nil, nil, "Total traded volume since the beginning of the session. If this tag is not present, then there is no volume")
-omi_cme_brokertec_ustreasury_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.brokertec.ustreasury.sbe.v10.1.transacttime", ftypes.UINT64, nil, nil, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
+omi_cme_brokertec_ustreasury_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.brokertec.ustreasury.sbe.v10.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
+omi_cme_brokertec_ustreasury_sbe_v10_1.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.brokertec.ustreasury.sbe.v10.1.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.brokertec.ustreasury.sbe.v10.1.version", ftypes.UINT16)
 
 -- Cme BrokerTec UsTreasury Sbe 10.1 Framing
@@ -65,6 +67,20 @@ omi_cme_brokertec_ustreasury_sbe_v10_1.fields.md_incremental_refresh_btec = Prot
 
 -- Cme BrokerTec UsTreasury Sbe 10.1 Generated Fields
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.incremental_refresh_btec_group_index = ProtoField.new("Incremental Refresh Btec Group Index", "cme.brokertec.ustreasury.sbe.v10.1.incrementalrefreshbtecgroupindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Cme BrokerTec UsTreasury Sbe 10.1 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cme_brokertec_ustreasury_sbe_v10_1.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -86,6 +102,8 @@ omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.show_repeating_groups = Pref.bool("
 omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cme_brokertec_ustreasury_sbe_v10_1.prefs_changed()
 
@@ -104,6 +122,9 @@ function omi_cme_brokertec_ustreasury_sbe_v10_1.prefs_changed()
   end
   if show.indexes ~= omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.show_indexes then
     show.indexes = omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.show_indexes
+  end
+  if cme_brokertec_ustreasury_sbe_v10_1.absolute_time_base ~= omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.absolute_time_base then
+    cme_brokertec_ustreasury_sbe_v10_1.absolute_time_base = omi_cme_brokertec_ustreasury_sbe_v10_1.prefs.absolute_time_base
   end
 end
 
@@ -661,23 +682,20 @@ cme_brokertec_ustreasury_sbe_v10_1.sending_time = {}
 -- Size: Sending Time
 cme_brokertec_ustreasury_sbe_v10_1.sending_time.size = 8
 
--- Display: Sending Time
-cme_brokertec_ustreasury_sbe_v10_1.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 cme_brokertec_ustreasury_sbe_v10_1.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_brokertec_ustreasury_sbe_v10_1.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_brokertec_ustreasury_sbe_v10_1.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time
+  if cme_brokertec_ustreasury_sbe_v10_1.absolute_time_base == 1 then field = omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -895,23 +913,20 @@ cme_brokertec_ustreasury_sbe_v10_1.transact_time = {}
 -- Size: Transact Time
 cme_brokertec_ustreasury_sbe_v10_1.transact_time.size = 8
 
--- Display: Transact Time
-cme_brokertec_ustreasury_sbe_v10_1.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 cme_brokertec_ustreasury_sbe_v10_1.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_brokertec_ustreasury_sbe_v10_1.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_brokertec_ustreasury_sbe_v10_1.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_brokertec_ustreasury_sbe_v10_1.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_brokertec_ustreasury_sbe_v10_1.fields.transact_time
+  if cme_brokertec_ustreasury_sbe_v10_1.absolute_time_base == 1 then field = omi_cme_brokertec_ustreasury_sbe_v10_1.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

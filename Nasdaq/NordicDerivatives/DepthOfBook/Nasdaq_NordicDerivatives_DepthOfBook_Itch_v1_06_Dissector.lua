@@ -75,7 +75,8 @@ omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_8_b = ProtoF
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_bits_15_to_16 = ProtoField.new("Reserved Bits 15 To 16", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.reservedbits15to16", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved, values 16384 and above are not stated")
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_bits_7_to_10 = ProtoField.new("Reserved Bits 7 To 10", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.reservedbits7to10", ftypes.UINT16, nil, base.DEC, 0x03C0, "Reserved, values 64 through 512 are not stated")
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represents a round lot for the issue")
-omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.second", ftypes.UINT32, nil, nil, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second_utc = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.session = ProtoField.new("Session", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.short_sell = ProtoField.new("Short Sell", "nasdaq.nordicderivatives.depthofbook.itch.v1.06.shortsell", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Short Sell (value 2)")
@@ -122,6 +123,15 @@ omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.timestamp = ProtoFiel
 -- Nasdaq NordicDerivatives DepthOfBook Itch 1.06 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nasdaq_nordicderivatives_depthofbook_itch_v1_06.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.format_timestamp = true
 
@@ -147,6 +157,8 @@ omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.show_indexes = Pref.bo
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs_changed()
 
@@ -168,6 +180,9 @@ function omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs_changed()
   end
   if nasdaq_nordicderivatives_depthofbook_itch_v1_06.format_timestamp ~= omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.format_timestamp then
     nasdaq_nordicderivatives_depthofbook_itch_v1_06.format_timestamp = omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.format_timestamp
+  end
+  if nasdaq_nordicderivatives_depthofbook_itch_v1_06.absolute_time_base ~= omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.absolute_time_base then
+    nasdaq_nordicderivatives_depthofbook_itch_v1_06.absolute_time_base = omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.prefs.absolute_time_base
   end
 end
 
@@ -1529,20 +1544,20 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.generated = function(valu
   second:set_generated()
 end
 
--- Display: Second
-nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second
+  if nasdaq_nordicderivatives_depthofbook_itch_v1_06.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

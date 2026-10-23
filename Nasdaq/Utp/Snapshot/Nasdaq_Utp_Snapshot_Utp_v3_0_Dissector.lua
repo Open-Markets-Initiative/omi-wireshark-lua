@@ -17,9 +17,11 @@ local nasdaq_utp_snapshot_utp_v3_0 = {}
 -- Nasdaq Utp Snapshot Utp 3.0 Fields
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "Next sequenced message number the SIP will deliver, space-padded")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.snapshot.utp.v3.0.acceptedsession", ftypes.STRING, nil, nil, nil, "Session ID accepted by the SIP for this client, left padded with spaces")
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v3.0.actiontime", ftypes.UINT64, nil, nil, nil, "Timestamp of when the action occurred")
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v3.0.actiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the action occurred")
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time_utc = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v3.0.actiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the action occurred")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_market_participant_identifier = ProtoField.new("Adf Market Participant Identifier", "nasdaq.utp.snapshot.utp.v3.0.adfmarketparticipantidentifier", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "nasdaq.utp.snapshot.utp.v3.0.adftimestamp", ftypes.UINT64)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "nasdaq.utp.snapshot.utp.v3.0.adftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_timestamp_utc = ProtoField.new("Adf Timestamp", "nasdaq.utp.snapshot.utp.v3.0.adftimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.utp.snapshot.utp.v3.0.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.utp.snapshot.utp.v3.0.administrativemessagetype", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.ask_adf_mpid = ProtoField.new("Ask Adf Mpid", "nasdaq.utp.snapshot.utp.v3.0.askadfmpid", ftypes.STRING, nil, nil, nil, "Ask ADF Market Participant Identifier")
@@ -52,7 +54,8 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.etp_indicator = ProtoField.new("Etp Indi
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.utp.snapshot.utp.v3.0.financialstatusindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_mpid_appendage = ProtoField.new("Finra Adf Mpid Appendage", "nasdaq.utp.snapshot.utp.v3.0.finraadfmpidappendage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_mpid_appendage_indicator = ProtoField.new("Finra Adf Mpid Appendage Indicator", "nasdaq.utp.snapshot.utp.v3.0.finraadfmpidappendageindicator", ftypes.STRING, nil, nil, nil, "FINRA ADF MPID Appendage Indicator. Populated with the FINRA ADF update if necessary.")
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_timestamp = ProtoField.new("Finra Adf Timestamp", "nasdaq.utp.snapshot.utp.v3.0.finraadftimestamp", ftypes.UINT64)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_timestamp = ProtoField.new("Finra Adf Timestamp", "nasdaq.utp.snapshot.utp.v3.0.finraadftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_timestamp_utc = ProtoField.new("Finra Adf Timestamp", "nasdaq.utp.snapshot.utp.v3.0.finraadftimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.halt_reason = ProtoField.new("Halt Reason", "nasdaq.utp.snapshot.utp.v3.0.haltreason", ftypes.STRING, nil, nil, nil, "Reason for Halt, when Trading State indicates halted")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.issue_name = ProtoField.new("Issue Name", "nasdaq.utp.snapshot.utp.v3.0.issuename", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.utp.snapshot.utp.v3.0.issuesubtype", ftypes.STRING)
@@ -62,7 +65,8 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.limit_up_price = ProtoField.new("Limit U
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.listing_market_official_prior_day_close_price = ProtoField.new("Listing Market Official Prior Day Close Price", "nasdaq.utp.snapshot.utp.v3.0.listingmarketofficialpriordaycloseprice", ftypes.DOUBLE, nil, nil, nil, "RESERVED. Listing Market's official prior day's close, adjusted if needed. Populated beginning December 6, 2026 when supported by the Listing Market.")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_bbo_indicator = ProtoField.new("Luld Bbo Indicator", "nasdaq.utp.snapshot.utp.v3.0.luldbboindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_national_bbo_indicator = ProtoField.new("Luld National Bbo Indicator", "nasdaq.utp.snapshot.utp.v3.0.luldnationalbboindicator", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utp.snapshot.utp.v3.0.luldpricebandeffectivetime", ftypes.UINT64)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utp.snapshot.utp.v3.0.luldpricebandeffectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_effective_time_utc = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utp.snapshot.utp.v3.0.luldpricebandeffectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.utp.snapshot.utp.v3.0.luldpricebandindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_id = ProtoField.new("Market Center Id", "nasdaq.utp.snapshot.utp.v3.0.marketcenterid", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.utp.snapshot.utp.v3.0.marketcenteridentifier", ftypes.STRING)
@@ -106,10 +110,12 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.shares_at_odd_lot_price = ProtoField.new
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.utp.snapshot.utp.v3.0.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.side = ProtoField.new("Side", "nasdaq.utp.snapshot.utp.v3.0.side", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_generated_update_flag = ProtoField.new("Sip Generated Update Flag", "nasdaq.utp.snapshot.utp.v3.0.sipgeneratedupdateflag", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v3.0.siptimestamp", ftypes.UINT64)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v3.0.siptimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp_utc = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v3.0.siptimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.utp.snapshot.utp.v3.0.submarketcenterid", ftypes.STRING, nil, nil, nil, "Sub-Market Center ID")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.symbol = ProtoField.new("Symbol", "nasdaq.utp.snapshot.utp.v3.0.symbol", ftypes.STRING, nil, nil, nil, "Security Identifier")
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.snapshot.utp.v3.0.timestamp1", ftypes.UINT64, nil, nil, nil, "Participant Timestamp")
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.snapshot.utp.v3.0.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Participant Timestamp")
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.timestamp_1_utc = ProtoField.new("Timestamp 1", "nasdaq.utp.snapshot.utp.v3.0.timestamp1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Participant Timestamp")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_action_code = ProtoField.new("Trading Action Code", "nasdaq.utp.snapshot.utp.v3.0.tradingactioncode", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.tradingactionsequencenumber", ftypes.UINT32, nil, nil, nil, "Trading Action Sequence Number (UTP SIP internal use only — data recipients should disregard)")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.utp.snapshot.utp.v3.0.tradingstate", ftypes.STRING, nil, nil, nil, "Trading State (halted / trading) at the time of dissemination")
@@ -165,6 +171,15 @@ omi_nasdaq_utp_snapshot_utp_v3_0.experts = { nasdaq_utp_snapshot_utp_v3_0.expert
 -- Nasdaq Utp Snapshot Utp 3.0 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nasdaq_utp_snapshot_utp_v3_0.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -198,6 +213,8 @@ omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages = Pref.bool("Show S
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nasdaq_utp_snapshot_utp_v3_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_utp_snapshot_utp_v3_0.prefs_changed()
 
@@ -219,6 +236,9 @@ function omi_nasdaq_utp_snapshot_utp_v3_0.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_indexes then
     show.indexes = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_indexes
+  end
+  if nasdaq_utp_snapshot_utp_v3_0.absolute_time_base ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.absolute_time_base then
+    nasdaq_utp_snapshot_utp_v3_0.absolute_time_base = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.absolute_time_base
   end
 end
 
@@ -257,14 +277,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -290,7 +316,7 @@ nasdaq_utp_snapshot_utp_v3_0.accepted_sequence_number.dissect = function(buffer,
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_utp_snapshot_utp_v3_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -332,23 +358,20 @@ nasdaq_utp_snapshot_utp_v3_0.action_time = {}
 -- Size: Action Time
 nasdaq_utp_snapshot_utp_v3_0.action_time.size = 8
 
--- Display: Action Time
-nasdaq_utp_snapshot_utp_v3_0.action_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Action Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Action Time
 nasdaq_utp_snapshot_utp_v3_0.action_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_snapshot_utp_v3_0.action_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_snapshot_utp_v3_0.action_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time
+  if nasdaq_utp_snapshot_utp_v3_0.absolute_time_base == 1 then field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -382,23 +405,20 @@ nasdaq_utp_snapshot_utp_v3_0.adf_timestamp = {}
 -- Size: Adf Timestamp
 nasdaq_utp_snapshot_utp_v3_0.adf_timestamp.size = 8
 
--- Display: Adf Timestamp
-nasdaq_utp_snapshot_utp_v3_0.adf_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Adf Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Adf Timestamp
 nasdaq_utp_snapshot_utp_v3_0.adf_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_snapshot_utp_v3_0.adf_timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_snapshot_utp_v3_0.adf_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_timestamp
+  if nasdaq_utp_snapshot_utp_v3_0.absolute_time_base == 1 then field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1180,23 +1200,20 @@ nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp = {}
 -- Size: Finra Adf Timestamp
 nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp.size = 8
 
--- Display: Finra Adf Timestamp
-nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Finra Adf Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Finra Adf Timestamp
 nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_timestamp
+  if nasdaq_utp_snapshot_utp_v3_0.absolute_time_base == 1 then field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1700,23 +1717,20 @@ nasdaq_utp_snapshot_utp_v3_0.luld_price_band_effective_time = {}
 -- Size: Luld Price Band Effective Time
 nasdaq_utp_snapshot_utp_v3_0.luld_price_band_effective_time.size = 8
 
--- Display: Luld Price Band Effective Time
-nasdaq_utp_snapshot_utp_v3_0.luld_price_band_effective_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Luld Price Band Effective Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Luld Price Band Effective Time
 nasdaq_utp_snapshot_utp_v3_0.luld_price_band_effective_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_snapshot_utp_v3_0.luld_price_band_effective_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_snapshot_utp_v3_0.luld_price_band_effective_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_effective_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_effective_time
+  if nasdaq_utp_snapshot_utp_v3_0.absolute_time_base == 1 then field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_effective_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2761,7 +2775,7 @@ nasdaq_utp_snapshot_utp_v3_0.requested_sequence_number.dissect = function(buffer
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_utp_snapshot_utp_v3_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3043,23 +3057,20 @@ nasdaq_utp_snapshot_utp_v3_0.sip_timestamp = {}
 -- Size: Sip Timestamp
 nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.size = 8
 
--- Display: Sip Timestamp
-nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sip Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sip Timestamp
 nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp
+  if nasdaq_utp_snapshot_utp_v3_0.absolute_time_base == 1 then field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3129,23 +3140,20 @@ nasdaq_utp_snapshot_utp_v3_0.timestamp_1 = {}
 -- Size: Timestamp 1
 nasdaq_utp_snapshot_utp_v3_0.timestamp_1.size = 8
 
--- Display: Timestamp 1
-nasdaq_utp_snapshot_utp_v3_0.timestamp_1.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp 1: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp 1
 nasdaq_utp_snapshot_utp_v3_0.timestamp_1.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_snapshot_utp_v3_0.timestamp_1.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_snapshot_utp_v3_0.timestamp_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.timestamp_1, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.timestamp_1
+  if nasdaq_utp_snapshot_utp_v3_0.absolute_time_base == 1 then field = omi_nasdaq_utp_snapshot_utp_v3_0.fields.timestamp_1_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

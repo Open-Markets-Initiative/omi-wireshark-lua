@@ -35,13 +35,15 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.quote_update_flags = ProtoField.new(
 omi_iex_iexequities_tops_iextp_v1_56.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.tops.iextp.v1.56.reserved", ftypes.BYTES, nil, nil, nil, "Reserved byte")
 omi_iex_iexequities_tops_iextp_v1_56.fields.reserved_4 = ProtoField.new("Reserved 4", "iex.iexequities.tops.iextp.v1.56.reserved4", ftypes.UINT32, nil, nil, nil, "Reserved bytes")
 omi_iex_iexequities_tops_iextp_v1_56.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.tops.iextp.v1.56.saleconditionflags", ftypes.STRING)
-omi_iex_iexequities_tops_iextp_v1_56.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime", ftypes.UINT64, nil, nil, nil, "Send time of segment")
+omi_iex_iexequities_tops_iextp_v1_56.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
+omi_iex_iexequities_tops_iextp_v1_56.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
 omi_iex_iexequities_tops_iextp_v1_56.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.tops.iextp.v1.56.sessionid", ftypes.UINT32, nil, nil, nil, "Identifies the session")
 omi_iex_iexequities_tops_iextp_v1_56.fields.size = ProtoField.new("Size", "iex.iexequities.tops.iextp.v1.56.size", ftypes.UINT32, nil, nil, nil, "Trade volume")
 omi_iex_iexequities_tops_iextp_v1_56.fields.stream_offset = ProtoField.new("Stream Offset", "iex.iexequities.tops.iextp.v1.56.streamoffset", ftypes.UINT64, nil, nil, nil, "Byte offset of the data stream")
 omi_iex_iexequities_tops_iextp_v1_56.fields.symbol = ProtoField.new("Symbol", "iex.iexequities.tops.iextp.v1.56.symbol", ftypes.STRING, nil, nil, nil, "Security identifier")
 omi_iex_iexequities_tops_iextp_v1_56.fields.symbol_availability = ProtoField.new("Symbol Availability", "iex.iexequities.tops.iextp.v1.56.symbolavailability", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Symbol is halted, paused, or otherwise not available for trading on IEX")
-omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.tops.iextp.v1.56.timestamp", ftypes.INT64, nil, nil, nil, "Time stamp of the system event")
+omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.tops.iextp.v1.56.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp of the system event")
+omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp_utc = ProtoField.new("Timestamp", "iex.iexequities.tops.iextp.v1.56.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamp of the system event")
 omi_iex_iexequities_tops_iextp_v1_56.fields.trade_id = ProtoField.new("Trade Id", "iex.iexequities.tops.iextp.v1.56.tradeid", ftypes.UINT64, nil, nil, nil, "IEX Generated Identifier. Trade ID is also")
 omi_iex_iexequities_tops_iextp_v1_56.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.iexequities.tops.iextp.v1.56.tradethroughexempt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Trade is not subject to Rule 611")
 omi_iex_iexequities_tops_iextp_v1_56.fields.unused_4 = ProtoField.new("Unused 4", "iex.iexequities.tops.iextp.v1.56.unused4", ftypes.UINT8, nil, base.DEC, 0x0F, "Unused")
@@ -64,6 +66,20 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.message_index = ProtoField.new("Mess
 omi_iex_iexequities_tops_iextp_v1_56.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "iex.iexequities.tops.iextp.v1.56.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Iex IexEquities Tops IexTp 1.56 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+iex_iexequities_tops_iextp_v1_56.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -83,6 +99,8 @@ omi_iex_iexequities_tops_iextp_v1_56.prefs.show_application_messages = Pref.bool
 omi_iex_iexequities_tops_iextp_v1_56.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_iex_iexequities_tops_iextp_v1_56.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_iex_iexequities_tops_iextp_v1_56.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_iex_iexequities_tops_iextp_v1_56.prefs_changed()
 
@@ -101,6 +119,9 @@ function omi_iex_iexequities_tops_iextp_v1_56.prefs_changed()
   end
   if show.sequences ~= omi_iex_iexequities_tops_iextp_v1_56.prefs.show_sequences then
     show.sequences = omi_iex_iexequities_tops_iextp_v1_56.prefs.show_sequences
+  end
+  if iex_iexequities_tops_iextp_v1_56.absolute_time_base ~= omi_iex_iexequities_tops_iextp_v1_56.prefs.absolute_time_base then
+    iex_iexequities_tops_iextp_v1_56.absolute_time_base = omi_iex_iexequities_tops_iextp_v1_56.prefs.absolute_time_base
   end
 end
 
@@ -485,23 +506,20 @@ iex_iexequities_tops_iextp_v1_56.send_time = {}
 -- Size: Send Time
 iex_iexequities_tops_iextp_v1_56.send_time.size = 8
 
--- Display: Send Time
-iex_iexequities_tops_iextp_v1_56.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 iex_iexequities_tops_iextp_v1_56.send_time.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_tops_iextp_v1_56.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_iexequities_tops_iextp_v1_56.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexequities_tops_iextp_v1_56.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexequities_tops_iextp_v1_56.fields.send_time
+  if iex_iexequities_tops_iextp_v1_56.absolute_time_base == 1 then field = omi_iex_iexequities_tops_iextp_v1_56.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -604,23 +622,20 @@ iex_iexequities_tops_iextp_v1_56.timestamp = {}
 -- Size: Timestamp
 iex_iexequities_tops_iextp_v1_56.timestamp.size = 8
 
--- Display: Timestamp
-iex_iexequities_tops_iextp_v1_56.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 iex_iexequities_tops_iextp_v1_56.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_tops_iextp_v1_56.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = iex_iexequities_tops_iextp_v1_56.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp
+  if iex_iexequities_tops_iextp_v1_56.absolute_time_base == 1 then field = omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

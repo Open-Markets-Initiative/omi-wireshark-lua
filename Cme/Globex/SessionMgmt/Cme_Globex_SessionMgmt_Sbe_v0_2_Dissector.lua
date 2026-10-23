@@ -40,7 +40,8 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_related_symbol_group = Pr
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_related_symbol_groups = ProtoField.new("Request Ack Related Symbol Groups", "cme.globex.sessionmgmt.sbe.v0.2.requestackrelatedsymbolgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_security_group = ProtoField.new("Request Ack Security Group", "cme.globex.sessionmgmt.sbe.v0.2.requestacksecuritygroup", ftypes.STRING, nil, nil, nil, "Number of SecurityGroups acknowledged")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_security_groups = ProtoField.new("Request Ack Security Groups", "cme.globex.sessionmgmt.sbe.v0.2.requestacksecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.sessionmgmt.sbe.v0.2.requesttimestamp", ftypes.UINT64, nil, nil, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.sessionmgmt.sbe.v0.2.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.globex.sessionmgmt.sbe.v0.2.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.schema_id = ProtoField.new("Schema Id", "cme.globex.sessionmgmt.sbe.v0.2.schemaid", ftypes.UINT16)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.secret_key_secure_id_expiration = ProtoField.new("Secret Key Secure Id Expiration", "cme.globex.sessionmgmt.sbe.v0.2.secretkeysecureidexpiration", ftypes.UINT16, nil, nil, nil, "This indicates in how many days the HMAC secret key will expire")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_group = ProtoField.new("Security Group", "cme.globex.sessionmgmt.sbe.v0.2.securitygroup", ftypes.STRING)
@@ -53,7 +54,8 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_related_symbo
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_related_symbol_groups = ProtoField.new("Security Status Request Related Symbol Groups", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestrelatedsymbolgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_group = ProtoField.new("Security Status Request Security Group", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestsecuritygroup", ftypes.STRING, nil, nil, nil, "Number of SecurityGroups specified in subscription request. Should be equal 0, when subscription is requested for all groups on the segment or individual Security IDs are listed in the criteria for subscription")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_groups = ProtoField.new("Security Status Request Security Groups", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestsecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.session = ProtoField.new("Session", "cme.globex.sessionmgmt.sbe.v0.2.session", ftypes.STRING, nil, nil, nil, "Session ID")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.subscription_req_type = ProtoField.new("Subscription Req Type", "cme.globex.sessionmgmt.sbe.v0.2.subscriptionreqtype", ftypes.UINT8, nil, nil, nil, "Subscription Request Type indicates to the type of response expected")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.template_id = ProtoField.new("Template Id", "cme.globex.sessionmgmt.sbe.v0.2.templateid", ftypes.UINT16)
@@ -98,6 +100,15 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_grou
 -- Cme Globex SessionMgmt Sbe 0.2 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cme_globex_sessionmgmt_sbe_v0_2.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -129,6 +140,8 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_application_messages = Pref.bool(
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cme_globex_sessionmgmt_sbe_v0_2.prefs_changed()
 
@@ -147,6 +160,9 @@ function omi_cme_globex_sessionmgmt_sbe_v0_2.prefs_changed()
   end
   if show.indexes ~= omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_indexes then
     show.indexes = omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_indexes
+  end
+  if cme_globex_sessionmgmt_sbe_v0_2.absolute_time_base ~= omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.absolute_time_base then
+    cme_globex_sessionmgmt_sbe_v0_2.absolute_time_base = omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.absolute_time_base
   end
 end
 
@@ -631,23 +647,20 @@ cme_globex_sessionmgmt_sbe_v0_2.request_timestamp = {}
 -- Size: Request Timestamp
 cme_globex_sessionmgmt_sbe_v0_2.request_timestamp.size = 8
 
--- Display: Request Timestamp
-cme_globex_sessionmgmt_sbe_v0_2.request_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Request Timestamp
 cme_globex_sessionmgmt_sbe_v0_2.request_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_sessionmgmt_sbe_v0_2.request_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_sessionmgmt_sbe_v0_2.request_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp
+  if cme_globex_sessionmgmt_sbe_v0_2.absolute_time_base == 1 then field = omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -775,23 +788,20 @@ cme_globex_sessionmgmt_sbe_v0_2.sending_time = {}
 -- Size: Sending Time
 cme_globex_sessionmgmt_sbe_v0_2.sending_time.size = 8
 
--- Display: Sending Time
-cme_globex_sessionmgmt_sbe_v0_2.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 cme_globex_sessionmgmt_sbe_v0_2.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_sessionmgmt_sbe_v0_2.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_sessionmgmt_sbe_v0_2.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time
+  if cme_globex_sessionmgmt_sbe_v0_2.absolute_time_base == 1 then field = omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

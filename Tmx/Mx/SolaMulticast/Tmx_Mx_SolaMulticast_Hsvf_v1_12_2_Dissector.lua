@@ -594,14 +594,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 

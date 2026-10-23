@@ -51,7 +51,8 @@ omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.price_code = ProtoField.n
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.product_code = ProtoField.new("Product Code", "lme.lmeselect.referencedata.lmesource.v4.18.productcode", ftypes.STRING, nil, nil, nil, "Product code.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.prompt_date_label = ProtoField.new("Prompt Date Label", "lme.lmeselect.referencedata.lmesource.v4.18.promptdatelabel", ftypes.STRING, nil, nil, nil, "Prompt Date Label.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.prompt_type = ProtoField.new("Prompt Type", "lme.lmeselect.referencedata.lmesource.v4.18.prompttype", ftypes.STRING, nil, nil, nil, "Identifies whether the prompt is single or a range.")
-omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.referencedata.lmesource.v4.18.sendtime", ftypes.UINT64, nil, nil, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.referencedata.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.referencedata.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.referencedata.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.settlement_pricing_method = ProtoField.new("Settlement Pricing Method", "lme.lmeselect.referencedata.lmesource.v4.18.settlementpricingmethod", ftypes.STRING, nil, nil, nil, "Settlement Pricing Method.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.settlement_type = ProtoField.new("Settlement Type", "lme.lmeselect.referencedata.lmesource.v4.18.settlementtype", ftypes.STRING, nil, nil, nil, "Settlement Type.")
@@ -60,13 +61,15 @@ omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.strategy_legs = ProtoFiel
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.strategy_type_code = ProtoField.new("Strategy Type Code", "lme.lmeselect.referencedata.lmesource.v4.18.strategytypecode", ftypes.UINT32, nil, nil, nil, "Strategy Type.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.strike_price = ProtoField.new("Strike Price", "lme.lmeselect.referencedata.lmesource.v4.18.strikeprice", ftypes.DOUBLE, nil, nil, nil, "The strike price for this tradable instrument, in implicit six decimal place format. Null for futures.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.tick_size_id = ProtoField.new("Tick Size Id", "lme.lmeselect.referencedata.lmesource.v4.18.ticksizeid", ftypes.UINT32, nil, nil, nil, "Tick Size ID.")
-omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.referencedata.lmesource.v4.18.timeofevent", ftypes.UINT64, nil, nil, nil, "The time LMEselect computed or derived the designated price.")
+omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.referencedata.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time LMEselect computed or derived the designated price.")
+omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.time_of_event_utc = ProtoField.new("Time Of Event", "lme.lmeselect.referencedata.lmesource.v4.18.timeofevent.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time LMEselect computed or derived the designated price.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.tradable_instrument_id = ProtoField.new("Tradable Instrument Id", "lme.lmeselect.referencedata.lmesource.v4.18.tradableinstrumentid", ftypes.UINT64, nil, nil, nil, "The id of the security for which trades in this tradable instrument are held.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.trade_high = ProtoField.new("Trade High", "lme.lmeselect.referencedata.lmesource.v4.18.tradehigh", ftypes.DOUBLE, nil, nil, nil, "Highest trade price for the current day, in implicit six decimal place format.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.trade_low = ProtoField.new("Trade Low", "lme.lmeselect.referencedata.lmesource.v4.18.tradelow", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price for the current day, in implicit six decimal place format.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.trading_currency = ProtoField.new("Trading Currency", "lme.lmeselect.referencedata.lmesource.v4.18.tradingcurrency", ftypes.STRING, nil, nil, nil, "The currency code according to ISO 4217.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.trading_venue = ProtoField.new("Trading Venue", "lme.lmeselect.referencedata.lmesource.v4.18.tradingvenue", ftypes.STRING, nil, nil, nil, "Trading venue.")
-omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.transaction_time = ProtoField.new("Transaction Time", "lme.lmeselect.referencedata.lmesource.v4.18.transactiontime", ftypes.UINT64, nil, nil, nil, "The time at which the price limits were created.")
+omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.transaction_time = ProtoField.new("Transaction Time", "lme.lmeselect.referencedata.lmesource.v4.18.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the price limits were created.")
+omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lme.lmeselect.referencedata.lmesource.v4.18.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the price limits were created.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.underlying_contract_code = ProtoField.new("Underlying Contract Code", "lme.lmeselect.referencedata.lmesource.v4.18.underlyingcontractcode", ftypes.STRING, nil, nil, nil, "Reference to the underlying contract.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.underlying_type = ProtoField.new("Underlying Type", "lme.lmeselect.referencedata.lmesource.v4.18.underlyingtype", ftypes.STRING, nil, nil, nil, "Underlying Type.")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "lme.lmeselect.referencedata.lmesource.v4.18.upperpricelimit", ftypes.DOUBLE, nil, nil, nil, "Upper price limit for the outright tradable instrument for the current trading day, in implicit six decimal place format.")
@@ -90,6 +93,20 @@ omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.message_index = ProtoFiel
 omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.strategy_legs_index = ProtoField.new("Strategy Legs Index", "lme.lmeselect.referencedata.lmesource.v4.18.strategylegsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lme LmeSelect ReferenceData LmeSource 4.18 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lme_lmeselect_referencedata_lmesource_v4_18.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -109,6 +126,8 @@ omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.show_headers = Pref.bool("
 omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs_changed()
 
@@ -127,6 +146,9 @@ function omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs_changed()
   end
   if show.indexes ~= omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.show_indexes then
     show.indexes = omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.show_indexes
+  end
+  if lme_lmeselect_referencedata_lmesource_v4_18.absolute_time_base ~= omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.absolute_time_base then
+    lme_lmeselect_referencedata_lmesource_v4_18.absolute_time_base = omi_lme_lmeselect_referencedata_lmesource_v4_18.prefs.absolute_time_base
   end
 end
 
@@ -1125,23 +1147,20 @@ lme_lmeselect_referencedata_lmesource_v4_18.send_time = {}
 -- Size: Send Time
 lme_lmeselect_referencedata_lmesource_v4_18.send_time.size = 8
 
--- Display: Send Time
-lme_lmeselect_referencedata_lmesource_v4_18.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 lme_lmeselect_referencedata_lmesource_v4_18.send_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_referencedata_lmesource_v4_18.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_referencedata_lmesource_v4_18.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.send_time
+  if lme_lmeselect_referencedata_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1348,23 +1367,20 @@ lme_lmeselect_referencedata_lmesource_v4_18.time_of_event = {}
 -- Size: Time Of Event
 lme_lmeselect_referencedata_lmesource_v4_18.time_of_event.size = 8
 
--- Display: Time Of Event
-lme_lmeselect_referencedata_lmesource_v4_18.time_of_event.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Time Of Event: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Time Of Event
 lme_lmeselect_referencedata_lmesource_v4_18.time_of_event.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_referencedata_lmesource_v4_18.time_of_event.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_referencedata_lmesource_v4_18.time_of_event.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.time_of_event, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.time_of_event
+  if lme_lmeselect_referencedata_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.time_of_event_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1512,23 +1528,20 @@ lme_lmeselect_referencedata_lmesource_v4_18.transaction_time = {}
 -- Size: Transaction Time
 lme_lmeselect_referencedata_lmesource_v4_18.transaction_time.size = 8
 
--- Display: Transaction Time
-lme_lmeselect_referencedata_lmesource_v4_18.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 lme_lmeselect_referencedata_lmesource_v4_18.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_referencedata_lmesource_v4_18.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_referencedata_lmesource_v4_18.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.transaction_time
+  if lme_lmeselect_referencedata_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_referencedata_lmesource_v4_18.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

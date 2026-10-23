@@ -83,7 +83,8 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.quantity = ProtoField.new("Quantity
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "asx.asxderivatives.ntp.itch.v1.05.quantityremaining", ftypes.UINT32, nil, nil, nil, "Volume remaining on Order after matching, if 0, order has traded out and should be deleted.")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.ratio_leg = ProtoField.new("Ratio Leg", "asx.asxderivatives.ntp.itch.v1.05.ratioleg", ftypes.UINT32, nil, nil, nil, "Ratio of the leg")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.rfq_side = ProtoField.new("Rfq Side", "asx.asxderivatives.ntp.itch.v1.05.rfqside", ftypes.STRING, nil, nil, nil, "Identifies side of the RFQ")
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.second = ProtoField.new("Second", "asx.asxderivatives.ntp.itch.v1.05.second", ftypes.UINT32, nil, nil, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.second = ProtoField.new("Second", "asx.asxderivatives.ntp.itch.v1.05.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc = ProtoField.new("Second", "asx.asxderivatives.ntp.itch.v1.05.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.seller_combination_trade_id = ProtoField.new("Seller Combination Trade Id", "asx.asxderivatives.ntp.itch.v1.05.sellercombinationtradeid", ftypes.UINT64, nil, nil, nil, "A non-zero value indicates that this trade is part of an execution cycle for a combination trade from the E or P message.")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.seller_order_id = ProtoField.new("Seller Order Id", "asx.asxderivatives.ntp.itch.v1.05.sellerorderid", ftypes.UINT64, nil, nil, nil, "Reference number of the Seller’s order – 0 if order is aggressive.")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.seller_participant_id = ProtoField.new("Seller Participant Id", "asx.asxderivatives.ntp.itch.v1.05.sellerparticipantid", ftypes.STRING, nil, nil, nil, "Selling participant identifier of the owner of the aggressive order.")
@@ -161,6 +162,15 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timesta
 -- Asx AsxDerivatives Ntp Itch 1.05 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+asx_asxderivatives_ntp_itch_v1_05.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 asx_asxderivatives_ntp_itch_v1_05.format_timestamp = true
 
@@ -186,6 +196,8 @@ omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_indexes = Pref.bool("Show Index
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_asx_asxderivatives_ntp_itch_v1_05.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()
 
@@ -207,6 +219,9 @@ function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()
   end
   if asx_asxderivatives_ntp_itch_v1_05.format_timestamp ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp then
     asx_asxderivatives_ntp_itch_v1_05.format_timestamp = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.format_timestamp
+  end
+  if asx_asxderivatives_ntp_itch_v1_05.absolute_time_base ~= omi_asx_asxderivatives_ntp_itch_v1_05.prefs.absolute_time_base then
+    asx_asxderivatives_ntp_itch_v1_05.absolute_time_base = omi_asx_asxderivatives_ntp_itch_v1_05.prefs.absolute_time_base
   end
 end
 
@@ -2046,20 +2061,20 @@ asx_asxderivatives_ntp_itch_v1_05.second.generated = function(value, range, pack
   second:set_generated()
 end
 
--- Display: Second
-asx_asxderivatives_ntp_itch_v1_05.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 asx_asxderivatives_ntp_itch_v1_05.second.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_ntp_itch_v1_05.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_asxderivatives_ntp_itch_v1_05.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_asxderivatives_ntp_itch_v1_05.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second
+  if asx_asxderivatives_ntp_itch_v1_05.absolute_time_base == 1 then field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

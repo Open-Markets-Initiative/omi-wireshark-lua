@@ -104,7 +104,8 @@ omi_hkex_hkexderivatives_combined_omd_v2_0.fields.priority = ProtoField.new("Pri
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.combined.omd.v2.0.quantity", ftypes.UINT32, nil, nil, nil, "Number of contracts")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.quote_quantity = ProtoField.new("Quote Quantity", "hkex.hkexderivatives.combined.omd.v2.0.quotequantity", ftypes.INT32, nil, nil, nil, "Quantity")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.combined.omd.v2.0.secondfiller3", ftypes.BYTES, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_combined_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.combined.omd.v2.0.sendtime", ftypes.UINT64, nil, nil, nil, "Send time of segment")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.combined.omd.v2.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
+omi_hkex_hkexderivatives_combined_omd_v2_0.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexderivatives.combined.omd.v2.0.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.combined.omd.v2.0.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.combined.omd.v2.0.session", ftypes.UINT8, nil, nil, nil, "Session indicator used to distinguish between the T and T+1 sessions")
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.combined.omd.v2.0.settlementcurrencyid", ftypes.STRING, nil, nil, nil, "Full descriptive name of the Settlement Currency")
@@ -176,6 +177,20 @@ omi_hkex_hkexderivatives_combined_omd_v2_0.fields.content_index = ProtoField.new
 omi_hkex_hkexderivatives_combined_omd_v2_0.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.combined.omd.v2.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Hkex HkexDerivatives Combined Omd 2.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+hkex_hkexderivatives_combined_omd_v2_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -195,6 +210,8 @@ omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.show_structs = Pref.bool("Show 
 omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_combined_omd_v2_0.prefs_changed()
 
@@ -213,6 +230,9 @@ function omi_hkex_hkexderivatives_combined_omd_v2_0.prefs_changed()
   end
   if show.indexes ~= omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.show_indexes then
     show.indexes = omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.show_indexes
+  end
+  if hkex_hkexderivatives_combined_omd_v2_0.absolute_time_base ~= omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.absolute_time_base then
+    hkex_hkexderivatives_combined_omd_v2_0.absolute_time_base = omi_hkex_hkexderivatives_combined_omd_v2_0.prefs.absolute_time_base
   end
 end
 
@@ -2445,23 +2465,20 @@ hkex_hkexderivatives_combined_omd_v2_0.send_time = {}
 -- Size: Send Time
 hkex_hkexderivatives_combined_omd_v2_0.send_time.size = 8
 
--- Display: Send Time
-hkex_hkexderivatives_combined_omd_v2_0.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 hkex_hkexderivatives_combined_omd_v2_0.send_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combined_omd_v2_0.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_combined_omd_v2_0.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combined_omd_v2_0.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.send_time
+  if hkex_hkexderivatives_combined_omd_v2_0.absolute_time_base == 1 then field = omi_hkex_hkexderivatives_combined_omd_v2_0.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

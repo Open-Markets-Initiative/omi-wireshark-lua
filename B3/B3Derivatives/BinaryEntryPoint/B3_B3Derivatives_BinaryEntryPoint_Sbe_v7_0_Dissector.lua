@@ -112,7 +112,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.long_qty = ProtoField.new(
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.long_qty_optional = ProtoField.new("Long Qty Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.longqtyoptional", ftypes.UINT64, nil, nil, nil, "Long Quantity.")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.marketsegmentid", ftypes.UINT8, nil, nil, nil, "marketSegmentID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_id_optional = ProtoField.new("Market Segment Id Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.marketsegmentidoptional", ftypes.UINT8, nil, nil, nil, "marketSegmentID")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_received_time = ProtoField.new("Market Segment Received Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.marketsegmentreceivedtime", ftypes.UINT64, nil, nil, nil, "marketSegmentReceivedTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_received_time = ProtoField.new("Market Segment Received Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.marketsegmentreceivedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "marketSegmentReceivedTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_received_time_utc = ProtoField.new("Market Segment Received Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.marketsegmentreceivedtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "marketSegmentReceivedTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.massactionrejectreason", ftypes.UINT8, nil, nil, nil, "massActionRejectReason")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.massactionreportid", ftypes.UINT64, nil, nil, nil, "massActionReportID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.mass_action_report_id_optional = ProtoField.new("Mass Action Report Id Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.massactionreportidoptional", ftypes.UINT64, nil, nil, nil, "massActionReportID")
@@ -202,7 +203,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.security_response_type = P
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.security_strategy_type = ProtoField.new("Security Strategy Type", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.securitystrategytype", ftypes.STRING, nil, nil, nil, "securityStrategyType")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.self_trade_prevention_instruction = ProtoField.new("Self Trade Prevention Instruction", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.selftradepreventioninstruction", ftypes.UINT8, nil, nil, nil, "selfTradePreventionInstruction")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sender_location = ProtoField.new("Sender Location", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.senderlocation", ftypes.STRING, nil, nil, nil, "senderLocation")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sendingtime", ftypes.UINT64, nil, nil, nil, "sendingTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendingTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sending_time_utc = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendingTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.session_id = ProtoField.new("Session Id", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sessionid", ftypes.UINT32, nil, nil, nil, "sessionID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.session_ver_id = ProtoField.new("Session Ver Id", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sessionverid", ftypes.UINT64, nil, nil, nil, "sessionVerID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settl_type = ProtoField.new("Settl Type", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.settltype", ftypes.STRING, nil, nil, nil, "settlType")
@@ -231,7 +233,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.trade_date = ProtoField.ne
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.trade_date_optional = ProtoField.new("Trade Date Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.tradedateoptional", ftypes.UINT16, nil, nil, nil, "tradeDate")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.trade_id = ProtoField.new("Trade Id", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.tradeid", ftypes.UINT32, nil, nil, nil, "tradeID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.trade_id_optional = ProtoField.new("Trade Id Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.tradeidoptional", ftypes.UINT32, nil, nil, nil, "tradeID")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.transacttime", ftypes.UINT64, nil, nil, nil, "transactTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.transact_time_utc = ProtoField.new("Transact Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.version = ProtoField.new("Version", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.working_indicator = ProtoField.new("Working Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.workingindicator", ftypes.UINT8, nil, nil, nil, "workingIndicator")
 
@@ -290,6 +293,20 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.positions_group_index = Pr
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sides_group_index = ProtoField.new("Sides Group Index", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sidesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- B3 B3Derivatives BinaryEntryPoint Sbe 7.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -309,6 +326,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_repeating_groups = Pre
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs_changed()
 
@@ -327,6 +346,9 @@ function omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs_changed()
   end
   if show.indexes ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_indexes then
     show.indexes = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.show_indexes
+  end
+  if b3_b3derivatives_binaryentrypoint_sbe_v7_0.absolute_time_base ~= omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.absolute_time_base then
+    b3_b3derivatives_binaryentrypoint_sbe_v7_0.absolute_time_base = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.prefs.absolute_time_base
   end
 end
 
@@ -2684,29 +2706,27 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.market_segment_received_time = {}
 -- Size: Market Segment Received Time
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.market_segment_received_time.size = 8
 
--- Display: Market Segment Received Time
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.market_segment_received_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Market Segment Received Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Market Segment Received Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Market Segment Received Time
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.market_segment_received_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.market_segment_received_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v7_0.market_segment_received_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_received_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_received_time
+  if b3_b3derivatives_binaryentrypoint_sbe_v7_0.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.market_segment_received_time_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Market Segment Received Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6931,29 +6951,27 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.sending_time = {}
 -- Size: Sending Time
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.sending_time.size = 8
 
--- Display: Sending Time
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.sending_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Sending Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v7_0.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sending_time
+  if b3_b3derivatives_binaryentrypoint_sbe_v7_0.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sending_time_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Sending Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7991,23 +8009,20 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.transact_time = {}
 -- Size: Transact Time
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.transact_time.size = 8
 
--- Display: Transact Time
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v7_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.transact_time
+  if b3_b3derivatives_binaryentrypoint_sbe_v7_0.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

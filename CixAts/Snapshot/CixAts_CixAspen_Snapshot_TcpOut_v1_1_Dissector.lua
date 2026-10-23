@@ -46,7 +46,8 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.state = ProtoField.new("State", 
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.successful_login_message = ProtoField.new("Successful Login Message", "cixats.cixaspen.snapshot.tcpout.v1.1.successfulloginmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to accept a Login Message")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.symbol = ProtoField.new("Symbol", "cixats.cixaspen.snapshot.tcpout.v1.1.symbol", ftypes.STRING, nil, nil, nil, "Stock Symbol")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.symbol_id = ProtoField.new("Symbol Id", "cixats.cixaspen.snapshot.tcpout.v1.1.symbolid", ftypes.UINT16, nil, nil, nil, "Symbol Index")
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.snapshot.tcpout.v1.1.timestamp", ftypes.UINT64, nil, nil, nil, "Nanoseconds Since Epoch (UTC)")
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.snapshot.tcpout.v1.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds Since Epoch (UTC)")
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp_utc = ProtoField.new("Timestamp", "cixats.cixaspen.snapshot.tcpout.v1.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds Since Epoch (UTC)")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.user = ProtoField.new("User", "cixats.cixaspen.snapshot.tcpout.v1.1.user", ftypes.STRING, nil, nil, nil, "Username")
 
 -- CixAts CixAspen Snapshot TcpOut 1.1 Framing
@@ -70,6 +71,20 @@ cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number = ProtoExpert.new("cix
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.experts = { cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- CixAts CixAspen Snapshot TcpOut 1.1 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -85,6 +100,8 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_structs = Pref.bool("Show St
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs_changed()
 
@@ -97,6 +114,9 @@ function omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs_changed()
   end
   if show.structs ~= omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_structs then
     show.structs = omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_structs
+  end
+  if cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base ~= omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.absolute_time_base then
+    cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base = omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.absolute_time_base
   end
 end
 
@@ -124,14 +144,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -491,7 +517,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.next_sequence.dissect = function(buffer, of
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.next_sequence, range, value, "Next Sequence: Not Applicable")
     item:add_proto_expert_info(cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, "Next Sequence is not a number: '"..range:string().."'")
     return offset + length, value
@@ -730,7 +756,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.requested_sequence.dissect = function(buffe
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.requested_sequence, range, value, "Requested Sequence: Not Applicable")
     item:add_proto_expert_info(cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, "Requested Sequence is not a number: '"..range:string().."'")
     return offset + length, value
@@ -924,23 +950,20 @@ cixats_cixaspen_snapshot_tcpout_v1_1.timestamp = {}
 -- Size: Timestamp
 cixats_cixaspen_snapshot_tcpout_v1_1.timestamp.size = 8
 
--- Display: Timestamp
-cixats_cixaspen_snapshot_tcpout_v1_1.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 cixats_cixaspen_snapshot_tcpout_v1_1.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cixats_cixaspen_snapshot_tcpout_v1_1.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cixats_cixaspen_snapshot_tcpout_v1_1.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp
+  if cixats_cixaspen_snapshot_tcpout_v1_1.absolute_time_base == 1 then field = omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -30,7 +30,8 @@ omi_nse_nsecm_recovery_binary_v6_8.fields.sell_order_id = ProtoField.new("Sell O
 omi_nse_nsecm_recovery_binary_v6_8.fields.sequence_number = ProtoField.new("Sequence Number", "nse.nsecm.recovery.binary.v6.8.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the packet for this Stream Id. For Equity Derivative (FO) segment, this field is unsigned int [4, Uint]")
 omi_nse_nsecm_recovery_binary_v6_8.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "nse.nsecm.recovery.binary.v6.8.startsequencenumber", ftypes.UINT32, nil, nil, nil, "Requested Message Sequence Number")
 omi_nse_nsecm_recovery_binary_v6_8.fields.stream_id = ProtoField.new("Stream Id", "nse.nsecm.recovery.binary.v6.8.streamid", ftypes.INT16, nil, nil, nil, "Unique Stream Reference")
-omi_nse_nsecm_recovery_binary_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.recovery.binary.v6.8.timestamp", ftypes.INT64, nil, nil, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsecm_recovery_binary_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.recovery.binary.v6.8.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsecm_recovery_binary_v6_8.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsecm.recovery.binary.v6.8.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nsecm_recovery_binary_v6_8.fields.token = ProtoField.new("Token", "nse.nsecm.recovery.binary.v6.8.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
 omi_nse_nsecm_recovery_binary_v6_8.fields.trade_price = ProtoField.new("Trade Price", "nse.nsecm.recovery.binary.v6.8.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Trade Price (In Paise)")
 omi_nse_nsecm_recovery_binary_v6_8.fields.trade_quantity = ProtoField.new("Trade Quantity", "nse.nsecm.recovery.binary.v6.8.tradequantity", ftypes.INT32)
@@ -61,6 +62,15 @@ omi_nse_nsecm_recovery_binary_v6_8.fields.trade_message = ProtoField.new("Trade 
 -- Nse NseCm Recovery Binary 6.8 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nse_nsecm_recovery_binary_v6_8.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -88,6 +98,8 @@ omi_nse_nsecm_recovery_binary_v6_8.prefs.show_structs = Pref.bool("Show Structs"
 omi_nse_nsecm_recovery_binary_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecm_recovery_binary_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_nse_nsecm_recovery_binary_v6_8.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nse_nsecm_recovery_binary_v6_8.prefs_changed()
 
@@ -100,6 +112,9 @@ function omi_nse_nsecm_recovery_binary_v6_8.prefs_changed()
   end
   if show.structs ~= omi_nse_nsecm_recovery_binary_v6_8.prefs.show_structs then
     show.structs = omi_nse_nsecm_recovery_binary_v6_8.prefs.show_structs
+  end
+  if nse_nsecm_recovery_binary_v6_8.absolute_time_base ~= omi_nse_nsecm_recovery_binary_v6_8.prefs.absolute_time_base then
+    nse_nsecm_recovery_binary_v6_8.absolute_time_base = omi_nse_nsecm_recovery_binary_v6_8.prefs.absolute_time_base
   end
 end
 
@@ -517,30 +532,20 @@ nse_nsecm_recovery_binary_v6_8.timestamp = {}
 -- Size: Timestamp
 nse_nsecm_recovery_binary_v6_8.timestamp.size = 8
 
--- Display: Timestamp
-nse_nsecm_recovery_binary_v6_8.timestamp.display = function(value)
-  -- Parse Dos epoch nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  -- a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "%Y-%m-%d %H:%M:%S.", seconds)
-
-  if not ok then
-    return "Timestamp: "..tostring(value)
-  end
-
-  return "Timestamp: "..text..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 nse_nsecm_recovery_binary_v6_8.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_recovery_binary_v6_8.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = nse_nsecm_recovery_binary_v6_8.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_recovery_binary_v6_8.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_recovery_binary_v6_8.fields.timestamp
+  if nse_nsecm_recovery_binary_v6_8.absolute_time_base == 1 then field = omi_nse_nsecm_recovery_binary_v6_8.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

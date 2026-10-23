@@ -29,7 +29,8 @@ omi_cme_globex_derived_sbe_v12_0.fields.instrument_guid = ProtoField.new("Instru
 omi_cme_globex_derived_sbe_v12_0.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.globex.derived.sbe.v12.0.matcheventindicator", ftypes.STRING, nil, nil, nil, "EventIndicator bit set")
 omi_cme_globex_derived_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.globex.derived.sbe.v12.0.mdentrypx", ftypes.DOUBLE, nil, nil, nil, "Market Data entry price")
 omi_cme_globex_derived_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.globex.derived.sbe.v12.0.mdentrysize", ftypes.UINT64, nil, nil, nil, "Market Data entry size")
-omi_cme_globex_derived_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.globex.derived.sbe.v12.0.mdentrytime", ftypes.UINT64, nil, nil, nil, "Time of the last market event that contributed to element calculation or publication")
+omi_cme_globex_derived_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.globex.derived.sbe.v12.0.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the last market event that contributed to element calculation or publication")
+omi_cme_globex_derived_sbe_v12_0.fields.md_entry_time_utc = ProtoField.new("Md Entry Time", "cme.globex.derived.sbe.v12.0.mdentrytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the last market event that contributed to element calculation or publication")
 omi_cme_globex_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoField.new("Md Entry Type Spectrum Entry Type", "cme.globex.derived.sbe.v12.0.mdentrytypespectrumentrytype", ftypes.STRING, nil, nil, nil, "Market Data entry type, identifies the element")
 omi_cme_globex_derived_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoField.new("Md Entry Type Ticker Entry Type", "cme.globex.derived.sbe.v12.0.mdentrytypetickerentrytype", ftypes.STRING, nil, nil, nil, "Market Data entry type, identifies the element")
 omi_cme_globex_derived_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.derived.sbe.v12.0.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
@@ -41,7 +42,8 @@ omi_cme_globex_derived_sbe_v12_0.fields.recovery_message = ProtoField.new("Recov
 omi_cme_globex_derived_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "cme.globex.derived.sbe.v12.0.schemaid", ftypes.UINT16)
 omi_cme_globex_derived_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.globex.derived.sbe.v12.0.securityid", ftypes.INT32, nil, nil, nil, "SecurityID as referenced in MDP3 and Ilink3 protocols")
 omi_cme_globex_derived_sbe_v12_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.globex.derived.sbe.v12.0.securitytradingevent", ftypes.UINT8, nil, nil, nil, "Signals the start of the next Global day or a Global day roll")
-omi_cme_globex_derived_sbe_v12_0.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.derived.sbe.v12.0.sendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
+omi_cme_globex_derived_sbe_v12_0.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.derived.sbe.v12.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
+omi_cme_globex_derived_sbe_v12_0.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.derived.sbe.v12.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
 omi_cme_globex_derived_sbe_v12_0.fields.snapshot_refresh_spectrum_group = ProtoField.new("Snapshot Refresh Spectrum Group", "cme.globex.derived.sbe.v12.0.snapshotrefreshspectrumgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_derived_sbe_v12_0.fields.snapshot_refresh_spectrum_groups = ProtoField.new("Snapshot Refresh Spectrum Groups", "cme.globex.derived.sbe.v12.0.snapshotrefreshspectrumgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_derived_sbe_v12_0.fields.snapshot_refresh_ticker_group = ProtoField.new("Snapshot Refresh Ticker Group", "cme.globex.derived.sbe.v12.0.snapshotrefreshtickergroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
@@ -51,7 +53,8 @@ omi_cme_globex_derived_sbe_v12_0.fields.tcp_message_size = ProtoField.new("Tcp M
 omi_cme_globex_derived_sbe_v12_0.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.derived.sbe.v12.0.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
 omi_cme_globex_derived_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.globex.derived.sbe.v12.0.templateid", ftypes.UINT16)
 omi_cme_globex_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.globex.derived.sbe.v12.0.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The associated region market hours considered for the calculation of the element. The element is calculated from market events occurring during the region's open-close hours")
-omi_cme_globex_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime", ftypes.UINT64, nil, nil, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
+omi_cme_globex_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
+omi_cme_globex_derived_sbe_v12_0.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
 omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_0 = ProtoField.new("Unused Event Indicator 0", "cme.globex.derived.sbe.v12.0.unusedeventindicator0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused EventIndicator 0")
 omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_1 = ProtoField.new("Unused Event Indicator 1", "cme.globex.derived.sbe.v12.0.unusedeventindicator1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Unused EventIndicator 1")
 omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_2 = ProtoField.new("Unused Event Indicator 2", "cme.globex.derived.sbe.v12.0.unusedeventindicator2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Unused EventIndicator 2")
@@ -85,6 +88,20 @@ omi_cme_globex_derived_sbe_v12_0.fields.snapshot_refresh_spectrum_group_index = 
 omi_cme_globex_derived_sbe_v12_0.fields.snapshot_refresh_ticker_group_index = ProtoField.new("Snapshot Refresh Ticker Group Index", "cme.globex.derived.sbe.v12.0.snapshotrefreshtickergroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cme Globex Derived Sbe 12.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cme_globex_derived_sbe_v12_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -104,6 +121,8 @@ omi_cme_globex_derived_sbe_v12_0.prefs.show_structs = Pref.bool("Show Structs", 
 omi_cme_globex_derived_sbe_v12_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_derived_sbe_v12_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cme_globex_derived_sbe_v12_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cme_globex_derived_sbe_v12_0.prefs_changed()
 
@@ -122,6 +141,9 @@ function omi_cme_globex_derived_sbe_v12_0.prefs_changed()
   end
   if show.indexes ~= omi_cme_globex_derived_sbe_v12_0.prefs.show_indexes then
     show.indexes = omi_cme_globex_derived_sbe_v12_0.prefs.show_indexes
+  end
+  if cme_globex_derived_sbe_v12_0.absolute_time_base ~= omi_cme_globex_derived_sbe_v12_0.prefs.absolute_time_base then
+    cme_globex_derived_sbe_v12_0.absolute_time_base = omi_cme_globex_derived_sbe_v12_0.prefs.absolute_time_base
   end
 end
 
@@ -338,23 +360,20 @@ cme_globex_derived_sbe_v12_0.md_entry_time = {}
 -- Size: Md Entry Time
 cme_globex_derived_sbe_v12_0.md_entry_time.size = 8
 
--- Display: Md Entry Time
-cme_globex_derived_sbe_v12_0.md_entry_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Md Entry Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Md Entry Time
 cme_globex_derived_sbe_v12_0.md_entry_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_derived_sbe_v12_0.md_entry_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_derived_sbe_v12_0.md_entry_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.md_entry_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_derived_sbe_v12_0.fields.md_entry_time
+  if cme_globex_derived_sbe_v12_0.absolute_time_base == 1 then field = omi_cme_globex_derived_sbe_v12_0.fields.md_entry_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -680,23 +699,20 @@ cme_globex_derived_sbe_v12_0.sending_time = {}
 -- Size: Sending Time
 cme_globex_derived_sbe_v12_0.sending_time.size = 8
 
--- Display: Sending Time
-cme_globex_derived_sbe_v12_0.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 cme_globex_derived_sbe_v12_0.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_derived_sbe_v12_0.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_derived_sbe_v12_0.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_derived_sbe_v12_0.fields.sending_time
+  if cme_globex_derived_sbe_v12_0.absolute_time_base == 1 then field = omi_cme_globex_derived_sbe_v12_0.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -879,23 +895,20 @@ cme_globex_derived_sbe_v12_0.transact_time = {}
 -- Size: Transact Time
 cme_globex_derived_sbe_v12_0.transact_time.size = 8
 
--- Display: Transact Time
-cme_globex_derived_sbe_v12_0.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 cme_globex_derived_sbe_v12_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_derived_sbe_v12_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_derived_sbe_v12_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_derived_sbe_v12_0.fields.transact_time
+  if cme_globex_derived_sbe_v12_0.absolute_time_base == 1 then field = omi_cme_globex_derived_sbe_v12_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -29,7 +29,8 @@ omi_cnsx_cse_multicast_mmd_v2_8.fields.cross_type = ProtoField.new("Cross Type",
 omi_cnsx_cse_multicast_mmd_v2_8.fields.currency = ProtoField.new("Currency", "cnsx.cse.multicast.mmd.v2.8.currency", ftypes.STRING, nil, nil, nil, "Trading currency.")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.cusip = ProtoField.new("Cusip", "cnsx.cse.multicast.mmd.v2.8.cusip", ftypes.STRING, nil, nil, nil, "CUSIP code.")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.event_code = ProtoField.new("Event Code", "cnsx.cse.multicast.mmd.v2.8.eventcode", ftypes.STRING, nil, nil, nil, "Event Code (see System Event Codes).")
-omi_cnsx_cse_multicast_mmd_v2_8.fields.exchange_timestamp = ProtoField.new("Exchange Timestamp", "cnsx.cse.multicast.mmd.v2.8.exchangetimestamp", ftypes.UINT64, nil, nil, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse_multicast_mmd_v2_8.fields.exchange_timestamp = ProtoField.new("Exchange Timestamp", "cnsx.cse.multicast.mmd.v2.8.exchangetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse_multicast_mmd_v2_8.fields.exchange_timestamp_utc = ProtoField.new("Exchange Timestamp", "cnsx.cse.multicast.mmd.v2.8.exchangetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.executed_quantity = ProtoField.new("Executed Quantity", "cnsx.cse.multicast.mmd.v2.8.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares executed.")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.execution_price = ProtoField.new("Execution Price", "cnsx.cse.multicast.mmd.v2.8.executionprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the execution occurred.")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.expiry = ProtoField.new("Expiry", "cnsx.cse.multicast.mmd.v2.8.expiry", ftypes.UINT64, nil, nil, nil, "YYYYMMDD. 0 represents no expiry date.")
@@ -65,7 +66,8 @@ omi_cnsx_cse_multicast_mmd_v2_8.fields.order_verb = ProtoField.new("Order Verb",
 omi_cnsx_cse_multicast_mmd_v2_8.fields.previous_closing_price = ProtoField.new("Previous Closing Price", "cnsx.cse.multicast.mmd.v2.8.previousclosingprice", ftypes.DOUBLE, nil, nil, nil, "Adjusted previous closing price.")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.price = ProtoField.new("Price", "cnsx.cse.multicast.mmd.v2.8.price", ftypes.DOUBLE, nil, nil, nil, "Price of the new order.")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.price_variation = ProtoField.new("Price Variation", "cnsx.cse.multicast.mmd.v2.8.pricevariation", ftypes.DOUBLE, nil, nil, nil, "Indicates the absolute value of the percent deviation of the MOC Indicative Closing Price to the MRP. Format NNNDD, three digits before and two after the decimal place. Disseminated as 999.99 if the calculated value exceeds 999.99.")
-omi_cnsx_cse_multicast_mmd_v2_8.fields.priority_timestamp = ProtoField.new("Priority Timestamp", "cnsx.cse.multicast.mmd.v2.8.prioritytimestamp", ftypes.UINT64, nil, nil, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse_multicast_mmd_v2_8.fields.priority_timestamp = ProtoField.new("Priority Timestamp", "cnsx.cse.multicast.mmd.v2.8.prioritytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse_multicast_mmd_v2_8.fields.priority_timestamp_utc = ProtoField.new("Priority Timestamp", "cnsx.cse.multicast.mmd.v2.8.prioritytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.quantity = ProtoField.new("Quantity", "cnsx.cse.multicast.mmd.v2.8.quantity", ftypes.UINT32, nil, nil, nil, "Total quantity of the order being added to the book.")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.reason = ProtoField.new("Reason", "cnsx.cse.multicast.mmd.v2.8.reason", ftypes.STRING, nil, nil, nil, "Reason the trade was broken (see Broken Trade Reasons).")
 omi_cnsx_cse_multicast_mmd_v2_8.fields.sec_name = ProtoField.new("Sec Name", "cnsx.cse.multicast.mmd.v2.8.secname", ftypes.STRING, nil, nil, nil, "Short security name.")
@@ -135,6 +137,15 @@ cnsx_cse_multicast_mmd_v2_8.timestamp_format = 2
 -- Hours behind UTC (EST) for midnight calculation
 cnsx_cse_multicast_mmd_v2_8.utc_offset_hours = 5
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cnsx_cse_multicast_mmd_v2_8.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 cnsx_cse_multicast_mmd_v2_8.format_timestamp = true
 
@@ -162,6 +173,7 @@ omi_cnsx_cse_multicast_mmd_v2_8.prefs.format_timestamp = Pref.bool("Format Times
 
 omi_cnsx_cse_multicast_mmd_v2_8.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
 omi_cnsx_cse_multicast_mmd_v2_8.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_cnsx_cse_multicast_mmd_v2_8.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
 -- Handle changed preferences
 function omi_cnsx_cse_multicast_mmd_v2_8.prefs_changed()
@@ -190,6 +202,9 @@ function omi_cnsx_cse_multicast_mmd_v2_8.prefs_changed()
   end
   if cnsx_cse_multicast_mmd_v2_8.utc_offset_hours ~= omi_cnsx_cse_multicast_mmd_v2_8.prefs.utc_offset_hours then
     cnsx_cse_multicast_mmd_v2_8.utc_offset_hours = omi_cnsx_cse_multicast_mmd_v2_8.prefs.utc_offset_hours
+  end
+  if cnsx_cse_multicast_mmd_v2_8.absolute_time_base ~= omi_cnsx_cse_multicast_mmd_v2_8.prefs.absolute_time_base then
+    cnsx_cse_multicast_mmd_v2_8.absolute_time_base = omi_cnsx_cse_multicast_mmd_v2_8.prefs.absolute_time_base
   end
 end
 
@@ -735,23 +750,20 @@ cnsx_cse_multicast_mmd_v2_8.exchange_timestamp = {}
 -- Size: Exchange Timestamp
 cnsx_cse_multicast_mmd_v2_8.exchange_timestamp.size = 8
 
--- Display: Exchange Timestamp
-cnsx_cse_multicast_mmd_v2_8.exchange_timestamp.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Exchange Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Exchange Timestamp
 cnsx_cse_multicast_mmd_v2_8.exchange_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cnsx_cse_multicast_mmd_v2_8.exchange_timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = cnsx_cse_multicast_mmd_v2_8.exchange_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cnsx_cse_multicast_mmd_v2_8.fields.exchange_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cnsx_cse_multicast_mmd_v2_8.fields.exchange_timestamp
+  if cnsx_cse_multicast_mmd_v2_8.absolute_time_base == 1 then field = omi_cnsx_cse_multicast_mmd_v2_8.fields.exchange_timestamp_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1777,23 +1789,20 @@ cnsx_cse_multicast_mmd_v2_8.priority_timestamp = {}
 -- Size: Priority Timestamp
 cnsx_cse_multicast_mmd_v2_8.priority_timestamp.size = 8
 
--- Display: Priority Timestamp
-cnsx_cse_multicast_mmd_v2_8.priority_timestamp.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Priority Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Priority Timestamp
 cnsx_cse_multicast_mmd_v2_8.priority_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cnsx_cse_multicast_mmd_v2_8.priority_timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = cnsx_cse_multicast_mmd_v2_8.priority_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cnsx_cse_multicast_mmd_v2_8.fields.priority_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cnsx_cse_multicast_mmd_v2_8.fields.priority_timestamp
+  if cnsx_cse_multicast_mmd_v2_8.absolute_time_base == 1 then field = omi_cnsx_cse_multicast_mmd_v2_8.fields.priority_timestamp_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

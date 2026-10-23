@@ -7,7 +7,7 @@
 
 | Division | [Protocol][Omi.Binance.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Binance.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BinanceSpot][BinanceSpot.Exchange] | [MarketData][Binance.BinanceSpot.MarketData] | [Sbe][Omi.Encoding.Sbe] | [1.0][Binance.BinanceSpot.MarketData.Sbe.v1.0.Dissector] | 9/18/2026 | 2329 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Binance.BinanceSpot.MarketData.Sbe.v1.0.Url] |
+| [BinanceSpot][BinanceSpot.Exchange] | [MarketData][Binance.BinanceSpot.MarketData] | [Sbe][Omi.Encoding.Sbe] | [1.0][Binance.BinanceSpot.MarketData.Sbe.v1.0.Dissector] | 9/18/2026 | 2339 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Binance.BinanceSpot.MarketData.Sbe.v1.0.Url] |
 
 
 <p align="center"><a href="https://www.binance.com/en" title="Binance Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a></p>

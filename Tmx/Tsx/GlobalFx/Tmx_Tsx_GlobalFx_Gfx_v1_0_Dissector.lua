@@ -31,7 +31,8 @@ omi_tmx_tsx_globalfx_gfx_v1_0.fields.size_tier = ProtoField.new("Size Tier", "tm
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.stream_id = ProtoField.new("Stream Id", "tmx.tsx.globalfx.gfx.v1.0.streamid", ftypes.UINT64, nil, nil, nil, "Stream Id, which changes when the sequence number resets")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.tier_size = ProtoField.new("Tier Size", "tmx.tsx.globalfx.gfx.v1.0.tiersize", ftypes.UINT32, nil, nil, nil, "Size Tier, not shifted")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.tier_status = ProtoField.new("Tier Status", "tmx.tsx.globalfx.gfx.v1.0.tierstatus", ftypes.STRING, nil, nil, nil, "Whether a reference price is available at this size tier")
-omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp = ProtoField.new("Timestamp", "tmx.tsx.globalfx.gfx.v1.0.timestamp", ftypes.UINT64, nil, nil, nil, "Time in microseconds since Jan 1, 1970")
+omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp = ProtoField.new("Timestamp", "tmx.tsx.globalfx.gfx.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in microseconds since Jan 1, 1970")
+omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp_utc = ProtoField.new("Timestamp", "tmx.tsx.globalfx.gfx.v1.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in microseconds since Jan 1, 1970")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_1 = ProtoField.new("Unused 1", "tmx.tsx.globalfx.gfx.v1.0.unused1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_2 = ProtoField.new("Unused 2", "tmx.tsx.globalfx.gfx.v1.0.unused2", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.valid_for_seconds = ProtoField.new("Valid For Seconds", "tmx.tsx.globalfx.gfx.v1.0.validforseconds", ftypes.UINT16, nil, nil, nil, "Time to live for the prices in this datagram, zero if periodic refresh is not enabled")
@@ -44,6 +45,20 @@ omi_tmx_tsx_globalfx_gfx_v1_0.fields.reference_price_fx_spot = ProtoField.new("R
 
 -- Tmx Tsx GlobalFx Gfx 1.0 Generated Fields
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.size_tier_index = ProtoField.new("Size Tier Index", "tmx.tsx.globalfx.gfx.v1.0.sizetierindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Tmx Tsx GlobalFx Gfx 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+tmx_tsx_globalfx_gfx_v1_0.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -61,6 +76,8 @@ omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_structs = Pref.bool("Show Structs", sho
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_tmx_tsx_globalfx_gfx_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_tmx_tsx_globalfx_gfx_v1_0.prefs_changed()
 
@@ -73,6 +90,9 @@ function omi_tmx_tsx_globalfx_gfx_v1_0.prefs_changed()
   end
   if show.indexes ~= omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_indexes then
     show.indexes = omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_indexes
+  end
+  if tmx_tsx_globalfx_gfx_v1_0.absolute_time_base ~= omi_tmx_tsx_globalfx_gfx_v1_0.prefs.absolute_time_base then
+    tmx_tsx_globalfx_gfx_v1_0.absolute_time_base = omi_tmx_tsx_globalfx_gfx_v1_0.prefs.absolute_time_base
   end
 end
 
@@ -562,23 +582,20 @@ tmx_tsx_globalfx_gfx_v1_0.timestamp = {}
 -- Size: Timestamp
 tmx_tsx_globalfx_gfx_v1_0.timestamp.size = 8
 
--- Display: Timestamp
-tmx_tsx_globalfx_gfx_v1_0.timestamp.display = function(value)
-  -- Parse unix microsecond timestamp
-  local seconds = (value / UInt64(1000000)):tonumber()
-  local microseconds = (value % UInt64(1000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%06d", microseconds)
-end
-
 -- Dissect: Timestamp
 tmx_tsx_globalfx_gfx_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsx_globalfx_gfx_v1_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = tmx_tsx_globalfx_gfx_v1_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp
+  if tmx_tsx_globalfx_gfx_v1_0.absolute_time_base == 1 then field = omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000)):tonumber()
+  local nanos = (value % UInt64(1000000)):tonumber() * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

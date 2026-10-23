@@ -59,7 +59,8 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.lower_price_limit = ProtoFi
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.message_count = ProtoField.new("Message Count", "cboe.cfefutures.multicasttop.spin.v1.2.22.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.multicasttop.spin.v1.2.22.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.multicasttop.spin.v1.2.22.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicasttop.spin.v1.2.22.midnightreference", ftypes.UINT32, nil, nil, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicasttop.spin.v1.2.22.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicasttop.spin.v1.2.22.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.num_elapsed_returns = ProtoField.new("Num Elapsed Returns", "cboe.cfefutures.multicasttop.spin.v1.2.22.numelapsedreturns", ftypes.UINT16, nil, nil, nil, "Number of elapsed S&P 500 Index returns including the current day.")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.num_final_returns = ProtoField.new("Num Final Returns", "cboe.cfefutures.multicasttop.spin.v1.2.22.numfinalreturns", ftypes.UINT16, nil, nil, nil, "Number of S&P 500 Index returns used in the Final Settlement Value calculation.")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.offer_close_valid = ProtoField.new("Offer Close Valid", "cboe.cfefutures.multicasttop.spin.v1.2.22.offerclosevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Set if open price and close price contain valid values")
@@ -122,6 +123,15 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.timestamp = ProtoField.new(
 -- Cboe CfeFutures MulticastTop Spin 1.2.22 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_cfefutures_multicasttop_spin_v1_2_22.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 cboe_cfefutures_multicasttop_spin_v1_2_22.format_timestamp = true
 
@@ -147,6 +157,8 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.show_headers = Pref.bool("Sh
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs_changed()
 
@@ -168,6 +180,9 @@ function omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs_changed()
   end
   if cboe_cfefutures_multicasttop_spin_v1_2_22.format_timestamp ~= omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.format_timestamp then
     cboe_cfefutures_multicasttop_spin_v1_2_22.format_timestamp = omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.format_timestamp
+  end
+  if cboe_cfefutures_multicasttop_spin_v1_2_22.absolute_time_base ~= omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.absolute_time_base then
+    cboe_cfefutures_multicasttop_spin_v1_2_22.absolute_time_base = omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.absolute_time_base
   end
 end
 
@@ -1262,20 +1277,20 @@ cboe_cfefutures_multicasttop_spin_v1_2_22.midnight_reference.generated = functio
   midnight_reference:set_generated()
 end
 
--- Display: Midnight Reference
-cboe_cfefutures_multicasttop_spin_v1_2_22.midnight_reference.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Midnight Reference
 cboe_cfefutures_multicasttop_spin_v1_2_22.midnight_reference.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_22.midnight_reference.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_22.midnight_reference.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.midnight_reference, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.midnight_reference
+  if cboe_cfefutures_multicasttop_spin_v1_2_22.absolute_time_base == 1 then field = omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.midnight_reference_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

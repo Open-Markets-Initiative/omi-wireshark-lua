@@ -28,7 +28,8 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.halt_status = ProtoField.ne
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_price = ProtoField.new("Last Price", "cboe.bzxequities.summarydepth.csdp.v1.0.9.lastprice", ftypes.DOUBLE, nil, nil, nil, "Last trade price.")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.bzxequities.summarydepth.csdp.v1.0.9.lastquantity", ftypes.UINT64, nil, nil, nil, "Last trade quantity.")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.bzxequities.summarydepth.csdp.v1.0.9.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "0: Trade is not last-sale eligible. 1: Trade is last-sale eligible.")
-omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.bzxequities.summarydepth.csdp.v1.0.9.lastupdatetimestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe Summary Depth server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.bzxequities.summarydepth.csdp.v1.0.9.lastupdatetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe Summary Depth server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp_utc = ProtoField.new("Last Update Timestamp", "cboe.bzxequities.summarydepth.csdp.v1.0.9.lastupdatetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe Summary Depth server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.length = ProtoField.new("Length", "cboe.bzxequities.summarydepth.csdp.v1.0.9.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.bzxequities.summarydepth.csdp.v1.0.9.longupdateadapblock", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.market_status = ProtoField.new("Market Status", "cboe.bzxequities.summarydepth.csdp.v1.0.9.marketstatus", ftypes.STRING)
@@ -50,10 +51,12 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.side = ProtoField.new("Side
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.spare_5 = ProtoField.new("Spare 5", "cboe.bzxequities.summarydepth.csdp.v1.0.9.spare5", ftypes.UINT8, nil, base.DEC, 0xF8, "Spare")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.spare_reserved_1 = ProtoField.new("Spare Reserved 1", "cboe.bzxequities.summarydepth.csdp.v1.0.9.sparereserved1", ftypes.BYTES, nil, nil, nil, "Spare")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.symbol = ProtoField.new("Symbol", "cboe.bzxequities.summarydepth.csdp.v1.0.9.symbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
-omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.summarydepth.csdp.v1.0.9.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of when the Market Status changed, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.summarydepth.csdp.v1.0.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the Market Status changed, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.bzxequities.summarydepth.csdp.v1.0.9.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the Market Status changed, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.trade_break_flags = ProtoField.new("Trade Break Flags", "cboe.bzxequities.summarydepth.csdp.v1.0.9.tradebreakflags", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.bzxequities.summarydepth.csdp.v1.0.9.tradeflags", ftypes.STRING)
-omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.bzxequities.summarydepth.csdp.v1.0.9.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the trade occurred, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.bzxequities.summarydepth.csdp.v1.0.9.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the trade occurred, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.bzxequities.summarydepth.csdp.v1.0.9.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the trade occurred, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.unit = ProtoField.new("Unit", "cboe.bzxequities.summarydepth.csdp.v1.0.9.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.unused_1 = ProtoField.new("Unused 1", "cboe.bzxequities.summarydepth.csdp.v1.0.9.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.unused_6 = ProtoField.new("Unused 6", "cboe.bzxequities.summarydepth.csdp.v1.0.9.unused6", ftypes.UINT8, nil, base.DEC, 0xFC, "Reserved")
@@ -80,6 +83,20 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.message_index = ProtoField.
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.bzxequities.summarydepth.csdp.v1.0.9.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe BzxEquities SummaryDepth Csdp 1.0.9 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_bzxequities_summarydepth_csdp_v1_0_9.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -100,6 +117,8 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.show_application_messages = 
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs_changed()
@@ -122,6 +141,9 @@ function omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs_changed()
   end
   if show.sequences ~= omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.show_sequences then
     show.sequences = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.show_sequences
+  end
+  if cboe_bzxequities_summarydepth_csdp_v1_0_9.absolute_time_base ~= omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.absolute_time_base then
+    cboe_bzxequities_summarydepth_csdp_v1_0_9.absolute_time_base = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.prefs.absolute_time_base
   end
 end
 
@@ -319,23 +341,20 @@ cboe_bzxequities_summarydepth_csdp_v1_0_9.last_update_timestamp = {}
 -- Size: Last Update Timestamp
 cboe_bzxequities_summarydepth_csdp_v1_0_9.last_update_timestamp.size = 8
 
--- Display: Last Update Timestamp
-cboe_bzxequities_summarydepth_csdp_v1_0_9.last_update_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Update Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Last Update Timestamp
 cboe_bzxequities_summarydepth_csdp_v1_0_9.last_update_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_summarydepth_csdp_v1_0_9.last_update_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bzxequities_summarydepth_csdp_v1_0_9.last_update_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp
+  if cboe_bzxequities_summarydepth_csdp_v1_0_9.absolute_time_base == 1 then field = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -831,23 +850,20 @@ cboe_bzxequities_summarydepth_csdp_v1_0_9.timestamp = {}
 -- Size: Timestamp
 cboe_bzxequities_summarydepth_csdp_v1_0_9.timestamp.size = 8
 
--- Display: Timestamp
-cboe_bzxequities_summarydepth_csdp_v1_0_9.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 cboe_bzxequities_summarydepth_csdp_v1_0_9.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_summarydepth_csdp_v1_0_9.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bzxequities_summarydepth_csdp_v1_0_9.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.timestamp
+  if cboe_bzxequities_summarydepth_csdp_v1_0_9.absolute_time_base == 1 then field = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -858,23 +874,20 @@ cboe_bzxequities_summarydepth_csdp_v1_0_9.transaction_time = {}
 -- Size: Transaction Time
 cboe_bzxequities_summarydepth_csdp_v1_0_9.transaction_time.size = 8
 
--- Display: Transaction Time
-cboe_bzxequities_summarydepth_csdp_v1_0_9.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 cboe_bzxequities_summarydepth_csdp_v1_0_9.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_summarydepth_csdp_v1_0_9.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bzxequities_summarydepth_csdp_v1_0_9.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.transaction_time
+  if cboe_bzxequities_summarydepth_csdp_v1_0_9.absolute_time_base == 1 then field = omi_cboe_bzxequities_summarydepth_csdp_v1_0_9.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

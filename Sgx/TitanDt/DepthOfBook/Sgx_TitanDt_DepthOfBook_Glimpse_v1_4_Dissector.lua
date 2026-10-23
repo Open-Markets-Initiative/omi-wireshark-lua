@@ -59,7 +59,8 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_4_b = ProtoField.new("R
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_4_c = ProtoField.new("Reserved 4 C", "sgx.titandt.depthofbook.glimpse.v1.4.reserved4c", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_bits_1_to_13 = ProtoField.new("Reserved Bits 1 To 13", "sgx.titandt.depthofbook.glimpse.v1.4.reservedbits1to13", ftypes.UINT16, nil, base.DEC, 0x1FFF, "Reserved")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_bits_15_to_16 = ProtoField.new("Reserved Bits 15 To 16", "sgx.titandt.depthofbook.glimpse.v1.4.reservedbits15to16", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved")
-omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second = ProtoField.new("Second", "sgx.titandt.depthofbook.glimpse.v1.4.second", ftypes.UINT32, nil, nil, nil, "Unix time")
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second = ProtoField.new("Second", "sgx.titandt.depthofbook.glimpse.v1.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time")
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second_utc = ProtoField.new("Second", "sgx.titandt.depthofbook.glimpse.v1.4.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "sgx.titandt.depthofbook.glimpse.v1.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.server_packet_type = ProtoField.new("Packet Type", "sgx.titandt.depthofbook.glimpse.v1.4.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.side = ProtoField.new("Side", "sgx.titandt.depthofbook.glimpse.v1.4.side", ftypes.STRING, nil, nil, nil, "The type of order being added")
@@ -113,6 +114,15 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.experts = { sgx_titandt_depthofbook_gli
 -- Sgx TitanDt DepthOfBook Glimpse 1.4 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+sgx_titandt_depthofbook_glimpse_v1_4.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 sgx_titandt_depthofbook_glimpse_v1_4.format_timestamp = true
 
@@ -148,6 +158,8 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.show_session_messages = Pref.bool
 omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs_changed()
 
@@ -169,6 +181,9 @@ function omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs_changed()
   end
   if sgx_titandt_depthofbook_glimpse_v1_4.format_timestamp ~= omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.format_timestamp then
     sgx_titandt_depthofbook_glimpse_v1_4.format_timestamp = omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.format_timestamp
+  end
+  if sgx_titandt_depthofbook_glimpse_v1_4.absolute_time_base ~= omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.absolute_time_base then
+    sgx_titandt_depthofbook_glimpse_v1_4.absolute_time_base = omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.absolute_time_base
   end
 end
 
@@ -242,14 +257,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -275,7 +296,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.dissect = function
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(sgx_titandt_depthofbook_glimpse_v1_4.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1177,7 +1198,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.requested_sequence_number.dissect = functio
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(sgx_titandt_depthofbook_glimpse_v1_4.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1321,20 +1342,20 @@ sgx_titandt_depthofbook_glimpse_v1_4.second.generated = function(value, range, p
   second:set_generated()
 end
 
--- Display: Second
-sgx_titandt_depthofbook_glimpse_v1_4.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 sgx_titandt_depthofbook_glimpse_v1_4.second.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = sgx_titandt_depthofbook_glimpse_v1_4.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second
+  if sgx_titandt_depthofbook_glimpse_v1_4.absolute_time_base == 1 then field = omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

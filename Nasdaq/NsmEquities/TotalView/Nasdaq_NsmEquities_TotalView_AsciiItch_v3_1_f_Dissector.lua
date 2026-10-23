@@ -332,14 +332,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -365,7 +371,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.accepted_sequence_number.dissect =
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1044,7 +1050,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.match_number.dissect = function(bu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.match_number, range, value, "Match Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1291,7 +1297,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.new_order_reference_number.dissect
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.new_order_reference_number, range, value, "New Order Reference Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "New Order Reference Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1322,7 +1328,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.order_reference_number.dissect = f
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.order_reference_number, range, value, "Order Reference Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Order Reference Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1353,7 +1359,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.original_order_reference_number.di
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.original_order_reference_number, range, value, "Original Order Reference Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Original Order Reference Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1724,7 +1730,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.requested_sequence_number.dissect 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

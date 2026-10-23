@@ -60,7 +60,8 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.instrument_identific
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.isin", ftypes.STRING, nil, nil, nil, "ISIN Code of an instrument.")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_price = ProtoField.new("Last Trade Price", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.lasttradequantity", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.lasttradetime", ftypes.UINT64, nil, nil, nil, "Not Applicable to TRADEcho")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Not Applicable to TRADEcho")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.ld_full_details_flag = ProtoField.new("Ld Full Details Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.ldfulldetailsflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.length = ProtoField.new("Length", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.limited_details_flag = ProtoField.new("Limited Details Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.limiteddetailsflag", ftypes.STRING)
@@ -132,7 +133,8 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.tcp_unit = ProtoFiel
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution = ProtoField.new("Thirdcountry Trading Venue Of Execution", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.thirdcountrytradingvenueofexecution", ftypes.STRING, nil, nil, nil, "Identification of the third-country trading venue where the transaction was executed.")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.tickid", ftypes.STRING, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.total_number_of_transactions = ProtoField.new("Total Number Of Transactions", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.totalnumberoftransactions", ftypes.UINT32, nil, nil, nil, "Total Number of Transactions of aggregated trade")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.trade_high = ProtoField.new("Trade High", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.tradehigh", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.trade_high_off_book = ProtoField.new("Trade High Off Book", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.tradehighoffbook", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
@@ -191,6 +193,20 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number = ProtoExp
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts = { lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -208,6 +224,8 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_application_mess
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs_changed()
 
@@ -223,6 +241,9 @@ function omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs_changed()
   end
   if show.indexes ~= omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_indexes then
     show.indexes = omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.show_indexes
+  end
+  if lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.absolute_time_base ~= omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.absolute_time_base then
+    lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.absolute_time_base = omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.prefs.absolute_time_base
   end
 end
 
@@ -1613,23 +1634,20 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.last_trade_time = {}
 -- Size: Last Trade Time
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.last_trade_time.size = 8
 
--- Display: Last Trade Time
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.last_trade_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Last Trade Time
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.last_trade_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.last_trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.last_trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_time
+  if lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.absolute_time_base == 1 then field = omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.last_trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3739,23 +3757,20 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.timestamp = {}
 -- Size: Timestamp
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.timestamp.size = 8
 
--- Display: Timestamp
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.timestamp
+  if lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.absolute_time_base == 1 then field = omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

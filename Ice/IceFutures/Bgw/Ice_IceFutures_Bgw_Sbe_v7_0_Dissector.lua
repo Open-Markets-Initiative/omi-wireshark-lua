@@ -305,7 +305,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.security_type_security_type_enum_null = P
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_block_allowed = ProtoField.new("Self Block Allowed", "ice.icefutures.bgw.sbe.v7.0.selfblockallowed", ftypes.UINT8, nil, nil, nil, "selfBlockAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "ice.icefutures.bgw.sbe.v7.0.selfmatchpreventionid", ftypes.INT64, nil, nil, nil, "selfMatchPreventionID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "ice.icefutures.bgw.sbe.v7.0.selfmatchpreventioninstruction", ftypes.STRING, nil, nil, nil, "selfMatchPreventionInstruction")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time = ProtoField.new("Send Time", "ice.icefutures.bgw.sbe.v7.0.sendtime", ftypes.UINT64, nil, nil, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time = ProtoField.new("Send Time", "ice.icefutures.bgw.sbe.v7.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time_utc = ProtoField.new("Send Time", "ice.icefutures.bgw.sbe.v7.0.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.sequence_id = ProtoField.new("Sequence Id", "ice.icefutures.bgw.sbe.v7.0.sequenceid", ftypes.UINT32, nil, nil, nil, "Outbound sequence number assigned per Bgw session, reset to 1 at the start of each trading session")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.settl_method = ProtoField.new("Settl Method", "ice.icefutures.bgw.sbe.v7.0.settlmethod", ftypes.STRING, nil, nil, nil, "settlMethod")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.severity_level = ProtoField.new("Severity Level", "ice.icefutures.bgw.sbe.v7.0.severitylevel", ftypes.UINT8, nil, nil, nil, "severityLevel")
@@ -436,6 +437,20 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_messa
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group_index = ProtoField.new("Security Definition Request Create Strategy Message no Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Ice IceFutures Bgw Sbe 7.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+ice_icefutures_bgw_sbe_v7_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -455,6 +470,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Re
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_ice_icefutures_bgw_sbe_v7_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
 
@@ -473,6 +490,9 @@ function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
   end
   if show.indexes ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes then
     show.indexes = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes
+  end
+  if ice_icefutures_bgw_sbe_v7_0.absolute_time_base ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.absolute_time_base then
+    ice_icefutures_bgw_sbe_v7_0.absolute_time_base = omi_ice_icefutures_bgw_sbe_v7_0.prefs.absolute_time_base
   end
 end
 
@@ -7085,23 +7105,20 @@ ice_icefutures_bgw_sbe_v7_0.send_time = {}
 -- Size: Send Time
 ice_icefutures_bgw_sbe_v7_0.send_time.size = 8
 
--- Display: Send Time
-ice_icefutures_bgw_sbe_v7_0.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 ice_icefutures_bgw_sbe_v7_0.send_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time
+  if ice_icefutures_bgw_sbe_v7_0.absolute_time_base == 1 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

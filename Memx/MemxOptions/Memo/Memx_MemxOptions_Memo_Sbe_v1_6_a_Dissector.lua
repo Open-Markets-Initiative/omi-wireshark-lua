@@ -125,7 +125,8 @@ omi_memx_memxoptions_memo_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema I
 omi_memx_memxoptions_memo_sbe_v1_6_a.fields.secondary_alloc_id = ProtoField.new("Secondary Alloc Id", "memx.memxoptions.memo.sbe.v1.6.a.secondaryallocid", ftypes.STRING, nil, nil, nil, "Contains the AllocID from the original Allocation Instruction request MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 75 Field Offset Length Type Tag Ref Num Req'd Description supplied by the customer RefAllocID 57 20 CHAR 72 C Required when AllocTransType = Replace, contains the IndividualAllocID of the allocation unit being changed.")
 omi_memx_memxoptions_memo_sbe_v1_6_a.fields.security_id = ProtoField.new("Security Id", "memx.memxoptions.memo.sbe.v1.6.a.securityid", ftypes.STRING, nil, nil, nil, "The OptionsSecurityID of the tradable options product for the quote. The Underlier for all quotes in the repeating group must match the Underlier of the first quote in the repeating group.")
 omi_memx_memxoptions_memo_sbe_v1_6_a.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.memo.sbe.v1.6.a.sendcancels", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "SendCancels")
-omi_memx_memxoptions_memo_sbe_v1_6_a.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.memo.sbe.v1.6.a.sendingtime", ftypes.UINT64, nil, nil, nil, "Time of message transmission always expressed in UTC (Universal Time Coordinated, also known as GMT)")
+omi_memx_memxoptions_memo_sbe_v1_6_a.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.memo.sbe.v1.6.a.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of message transmission always expressed in UTC (Universal Time Coordinated, also known as GMT)")
+omi_memx_memxoptions_memo_sbe_v1_6_a.fields.sending_time_utc = ProtoField.new("Sending Time", "memx.memxoptions.memo.sbe.v1.6.a.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of message transmission always expressed in UTC (Universal Time Coordinated, also known as GMT)")
 omi_memx_memxoptions_memo_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.memo.sbe.v1.6.a.sequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp sequenced message")
 omi_memx_memxoptions_memo_sbe_v1_6_a.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxoptions.memo.sbe.v1.6.a.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by Memx to the firm")
 omi_memx_memxoptions_memo_sbe_v1_6_a.fields.session_id = ProtoField.new("Session Id", "memx.memxoptions.memo.sbe.v1.6.a.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -210,6 +211,15 @@ omi_memx_memxoptions_memo_sbe_v1_6_a.fields.two_sided_quotes_group_index = Proto
 -- Memx MemxOptions Memo Sbe 1.6.a Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+memx_memxoptions_memo_sbe_v1_6_a.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -241,6 +251,8 @@ omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_headers = Pref.bool("Show Header
 omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_memx_memxoptions_memo_sbe_v1_6_a.prefs_changed()
 
@@ -259,6 +271,9 @@ function omi_memx_memxoptions_memo_sbe_v1_6_a.prefs_changed()
   end
   if show.indexes ~= omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_indexes then
     show.indexes = omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.show_indexes
+  end
+  if memx_memxoptions_memo_sbe_v1_6_a.absolute_time_base ~= omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.absolute_time_base then
+    memx_memxoptions_memo_sbe_v1_6_a.absolute_time_base = omi_memx_memxoptions_memo_sbe_v1_6_a.prefs.absolute_time_base
   end
 end
 
@@ -3542,23 +3557,20 @@ memx_memxoptions_memo_sbe_v1_6_a.sending_time = {}
 -- Size: Sending Time
 memx_memxoptions_memo_sbe_v1_6_a.sending_time.size = 8
 
--- Display: Sending Time
-memx_memxoptions_memo_sbe_v1_6_a.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 memx_memxoptions_memo_sbe_v1_6_a.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxoptions_memo_sbe_v1_6_a.sending_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = memx_memxoptions_memo_sbe_v1_6_a.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_memx_memxoptions_memo_sbe_v1_6_a.fields.sending_time
+  if memx_memxoptions_memo_sbe_v1_6_a.absolute_time_base == 1 then field = omi_memx_memxoptions_memo_sbe_v1_6_a.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

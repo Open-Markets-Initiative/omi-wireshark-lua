@@ -277,14 +277,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -3085,7 +3091,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_affiliate_buy.dissect = function(buff
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_affiliate_buy, range, value, "Total Volume Affiliate Buy: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Buy is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3116,7 +3122,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_affiliate_sell.dissect = function(buf
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_affiliate_sell, range, value, "Total Volume Affiliate Sell: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Sell is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3147,7 +3153,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_all_securities.dissect = function(buf
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_all_securities, range, value, "Total Volume All Securities: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume All Securities is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3178,7 +3184,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_convertibles.dissect = function(buffe
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_convertibles, range, value, "Total Volume Convertibles: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume Convertibles is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3209,7 +3215,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_customer_buy.dissect = function(buffe
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_customer_buy, range, value, "Total Volume Customer Buy: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume Customer Buy is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3240,7 +3246,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_customer_sell.dissect = function(buff
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_customer_sell, range, value, "Total Volume Customer Sell: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume Customer Sell is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3271,7 +3277,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_high_yield.dissect = function(buffer,
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_high_yield, range, value, "Total Volume High Yield: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume High Yield is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3302,7 +3308,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_inter_dealer.dissect = function(buffe
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_inter_dealer, range, value, "Total Volume Inter Dealer: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume Inter Dealer is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3333,7 +3339,7 @@ finra_trace_btds144a_dfi_v2_1.total_volume_investment_grade.dissect = function(b
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.total_volume_investment_grade, range, value, "Total Volume Investment Grade: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds144a_dfi_v2_1.experts.not_a_number, "Total Volume Investment Grade is not a number: '"..range:string().."'")
     return offset + length, value

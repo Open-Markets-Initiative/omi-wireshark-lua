@@ -40,7 +40,8 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.net_chg_prev_day_pct = Pro
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.opening_value = ProtoField.new("Opening Value", "hkex.hkexsecurities.indexrefresh.omd.v1.44.openingvalue", ftypes.DOUBLE, nil, nil, nil, "First value for an index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.indexrefresh.omd.v1.44.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet including this field")
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.previous_ses_close = ProtoField.new("Previous Ses Close", "hkex.hkexsecurities.indexrefresh.omd.v1.44.previoussesclose", ftypes.DOUBLE, nil, nil, nil, "Previous session closing value (previous day for CSI, CES, S&P; previous session for HSI and TR). 4 implied decimal places.")
-omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.indexrefresh.omd.v1.44.sendtime", ftypes.UINT64, nil, nil, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.indexrefresh.omd.v1.44.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexsecurities.indexrefresh.omd.v1.44.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.indexrefresh.omd.v1.44.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 
 -- Hkex HkexSecurities IndexRefresh Omd 1.44 Framing
@@ -56,6 +57,20 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.refresh_complete_message =
 
 -- Hkex HkexSecurities IndexRefresh Omd 1.44 Generated Fields
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message_index = ProtoField.new("Message Index", "hkex.hkexsecurities.indexrefresh.omd.v1.44.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Hkex HkexSecurities IndexRefresh Omd 1.44 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+hkex_hkexsecurities_indexrefresh_omd_v1_44.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -75,6 +90,8 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_structs = Pref.bool("S
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs_changed()
 
@@ -90,6 +107,9 @@ function omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs_changed()
   end
   if show.indexes ~= omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_indexes then
     show.indexes = omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.show_indexes
+  end
+  if hkex_hkexsecurities_indexrefresh_omd_v1_44.absolute_time_base ~= omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.absolute_time_base then
+    hkex_hkexsecurities_indexrefresh_omd_v1_44.absolute_time_base = omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.prefs.absolute_time_base
   end
 end
 
@@ -804,23 +824,20 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.send_time = {}
 -- Size: Send Time
 hkex_hkexsecurities_indexrefresh_omd_v1_44.send_time.size = 8
 
--- Display: Send Time
-hkex_hkexsecurities_indexrefresh_omd_v1_44.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 hkex_hkexsecurities_indexrefresh_omd_v1_44.send_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexrefresh_omd_v1_44.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time
+  if hkex_hkexsecurities_indexrefresh_omd_v1_44.absolute_time_base == 1 then field = omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

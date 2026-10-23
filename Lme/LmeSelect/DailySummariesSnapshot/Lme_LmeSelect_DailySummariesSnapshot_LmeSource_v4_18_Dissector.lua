@@ -44,7 +44,8 @@ omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.participant_coun
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.pkt_size = ProtoField.new("Pkt Size", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet, including this field")
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.product_code = ProtoField.new("Product Code", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.productcode", ftypes.STRING, nil, nil, nil, "The product code. This identifies the metal for the instrument.")
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.prompt_date_label = ProtoField.new("Prompt Date Label", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.promptdatelabel", ftypes.STRING, nil, nil, nil, "Prompt date label.")
-omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.sendtime", ftypes.UINT64, nil, nil, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.short_position_band_count = ProtoField.new("Short Position Band Count", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.shortpositionbandcount", ftypes.UINT32, nil, nil, nil, "Number of bands for short position.")
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.short_position_bands = ProtoField.new("Short Position Bands", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.shortpositionbands", ftypes.STRING, nil, nil, nil, "One short position band, giving the percentage range of Market Open Interest and the prompt dates participants hold short positions in")
@@ -85,6 +86,20 @@ omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.short_prompt_dat
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.warrant_bands_index = ProtoField.new("Warrant Bands Index", "lme.lmeselect.dailysummariessnapshot.lmesource.v4.18.warrantbandsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lme LmeSelect DailySummariesSnapshot LmeSource 4.18 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -104,6 +119,8 @@ omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.show_headers = Pr
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs_changed()
 
@@ -122,6 +139,9 @@ function omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs_changed(
   end
   if show.indexes ~= omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.show_indexes then
     show.indexes = omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.show_indexes
+  end
+  if lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.absolute_time_base ~= omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.absolute_time_base then
+    lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.absolute_time_base = omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.prefs.absolute_time_base
   end
 end
 
@@ -830,23 +850,20 @@ lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.send_time = {}
 -- Size: Send Time
 lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.send_time.size = 8
 
--- Display: Send Time
-lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.send_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.send_time
+  if lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_dailysummariessnapshot_lmesource_v4_18.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

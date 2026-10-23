@@ -33,7 +33,8 @@ omi_eurex_t7_edci_fbe_v14_1.fields.cust_order_handling_inst = ProtoField.new("Cu
 omi_eurex_t7_edci_fbe_v14_1.fields.cxl_qty = ProtoField.new("Cxl Qty", "eurex.t7.edci.fbe.v14.1.cxlqty", ftypes.DOUBLE)
 omi_eurex_t7_edci_fbe_v14_1.fields.default_cstm_appl_ver_id = ProtoField.new("Default Cstm Appl Ver Id", "eurex.t7.edci.fbe.v14.1.defaultcstmapplverid", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.default_cstm_appl_ver_sub_id = ProtoField.new("Default Cstm Appl Ver Sub Id", "eurex.t7.edci.fbe.v14.1.defaultcstmapplversubid", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v14_1.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.edci.fbe.v14.1.execid", ftypes.UINT64)
+omi_eurex_t7_edci_fbe_v14_1.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.edci.fbe.v14.1.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_eurex_t7_edci_fbe_v14_1.fields.exec_id_utc = ProtoField.new("Exec Id", "eurex.t7.edci.fbe.v14.1.execid.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_edci_fbe_v14_1.fields.exec_inst = ProtoField.new("Exec Inst", "eurex.t7.edci.fbe.v14.1.execinst", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v14_1.fields.exec_type = ProtoField.new("Exec Type", "eurex.t7.edci.fbe.v14.1.exectype", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.executing_trader = ProtoField.new("Executing Trader", "eurex.t7.edci.fbe.v14.1.executingtrader", ftypes.UINT64)
@@ -91,11 +92,13 @@ omi_eurex_t7_edci_fbe_v14_1.fields.price = ProtoField.new("Price", "eurex.t7.edc
 omi_eurex_t7_edci_fbe_v14_1.fields.product_complex = ProtoField.new("Product Complex", "eurex.t7.edci.fbe.v14.1.productcomplex", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v14_1.fields.rbc_header_comp = ProtoField.new("Rbc Header Comp", "eurex.t7.edci.fbe.v14.1.rbcheadercomp", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.request_header_comp = ProtoField.new("Request Header Comp", "eurex.t7.edci.fbe.v14.1.requestheadercomp", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v14_1.fields.request_time = ProtoField.new("Request Time", "eurex.t7.edci.fbe.v14.1.requesttime", ftypes.UINT64)
+omi_eurex_t7_edci_fbe_v14_1.fields.request_time = ProtoField.new("Request Time", "eurex.t7.edci.fbe.v14.1.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_eurex_t7_edci_fbe_v14_1.fields.request_time_utc = ProtoField.new("Request Time", "eurex.t7.edci.fbe.v14.1.requesttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_edci_fbe_v14_1.fields.response_header_comp = ProtoField.new("Response Header Comp", "eurex.t7.edci.fbe.v14.1.responseheadercomp", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.security_id = ProtoField.new("Security Id", "eurex.t7.edci.fbe.v14.1.securityid", ftypes.INT64)
 omi_eurex_t7_edci_fbe_v14_1.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "eurex.t7.edci.fbe.v14.1.selfmatchpreventioninstruction", ftypes.UINT8)
-omi_eurex_t7_edci_fbe_v14_1.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.edci.fbe.v14.1.sendingtime", ftypes.UINT64)
+omi_eurex_t7_edci_fbe_v14_1.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.edci.fbe.v14.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_eurex_t7_edci_fbe_v14_1.fields.sending_time_utc = ProtoField.new("Sending Time", "eurex.t7.edci.fbe.v14.1.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_eurex_t7_edci_fbe_v14_1.fields.session_instance_id = ProtoField.new("Session Instance Id", "eurex.t7.edci.fbe.v14.1.sessioninstanceid", ftypes.UINT32)
 omi_eurex_t7_edci_fbe_v14_1.fields.session_mode = ProtoField.new("Session Mode", "eurex.t7.edci.fbe.v14.1.sessionmode", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v14_1.fields.session_reject_reason = ProtoField.new("Session Reject Reason", "eurex.t7.edci.fbe.v14.1.sessionrejectreason", ftypes.UINT32)
@@ -146,6 +149,15 @@ omi_eurex_t7_edci_fbe_v14_1.fields.sessions_grp_comp_index = ProtoField.new("Ses
 -- Eurex T7 Edci Fbe 14.1 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+eurex_t7_edci_fbe_v14_1.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -177,6 +189,8 @@ omi_eurex_t7_edci_fbe_v14_1.prefs.show_application_messages = Pref.bool("Show Ap
 omi_eurex_t7_edci_fbe_v14_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_eurex_t7_edci_fbe_v14_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_eurex_t7_edci_fbe_v14_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_eurex_t7_edci_fbe_v14_1.prefs_changed()
 
@@ -195,6 +209,9 @@ function omi_eurex_t7_edci_fbe_v14_1.prefs_changed()
   end
   if show.indexes ~= omi_eurex_t7_edci_fbe_v14_1.prefs.show_indexes then
     show.indexes = omi_eurex_t7_edci_fbe_v14_1.prefs.show_indexes
+  end
+  if eurex_t7_edci_fbe_v14_1.absolute_time_base ~= omi_eurex_t7_edci_fbe_v14_1.prefs.absolute_time_base then
+    eurex_t7_edci_fbe_v14_1.absolute_time_base = omi_eurex_t7_edci_fbe_v14_1.prefs.absolute_time_base
   end
 end
 
@@ -775,29 +792,27 @@ eurex_t7_edci_fbe_v14_1.exec_id = {}
 -- Size: Exec Id
 eurex_t7_edci_fbe_v14_1.exec_id.size = 8
 
--- Display: Exec Id
-eurex_t7_edci_fbe_v14_1.exec_id.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Exec Id: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Exec Id: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Exec Id
 eurex_t7_edci_fbe_v14_1.exec_id.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v14_1.exec_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_t7_edci_fbe_v14_1.exec_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v14_1.fields.exec_id, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_eurex_t7_edci_fbe_v14_1.fields.exec_id
+  if eurex_t7_edci_fbe_v14_1.absolute_time_base == 1 then field = omi_eurex_t7_edci_fbe_v14_1.fields.exec_id_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Exec Id: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2453,29 +2468,27 @@ eurex_t7_edci_fbe_v14_1.request_time = {}
 -- Size: Request Time
 eurex_t7_edci_fbe_v14_1.request_time.size = 8
 
--- Display: Request Time
-eurex_t7_edci_fbe_v14_1.request_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Request Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Request Time
 eurex_t7_edci_fbe_v14_1.request_time.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v14_1.request_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_t7_edci_fbe_v14_1.request_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v14_1.fields.request_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_eurex_t7_edci_fbe_v14_1.fields.request_time
+  if eurex_t7_edci_fbe_v14_1.absolute_time_base == 1 then field = omi_eurex_t7_edci_fbe_v14_1.fields.request_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Request Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2547,29 +2560,27 @@ eurex_t7_edci_fbe_v14_1.sending_time = {}
 -- Size: Sending Time
 eurex_t7_edci_fbe_v14_1.sending_time.size = 8
 
--- Display: Sending Time
-eurex_t7_edci_fbe_v14_1.sending_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Sending Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 eurex_t7_edci_fbe_v14_1.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v14_1.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = eurex_t7_edci_fbe_v14_1.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v14_1.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_eurex_t7_edci_fbe_v14_1.fields.sending_time
+  if eurex_t7_edci_fbe_v14_1.absolute_time_base == 1 then field = omi_eurex_t7_edci_fbe_v14_1.fields.sending_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Sending Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

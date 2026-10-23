@@ -50,7 +50,8 @@ omi_cboe_c1options_complex_pitch_v2_1_61.fields.length = ProtoField.new("Length"
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.complex.pitch.v2.1.61.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.complex.pitch.v2.1.61.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.complex.pitch.v2.1.61.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_c1options_complex_pitch_v2_1_61.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.complex.pitch.v2.1.61.midnightreference", ftypes.UINT32, nil, nil, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.complex.pitch.v2.1.61.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.c1options.complex.pitch.v2.1.61.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.notification_auction_type = ProtoField.new("Notification Auction Type", "cboe.c1options.complex.pitch.v2.1.61.notificationauctiontype", ftypes.STRING, nil, nil, nil, "C = Complex Order Auction (COA) (or Stop Complex Order Auction (SCOA) effective TBD), S = Complex Solicitation Auction Mechanism, B = Complex AIM, O = COA All or None.")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1options.complex.pitch.v2.1.61.openingcondition", ftypes.STRING, nil, nil, nil, "Not used for Complex series. Will contain zero value.")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.order_id = ProtoField.new("Order Id", "cboe.c1options.complex.pitch.v2.1.61.orderid", ftypes.UINT64, nil, nil, nil, "Day-specific identifier assigned to this order.")
@@ -125,6 +126,15 @@ omi_cboe_c1options_complex_pitch_v2_1_61.fields.timestamp = ProtoField.new("Time
 -- Cboe C1Options Complex Pitch 2.1.61 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_c1options_complex_pitch_v2_1_61.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 cboe_c1options_complex_pitch_v2_1_61.format_timestamp = true
 
@@ -152,6 +162,8 @@ omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_indexes = Pref.bool("Show In
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_61.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_cboe_c1options_complex_pitch_v2_1_61.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_c1options_complex_pitch_v2_1_61.prefs_changed()
 
@@ -176,6 +188,9 @@ function omi_cboe_c1options_complex_pitch_v2_1_61.prefs_changed()
   end
   if cboe_c1options_complex_pitch_v2_1_61.format_timestamp ~= omi_cboe_c1options_complex_pitch_v2_1_61.prefs.format_timestamp then
     cboe_c1options_complex_pitch_v2_1_61.format_timestamp = omi_cboe_c1options_complex_pitch_v2_1_61.prefs.format_timestamp
+  end
+  if cboe_c1options_complex_pitch_v2_1_61.absolute_time_base ~= omi_cboe_c1options_complex_pitch_v2_1_61.prefs.absolute_time_base then
+    cboe_c1options_complex_pitch_v2_1_61.absolute_time_base = omi_cboe_c1options_complex_pitch_v2_1_61.prefs.absolute_time_base
   end
 end
 
@@ -1145,20 +1160,20 @@ cboe_c1options_complex_pitch_v2_1_61.midnight_reference.generated = function(val
   midnight_reference:set_generated()
 end
 
--- Display: Midnight Reference
-cboe_c1options_complex_pitch_v2_1_61.midnight_reference.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Midnight Reference: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Midnight Reference
 cboe_c1options_complex_pitch_v2_1_61.midnight_reference.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_61.midnight_reference.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_complex_pitch_v2_1_61.midnight_reference.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_61.fields.midnight_reference, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_complex_pitch_v2_1_61.fields.midnight_reference
+  if cboe_c1options_complex_pitch_v2_1_61.absolute_time_base == 1 then field = omi_cboe_c1options_complex_pitch_v2_1_61.fields.midnight_reference_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

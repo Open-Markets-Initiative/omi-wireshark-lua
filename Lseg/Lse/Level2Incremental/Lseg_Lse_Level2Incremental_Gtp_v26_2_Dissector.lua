@@ -78,7 +78,8 @@ omi_lseg_lse_level2incremental_gtp_v26_2.fields.statistic_size = ProtoField.new(
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.lse.level2incremental.gtp.v26.2.statistictype", ftypes.UINT16, nil, nil, nil, "The statistic that is disseminated with this message instance.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.level2incremental.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.level2incremental.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.level2incremental.gtp.v26.2.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated.")
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.level2incremental.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.level2incremental.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.total_executed_quantity = ProtoField.new("Total Executed Quantity", "lseg.lse.level2incremental.gtp.v26.2.totalexecutedquantity", ftypes.DOUBLE, nil, nil, nil, "Total quantity executed (visible & hidden quantity).")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.total_hidden_executed_quantity = ProtoField.new("Total Hidden Executed Quantity", "lseg.lse.level2incremental.gtp.v26.2.totalhiddenexecutedquantity", ftypes.DOUBLE, nil, nil, nil, "Total hidden order quantity executed (hidden quantity).")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "lseg.lse.level2incremental.gtp.v26.2.tradecancellation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -89,7 +90,8 @@ omi_lseg_lse_level2incremental_gtp_v26_2.fields.trade_qualifier = ProtoField.new
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.trade_summary_side = ProtoField.new("Trade Summary Side", "lseg.lse.level2incremental.gtp.v26.2.tradesummaryside", ftypes.STRING, nil, nil, nil, "The side of the visible passive order(s) that triggered the trade summary.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.trade_type = ProtoField.new("Trade Type", "lseg.lse.level2incremental.gtp.v26.2.tradetype", ftypes.UINT8, nil, nil, nil, "Type of the trade.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.level2incremental.gtp.v26.2.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level2incremental.gtp.v26.2.transactiontime", ftypes.UINT64, nil, nil, nil, "Transaction execution timestamp as reported by the upstream system.")
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level2incremental.gtp.v26.2.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system.")
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.lse.level2incremental.gtp.v26.2.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction execution timestamp as reported by the upstream system.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.level2incremental.gtp.v26.2.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.lse.level2incremental.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.level2incremental.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
@@ -125,6 +127,20 @@ omi_lseg_lse_level2incremental_gtp_v26_2.fields.trade_summary_message = ProtoFie
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.message_index = ProtoField.new("Message Index", "lseg.lse.level2incremental.gtp.v26.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lseg Lse Level2Incremental Gtp 26.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_lse_level2incremental_gtp_v26_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -142,6 +158,8 @@ omi_lseg_lse_level2incremental_gtp_v26_2.prefs.show_structs = Pref.bool("Show St
 omi_lseg_lse_level2incremental_gtp_v26_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_lse_level2incremental_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_lse_level2incremental_gtp_v26_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_lse_level2incremental_gtp_v26_2.prefs_changed()
 
@@ -157,6 +175,9 @@ function omi_lseg_lse_level2incremental_gtp_v26_2.prefs_changed()
   end
   if show.indexes ~= omi_lseg_lse_level2incremental_gtp_v26_2.prefs.show_indexes then
     show.indexes = omi_lseg_lse_level2incremental_gtp_v26_2.prefs.show_indexes
+  end
+  if lseg_lse_level2incremental_gtp_v26_2.absolute_time_base ~= omi_lseg_lse_level2incremental_gtp_v26_2.prefs.absolute_time_base then
+    lseg_lse_level2incremental_gtp_v26_2.absolute_time_base = omi_lseg_lse_level2incremental_gtp_v26_2.prefs.absolute_time_base
   end
 end
 
@@ -1916,23 +1937,20 @@ lseg_lse_level2incremental_gtp_v26_2.timestamp = {}
 -- Size: Timestamp
 lseg_lse_level2incremental_gtp_v26_2.timestamp.size = 8
 
--- Display: Timestamp
-lseg_lse_level2incremental_gtp_v26_2.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 lseg_lse_level2incremental_gtp_v26_2.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2incremental_gtp_v26_2.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_level2incremental_gtp_v26_2.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_level2incremental_gtp_v26_2.fields.timestamp
+  if lseg_lse_level2incremental_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_level2incremental_gtp_v26_2.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2264,23 +2282,20 @@ lseg_lse_level2incremental_gtp_v26_2.transaction_time = {}
 -- Size: Transaction Time
 lseg_lse_level2incremental_gtp_v26_2.transaction_time.size = 8
 
--- Display: Transaction Time
-lseg_lse_level2incremental_gtp_v26_2.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 lseg_lse_level2incremental_gtp_v26_2.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2incremental_gtp_v26_2.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_level2incremental_gtp_v26_2.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_level2incremental_gtp_v26_2.fields.transaction_time
+  if lseg_lse_level2incremental_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_level2incremental_gtp_v26_2.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

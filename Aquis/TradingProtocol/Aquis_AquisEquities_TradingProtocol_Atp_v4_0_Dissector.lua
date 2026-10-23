@@ -81,7 +81,8 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.table_select_1 = ProtoFi
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.table_select_2 = ProtoField.new("Table Select 2", "aquis.aquisequities.tradingprotocol.atp.v4.0.tableselect2", ftypes.STRING, nil, nil, nil, "Party role qualifier and role")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.table_select_3 = ProtoField.new("Table Select 3", "aquis.aquisequities.tradingprotocol.atp.v4.0.tableselect3", ftypes.STRING, nil, nil, nil, "Party role qualifier and role")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.time_in_force = ProtoField.new("Time In Force", "aquis.aquisequities.tradingprotocol.atp.v4.0.timeinforce", ftypes.UINT8)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v4.0.timestamp", ftypes.UINT64, nil, nil, nil, "Time that the order was accepted or rejected by the Aquis system")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v4.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the order was accepted or rejected by the Aquis system")
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.tradingprotocol.atp.v4.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the order was accepted or rejected by the Aquis system")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_capture_flags = ProtoField.new("Trade Capture Flags", "aquis.aquisequities.tradingprotocol.atp.v4.0.tradecaptureflags", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_capture_type = ProtoField.new("Trade Capture Type", "aquis.aquisequities.tradingprotocol.atp.v4.0.tradecapturetype", ftypes.UINT8)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_flags = ProtoField.new("Trade Flags", "aquis.aquisequities.tradingprotocol.atp.v4.0.tradeflags", ftypes.STRING)
@@ -118,6 +119,20 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_capture_response_m
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_message = ProtoField.new("Trade Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.trademessage", ftypes.STRING, nil, nil, nil, "The Trade message is published by Aquis when an order executes. The Trade message is also used to communicate indicative trade reports at lock time for Market at Close orders, and matched firm VWAP orders beginning their crossing duration.")
 
 -----------------------------------------------------------------------
+-- Aquis AquisEquities TradingProtocol Atp 4.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -133,6 +148,8 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs = Pref.bool(
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs_changed()
 
@@ -145,6 +162,9 @@ function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs_changed()
   end
   if show.structs ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs then
     show.structs = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.show_structs
+  end
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base ~= omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.absolute_time_base then
+    aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs.absolute_time_base
   end
 end
 
@@ -1397,23 +1417,20 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp = {}
 -- Size: Timestamp
 aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.size = 8
 
--- Display: Timestamp
-aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp
+  if aquis_aquisequities_tradingprotocol_atp_v4_0.absolute_time_base == 1 then field = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

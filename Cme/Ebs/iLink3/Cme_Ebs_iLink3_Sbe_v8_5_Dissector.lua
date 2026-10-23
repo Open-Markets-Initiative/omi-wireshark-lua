@@ -205,7 +205,8 @@ omi_cme_ebs_ilink3_sbe_v8_5.fields.request_legs_group = ProtoField.new("Request 
 omi_cme_ebs_ilink3_sbe_v8_5.fields.request_legs_groups = ProtoField.new("Request Legs Groups", "cme.ebs.ilink3.sbe.v8.5.requestlegsgroups", ftypes.STRING, nil, nil, nil, "NoLegs Block")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.request_result = ProtoField.new("Request Result", "cme.ebs.ilink3.sbe.v8.5.requestresult", ftypes.UINT8, nil, nil, nil, "Status of party details list request")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.request_time = ProtoField.new("Request Time", "cme.ebs.ilink3.sbe.v8.5.requesttime", ftypes.UINT64, nil, nil, nil, "Information carried on a response to convey the time (UTC) when the request was received by the MSGW application. UTC timestamps are sent in number of nanoseconds since the UNIX epoch with microsecond precision")
-omi_cme_ebs_ilink3_sbe_v8_5.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.ebs.ilink3.sbe.v8.5.requesttimestamp", ftypes.UINT64, nil, nil, nil, "Time of request; recommended to use timestamp as number of nanoseconds since epoch (Jan 1, 1970)")
+omi_cme_ebs_ilink3_sbe_v8_5.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.ebs.ilink3.sbe.v8.5.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request; recommended to use timestamp as number of nanoseconds since epoch (Jan 1, 1970)")
+omi_cme_ebs_ilink3_sbe_v8_5.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.ebs.ilink3.sbe.v8.5.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request; recommended to use timestamp as number of nanoseconds since epoch (Jan 1, 1970)")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.requesting_party_id = ProtoField.new("Requesting Party Id", "cme.ebs.ilink3.sbe.v8.5.requestingpartyid", ftypes.STRING, nil, nil, nil, "Party identifier for the requesting party. Required when NoRequestingPartyIDs(1657) > 0")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.requesting_party_id_source = ProtoField.new("Requesting Party Id Source", "cme.ebs.ilink3.sbe.v8.5.requestingpartyidsource", ftypes.STRING, nil, nil, nil, "Identifies the source of the RequestingPartyID(1658) value. Required when NoRequestingPartyIDs(1657) > 0. Constant value")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.requesting_party_ids_group = ProtoField.new("Requesting Party Ids Group", "cme.ebs.ilink3.sbe.v8.5.requestingpartyidsgroup", ftypes.STRING, nil, nil, nil, "Number of requesting party identifiers. Will be zero if specific PartyDetailsDefinitionID's are being requested. Will be populated only if all PartyDetailsDefinitions are being requested for a specific Firm")
@@ -230,7 +231,8 @@ omi_cme_ebs_ilink3_sbe_v8_5.fields.self_match_prevention_id = ProtoField.new("Se
 omi_cme_ebs_ilink3_sbe_v8_5.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "cme.ebs.ilink3.sbe.v8.5.selfmatchpreventioninstruction", ftypes.STRING, nil, nil, nil, "Used to act upon the outcome when a self-match is detected and an order is prevented from trading against another order with the same SelfMatchPreventionID (Tag 2362). 1=Cancel newest signifies that incoming order is cancelled. 2=Cancel Oldest signifies that the resting order is cancelled. Absence of this field (with Tag 2362) is interpreted as cancel oldest")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.sender_id = ProtoField.new("Sender Id", "cme.ebs.ilink3.sbe.v8.5.senderid", ftypes.STRING, nil, nil, nil, "Operator ID. Should be unique per Firm ID. Assigned value used to identify specific message originator. Represents last individual or team in charge of the system which modifies the order before submission to the Globex platform, or if not modified from initiator (party role=118), last individual or team in charge of the system, which submit the order to the Globex platform")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.sender_id_optional = ProtoField.new("Sender Id Optional", "cme.ebs.ilink3.sbe.v8.5.senderidoptional", ftypes.STRING, nil, nil, nil, "Operator ID. Should be unique per Firm ID. Assigned value used to identify specific message originator. Represents last individual or team in charge of the system which modifies the order before submission to the Globex platform, or if not modified from initiator (party role=118), last individual or team in charge of the system, which submit the order to the Globex platform")
-omi_cme_ebs_ilink3_sbe_v8_5.fields.sending_time_epoch = ProtoField.new("Sending Time Epoch", "cme.ebs.ilink3.sbe.v8.5.sendingtimeepoch", ftypes.UINT64, nil, nil, nil, "Time when the message is sent. 64-bit integer expressing the number of nano seconds since midnight January 1, 1970.")
+omi_cme_ebs_ilink3_sbe_v8_5.fields.sending_time_epoch = ProtoField.new("Sending Time Epoch", "cme.ebs.ilink3.sbe.v8.5.sendingtimeepoch", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the message is sent. 64-bit integer expressing the number of nano seconds since midnight January 1, 1970.")
+omi_cme_ebs_ilink3_sbe_v8_5.fields.sending_time_epoch_utc = ProtoField.new("Sending Time Epoch", "cme.ebs.ilink3.sbe.v8.5.sendingtimeepoch.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the message is sent. 64-bit integer expressing the number of nano seconds since midnight January 1, 1970.")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.seq_num = ProtoField.new("Seq Num", "cme.ebs.ilink3.sbe.v8.5.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number as assigned to message")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.session = ProtoField.new("Session", "cme.ebs.ilink3.sbe.v8.5.session", ftypes.STRING, nil, nil, nil, "Session ID")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.short_sale_type = ProtoField.new("Short Sale Type", "cme.ebs.ilink3.sbe.v8.5.shortsaletype", ftypes.UINT8, nil, nil, nil, "Indicates the type of short sale. Will not be used for Buy orders but Sell orders should have this tag populated for MiFID")
@@ -272,7 +274,8 @@ omi_cme_ebs_ilink3_sbe_v8_5.fields.trading_system_name = ProtoField.new("Trading
 omi_cme_ebs_ilink3_sbe_v8_5.fields.trading_system_vendor = ProtoField.new("Trading System Vendor", "cme.ebs.ilink3.sbe.v8.5.tradingsystemvendor", ftypes.STRING, nil, nil, nil, "Provides the vendor of the application system")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.trading_system_version = ProtoField.new("Trading System Version", "cme.ebs.ilink3.sbe.v8.5.tradingsystemversion", ftypes.STRING, nil, nil, nil, "Provides the version of the application system being used to initiate FIX application messages.")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.trans_bkd_time = ProtoField.new("Trans Bkd Time", "cme.ebs.ilink3.sbe.v8.5.transbkdtime", ftypes.UINT64, nil, nil, nil, "For derivatives a date and time stamp to indicate when this order was booked with the agent prior to submission to the exchange. Indicates the time at which the order was finalized between the buyer and seller prior to submission. Expressed as nanoseconds since epoch time")
-omi_cme_ebs_ilink3_sbe_v8_5.fields.transact_time = ProtoField.new("Transact Time", "cme.ebs.ilink3.sbe.v8.5.transacttime", ftypes.UINT64, nil, nil, nil, "Time the transaction represented by this ExecutionReport (35=8) occurred. Expressed as nanoseconds since epoch time")
+omi_cme_ebs_ilink3_sbe_v8_5.fields.transact_time = ProtoField.new("Transact Time", "cme.ebs.ilink3.sbe.v8.5.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the transaction represented by this ExecutionReport (35=8) occurred. Expressed as nanoseconds since epoch time")
+omi_cme_ebs_ilink3_sbe_v8_5.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.ebs.ilink3.sbe.v8.5.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the transaction represented by this ExecutionReport (35=8) occurred. Expressed as nanoseconds since epoch time")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.trd_reg_publication_reason = ProtoField.new("Trd Reg Publication Reason", "cme.ebs.ilink3.sbe.v8.5.trdregpublicationreason", ftypes.UINT8, nil, nil, nil, "Additional reason for trade publication type specified in TrdRegPublicationType (2669). Reasons may be specific to regulatory trade publication rules. 12=Exempted due to European System of Central Banks (ESCB) policy transaction")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.trd_reg_publication_type = ProtoField.new("Trd Reg Publication Type", "cme.ebs.ilink3.sbe.v8.5.trdregpublicationtype", ftypes.UINT8, nil, nil, nil, "Specifies the type of regulatory trade publication. Additional reasons for the publication type will be specified in TrdRegPublicationReason (2670). 2=Exempt from Publication. There are allowable exemptions for the post-trade publication of trade transactions")
 omi_cme_ebs_ilink3_sbe_v8_5.fields.trd_reg_publications_group = ProtoField.new("Trd Reg Publications Group", "cme.ebs.ilink3.sbe.v8.5.trdregpublicationsgroup", ftypes.STRING, nil, nil, nil, "Number of regulatory publication rules in repeating group. Should always be \"1\" if being used otherwise set to 0")
@@ -365,6 +368,15 @@ omi_cme_ebs_ilink3_sbe_v8_5.fields.trd_reg_publications_group_index = ProtoField
 -- Cme Ebs iLink3 Sbe 8.5 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cme_ebs_ilink3_sbe_v8_5.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -396,6 +408,8 @@ omi_cme_ebs_ilink3_sbe_v8_5.prefs.show_repeating_groups = Pref.bool("Show Repeat
 omi_cme_ebs_ilink3_sbe_v8_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_ebs_ilink3_sbe_v8_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cme_ebs_ilink3_sbe_v8_5.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cme_ebs_ilink3_sbe_v8_5.prefs_changed()
 
@@ -414,6 +428,9 @@ function omi_cme_ebs_ilink3_sbe_v8_5.prefs_changed()
   end
   if show.indexes ~= omi_cme_ebs_ilink3_sbe_v8_5.prefs.show_indexes then
     show.indexes = omi_cme_ebs_ilink3_sbe_v8_5.prefs.show_indexes
+  end
+  if cme_ebs_ilink3_sbe_v8_5.absolute_time_base ~= omi_cme_ebs_ilink3_sbe_v8_5.prefs.absolute_time_base then
+    cme_ebs_ilink3_sbe_v8_5.absolute_time_base = omi_cme_ebs_ilink3_sbe_v8_5.prefs.absolute_time_base
   end
 end
 
@@ -5083,23 +5100,20 @@ cme_ebs_ilink3_sbe_v8_5.request_timestamp = {}
 -- Size: Request Timestamp
 cme_ebs_ilink3_sbe_v8_5.request_timestamp.size = 8
 
--- Display: Request Timestamp
-cme_ebs_ilink3_sbe_v8_5.request_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Request Timestamp
 cme_ebs_ilink3_sbe_v8_5.request_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cme_ebs_ilink3_sbe_v8_5.request_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_ebs_ilink3_sbe_v8_5.request_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_5.fields.request_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_ebs_ilink3_sbe_v8_5.fields.request_timestamp
+  if cme_ebs_ilink3_sbe_v8_5.absolute_time_base == 1 then field = omi_cme_ebs_ilink3_sbe_v8_5.fields.request_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5731,23 +5745,20 @@ cme_ebs_ilink3_sbe_v8_5.sending_time_epoch = {}
 -- Size: Sending Time Epoch
 cme_ebs_ilink3_sbe_v8_5.sending_time_epoch.size = 8
 
--- Display: Sending Time Epoch
-cme_ebs_ilink3_sbe_v8_5.sending_time_epoch.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time Epoch: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time Epoch
 cme_ebs_ilink3_sbe_v8_5.sending_time_epoch.dissect = function(buffer, offset, packet, parent)
   local length = cme_ebs_ilink3_sbe_v8_5.sending_time_epoch.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_ebs_ilink3_sbe_v8_5.sending_time_epoch.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_5.fields.sending_time_epoch, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_ebs_ilink3_sbe_v8_5.fields.sending_time_epoch
+  if cme_ebs_ilink3_sbe_v8_5.absolute_time_base == 1 then field = omi_cme_ebs_ilink3_sbe_v8_5.fields.sending_time_epoch_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6703,23 +6714,20 @@ cme_ebs_ilink3_sbe_v8_5.transact_time = {}
 -- Size: Transact Time
 cme_ebs_ilink3_sbe_v8_5.transact_time.size = 8
 
--- Display: Transact Time
-cme_ebs_ilink3_sbe_v8_5.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 cme_ebs_ilink3_sbe_v8_5.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_ebs_ilink3_sbe_v8_5.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_ebs_ilink3_sbe_v8_5.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_5.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_ebs_ilink3_sbe_v8_5.fields.transact_time
+  if cme_ebs_ilink3_sbe_v8_5.absolute_time_base == 1 then field = omi_cme_ebs_ilink3_sbe_v8_5.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

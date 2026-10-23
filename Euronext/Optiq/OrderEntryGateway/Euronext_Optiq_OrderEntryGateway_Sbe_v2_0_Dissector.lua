@@ -296,7 +296,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.rfq_update_type = ProtoFiel
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.orderentrygateway.sbe.v2.0.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.security_req_id = ProtoField.new("Security Req Id", "euronext.optiq.orderentrygateway.sbe.v2.0.securityreqid", ftypes.INT64, nil, nil, nil, "securityReqID")
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sell_revision_flag = ProtoField.new("Sell Revision Flag", "euronext.optiq.orderentrygateway.sbe.v2.0.sellrevisionflag", ftypes.UINT8, nil, nil, nil, "sellRevisionFlag")
-omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sending_time = ProtoField.new("Sending Time", "euronext.optiq.orderentrygateway.sbe.v2.0.sendingtime", ftypes.UINT64, nil, nil, nil, "sendingTime")
+omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sending_time = ProtoField.new("Sending Time", "euronext.optiq.orderentrygateway.sbe.v2.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendingTime")
+omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sending_time_utc = ProtoField.new("Sending Time", "euronext.optiq.orderentrygateway.sbe.v2.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendingTime")
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sending_time_optional = ProtoField.new("Sending Time Optional", "euronext.optiq.orderentrygateway.sbe.v2.0.sendingtimeoptional", ftypes.UINT64, nil, nil, nil, "sendingTime")
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.session_1 = ProtoField.new("Session 1", "euronext.optiq.orderentrygateway.sbe.v2.0.session1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Session1")
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.session_2 = ProtoField.new("Session 2", "euronext.optiq.orderentrygateway.sbe.v2.0.session2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Session2")
@@ -447,6 +448,20 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.wholesale_client_group_inde
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.wholesale_legs_group_index = ProtoField.new("Wholesale Legs Group Index", "euronext.optiq.orderentrygateway.sbe.v2.0.wholesalelegsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Euronext Optiq OrderEntryGateway Sbe 2.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+euronext_optiq_orderentrygateway_sbe_v2_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -466,6 +481,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.show_repeating_groups = Pref
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs_changed()
 
@@ -484,6 +501,9 @@ function omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs_changed()
   end
   if show.indexes ~= omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.show_indexes then
     show.indexes = omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.show_indexes
+  end
+  if euronext_optiq_orderentrygateway_sbe_v2_0.absolute_time_base ~= omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.absolute_time_base then
+    euronext_optiq_orderentrygateway_sbe_v2_0.absolute_time_base = omi_euronext_optiq_orderentrygateway_sbe_v2_0.prefs.absolute_time_base
   end
 end
 
@@ -6074,23 +6094,20 @@ euronext_optiq_orderentrygateway_sbe_v2_0.sending_time = {}
 -- Size: Sending Time
 euronext_optiq_orderentrygateway_sbe_v2_0.sending_time.size = 8
 
--- Display: Sending Time
-euronext_optiq_orderentrygateway_sbe_v2_0.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 euronext_optiq_orderentrygateway_sbe_v2_0.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_orderentrygateway_sbe_v2_0.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v2_0.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sending_time
+  if euronext_optiq_orderentrygateway_sbe_v2_0.absolute_time_base == 1 then field = omi_euronext_optiq_orderentrygateway_sbe_v2_0.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

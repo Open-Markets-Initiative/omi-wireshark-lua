@@ -32,7 +32,8 @@ omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.inverse_indicator = ProtoField
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.nsmequities.basicplus.itch.v1.0.ipoflag", ftypes.STRING, nil, nil, nil, "Indicates if the Nasdaq security is set up for IPO release.")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.nsmequities.basicplus.itch.v1.0.ipoprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the IPO price to be used for intraday net change calculations.")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.nsmequities.basicplus.itch.v1.0.ipoquotationreleasequalifier", ftypes.STRING)
-omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.basicplus.itch.v1.0.ipoquotationreleasetime", ftypes.UINT32, nil, nil, nil, "Denotes the IPO release time, in seconds since Epoch 1/1/1970 00:00:00 UTC.")
+omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.basicplus.itch.v1.0.ipoquotationreleasetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Denotes the IPO release time, in seconds since Epoch 1/1/1970 00:00:00 UTC.")
+omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_quotation_release_time_utc = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.basicplus.itch.v1.0.ipoquotationreleasetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Denotes the IPO release time, in seconds since Epoch 1/1/1970 00:00:00 UTC.")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.basicplus.itch.v1.0.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issue as assigned by Nasdaq.")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.basicplus.itch.v1.0.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by Nasdaq.")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.level_1 = ProtoField.new("Level 1", "nasdaq.nsmequities.basicplus.itch.v1.0.level1", ftypes.DOUBLE, nil, nil, nil, "Denotes the MWCB Level 1 Value.")
@@ -54,7 +55,8 @@ omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.sequence_number = ProtoField.n
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.basicplus.itch.v1.0.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.basicplus.itch.v1.0.shortsalethresholdindicator", ftypes.STRING, nil, nil, nil, "Indicates if a security is subject to mandatory close-out of short sales under SEC Rule 203(b)(3).")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.basicplus.itch.v1.0.stock", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the execution system.")
-omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.basicplus.itch.v1.0.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp represented in nanoseconds since Epoch 1/1/1970, 00:00:00 UTC.")
+omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.basicplus.itch.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp represented in nanoseconds since Epoch 1/1/1970, 00:00:00 UTC.")
+omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.timestamp_utc = ProtoField.new("Timestamp", "nasdaq.nsmequities.basicplus.itch.v1.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp represented in nanoseconds since Epoch 1/1/1970, 00:00:00 UTC.")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.basicplus.itch.v1.0.tradingstate", ftypes.STRING, nil, nil, nil, "Reflects the current trading state for the issue.")
 
 -- Nasdaq NsmEquities BasicPlus Itch 1.0 Framing
@@ -84,6 +86,20 @@ omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.message_index = ProtoField.new
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.basicplus.itch.v1.0.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Nasdaq NsmEquities BasicPlus Itch 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nasdaq_nsmequities_basicplus_itch_v1_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -103,6 +119,8 @@ omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.show_headers = Pref.bool("Show 
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs_changed()
 
@@ -121,6 +139,9 @@ function omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs_changed()
   end
   if show.sequences ~= omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.show_sequences then
     show.sequences = omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.show_sequences
+  end
+  if nasdaq_nsmequities_basicplus_itch_v1_0.absolute_time_base ~= omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.absolute_time_base then
+    nasdaq_nsmequities_basicplus_itch_v1_0.absolute_time_base = omi_nasdaq_nsmequities_basicplus_itch_v1_0.prefs.absolute_time_base
   end
 end
 
@@ -733,20 +754,20 @@ nasdaq_nsmequities_basicplus_itch_v1_0.ipo_quotation_release_time = {}
 -- Size: Ipo Quotation Release Time
 nasdaq_nsmequities_basicplus_itch_v1_0.ipo_quotation_release_time.size = 4
 
--- Display: Ipo Quotation Release Time
-nasdaq_nsmequities_basicplus_itch_v1_0.ipo_quotation_release_time.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Ipo Quotation Release Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Ipo Quotation Release Time
 nasdaq_nsmequities_basicplus_itch_v1_0.ipo_quotation_release_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_basicplus_itch_v1_0.ipo_quotation_release_time.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_basicplus_itch_v1_0.ipo_quotation_release_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_quotation_release_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_quotation_release_time
+  if nasdaq_nsmequities_basicplus_itch_v1_0.absolute_time_base == 1 then field = omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.ipo_quotation_release_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1736,23 +1757,20 @@ nasdaq_nsmequities_basicplus_itch_v1_0.timestamp = {}
 -- Size: Timestamp
 nasdaq_nsmequities_basicplus_itch_v1_0.timestamp.size = 8
 
--- Display: Timestamp
-nasdaq_nsmequities_basicplus_itch_v1_0.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 nasdaq_nsmequities_basicplus_itch_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_basicplus_itch_v1_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_basicplus_itch_v1_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.timestamp
+  if nasdaq_nsmequities_basicplus_itch_v1_0.absolute_time_base == 1 then field = omi_nasdaq_nsmequities_basicplus_itch_v1_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

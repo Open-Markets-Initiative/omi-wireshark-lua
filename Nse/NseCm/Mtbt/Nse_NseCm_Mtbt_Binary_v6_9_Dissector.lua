@@ -26,7 +26,8 @@ omi_nse_nsecm_mtbt_binary_v6_9.fields.quantity = ProtoField.new("Quantity", "nse
 omi_nse_nsecm_mtbt_binary_v6_9.fields.sell_order_id = ProtoField.new("Sell Order Id", "nse.nsecm.mtbt.binary.v6.9.sellorderid", ftypes.DOUBLE, nil, nil, nil, "Day Unique Order Reference Number for Sell-Side Order")
 omi_nse_nsecm_mtbt_binary_v6_9.fields.sequence_number = ProtoField.new("Sequence Number", "nse.nsecm.mtbt.binary.v6.9.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the packet for this Stream Id. For Equity Derivative (FO) segment, this field is unsigned int [4, Uint]")
 omi_nse_nsecm_mtbt_binary_v6_9.fields.stream_id = ProtoField.new("Stream Id", "nse.nsecm.mtbt.binary.v6.9.streamid", ftypes.INT16, nil, nil, nil, "Identifies a particular stream [2, Short]")
-omi_nse_nsecm_mtbt_binary_v6_9.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.mtbt.binary.v6.9.timestamp", ftypes.INT64, nil, nil, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsecm_mtbt_binary_v6_9.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.mtbt.binary.v6.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsecm_mtbt_binary_v6_9.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsecm.mtbt.binary.v6.9.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nsecm_mtbt_binary_v6_9.fields.token = ProtoField.new("Token", "nse.nsecm.mtbt.binary.v6.9.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
 omi_nse_nsecm_mtbt_binary_v6_9.fields.trade_price = ProtoField.new("Trade Price", "nse.nsecm.mtbt.binary.v6.9.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Trade Price (In Paise)")
 omi_nse_nsecm_mtbt_binary_v6_9.fields.trade_quantity = ProtoField.new("Trade Quantity", "nse.nsecm.mtbt.binary.v6.9.tradequantity", ftypes.INT32)
@@ -49,6 +50,20 @@ omi_nse_nsecm_mtbt_binary_v6_9.fields.trade_cancel_message = ProtoField.new("Tra
 omi_nse_nsecm_mtbt_binary_v6_9.fields.trade_message = ProtoField.new("Trade Message", "nse.nsecm.mtbt.binary.v6.9.trademessage", ftypes.STRING, nil, nil, nil, "This message is sent whenever an order in the order book gets executed fully or partially.")
 
 -----------------------------------------------------------------------
+-- Nse NseCm Mtbt Binary 6.9 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nse_nsecm_mtbt_binary_v6_9.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -66,6 +81,8 @@ omi_nse_nsecm_mtbt_binary_v6_9.prefs.show_structs = Pref.bool("Show Structs", sh
 omi_nse_nsecm_mtbt_binary_v6_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecm_mtbt_binary_v6_9.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_nse_nsecm_mtbt_binary_v6_9.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nse_nsecm_mtbt_binary_v6_9.prefs_changed()
 
@@ -81,6 +98,9 @@ function omi_nse_nsecm_mtbt_binary_v6_9.prefs_changed()
   end
   if show.sequences ~= omi_nse_nsecm_mtbt_binary_v6_9.prefs.show_sequences then
     show.sequences = omi_nse_nsecm_mtbt_binary_v6_9.prefs.show_sequences
+  end
+  if nse_nsecm_mtbt_binary_v6_9.absolute_time_base ~= omi_nse_nsecm_mtbt_binary_v6_9.prefs.absolute_time_base then
+    nse_nsecm_mtbt_binary_v6_9.absolute_time_base = omi_nse_nsecm_mtbt_binary_v6_9.prefs.absolute_time_base
   end
 end
 
@@ -427,30 +447,20 @@ nse_nsecm_mtbt_binary_v6_9.timestamp = {}
 -- Size: Timestamp
 nse_nsecm_mtbt_binary_v6_9.timestamp.size = 8
 
--- Display: Timestamp
-nse_nsecm_mtbt_binary_v6_9.timestamp.display = function(value)
-  -- Parse Dos epoch nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  -- a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "%Y-%m-%d %H:%M:%S.", seconds)
-
-  if not ok then
-    return "Timestamp: "..tostring(value)
-  end
-
-  return "Timestamp: "..text..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 nse_nsecm_mtbt_binary_v6_9.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_mtbt_binary_v6_9.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = nse_nsecm_mtbt_binary_v6_9.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_mtbt_binary_v6_9.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_mtbt_binary_v6_9.fields.timestamp
+  if nse_nsecm_mtbt_binary_v6_9.absolute_time_base == 1 then field = omi_nse_nsecm_mtbt_binary_v6_9.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

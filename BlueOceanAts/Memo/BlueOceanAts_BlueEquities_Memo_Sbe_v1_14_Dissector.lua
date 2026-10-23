@@ -97,7 +97,8 @@ omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.risk_group_id = ProtoField.n
 omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.blueequities.memo.sbe.v1.14.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.security_group = ProtoField.new("Security Group", "blueoceanats.blueequities.memo.sbe.v1.14.securitygroup", ftypes.STRING, nil, nil, nil, "Security listing tape indicator, A, B or C")
 omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "blueoceanats.blueequities.memo.sbe.v1.14.selftradeprevention", ftypes.UINT8, nil, nil, nil, "The desired behavior in the event of a wash; the null value disables self trade prevention")
-omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.sending_time = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.14.sendingtime", ftypes.UINT64, nil, nil, nil, "The time the message was sent, nanoseconds since the unix epoch")
+omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.sending_time = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.14.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the message was sent, nanoseconds since the unix epoch")
+omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.sending_time_utc = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.14.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the message was sent, nanoseconds since the unix epoch")
 omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.blueequities.memo.sbe.v1.14.sequencedmessage", ftypes.STRING, nil, nil, nil, "BlueOceanAts Tcp sequenced message")
 omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "blueoceanats.blueequities.memo.sbe.v1.14.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by BlueOceanAts to the firm")
 omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.session_id = ProtoField.new("Session Id", "blueoceanats.blueequities.memo.sbe.v1.14.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -158,6 +159,15 @@ omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.parties_group_index = ProtoF
 -- BlueOceanAts BlueEquities Memo Sbe 1.14 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+blueoceanats_blueequities_memo_sbe_v1_14.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -189,6 +199,8 @@ omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.show_application_messages = P
 omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs_changed()
 
@@ -207,6 +219,9 @@ function omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs_changed()
   end
   if show.indexes ~= omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.show_indexes then
     show.indexes = omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.show_indexes
+  end
+  if blueoceanats_blueequities_memo_sbe_v1_14.absolute_time_base ~= omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.absolute_time_base then
+    blueoceanats_blueequities_memo_sbe_v1_14.absolute_time_base = omi_blueoceanats_blueequities_memo_sbe_v1_14.prefs.absolute_time_base
   end
 end
 
@@ -2929,23 +2944,20 @@ blueoceanats_blueequities_memo_sbe_v1_14.sending_time = {}
 -- Size: Sending Time
 blueoceanats_blueequities_memo_sbe_v1_14.sending_time.size = 8
 
--- Display: Sending Time
-blueoceanats_blueequities_memo_sbe_v1_14.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 blueoceanats_blueequities_memo_sbe_v1_14.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = blueoceanats_blueequities_memo_sbe_v1_14.sending_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = blueoceanats_blueequities_memo_sbe_v1_14.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.sending_time
+  if blueoceanats_blueequities_memo_sbe_v1_14.absolute_time_base == 1 then field = omi_blueoceanats_blueequities_memo_sbe_v1_14.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

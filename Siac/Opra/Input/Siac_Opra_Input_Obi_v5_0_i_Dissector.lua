@@ -70,7 +70,8 @@ omi_siac_opra_input_obi_v5_0_i.fields.reserved_4 = ProtoField.new("Reserved 4", 
 omi_siac_opra_input_obi_v5_0_i.fields.reserved_8 = ProtoField.new("Reserved 8", "siac.opra.input.obi.v5.0.i.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Filled with Hex 0x00.")
 omi_siac_opra_input_obi_v5_0_i.fields.second_reserved = ProtoField.new("Second Reserved", "siac.opra.input.obi.v5.0.i.secondreserved", ftypes.UINT8, nil, nil, nil, "Reserved for future use")
 omi_siac_opra_input_obi_v5_0_i.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "siac.opra.input.obi.v5.0.i.secondreserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Filled with Hex 0x00.")
-omi_siac_opra_input_obi_v5_0_i.fields.seconds = ProtoField.new("Seconds", "siac.opra.input.obi.v5.0.i.seconds", ftypes.UINT32, nil, nil, nil, "Number Of Seconds From Epoch 1/1/1970 00:00:00 UTC")
+omi_siac_opra_input_obi_v5_0_i.fields.seconds = ProtoField.new("Seconds", "siac.opra.input.obi.v5.0.i.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number Of Seconds From Epoch 1/1/1970 00:00:00 UTC")
+omi_siac_opra_input_obi_v5_0_i.fields.seconds_utc = ProtoField.new("Seconds", "siac.opra.input.obi.v5.0.i.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number Of Seconds From Epoch 1/1/1970 00:00:00 UTC")
 omi_siac_opra_input_obi_v5_0_i.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.input.obi.v5.0.i.securitysymbol", ftypes.STRING, nil, nil, nil, "The security symbol is used for Equity and Index options. It identifies the unique symbol assigned to the underlying security. Left justified, space filled.")
 omi_siac_opra_input_obi_v5_0_i.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.input.obi.v5.0.i.securitysymbolshort", ftypes.STRING, nil, nil, nil, "Security Symbol restricted to four characters for short quote messages (category 'q'). Left justified, space filled.")
 omi_siac_opra_input_obi_v5_0_i.fields.sequence_number_status_category = ProtoField.new("Sequence Number Status Category", "siac.opra.input.obi.v5.0.i.sequencenumberstatuscategory", ftypes.STRING, nil, nil, nil, "Sequence Number Status Messages Synchronize Block Sequence Numbers And Retrieve Message Counts")
@@ -1642,20 +1643,20 @@ siac_opra_input_obi_v5_0_i.seconds = {}
 -- Size: Seconds
 siac_opra_input_obi_v5_0_i.seconds.size = 4
 
--- Display: Seconds
-siac_opra_input_obi_v5_0_i.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_opra_input_obi_v5_0_i.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_input_obi_v5_0_i.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_opra_input_obi_v5_0_i.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_opra_input_obi_v5_0_i.fields.seconds
+  if siac_opra_input_obi_v5_0_i.absolute_time_base == 1 then field = omi_siac_opra_input_obi_v5_0_i.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

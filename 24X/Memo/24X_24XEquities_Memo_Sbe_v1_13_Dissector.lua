@@ -98,7 +98,8 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk 
 omi_n24x_24xequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "24x.24xequities.memo.sbe.v1.13.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "24x.24xequities.memo.sbe.v1.13.securitygroup", ftypes.STRING, nil, nil, nil, "SecurityGroup")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "24x.24xequities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8, nil, nil, nil, "SelfTradePrevention")
-omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.24xequities.memo.sbe.v1.13.sendingtime", ftypes.UINT64, nil, nil, nil, "SendingTime")
+omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.24xequities.memo.sbe.v1.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
+omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time_utc = ProtoField.new("Sending Time", "24x.24xequities.memo.sbe.v1.13.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "24x.24xequities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING, nil, nil, nil, "24X Tcp sequenced message")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "24x.24xequities.memo.sbe.v1.13.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by 24X to the firm")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "24x.24xequities.memo.sbe.v1.13.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -159,6 +160,15 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new(
 -- 24X 24XEquities Memo Sbe 1.13 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+n24x_24xequities_memo_sbe_v1_13.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -190,6 +200,8 @@ omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_application_messages = Pref.bool(
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_n24x_24xequities_memo_sbe_v1_13.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_n24x_24xequities_memo_sbe_v1_13.prefs_changed()
 
@@ -208,6 +220,9 @@ function omi_n24x_24xequities_memo_sbe_v1_13.prefs_changed()
   end
   if show.indexes ~= omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_indexes then
     show.indexes = omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_indexes
+  end
+  if n24x_24xequities_memo_sbe_v1_13.absolute_time_base ~= omi_n24x_24xequities_memo_sbe_v1_13.prefs.absolute_time_base then
+    n24x_24xequities_memo_sbe_v1_13.absolute_time_base = omi_n24x_24xequities_memo_sbe_v1_13.prefs.absolute_time_base
   end
 end
 
@@ -2966,23 +2981,20 @@ n24x_24xequities_memo_sbe_v1_13.sending_time = {}
 -- Size: Sending Time
 n24x_24xequities_memo_sbe_v1_13.sending_time.size = 8
 
--- Display: Sending Time
-n24x_24xequities_memo_sbe_v1_13.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 n24x_24xequities_memo_sbe_v1_13.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = n24x_24xequities_memo_sbe_v1_13.sending_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = n24x_24xequities_memo_sbe_v1_13.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time
+  if n24x_24xequities_memo_sbe_v1_13.absolute_time_base == 1 then field = omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

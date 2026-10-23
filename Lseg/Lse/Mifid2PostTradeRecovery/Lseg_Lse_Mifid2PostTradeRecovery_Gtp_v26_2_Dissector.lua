@@ -57,7 +57,8 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_price_in_preceding_se
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_price_in_preceding_session_date = ProtoField.new("Last Price In Preceding Session Date", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.lastpriceinprecedingsessiondate", ftypes.STRING, nil, nil, nil, "Last execution date in a session prior to current trading day.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "Executed price at which the instrument was last traded. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.lasttradequantity", ftypes.DOUBLE, nil, nil, nil, "Executed quantity of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.lasttradetime", ftypes.UINT64, nil, nil, nil, "Transaction time of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction time of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.length = ProtoField.new("Length", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.listing_end_date = ProtoField.new("Listing End Date", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.listingenddate", ftypes.STRING, nil, nil, nil, "Listing end date of the instrument.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.listing_start_date = ProtoField.new("Listing Start Date", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.listingstartdate", ftypes.STRING, nil, nil, nil, "Listing start date of the instrument.")
@@ -133,7 +134,8 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.tcp_unit = ProtoField.new(
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.thirdreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_high = ProtoField.new("Trade High", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradehigh", ftypes.DOUBLE, nil, nil, nil, "Current trading day high price of all trades.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_high_onbook_only = ProtoField.new("Trade High Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradehighonbookonly", ftypes.DOUBLE, nil, nil, nil, "Current trading day high price excluding off-book trades.")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.trade_low = ProtoField.new("Trade Low", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.tradelow", ftypes.DOUBLE, nil, nil, nil, "Current trading day low price of all trades.")
@@ -183,6 +185,20 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.experts.not_a_number = ProtoExpert.ne
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.experts = { lseg_lse_mifid2posttraderecovery_gtp_v26_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -200,6 +216,8 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.show_application_messages =
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs_changed()
 
@@ -215,6 +233,9 @@ function omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs_changed()
   end
   if show.indexes ~= omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.show_indexes then
     show.indexes = omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.show_indexes
+  end
+  if lseg_lse_mifid2posttraderecovery_gtp_v26_2.absolute_time_base ~= omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.absolute_time_base then
+    lseg_lse_mifid2posttraderecovery_gtp_v26_2.absolute_time_base = omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.prefs.absolute_time_base
   end
 end
 
@@ -1521,23 +1542,20 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.last_trade_time = {}
 -- Size: Last Trade Time
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.last_trade_time.size = 8
 
--- Display: Last Trade Time
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.last_trade_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Last Trade Time
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.last_trade_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.last_trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.last_trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_time
+  if lseg_lse_mifid2posttraderecovery_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.last_trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3856,23 +3874,20 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.timestamp = {}
 -- Size: Timestamp
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.timestamp.size = 8
 
--- Display: Timestamp
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp
+  if lseg_lse_mifid2posttraderecovery_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

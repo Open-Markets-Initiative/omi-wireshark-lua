@@ -29,7 +29,7 @@
 
 | [Protocol][Omi.Aquis.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Aquis.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3718 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Pdf] |
+| [TradingProtocol][Aquis.AquisEquities.TradingProtocol] | [Atp][Omi.Encoding.Atp] | [4.0][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Dissector] | 8/1/2025 | 3735 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Url] - [pdf][Aquis.AquisEquities.TradingProtocol.Atp.v4.0.Pdf] |
 
 
 <p align="center"><a href="https://www.aquis.eu" title="Aquis Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/aquis-exchange-plc" title="Aquis Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>

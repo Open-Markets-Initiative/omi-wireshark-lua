@@ -33,7 +33,8 @@ omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.short_sell_price_c
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.sideindicator", ftypes.STRING, nil, nil, nil, "Side of the order.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.symbol = ProtoField.new("Symbol", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.tick_direction = ProtoField.new("Tick Direction", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.tickdirection", ftypes.STRING, nil, nil, nil, "The tick direction of this trade.")
-omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.timestamp", ftypes.UINT64, nil, nil, nil, "Nanoseconds since epoch.")
+omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
+omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since epoch.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status of the session for the symbol.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.trading_status_flags = ProtoField.new("Trading Status Flags", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.tradingstatusflags", ftypes.STRING, nil, nil, nil, "Trading status flags.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.unit = ProtoField.new("Unit", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
@@ -62,6 +63,20 @@ omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.message_index = Pr
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe CxjEquities MulticastDepthOfBook Pitch 1.0.6 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -81,6 +96,8 @@ omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_headers = Pref
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs_changed()
 
@@ -99,6 +116,9 @@ function omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs_changed()
   end
   if show.sequences ~= omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_sequences then
     show.sequences = omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_sequences
+  end
+  if cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.absolute_time_base ~= omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.absolute_time_base then
+    cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.absolute_time_base = omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.absolute_time_base
   end
 end
 
@@ -580,23 +600,20 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp = {}
 -- Size: Timestamp
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp.size = 8
 
--- Display: Timestamp
-cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp
+  if cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.absolute_time_base == 1 then field = omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

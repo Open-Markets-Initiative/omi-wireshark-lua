@@ -376,14 +376,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -622,7 +628,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -759,7 +765,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_1_volume, range, value, "Ask Level 1 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 1 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -828,7 +834,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_10_volume.dissect = func
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_10_volume, range, value, "Ask Level 10 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 10 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -897,7 +903,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_2_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_2_volume, range, value, "Ask Level 2 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 2 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -966,7 +972,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_3_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_3_volume, range, value, "Ask Level 3 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 3 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1035,7 +1041,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_4_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_4_volume, range, value, "Ask Level 4 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 4 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1104,7 +1110,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_5_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_5_volume, range, value, "Ask Level 5 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 5 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1173,7 +1179,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_6_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_6_volume, range, value, "Ask Level 6 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 6 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1242,7 +1248,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_7_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_7_volume, range, value, "Ask Level 7 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 7 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1311,7 +1317,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_8_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_8_volume, range, value, "Ask Level 8 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 8 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1380,7 +1386,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_9_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_9_volume, range, value, "Ask Level 9 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 9 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1434,7 +1440,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.auction_bid_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_bid_volume, range, value, "Auction Bid Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Auction Bid Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1503,7 +1509,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.auction_volume.dissect = function(
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_volume, range, value, "Auction Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Auction Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2147,7 +2153,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_1_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_1_volume, range, value, "Bid Level 1 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 1 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2216,7 +2222,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_10_volume.dissect = func
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_10_volume, range, value, "Bid Level 10 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 10 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2285,7 +2291,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_2_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_2_volume, range, value, "Bid Level 2 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 2 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2354,7 +2360,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_3_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_3_volume, range, value, "Bid Level 3 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 3 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2423,7 +2429,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_4_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_4_volume, range, value, "Bid Level 4 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 4 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2492,7 +2498,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_5_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_5_volume, range, value, "Bid Level 5 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 5 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2561,7 +2567,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_6_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_6_volume, range, value, "Bid Level 6 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 6 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2630,7 +2636,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_7_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_7_volume, range, value, "Bid Level 7 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 7 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2699,7 +2705,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_8_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_8_volume, range, value, "Bid Level 8 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 8 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2768,7 +2774,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_9_volume.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_9_volume, range, value, "Bid Level 9 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 9 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4146,7 +4152,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.estimated_trading_volume.dissect =
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.estimated_trading_volume, range, value, "Estimated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Estimated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4587,7 +4593,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.index_market_capitalization.dissec
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4718,7 +4724,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.issued_amount.dissect = function(b
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4939,7 +4945,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_1_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_1_volume, range, value, "Lp Ask Level 1 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 1 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4970,7 +4976,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_10_volume.dissect = f
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_10_volume, range, value, "Lp Ask Level 10 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 10 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5001,7 +5007,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_2_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_2_volume, range, value, "Lp Ask Level 2 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 2 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5032,7 +5038,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_3_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_3_volume, range, value, "Lp Ask Level 3 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 3 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5063,7 +5069,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_4_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_4_volume, range, value, "Lp Ask Level 4 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 4 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5094,7 +5100,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_5_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_5_volume, range, value, "Lp Ask Level 5 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 5 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5125,7 +5131,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_6_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_6_volume, range, value, "Lp Ask Level 6 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 6 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5156,7 +5162,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_7_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_7_volume, range, value, "Lp Ask Level 7 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 7 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5187,7 +5193,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_8_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_8_volume, range, value, "Lp Ask Level 8 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 8 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5218,7 +5224,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_9_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_9_volume, range, value, "Lp Ask Level 9 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 9 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5249,7 +5255,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_1_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_1_volume, range, value, "Lp Bid Level 1 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 1 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5280,7 +5286,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_10_volume.dissect = f
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_10_volume, range, value, "Lp Bid Level 10 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 10 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5311,7 +5317,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_2_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_2_volume, range, value, "Lp Bid Level 2 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 2 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5342,7 +5348,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_3_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_3_volume, range, value, "Lp Bid Level 3 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 3 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5373,7 +5379,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_4_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_4_volume, range, value, "Lp Bid Level 4 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 4 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5404,7 +5410,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_5_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_5_volume, range, value, "Lp Bid Level 5 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 5 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5435,7 +5441,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_6_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_6_volume, range, value, "Lp Bid Level 6 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 6 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5466,7 +5472,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_7_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_7_volume, range, value, "Lp Bid Level 7 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 7 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5497,7 +5503,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_8_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_8_volume, range, value, "Lp Bid Level 8 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 8 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5528,7 +5534,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_9_volume.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_9_volume, range, value, "Lp Bid Level 9 Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 9 Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5559,7 +5565,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_holding_quantity.dissect = func
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_holding_quantity, range, value, "Lp Holding Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Holding Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5912,7 +5918,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_vol
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_volume, range, value, "Negotiated Block Trade Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Negotiated Block Trade Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5988,7 +5994,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_trade_accumulated_tradi
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_volume, range, value, "Negotiated Trade Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Negotiated Trade Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6019,7 +6025,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.number_of_bidders.dissect = functi
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.number_of_bidders, range, value, "Number Of Bidders: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Number Of Bidders is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6586,7 +6592,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_accumulated_trading_volume.d
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_accumulated_trading_volume, range, value, "Total Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6617,7 +6623,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_ask_volume.dissect = functio
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_ask_volume, range, value, "Total Ask Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Ask Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6648,7 +6654,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_bid_volume.dissect = functio
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_bid_volume, range, value, "Total Bid Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Bid Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7129,7 +7135,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.dissect = function(
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7187,7 +7193,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.unit_of_volume_in_main_board.disse
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.unit_of_volume_in_main_board, range, value, "Unit Of Volume In Main Board: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Unit Of Volume In Main Board is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7294,7 +7300,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.volume_in_the_bid_invitation.disse
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.volume_in_the_bid_invitation, range, value, "Volume In The Bid Invitation: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Volume In The Bid Invitation is not a number: '"..range:string().."'")
     return offset + length, value

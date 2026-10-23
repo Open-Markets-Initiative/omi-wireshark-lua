@@ -233,14 +233,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -342,7 +348,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_as
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_ask_trading_volume, range, value, "Accumulated Ask Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Ask Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -418,7 +424,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_bi
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_bid_trading_volume, range, value, "Accumulated Bid Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Bid Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -494,7 +500,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_tr
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_value, range, value, "Accumulated Trading Value: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Trading Value is not a number: '"..range:string().."'")
     return offset + length, value
@@ -525,7 +531,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_tr
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1212,7 +1218,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.buyin_volume.d
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.buyin_volume, range, value, "Buyin Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Buyin Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1774,7 +1780,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.covered_short_
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.covered_short_selling_trading_volume, range, value, "Covered Short Selling Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Covered Short Selling Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2249,7 +2255,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index_market_c
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2357,7 +2363,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.issued_amount.
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3066,7 +3072,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.trading_volume
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3192,7 +3198,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_ap
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_applied_covered_short_selling_trading_volume, range, value, "Uptick Rule Applied Covered Short Selling Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Uptick Rule Applied Covered Short Selling Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3268,7 +3274,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_un
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_unapplied_covered_short_selling_trading_volume, range, value, "Uptick Rule Unapplied Covered Short Selling Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Uptick Rule Unapplied Covered Short Selling Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value

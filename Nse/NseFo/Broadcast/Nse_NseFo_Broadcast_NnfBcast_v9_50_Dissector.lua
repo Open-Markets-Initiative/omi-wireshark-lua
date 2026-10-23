@@ -82,7 +82,8 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.ex_rejection_allowed = ProtoField.
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.exercise_end_date = ProtoField.new("Exercise End Date", "nse.nsefo.broadcast.nnfbcast.v9.50.exerciseenddate", ftypes.INT32, nil, nil, nil, "End of the exercise period")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.exercise_start_date = ProtoField.new("Exercise Start Date", "nse.nsefo.broadcast.nnfbcast.v9.50.exercisestartdate", ftypes.INT32, nil, nil, nil, "Start of the exercise period")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.exercise_style = ProtoField.new("Exercise Style", "nse.nsefo.broadcast.nnfbcast.v9.50.exercisestyle", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "Exercise style of the option")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.broadcast.nnfbcast.v9.50.expirydate", ftypes.INT32, nil, nil, nil, "Date the contract expires")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.broadcast.nnfbcast.v9.50.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date the contract expires")
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nsefo.broadcast.nnfbcast.v9.50.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date the contract expires")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expulsion_date = ProtoField.new("Expulsion Date", "nse.nsefo.broadcast.nnfbcast.v9.50.expulsiondate", ftypes.INT32, nil, nil, nil, "Date the security was expelled")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.extrinsic_value = ProtoField.new("Extrinsic Value", "nse.nsefo.broadcast.nnfbcast.v9.50.extrinsicvalue", ftypes.INT32)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.broadcast.nnfbcast.v9.50.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price the trade occurred at")
@@ -328,6 +329,20 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.token_and_eligibility_index = Prot
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.token_and_ref_price_index = ProtoField.new("Token And Ref Price Index", "nse.nsefo.broadcast.nnfbcast.v9.50.tokenandrefpriceindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nse NseFo Broadcast NnfBcast 9.50 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -343,6 +358,8 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_structs = Pref.bool("Show Stru
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs_changed()
 
@@ -355,6 +372,9 @@ function omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs_changed()
   end
   if show.indexes ~= omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_indexes then
     show.indexes = omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.show_indexes
+  end
+  if nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base ~= omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.absolute_time_base then
+    nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base = omi_nse_nsefo_broadcast_nnfbcast_v9_50.prefs.absolute_time_base
   end
 end
 
@@ -1729,26 +1749,20 @@ nse_nsefo_broadcast_nnfbcast_v9_50.expiry_date = {}
 -- Size: Expiry Date
 nse_nsefo_broadcast_nnfbcast_v9_50.expiry_date.size = 4
 
--- Display: Expiry Date
-nse_nsefo_broadcast_nnfbcast_v9_50.expiry_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Expiry Date: "..value
-  end
-
-  return "Expiry Date: "..text
-end
-
 -- Dissect: Expiry Date
 nse_nsefo_broadcast_nnfbcast_v9_50.expiry_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.expiry_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_broadcast_nnfbcast_v9_50.expiry_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date
+  if nse_nsefo_broadcast_nnfbcast_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expiry_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

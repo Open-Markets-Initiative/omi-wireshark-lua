@@ -93,7 +93,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.reserved_3 = ProtoField.new("Reserved 3", "
 omi_siac_cts_input_cta_v2_7_f.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.input.cta.v2.7.f.reserved62", ftypes.STRING, nil, nil, nil, "Reserved for future use (TBD)")
 omi_siac_cts_input_cta_v2_7_f.fields.sale_condition = ProtoField.new("Sale Condition", "siac.cts.input.cta.v2.7.f.salecondition", ftypes.STRING, nil, nil, nil, "Sale Condition for Long-form messages. Four positional Category levels per Sale Condition table")
 omi_siac_cts_input_cta_v2_7_f.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.input.cta.v2.7.f.saleconditioncategory", ftypes.STRING, nil, nil, nil, "Identifies the Sale Condition Category level associated with a Short Trade")
-omi_siac_cts_input_cta_v2_7_f.fields.seconds = ProtoField.new("Seconds", "siac.cts.input.cta.v2.7.f.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since Unix epoch 1/1/1970 00:00:00 UTC")
+omi_siac_cts_input_cta_v2_7_f.fields.seconds = ProtoField.new("Seconds", "siac.cts.input.cta.v2.7.f.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of seconds since Unix epoch 1/1/1970 00:00:00 UTC")
+omi_siac_cts_input_cta_v2_7_f.fields.seconds_utc = ProtoField.new("Seconds", "siac.cts.input.cta.v2.7.f.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of seconds since Unix epoch 1/1/1970 00:00:00 UTC")
 omi_siac_cts_input_cta_v2_7_f.fields.security_status = ProtoField.new("Security Status", "siac.cts.input.cta.v2.7.f.securitystatus", ftypes.STRING, nil, nil, nil, "Trading action related to the transaction")
 omi_siac_cts_input_cta_v2_7_f.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cts.input.cta.v2.7.f.securitysymbol", ftypes.STRING, nil, nil, nil, "Left justified, space-filled. Root symbol may be 1 to 6 characters with remaining characters available for possible suffixes")
 omi_siac_cts_input_cta_v2_7_f.fields.sell_volume = ProtoField.new("Sell Volume", "siac.cts.input.cta.v2.7.f.sellvolume", ftypes.UINT32, nil, nil, nil, "Reported imbalance of sell orders without matching buy orders for the security for a Participant")
@@ -1930,20 +1931,20 @@ siac_cts_input_cta_v2_7_f.seconds = {}
 -- Size: Seconds
 siac_cts_input_cta_v2_7_f.seconds.size = 4
 
--- Display: Seconds
-siac_cts_input_cta_v2_7_f.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_cts_input_cta_v2_7_f.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_input_cta_v2_7_f.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cts_input_cta_v2_7_f.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_input_cta_v2_7_f.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_cts_input_cta_v2_7_f.fields.seconds
+  if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

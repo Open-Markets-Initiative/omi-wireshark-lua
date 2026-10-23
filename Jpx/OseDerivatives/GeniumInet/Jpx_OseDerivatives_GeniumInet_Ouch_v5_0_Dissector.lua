@@ -48,7 +48,8 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_type = ProtoFie
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.side = ProtoField.new("Side", "jpx.osederivatives.geniuminet.ouch.v5.0.side", ftypes.STRING, nil, nil, nil, "Order side")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.status = ProtoField.new("Status", "jpx.osederivatives.geniuminet.ouch.v5.0.status", ftypes.UINT32, nil, nil, nil, "Status of the mass cancel indicating the number of cancelled orders.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.time_in_force = ProtoField.new("Time In Force", "jpx.osederivatives.geniuminet.ouch.v5.0.timeinforce", ftypes.UINT8)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds", ftypes.UINT64, nil, nil, nil, "UNIX timestamp in nanoseconds since 1970-01-01 00:00:00 UTC.")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX timestamp in nanoseconds since 1970-01-01 00:00:00 UTC.")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds_utc = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX timestamp in nanoseconds since 1970-01-01 00:00:00 UTC.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.ouch.v5.0.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Signed integer trade price. Number of decimals is defined by the Order Book Directory message in ITCH.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "jpx.osederivatives.geniuminet.ouch.v5.0.tradedquantity", ftypes.UINT64, nil, nil, nil, "Quantity executed in this trade.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.underlying_id = ProtoField.new("Underlying Id", "jpx.osederivatives.geniuminet.ouch.v5.0.underlyingid", ftypes.UINT32, nil, nil, nil, "Underlying instrument identifier. Required when canceling orders for the underlying instrument.")
@@ -101,6 +102,15 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.experts = { jpx_osederivatives_geniu
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+jpx_osederivatives_geniuminet_ouch_v5_0.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -132,6 +142,8 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_headers = Pref.bool("Show
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
 
@@ -150,6 +162,9 @@ function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()
   end
   if show.sequences ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequences then
     show.sequences = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequences
+  end
+  if jpx_osederivatives_geniuminet_ouch_v5_0.absolute_time_base ~= omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.absolute_time_base then
+    jpx_osederivatives_geniuminet_ouch_v5_0.absolute_time_base = omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.absolute_time_base
   end
 end
 
@@ -223,14 +238,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -256,7 +277,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1454,7 +1475,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.dissect = func
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1693,23 +1714,20 @@ jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds = {}
 -- Size: Timestamp Nanoseconds
 jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size = 8
 
--- Display: Timestamp Nanoseconds
-jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp Nanoseconds: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp Nanoseconds
 jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_nanoseconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds
+  if jpx_osederivatives_geniuminet_ouch_v5_0.absolute_time_base == 1 then field = omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

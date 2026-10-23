@@ -104,7 +104,8 @@ omi_siac_cqs_input_cta_v2_9_b.fields.round_lot_offer_price = ProtoField.new("Rou
 omi_siac_cqs_input_cta_v2_9_b.fields.round_lot_offer_price_short = ProtoField.new("Round Lot Offer Price Short", "siac.cqs.input.cta.v2.9.b.roundlotofferpriceshort", ftypes.DOUBLE, nil, nil, nil, "Round Lot offer price (Short form). Implied 2 decimal places")
 omi_siac_cqs_input_cta_v2_9_b.fields.round_lot_offer_size = ProtoField.new("Round Lot Offer Size", "siac.cqs.input.cta.v2.9.b.roundlotoffersize", ftypes.UINT32, nil, nil, nil, "Round Lot offer size in shares")
 omi_siac_cqs_input_cta_v2_9_b.fields.round_lot_offer_size_short = ProtoField.new("Round Lot Offer Size Short", "siac.cqs.input.cta.v2.9.b.roundlotoffersizeshort", ftypes.UINT16, nil, nil, nil, "Round Lot offer size (Short form)")
-omi_siac_cqs_input_cta_v2_9_b.fields.seconds = ProtoField.new("Seconds", "siac.cqs.input.cta.v2.9.b.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since Unix epoch 1/1/1970 00:00:00 UTC")
+omi_siac_cqs_input_cta_v2_9_b.fields.seconds = ProtoField.new("Seconds", "siac.cqs.input.cta.v2.9.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of seconds since Unix epoch 1/1/1970 00:00:00 UTC")
+omi_siac_cqs_input_cta_v2_9_b.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.input.cta.v2.9.b.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of seconds since Unix epoch 1/1/1970 00:00:00 UTC")
 omi_siac_cqs_input_cta_v2_9_b.fields.security_status = ProtoField.new("Security Status", "siac.cqs.input.cta.v2.9.b.securitystatus", ftypes.STRING, nil, nil, nil, "Trading action on the Trading Status (Category T Type S) message")
 omi_siac_cqs_input_cta_v2_9_b.fields.security_status_indicator = ProtoField.new("Security Status Indicator", "siac.cqs.input.cta.v2.9.b.securitystatusindicator", ftypes.STRING, nil, nil, nil, "Security Status Indicator codes in input Quote messages are not supported by CQS. Must be Space")
 omi_siac_cqs_input_cta_v2_9_b.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.input.cta.v2.9.b.securitysymbol", ftypes.STRING, nil, nil, nil, "Left justified, space-filled. Root symbol may be 1 to 6 characters with remaining characters available for possible suffixes")
@@ -2240,20 +2241,20 @@ siac_cqs_input_cta_v2_9_b.seconds = {}
 -- Size: Seconds
 siac_cqs_input_cta_v2_9_b.seconds.size = 4
 
--- Display: Seconds
-siac_cqs_input_cta_v2_9_b.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_cqs_input_cta_v2_9_b.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_input_cta_v2_9_b.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_input_cta_v2_9_b.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_cqs_input_cta_v2_9_b.fields.seconds
+  if siac_cqs_input_cta_v2_9_b.absolute_time_base == 1 then field = omi_siac_cqs_input_cta_v2_9_b.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

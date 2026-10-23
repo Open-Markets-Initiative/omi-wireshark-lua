@@ -53,7 +53,8 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.exec_id = ProtoField.new("Ex
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.neoequities.orderentry.boe3.v1.0.19.execinst", ftypes.STRING, nil, nil, nil, "Execution Instruction for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.neoequities.orderentry.boe3.v1.0.19.execrefid", ftypes.UINT64, nil, nil, nil, "Refers to the ExecID of the message being cancelled or corrected")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_date = ProtoField.new("Expire Date", "cboe.neoequities.orderentry.boe3.v1.0.19.expiredate", ftypes.UINT32, nil, nil, nil, "Specifies the date on which a GTD order will expire")
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time = ProtoField.new("Expire Time", "cboe.neoequities.orderentry.boe3.v1.0.19.expiretime", ftypes.UINT64, nil, nil, nil, "Specifies the UTC Date/Time timestamp that the order expires")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time = ProtoField.new("Expire Time", "cboe.neoequities.orderentry.boe3.v1.0.19.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Specifies the UTC Date/Time timestamp that the order expires")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.neoequities.orderentry.boe3.v1.0.19.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Specifies the UTC Date/Time timestamp that the order expires")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.fee_code = ProtoField.new("Fee Code", "cboe.neoequities.orderentry.boe3.v1.0.19.feecode", ftypes.STRING, nil, nil, nil, "Fee code of the transaction")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.firm_message_type = ProtoField.new("Message Type", "cboe.neoequities.orderentry.boe3.v1.0.19.firmmessagetype", ftypes.UINT16, nil, nil, nil, "type of message")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.fut_settl_date = ProtoField.new("Fut Settl Date", "cboe.neoequities.orderentry.boe3.v1.0.19.futsettldate", ftypes.UINT32, nil, nil, nil, "Specific date of trade settlement")
@@ -121,7 +122,8 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.symbol_8 = ProtoField.new("S
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.text = ProtoField.new("Text", "cboe.neoequities.orderentry.boe3.v1.0.19.text", ftypes.STRING, nil, nil, nil, "Free format text string")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.time_in_force = ProtoField.new("Time In Force", "cboe.neoequities.orderentry.boe3.v1.0.19.timeinforce", ftypes.STRING, nil, nil, nil, "Time in force for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.trade_date = ProtoField.new("Trade Date", "cboe.neoequities.orderentry.boe3.v1.0.19.tradedate", ftypes.UINT32, nil, nil, nil, "Business date for the trade")
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.neoequities.orderentry.boe3.v1.0.19.transactiontime", ftypes.UINT64, nil, nil, nil, "Time of the transaction")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.neoequities.orderentry.boe3.v1.0.19.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the transaction")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.neoequities.orderentry.boe3.v1.0.19.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the transaction")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.true_min_qty = ProtoField.new("True Min Qty", "cboe.neoequities.orderentry.boe3.v1.0.19.trueminqty", ftypes.UINT32, nil, nil, nil, "All fills must be at least of size TrueMinQty")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.umir_account_type = ProtoField.new("Umir Account Type", "cboe.neoequities.orderentry.boe3.v1.0.19.umiraccounttype", ftypes.STRING, nil, nil, nil, "The capacity for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.umir_regulation_id = ProtoField.new("Umir Regulation Id", "cboe.neoequities.orderentry.boe3.v1.0.19.umirregulationid", ftypes.STRING, nil, nil, nil, "Reported to feeds, does not affect order handling")
@@ -172,6 +174,15 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.unit_sequence_index = ProtoF
 -- Cboe NeoEquities OrderEntry Boe3 1.0.19 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_neoequities_orderentry_boe3_v1_0_19.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -203,6 +214,8 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_structs = Pref.bool("Sho
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs_changed()
 
@@ -221,6 +234,9 @@ function omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs_changed()
   end
   if show.indexes ~= omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_indexes then
     show.indexes = omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_indexes
+  end
+  if cboe_neoequities_orderentry_boe3_v1_0_19.absolute_time_base ~= omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.absolute_time_base then
+    cboe_neoequities_orderentry_boe3_v1_0_19.absolute_time_base = omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.absolute_time_base
   end
 end
 
@@ -1778,23 +1794,20 @@ cboe_neoequities_orderentry_boe3_v1_0_19.expire_time = {}
 -- Size: Expire Time
 cboe_neoequities_orderentry_boe3_v1_0_19.expire_time.size = 8
 
--- Display: Expire Time
-cboe_neoequities_orderentry_boe3_v1_0_19.expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Expire Time
 cboe_neoequities_orderentry_boe3_v1_0_19.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.expire_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_neoequities_orderentry_boe3_v1_0_19.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time
+  if cboe_neoequities_orderentry_boe3_v1_0_19.absolute_time_base == 1 then field = omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4339,23 +4352,20 @@ cboe_neoequities_orderentry_boe3_v1_0_19.transaction_time = {}
 -- Size: Transaction Time
 cboe_neoequities_orderentry_boe3_v1_0_19.transaction_time.size = 8
 
--- Display: Transaction Time
-cboe_neoequities_orderentry_boe3_v1_0_19.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 cboe_neoequities_orderentry_boe3_v1_0_19.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_neoequities_orderentry_boe3_v1_0_19.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time
+  if cboe_neoequities_orderentry_boe3_v1_0_19.absolute_time_base == 1 then field = omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

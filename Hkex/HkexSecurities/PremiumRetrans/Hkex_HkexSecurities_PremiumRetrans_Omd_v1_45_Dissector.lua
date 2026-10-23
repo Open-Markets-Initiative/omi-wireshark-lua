@@ -118,7 +118,8 @@ omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_code = ProtoFie
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.premiumretrans.omd.v1.45.securitynamegb", ftypes.BYTES, nil, nil, nil, "Security name in Simplified Chinese using Unicode UTF-16LE encoding.")
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.premiumretrans.omd.v1.45.securitynamegccs", ftypes.BYTES, nil, nil, nil, "Security name in Traditional Chinese using Unicode UTF-16LE encoding.")
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_short_name = ProtoField.new("Security Short Name", "hkex.hkexsecurities.premiumretrans.omd.v1.45.securityshortname", ftypes.STRING, nil, nil, nil, "Security short name.")
-omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.premiumretrans.omd.v1.45.sendtime", ftypes.UINT64, nil, nil, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
+omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.premiumretrans.omd.v1.45.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
+omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexsecurities.premiumretrans.omd.v1.45.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.premiumretrans.omd.v1.45.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.session_status = ProtoField.new("Session Status", "hkex.hkexsecurities.premiumretrans.omd.v1.45.sessionstatus", ftypes.UINT8, nil, nil, nil, "Status of the session.")
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.shares_traded = ProtoField.new("Shares Traded", "hkex.hkexsecurities.premiumretrans.omd.v1.45.sharestraded", ftypes.UINT64, nil, nil, nil, "Number of shares traded for a security.")
@@ -200,6 +201,20 @@ omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.news_security_index = Pr
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.underlying_security_index = ProtoField.new("Underlying Security Index", "hkex.hkexsecurities.premiumretrans.omd.v1.45.underlyingsecurityindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Hkex HkexSecurities PremiumRetrans Omd 1.45 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+hkex_hkexsecurities_premiumretrans_omd_v1_45.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -219,6 +234,8 @@ omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.show_structs = Pref.bool(
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs_changed()
 
@@ -237,6 +254,9 @@ function omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs_changed()
   end
   if show.indexes ~= omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.show_indexes then
     show.indexes = omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.show_indexes
+  end
+  if hkex_hkexsecurities_premiumretrans_omd_v1_45.absolute_time_base ~= omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.absolute_time_base then
+    hkex_hkexsecurities_premiumretrans_omd_v1_45.absolute_time_base = omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.prefs.absolute_time_base
   end
 end
 
@@ -2824,23 +2844,20 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.send_time = {}
 -- Size: Send Time
 hkex_hkexsecurities_premiumretrans_omd_v1_45.send_time.size = 8
 
--- Display: Send Time
-hkex_hkexsecurities_premiumretrans_omd_v1_45.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 hkex_hkexsecurities_premiumretrans_omd_v1_45.send_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumretrans_omd_v1_45.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.send_time
+  if hkex_hkexsecurities_premiumretrans_omd_v1_45.absolute_time_base == 1 then field = omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

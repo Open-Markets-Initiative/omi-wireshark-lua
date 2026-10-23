@@ -102,7 +102,8 @@ omi_siac_cts_output_cta_v2_10.fields.retransmission_indicator = ProtoField.new("
 omi_siac_cts_output_cta_v2_10.fields.sale_condition = ProtoField.new("Sale Condition", "siac.cts.output.cta.v2.10.salecondition", ftypes.STRING, nil, nil, nil, "Denotes the sale condition associated with a trade")
 omi_siac_cts_output_cta_v2_10.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.output.cta.v2.10.saleconditioncategory", ftypes.STRING, nil, nil, nil, "Identifies the Sale Condition Category level associated with a trade")
 omi_siac_cts_output_cta_v2_10.fields.sale_conditions = ProtoField.new("Sale Conditions", "siac.cts.output.cta.v2.10.saleconditions", ftypes.STRING)
-omi_siac_cts_output_cta_v2_10.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.10.seconds", ftypes.UINT32, nil, nil, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_cts_output_cta_v2_10.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.10.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_cts_output_cta_v2_10.fields.seconds_utc = ProtoField.new("Seconds", "siac.cts.output.cta.v2.10.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_cts_output_cta_v2_10.fields.security_status = ProtoField.new("Security Status", "siac.cts.output.cta.v2.10.securitystatus", ftypes.STRING, nil, nil, nil, "Identifies the trading status applicable to the transaction")
 omi_siac_cts_output_cta_v2_10.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cts.output.cta.v2.10.securitysymbol", ftypes.STRING, nil, nil, nil, "Contains the security symbol")
 omi_siac_cts_output_cta_v2_10.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cts.output.cta.v2.10.securitysymbolshort", ftypes.STRING, nil, nil, nil, "Contains the security symbol")
@@ -2514,20 +2515,20 @@ siac_cts_output_cta_v2_10.seconds = {}
 -- Size: Seconds
 siac_cts_output_cta_v2_10.seconds.size = 4
 
--- Display: Seconds
-siac_cts_output_cta_v2_10.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_cts_output_cta_v2_10.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_10.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cts_output_cta_v2_10.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_cts_output_cta_v2_10.fields.seconds
+  if siac_cts_output_cta_v2_10.absolute_time_base == 1 then field = omi_siac_cts_output_cta_v2_10.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

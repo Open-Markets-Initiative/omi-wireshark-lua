@@ -29,7 +29,8 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_m
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_groups = ProtoField.new("Depth Snapshot Stream Event Message asks Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group = ProtoField.new("Depth Snapshot Stream Event Message bids Group", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_groups = ProtoField.new("Depth Snapshot Stream Event Message bids Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime", ftypes.INT64, nil, nil, nil, "eventTime")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time_utc = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "eventTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.first_book_update_id = ProtoField.new("First Book Update Id", "binance.binancespot.marketdata.sbe.v1.0.firstbookupdateid", ftypes.INT64, nil, nil, nil, "firstBookUpdateId")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.group_size_16_encoding = ProtoField.new("Group Size 16 Encoding", "binance.binancespot.marketdata.sbe.v1.0.groupsize16encoding", ftypes.STRING, nil, nil, nil, "groupSize16Encoding")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "binance.binancespot.marketdata.sbe.v1.0.groupsizeencoding", ftypes.STRING, nil, nil, nil, "groupSizeEncoding")
@@ -49,7 +50,8 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.symbol_length = ProtoField.ne
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.template_id = ProtoField.new("Template Id", "binance.binancespot.marketdata.sbe.v1.0.templateid", ftypes.UINT16, nil, nil, nil, "Template id of the message")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group = ProtoField.new("Trades Stream Event Message trades Group", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroup", ftypes.STRING, nil, nil, nil, "trades")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_groups = ProtoField.new("Trades Stream Event Message trades Groups", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroups", ftypes.STRING, nil, nil, nil, "trades Block")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime", ftypes.INT64, nil, nil, nil, "transactTime")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.version = ProtoField.new("Version", "binance.binancespot.marketdata.sbe.v1.0.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 
 -- Binance BinanceSpot MarketData Sbe 1.0 Framing
@@ -80,6 +82,15 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty_calculate = ProtoField.ne
 -- Binance BinanceSpot MarketData Sbe 1.0 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+binance_binancespot_marketdata_sbe_v1_0.absolute_time_base = 0
+
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 binance_binancespot_marketdata_sbe_v1_0.format_decimals = true
 
@@ -105,6 +116,8 @@ omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_structs = Pref.bool("Show
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
+omi_binance_binancespot_marketdata_sbe_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_binance_binancespot_marketdata_sbe_v1_0.prefs_changed()
 
@@ -126,6 +139,9 @@ function omi_binance_binancespot_marketdata_sbe_v1_0.prefs_changed()
   end
   if binance_binancespot_marketdata_sbe_v1_0.format_decimals ~= omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals then
     binance_binancespot_marketdata_sbe_v1_0.format_decimals = omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals
+  end
+  if binance_binancespot_marketdata_sbe_v1_0.absolute_time_base ~= omi_binance_binancespot_marketdata_sbe_v1_0.prefs.absolute_time_base then
+    binance_binancespot_marketdata_sbe_v1_0.absolute_time_base = omi_binance_binancespot_marketdata_sbe_v1_0.prefs.absolute_time_base
   end
 end
 
@@ -308,23 +324,20 @@ binance_binancespot_marketdata_sbe_v1_0.event_time = {}
 -- Size: Event Time
 binance_binancespot_marketdata_sbe_v1_0.event_time.size = 8
 
--- Display: Event Time
-binance_binancespot_marketdata_sbe_v1_0.event_time.display = function(value)
-  -- Parse unix microsecond timestamp
-  local seconds = (value / UInt64(1000000)):tonumber()
-  local microseconds = (value % UInt64(1000000)):tonumber()
-
-  return "Event Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%06d", microseconds)
-end
-
 -- Dissect: Event Time
 binance_binancespot_marketdata_sbe_v1_0.event_time.dissect = function(buffer, offset, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.event_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = binance_binancespot_marketdata_sbe_v1_0.event_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time
+  if binance_binancespot_marketdata_sbe_v1_0.absolute_time_base == 1 then field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time_utc end
+
+  local seconds = (value / UInt64(1000000)):tonumber()
+  local nanos = (value % UInt64(1000000)):tonumber() * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -697,23 +710,20 @@ binance_binancespot_marketdata_sbe_v1_0.transact_time = {}
 -- Size: Transact Time
 binance_binancespot_marketdata_sbe_v1_0.transact_time.size = 8
 
--- Display: Transact Time
-binance_binancespot_marketdata_sbe_v1_0.transact_time.display = function(value)
-  -- Parse unix microsecond timestamp
-  local seconds = (value / UInt64(1000000)):tonumber()
-  local microseconds = (value % UInt64(1000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%06d", microseconds)
-end
-
 -- Dissect: Transact Time
 binance_binancespot_marketdata_sbe_v1_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = binance_binancespot_marketdata_sbe_v1_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time
+  if binance_binancespot_marketdata_sbe_v1_0.absolute_time_base == 1 then field = omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000)):tonumber()
+  local nanos = (value % UInt64(1000000)):tonumber() * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

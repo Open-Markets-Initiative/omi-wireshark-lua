@@ -126,7 +126,8 @@ omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.ranking_type = ProtoFi
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.reported_trade = ProtoField.new("Reported Trade", "hkex.hkexderivatives.combinedretrans.omd.v1.49.reportedtrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexderivatives.combinedretrans.omd.v1.49.retransstatus", ftypes.UINT8, nil, nil, nil, "Status of the Retransmission response")
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.seconds_to_state_change = ProtoField.new("Seconds To State Change", "hkex.hkexderivatives.combinedretrans.omd.v1.49.secondstostatechange", ftypes.UINT16, nil, nil, nil, "Number of seconds to the next")
-omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.combinedretrans.omd.v1.49.sendtime", ftypes.UINT64, nil, nil, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
+omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.combinedretrans.omd.v1.49.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
+omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexderivatives.combinedretrans.omd.v1.49.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.combinedretrans.omd.v1.49.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.series_status = ProtoField.new("Series Status", "hkex.hkexderivatives.combinedretrans.omd.v1.49.seriesstatus", ftypes.UINT8, nil, nil, nil, "The actual status of the series")
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.combinedretrans.omd.v1.49.session", ftypes.UINT8)
@@ -211,6 +212,20 @@ omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.content_index = ProtoF
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.combinedretrans.omd.v1.49.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Hkex HkexDerivatives CombinedRetrans Omd 1.49 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+hkex_hkexderivatives_combinedretrans_omd_v1_49.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -230,6 +245,8 @@ omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.show_structs = Pref.boo
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs_changed()
 
@@ -248,6 +265,9 @@ function omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs_changed()
   end
   if show.indexes ~= omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.show_indexes then
     show.indexes = omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.show_indexes
+  end
+  if hkex_hkexderivatives_combinedretrans_omd_v1_49.absolute_time_base ~= omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.absolute_time_base then
+    hkex_hkexderivatives_combinedretrans_omd_v1_49.absolute_time_base = omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.prefs.absolute_time_base
   end
 end
 
@@ -2975,23 +2995,20 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.send_time = {}
 -- Size: Send Time
 hkex_hkexderivatives_combinedretrans_omd_v1_49.send_time.size = 8
 
--- Display: Send Time
-hkex_hkexderivatives_combinedretrans_omd_v1_49.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 hkex_hkexderivatives_combinedretrans_omd_v1_49.send_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedretrans_omd_v1_49.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.send_time
+  if hkex_hkexderivatives_combinedretrans_omd_v1_49.absolute_time_base == 1 then field = omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

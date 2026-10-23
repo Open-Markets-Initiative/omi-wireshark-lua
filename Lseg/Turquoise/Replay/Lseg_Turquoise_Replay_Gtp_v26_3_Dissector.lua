@@ -45,7 +45,8 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.deleted_order_quantity = ProtoField.n
 omi_lseg_turquoise_replay_gtp_v26_3.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "lseg.turquoise.replay.gtp.v26.3.duplicativeindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.turquoise.replay.gtp.v26.3.dynamiccircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Dynamic Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.replay.gtp.v26.3.electronicorderbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.end_time = ProtoField.new("End Time", "lseg.turquoise.replay.gtp.v26.3.endtime", ftypes.UINT64, nil, nil, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.end_time = ProtoField.new("End Time", "lseg.turquoise.replay.gtp.v26.3.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.end_time_utc = ProtoField.new("End Time", "lseg.turquoise.replay.gtp.v26.3.endtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message ended.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.replay.gtp.v26.3.eventcode", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.executed_size = ProtoField.new("Executed Size", "lseg.turquoise.replay.gtp.v26.3.executedsize", ftypes.DOUBLE, nil, nil, nil, "Total executed quantity.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.far_price = ProtoField.new("Far Price", "lseg.turquoise.replay.gtp.v26.3.farprice", ftypes.DOUBLE, nil, nil, nil, "Far price is the highest price at which volume is depleted as part of the Matching Engine event in case of an aggressing buy order, or the lowest price at which volume is depleted in case of an aggressing sell order.")
@@ -136,7 +137,8 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.side = ProtoField.new("Side", "lseg.t
 omi_lseg_turquoise_replay_gtp_v26_3.fields.size = ProtoField.new("Size", "lseg.turquoise.replay.gtp.v26.3.size", ftypes.DOUBLE, nil, nil, nil, "Displayed Size of the order.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.replay.gtp.v26.3.sourcevenue", ftypes.UINT16, nil, nil, nil, "Venue from which market data is received for the instrument")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.turquoise.replay.gtp.v26.3.specialdividendindicator", ftypes.STRING)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.start_time = ProtoField.new("Start Time", "lseg.turquoise.replay.gtp.v26.3.starttime", ftypes.UINT64, nil, nil, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.start_time = ProtoField.new("Start Time", "lseg.turquoise.replay.gtp.v26.3.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.start_time_utc = ProtoField.new("Start Time", "lseg.turquoise.replay.gtp.v26.3.starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message began.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.replay.gtp.v26.3.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.statistic_price = ProtoField.new("Statistic Price", "lseg.turquoise.replay.gtp.v26.3.statisticprice", ftypes.DOUBLE, nil, nil, nil, "The value of price type statistics")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.statistic_size = ProtoField.new("Statistic Size", "lseg.turquoise.replay.gtp.v26.3.statisticsize", ftypes.DOUBLE, nil, nil, nil, "The value of size type statistics.")
@@ -144,7 +146,8 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.statistic_type = ProtoField.new("Stat
 omi_lseg_turquoise_replay_gtp_v26_3.fields.tcp_unit = ProtoField.new("Tcp Unit", "lseg.turquoise.replay.gtp.v26.3.tcpunit", ftypes.STRING, nil, nil, nil, "One unit on the tcp stream: the unit header and its payload messages")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.replay.gtp.v26.3.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.replay.gtp.v26.3.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_turquoise_replay_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.replay.gtp.v26.3.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated.")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.replay.gtp.v26.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.turquoise.replay.gtp.v26.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.top_of_book_flags = ProtoField.new("Top Of Book Flags", "lseg.turquoise.replay.gtp.v26.3.topofbookflags", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.total_executed_quantity = ProtoField.new("Total Executed Quantity", "lseg.turquoise.replay.gtp.v26.3.totalexecutedquantity", ftypes.DOUBLE, nil, nil, nil, "Total quantity executed")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.total_hidden_executed_quantity = ProtoField.new("Total Hidden Executed Quantity", "lseg.turquoise.replay.gtp.v26.3.totalhiddenexecutedquantity", ftypes.DOUBLE, nil, nil, nil, "Total hidden order quantity executed (hidden quantity).")
@@ -160,7 +163,8 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.trading_system = ProtoField.new("Trad
 omi_lseg_turquoise_replay_gtp_v26_3.fields.trading_system_phase = ProtoField.new("Trading System Phase", "lseg.turquoise.replay.gtp.v26.3.tradingsystemphase", ftypes.STRING, nil, nil, nil, "Type of trading system phase where the order is advertised")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.turquoise.replay.gtp.v26.3.transactioncategory", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.turquoise.replay.gtp.v26.3.transactionidentificationcode", ftypes.STRING, nil, nil, nil, "A unique trade identifier. The value will be right aligned.")
-omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.replay.gtp.v26.3.transactiontime", ftypes.UINT64, nil, nil, nil, "Transaction execution timestamp as reported by the upstream system")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.replay.gtp.v26.3.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system")
+omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.turquoise.replay.gtp.v26.3.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction execution timestamp as reported by the upstream system")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.turnover = ProtoField.new("Turnover", "lseg.turquoise.replay.gtp.v26.3.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.turquoise.replay.gtp.v26.3.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.replay.gtp.v26.3.unused3", ftypes.UINT8, nil, base.DEC, 0x07, "Unused")
@@ -219,6 +223,20 @@ lseg_turquoise_replay_gtp_v26_3.experts.not_a_number = ProtoExpert.new("lseg.tur
 omi_lseg_turquoise_replay_gtp_v26_3.experts = { lseg_turquoise_replay_gtp_v26_3.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- Lseg Turquoise Replay Gtp 26.3 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_turquoise_replay_gtp_v26_3.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -236,6 +254,8 @@ omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_structs = Pref.bool("Show Structs
 omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_turquoise_replay_gtp_v26_3.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_turquoise_replay_gtp_v26_3.prefs_changed()
 
@@ -251,6 +271,9 @@ function omi_lseg_turquoise_replay_gtp_v26_3.prefs_changed()
   end
   if show.indexes ~= omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_indexes then
     show.indexes = omi_lseg_turquoise_replay_gtp_v26_3.prefs.show_indexes
+  end
+  if lseg_turquoise_replay_gtp_v26_3.absolute_time_base ~= omi_lseg_turquoise_replay_gtp_v26_3.prefs.absolute_time_base then
+    lseg_turquoise_replay_gtp_v26_3.absolute_time_base = omi_lseg_turquoise_replay_gtp_v26_3.prefs.absolute_time_base
   end
 end
 
@@ -1154,23 +1177,20 @@ lseg_turquoise_replay_gtp_v26_3.end_time = {}
 -- Size: End Time
 lseg_turquoise_replay_gtp_v26_3.end_time.size = 8
 
--- Display: End Time
-lseg_turquoise_replay_gtp_v26_3.end_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: End Time
 lseg_turquoise_replay_gtp_v26_3.end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v26_3.end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_turquoise_replay_gtp_v26_3.end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_turquoise_replay_gtp_v26_3.fields.end_time
+  if lseg_turquoise_replay_gtp_v26_3.absolute_time_base == 1 then field = omi_lseg_turquoise_replay_gtp_v26_3.fields.end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3776,23 +3796,20 @@ lseg_turquoise_replay_gtp_v26_3.start_time = {}
 -- Size: Start Time
 lseg_turquoise_replay_gtp_v26_3.start_time.size = 8
 
--- Display: Start Time
-lseg_turquoise_replay_gtp_v26_3.start_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Start Time
 lseg_turquoise_replay_gtp_v26_3.start_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v26_3.start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_turquoise_replay_gtp_v26_3.start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_turquoise_replay_gtp_v26_3.fields.start_time
+  if lseg_turquoise_replay_gtp_v26_3.absolute_time_base == 1 then field = omi_lseg_turquoise_replay_gtp_v26_3.fields.start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3986,23 +4003,20 @@ lseg_turquoise_replay_gtp_v26_3.timestamp = {}
 -- Size: Timestamp
 lseg_turquoise_replay_gtp_v26_3.timestamp.size = 8
 
--- Display: Timestamp
-lseg_turquoise_replay_gtp_v26_3.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 lseg_turquoise_replay_gtp_v26_3.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v26_3.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_turquoise_replay_gtp_v26_3.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_turquoise_replay_gtp_v26_3.fields.timestamp
+  if lseg_turquoise_replay_gtp_v26_3.absolute_time_base == 1 then field = omi_lseg_turquoise_replay_gtp_v26_3.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4457,23 +4471,20 @@ lseg_turquoise_replay_gtp_v26_3.transaction_time = {}
 -- Size: Transaction Time
 lseg_turquoise_replay_gtp_v26_3.transaction_time.size = 8
 
--- Display: Transaction Time
-lseg_turquoise_replay_gtp_v26_3.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 lseg_turquoise_replay_gtp_v26_3.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v26_3.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_turquoise_replay_gtp_v26_3.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_time
+  if lseg_turquoise_replay_gtp_v26_3.absolute_time_base == 1 then field = omi_lseg_turquoise_replay_gtp_v26_3.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

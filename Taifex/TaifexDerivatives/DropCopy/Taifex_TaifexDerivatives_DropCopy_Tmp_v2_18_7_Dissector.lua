@@ -25,11 +25,14 @@ omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.combop = ProtoField.new
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.cum_qty = ProtoField.new("Cum Qty", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.cumqty", ftypes.UINT16, nil, nil, nil, "Total quantity executed.")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.encrypt_method = ProtoField.new("Encrypt Method", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.encryptmethod", ftypes.UINT8, nil, nil, nil, "Encryption method, 0 if unencrypted.")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.endoutboundnum = ProtoField.new("Endoutboundnum", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.endoutboundnum", ftypes.UINT32, nil, nil, nil, "The last end message No, the number of the last valid response message Taifex sent the futures commission merchant.")
-omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_int_324 = ProtoField.new("Epochs Int 324", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.epochsint324", ftypes.INT32, nil, nil, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
-omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_uint_324 = ProtoField.new("Epochs Uint 324", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.epochsuint324", ftypes.UINT32, nil, nil, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_int_324 = ProtoField.new("Epochs Int 324", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.epochsint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_int_324_utc = ProtoField.new("Epochs Int 324", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.epochsint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_uint_324 = ProtoField.new("Epochs Uint 324", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.epochsuint324", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_uint_324_utc = ProtoField.new("Epochs Uint 324", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.epochsuint324.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.exec_type = ProtoField.new("Exec Type", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.exectype", ftypes.STRING, nil, nil, nil, "Execution type.")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.fcmid = ProtoField.new("Fcmid", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.fcmid", ftypes.UINT16, nil, nil, nil, "FCM ID, read from the FCM ID Mapping File P06.")
-omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_epoch_s = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.headerepochs", ftypes.INT32, nil, nil, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
+omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_epoch_s = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.headerepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
+omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_epoch_s_utc = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.headerepochs.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_ms = ProtoField.new("Header Ms", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.headerms", ftypes.UINT16, nil, nil, nil, "One thousandth of a second, the millisecond fraction of the second carried beside it")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_time = ProtoField.new("Header Time", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.headertime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message time, the Tmp time format of section 2.1 carried by the common message header")
 omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_time_utc = ProtoField.new("Header Time", "taifex.taifexderivatives.dropcopy.tmp.v2.18.7.headertime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message time, the Tmp time format of section 2.1 carried by the common message header")
@@ -486,20 +489,20 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_int_324 = {}
 -- Size: Epochs Int 324
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_int_324.size = 4
 
--- Display: Epochs Int 324
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_int_324.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Epochs Int 324: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Epochs Int 324
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_int_324.dissect = function(buffer, offset, packet, parent)
   local length = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_int_324.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_int_324.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_int_324, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_int_324
+  if taifex_taifexderivatives_dropcopy_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_int_324_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -510,20 +513,20 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_uint_324 = {}
 -- Size: Epochs Uint 324
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_uint_324.size = 4
 
--- Display: Epochs Uint 324
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_uint_324.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Epochs Uint 324: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Epochs Uint 324
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_uint_324.dissect = function(buffer, offset, packet, parent)
   local length = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_uint_324.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.epochs_uint_324.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_uint_324, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_uint_324
+  if taifex_taifexderivatives_dropcopy_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.epochs_uint_324_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -605,20 +608,20 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.header_epoch_s = {}
 -- Size: Header Epoch S
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.header_epoch_s.size = 4
 
--- Display: Header Epoch S
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.header_epoch_s.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Header Epoch S: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Header Epoch S
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.header_epoch_s.dissect = function(buffer, offset, packet, parent)
   local length = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.header_epoch_s.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.header_epoch_s.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_epoch_s, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_epoch_s
+  if taifex_taifexderivatives_dropcopy_tmp_v2_18_7.absolute_time_base == 1 then field = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7.fields.header_epoch_s_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

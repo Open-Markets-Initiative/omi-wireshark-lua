@@ -180,7 +180,8 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.exec_ref_id = ProtoFiel
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.execution_method = ProtoField.new("Execution Method", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.executionmethod", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.executor_id = ProtoField.new("Executor Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.executorid", ftypes.UINT32)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.executor_qualified_role = ProtoField.new("Executor Qualified Role", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.executorqualifiedrole", ftypes.UINT8)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.expire_time = ProtoField.new("Expire Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.expiretime", ftypes.UINT64)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.expire_time = ProtoField.new("Expire Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.fee_code = ProtoField.new("Fee Code", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.feecode", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.gross_trade_amt = ProtoField.new("Gross Trade Amt", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.grosstradeamt", ftypes.DOUBLE)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.id_source = ProtoField.new("Id Source", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.idsource", ftypes.STRING)
@@ -1062,7 +1063,8 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.order_restated_v_2_retu
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.order_restated_v_2_return_bitfield_9_order_category = ProtoField.new("Order Restated V 2 Return Bitfield 9 Order Category", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.orderrestatedv2returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.order_restated_v_2_return_bitfield_9_target_party_id = ProtoField.new("Order Restated V 2 Return Bitfield 9 Target Party Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.orderrestatedv2returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.origclordid", ftypes.STRING, nil, nil, nil, "Corresponds to OrigClOrdID (41) in Bats FIX. ClOrdID of the order to cancel.")
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.orig_time = ProtoField.new("Orig Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.origtime", ftypes.UINT64, nil, nil, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.orig_time = ProtoField.new("Orig Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.orig_time_utc = ProtoField.new("Orig Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.param_group = ProtoField.new("Param Group", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.paramgroup", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfParamGroups times.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.paramgrouplength", ftypes.UINT16, nil, nil, nil, "Number of bytes for the parameter group, in- cluding this field.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.paramgrouptype", ftypes.UINT8, nil, nil, nil, "0x80")
@@ -1079,14 +1081,16 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.restatement_reason = Pr
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.routstrategy", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.route_delivery_method = ProtoField.new("Route Delivery Method", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.routedeliverymethod", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.routinginst", ftypes.STRING)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.rpttime", ftypes.UINT64)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.rpttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.rpt_time_utc = ProtoField.new("Rpt Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.rpttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.secondaryorderid", ftypes.UINT64)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.secondary_trd_type = ProtoField.new("Secondary Trd Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.secondarytrdtype", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.securityexchange", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.security_id = ProtoField.new("Security Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.securityid", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.sequencenumber", ftypes.UINT32, nil, nil, nil, "The sequence number for this message. Cboe-to-Member messages sequenced distinctly per matching unit; Member-to-Cboe sequenced across all matching units with a single stream.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.sessionsubid", ftypes.STRING, nil, nil, nil, "Session Sub ID supplied by Bats.")
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.settlement_date = ProtoField.new("Settlement Date", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.settlementdate", ftypes.UINT64)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.settlement_date = ProtoField.new("Settlement Date", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.settlementdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.settlement_date_utc = ProtoField.new("Settlement Date", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.settlementdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.settlementprice", ftypes.DOUBLE)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.side = ProtoField.new("Side", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.side", ftypes.STRING, nil, nil, nil, "Corresponds to Side (54) in Bats FIX. 1 = Buy 2 = Sell 5 = Sell Short 6 = Sell Short Exempt H = Sell Undisclosed")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.startofmessage", ftypes.UINT16, nil, nil, nil, "BA BA (47802). Two initial bytes present to aid in message reassembly for network capture purposes.")
@@ -1783,10 +1787,12 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_report_ref_id = P
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_report_trans_type = ProtoField.new("Trade Report Trans Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradereporttranstype", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_report_type = ProtoField.new("Trade Report Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradereporttype", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_report_type_return = ProtoField.new("Trade Report Type Return", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradereporttypereturn", ftypes.UINT16)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_time = ProtoField.new("Trade Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradetime", ftypes.UINT64)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_time = ProtoField.new("Trade Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_time_utc = ProtoField.new("Trade Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradingsessionsubid", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.transactioncategory", ftypes.STRING)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the event occurred in the Bats match- ing engine (not the time the message was sent).")
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Bats match- ing engine (not the time the message was sent).")
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Bats match- ing engine (not the time the message was sent).")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trd_cap_ack_side_grp = ProtoField.new("Trd Cap Ack Side Grp", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.trdcapacksidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trd_cap_rpt_side_grp = ProtoField.new("Trd Cap Rpt Side Grp", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.trdcaprptsidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.trdsubtype", ftypes.UINT8)
@@ -1964,6 +1970,20 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trd_cap_rpt_side_grp_in
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.units_index = ProtoField.new("Units Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.unitsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cboe BxeEquities BinaryOrderEntry Boe 2.0.30 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -1983,6 +2003,8 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.show_headers = Pref.bool
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs_changed()
 
@@ -2001,6 +2023,9 @@ function omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs_changed()
   end
   if show.indexes ~= omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.show_indexes then
     show.indexes = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.show_indexes
+  end
+  if cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base ~= omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.absolute_time_base then
+    cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.prefs.absolute_time_base
   end
 end
 
@@ -3285,23 +3310,20 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.expire_time = {}
 -- Size: Expire Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.expire_time.size = 8
 
--- Display: Expire Time
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Expire Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.expire_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.expire_time
+  if cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base == 1 then field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4860,23 +4882,20 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.orig_time = {}
 -- Size: Orig Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.orig_time.size = 8
 
--- Display: Orig Time
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.orig_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Orig Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.orig_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.orig_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.orig_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.orig_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.orig_time
+  if cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base == 1 then field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.orig_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5513,23 +5532,20 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.rpt_time = {}
 -- Size: Rpt Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.rpt_time.size = 8
 
--- Display: Rpt Time
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.rpt_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Rpt Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Rpt Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.rpt_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.rpt_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.rpt_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.rpt_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.rpt_time
+  if cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base == 1 then field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.rpt_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5726,23 +5742,20 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.settlement_date = {}
 -- Size: Settlement Date
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.settlement_date.size = 8
 
--- Display: Settlement Date
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.settlement_date.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Settlement Date: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Settlement Date
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.settlement_date.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.settlement_date.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.settlement_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.settlement_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.settlement_date
+  if cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base == 1 then field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.settlement_date_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6380,23 +6393,20 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_time = {}
 -- Size: Trade Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_time.size = 8
 
--- Display: Trade Time
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trade Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_time
+  if cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base == 1 then field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6495,23 +6505,20 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.transaction_time = {}
 -- Size: Transaction Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.transaction_time.size = 8
 
--- Display: Transaction Time
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.transaction_time
+  if cboe_bxeequities_binaryorderentry_boe_v2_0_30.absolute_time_base == 1 then field = omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

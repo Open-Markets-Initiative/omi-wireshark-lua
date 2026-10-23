@@ -83,7 +83,8 @@ omi_siac_opra_output_obi_v6_3_a.fields.reserved_1 = ProtoField.new("Reserved 1",
 omi_siac_opra_output_obi_v6_3_a.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.opra.output.obi.v6.3.a.reserved128", ftypes.BYTES, nil, nil, nil, "One hundred twenty-eight reserved bytes")
 omi_siac_opra_output_obi_v6_3_a.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.output.obi.v6.3.a.reserved4", ftypes.BYTES, nil, nil, nil, "Four reserved bytes")
 omi_siac_opra_output_obi_v6_3_a.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.output.obi.v6.3.a.retransmissionindicator", ftypes.STRING, nil, nil, nil, "Contains either a space; not a retransmitted message or V; indicating a retransmission of the block.")
-omi_siac_opra_output_obi_v6_3_a.fields.seconds = ProtoField.new("Seconds", "siac.opra.output.obi.v6.3.a.seconds", ftypes.UINT32, nil, nil, nil, "Contains the number seconds from epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_opra_output_obi_v6_3_a.fields.seconds = ProtoField.new("Seconds", "siac.opra.output.obi.v6.3.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains the number seconds from epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_opra_output_obi_v6_3_a.fields.seconds_utc = ProtoField.new("Seconds", "siac.opra.output.obi.v6.3.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Contains the number seconds from epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_opra_output_obi_v6_3_a.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.output.obi.v6.3.a.securitysymbol", ftypes.STRING, nil, nil, nil, "Identifies the unique symbol assigned to the underlying security.")
 omi_siac_opra_output_obi_v6_3_a.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.output.obi.v6.3.a.securitysymbolshort", ftypes.STRING, nil, nil, nil, "Identifies the unique symbol assigned to the underlying security.")
 omi_siac_opra_output_obi_v6_3_a.fields.series_mapping_category = ProtoField.new("Series Mapping Category", "siac.opra.output.obi.v6.3.a.seriesmappingcategory", ftypes.STRING, nil, nil, nil, "Series Mapping Message Used To Report Mapping Information For Each Option Series To The Output Line It Is Assigned For The Current Opra Session")
@@ -2169,20 +2170,20 @@ siac_opra_output_obi_v6_3_a.seconds = {}
 -- Size: Seconds
 siac_opra_output_obi_v6_3_a.seconds.size = 4
 
--- Display: Seconds
-siac_opra_output_obi_v6_3_a.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_opra_output_obi_v6_3_a.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_opra_output_obi_v6_3_a.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_output_obi_v6_3_a.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_opra_output_obi_v6_3_a.fields.seconds
+  if siac_opra_output_obi_v6_3_a.absolute_time_base == 1 then field = omi_siac_opra_output_obi_v6_3_a.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

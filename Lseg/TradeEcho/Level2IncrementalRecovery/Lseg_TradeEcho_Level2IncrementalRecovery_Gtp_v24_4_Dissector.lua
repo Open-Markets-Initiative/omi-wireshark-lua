@@ -62,7 +62,8 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.static_circuit_bre
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.tcp_unit = ProtoField.new("Tcp Unit", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.tcpunit", ftypes.STRING, nil, nil, nil, "One unit on the tcp stream: the unit header and its payload messages")
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.tickid", ftypes.STRING, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated")
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated")
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.tradingstatus", ftypes.STRING, nil, nil, nil, "Current Trading status of the Instrument. Populated only when the message is sent at the end of individual order book snapshots during a trading session.")
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.unused_1 = ProtoField.new("Unused 1", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused")
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Unused")
@@ -93,6 +94,20 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.systematic_interna
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lseg TradeEcho Level2IncrementalRecovery Gtp 24.4 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -110,6 +125,8 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.show_application_me
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs_changed()
 
@@ -125,6 +142,9 @@ function omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs_changed()
   end
   if show.indexes ~= omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.show_indexes then
     show.indexes = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.show_indexes
+  end
+  if lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.absolute_time_base ~= omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.absolute_time_base then
+    lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.absolute_time_base = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.prefs.absolute_time_base
   end
 end
 
@@ -1421,23 +1441,20 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.timestamp = {}
 -- Size: Timestamp
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.timestamp.size = 8
 
--- Display: Timestamp
-lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.timestamp
+  if lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.absolute_time_base == 1 then field = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -95,7 +95,8 @@ omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.spread_type = 
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.system_status = ProtoField.new("System Status", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.systemstatus", ftypes.STRING)
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.tick = ProtoField.new("Tick", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.tick", ftypes.DOUBLE, nil, nil, nil, "Order Entry Price Tick of the Product")
-omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.timestamp", ftypes.UINT64, nil, nil, nil, "Matching Engine time")
+omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching Engine time")
+omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.timestamp_utc = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Matching Engine time")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.to_m_version = ProtoField.new("To M Version", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.tomversion", ftypes.STRING, nil, nil, nil, "E.g")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.total_volume = ProtoField.new("Total Volume", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.totalvolume", ftypes.UINT32, nil, nil, nil, "The aggregate amount of volume that has traded from the prior Trading Day")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.trade_date = ProtoField.new("Trade Date", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.tradedate", ftypes.UINT16, nil, nil, nil, "Business Trade Date")
@@ -134,6 +135,20 @@ omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.deprecated_ins
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.instrumentlegindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Miax OnyxFutures TopOfMarketRetransmission SesM 1.3.a Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -153,6 +168,8 @@ omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_structs = 
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs_changed()
 
@@ -171,6 +188,9 @@ function omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs_change
   end
   if show.indexes ~= omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_indexes then
     show.indexes = omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.show_indexes
+  end
+  if miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.absolute_time_base ~= omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.absolute_time_base then
+    miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.absolute_time_base = omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.prefs.absolute_time_base
   end
 end
 
@@ -2102,23 +2122,20 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.timestamp = {}
 -- Size: Timestamp
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.timestamp.size = 8
 
--- Display: Timestamp
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.timestamp
+  if miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.absolute_time_base == 1 then field = omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

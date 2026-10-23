@@ -50,7 +50,8 @@ omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.status_flag = ProtoField.new(
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.tag_length = ProtoField.new("Tag Length", "jpx.tseequities.marketbyorder.flex.v1.1.taglength", ftypes.UINT8, nil, nil, nil, "Length in bytes of the Tag Data including the Message Type byte")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.test_mode_flag = ProtoField.new("Test Mode Flag", "jpx.tseequities.marketbyorder.flex.v1.1.testmodeflag", ftypes.UINT8, nil, nil, nil, "Indicates production or test")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.time_microseconds = ProtoField.new("Time Microseconds", "jpx.tseequities.marketbyorder.flex.v1.1.timemicroseconds", ftypes.UINT32, nil, nil, nil, "Time to the nearest microsecond")
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.time_seconds = ProtoField.new("Time Seconds", "jpx.tseequities.marketbyorder.flex.v1.1.timeseconds", ftypes.UINT32, nil, nil, nil, "Set to UNIX time (seconds since 1970-01-01 00:00:00 UTC)")
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.time_seconds = ProtoField.new("Time Seconds", "jpx.tseequities.marketbyorder.flex.v1.1.timeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Set to UNIX time (seconds since 1970-01-01 00:00:00 UTC)")
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.time_seconds_utc = ProtoField.new("Time Seconds", "jpx.tseequities.marketbyorder.flex.v1.1.timeseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Set to UNIX time (seconds since 1970-01-01 00:00:00 UTC)")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.total_invalidation = ProtoField.new("Total Invalidation", "jpx.tseequities.marketbyorder.flex.v1.1.totalinvalidation", ftypes.UINT64, nil, nil, nil, "Total volume of invalidated orders in number of shares")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.total_number_of_packets = ProtoField.new("Total Number Of Packets", "jpx.tseequities.marketbyorder.flex.v1.1.totalnumberofpackets", ftypes.UINT8, nil, nil, nil, "Total packet count within a multi packet split set always 0 in arrowhead4 0")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.total_volume = ProtoField.new("Total Volume", "jpx.tseequities.marketbyorder.flex.v1.1.totalvolume", ftypes.UINT64, nil, nil, nil, "Total volume of executed orders in number of shares")
@@ -93,6 +94,15 @@ omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.timestamp = ProtoField.new("T
 -- Jpx TseEquities MarketByOrder Flex 1.1 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+jpx_tseequities_marketbyorder_flex_v1_1.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 jpx_tseequities_marketbyorder_flex_v1_1.format_timestamp = true
 
@@ -116,6 +126,8 @@ omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.show_headers = Pref.bool("Show
 omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs_changed()
 
@@ -134,6 +146,9 @@ function omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs_changed()
   end
   if jpx_tseequities_marketbyorder_flex_v1_1.format_timestamp ~= omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.format_timestamp then
     jpx_tseequities_marketbyorder_flex_v1_1.format_timestamp = omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.format_timestamp
+  end
+  if jpx_tseequities_marketbyorder_flex_v1_1.absolute_time_base ~= omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.absolute_time_base then
+    jpx_tseequities_marketbyorder_flex_v1_1.absolute_time_base = omi_jpx_tseequities_marketbyorder_flex_v1_1.prefs.absolute_time_base
   end
 end
 
@@ -1274,20 +1289,20 @@ jpx_tseequities_marketbyorder_flex_v1_1.time_seconds.generated = function(value,
   time_seconds:set_generated()
 end
 
--- Display: Time Seconds
-jpx_tseequities_marketbyorder_flex_v1_1.time_seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Time Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Time Seconds
 jpx_tseequities_marketbyorder_flex_v1_1.time_seconds.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_marketbyorder_flex_v1_1.time_seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = jpx_tseequities_marketbyorder_flex_v1_1.time_seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.time_seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.time_seconds
+  if jpx_tseequities_marketbyorder_flex_v1_1.absolute_time_base == 1 then field = omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.time_seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

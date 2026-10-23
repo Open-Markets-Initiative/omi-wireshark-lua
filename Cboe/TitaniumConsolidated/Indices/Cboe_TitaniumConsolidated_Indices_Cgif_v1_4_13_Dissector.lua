@@ -41,7 +41,8 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.msg_seq_num = ProtoFie
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.no_channels = ProtoField.new("No Channels", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nochannels", ftypes.UINT8, nil, nil, nil, "Number of Channels in this message.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.no_md_entries = ProtoField.new("No Md Entries", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nomdentries", ftypes.UINT8, nil, nil, nil, "Number of MDEntries in this message. Will not exceed 255.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.number_of_messages = ProtoField.new("Number Of Messages", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.numberofmessages", ftypes.UINT8, nil, nil, nil, "The number of messages in this packet.")
-omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time = ProtoField.new("Sending Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.sendingtime", ftypes.UINT64, nil, nil, nil, "The time the packet was sent. Millisecond timestamp from midnight January 1, 1970 UTC.")
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time = ProtoField.new("Sending Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the packet was sent. Millisecond timestamp from midnight January 1, 1970 UTC.")
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time_utc = ProtoField.new("Sending Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the packet was sent. Millisecond timestamp from midnight January 1, 1970 UTC.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.status = ProtoField.new("Status", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.status", ftypes.UINT8, nil, nil, nil, "Status of index. 1 = Active (loaded and a business day), 2 = Inactive (loaded and not a business day), 3 = Deleted (no longer distributed; removed from the feed after 30 days).")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.summary_type = ProtoField.new("Summary Type", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.summarytype", ftypes.STRING, nil, nil, nil, "Type of summary message.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.symbol = ProtoField.new("Symbol", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbol", ftypes.STRING)
@@ -72,6 +73,20 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.md_entries_index = Pro
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -91,6 +106,8 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_structs = Pref.boo
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs_changed()
 
@@ -109,6 +126,9 @@ function omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs_changed()
   end
   if show.indexes ~= omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes then
     show.indexes = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes
+  end
+  if cboe_titaniumconsolidated_indices_cgif_v1_4_13.absolute_time_base ~= omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.absolute_time_base then
+    cboe_titaniumconsolidated_indices_cgif_v1_4_13.absolute_time_base = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.absolute_time_base
   end
 end
 
@@ -654,23 +674,20 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.sending_time = {}
 -- Size: Sending Time
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.sending_time.size = 8
 
--- Display: Sending Time
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.sending_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Sending Time
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_indices_cgif_v1_4_13.sending_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time
+  if cboe_titaniumconsolidated_indices_cgif_v1_4_13.absolute_time_base == 1 then field = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

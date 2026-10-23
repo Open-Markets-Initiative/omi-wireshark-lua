@@ -177,14 +177,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -315,7 +321,7 @@ finra_finraorf_tdds_dfi_v2_1.closing_price.dissect = function(buffer, offset, pa
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price, range, value, "Closing Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -496,7 +502,7 @@ finra_finraorf_tdds_dfi_v2_1.daily_high_price.dissect = function(buffer, offset,
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_high_price, range, value, "Daily High Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Daily High Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -550,7 +556,7 @@ finra_finraorf_tdds_dfi_v2_1.daily_low_price.dissect = function(buffer, offset, 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_low_price, range, value, "Daily Low Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Daily Low Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -666,7 +672,7 @@ finra_finraorf_tdds_dfi_v2_1.high_price.dissect = function(buffer, offset, packe
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.high_price, range, value, "High Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -751,7 +757,7 @@ finra_finraorf_tdds_dfi_v2_1.last_sale_price.dissect = function(buffer, offset, 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.last_sale_price, range, value, "Last Sale Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Last Sale Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -858,7 +864,7 @@ finra_finraorf_tdds_dfi_v2_1.low_price.dissect = function(buffer, offset, packet
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.low_price, range, value, "Low Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1076,7 +1082,7 @@ finra_finraorf_tdds_dfi_v2_1.net_change_amount.dissect = function(buffer, offset
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_amount, range, value, "Net Change Amount: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Net Change Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1633,7 +1639,7 @@ finra_finraorf_tdds_dfi_v2_1.total_security_volume.dissect = function(buffer, of
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.total_security_volume, range, value, "Total Security Volume: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Total Security Volume is not a number: '"..range:string().."'")
     return offset + length, value

@@ -34,7 +34,8 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.execution_id = ProtoField
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.firm_id = ProtoField.new("Firm Id", "otcmarkets.moonats.retransmission.link.v1.3.firmid", ftypes.STRING, nil, nil, nil, "Firm's MPID.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.full_closing_price = ProtoField.new("Full Closing Price", "otcmarkets.moonats.retransmission.link.v1.3.fullclosingprice", ftypes.DOUBLE, nil, nil, nil, "The calculated closing price. The long value represents the price scaled by 1,000,000 (6 decimal places).")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_seq_num = ProtoField.new("Last Seq Num", "otcmarkets.moonats.retransmission.link.v1.3.lastseqnum", ftypes.UINT32, nil, nil, nil, "Snapshot last sequence number to sync up with real time data. Start processing real time data from LastSeqNum + 1.")
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.moonats.retransmission.link.v1.3.lastupdatemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds from UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.moonats.retransmission.link.v1.3.lastupdatemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds from UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_update_milli_utc = ProtoField.new("Last Update Milli", "otcmarkets.moonats.retransmission.link.v1.3.lastupdatemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds from UTC epoch.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.login_status = ProtoField.new("Login Status", "otcmarkets.moonats.retransmission.link.v1.3.loginstatus", ftypes.UINT8, nil, nil, nil, "Always \"Y\". If it is an invalid userid, system will close socket after 5 seconds without sending back a login response. Field renamed from \"Status\" in the PDF to disambiguate from sibling Status fields.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_size = ProtoField.new("Message Size", "otcmarkets.moonats.retransmission.link.v1.3.messagesize", ftypes.UINT16, nil, nil, nil, "Size of message plus header size in bytes")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_type = ProtoField.new("Message Type", "otcmarkets.moonats.retransmission.link.v1.3.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
@@ -49,7 +50,8 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.piggyback_flag = ProtoFie
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.price = ProtoField.new("Price", "otcmarkets.moonats.retransmission.link.v1.3.price", ftypes.DOUBLE, nil, nil, nil, "The limit order price. The long value represents the price scaled by 1,000,000 (6 decimal places).")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.qib_only_144_a = ProtoField.new("Qib Only 144 A", "otcmarkets.moonats.retransmission.link.v1.3.qibonly144a", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "\"144A QIB Only\" in the PDF. Indicates that the security may only be purchased or sold by Qualified Institutional Buyers (QIBs) or agents acting on behalf of QIBs.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.quantity = ProtoField.new("Quantity", "otcmarkets.moonats.retransmission.link.v1.3.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book.")
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.moonats.retransmission.link.v1.3.recoverystarttime", ftypes.UINT64, nil, nil, nil, "Expected time recovery spin will start.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.moonats.retransmission.link.v1.3.recoverystarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expected time recovery spin will start.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.recovery_start_time_utc = ProtoField.new("Recovery Start Time", "otcmarkets.moonats.retransmission.link.v1.3.recoverystarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expected time recovery spin will start.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.recovery_type = ProtoField.new("Recovery Type", "otcmarkets.moonats.retransmission.link.v1.3.recoverytype", ftypes.UINT8, nil, nil, nil, "Recovery event type.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "otcmarkets.moonats.retransmission.link.v1.3.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares remaining after the execution. Will be zero if fully filled.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.reporting_status = ProtoField.new("Reporting Status", "otcmarkets.moonats.retransmission.link.v1.3.reportingstatus", ftypes.STRING, nil, nil, nil, "Reporting status of the security.")
@@ -61,12 +63,15 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.security_action = ProtoFi
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.security_flags = ProtoField.new("Security Flags", "otcmarkets.moonats.retransmission.link.v1.3.securityflags", ftypes.STRING, nil, nil, nil, "This flag notes security level attributes and is only included in the Security Message.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.security_id = ProtoField.new("Security Id", "otcmarkets.moonats.retransmission.link.v1.3.securityid", ftypes.UINT32, nil, nil, nil, "Unique security ID issued by OTC Markets.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.security_status = ProtoField.new("Security Status", "otcmarkets.moonats.retransmission.link.v1.3.securitystatus", ftypes.STRING, nil, nil, nil, "Security trading status.")
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.session_time = ProtoField.new("Session Time", "otcmarkets.moonats.retransmission.link.v1.3.sessiontime", ftypes.UINT64, nil, nil, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.session_time = ProtoField.new("Session Time", "otcmarkets.moonats.retransmission.link.v1.3.sessiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.session_time_utc = ProtoField.new("Session Time", "otcmarkets.moonats.retransmission.link.v1.3.sessiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.side_indicator = ProtoField.new("Side Indicator", "otcmarkets.moonats.retransmission.link.v1.3.sideindicator", ftypes.STRING, nil, nil, nil, "\"B\" = Buy Order, \"S\" = Sell Order.")
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.moonats.retransmission.link.v1.3.spinendtimemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.moonats.retransmission.link.v1.3.spinendtimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_end_time_milli_utc = ProtoField.new("Spin End Time Milli", "otcmarkets.moonats.retransmission.link.v1.3.spinendtimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_last_seq_num = ProtoField.new("Spin Last Seq Num", "otcmarkets.moonats.retransmission.link.v1.3.spinlastseqnum", ftypes.UINT32, nil, nil, nil, "Ignore, not used.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otcmarkets.moonats.retransmission.link.v1.3.spinmsgct", ftypes.UINT32, nil, nil, nil, "Total messages in spin.")
-omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.moonats.retransmission.link.v1.3.spinstarttimemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.moonats.retransmission.link.v1.3.spinstarttimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_start_time_milli_utc = ProtoField.new("Spin Start Time Milli", "otcmarkets.moonats.retransmission.link.v1.3.spinstarttimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_status = ProtoField.new("Spin Status", "otcmarkets.moonats.retransmission.link.v1.3.spinstatus", ftypes.UINT8, nil, nil, nil, "\"S\" Start of Spin or \"E\" End of Spin. Field renamed from \"Status\" in the PDF to disambiguate from sibling Status fields.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_type = ProtoField.new("Spin Type", "otcmarkets.moonats.retransmission.link.v1.3.spintype", ftypes.UINT8, nil, nil, nil, "Spin type.")
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.start_sequence = ProtoField.new("Start Sequence", "otcmarkets.moonats.retransmission.link.v1.3.startsequence", ftypes.UINT32, nil, nil, nil, "Start sequence number.")
@@ -108,6 +113,20 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.trade_message = ProtoFiel
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.trading_session_message = ProtoField.new("Trading Session Message", "otcmarkets.moonats.retransmission.link.v1.3.tradingsessionmessage", ftypes.STRING, nil, nil, nil, "Appears in the TCP spin response payload (and on all UDP channels). Sent at the start of each MOON trading session: Order Acceptance at 7:30 PM, Market Open at 8:00 PM, Market Close at 4 AM.")
 
 -----------------------------------------------------------------------
+-- OtcMarkets MoonAts Retransmission Link 1.3 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -123,6 +142,8 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_application_messages 
 omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_otcmarkets_moonats_retransmission_link_v1_3.prefs_changed()
 
@@ -135,6 +156,9 @@ function omi_otcmarkets_moonats_retransmission_link_v1_3.prefs_changed()
   end
   if show.structs ~= omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_structs then
     show.structs = omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_structs
+  end
+  if otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base ~= omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.absolute_time_base then
+    otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base = omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.absolute_time_base
   end
 end
 
@@ -591,23 +615,20 @@ otcmarkets_moonats_retransmission_link_v1_3.last_update_milli = {}
 -- Size: Last Update Milli
 otcmarkets_moonats_retransmission_link_v1_3.last_update_milli.size = 8
 
--- Display: Last Update Milli
-otcmarkets_moonats_retransmission_link_v1_3.last_update_milli.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Last Update Milli: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Last Update Milli
 otcmarkets_moonats_retransmission_link_v1_3.last_update_milli.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_moonats_retransmission_link_v1_3.last_update_milli.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_moonats_retransmission_link_v1_3.last_update_milli.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_update_milli, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_update_milli
+  if otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.last_update_milli_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -987,23 +1008,20 @@ otcmarkets_moonats_retransmission_link_v1_3.recovery_start_time = {}
 -- Size: Recovery Start Time
 otcmarkets_moonats_retransmission_link_v1_3.recovery_start_time.size = 8
 
--- Display: Recovery Start Time
-otcmarkets_moonats_retransmission_link_v1_3.recovery_start_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Recovery Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Recovery Start Time
 otcmarkets_moonats_retransmission_link_v1_3.recovery_start_time.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_moonats_retransmission_link_v1_3.recovery_start_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_moonats_retransmission_link_v1_3.recovery_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_moonats_retransmission_link_v1_3.fields.recovery_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.recovery_start_time
+  if otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.recovery_start_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1308,23 +1326,20 @@ otcmarkets_moonats_retransmission_link_v1_3.session_time = {}
 -- Size: Session Time
 otcmarkets_moonats_retransmission_link_v1_3.session_time.size = 8
 
--- Display: Session Time
-otcmarkets_moonats_retransmission_link_v1_3.session_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Session Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Session Time
 otcmarkets_moonats_retransmission_link_v1_3.session_time.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_moonats_retransmission_link_v1_3.session_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_moonats_retransmission_link_v1_3.session_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_moonats_retransmission_link_v1_3.fields.session_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.session_time
+  if otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.session_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1365,23 +1380,20 @@ otcmarkets_moonats_retransmission_link_v1_3.spin_end_time_milli = {}
 -- Size: Spin End Time Milli
 otcmarkets_moonats_retransmission_link_v1_3.spin_end_time_milli.size = 8
 
--- Display: Spin End Time Milli
-otcmarkets_moonats_retransmission_link_v1_3.spin_end_time_milli.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Spin End Time Milli: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Spin End Time Milli
 otcmarkets_moonats_retransmission_link_v1_3.spin_end_time_milli.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_moonats_retransmission_link_v1_3.spin_end_time_milli.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_moonats_retransmission_link_v1_3.spin_end_time_milli.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_end_time_milli, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_end_time_milli
+  if otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_end_time_milli_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1438,23 +1450,20 @@ otcmarkets_moonats_retransmission_link_v1_3.spin_start_time_milli = {}
 -- Size: Spin Start Time Milli
 otcmarkets_moonats_retransmission_link_v1_3.spin_start_time_milli.size = 8
 
--- Display: Spin Start Time Milli
-otcmarkets_moonats_retransmission_link_v1_3.spin_start_time_milli.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Spin Start Time Milli: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Spin Start Time Milli
 otcmarkets_moonats_retransmission_link_v1_3.spin_start_time_milli.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_moonats_retransmission_link_v1_3.spin_start_time_milli.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_moonats_retransmission_link_v1_3.spin_start_time_milli.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_start_time_milli, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_start_time_milli
+  if otcmarkets_moonats_retransmission_link_v1_3.absolute_time_base == 1 then field = omi_otcmarkets_moonats_retransmission_link_v1_3.fields.spin_start_time_milli_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

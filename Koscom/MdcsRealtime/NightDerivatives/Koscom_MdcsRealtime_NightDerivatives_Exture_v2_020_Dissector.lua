@@ -447,14 +447,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -625,7 +631,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_volume.di
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1996,7 +2002,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_trading_volume.dissect = 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_trading_volume, range, value, "Ask Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3580,7 +3586,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_trading_volume.dissect = 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_trading_volume, range, value, "Bid Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4636,7 +4642,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.efp_trading_volume.dissect = 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.efp_trading_volume, range, value, "Efp Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Efp Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6442,7 +6448,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.number_of_previous_days_tradi
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.number_of_previous_days_trading, range, value, "Number Of Previous Days Trading: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Number Of Previous Days Trading is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6625,7 +6631,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.open_interest.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.open_interest, range, value, "Open Interest: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Open Interest is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6656,7 +6662,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.open_interest_limit_quantity.
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.open_interest_limit_quantity, range, value, "Open Interest Limit Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Open Interest Limit Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7013,7 +7019,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_open_interest.d
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_open_interest, range, value, "Previous Days Open Interest: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Previous Days Open Interest is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7172,7 +7178,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_total_accumulat
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_total_accumulated_trading_volume, range, value, "Previous Days Total Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Previous Days Total Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -8026,7 +8032,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_ask_trading_volume.dis
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.spread_ask_trading_volume, range, value, "Spread Ask Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Spread Ask Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -8102,7 +8108,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_bid_trading_volume.dis
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.spread_bid_trading_volume, range, value, "Spread Bid Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Spread Bid Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -8895,7 +8901,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.total_accumulated_trading_vol
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_accumulated_trading_volume, range, value, "Total Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Total Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -10760,7 +10766,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_accumulated_tradin
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.yesterdays_accumulated_trading_amount, range, value, "Yesterdays Accumulated Trading Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Yesterdays Accumulated Trading Amount is not a number: '"..range:string().."'")
     return offset + length, value

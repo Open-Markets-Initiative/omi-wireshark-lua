@@ -89,7 +89,8 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.risk_group_id = ProtoField.new("Risk
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.schema_id = ProtoField.new("Schema Id", "ltse.ltseequities.memo.sbe.v1.12.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.security_group = ProtoField.new("Security Group", "ltse.ltseequities.memo.sbe.v1.12.securitygroup", ftypes.STRING, nil, nil, nil, "SecurityGroup")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "ltse.ltseequities.memo.sbe.v1.12.selftradeprevention", ftypes.UINT8, nil, nil, nil, "SelfTradePrevention")
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.sending_time = ProtoField.new("Sending Time", "ltse.ltseequities.memo.sbe.v1.12.sendingtime", ftypes.UINT64, nil, nil, nil, "SendingTime")
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.sending_time = ProtoField.new("Sending Time", "ltse.ltseequities.memo.sbe.v1.12.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.sending_time_utc = ProtoField.new("Sending Time", "ltse.ltseequities.memo.sbe.v1.12.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.ltseequities.memo.sbe.v1.12.sequencedmessage", ftypes.STRING, nil, nil, nil, "Ltse Tcp sequenced message")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "ltse.ltseequities.memo.sbe.v1.12.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by Ltse to the firm")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.session_id = ProtoField.new("Session Id", "ltse.ltseequities.memo.sbe.v1.12.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -147,6 +148,15 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.pending_mass_cancel_message = ProtoF
 -- Ltse LtseEquities Memo Sbe 1.12 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+ltse_ltseequities_memo_sbe_v1_12.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -174,6 +184,8 @@ omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_structs = Pref.bool("Show Struct
 omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
+omi_ltse_ltseequities_memo_sbe_v1_12.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_ltse_ltseequities_memo_sbe_v1_12.prefs_changed()
 
@@ -186,6 +198,9 @@ function omi_ltse_ltseequities_memo_sbe_v1_12.prefs_changed()
   end
   if show.structs ~= omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_structs then
     show.structs = omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_structs
+  end
+  if ltse_ltseequities_memo_sbe_v1_12.absolute_time_base ~= omi_ltse_ltseequities_memo_sbe_v1_12.prefs.absolute_time_base then
+    ltse_ltseequities_memo_sbe_v1_12.absolute_time_base = omi_ltse_ltseequities_memo_sbe_v1_12.prefs.absolute_time_base
   end
 end
 
@@ -2822,23 +2837,20 @@ ltse_ltseequities_memo_sbe_v1_12.sending_time = {}
 -- Size: Sending Time
 ltse_ltseequities_memo_sbe_v1_12.sending_time.size = 8
 
--- Display: Sending Time
-ltse_ltseequities_memo_sbe_v1_12.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 ltse_ltseequities_memo_sbe_v1_12.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = ltse_ltseequities_memo_sbe_v1_12.sending_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = ltse_ltseequities_memo_sbe_v1_12.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ltse_ltseequities_memo_sbe_v1_12.fields.sending_time
+  if ltse_ltseequities_memo_sbe_v1_12.absolute_time_base == 1 then field = omi_ltse_ltseequities_memo_sbe_v1_12.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

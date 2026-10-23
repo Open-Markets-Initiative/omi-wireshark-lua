@@ -31,7 +31,8 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.sequence_number = Pr
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.session = ProtoField.new("Session", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.stock = ProtoField.new("Stock", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.stock", ftypes.STRING, nil, nil, nil, "The security symbol for the issue, in Nasdaq symbology.")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.stock_locate = ProtoField.new("Stock Locate", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.stocklocate", ftypes.UINT16, nil, nil, nil, "Always 0")
-omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.timestamp", ftypes.UINT64, nil, nil, nil, "Time stamp")
+omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp")
+omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp_utc = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamp")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.trading_state = ProtoField.new("Trading State", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.tradingstate", ftypes.STRING, nil, nil, nil, "The current trading state for the issue.")
 
 -- BruceAts BruceEquities BestBidAndOffer Itch 3.3 Framing
@@ -56,6 +57,20 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.message_index = Prot
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- BruceAts BruceEquities BestBidAndOffer Itch 3.3 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+bruceats_bruceequities_bestbidandoffer_itch_v3_3.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -75,6 +90,8 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_application_mess
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs_changed()
 
@@ -93,6 +110,9 @@ function omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs_changed()
   end
   if show.sequences ~= omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_sequences then
     show.sequences = omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_sequences
+  end
+  if bruceats_bruceequities_bestbidandoffer_itch_v3_3.absolute_time_base ~= omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.absolute_time_base then
+    bruceats_bruceequities_bestbidandoffer_itch_v3_3.absolute_time_base = omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.absolute_time_base
   end
 end
 
@@ -593,23 +613,20 @@ bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp = {}
 -- Size: Timestamp
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp.size = 8
 
--- Display: Timestamp
-bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp
+  if bruceats_bruceequities_bestbidandoffer_itch_v3_3.absolute_time_base == 1 then field = omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

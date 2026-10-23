@@ -805,14 +805,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -2821,7 +2827,7 @@ tmx_mx_solamulticast_hsvf_v1_11.historical_coupon_b.dissect = function(buffer, o
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_b, range, value, "Historical Coupon B: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_11.experts.not_a_number, "Historical Coupon B is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4479,7 +4485,7 @@ tmx_mx_solamulticast_hsvf_v1_11.net_present_value_a.dissect = function(buffer, o
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.net_present_value_a, range, value, "Net Present Value A: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_11.experts.not_a_number, "Net Present Value A is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5686,7 +5692,7 @@ tmx_mx_solamulticast_hsvf_v1_11.price_alignment_interest_c.dissect = function(bu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.price_alignment_interest_c, range, value, "Price Alignment Interest C: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_11.experts.not_a_number, "Price Alignment Interest C is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6363,7 +6369,7 @@ tmx_mx_solamulticast_hsvf_v1_11.raw_historical_coupon_b.dissect = function(buffe
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.raw_historical_coupon_b, range, value, "Raw Historical Coupon B: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_11.experts.not_a_number, "Raw Historical Coupon B is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6859,7 +6865,7 @@ tmx_mx_solamulticast_hsvf_v1_11.raw_net_present_value_a.dissect = function(buffe
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.raw_net_present_value_a, range, value, "Raw Net Present Value A: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_11.experts.not_a_number, "Raw Net Present Value A is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7107,7 +7113,7 @@ tmx_mx_solamulticast_hsvf_v1_11.raw_price_alignment_interest_c.dissect = functio
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.raw_price_alignment_interest_c, range, value, "Raw Price Alignment Interest C: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_11.experts.not_a_number, "Raw Price Alignment Interest C is not a number: '"..range:string().."'")
     return offset + length, value

@@ -65,7 +65,8 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.requested_sessio
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.reserved_bits_14_to_16 = ProtoField.new("Reserved Bits 14 To 16", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.reservedbits14to16", ftypes.UINT16, nil, base.DEC, 0xE000, "Reserved, values 8192 and above are not stated")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.reserved_bits_7_to_10 = ProtoField.new("Reserved Bits 7 To 10", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.reservedbits7to10", ftypes.UINT16, nil, base.DEC, 0x03C0, "Reserved, values 64 through 512 are not stated")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represents a round lot for the issue")
-omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.second", ftypes.UINT32, nil, nil, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second_utc = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.sequencenumber", ftypes.STRING, nil, nil, nil, "Genium INET ITCH SoupBinTCP sequence number when the snapshot was taken. To be used when logging in to the SoupBinTCP ITCH feed. NOTE: While GLIMPSE is a binary feed, the SoupBinTCP uses ASCII characters to represent the sequence number")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -123,6 +124,15 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts = { nasdaq_nord
 -- Nasdaq NordicDerivatives DepthOfBook Glimpse 2.22.4 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.format_timestamp = true
 
@@ -158,6 +168,8 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_session_mess
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs_changed()
 
@@ -179,6 +191,9 @@ function omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs_changed(
   end
   if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.format_timestamp ~= omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.format_timestamp then
     nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.format_timestamp = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.format_timestamp
+  end
+  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base ~= omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.absolute_time_base then
+    nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.absolute_time_base
   end
 end
 
@@ -252,14 +267,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -285,7 +306,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.accepted_sequence_number.di
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1268,7 +1289,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.requested_sequence_number.d
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1343,20 +1364,20 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.generated = function
   second:set_generated()
 end
 
--- Display: Second
-nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second
+  if nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -24,7 +24,8 @@ omi_nse_nsecd_snapshot_binary_v6_8.fields.price = ProtoField.new("Price", "nse.n
 omi_nse_nsecd_snapshot_binary_v6_8.fields.quantity = ProtoField.new("Quantity", "nse.nsecd.snapshot.binary.v6.8.quantity", ftypes.INT32, nil, nil, nil, "Quantity of the order")
 omi_nse_nsecd_snapshot_binary_v6_8.fields.size = ProtoField.new("Size", "nse.nsecd.snapshot.binary.v6.8.size", ftypes.INT32, nil, nil, nil, "Total size of the message, including snapshot header [4, Int]")
 omi_nse_nsecd_snapshot_binary_v6_8.fields.stream_id = ProtoField.new("Stream Id", "nse.nsecd.snapshot.binary.v6.8.streamid", ftypes.INT16, nil, nil, nil, "Identifies a particular stream [2, Short]")
-omi_nse_nsecd_snapshot_binary_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecd.snapshot.binary.v6.8.timestamp", ftypes.INT64, nil, nil, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsecd_snapshot_binary_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecd.snapshot.binary.v6.8.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsecd_snapshot_binary_v6_8.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsecd.snapshot.binary.v6.8.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nsecd_snapshot_binary_v6_8.fields.token = ProtoField.new("Token", "nse.nsecd.snapshot.binary.v6.8.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
 omi_nse_nsecd_snapshot_binary_v6_8.fields.trans_code = ProtoField.new("Trans Code", "nse.nsecd.snapshot.binary.v6.8.transcode", ftypes.INT16, nil, nil, nil, "Transcode of the message [2, Short]")
 
@@ -39,6 +40,20 @@ omi_nse_nsecd_snapshot_binary_v6_8.fields.new_spread_order_message = ProtoField.
 
 -- Nse NseCd Snapshot Binary 6.8 Generated Fields
 omi_nse_nsecd_snapshot_binary_v6_8.fields.message_index = ProtoField.new("Message Index", "nse.nsecd.snapshot.binary.v6.8.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Nse NseCd Snapshot Binary 6.8 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nse_nsecd_snapshot_binary_v6_8.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -58,6 +73,8 @@ omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_application_messages = Pref.bool("
 omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nse_nsecd_snapshot_binary_v6_8.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nse_nsecd_snapshot_binary_v6_8.prefs_changed()
 
@@ -73,6 +90,9 @@ function omi_nse_nsecd_snapshot_binary_v6_8.prefs_changed()
   end
   if show.indexes ~= omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_indexes then
     show.indexes = omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_indexes
+  end
+  if nse_nsecd_snapshot_binary_v6_8.absolute_time_base ~= omi_nse_nsecd_snapshot_binary_v6_8.prefs.absolute_time_base then
+    nse_nsecd_snapshot_binary_v6_8.absolute_time_base = omi_nse_nsecd_snapshot_binary_v6_8.prefs.absolute_time_base
   end
 end
 
@@ -314,30 +334,20 @@ nse_nsecd_snapshot_binary_v6_8.timestamp = {}
 -- Size: Timestamp
 nse_nsecd_snapshot_binary_v6_8.timestamp.size = 8
 
--- Display: Timestamp
-nse_nsecd_snapshot_binary_v6_8.timestamp.display = function(value)
-  -- Parse Dos epoch nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  -- a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "%Y-%m-%d %H:%M:%S.", seconds)
-
-  if not ok then
-    return "Timestamp: "..tostring(value)
-  end
-
-  return "Timestamp: "..text..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 nse_nsecd_snapshot_binary_v6_8.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecd_snapshot_binary_v6_8.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = nse_nsecd_snapshot_binary_v6_8.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_snapshot_binary_v6_8.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecd_snapshot_binary_v6_8.fields.timestamp
+  if nse_nsecd_snapshot_binary_v6_8.absolute_time_base == 1 then field = omi_nse_nsecd_snapshot_binary_v6_8.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

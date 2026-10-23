@@ -27,7 +27,8 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.alt_price = ProtoField.new("Alt Pri
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.alt_vwap = ProtoField.new("Alt Vwap", "ice.icefutures.mdf.impact.v1.1.43.altvwap", ftypes.INT64, nil, nil, nil, "Volume-weighted Average Eris Futures Price")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.aon = ProtoField.new("Aon", "ice.icefutures.mdf.impact.v1.1.43.aon", ftypes.STRING, nil, nil, nil, "Order is All-Or-None")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_date = ProtoField.new("Auction Date", "ice.icefutures.mdf.impact.v1.1.43.auctiondate", ftypes.STRING, nil, nil, nil, "Date format")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time = ProtoField.new("Auction End Time", "ice.icefutures.mdf.impact.v1.1.43.auctionendtime", ftypes.INT64, nil, nil, nil, "Date time the Auction will end")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time = ProtoField.new("Auction End Time", "ice.icefutures.mdf.impact.v1.1.43.auctionendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date time the Auction will end")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time_utc = ProtoField.new("Auction End Time", "ice.icefutures.mdf.impact.v1.1.43.auctionendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date time the Auction will end")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.begin_day = ProtoField.new("Begin Day", "ice.icefutures.mdf.impact.v1.1.43.beginday", ftypes.INT16)
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.begin_month = ProtoField.new("Begin Month", "ice.icefutures.mdf.impact.v1.1.43.beginmonth", ftypes.INT16, nil, nil, nil, "Month range 1-12")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.begin_year = ProtoField.new("Begin Year", "ice.icefutures.mdf.impact.v1.1.43.beginyear", ftypes.INT16, nil, nil, nil, "4 digit year")
@@ -39,8 +40,10 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.contract_symbol_extra = ProtoField.
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.cross_order_supported = ProtoField.new("Cross Order Supported", "ice.icefutures.mdf.impact.v1.1.43.crossordersupported", ftypes.STRING, nil, nil, nil, "Indicates if Cross Order is supported in the market. ‘Y’ or ‘N’")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.currency = ProtoField.new("Currency", "ice.icefutures.mdf.impact.v1.1.43.currency", ftypes.STRING, nil, nil, nil, "The currency that the market is traded on.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "ice.icefutures.mdf.impact.v1.1.43.dealpricedenominator", ftypes.STRING, nil, nil, nil, "Denominator for the deal price fields in the market. For most markets, this is the same as OrderPriceDenominator. However, it could be different for some crack or spread markets.")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "ice.icefutures.mdf.impact.v1.1.43.deliverybegindatetime", ftypes.INT64)
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "ice.icefutures.mdf.impact.v1.1.43.deliveryenddatetime", ftypes.INT64)
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "ice.icefutures.mdf.impact.v1.1.43.deliverybegindatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time_utc = ProtoField.new("Delivery Begin Date Time", "ice.icefutures.mdf.impact.v1.1.43.deliverybegindatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "ice.icefutures.mdf.impact.v1.1.43.deliveryenddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time_utc = ProtoField.new("Delivery End Date Time", "ice.icefutures.mdf.impact.v1.1.43.deliveryenddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.delta = ProtoField.new("Delta", "ice.icefutures.mdf.impact.v1.1.43.delta", ftypes.DOUBLE, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, delta of 3.00 will be sent as 300.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.description = ProtoField.new("Description", "ice.icefutures.mdf.impact.v1.1.43.description", ftypes.STRING, nil, nil, nil, "The auction runs twice daily at 10:30am and 3:00pm London time. The values disseminated via this field are: ‘GOLD_1030’, ‘GOLD_1500’")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.efp_volume = ProtoField.new("Efp Volume", "ice.icefutures.mdf.impact.v1.1.43.efpvolume", ftypes.INT32)
@@ -112,7 +115,8 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.is_up = ProtoField.new("Is Up", "ic
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.is_vertical_split = ProtoField.new("Is Vertical Split", "ice.icefutures.mdf.impact.v1.1.43.isverticalsplit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Indicates if the trade is a system priced leg from a composite strategy")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.isin = ProtoField.new("Isin", "ice.icefutures.mdf.impact.v1.1.43.isin", ftypes.STRING, nil, nil, nil, "The ISIN of the security this market is associated with. This is currently only populated for Liffe Equity markets.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence Id", "ice.icefutures.mdf.impact.v1.1.43.lastmessagesequenceid", ftypes.INT32, nil, nil, nil, "This should be used for synchronization with live update messages. Please see the main tech spec for details on how it can be done.")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "ice.icefutures.mdf.impact.v1.1.43.lasttradedatetime", ftypes.INT64, nil, nil, nil, "time of last trade")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "ice.icefutures.mdf.impact.v1.1.43.lasttradedatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "time of last trade")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time_utc = ProtoField.new("Last Trade Date Time", "ice.icefutures.mdf.impact.v1.1.43.lasttradedatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "time of last trade")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_price = ProtoField.new("Last Trade Price", "ice.icefutures.mdf.impact.v1.1.43.lasttradeprice", ftypes.INT64, nil, nil, nil, "DealPriceDenominator for the market should be applied to get the real price.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "ice.icefutures.mdf.impact.v1.1.43.lasttradequantity", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.leg_body_length = ProtoField.new("Leg Body Length", "ice.icefutures.mdf.impact.v1.1.43.legbodylength", ftypes.INT8, nil, nil, nil, "Message length, including this field, for a leg")
@@ -139,16 +143,20 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.maturity_month = ProtoField.new("Ma
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.maturity_year = ProtoField.new("Maturity Year", "ice.icefutures.mdf.impact.v1.1.43.maturityyear", ftypes.INT16, nil, nil, nil, "4 digit year")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.max_options_price = ProtoField.new("Max Options Price", "ice.icefutures.mdf.impact.v1.1.43.maxoptionsprice", ftypes.INT64, nil, nil, nil, "Maximum premium price for the option.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.max_price = ProtoField.new("Max Price", "ice.icefutures.mdf.impact.v1.1.43.maxprice", ftypes.INT64, nil, nil, nil, "Maximum Price, OrderPriceDenominator should be applied to this field")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time = ProtoField.new("Message Date Time", "ice.icefutures.mdf.impact.v1.1.43.messagedatetime", ftypes.INT64, nil, nil, nil, "Date time the trade was investigated")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp = ProtoField.new("Message Timestamp", "ice.icefutures.mdf.impact.v1.1.43.messagetimestamp", ftypes.INT64, nil, nil, nil, "Date time of the RFQ")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time = ProtoField.new("Message Date Time", "ice.icefutures.mdf.impact.v1.1.43.messagedatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date time the trade was investigated")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time_utc = ProtoField.new("Message Date Time", "ice.icefutures.mdf.impact.v1.1.43.messagedatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date time the trade was investigated")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp = ProtoField.new("Message Timestamp", "ice.icefutures.mdf.impact.v1.1.43.messagetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date time of the RFQ")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp_utc = ProtoField.new("Message Timestamp", "ice.icefutures.mdf.impact.v1.1.43.messagetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date time of the RFQ")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_type = ProtoField.new("Message Type", "ice.icefutures.mdf.impact.v1.1.43.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.mic_code = ProtoField.new("Mic Code", "ice.icefutures.mdf.impact.v1.1.43.miccode", ftypes.STRING, nil, nil, nil, "Market Identifier Code for the market.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.mifid_regulated_market = ProtoField.new("Mifid Regulated Market", "ice.icefutures.mdf.impact.v1.1.43.mifidregulatedmarket", ftypes.STRING, nil, nil, nil, "Indicates MIFID-II market. ‘Y’ or ‘N’")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.min_options_price = ProtoField.new("Min Options Price", "ice.icefutures.mdf.impact.v1.1.43.minoptionsprice", ftypes.INT64, nil, nil, nil, "Minimum premium price for the option.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.min_price = ProtoField.new("Min Price", "ice.icefutures.mdf.impact.v1.1.43.minprice", ftypes.INT64, nil, nil, nil, "Minimum Price, OrderPriceDenominator should be applied to this field")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.min_qty = ProtoField.new("Min Qty", "ice.icefutures.mdf.impact.v1.1.43.minqty", ftypes.INT32, nil, nil, nil, "Minimum quantity for this market")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp = ProtoField.new("Modification Timestamp", "ice.icefutures.mdf.impact.v1.1.43.modificationtimestamp", ftypes.INT64, nil, nil, nil, "This field can be used to get the order modification time")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time = ProtoField.new("Notification Date Time", "ice.icefutures.mdf.impact.v1.1.43.notificationdatetime", ftypes.INT64, nil, nil, nil, "Date time of the IPL Hold notification")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp = ProtoField.new("Modification Timestamp", "ice.icefutures.mdf.impact.v1.1.43.modificationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field can be used to get the order modification time")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp_utc = ProtoField.new("Modification Timestamp", "ice.icefutures.mdf.impact.v1.1.43.modificationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field can be used to get the order modification time")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time = ProtoField.new("Notification Date Time", "ice.icefutures.mdf.impact.v1.1.43.notificationdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date time of the IPL Hold notification")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time_utc = ProtoField.new("Notification Date Time", "ice.icefutures.mdf.impact.v1.1.43.notificationdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date time of the IPL Hold notification")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.num_decimals_options_price = ProtoField.new("Num Decimals Options Price", "ice.icefutures.mdf.impact.v1.1.43.numdecimalsoptionsprice", ftypes.STRING, nil, nil, nil, "Only used for OffExchangeIncrementOptionPrice.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.num_decimals_price = ProtoField.new("Num Decimals Price", "ice.icefutures.mdf.impact.v1.1.43.numdecimalsprice", ftypes.INT8, nil, nil, nil, "Number of decimals to use for Prices")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.num_decimals_price_in_gram = ProtoField.new("Num Decimals Price In Gram", "ice.icefutures.mdf.impact.v1.1.43.numdecimalspriceingram", ftypes.INT8, nil, nil, nil, "Number of decimals to use for PriceInGram")
@@ -183,7 +191,8 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.options_expiration_type = ProtoFiel
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.options_expiration_year = ProtoField.new("Options Expiration Year", "ice.icefutures.mdf.impact.v1.1.43.optionsexpirationyear", ftypes.INT16, nil, nil, nil, "4 digit year")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.options_style = ProtoField.new("Options Style", "ice.icefutures.mdf.impact.v1.1.43.optionsstyle", ftypes.STRING, nil, nil, nil, "OptionsStyle: ‘A’ – American, ‘E’ – European, ‘0’ – None, ‘3’ – Asian, ‘4’ – One Time")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_count = ProtoField.new("Order Count", "ice.icefutures.mdf.impact.v1.1.43.ordercount", ftypes.INT16, nil, nil, nil, "Number of all orders at the price level")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time = ProtoField.new("Order Entry Date Time", "ice.icefutures.mdf.impact.v1.1.43.orderentrydatetime", ftypes.INT64)
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time = ProtoField.new("Order Entry Date Time", "ice.icefutures.mdf.impact.v1.1.43.orderentrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time_utc = ProtoField.new("Order Entry Date Time", "ice.icefutures.mdf.impact.v1.1.43.orderentrydatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_id = ProtoField.new("Order Id", "ice.icefutures.mdf.impact.v1.1.43.orderid", ftypes.INT64, nil, nil, nil, "Unique per market")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_price_denominator = ProtoField.new("Order Price Denominator", "ice.icefutures.mdf.impact.v1.1.43.orderpricedenominator", ftypes.STRING, nil, nil, nil, "Denominator for the order price fields in this market.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_sequence_id = ProtoField.new("Order Sequence Id", "ice.icefutures.mdf.impact.v1.1.43.ordersequenceid", ftypes.INT16, nil, nil, nil, "Sequence ID of the order. When an order is modified, this will be incremented while OrderID remains the same. It is for legacy reason and can be ignored.")
@@ -196,9 +205,11 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.price_in_gram = ProtoField.new("Pri
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.price_level_position = ProtoField.new("Price Level Position", "ice.icefutures.mdf.impact.v1.1.43.pricelevelposition", ftypes.INT8, nil, nil, nil, "Position of the price level")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.product_id = ProtoField.new("Product Id", "ice.icefutures.mdf.impact.v1.1.43.productid", ftypes.INT32, nil, nil, nil, "ID of the product that the contract/market is under.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.product_name = ProtoField.new("Product Name", "ice.icefutures.mdf.impact.v1.1.43.productname", ftypes.STRING, nil, nil, nil, "Name of the product that the contract/market is under")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time = ProtoField.new("Published Date Time", "ice.icefutures.mdf.impact.v1.1.43.publisheddatetime", ftypes.INT64, nil, nil, nil, "The date and time the marker was put into")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time = ProtoField.new("Published Date Time", "ice.icefutures.mdf.impact.v1.1.43.publisheddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time the marker was put into")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time_utc = ProtoField.new("Published Date Time", "ice.icefutures.mdf.impact.v1.1.43.publisheddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The date and time the marker was put into")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.quantity = ProtoField.new("Quantity", "ice.icefutures.mdf.impact.v1.1.43.quantity", ftypes.INT32)
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp = ProtoField.new("Request Trading Engine Received Timestamp", "ice.icefutures.mdf.impact.v1.1.43.requesttradingenginereceivedtimestamp", ftypes.INT64, nil, nil, nil, "time the trading engine received the request that triggers this message")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp = ProtoField.new("Request Trading Engine Received Timestamp", "ice.icefutures.mdf.impact.v1.1.43.requesttradingenginereceivedtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "time the trading engine received the request that triggers this message")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp_utc = ProtoField.new("Request Trading Engine Received Timestamp", "ice.icefutures.mdf.impact.v1.1.43.requesttradingenginereceivedtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "time the trading engine received the request that triggers this message")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.reserved_2 = ProtoField.new("Reserved 2", "ice.icefutures.mdf.impact.v1.1.43.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.reserved_4 = ProtoField.new("Reserved 4", "ice.icefutures.mdf.impact.v1.1.43.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.rfq_system_id = ProtoField.new("Rfq System Id", "ice.icefutures.mdf.impact.v1.1.43.rfqsystemid", ftypes.INT64, nil, nil, nil, "System ID of the RFQ")
@@ -207,11 +218,13 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.screen_last_trade_day = ProtoField.
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.screen_last_trade_month = ProtoField.new("Screen Last Trade Month", "ice.icefutures.mdf.impact.v1.1.43.screenlasttrademonth", ftypes.INT16, nil, nil, nil, "Screen last trade month, range 1-12")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.screen_last_trade_year = ProtoField.new("Screen Last Trade Year", "ice.icefutures.mdf.impact.v1.1.43.screenlasttradeyear", ftypes.INT16, nil, nil, nil, "Screen last trade year, 4 digits")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.icefutures.mdf.impact.v1.1.43.securitysubtype", ftypes.INT16, nil, nil, nil, "Contains the Strategy Code for defined market where applicable. See Appendix E for list of codes.")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time = ProtoField.new("Sent Date Time", "ice.icefutures.mdf.impact.v1.1.43.sentdatetime", ftypes.UINT64, nil, nil, nil, "Field is the timestamp of when the message block is sent, the number of milliseconds since Jan 1st, 1970, 00:00:00 GMT")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time = ProtoField.new("Sent Date Time", "ice.icefutures.mdf.impact.v1.1.43.sentdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Field is the timestamp of when the message block is sent, the number of milliseconds since Jan 1st, 1970, 00:00:00 GMT")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time_utc = ProtoField.new("Sent Date Time", "ice.icefutures.mdf.impact.v1.1.43.sentdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Field is the timestamp of when the message block is sent, the number of milliseconds since Jan 1st, 1970, 00:00:00 GMT")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.sequence = ProtoField.new("Sequence", "ice.icefutures.mdf.impact.v1.1.43.sequence", ftypes.UINT32, nil, nil, nil, "TODO")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.sequence_within_millis = ProtoField.new("Sequence Within Millis", "ice.icefutures.mdf.impact.v1.1.43.sequencewithinmillis", ftypes.INT32, nil, nil, nil, "Can be used in conjunction with TransactDateTime field for sequence of deals within same milliseconds time.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.session = ProtoField.new("Session", "ice.icefutures.mdf.impact.v1.1.43.session", ftypes.UINT16, nil, nil, nil, "TODO")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time = ProtoField.new("Settle Price Date Time", "ice.icefutures.mdf.impact.v1.1.43.settlepricedatetime", ftypes.INT64, nil, nil, nil, "Settlement price time")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time = ProtoField.new("Settle Price Date Time", "ice.icefutures.mdf.impact.v1.1.43.settlepricedatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Settlement price time")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time_utc = ProtoField.new("Settle Price Date Time", "ice.icefutures.mdf.impact.v1.1.43.settlepricedatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Settlement price time")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_denominator = ProtoField.new("Settle Price Denominator", "ice.icefutures.mdf.impact.v1.1.43.settlepricedenominator", ftypes.STRING, nil, nil, nil, "Denominator for the settlement price fields in the market. For most markets, this is the same as DealPriceDenominator.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.settlement_price = ProtoField.new("Settlement Price", "ice.icefutures.mdf.impact.v1.1.43.settlementprice", ftypes.INT64, nil, nil, nil, "SettlePriceDenominator for the market should be applied to get the real settlement price.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.settlement_price_with_deal_price_precision = ProtoField.new("Settlement Price With Deal Price Precision", "ice.icefutures.mdf.impact.v1.1.43.settlementpricewithdealpriceprecision", ftypes.INT64, nil, nil, nil, "DealPriceDenominator for the market should be applied to get this price.")
@@ -236,14 +249,16 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.text_message = ProtoField.new("Text
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.text_message_extra_fld = ProtoField.new("Text Message Extra Fld", "ice.icefutures.mdf.impact.v1.1.43.textmessageextrafld", ftypes.STRING, nil, nil, nil, "Extra field for text message when TextMessage field is not big enough. This should be appended to TextMessage if it is not empty.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.threshold_imbalance_qty = ProtoField.new("Threshold Imbalance Qty", "ice.icefutures.mdf.impact.v1.1.43.thresholdimbalanceqty", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.tick_value = ProtoField.new("Tick Value", "ice.icefutures.mdf.impact.v1.1.43.tickvalue", ftypes.INT64, nil, nil, nil, "OrderPriceDenominator should be applied to get the real value.")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp = ProtoField.new("Timestamp", "ice.icefutures.mdf.impact.v1.1.43.timestamp", ftypes.INT64, nil, nil, nil, "Timestamp of last update used to derive the price level message")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp = ProtoField.new("Timestamp", "ice.icefutures.mdf.impact.v1.1.43.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of last update used to derive the price level message")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp_utc = ProtoField.new("Timestamp", "ice.icefutures.mdf.impact.v1.1.43.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of last update used to derive the price level message")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.total_length = ProtoField.new("Total Length", "ice.icefutures.mdf.impact.v1.1.43.totallength", ftypes.INT16, nil, nil, nil, "The total length of the fragmented message.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.total_volume = ProtoField.new("Total Volume", "ice.icefutures.mdf.impact.v1.1.43.totalvolume", ftypes.INT32, nil, nil, nil, "N/A if set to -1")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.trade_flags = ProtoField.new("Trade Flags", "ice.icefutures.mdf.impact.v1.1.43.tradeflags", ftypes.STRING, nil, nil, nil, "Trade Message Flags")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.trade_id = ProtoField.new("Trade Id", "ice.icefutures.mdf.impact.v1.1.43.tradeid", ftypes.INT64, nil, nil, nil, "Unique identifier of the trade message, unique per market.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.trade_transaction_id = ProtoField.new("Trade Transaction Id", "ice.icefutures.mdf.impact.v1.1.43.tradetransactionid", ftypes.INT64, nil, nil, nil, "The value used to associate bundles of the same transaction. This value will be 0 when the transaction has no trade. The value will be -1 if the channel does not support sub-bundling.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.trading_status = ProtoField.new("Trading Status", "ice.icefutures.mdf.impact.v1.1.43.tradingstatus", ftypes.STRING, nil, nil, nil, "See Appendix A on the trading status codes")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time = ProtoField.new("Transact Date Time", "ice.icefutures.mdf.impact.v1.1.43.transactdatetime", ftypes.INT64, nil, nil, nil, "Deal date time")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time = ProtoField.new("Transact Date Time", "ice.icefutures.mdf.impact.v1.1.43.transactdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Deal date time")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time_utc = ProtoField.new("Transact Date Time", "ice.icefutures.mdf.impact.v1.1.43.transactdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Deal date time")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.underlying_isin = ProtoField.new("Underlying Isin", "ice.icefutures.mdf.impact.v1.1.43.underlyingisin", ftypes.STRING, nil, nil, nil, "The ISIN of the security this market is associated with. This is currently only populated for Liffe Equity markets.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.underlying_market_id = ProtoField.new("Underlying Market Id", "ice.icefutures.mdf.impact.v1.1.43.underlyingmarketid", ftypes.INT32, nil, nil, nil, "Unique identifier of the underlying market")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.icefutures.mdf.impact.v1.1.43.unitofmeasure", ftypes.STRING)
@@ -252,7 +267,8 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.unit_quantity = ProtoField.new("Uni
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.unused_4 = ProtoField.new("Unused 4", "ice.icefutures.mdf.impact.v1.1.43.unused4", ftypes.UINT8, nil, base.DEC, 0xF0, "Reserved")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.usd_price = ProtoField.new("Usd Price", "ice.icefutures.mdf.impact.v1.1.43.usdprice", ftypes.INT64, nil, nil, nil, "Auctioneers price for the round in USD. Please apply OrderPriceDenominator. Use 2 decimal places for USD Price for Gold and 3 decimal places for Silver.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.icefutures.mdf.impact.v1.1.43.valuationdateapplyingdate", ftypes.STRING, nil, nil, nil, "The date this price is effective for")
-omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.icefutures.mdf.impact.v1.1.43.valuationdatetime", ftypes.INT64, nil, nil, nil, "Date time the settlement price is for")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.icefutures.mdf.impact.v1.1.43.valuationdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date time the settlement price is for")
+omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time_utc = ProtoField.new("Valuation Date Time", "ice.icefutures.mdf.impact.v1.1.43.valuationdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date time the settlement price is for")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.volatility = ProtoField.new("Volatility", "ice.icefutures.mdf.impact.v1.1.43.volatility", ftypes.DOUBLE, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, volatility of 3.00 will be sent as 300.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.volume = ProtoField.new("Volume", "ice.icefutures.mdf.impact.v1.1.43.volume", ftypes.INT32, nil, nil, nil, "Electronic trade volume only, excluding block and other volumes.")
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.vwap = ProtoField.new("Vwap", "ice.icefutures.mdf.impact.v1.1.43.vwap", ftypes.INT64, nil, nil, nil, "Weighted Average Price. DealPriceDenominator for the market should be applied to get the real price.")
@@ -314,6 +330,20 @@ omi_ice_icefutures_mdf_impact_v1_1_43.fields.special_field_index = ProtoField.ne
 omi_ice_icefutures_mdf_impact_v1_1_43.fields.strategy_leg_definition_index = ProtoField.new("Strategy Leg Definition Index", "ice.icefutures.mdf.impact.v1.1.43.strategylegdefinitionindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Ice IceFutures Mdf iMpact 1.1.43 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+ice_icefutures_mdf_impact_v1_1_43.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -333,6 +363,8 @@ omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_structs = Pref.bool("Show Struc
 omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_ice_icefutures_mdf_impact_v1_1_43.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_ice_icefutures_mdf_impact_v1_1_43.prefs_changed()
 
@@ -351,6 +383,9 @@ function omi_ice_icefutures_mdf_impact_v1_1_43.prefs_changed()
   end
   if show.indexes ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes then
     show.indexes = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.show_indexes
+  end
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base ~= omi_ice_icefutures_mdf_impact_v1_1_43.prefs.absolute_time_base then
+    ice_icefutures_mdf_impact_v1_1_43.absolute_time_base = omi_ice_icefutures_mdf_impact_v1_1_43.prefs.absolute_time_base
   end
 end
 
@@ -717,23 +752,20 @@ ice_icefutures_mdf_impact_v1_1_43.auction_end_time = {}
 -- Size: Auction End Time
 ice_icefutures_mdf_impact_v1_1_43.auction_end_time.size = 8
 
--- Display: Auction End Time
-ice_icefutures_mdf_impact_v1_1_43.auction_end_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Auction End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Auction End Time
 ice_icefutures_mdf_impact_v1_1_43.auction_end_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.auction_end_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.auction_end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_end_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1094,23 +1126,20 @@ ice_icefutures_mdf_impact_v1_1_43.delivery_begin_date_time = {}
 -- Size: Delivery Begin Date Time
 ice_icefutures_mdf_impact_v1_1_43.delivery_begin_date_time.size = 8
 
--- Display: Delivery Begin Date Time
-ice_icefutures_mdf_impact_v1_1_43.delivery_begin_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Delivery Begin Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Delivery Begin Date Time
 ice_icefutures_mdf_impact_v1_1_43.delivery_begin_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.delivery_begin_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.delivery_begin_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_begin_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1121,23 +1150,20 @@ ice_icefutures_mdf_impact_v1_1_43.delivery_end_date_time = {}
 -- Size: Delivery End Date Time
 ice_icefutures_mdf_impact_v1_1_43.delivery_end_date_time.size = 8
 
--- Display: Delivery End Date Time
-ice_icefutures_mdf_impact_v1_1_43.delivery_end_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Delivery End Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Delivery End Date Time
 ice_icefutures_mdf_impact_v1_1_43.delivery_end_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.delivery_end_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.delivery_end_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.delivery_end_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3255,23 +3281,20 @@ ice_icefutures_mdf_impact_v1_1_43.last_trade_date_time = {}
 -- Size: Last Trade Date Time
 ice_icefutures_mdf_impact_v1_1_43.last_trade_date_time.size = 8
 
--- Display: Last Trade Date Time
-ice_icefutures_mdf_impact_v1_1_43.last_trade_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Last Trade Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Last Trade Date Time
 ice_icefutures_mdf_impact_v1_1_43.last_trade_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.last_trade_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.last_trade_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.last_trade_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4337,23 +4360,20 @@ ice_icefutures_mdf_impact_v1_1_43.message_date_time = {}
 -- Size: Message Date Time
 ice_icefutures_mdf_impact_v1_1_43.message_date_time.size = 8
 
--- Display: Message Date Time
-ice_icefutures_mdf_impact_v1_1_43.message_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Message Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Message Date Time
 ice_icefutures_mdf_impact_v1_1_43.message_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.message_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.message_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4364,23 +4384,20 @@ ice_icefutures_mdf_impact_v1_1_43.message_timestamp = {}
 -- Size: Message Timestamp
 ice_icefutures_mdf_impact_v1_1_43.message_timestamp.size = 8
 
--- Display: Message Timestamp
-ice_icefutures_mdf_impact_v1_1_43.message_timestamp.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Message Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Message Timestamp
 ice_icefutures_mdf_impact_v1_1_43.message_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.message_timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.message_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.message_timestamp_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4683,23 +4700,20 @@ ice_icefutures_mdf_impact_v1_1_43.modification_timestamp = {}
 -- Size: Modification Timestamp
 ice_icefutures_mdf_impact_v1_1_43.modification_timestamp.size = 8
 
--- Display: Modification Timestamp
-ice_icefutures_mdf_impact_v1_1_43.modification_timestamp.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Modification Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Modification Timestamp
 ice_icefutures_mdf_impact_v1_1_43.modification_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.modification_timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.modification_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.modification_timestamp_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4710,23 +4724,20 @@ ice_icefutures_mdf_impact_v1_1_43.notification_date_time = {}
 -- Size: Notification Date Time
 ice_icefutures_mdf_impact_v1_1_43.notification_date_time.size = 8
 
--- Display: Notification Date Time
-ice_icefutures_mdf_impact_v1_1_43.notification_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Notification Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Notification Date Time
 ice_icefutures_mdf_impact_v1_1_43.notification_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.notification_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.notification_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.notification_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5698,23 +5709,20 @@ ice_icefutures_mdf_impact_v1_1_43.order_entry_date_time = {}
 -- Size: Order Entry Date Time
 ice_icefutures_mdf_impact_v1_1_43.order_entry_date_time.size = 8
 
--- Display: Order Entry Date Time
-ice_icefutures_mdf_impact_v1_1_43.order_entry_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Order Entry Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Order Entry Date Time
 ice_icefutures_mdf_impact_v1_1_43.order_entry_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.order_entry_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.order_entry_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.order_entry_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6043,23 +6051,20 @@ ice_icefutures_mdf_impact_v1_1_43.published_date_time = {}
 -- Size: Published Date Time
 ice_icefutures_mdf_impact_v1_1_43.published_date_time.size = 8
 
--- Display: Published Date Time
-ice_icefutures_mdf_impact_v1_1_43.published_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Published Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Published Date Time
 ice_icefutures_mdf_impact_v1_1_43.published_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.published_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.published_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.published_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6093,23 +6098,20 @@ ice_icefutures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp = {}
 -- Size: Request Trading Engine Received Timestamp
 ice_icefutures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.size = 8
 
--- Display: Request Trading Engine Received Timestamp
-ice_icefutures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Trading Engine Received Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Request Trading Engine Received Timestamp
 ice_icefutures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.request_trading_engine_received_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.request_trading_engine_received_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6662,23 +6664,20 @@ ice_icefutures_mdf_impact_v1_1_43.sent_date_time = {}
 -- Size: Sent Date Time
 ice_icefutures_mdf_impact_v1_1_43.sent_date_time.size = 8
 
--- Display: Sent Date Time
-ice_icefutures_mdf_impact_v1_1_43.sent_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Sent Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Sent Date Time
 ice_icefutures_mdf_impact_v1_1_43.sent_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.sent_date_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.sent_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.sent_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6758,23 +6757,20 @@ ice_icefutures_mdf_impact_v1_1_43.settle_price_date_time = {}
 -- Size: Settle Price Date Time
 ice_icefutures_mdf_impact_v1_1_43.settle_price_date_time.size = 8
 
--- Display: Settle Price Date Time
-ice_icefutures_mdf_impact_v1_1_43.settle_price_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Settle Price Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Settle Price Date Time
 ice_icefutures_mdf_impact_v1_1_43.settle_price_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.settle_price_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.settle_price_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.settle_price_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7551,23 +7547,20 @@ ice_icefutures_mdf_impact_v1_1_43.timestamp = {}
 -- Size: Timestamp
 ice_icefutures_mdf_impact_v1_1_43.timestamp.size = 8
 
--- Display: Timestamp
-ice_icefutures_mdf_impact_v1_1_43.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 ice_icefutures_mdf_impact_v1_1_43.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7722,23 +7715,20 @@ ice_icefutures_mdf_impact_v1_1_43.transact_date_time = {}
 -- Size: Transact Date Time
 ice_icefutures_mdf_impact_v1_1_43.transact_date_time.size = 8
 
--- Display: Transact Date Time
-ice_icefutures_mdf_impact_v1_1_43.transact_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Transact Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Transact Date Time
 ice_icefutures_mdf_impact_v1_1_43.transact_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.transact_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.transact_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.transact_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7955,23 +7945,20 @@ ice_icefutures_mdf_impact_v1_1_43.valuation_date_time = {}
 -- Size: Valuation Date Time
 ice_icefutures_mdf_impact_v1_1_43.valuation_date_time.size = 8
 
--- Display: Valuation Date Time
-ice_icefutures_mdf_impact_v1_1_43.valuation_date_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Valuation Date Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Valuation Date Time
 ice_icefutures_mdf_impact_v1_1_43.valuation_date_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.valuation_date_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = ice_icefutures_mdf_impact_v1_1_43.valuation_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time
+  if ice_icefutures_mdf_impact_v1_1_43.absolute_time_base == 1 then field = omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

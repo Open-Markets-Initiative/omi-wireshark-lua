@@ -137,7 +137,8 @@ omi_bme_meff_topofbook_bmegate_v1_6.fields.order_number_of_decimals = ProtoField
 omi_bme_meff_topofbook_bmegate_v1_6.fields.post_deferral_publication_type = ProtoField.new("Post Deferral Publication Type", "bme.meff.topofbook.bmegate.v1.6.postdeferralpublicationtype", ftypes.STRING, nil, nil, nil, "Post-deferral publication type")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.pre_trade_transparency_waiver = ProtoField.new("Pre Trade Transparency Waiver", "bme.meff.topofbook.bmegate.v1.6.pretradetransparencywaiver", ftypes.STRING, nil, nil, nil, "Pre-trade transparency waiver")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.protocol_version = ProtoField.new("Protocol Version", "bme.meff.topofbook.bmegate.v1.6.protocolversion", ftypes.STRING, nil, nil, nil, "Identification of the binary protocol version")
-omi_bme_meff_topofbook_bmegate_v1_6.fields.publish_date_and_time = ProtoField.new("Publish Date And Time", "bme.meff.topofbook.bmegate.v1.6.publishdateandtime", ftypes.INT64, nil, nil, nil, "Publication Date and Time in nanoseconds since 1-jan-1970 UTC")
+omi_bme_meff_topofbook_bmegate_v1_6.fields.publish_date_and_time = ProtoField.new("Publish Date And Time", "bme.meff.topofbook.bmegate.v1.6.publishdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication Date and Time in nanoseconds since 1-jan-1970 UTC")
+omi_bme_meff_topofbook_bmegate_v1_6.fields.publish_date_and_time_utc = ProtoField.new("Publish Date And Time", "bme.meff.topofbook.bmegate.v1.6.publishdateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.put_or_call = ProtoField.new("Put Or Call", "bme.meff.topofbook.bmegate.v1.6.putorcall", ftypes.STRING, nil, nil, nil, "Indicates whether the contract is a put or a call")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.quoted_currency = ProtoField.new("Quoted Currency", "bme.meff.topofbook.bmegate.v1.6.quotedcurrency", ftypes.STRING)
 omi_bme_meff_topofbook_bmegate_v1_6.fields.retail_cl_ask_flag_1 = ProtoField.new("Retail Cl Ask Flag 1", "bme.meff.topofbook.bmegate.v1.6.retailclaskflag1", ftypes.UINT8, nil, nil, nil, "The price is retail or has part of retail")
@@ -171,7 +172,8 @@ omi_bme_meff_topofbook_bmegate_v1_6.fields.symbol = ProtoField.new("Symbol", "bm
 omi_bme_meff_topofbook_bmegate_v1_6.fields.symbol_isin = ProtoField.new("Symbol Isin", "bme.meff.topofbook.bmegate.v1.6.symbolisin", ftypes.STRING, nil, nil, nil, "Instrument ISIN")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.test_production_ind = ProtoField.new("Test Production Ind", "bme.meff.topofbook.bmegate.v1.6.testproductionind", ftypes.STRING, nil, nil, nil, "T: Test P: Production")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "bme.meff.topofbook.bmegate.v1.6.tradsesstatus", ftypes.UINT8, nil, nil, nil, "Trading session status")
-omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_date = ProtoField.new("Trade Date", "bme.meff.topofbook.bmegate.v1.6.tradedate", ftypes.INT64, nil, nil, nil, "Trade date and time")
+omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_date = ProtoField.new("Trade Date", "bme.meff.topofbook.bmegate.v1.6.tradedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade date and time")
+omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_date_utc = ProtoField.new("Trade Date", "bme.meff.topofbook.bmegate.v1.6.tradedate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trade date and time")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_price_condition = ProtoField.new("Trade Price Condition", "bme.meff.topofbook.bmegate.v1.6.tradepricecondition", ftypes.STRING, nil, nil, nil, "MMT 3.8")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_session_date = ProtoField.new("Trade Session Date", "bme.meff.topofbook.bmegate.v1.6.tradesessiondate", ftypes.INT32)
 omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_type = ProtoField.new("Trade Type", "bme.meff.topofbook.bmegate.v1.6.tradetype", ftypes.STRING)
@@ -179,7 +181,8 @@ omi_bme_meff_topofbook_bmegate_v1_6.fields.trading_obligation = ProtoField.new("
 omi_bme_meff_topofbook_bmegate_v1_6.fields.trading_session_id = ProtoField.new("Trading Session Id", "bme.meff.topofbook.bmegate.v1.6.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Trading mode")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bme.meff.topofbook.bmegate.v1.6.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Session phase")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.transaction_category = ProtoField.new("Transaction Category", "bme.meff.topofbook.bmegate.v1.6.transactioncategory", ftypes.STRING)
-omi_bme_meff_topofbook_bmegate_v1_6.fields.transaction_date_and_time = ProtoField.new("Transaction Date And Time", "bme.meff.topofbook.bmegate.v1.6.transactiondateandtime", ftypes.INT64, nil, nil, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
+omi_bme_meff_topofbook_bmegate_v1_6.fields.transaction_date_and_time = ProtoField.new("Transaction Date And Time", "bme.meff.topofbook.bmegate.v1.6.transactiondateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
+omi_bme_meff_topofbook_bmegate_v1_6.fields.transaction_date_and_time_utc = ProtoField.new("Transaction Date And Time", "bme.meff.topofbook.bmegate.v1.6.transactiondateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.trd_match_id = ProtoField.new("Trd Match Id", "bme.meff.topofbook.bmegate.v1.6.trdmatchid", ftypes.UINT32, nil, nil, nil, "System Trade Number")
 omi_bme_meff_topofbook_bmegate_v1_6.fields.underlying_asset = ProtoField.new("Underlying Asset", "bme.meff.topofbook.bmegate.v1.6.underlyingasset", ftypes.STRING)
 omi_bme_meff_topofbook_bmegate_v1_6.fields.underlying_currency = ProtoField.new("Underlying Currency", "bme.meff.topofbook.bmegate.v1.6.underlyingcurrency", ftypes.STRING, nil, nil, nil, "Underlying Strike Currency")
@@ -223,6 +226,20 @@ omi_bme_meff_topofbook_bmegate_v1_6.fields.trading_session_status_message = Prot
 omi_bme_meff_topofbook_bmegate_v1_6.fields.statistics_repeating_group_index = ProtoField.new("Statistics Repeating Group Index", "bme.meff.topofbook.bmegate.v1.6.statisticsrepeatinggroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Bme Meff TopOfBook BmeGate 1.6 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+bme_meff_topofbook_bmegate_v1_6.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -240,6 +257,8 @@ omi_bme_meff_topofbook_bmegate_v1_6.prefs.show_structs = Pref.bool("Show Structs
 omi_bme_meff_topofbook_bmegate_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bme_meff_topofbook_bmegate_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_bme_meff_topofbook_bmegate_v1_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_bme_meff_topofbook_bmegate_v1_6.prefs_changed()
 
@@ -255,6 +274,9 @@ function omi_bme_meff_topofbook_bmegate_v1_6.prefs_changed()
   end
   if show.indexes ~= omi_bme_meff_topofbook_bmegate_v1_6.prefs.show_indexes then
     show.indexes = omi_bme_meff_topofbook_bmegate_v1_6.prefs.show_indexes
+  end
+  if bme_meff_topofbook_bmegate_v1_6.absolute_time_base ~= omi_bme_meff_topofbook_bmegate_v1_6.prefs.absolute_time_base then
+    bme_meff_topofbook_bmegate_v1_6.absolute_time_base = omi_bme_meff_topofbook_bmegate_v1_6.prefs.absolute_time_base
   end
 end
 
@@ -4355,23 +4377,20 @@ bme_meff_topofbook_bmegate_v1_6.publish_date_and_time = {}
 -- Size: Publish Date And Time
 bme_meff_topofbook_bmegate_v1_6.publish_date_and_time.size = 8
 
--- Display: Publish Date And Time
-bme_meff_topofbook_bmegate_v1_6.publish_date_and_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Publish Date And Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Publish Date And Time
 bme_meff_topofbook_bmegate_v1_6.publish_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_topofbook_bmegate_v1_6.publish_date_and_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = bme_meff_topofbook_bmegate_v1_6.publish_date_and_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bme_meff_topofbook_bmegate_v1_6.fields.publish_date_and_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bme_meff_topofbook_bmegate_v1_6.fields.publish_date_and_time
+  if bme_meff_topofbook_bmegate_v1_6.absolute_time_base == 1 then field = omi_bme_meff_topofbook_bmegate_v1_6.fields.publish_date_and_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5868,23 +5887,20 @@ bme_meff_topofbook_bmegate_v1_6.trade_date = {}
 -- Size: Trade Date
 bme_meff_topofbook_bmegate_v1_6.trade_date.size = 8
 
--- Display: Trade Date
-bme_meff_topofbook_bmegate_v1_6.trade_date.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trade Date: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trade Date
 bme_meff_topofbook_bmegate_v1_6.trade_date.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_topofbook_bmegate_v1_6.trade_date.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = bme_meff_topofbook_bmegate_v1_6.trade_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_date
+  if bme_meff_topofbook_bmegate_v1_6.absolute_time_base == 1 then field = omi_bme_meff_topofbook_bmegate_v1_6.fields.trade_date_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6185,23 +6201,20 @@ bme_meff_topofbook_bmegate_v1_6.transaction_date_and_time = {}
 -- Size: Transaction Date And Time
 bme_meff_topofbook_bmegate_v1_6.transaction_date_and_time.size = 8
 
--- Display: Transaction Date And Time
-bme_meff_topofbook_bmegate_v1_6.transaction_date_and_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Date And Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Date And Time
 bme_meff_topofbook_bmegate_v1_6.transaction_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_topofbook_bmegate_v1_6.transaction_date_and_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = bme_meff_topofbook_bmegate_v1_6.transaction_date_and_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bme_meff_topofbook_bmegate_v1_6.fields.transaction_date_and_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bme_meff_topofbook_bmegate_v1_6.fields.transaction_date_and_time
+  if bme_meff_topofbook_bmegate_v1_6.absolute_time_base == 1 then field = omi_bme_meff_topofbook_bmegate_v1_6.fields.transaction_date_and_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

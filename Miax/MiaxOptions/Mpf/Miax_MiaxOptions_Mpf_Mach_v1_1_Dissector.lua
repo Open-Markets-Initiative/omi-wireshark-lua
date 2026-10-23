@@ -39,7 +39,8 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.requested_trading_session_id = ProtoFi
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.mpf.mach.v1.1.reserved16", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.mpf.mach.v1.1.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.miaxoptions.mpf.mach.v1.1.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request a retransmission server to retransmit a range of packets")
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.mpf.mach.v1.1.seconds", ftypes.UINT32, nil, nil, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.mpf.mach.v1.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds_utc = ProtoField.new("Seconds", "miax.miaxoptions.mpf.mach.v1.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.mpf.mach.v1.1.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed.")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.miaxoptions.mpf.mach.v1.1.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.miaxoptions.mpf.mach.v1.1.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Market-data application message type carried over the SesM sequenced channel (matches the MACH UDP Message Type byte; Miax Options uses Ascii message codes)")
@@ -84,6 +85,15 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.timestamp = ProtoField.new("Timestamp"
 -- Miax MiaxOptions Mpf Mach 1.1 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_miaxoptions_mpf_mach_v1_1.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 miax_miaxoptions_mpf_mach_v1_1.format_timestamp = true
 
@@ -105,6 +115,8 @@ omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_application_messages = Pref.bool("
 omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_miaxoptions_mpf_mach_v1_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_miax_miaxoptions_mpf_mach_v1_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_miaxoptions_mpf_mach_v1_1.prefs_changed()
 
@@ -120,6 +132,9 @@ function omi_miax_miaxoptions_mpf_mach_v1_1.prefs_changed()
   end
   if miax_miaxoptions_mpf_mach_v1_1.format_timestamp ~= omi_miax_miaxoptions_mpf_mach_v1_1.prefs.format_timestamp then
     miax_miaxoptions_mpf_mach_v1_1.format_timestamp = omi_miax_miaxoptions_mpf_mach_v1_1.prefs.format_timestamp
+  end
+  if miax_miaxoptions_mpf_mach_v1_1.absolute_time_base ~= omi_miax_miaxoptions_mpf_mach_v1_1.prefs.absolute_time_base then
+    miax_miaxoptions_mpf_mach_v1_1.absolute_time_base = omi_miax_miaxoptions_mpf_mach_v1_1.prefs.absolute_time_base
   end
 end
 
@@ -671,20 +686,20 @@ miax_miaxoptions_mpf_mach_v1_1.seconds.generated = function(value, range, packet
   seconds:set_generated()
 end
 
--- Display: Seconds
-miax_miaxoptions_mpf_mach_v1_1.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 miax_miaxoptions_mpf_mach_v1_1.seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_mpf_mach_v1_1.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_mpf_mach_v1_1.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds
+  if miax_miaxoptions_mpf_mach_v1_1.absolute_time_base == 1 then field = omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

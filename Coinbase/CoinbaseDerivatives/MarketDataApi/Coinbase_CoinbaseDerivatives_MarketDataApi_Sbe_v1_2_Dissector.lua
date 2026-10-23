@@ -50,7 +50,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.is_prior_settleme
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lastinstrseqnum", ftypes.UINT32, nil, nil, nil, "lastInstrSeqNum")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "lastTradePrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeqty", ftypes.INT32, nil, nil, nil, "lastTradeQty")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime", ftypes.INT64, nil, nil, nil, "lastTradeTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "lastTradeTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "lastTradeTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradingsessiondate", ftypes.UINT16, nil, nil, nil, "lastTradingSessionDate")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg1instrumentid", ftypes.INT32, nil, nil, nil, "leg1InstrumentId")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg2instrumentid", ftypes.INT32, nil, nil, nil, "leg2InstrumentId")
@@ -92,7 +93,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.retransmit = Prot
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.retrydelaynanos", ftypes.INT64, nil, nil, nil, "retryDelayNanos")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sell_order_id = ProtoField.new("Sell Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sellorderid", ftypes.INT64, nil, nil, nil, "sellOrderId")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime", ftypes.INT64, nil, nil, nil, "Nanoseconds since Unix epoch")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since Unix epoch")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time_utc = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since Unix epoch")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.seq_num = ProtoField.new("Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.seqnum", ftypes.INT64, nil, nil, nil, "Sequence number of first message in packet")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.settlementprice", ftypes.DOUBLE, nil, nil, nil, "settlementPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot = ProtoField.new("Snapshot", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Snapshot packet indicator (Bit 1)")
@@ -105,7 +107,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.template_id = Pro
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trade_volume = ProtoField.new("Trade Volume", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradevolume", ftypes.INT32, nil, nil, nil, "tradeVolume")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trading_session_date = ProtoField.new("Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingsessiondate", ftypes.UINT16, nil, nil, nil, "tradingSessionDate")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trading_status = ProtoField.new("Trading Status", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingstatus", ftypes.INT8, nil, nil, nil, "tradingStatus")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime", ftypes.INT64, nil, nil, nil, "transactTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time_utc = ProtoField.new("Transact Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.DOUBLE, nil, nil, nil, "vwapPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.DOUBLE, nil, nil, nil, "vwapPrice")
@@ -141,6 +144,20 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trading_status_up
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sbe_message_index = ProtoField.new("Sbe Message Index", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sbemessageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -158,6 +175,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_application_m
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()
 
@@ -173,6 +192,9 @@ function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()
   end
   if show.indexes ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_indexes then
     show.indexes = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_indexes
+  end
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.absolute_time_base then
+    coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.absolute_time_base
   end
 end
 
@@ -1101,29 +1123,27 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_time = {}
 -- Size: Last Trade Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_time.size = 8
 
--- Display: Last Trade Time
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_time.display = function(value)
-  -- Check null value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Last Trade Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Last Trade Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.last_trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time_utc end
+
+  if value == Int64(0x00000000, 0x80000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Last Trade Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2123,23 +2143,20 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sending_time = {}
 -- Size: Sending Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sending_time.size = 8
 
--- Display: Sending Time
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2560,23 +2577,20 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.transact_time = {}
 -- Size: Transact Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.transact_time.size = 8
 
--- Display: Transact Time
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.absolute_time_base == 1 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

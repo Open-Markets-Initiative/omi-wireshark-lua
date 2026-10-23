@@ -71,7 +71,8 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_8 = ProtoFiel
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.restricted_option = ProtoField.new("Restricted Option", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request a retransmission server to retransmit a range of packets")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sapphire_bbo_posting_increment_indicator = ProtoField.new("Sapphire Bbo Posting Increment Indicator", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sapphirebbopostingincrementindicator", ftypes.STRING, nil, nil, nil, "This is the Minimum Price Variation as agreed to by the Options industry (penny pilot program) and as published by Sapphire")
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.seconds = ProtoField.new("Seconds", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.seconds", ftypes.UINT32, nil, nil, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.seconds = ProtoField.new("Seconds", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.seconds_utc = ProtoField.new("Seconds", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.security_symbol = ProtoField.new("Security Symbol", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed (for P/U/S/C refreshes); for Order Book Refresh, the last sequence number on the live feed at the time of the refresh request.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
@@ -127,6 +128,15 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.timestamp = ProtoField
 -- Miax SapphireOptions LiquidityFeed Mach 1.0.a Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.format_timestamp = true
 
@@ -152,6 +162,8 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.show_headers = Pref.boo
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs_changed()
 
@@ -173,6 +185,9 @@ function omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs_changed()
   end
   if miax_sapphireoptions_liquidityfeed_mach_v1_0_a.format_timestamp ~= omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.format_timestamp then
     miax_sapphireoptions_liquidityfeed_mach_v1_0_a.format_timestamp = omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.format_timestamp
+  end
+  if miax_sapphireoptions_liquidityfeed_mach_v1_0_a.absolute_time_base ~= omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.absolute_time_base then
+    miax_sapphireoptions_liquidityfeed_mach_v1_0_a.absolute_time_base = omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.prefs.absolute_time_base
   end
 end
 
@@ -1650,20 +1665,20 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.seconds.generated = function(valu
   seconds:set_generated()
 end
 
--- Display: Seconds
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.seconds
+  if miax_sapphireoptions_liquidityfeed_mach_v1_0_a.absolute_time_base == 1 then field = omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

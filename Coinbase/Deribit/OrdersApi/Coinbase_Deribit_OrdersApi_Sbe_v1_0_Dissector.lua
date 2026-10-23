@@ -58,7 +58,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_multi_part_event_flags = Pr
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_order_flags = ProtoField.new("Flags Order Flags", "coinbase.deribit.ordersapi.sbe.v1.0.flagsorderflags", ftypes.STRING, nil, nil, nil, "OrderFlags bit set")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.flags_replace_order_flags = ProtoField.new("Flags Replace Order Flags", "coinbase.deribit.ordersapi.sbe.v1.0.flagsreplaceorderflags", ftypes.STRING, nil, nil, nil, "ReplaceOrderFlags bit set")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.0.fromsequencenumber", ftypes.INT64, nil, nil, nil, "fromSequenceNumber")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.frozen_until = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.0.frozenuntil", ftypes.INT64, nil, nil, nil, "frozenUntil")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.frozen_until = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.0.frozenuntil", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "frozenUntil")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.frozen_until_utc = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.0.frozenuntil.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "frozenUntil")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "coinbase.deribit.ordersapi.sbe.v1.0.groupsizeencoding", ftypes.STRING, nil, nil, nil, "groupSizeEncoding")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.deribit.ordersapi.sbe.v1.0.heartbeatintervalseconds", ftypes.INT32, nil, nil, nil, "heartbeatIntervalSeconds")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.deribit.ordersapi.sbe.v1.0.instrumentid", ftypes.INT64, nil, nil, nil, "instrumentId")
@@ -127,7 +128,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.reason_mass_cancel_reject_reason 
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.reason_mass_quote_reject_reason = ProtoField.new("Reason Mass Quote Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.0.reasonmassquoterejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.reason_order_reject_reason = ProtoField.new("Reason Order Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.0.reasonorderrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.reason_reject_reason = ProtoField.new("Reason Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.0.reasonrejectreason", ftypes.INT8, nil, nil, nil, "reason")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.receive_time = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.0.receivetime", ftypes.INT64, nil, nil, nil, "receiveTime")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.receive_time = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.0.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.receive_time_utc = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.0.receivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.0.refsequencenumber", ftypes.INT64, nil, nil, nil, "refSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.reserved_10 = ProtoField.new("Reserved 10", "coinbase.deribit.ordersapi.sbe.v1.0.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.reserved_13 = ProtoField.new("Reserved 13", "coinbase.deribit.ordersapi.sbe.v1.0.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
@@ -140,7 +142,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.schema_version = ProtoField.new("
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.secret = ProtoField.new("Secret", "coinbase.deribit.ordersapi.sbe.v1.0.secret", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "coinbase.deribit.ordersapi.sbe.v1.0.selfmatchpreventionid", ftypes.INT64, nil, nil, nil, "selfMatchPreventionId")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.self_trading_mode = ProtoField.new("Self Trading Mode", "coinbase.deribit.ordersapi.sbe.v1.0.selftradingmode", ftypes.INT8, nil, nil, nil, "selfTradingMode")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.send_time_ns = ProtoField.new("Send Time Ns", "coinbase.deribit.ordersapi.sbe.v1.0.sendtimens", ftypes.INT64, nil, nil, nil, "UTC timestamp of when the message was sent from the gateway, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.send_time_ns = ProtoField.new("Send Time Ns", "coinbase.deribit.ordersapi.sbe.v1.0.sendtimens", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent from the gateway, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.send_time_ns_utc = ProtoField.new("Send Time Ns", "coinbase.deribit.ordersapi.sbe.v1.0.sendtimens.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the message was sent from the gateway, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.0.sequencenumber", ftypes.INT64, nil, nil, nil, "Outbound sequence number per session")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.session_flags = ProtoField.new("Session Flags", "coinbase.deribit.ordersapi.sbe.v1.0.sessionflags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.show_qty = ProtoField.new("Show Qty", "coinbase.deribit.ordersapi.sbe.v1.0.showqty", ftypes.STRING, nil, nil, nil, "NewOrderRequestMessage")
@@ -148,7 +151,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.side = ProtoField.new("Side", "co
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.status = ProtoField.new("Status", "coinbase.deribit.ordersapi.sbe.v1.0.status", ftypes.INT8)
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.template_id = ProtoField.new("Template Id", "coinbase.deribit.ordersapi.sbe.v1.0.templateid", ftypes.UINT16, nil, nil, nil, "Identifier of the message type")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.time_in_force = ProtoField.new("Time In Force", "coinbase.deribit.ordersapi.sbe.v1.0.timeinforce", ftypes.INT8, nil, nil, nil, "timeInForce")
-omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.ordersapi.sbe.v1.0.timestamp", ftypes.INT64)
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.ordersapi.sbe.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.timestamp_utc = ProtoField.new("Timestamp", "coinbase.deribit.ordersapi.sbe.v1.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.0.tosequencenumber", ftypes.INT64, nil, nil, nil, "toSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.total_filled = ProtoField.new("Total Filled", "coinbase.deribit.ordersapi.sbe.v1.0.totalfilled", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.total_order_count = ProtoField.new("Total Order Count", "coinbase.deribit.ordersapi.sbe.v1.0.totalordercount", ftypes.INT32, nil, nil, nil, "totalOrderCount")
@@ -218,6 +222,20 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.order_placed_message_legs_group_i
 omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.orders_canceled_message_orders_group_index = ProtoField.new("Orders Canceled Message orders Group Index", "coinbase.deribit.ordersapi.sbe.v1.0.orderscanceledmessageordersgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Coinbase Deribit OrdersApi Sbe 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+coinbase_deribit_ordersapi_sbe_v1_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -237,6 +255,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_headers = Pref.bool("Show Hea
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs_changed()
 
@@ -255,6 +275,9 @@ function omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs_changed()
   end
   if show.indexes ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_indexes then
     show.indexes = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.show_indexes
+  end
+  if coinbase_deribit_ordersapi_sbe_v1_0.absolute_time_base ~= omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.absolute_time_base then
+    coinbase_deribit_ordersapi_sbe_v1_0.absolute_time_base = omi_coinbase_deribit_ordersapi_sbe_v1_0.prefs.absolute_time_base
   end
 end
 
@@ -1200,23 +1223,20 @@ coinbase_deribit_ordersapi_sbe_v1_0.frozen_until = {}
 -- Size: Frozen Until
 coinbase_deribit_ordersapi_sbe_v1_0.frozen_until.size = 8
 
--- Display: Frozen Until
-coinbase_deribit_ordersapi_sbe_v1_0.frozen_until.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Frozen Until: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Frozen Until
 coinbase_deribit_ordersapi_sbe_v1_0.frozen_until.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v1_0.frozen_until.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_ordersapi_sbe_v1_0.frozen_until.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.frozen_until, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.frozen_until
+  if coinbase_deribit_ordersapi_sbe_v1_0.absolute_time_base == 1 then field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.frozen_until_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2040,23 +2060,20 @@ coinbase_deribit_ordersapi_sbe_v1_0.receive_time = {}
 -- Size: Receive Time
 coinbase_deribit_ordersapi_sbe_v1_0.receive_time.size = 8
 
--- Display: Receive Time
-coinbase_deribit_ordersapi_sbe_v1_0.receive_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Receive Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Receive Time
 coinbase_deribit_ordersapi_sbe_v1_0.receive_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v1_0.receive_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_ordersapi_sbe_v1_0.receive_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.receive_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.receive_time
+  if coinbase_deribit_ordersapi_sbe_v1_0.absolute_time_base == 1 then field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.receive_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2240,23 +2257,20 @@ coinbase_deribit_ordersapi_sbe_v1_0.send_time_ns = {}
 -- Size: Send Time Ns
 coinbase_deribit_ordersapi_sbe_v1_0.send_time_ns.size = 8
 
--- Display: Send Time Ns
-coinbase_deribit_ordersapi_sbe_v1_0.send_time_ns.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time Ns: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time Ns
 coinbase_deribit_ordersapi_sbe_v1_0.send_time_ns.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v1_0.send_time_ns.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_ordersapi_sbe_v1_0.send_time_ns.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.send_time_ns, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.send_time_ns
+  if coinbase_deribit_ordersapi_sbe_v1_0.absolute_time_base == 1 then field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.send_time_ns_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2505,23 +2519,20 @@ coinbase_deribit_ordersapi_sbe_v1_0.timestamp = {}
 -- Size: Timestamp
 coinbase_deribit_ordersapi_sbe_v1_0.timestamp.size = 8
 
--- Display: Timestamp
-coinbase_deribit_ordersapi_sbe_v1_0.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 coinbase_deribit_ordersapi_sbe_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v1_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_ordersapi_sbe_v1_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.timestamp
+  if coinbase_deribit_ordersapi_sbe_v1_0.absolute_time_base == 1 then field = omi_coinbase_deribit_ordersapi_sbe_v1_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

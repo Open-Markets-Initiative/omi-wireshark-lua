@@ -75,7 +75,8 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.symbol = ProtoField.new("Sy
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "24x.24xequities.memoirdepthfeed.sbe.v2.0.symbolsfx", ftypes.STRING, nil, nil, nil, "SymbolSfx")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.template_id = ProtoField.new("Template Id", "24x.24xequities.memoirdepthfeed.sbe.v2.0.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.tie_breaker_price = ProtoField.new("Tie Breaker Price", "24x.24xequities.memoirdepthfeed.sbe.v2.0.tiebreakerprice", ftypes.DOUBLE, nil, nil, nil, "TieBreakerPrice")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.timestamp = ProtoField.new("Timestamp", "24x.24xequities.memoirdepthfeed.sbe.v2.0.timestamp", ftypes.UINT64)
+omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.timestamp = ProtoField.new("Timestamp", "24x.24xequities.memoirdepthfeed.sbe.v2.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.timestamp_utc = ProtoField.new("Timestamp", "24x.24xequities.memoirdepthfeed.sbe.v2.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.trade_id = ProtoField.new("Trade Id", "24x.24xequities.memoirdepthfeed.sbe.v2.0.tradeid", ftypes.UINT64, nil, nil, nil, "TradeID")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.trading_session = ProtoField.new("Trading Session", "24x.24xequities.memoirdepthfeed.sbe.v2.0.tradingsession", ftypes.STRING, nil, nil, nil, "TradingSession")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.upper_collar_price = ProtoField.new("Upper Collar Price", "24x.24xequities.memoirdepthfeed.sbe.v2.0.uppercollarprice", ftypes.DOUBLE, nil, nil, nil, "UpperCollarPrice")
@@ -114,6 +115,20 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.session_shutdown = ProtoFie
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.message_index = ProtoField.new("Message Index", "24x.24xequities.memoirdepthfeed.sbe.v2.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- 24X 24XEquities MemoirDepthFeed Sbe 2.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+n24x_24xequities_memoirdepthfeed_sbe_v2_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -131,6 +146,8 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.show_headers = Pref.bool("Sh
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs_changed()
 
@@ -146,6 +163,9 @@ function omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs_changed()
   end
   if show.indexes ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.show_indexes then
     show.indexes = omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.show_indexes
+  end
+  if n24x_24xequities_memoirdepthfeed_sbe_v2_0.absolute_time_base ~= omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.absolute_time_base then
+    n24x_24xequities_memoirdepthfeed_sbe_v2_0.absolute_time_base = omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs.absolute_time_base
   end
 end
 
@@ -2026,23 +2046,20 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.timestamp = {}
 -- Size: Timestamp
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.timestamp.size = 8
 
--- Display: Timestamp
-n24x_24xequities_memoirdepthfeed_sbe_v2_0.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = n24x_24xequities_memoirdepthfeed_sbe_v2_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = n24x_24xequities_memoirdepthfeed_sbe_v2_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.timestamp
+  if n24x_24xequities_memoirdepthfeed_sbe_v2_0.absolute_time_base == 1 then field = omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

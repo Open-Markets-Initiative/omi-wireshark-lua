@@ -148,14 +148,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -434,7 +440,7 @@ cboe_cxeequities_lastsale_asciipitch_v1_9.executed_shares.dissect = function(buf
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_9.fields.executed_shares, range, value, "Executed Shares: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_lastsale_asciipitch_v1_9.experts.not_a_number, "Executed Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -626,7 +632,7 @@ cboe_cxeequities_lastsale_asciipitch_v1_9.notional_amount.dissect = function(buf
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_9.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_lastsale_asciipitch_v1_9.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -846,7 +852,7 @@ cboe_cxeequities_lastsale_asciipitch_v1_9.price.dissect = function(buffer, offse
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_9.fields.price, range, value, "Price: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_lastsale_asciipitch_v1_9.experts.not_a_number, "Price is not a number: '"..range:string().."'")
     return offset + length, value

@@ -54,8 +54,10 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.execution_report_orde
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.execution_report_pegged_exec_inst = ProtoField.new("Execution Report Pegged Exec Inst", "lseg.millennium.nativetradinggateway.ntgi.v21.2.executionreportpeggedexecinst", ftypes.UINT8, nil, nil, nil, "The instruction for permissioning to trade against mid-priced pegged orders.")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.execution_report_ref_id = ProtoField.new("Execution Report Ref Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.executionreportrefid", ftypes.STRING, nil, nil, nil, "Reference to the trade being cancelled or corrected.")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.execution_type = ProtoField.new("Execution Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.executiontype", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time = ProtoField.new("Expire Date Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiredatetime", ftypes.UINT32, nil, nil, nil, "This field will indicate the date or the time the order expires on.")
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time = ProtoField.new("Expire Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiretime", ftypes.UINT32, nil, nil, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time = ProtoField.new("Expire Date Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiredatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field will indicate the date or the time the order expires on.")
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time_utc = ProtoField.new("Expire Date Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiredatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field will indicate the date or the time the order expires on.")
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time = ProtoField.new("Expire Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time_utc = ProtoField.new("Expire Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time_milliseconds = ProtoField.new("Expire Time Milliseconds", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiretimemilliseconds", ftypes.UINT32, nil, nil, nil, "Indicates the number of milliseconds to be added to the date or the time the RFQ expires on specified in the ‘Expire Time’ field.")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.fourthreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.group_id = ProtoField.new("Group Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.groupid", ftypes.UINT8, nil, nil, nil, "Specified by the user as order submission.")
@@ -141,7 +143,8 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_id = ProtoField.n
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_min_quotes = ProtoField.new("Rfq Min Quotes", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rfqminquotes", ftypes.UINT8, nil, nil, nil, "The minimum number of market maker quotes to be available for the RFQ execution to be triggered automatically.")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "lseg.millennium.nativetradinggateway.ntgi.v21.2.secondreserved1", ftypes.BYTES, nil, nil, nil, "This will always be zero (0).")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.secondreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.nativetradinggateway.ntgi.v21.2.seconds", ftypes.UINT32, nil, nil, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.nativetradinggateway.ntgi.v21.2.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds_utc = ProtoField.new("Seconds", "lseg.millennium.nativetradinggateway.ntgi.v21.2.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.segment = ProtoField.new("Segment", "lseg.millennium.nativetradinggateway.ntgi.v21.2.segment", ftypes.STRING, nil, nil, nil, "The segment for which the orders will be cancelled.")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.sequence_no = ProtoField.new("Sequence No", "lseg.millennium.nativetradinggateway.ntgi.v21.2.sequenceno", ftypes.INT32, nil, nil, nil, "Sequence number of the message.")
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.nativetradinggateway.ntgi.v21.2.sequencenumber", ftypes.INT32, nil, nil, nil, "The server will stamp the message sequence number of the matching partition.")
@@ -1343,20 +1346,20 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time = {}
 -- Size: Expire Date Time
 lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.size = 4
 
--- Display: Expire Date Time
-lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Expire Date Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Expire Date Time
 lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1367,20 +1370,20 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time = {}
 -- Size: Expire Time
 lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.size = 4
 
--- Display: Expire Time
-lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Expire Time
 lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3575,20 +3578,20 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds = {}
 -- Size: Seconds
 lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.size = 4
 
--- Display: Seconds
-lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds
+  if lseg_millennium_nativetradinggateway_ntgi_v21_2.absolute_time_base == 1 then field = omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

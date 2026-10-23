@@ -86,7 +86,8 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.sao_buy_quantity_1 = ProtoField.new("S
 omi_miax_miaxoptions_ais_mach_v2_5.fields.sao_buy_quantity_2 = ProtoField.new("Sao Buy Quantity 2", "miax.miaxoptions.ais.mach.v2.5.saobuyquantity2", ftypes.UINT32, nil, nil, nil, "All open SAO Buy liquidity at all prices")
 omi_miax_miaxoptions_ais_mach_v2_5.fields.sao_sell_quantity_1 = ProtoField.new("Sao Sell Quantity 1", "miax.miaxoptions.ais.mach.v2.5.saosellquantity1", ftypes.UINT32, nil, nil, nil, "All open SAO Sell liquidity priced equal to or better than the Theoretical Settlement Reference Price, including Market Orders")
 omi_miax_miaxoptions_ais_mach_v2_5.fields.sao_sell_quantity_2 = ProtoField.new("Sao Sell Quantity 2", "miax.miaxoptions.ais.mach.v2.5.saosellquantity2", ftypes.UINT32, nil, nil, nil, "All open SAO Sell liquidity at all prices")
-omi_miax_miaxoptions_ais_mach_v2_5.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.ais.mach.v2.5.seconds", ftypes.UINT32, nil, nil, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_ais_mach_v2_5.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.ais.mach.v2.5.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_ais_mach_v2_5.fields.seconds_utc = ProtoField.new("Seconds", "miax.miaxoptions.ais.mach.v2.5.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_ais_mach_v2_5.fields.security_symbol = ProtoField.new("Security Symbol", "miax.miaxoptions.ais.mach.v2.5.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_miaxoptions_ais_mach_v2_5.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.ais.mach.v2.5.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed.")
 omi_miax_miaxoptions_ais_mach_v2_5.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.miaxoptions.ais.mach.v2.5.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
@@ -147,6 +148,15 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.timestamp = ProtoField.new("Timestamp"
 -- Miax MiaxOptions Ais Mach 2.5 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_miaxoptions_ais_mach_v2_5.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 miax_miaxoptions_ais_mach_v2_5.format_timestamp = true
 
@@ -172,6 +182,8 @@ omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_headers = Pref.bool("Show Headers"
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_miax_miaxoptions_ais_mach_v2_5.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_miaxoptions_ais_mach_v2_5.prefs_changed()
 
@@ -193,6 +205,9 @@ function omi_miax_miaxoptions_ais_mach_v2_5.prefs_changed()
   end
   if miax_miaxoptions_ais_mach_v2_5.format_timestamp ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.format_timestamp then
     miax_miaxoptions_ais_mach_v2_5.format_timestamp = omi_miax_miaxoptions_ais_mach_v2_5.prefs.format_timestamp
+  end
+  if miax_miaxoptions_ais_mach_v2_5.absolute_time_base ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.absolute_time_base then
+    miax_miaxoptions_ais_mach_v2_5.absolute_time_base = omi_miax_miaxoptions_ais_mach_v2_5.prefs.absolute_time_base
   end
 end
 
@@ -2052,20 +2067,20 @@ miax_miaxoptions_ais_mach_v2_5.seconds.generated = function(value, range, packet
   seconds:set_generated()
 end
 
--- Display: Seconds
-miax_miaxoptions_ais_mach_v2_5.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 miax_miaxoptions_ais_mach_v2_5.seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_5.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_ais_mach_v2_5.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_miaxoptions_ais_mach_v2_5.fields.seconds
+  if miax_miaxoptions_ais_mach_v2_5.absolute_time_base == 1 then field = omi_miax_miaxoptions_ais_mach_v2_5.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

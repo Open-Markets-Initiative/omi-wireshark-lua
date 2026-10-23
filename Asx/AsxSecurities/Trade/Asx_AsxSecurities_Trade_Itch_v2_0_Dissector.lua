@@ -70,7 +70,8 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.reserved_10_bits = ProtoField.new("
 omi_asx_asxsecurities_trade_itch_v2_0.fields.reserved_2_bits = ProtoField.new("Reserved 2 Bits", "asx.asxsecurities.trade.itch.v2.0.reserved2bits", ftypes.UINT16, nil, base.DEC, 0x0003, "Reserved")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.reserved_bit = ProtoField.new("Reserved Bit", "asx.asxsecurities.trade.itch.v2.0.reservedbit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "asx.asxsecurities.trade.itch.v2.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the order book.")
-omi_asx_asxsecurities_trade_itch_v2_0.fields.second = ProtoField.new("Second", "asx.asxsecurities.trade.itch.v2.0.second", ftypes.UINT32, nil, nil, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxsecurities_trade_itch_v2_0.fields.second = ProtoField.new("Second", "asx.asxsecurities.trade.itch.v2.0.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxsecurities_trade_itch_v2_0.fields.second_utc = ProtoField.new("Second", "asx.asxsecurities.trade.itch.v2.0.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "asx.asxsecurities.trade.itch.v2.0.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.session = ProtoField.new("Session", "asx.asxsecurities.trade.itch.v2.0.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.side = ProtoField.new("Side", "asx.asxsecurities.trade.itch.v2.0.side", ftypes.STRING, nil, nil, nil, "The type of order being added.")
@@ -116,6 +117,15 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.timestamp = ProtoField.new("Timesta
 -- Asx AsxSecurities Trade Itch 2.0 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+asx_asxsecurities_trade_itch_v2_0.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 asx_asxsecurities_trade_itch_v2_0.format_timestamp = true
 
@@ -141,6 +151,8 @@ omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_indexes = Pref.bool("Show Index
 omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_asx_asxsecurities_trade_itch_v2_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_asx_asxsecurities_trade_itch_v2_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_itch_v2_0.prefs_changed()
 
@@ -162,6 +174,9 @@ function omi_asx_asxsecurities_trade_itch_v2_0.prefs_changed()
   end
   if asx_asxsecurities_trade_itch_v2_0.format_timestamp ~= omi_asx_asxsecurities_trade_itch_v2_0.prefs.format_timestamp then
     asx_asxsecurities_trade_itch_v2_0.format_timestamp = omi_asx_asxsecurities_trade_itch_v2_0.prefs.format_timestamp
+  end
+  if asx_asxsecurities_trade_itch_v2_0.absolute_time_base ~= omi_asx_asxsecurities_trade_itch_v2_0.prefs.absolute_time_base then
+    asx_asxsecurities_trade_itch_v2_0.absolute_time_base = omi_asx_asxsecurities_trade_itch_v2_0.prefs.absolute_time_base
   end
 end
 
@@ -1522,20 +1537,20 @@ asx_asxsecurities_trade_itch_v2_0.second.generated = function(value, range, pack
   second:set_generated()
 end
 
--- Display: Second
-asx_asxsecurities_trade_itch_v2_0.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 asx_asxsecurities_trade_itch_v2_0.second.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = asx_asxsecurities_trade_itch_v2_0.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_asx_asxsecurities_trade_itch_v2_0.fields.second
+  if asx_asxsecurities_trade_itch_v2_0.absolute_time_base == 1 then field = omi_asx_asxsecurities_trade_itch_v2_0.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

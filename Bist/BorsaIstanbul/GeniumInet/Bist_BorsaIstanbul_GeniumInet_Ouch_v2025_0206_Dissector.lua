@@ -29,7 +29,8 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_16 
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_32 = ProtoField.new("Exchange Info Alpha 32", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.exchangeinfoalpha32", ftypes.STRING, nil, nil, nil, "Client account number. Only the first 16 bytes are used. Account Info should use this field for the equity market")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.existing_order_token = ProtoField.new("Existing Order Token", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.existingordertoken", ftypes.STRING, nil, nil, nil, "Should be the Order Token from the original Enter Order, not from any intermediate replaces")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.match_id = ProtoField.new("Match Id", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.matchid", ftypes.BYTES, nil, nil, nil, "Backend-generated identifier, unique per trade message")
-omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds = ProtoField.new("Nanoseconds", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.nanoseconds", ftypes.UINT64, nil, nil, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC)")
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds = ProtoField.new("Nanoseconds", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.nanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC)")
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds_utc = ProtoField.new("Nanoseconds", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.nanoseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC)")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.no_quote_entries = ProtoField.new("No Quote Entries", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.noquoteentries", ftypes.UINT16, nil, nil, nil, "Number of double-sided quotes in the following QuoteSet repeating group. Currently restricted to a maximum of 5")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.off_hours = ProtoField.new("Off Hours", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.offhours", ftypes.UINT8, nil, nil, nil, "Off-hours indicator. Used by the derivatives market")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.offer_price = ProtoField.new("Offer Price", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.offerprice", ftypes.DOUBLE, nil, nil, nil, "Offer price. Number of decimals and allowed tick steps are given by the Order book Directory message in ITCH")
@@ -117,6 +118,15 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts = { bist_borsaistanbul
 -- Bist BorsaIstanbul GeniumInet Ouch 2025.0206 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -152,6 +162,8 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_repeating_groups = 
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs_changed()
 
@@ -176,6 +188,9 @@ function omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs_changed()
   end
   if show.sequences ~= omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_sequences then
     show.sequences = omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_sequences
+  end
+  if bist_borsaistanbul_geniuminet_ouch_v2025_0206.absolute_time_base ~= omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.absolute_time_base then
+    bist_borsaistanbul_geniuminet_ouch_v2025_0206.absolute_time_base = omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.absolute_time_base
   end
 end
 
@@ -249,14 +264,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -282,7 +303,7 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.accepted_sequence_number.dissect =
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -640,23 +661,20 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.nanoseconds = {}
 -- Size: Nanoseconds
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.nanoseconds.size = 8
 
--- Display: Nanoseconds
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.nanoseconds.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Nanoseconds: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Nanoseconds
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.nanoseconds.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.nanoseconds.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.nanoseconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds
+  if bist_borsaistanbul_geniuminet_ouch_v2025_0206.absolute_time_base == 1 then field = omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1430,7 +1448,7 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.requested_sequence_number.dissect 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

@@ -59,9 +59,12 @@ omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.strategy_subtype = Pro
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.strikeprice", ftypes.INT32, nil, nil, nil, "NOTE: Only applicable for derivative instruments.")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.symbol = ProtoField.new("Symbol", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.symbol", ftypes.STRING, nil, nil, nil, "Security short name.")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.tick_size = ProtoField.new("Tick Size", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.ticksize", ftypes.INT64, nil, nil, nil, "Tick Size for the give price range")
-omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement = ProtoField.new("Time Of Trade Agreement", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeagreement", ftypes.UINT64)
-omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination = ProtoField.new("Time Of Trade Dissemination", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradedissemination", ftypes.UINT64)
-omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution = ProtoField.new("Time Of Trade Execution", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeexecution", ftypes.UINT64)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement = ProtoField.new("Time Of Trade Agreement", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeagreement", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement_utc = ProtoField.new("Time Of Trade Agreement", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeagreement.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination = ProtoField.new("Time Of Trade Dissemination", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradedissemination", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination_utc = ProtoField.new("Time Of Trade Dissemination", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradedissemination.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution = ProtoField.new("Time Of Trade Execution", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeexecution", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution_utc = ProtoField.new("Time Of Trade Execution", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeexecution.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timestampnanoseconds", ftypes.UINT32, nil, nil, nil, "Nanoseconds portion of the timestamp.")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.tradeprice", ftypes.INT32)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.trade_type = ProtoField.new("Trade Type", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.tradetype", ftypes.UINT16, nil, nil, nil, "Values: 1 = Block Trade 2 = Exchange for Physical 11 = Exchange for Risk 14 = Exchange for Options")
@@ -104,6 +107,15 @@ omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_trade_price = P
 -- Nasdaq NfxFutures MarketData GeniumAmd 2.30.7 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.absolute_time_base = 0
+
 -- Scaled Tick Size format (true = decimal-scaled, false = raw mantissa)
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals = true
 
@@ -131,6 +143,8 @@ omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_indexes = Pref.boo
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs_changed()
 
@@ -155,6 +169,9 @@ function omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs_changed()
   end
   if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals ~= omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.format_decimals then
     nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.format_decimals
+  end
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.absolute_time_base ~= omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.absolute_time_base then
+    nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.absolute_time_base = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.absolute_time_base
   end
 end
 
@@ -1354,30 +1371,45 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement = {}
 -- Size: Time Of Trade Agreement
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.size = 8
 
--- Display: Time Of Trade Agreement
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.display = function(value)
-  local digits = tostring(value)
-
-  while #digits < 17 do
-    digits = "0"..digits
-  end
-
-  return string.format("Time Of Trade Agreement: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 17))
-end
-
 -- Dissect: Time Of Trade Agreement
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.display(value, buffer, offset, packet, parent)
+  local packed = range:uint64():tonumber()
 
-  parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.absolute_time_base == 1 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement_utc end
 
-  return offset + length, value
+  local millis = packed % 1000
+  local civil = math.floor(packed / 1000)
+  local year = math.floor(civil / 10000000000)
+  local month = math.floor(civil / 100000000) % 100
+  local day = math.floor(civil / 1000000) % 100
+  local hour = math.floor(civil / 10000) % 100
+  local minute = math.floor(civil / 100) % 100
+  local second = civil % 100
+
+  if month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Time Of Trade Agreement: " .. tostring(packed))
+    return offset + length, packed
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = millis * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, packed
 end
 
 -- Time Of Trade Dissemination
@@ -1386,30 +1418,45 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination = {}
 -- Size: Time Of Trade Dissemination
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.size = 8
 
--- Display: Time Of Trade Dissemination
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.display = function(value)
-  local digits = tostring(value)
-
-  while #digits < 17 do
-    digits = "0"..digits
-  end
-
-  return string.format("Time Of Trade Dissemination: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 17))
-end
-
 -- Dissect: Time Of Trade Dissemination
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.display(value, buffer, offset, packet, parent)
+  local packed = range:uint64():tonumber()
 
-  parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.absolute_time_base == 1 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination_utc end
 
-  return offset + length, value
+  local millis = packed % 1000
+  local civil = math.floor(packed / 1000)
+  local year = math.floor(civil / 10000000000)
+  local month = math.floor(civil / 100000000) % 100
+  local day = math.floor(civil / 1000000) % 100
+  local hour = math.floor(civil / 10000) % 100
+  local minute = math.floor(civil / 100) % 100
+  local second = civil % 100
+
+  if month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Time Of Trade Dissemination: " .. tostring(packed))
+    return offset + length, packed
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = millis * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, packed
 end
 
 -- Time Of Trade Execution
@@ -1418,30 +1465,45 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution = {}
 -- Size: Time Of Trade Execution
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.size = 8
 
--- Display: Time Of Trade Execution
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.display = function(value)
-  local digits = tostring(value)
-
-  while #digits < 17 do
-    digits = "0"..digits
-  end
-
-  return string.format("Time Of Trade Execution: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 17))
-end
-
 -- Dissect: Time Of Trade Execution
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.size
   local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.display(value, buffer, offset, packet, parent)
+  local packed = range:uint64():tonumber()
 
-  parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.absolute_time_base == 1 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution_utc end
 
-  return offset + length, value
+  local millis = packed % 1000
+  local civil = math.floor(packed / 1000)
+  local year = math.floor(civil / 10000000000)
+  local month = math.floor(civil / 100000000) % 100
+  local day = math.floor(civil / 1000000) % 100
+  local hour = math.floor(civil / 10000) % 100
+  local minute = math.floor(civil / 100) % 100
+  local second = civil % 100
+
+  if month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Time Of Trade Execution: " .. tostring(packed))
+    return offset + length, packed
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = millis * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, packed
 end
 
 -- Timestamp Nanoseconds

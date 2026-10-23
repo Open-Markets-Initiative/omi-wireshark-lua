@@ -28,7 +28,8 @@ omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.execution_id = ProtoField.n
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.firm_id = ProtoField.new("Firm Id", "otcmarkets.linknqb.depthofbook.link.v1.18.firmid", ftypes.STRING, nil, nil, nil, "Firm's MPID.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.full_closing_price = ProtoField.new("Full Closing Price", "otcmarkets.linknqb.depthofbook.link.v1.18.fullclosingprice", ftypes.DOUBLE, nil, nil, nil, "The calculated closing price. The long value represents the price scaled by 1,000,000 (6 decimal places).")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linknqb.depthofbook.link.v1.18.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "A Heartbeat is sent if no business level message has been published for more than a second")
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.lastupdatemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds from UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.lastupdatemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds from UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.last_update_milli_utc = ProtoField.new("Last Update Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.lastupdatemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds from UTC epoch.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linknqb.depthofbook.link.v1.18.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in packet")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linknqb.depthofbook.link.v1.18.messagesize", ftypes.UINT16, nil, nil, nil, "Size of message in bytes")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linknqb.depthofbook.link.v1.18.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
@@ -44,7 +45,8 @@ omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.piggyback_flag = ProtoField
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.price = ProtoField.new("Price", "otcmarkets.linknqb.depthofbook.link.v1.18.price", ftypes.DOUBLE, nil, nil, nil, "The limit order price. The long value represents the price scaled by 1,000,000 (6 decimal places).")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.qib_only_144_a = ProtoField.new("Qib Only 144 A", "otcmarkets.linknqb.depthofbook.link.v1.18.qibonly144a", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "\"144A QIB Only\" in the PDF. Indicates that the security may only be purchased or sold by Qualified Institutional Buyers (QIBs) or agents acting on behalf of QIBs.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.quantity = ProtoField.new("Quantity", "otcmarkets.linknqb.depthofbook.link.v1.18.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book.")
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.linknqb.depthofbook.link.v1.18.recoverystarttime", ftypes.UINT64, nil, nil, nil, "Expected time recovery spin will start.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.linknqb.depthofbook.link.v1.18.recoverystarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expected time recovery spin will start.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.recovery_start_time_utc = ProtoField.new("Recovery Start Time", "otcmarkets.linknqb.depthofbook.link.v1.18.recoverystarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expected time recovery spin will start.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.recovery_type = ProtoField.new("Recovery Type", "otcmarkets.linknqb.depthofbook.link.v1.18.recoverytype", ftypes.UINT8, nil, nil, nil, "Recovery event type.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "otcmarkets.linknqb.depthofbook.link.v1.18.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares remaining after the execution. Will be zero if fully filled.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.replay = ProtoField.new("Replay", "otcmarkets.linknqb.depthofbook.link.v1.18.replay", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Packet contains replay messages")
@@ -58,12 +60,15 @@ omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.security_id = ProtoField.ne
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.security_status = ProtoField.new("Security Status", "otcmarkets.linknqb.depthofbook.link.v1.18.securitystatus", ftypes.STRING, nil, nil, nil, "Security trading status.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.seq_num = ProtoField.new("Seq Num", "otcmarkets.linknqb.depthofbook.link.v1.18.seqnum", ftypes.UINT32, nil, nil, nil, "Channel specific Sequence number of packet")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otcmarkets.linknqb.depthofbook.link.v1.18.seqnumreset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "indicates that the channel sequence numbers are being reset to 1")
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.session_time = ProtoField.new("Session Time", "otcmarkets.linknqb.depthofbook.link.v1.18.sessiontime", ftypes.UINT64, nil, nil, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.session_time = ProtoField.new("Session Time", "otcmarkets.linknqb.depthofbook.link.v1.18.sessiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.session_time_utc = ProtoField.new("Session Time", "otcmarkets.linknqb.depthofbook.link.v1.18.sessiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.side_indicator = ProtoField.new("Side Indicator", "otcmarkets.linknqb.depthofbook.link.v1.18.sideindicator", ftypes.STRING, nil, nil, nil, "\"B\" = Buy Order, \"S\" = Sell Order.")
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.spinendtimemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.spinendtimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_end_time_milli_utc = ProtoField.new("Spin End Time Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.spinendtimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_last_seq_num = ProtoField.new("Spin Last Seq Num", "otcmarkets.linknqb.depthofbook.link.v1.18.spinlastseqnum", ftypes.UINT32, nil, nil, nil, "Ignore, not used.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otcmarkets.linknqb.depthofbook.link.v1.18.spinmsgct", ftypes.UINT32, nil, nil, nil, "Total messages in spin.")
-omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.spinstarttimemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.spinstarttimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_start_time_milli_utc = ProtoField.new("Spin Start Time Milli", "otcmarkets.linknqb.depthofbook.link.v1.18.spinstarttimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_type = ProtoField.new("Spin Type", "otcmarkets.linknqb.depthofbook.link.v1.18.spintype", ftypes.UINT8, nil, nil, nil, "Spin type.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.symbol = ProtoField.new("Symbol", "otcmarkets.linknqb.depthofbook.link.v1.18.symbol", ftypes.STRING, nil, nil, nil, "Ticker symbol.")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.test = ProtoField.new("Test", "otcmarkets.linknqb.depthofbook.link.v1.18.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Packet contains test messages")
@@ -100,6 +105,20 @@ omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.heartbeat_packet = ProtoFie
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linknqb.depthofbook.link.v1.18.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- OtcMarkets LinkNqb DepthOfBook Link 1.18 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -117,6 +136,8 @@ omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_structs = Pref.bool("Sh
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs_changed()
 
@@ -132,6 +153,9 @@ function omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs_changed()
   end
   if show.indexes ~= omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_indexes then
     show.indexes = omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.show_indexes
+  end
+  if otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base ~= omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.absolute_time_base then
+    otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base = omi_otcmarkets_linknqb_depthofbook_link_v1_18.prefs.absolute_time_base
   end
 end
 
@@ -408,23 +432,20 @@ otcmarkets_linknqb_depthofbook_link_v1_18.last_update_milli = {}
 -- Size: Last Update Milli
 otcmarkets_linknqb_depthofbook_link_v1_18.last_update_milli.size = 8
 
--- Display: Last Update Milli
-otcmarkets_linknqb_depthofbook_link_v1_18.last_update_milli.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Last Update Milli: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Last Update Milli
 otcmarkets_linknqb_depthofbook_link_v1_18.last_update_milli.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linknqb_depthofbook_link_v1_18.last_update_milli.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linknqb_depthofbook_link_v1_18.last_update_milli.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.last_update_milli, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.last_update_milli
+  if otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base == 1 then field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.last_update_milli_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -790,23 +811,20 @@ otcmarkets_linknqb_depthofbook_link_v1_18.recovery_start_time = {}
 -- Size: Recovery Start Time
 otcmarkets_linknqb_depthofbook_link_v1_18.recovery_start_time.size = 8
 
--- Display: Recovery Start Time
-otcmarkets_linknqb_depthofbook_link_v1_18.recovery_start_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Recovery Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Recovery Start Time
 otcmarkets_linknqb_depthofbook_link_v1_18.recovery_start_time.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linknqb_depthofbook_link_v1_18.recovery_start_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linknqb_depthofbook_link_v1_18.recovery_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.recovery_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.recovery_start_time
+  if otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base == 1 then field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.recovery_start_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1077,23 +1095,20 @@ otcmarkets_linknqb_depthofbook_link_v1_18.session_time = {}
 -- Size: Session Time
 otcmarkets_linknqb_depthofbook_link_v1_18.session_time.size = 8
 
--- Display: Session Time
-otcmarkets_linknqb_depthofbook_link_v1_18.session_time.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Session Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Session Time
 otcmarkets_linknqb_depthofbook_link_v1_18.session_time.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linknqb_depthofbook_link_v1_18.session_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linknqb_depthofbook_link_v1_18.session_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.session_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.session_time
+  if otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base == 1 then field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.session_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1134,23 +1149,20 @@ otcmarkets_linknqb_depthofbook_link_v1_18.spin_end_time_milli = {}
 -- Size: Spin End Time Milli
 otcmarkets_linknqb_depthofbook_link_v1_18.spin_end_time_milli.size = 8
 
--- Display: Spin End Time Milli
-otcmarkets_linknqb_depthofbook_link_v1_18.spin_end_time_milli.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Spin End Time Milli: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Spin End Time Milli
 otcmarkets_linknqb_depthofbook_link_v1_18.spin_end_time_milli.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linknqb_depthofbook_link_v1_18.spin_end_time_milli.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linknqb_depthofbook_link_v1_18.spin_end_time_milli.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_end_time_milli, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_end_time_milli
+  if otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base == 1 then field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_end_time_milli_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1207,23 +1219,20 @@ otcmarkets_linknqb_depthofbook_link_v1_18.spin_start_time_milli = {}
 -- Size: Spin Start Time Milli
 otcmarkets_linknqb_depthofbook_link_v1_18.spin_start_time_milli.size = 8
 
--- Display: Spin Start Time Milli
-otcmarkets_linknqb_depthofbook_link_v1_18.spin_start_time_milli.display = function(value)
-  -- Parse unix millisecond timestamp
-  local seconds = (value / UInt64(1000)):tonumber()
-  local milliseconds = (value % UInt64(1000)):tonumber()
-
-  return "Spin Start Time Milli: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%03d", milliseconds)
-end
-
 -- Dissect: Spin Start Time Milli
 otcmarkets_linknqb_depthofbook_link_v1_18.spin_start_time_milli.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linknqb_depthofbook_link_v1_18.spin_start_time_milli.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = otcmarkets_linknqb_depthofbook_link_v1_18.spin_start_time_milli.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_start_time_milli, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_start_time_milli
+  if otcmarkets_linknqb_depthofbook_link_v1_18.absolute_time_base == 1 then field = omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.spin_start_time_milli_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

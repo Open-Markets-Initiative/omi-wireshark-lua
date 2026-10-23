@@ -340,7 +340,8 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.quote_v_2_bitfield_1_secur
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.quote_v_2_bitfield_1_symbol = ProtoField.new("Quote V 2 Bitfield 1 Symbol", "cboe.cboeeurope.tradereporting.boe.v2.0.17.quotev2bitfield1symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.reason = ProtoField.new("Reason", "cboe.cboeeurope.tradereporting.boe.v2.0.17.reason", ftypes.STRING, nil, nil, nil, "Reason for a Trade Capture Report reject or decline. See Reason Codes (§ 8, p. 61) for a list of possible reasons.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cboeeurope.tradereporting.boe.v2.0.17.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for Bats’ internal use.")
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.rpttime", ftypes.UINT64)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.rpttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.rpt_time_utc = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.rpttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.secondary_trd_type = ProtoField.new("Secondary Trd Type", "cboe.cboeeurope.tradereporting.boe.v2.0.17.secondarytrdtype", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.cboeeurope.tradereporting.boe.v2.0.17.securityexchange", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.security_id = ProtoField.new("Security Id", "cboe.cboeeurope.tradereporting.boe.v2.0.17.securityid", ftypes.STRING)
@@ -910,10 +911,12 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_report_id = ProtoFie
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_report_ref_id = ProtoField.new("Trade Report Ref Id", "cboe.cboeeurope.tradereporting.boe.v2.0.17.tradereportrefid", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_report_trans_type = ProtoField.new("Trade Report Trans Type", "cboe.cboeeurope.tradereporting.boe.v2.0.17.tradereporttranstype", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_report_type_return = ProtoField.new("Trade Report Type Return", "cboe.cboeeurope.tradereporting.boe.v2.0.17.tradereporttypereturn", ftypes.UINT16)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_time = ProtoField.new("Trade Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.tradetime", ftypes.UINT64)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_time = ProtoField.new("Trade Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_time_utc = ProtoField.new("Trade Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "cboe.cboeeurope.tradereporting.boe.v2.0.17.tradingsessionsubid", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.cboeeurope.tradereporting.boe.v2.0.17.transactioncategory", ftypes.STRING)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the event occurred in the Bats match- ing engine (not the time the message was sent).")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Bats match- ing engine (not the time the message was sent).")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.cboeeurope.tradereporting.boe.v2.0.17.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Bats match- ing engine (not the time the message was sent).")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trd_cap_ack_side_grp = ProtoField.new("Trd Cap Ack Side Grp", "cboe.cboeeurope.tradereporting.boe.v2.0.17.trdcapacksidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trd_cap_rpt_side_grp = ProtoField.new("Trd Cap Rpt Side Grp", "cboe.cboeeurope.tradereporting.boe.v2.0.17.trdcaprptsidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "cboe.cboeeurope.tradereporting.boe.v2.0.17.trdsubtype", ftypes.UINT8)
@@ -957,6 +960,20 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trd_cap_rpt_side_grp_index
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.units_index = ProtoField.new("Units Index", "cboe.cboeeurope.tradereporting.boe.v2.0.17.unitsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cboe CboeEurope TradeReporting Boe 2.0.17 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_cboeeurope_tradereporting_boe_v2_0_17.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -976,6 +993,8 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.show_structs = Pref.bool("S
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs_changed()
 
@@ -994,6 +1013,9 @@ function omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs_changed()
   end
   if show.indexes ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.show_indexes then
     show.indexes = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.show_indexes
+  end
+  if cboe_cboeeurope_tradereporting_boe_v2_0_17.absolute_time_base ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.absolute_time_base then
+    cboe_cboeeurope_tradereporting_boe_v2_0_17.absolute_time_base = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.prefs.absolute_time_base
   end
 end
 
@@ -2785,23 +2807,20 @@ cboe_cboeeurope_tradereporting_boe_v2_0_17.rpt_time = {}
 -- Size: Rpt Time
 cboe_cboeeurope_tradereporting_boe_v2_0_17.rpt_time.size = 8
 
--- Display: Rpt Time
-cboe_cboeeurope_tradereporting_boe_v2_0_17.rpt_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Rpt Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Rpt Time
 cboe_cboeeurope_tradereporting_boe_v2_0_17.rpt_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_17.rpt_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cboeeurope_tradereporting_boe_v2_0_17.rpt_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.rpt_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.rpt_time
+  if cboe_cboeeurope_tradereporting_boe_v2_0_17.absolute_time_base == 1 then field = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.rpt_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3388,23 +3407,20 @@ cboe_cboeeurope_tradereporting_boe_v2_0_17.trade_time = {}
 -- Size: Trade Time
 cboe_cboeeurope_tradereporting_boe_v2_0_17.trade_time.size = 8
 
--- Display: Trade Time
-cboe_cboeeurope_tradereporting_boe_v2_0_17.trade_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trade Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trade Time
 cboe_cboeeurope_tradereporting_boe_v2_0_17.trade_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_17.trade_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cboeeurope_tradereporting_boe_v2_0_17.trade_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_time
+  if cboe_cboeeurope_tradereporting_boe_v2_0_17.absolute_time_base == 1 then field = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.trade_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3506,23 +3522,20 @@ cboe_cboeeurope_tradereporting_boe_v2_0_17.transaction_time = {}
 -- Size: Transaction Time
 cboe_cboeeurope_tradereporting_boe_v2_0_17.transaction_time.size = 8
 
--- Display: Transaction Time
-cboe_cboeeurope_tradereporting_boe_v2_0_17.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 cboe_cboeeurope_tradereporting_boe_v2_0_17.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_17.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cboeeurope_tradereporting_boe_v2_0_17.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.transaction_time
+  if cboe_cboeeurope_tradereporting_boe_v2_0_17.absolute_time_base == 1 then field = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

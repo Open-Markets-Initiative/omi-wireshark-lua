@@ -29,8 +29,10 @@ omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.channel_id = Proto
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.contract_code = ProtoField.new("Contract Code", "lme.lmeselect.level1retransmission.lmesource.v4.18.contractcode", ftypes.STRING, nil, nil, nil, "A string that combines the contract symbol, contract type and currency.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.cross_id = ProtoField.new("Cross Id", "lme.lmeselect.level1retransmission.lmesource.v4.18.crossid", ftypes.UINT64, nil, nil, nil, "The identifier of the Cross that is unique for the day. The specification types this field UInt64; the documented data types define Uint64 and the stated length of eight bytes agrees.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.end_seq_num = ProtoField.new("End Seq Num", "lme.lmeselect.level1retransmission.lmesource.v4.18.endseqnum", ftypes.UINT32, nil, nil, nil, "Message sequence number of the last message in the range to be resent.")
-omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.end_time = ProtoField.new("End Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.endtime", ftypes.UINT64, nil, nil, nil, "Trading State End Time. Zero, meaning not applicable, for Technical Halt.")
-omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.expire_time = ProtoField.new("Expire Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.expiretime", ftypes.UINT64, nil, nil, nil, "The time this cross request will expire.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.end_time = ProtoField.new("End Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trading State End Time. Zero, meaning not applicable, for Technical Halt.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.end_time_utc = ProtoField.new("End Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.endtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trading State End Time. Zero, meaning not applicable, for Technical Halt.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.expire_time = ProtoField.new("Expire Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time this cross request will expire.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.expire_time_utc = ProtoField.new("Expire Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time this cross request will expire.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.filler = ProtoField.new("Filler", "lme.lmeselect.level1retransmission.lmesource.v4.18.filler", ftypes.STRING, nil, nil, nil, "Filler aligning the sequence number to a four byte boundary")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.filler_string_1 = ProtoField.new("Filler String 1", "lme.lmeselect.level1retransmission.lmesource.v4.18.fillerstring1", ftypes.STRING, nil, nil, nil, "Filler.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.filler_string_2 = ProtoField.new("Filler String 2", "lme.lmeselect.level1retransmission.lmesource.v4.18.fillerstring2", ftypes.STRING, nil, nil, nil, "Filler.")
@@ -43,7 +45,8 @@ omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.leg_price = ProtoF
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.leg_trade_at_reference_price = ProtoField.new("Leg Trade At Reference Price", "lme.lmeselect.level1retransmission.lmesource.v4.18.legtradeatreferenceprice", ftypes.STRING, nil, nil, nil, "Indicates whether the leg price is differential or substituted.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.leg_volume = ProtoField.new("Leg Volume", "lme.lmeselect.level1retransmission.lmesource.v4.18.legvolume", ftypes.UINT32, nil, nil, nil, "Quantity allocated to this leg of the strategy.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.match_id = ProtoField.new("Match Id", "lme.lmeselect.level1retransmission.lmesource.v4.18.matchid", ftypes.UINT64, nil, nil, nil, "Assigned trade match identifier for the matched trade.")
-omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.matched_time = ProtoField.new("Matched Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.matchedtime", ftypes.UINT64, nil, nil, nil, "Time the trade was matched in LMEsmart. Null until such time.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.matched_time = ProtoField.new("Matched Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.matchedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the trade was matched in LMEsmart. Null until such time.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.matched_time_utc = ProtoField.new("Matched Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.matchedtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the trade was matched in LMEsmart. Null until such time.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.msg_count = ProtoField.new("Msg Count", "lme.lmeselect.level1retransmission.lmesource.v4.18.msgcount", ftypes.UINT8, nil, nil, nil, "Number of messages included in the packet")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.msg_size = ProtoField.new("Msg Size", "lme.lmeselect.level1retransmission.lmesource.v4.18.msgsize", ftypes.UINT16, nil, nil, nil, "Message length, including this field")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.msg_type = ProtoField.new("Msg Type", "lme.lmeselect.level1retransmission.lmesource.v4.18.msgtype", ftypes.UINT16, nil, nil, nil, "Type of message, selecting the payload that follows the message header")
@@ -59,13 +62,16 @@ omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.record_count = Pro
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.remaining_records = ProtoField.new("Remaining Records", "lme.lmeselect.level1retransmission.lmesource.v4.18.remainingrecords", ftypes.UINT16, nil, nil, nil, "Number of leg records still to be published for this trade.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.retrans_status = ProtoField.new("Retrans Status", "lme.lmeselect.level1retransmission.lmesource.v4.18.retransstatus", ftypes.UINT8, nil, nil, nil, "Status of the Retransmission response.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.ring_session = ProtoField.new("Ring Session", "lme.lmeselect.level1retransmission.lmesource.v4.18.ringsession", ftypes.STRING, nil, nil, nil, "This identifies the ring trading session. Space if not applicable.")
-omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.sendtime", ftypes.UINT64, nil, nil, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.level1retransmission.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.session_status = ProtoField.new("Session Status", "lme.lmeselect.level1retransmission.lmesource.v4.18.sessionstatus", ftypes.UINT8, nil, nil, nil, "Status of the session.")
-omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.start_time = ProtoField.new("Start Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.starttime", ftypes.UINT64, nil, nil, nil, "Trading State Start Time. Zero, meaning not applicable, for Technical Halt.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.start_time = ProtoField.new("Start Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trading State Start Time. Zero, meaning not applicable, for Technical Halt.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.start_time_utc = ProtoField.new("Start Time", "lme.lmeselect.level1retransmission.lmesource.v4.18.starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trading State Start Time. Zero, meaning not applicable, for Technical Halt.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.strategy_leg_count = ProtoField.new("Strategy Leg Count", "lme.lmeselect.level1retransmission.lmesource.v4.18.strategylegcount", ftypes.UINT32, nil, nil, nil, "Number of legs of the strategy.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.sub_type_of_trade = ProtoField.new("Sub Type Of Trade", "lme.lmeselect.level1retransmission.lmesource.v4.18.subtypeoftrade", ftypes.UINT8, nil, nil, nil, "Sub type of trade.")
-omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.level1retransmission.lmesource.v4.18.timeofevent", ftypes.UINT64, nil, nil, nil, "Time of event.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.level1retransmission.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of event.")
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.time_of_event_utc = ProtoField.new("Time Of Event", "lme.lmeselect.level1retransmission.lmesource.v4.18.timeofevent.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of event.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.timetable_control_type = ProtoField.new("Timetable Control Type", "lme.lmeselect.level1retransmission.lmesource.v4.18.timetablecontroltype", ftypes.STRING, nil, nil, nil, "Timetable Control Type.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.tradable_instrument_id = ProtoField.new("Tradable Instrument Id", "lme.lmeselect.level1retransmission.lmesource.v4.18.tradableinstrumentid", ftypes.UINT64, nil, nil, nil, "Tradable Instrument ID.")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.trade_at_reference_price_type = ProtoField.new("Trade At Reference Price Type", "lme.lmeselect.level1retransmission.lmesource.v4.18.tradeatreferencepricetype", ftypes.STRING, nil, nil, nil, "For a TaR, indicates whether the price is differential or substituted. Defaults to space, meaning not applicable.")
@@ -103,6 +109,20 @@ omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.message_index = Pr
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.trade_legs_index = ProtoField.new("Trade Legs Index", "lme.lmeselect.level1retransmission.lmesource.v4.18.tradelegsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lme LmeSelect Level1Retransmission LmeSource 4.18 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -122,6 +142,8 @@ omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.show_headers = Pref
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs_changed()
 
@@ -140,6 +162,9 @@ function omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs_changed()
   end
   if show.indexes ~= omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.show_indexes then
     show.indexes = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.show_indexes
+  end
+  if lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base ~= omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.absolute_time_base then
+    lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.prefs.absolute_time_base
   end
 end
 
@@ -514,23 +539,20 @@ lme_lmeselect_level1retransmission_lmesource_v4_18.end_time = {}
 -- Size: End Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.end_time.size = 8
 
--- Display: End Time
-lme_lmeselect_level1retransmission_lmesource_v4_18.end_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: End Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.end_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_level1retransmission_lmesource_v4_18.end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_level1retransmission_lmesource_v4_18.end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.end_time
+  if lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -541,23 +563,20 @@ lme_lmeselect_level1retransmission_lmesource_v4_18.expire_time = {}
 -- Size: Expire Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.expire_time.size = 8
 
--- Display: Expire Time
-lme_lmeselect_level1retransmission_lmesource_v4_18.expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Expire Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_level1retransmission_lmesource_v4_18.expire_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_level1retransmission_lmesource_v4_18.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.expire_time
+  if lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -892,29 +911,27 @@ lme_lmeselect_level1retransmission_lmesource_v4_18.matched_time = {}
 -- Size: Matched Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.matched_time.size = 8
 
--- Display: Matched Time
-lme_lmeselect_level1retransmission_lmesource_v4_18.matched_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Matched Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Matched Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Matched Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.matched_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_level1retransmission_lmesource_v4_18.matched_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_level1retransmission_lmesource_v4_18.matched_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.matched_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.matched_time
+  if lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.matched_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Matched Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1380,23 +1397,20 @@ lme_lmeselect_level1retransmission_lmesource_v4_18.send_time = {}
 -- Size: Send Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.send_time.size = 8
 
--- Display: Send Time
-lme_lmeselect_level1retransmission_lmesource_v4_18.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.send_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_level1retransmission_lmesource_v4_18.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_level1retransmission_lmesource_v4_18.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.send_time
+  if lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1463,23 +1477,20 @@ lme_lmeselect_level1retransmission_lmesource_v4_18.start_time = {}
 -- Size: Start Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.start_time.size = 8
 
--- Display: Start Time
-lme_lmeselect_level1retransmission_lmesource_v4_18.start_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Start Time
 lme_lmeselect_level1retransmission_lmesource_v4_18.start_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_level1retransmission_lmesource_v4_18.start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_level1retransmission_lmesource_v4_18.start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.start_time
+  if lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1552,23 +1563,20 @@ lme_lmeselect_level1retransmission_lmesource_v4_18.time_of_event = {}
 -- Size: Time Of Event
 lme_lmeselect_level1retransmission_lmesource_v4_18.time_of_event.size = 8
 
--- Display: Time Of Event
-lme_lmeselect_level1retransmission_lmesource_v4_18.time_of_event.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Time Of Event: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Time Of Event
 lme_lmeselect_level1retransmission_lmesource_v4_18.time_of_event.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_level1retransmission_lmesource_v4_18.time_of_event.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_level1retransmission_lmesource_v4_18.time_of_event.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.time_of_event, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.time_of_event
+  if lme_lmeselect_level1retransmission_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_level1retransmission_lmesource_v4_18.fields.time_of_event_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

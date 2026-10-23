@@ -209,14 +209,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -360,7 +366,7 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.buy_shares.dissect = functi
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.buy_shares, range, value, "Buy Shares: Not Applicable")
     item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Buy Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -641,7 +647,7 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.midnight_reference.dissect 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference, range, value, "Midnight Reference: Not Applicable")
     item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Midnight Reference is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1156,7 +1162,7 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.sell_shares.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sell_shares, range, value, "Sell Shares: Not Applicable")
     item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Sell Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1308,7 +1314,7 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.shares_long.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.shares_long, range, value, "Shares Long: Not Applicable")
     item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Shares Long is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1496,7 +1502,7 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.time.dissect = function(buf
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.time, range, value, "Time: Not Applicable")
     item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Time is not a number: '"..range:string().."'")
     return offset + length, value

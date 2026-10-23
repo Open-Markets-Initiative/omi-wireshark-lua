@@ -57,7 +57,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.compression = ProtoField.n
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.condor = ProtoField.new("Condor", "euronext.optiq.marketdatagateway.sbe.v6.61.condor", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000100000)
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.condor_versus_underlying = ProtoField.new("Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v6.61.condorversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000020000000000, "CondorVersusUnderlying")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.confirmed_reference_level = ProtoField.new("Confirmed Reference Level", "euronext.optiq.marketdatagateway.sbe.v6.61.confirmedreferencelevel", ftypes.INT64, nil, nil, nil, "confirmedReferenceLevel")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.confirmed_reference_time = ProtoField.new("Confirmed Reference Time", "euronext.optiq.marketdatagateway.sbe.v6.61.confirmedreferencetime", ftypes.UINT64, nil, nil, nil, "confirmedReferenceTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.confirmed_reference_time = ProtoField.new("Confirmed Reference Time", "euronext.optiq.marketdatagateway.sbe.v6.61.confirmedreferencetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "confirmedReferenceTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.confirmed_reference_time_utc = ProtoField.new("Confirmed Reference Time", "euronext.optiq.marketdatagateway.sbe.v6.61.confirmedreferencetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "confirmedReferenceTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.contract_emm_properties_group = ProtoField.new("Contract Emm Properties Group", "euronext.optiq.marketdatagateway.sbe.v6.61.contractemmpropertiesgroup", ftypes.STRING, nil, nil, nil, "ContractEMMProperties")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.contract_emm_properties_groups = ProtoField.new("Contract Emm Properties Groups", "euronext.optiq.marketdatagateway.sbe.v6.61.contractemmpropertiesgroups", ftypes.STRING, nil, nil, nil, "ContractEMMProperties Block")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.contract_event_date = ProtoField.new("Contract Event Date", "euronext.optiq.marketdatagateway.sbe.v6.61.contracteventdate", ftypes.UINT16, nil, nil, nil, "contractEventDate")
@@ -115,7 +116,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.emm_pattern_rep_group = Pr
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.emm_pattern_rep_groups = ProtoField.new("Emm Pattern Rep Groups", "euronext.optiq.marketdatagateway.sbe.v6.61.emmpatternrepgroups", ftypes.STRING, nil, nil, nil, "EMMPatternRep Block")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.end_time_vwap = ProtoField.new("End Time Vwap", "euronext.optiq.marketdatagateway.sbe.v6.61.endtimevwap", ftypes.UINT32, nil, nil, nil, "endTimeVwap")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.evaluated_price = ProtoField.new("Evaluated Price", "euronext.optiq.marketdatagateway.sbe.v6.61.evaluatedprice", ftypes.INT64, nil, nil, nil, "evaluatedPrice")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.marketdatagateway.sbe.v6.61.eventtime", ftypes.UINT64, nil, nil, nil, "eventTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.marketdatagateway.sbe.v6.61.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.event_time_utc = ProtoField.new("Event Time", "euronext.optiq.marketdatagateway.sbe.v6.61.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "eventTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.event_time_optional = ProtoField.new("Event Time Optional", "euronext.optiq.marketdatagateway.sbe.v6.61.eventtimeoptional", ftypes.UINT64, nil, nil, nil, "eventTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.ex_dividend_date = ProtoField.new("Ex Dividend Date", "euronext.optiq.marketdatagateway.sbe.v6.61.exdividenddate", ftypes.UINT16, nil, nil, nil, "exDividendDate")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.exceptional_market_conditions = ProtoField.new("Exceptional Market Conditions", "euronext.optiq.marketdatagateway.sbe.v6.61.exceptionalmarketconditions", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "ExceptionalMarketConditions")
@@ -142,7 +144,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.has_end_of_day_snapshot = 
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.has_start_of_day_snapshot = ProtoField.new("Has Start Of Day Snapshot", "euronext.optiq.marketdatagateway.sbe.v6.61.hasstartofdaysnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "Packet contains Start Of Day Snapshot")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.has_status_message = ProtoField.new("Has Status Message", "euronext.optiq.marketdatagateway.sbe.v6.61.hasstatusmessage", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Packet contains a Health Status (1103) message, Start Of Day (1101) message or End Of Day (1102) message")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.high_level = ProtoField.new("High Level", "euronext.optiq.marketdatagateway.sbe.v6.61.highlevel", ftypes.INT64, nil, nil, nil, "highLevel")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.high_time = ProtoField.new("High Time", "euronext.optiq.marketdatagateway.sbe.v6.61.hightime", ftypes.UINT64, nil, nil, nil, "highTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.high_time = ProtoField.new("High Time", "euronext.optiq.marketdatagateway.sbe.v6.61.hightime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "highTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.high_time_utc = ProtoField.new("High Time", "euronext.optiq.marketdatagateway.sbe.v6.61.hightime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "highTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.icb = ProtoField.new("Icb", "euronext.optiq.marketdatagateway.sbe.v6.61.icb", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.icb_code = ProtoField.new("Icb Code", "euronext.optiq.marketdatagateway.sbe.v6.61.icbcode", ftypes.STRING, nil, nil, nil, "iCBCode")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.ics_one_sided_combination_same_expiry = ProtoField.new("Ics One Sided Combination Same Expiry", "euronext.optiq.marketdatagateway.sbe.v6.61.icsonesidedcombinationsameexpiry", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0001000000000000, "ICSOneSidedCombinationSameExpiry")
@@ -200,7 +203,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.lot_multiplier = ProtoFiel
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.lot_size = ProtoField.new("Lot Size", "euronext.optiq.marketdatagateway.sbe.v6.61.lotsize", ftypes.UINT64, nil, nil, nil, "lotSize")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.lot_size_optional = ProtoField.new("Lot Size Optional", "euronext.optiq.marketdatagateway.sbe.v6.61.lotsizeoptional", ftypes.UINT64, nil, nil, nil, "lotSize")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.low_level = ProtoField.new("Low Level", "euronext.optiq.marketdatagateway.sbe.v6.61.lowlevel", ftypes.INT64, nil, nil, nil, "lowLevel")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.low_time = ProtoField.new("Low Time", "euronext.optiq.marketdatagateway.sbe.v6.61.lowtime", ftypes.UINT64, nil, nil, nil, "lowTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.low_time = ProtoField.new("Low Time", "euronext.optiq.marketdatagateway.sbe.v6.61.lowtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "lowTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.low_time_utc = ProtoField.new("Low Time", "euronext.optiq.marketdatagateway.sbe.v6.61.lowtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "lowTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.main_depositary = ProtoField.new("Main Depositary", "euronext.optiq.marketdatagateway.sbe.v6.61.maindepositary", ftypes.STRING, nil, nil, nil, "mainDepositary")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.market = ProtoField.new("Market", "euronext.optiq.marketdatagateway.sbe.v6.61.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.market_model = ProtoField.new("Market Model", "euronext.optiq.marketdatagateway.sbe.v6.61.marketmodel", ftypes.UINT8, nil, nil, nil, "marketModel")
@@ -286,7 +290,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.number_of_orders = ProtoFi
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.offer_price = ProtoField.new("Offer Price", "euronext.optiq.marketdatagateway.sbe.v6.61.offerprice", ftypes.INT64, nil, nil, nil, "offerPrice")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opened_closed_fund = ProtoField.new("Opened Closed Fund", "euronext.optiq.marketdatagateway.sbe.v6.61.openedclosedfund", ftypes.STRING, nil, nil, nil, "openedClosedFund")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opening_level = ProtoField.new("Opening Level", "euronext.optiq.marketdatagateway.sbe.v6.61.openinglevel", ftypes.INT64, nil, nil, nil, "openingLevel")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opening_time = ProtoField.new("Opening Time", "euronext.optiq.marketdatagateway.sbe.v6.61.openingtime", ftypes.UINT64, nil, nil, nil, "openingTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opening_time = ProtoField.new("Opening Time", "euronext.optiq.marketdatagateway.sbe.v6.61.openingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "openingTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opening_time_utc = ProtoField.new("Opening Time", "euronext.optiq.marketdatagateway.sbe.v6.61.openingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "openingTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.option_type = ProtoField.new("Option Type", "euronext.optiq.marketdatagateway.sbe.v6.61.optiontype", ftypes.UINT8, nil, nil, nil, "optionType")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.optiq_segment = ProtoField.new("Optiq Segment", "euronext.optiq.marketdatagateway.sbe.v6.61.optiqsegment", ftypes.UINT8, nil, nil, nil, "optiqSegment")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.order_entry_qualifier = ProtoField.new("Order Entry Qualifier", "euronext.optiq.marketdatagateway.sbe.v6.61.orderentryqualifier", ftypes.UINT8, nil, nil, nil, "orderEntryQualifier")
@@ -298,7 +303,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.order_type = ProtoField.ne
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.order_type_rules = ProtoField.new("Order Type Rules", "euronext.optiq.marketdatagateway.sbe.v6.61.ordertyperules", ftypes.STRING, nil, nil, nil, "OrderTypeRules_set bit set")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.order_updates_group = ProtoField.new("Order Updates Group", "euronext.optiq.marketdatagateway.sbe.v6.61.orderupdatesgroup", ftypes.STRING, nil, nil, nil, "Orders")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.order_updates_groups = ProtoField.new("Order Updates Groups", "euronext.optiq.marketdatagateway.sbe.v6.61.orderupdatesgroups", ftypes.STRING, nil, nil, nil, "Orders Block")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.original_report_timestamp = ProtoField.new("Original Report Timestamp", "euronext.optiq.marketdatagateway.sbe.v6.61.originalreporttimestamp", ftypes.UINT64, nil, nil, nil, "originalReportTimestamp")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.original_report_timestamp = ProtoField.new("Original Report Timestamp", "euronext.optiq.marketdatagateway.sbe.v6.61.originalreporttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "originalReportTimestamp")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.original_report_timestamp_utc = ProtoField.new("Original Report Timestamp", "euronext.optiq.marketdatagateway.sbe.v6.61.originalreporttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "originalReportTimestamp")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.outright_rep_group = ProtoField.new("Outright Rep Group", "euronext.optiq.marketdatagateway.sbe.v6.61.outrightrepgroup", ftypes.STRING, nil, nil, nil, "OutrightRep")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.outright_rep_groups = ProtoField.new("Outright Rep Groups", "euronext.optiq.marketdatagateway.sbe.v6.61.outrightrepgroups", ftypes.STRING, nil, nil, nil, "OutrightRep Block")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.pack = ProtoField.new("Pack", "euronext.optiq.marketdatagateway.sbe.v6.61.pack", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000)
@@ -306,7 +312,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.package_components_group =
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.package_components_groups = ProtoField.new("Package Components Groups", "euronext.optiq.marketdatagateway.sbe.v6.61.packagecomponentsgroups", ftypes.STRING, nil, nil, nil, "PackageComponents Block")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatagateway.sbe.v6.61.packetflags", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "euronext.optiq.marketdatagateway.sbe.v6.61.packetsequencenumber", ftypes.UINT32, nil, nil, nil, "Each channel has its own PSN sequence")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatagateway.sbe.v6.61.packettime", ftypes.UINT64, nil, nil, nil, "Time when the packet is pushed to the clients")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatagateway.sbe.v6.61.packettime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the packet is pushed to the clients")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_time_utc = ProtoField.new("Packet Time", "euronext.optiq.marketdatagateway.sbe.v6.61.packettime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the packet is pushed to the clients")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.par_value = ProtoField.new("Par Value", "euronext.optiq.marketdatagateway.sbe.v6.61.parvalue", ftypes.UINT64, nil, nil, nil, "parValue")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.partition_id = ProtoField.new("Partition Id", "euronext.optiq.marketdatagateway.sbe.v6.61.partitionid", ftypes.UINT16, nil, nil, nil, "partitionID")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.passive_order = ProtoField.new("Passive Order", "euronext.optiq.marketdatagateway.sbe.v6.61.passiveorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "PassiveOrder")
@@ -316,7 +323,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.pctg_of_capitalization = P
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.peg_offset = ProtoField.new("Peg Offset", "euronext.optiq.marketdatagateway.sbe.v6.61.pegoffset", ftypes.INT8, nil, nil, nil, "pegOffset")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_id = ProtoField.new("Phase Id", "euronext.optiq.marketdatagateway.sbe.v6.61.phaseid", ftypes.UINT8, nil, nil, nil, "phaseId")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_qualifier = ProtoField.new("Phase Qualifier", "euronext.optiq.marketdatagateway.sbe.v6.61.phasequalifier", ftypes.STRING, nil, nil, nil, "PhaseQualifier_set bit set")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_time = ProtoField.new("Phase Time", "euronext.optiq.marketdatagateway.sbe.v6.61.phasetime", ftypes.UINT64, nil, nil, nil, "phaseTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_time = ProtoField.new("Phase Time", "euronext.optiq.marketdatagateway.sbe.v6.61.phasetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "phaseTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_time_utc = ProtoField.new("Phase Time", "euronext.optiq.marketdatagateway.sbe.v6.61.phasetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "phaseTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.pool_factor = ProtoField.new("Pool Factor", "euronext.optiq.marketdatagateway.sbe.v6.61.poolfactor", ftypes.UINT32, nil, nil, nil, "poolFactor")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.post_trade_deferral_flags = ProtoField.new("Post Trade Deferral Flags", "euronext.optiq.marketdatagateway.sbe.v6.61.posttradedeferralflags", ftypes.STRING, nil, nil, nil, "postTradeDeferralFlags")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.prct_varfrom_prev_close = ProtoField.new("Prct Varfrom Prev Close", "euronext.optiq.marketdatagateway.sbe.v6.61.prctvarfromprevclose", ftypes.INT64, nil, nil, nil, "prctVarfromPrevClose")
@@ -365,10 +373,13 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.reserved_11 = ProtoField.n
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.reserved_5 = ProtoField.new("Reserved 5", "euronext.optiq.marketdatagateway.sbe.v6.61.reserved5", ftypes.UINT16, nil, base.DEC, 0xF800, "5 reserved bits")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.marketdatagateway.sbe.v6.61.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatagateway.sbe.v6.61.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00, "Bits Reserved for future use")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_end_time = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v6.61.retransmissionendtime", ftypes.UINT64, nil, nil, nil, "retransmissionEndTime")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_start_time = ProtoField.new("Retransmission Start Time", "euronext.optiq.marketdatagateway.sbe.v6.61.retransmissionstarttime", ftypes.UINT64, nil, nil, nil, "retransmissionStartTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_end_time = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v6.61.retransmissionendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "retransmissionEndTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_end_time_utc = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v6.61.retransmissionendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "retransmissionEndTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_start_time = ProtoField.new("Retransmission Start Time", "euronext.optiq.marketdatagateway.sbe.v6.61.retransmissionstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "retransmissionStartTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_start_time_utc = ProtoField.new("Retransmission Start Time", "euronext.optiq.marketdatagateway.sbe.v6.61.retransmissionstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "retransmissionStartTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.scheduled_event = ProtoField.new("Scheduled Event", "euronext.optiq.marketdatagateway.sbe.v6.61.scheduledevent", ftypes.UINT8, nil, nil, nil, "scheduledEvent")
-omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.scheduled_event_time = ProtoField.new("Scheduled Event Time", "euronext.optiq.marketdatagateway.sbe.v6.61.scheduledeventtime", ftypes.UINT64, nil, nil, nil, "scheduledEventTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.scheduled_event_time = ProtoField.new("Scheduled Event Time", "euronext.optiq.marketdatagateway.sbe.v6.61.scheduledeventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "scheduledEventTime")
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.scheduled_event_time_utc = ProtoField.new("Scheduled Event Time", "euronext.optiq.marketdatagateway.sbe.v6.61.scheduledeventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "scheduledEventTime")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.marketdatagateway.sbe.v6.61.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.second_notional_currency = ProtoField.new("Second Notional Currency", "euronext.optiq.marketdatagateway.sbe.v6.61.secondnotionalcurrency", ftypes.STRING, nil, nil, nil, "secondNotionalCurrency")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.security_condition = ProtoField.new("Security Condition", "euronext.optiq.marketdatagateway.sbe.v6.61.securitycondition", ftypes.STRING, nil, nil, nil, "securityCondition")
@@ -514,6 +525,20 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.strategy_standing_data_gro
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.timetables_group_index = ProtoField.new("Timetables Group Index", "euronext.optiq.marketdatagateway.sbe.v6.61.timetablesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Euronext Optiq MarketDataGateway Sbe 6.61 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -533,6 +558,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.show_headers = Pref.bool("S
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs_changed()
 
@@ -551,6 +578,9 @@ function omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs_changed()
   end
   if show.indexes ~= omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.show_indexes then
     show.indexes = omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.show_indexes
+  end
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base ~= omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.absolute_time_base then
+    euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base = omi_euronext_optiq_marketdatagateway_sbe_v6_61.prefs.absolute_time_base
   end
 end
 
@@ -1362,29 +1392,27 @@ euronext_optiq_marketdatagateway_sbe_v6_61.confirmed_reference_time = {}
 -- Size: Confirmed Reference Time
 euronext_optiq_marketdatagateway_sbe_v6_61.confirmed_reference_time.size = 8
 
--- Display: Confirmed Reference Time
-euronext_optiq_marketdatagateway_sbe_v6_61.confirmed_reference_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Confirmed Reference Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Confirmed Reference Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Confirmed Reference Time
 euronext_optiq_marketdatagateway_sbe_v6_61.confirmed_reference_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.confirmed_reference_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.confirmed_reference_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.confirmed_reference_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.confirmed_reference_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.confirmed_reference_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Confirmed Reference Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3298,23 +3326,20 @@ euronext_optiq_marketdatagateway_sbe_v6_61.event_time = {}
 -- Size: Event Time
 euronext_optiq_marketdatagateway_sbe_v6_61.event_time.size = 8
 
--- Display: Event Time
-euronext_optiq_marketdatagateway_sbe_v6_61.event_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Event Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Event Time
 euronext_optiq_marketdatagateway_sbe_v6_61.event_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.event_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.event_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.event_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.event_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.event_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3937,23 +3962,20 @@ euronext_optiq_marketdatagateway_sbe_v6_61.high_time = {}
 -- Size: High Time
 euronext_optiq_marketdatagateway_sbe_v6_61.high_time.size = 8
 
--- Display: High Time
-euronext_optiq_marketdatagateway_sbe_v6_61.high_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "High Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: High Time
 euronext_optiq_marketdatagateway_sbe_v6_61.high_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.high_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.high_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.high_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.high_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.high_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5464,23 +5486,20 @@ euronext_optiq_marketdatagateway_sbe_v6_61.low_time = {}
 -- Size: Low Time
 euronext_optiq_marketdatagateway_sbe_v6_61.low_time.size = 8
 
--- Display: Low Time
-euronext_optiq_marketdatagateway_sbe_v6_61.low_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Low Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Low Time
 euronext_optiq_marketdatagateway_sbe_v6_61.low_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.low_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.low_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.low_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.low_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.low_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8100,23 +8119,20 @@ euronext_optiq_marketdatagateway_sbe_v6_61.opening_time = {}
 -- Size: Opening Time
 euronext_optiq_marketdatagateway_sbe_v6_61.opening_time.size = 8
 
--- Display: Opening Time
-euronext_optiq_marketdatagateway_sbe_v6_61.opening_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Opening Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Opening Time
 euronext_optiq_marketdatagateway_sbe_v6_61.opening_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.opening_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.opening_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opening_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opening_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.opening_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8454,29 +8470,27 @@ euronext_optiq_marketdatagateway_sbe_v6_61.original_report_timestamp = {}
 -- Size: Original Report Timestamp
 euronext_optiq_marketdatagateway_sbe_v6_61.original_report_timestamp.size = 8
 
--- Display: Original Report Timestamp
-euronext_optiq_marketdatagateway_sbe_v6_61.original_report_timestamp.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Original Report Timestamp: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Original Report Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Original Report Timestamp
 euronext_optiq_marketdatagateway_sbe_v6_61.original_report_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.original_report_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.original_report_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.original_report_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.original_report_timestamp
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.original_report_timestamp_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Original Report Timestamp: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8510,23 +8524,20 @@ euronext_optiq_marketdatagateway_sbe_v6_61.packet_time = {}
 -- Size: Packet Time
 euronext_optiq_marketdatagateway_sbe_v6_61.packet_time.size = 8
 
--- Display: Packet Time
-euronext_optiq_marketdatagateway_sbe_v6_61.packet_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Packet Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Packet Time
 euronext_optiq_marketdatagateway_sbe_v6_61.packet_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.packet_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.packet_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.packet_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8786,23 +8797,20 @@ euronext_optiq_marketdatagateway_sbe_v6_61.phase_time = {}
 -- Size: Phase Time
 euronext_optiq_marketdatagateway_sbe_v6_61.phase_time.size = 8
 
--- Display: Phase Time
-euronext_optiq_marketdatagateway_sbe_v6_61.phase_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Phase Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Phase Time
 euronext_optiq_marketdatagateway_sbe_v6_61.phase_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.phase_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.phase_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.phase_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9943,29 +9951,27 @@ euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_end_time = {}
 -- Size: Retransmission End Time
 euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_end_time.size = 8
 
--- Display: Retransmission End Time
-euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_end_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Retransmission End Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Retransmission End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Retransmission End Time
 euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_end_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_end_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_end_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Retransmission End Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9976,29 +9982,27 @@ euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_start_time = {}
 -- Size: Retransmission Start Time
 euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_start_time.size = 8
 
--- Display: Retransmission Start Time
-euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_start_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Retransmission Start Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Retransmission Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Retransmission Start Time
 euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_start_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.retransmission_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_start_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.retransmission_start_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Retransmission Start Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -10096,29 +10100,27 @@ euronext_optiq_marketdatagateway_sbe_v6_61.scheduled_event_time = {}
 -- Size: Scheduled Event Time
 euronext_optiq_marketdatagateway_sbe_v6_61.scheduled_event_time.size = 8
 
--- Display: Scheduled Event Time
-euronext_optiq_marketdatagateway_sbe_v6_61.scheduled_event_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Scheduled Event Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Scheduled Event Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Scheduled Event Time
 euronext_optiq_marketdatagateway_sbe_v6_61.scheduled_event_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v6_61.scheduled_event_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v6_61.scheduled_event_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.scheduled_event_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.scheduled_event_time
+  if euronext_optiq_marketdatagateway_sbe_v6_61.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatagateway_sbe_v6_61.fields.scheduled_event_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Scheduled Event Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

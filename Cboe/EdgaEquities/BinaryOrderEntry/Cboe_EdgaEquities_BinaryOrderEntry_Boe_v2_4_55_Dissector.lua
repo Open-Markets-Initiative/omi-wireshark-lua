@@ -58,7 +58,8 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.ex_destination = Proto
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.exec_id = ProtoField.new("Exec Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.execid", ftypes.UINT64, nil, nil, nil, "Corresponds to ExecID (17) in Cboe FIX. Execution ID. Unique across all matching units on a given day.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.execinst", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.execrefid", ftypes.UINT64, nil, nil, nil, "Corresponds to ExecRefID (19) in Cboe FIX. Refers to the ExecID of the fill being cancelled or corrected.")
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.expire_time = ProtoField.new("Expire Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.expiretime", ftypes.UINT64)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.expire_time = ProtoField.new("Expire Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.ext_exec_inst = ProtoField.new("Ext Exec Inst", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.extexecinst", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.fee_code = ProtoField.new("Fee Code", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.feecode", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.last_px = ProtoField.new("Last Px", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.lastpx", ftypes.DOUBLE, nil, nil, nil, "Corresponds to LastPx (31) in Cboe FIX. Price of this fill.")
@@ -200,7 +201,8 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.order_id = ProtoField.
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.order_qty = ProtoField.new("Order Qty", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.orderqty", ftypes.UINT32, nil, nil, nil, "Order quantity. System limit is 999,999 shares.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.orderrejectreason", ftypes.STRING, nil, nil, nil, "Reason for an order rejection. See Reason Codes for a list of possible reasons.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.origclordid", ftypes.STRING, nil, nil, nil, "Corresponds to OrigClOrdID (41) in Cboe FIX. ClOrdID of the order to cancel.")
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.orig_time = ProtoField.new("Orig Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.origtime", ftypes.UINT64, nil, nil, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.orig_time = ProtoField.new("Orig Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.orig_time_utc = ProtoField.new("Orig Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.password = ProtoField.new("Password", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.password", ftypes.STRING, nil, nil, nil, "Password supplied by Cboe.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.peg_difference = ProtoField.new("Peg Difference", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.pegdifference", ftypes.DOUBLE)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.preventmatch", ftypes.STRING)
@@ -414,7 +416,8 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.symbol = ProtoField.ne
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.symbolsfx", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.text = ProtoField.new("Text", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.text", ftypes.STRING, nil, nil, nil, "Human readable text with more information about the reject reason.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.time_in_force = ProtoField.new("Time In Force", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.timeinforce", ftypes.STRING)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.username = ProtoField.new("Username", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.username", ftypes.STRING, nil, nil, nil, "Username supplied by Cboe.")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.working_price = ProtoField.new("Working Price", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.workingprice", ftypes.DOUBLE)
 
@@ -447,6 +450,20 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.trade_cancel_or_correc
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.edgaequities.binaryorderentry.boe.v2.4.55.usermodifyrejectedmessage", ftypes.STRING, nil, nil, nil, "User Modify Rejected messages are sent in response to a Modify Order message for an order which cannot be modified. User Modify Rejected messages are unsequenced.")
 
 -----------------------------------------------------------------------
+-- Cboe EdgaEquities BinaryOrderEntry Boe 2.4.55 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_edgaequities_binaryorderentry_boe_v2_4_55.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -462,6 +479,8 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.show_structs = Pref.boo
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs_changed()
 
@@ -474,6 +493,9 @@ function omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs_changed()
   end
   if show.structs ~= omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.show_structs then
     show.structs = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.show_structs
+  end
+  if cboe_edgaequities_binaryorderentry_boe_v2_4_55.absolute_time_base ~= omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.absolute_time_base then
+    cboe_edgaequities_binaryorderentry_boe_v2_4_55.absolute_time_base = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.prefs.absolute_time_base
   end
 end
 
@@ -1422,23 +1444,20 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_55.expire_time = {}
 -- Size: Expire Time
 cboe_edgaequities_binaryorderentry_boe_v2_4_55.expire_time.size = 8
 
--- Display: Expire Time
-cboe_edgaequities_binaryorderentry_boe_v2_4_55.expire_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Expire Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Expire Time
 cboe_edgaequities_binaryorderentry_boe_v2_4_55.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_binaryorderentry_boe_v2_4_55.expire_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_55.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.expire_time
+  if cboe_edgaequities_binaryorderentry_boe_v2_4_55.absolute_time_base == 1 then field = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.expire_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2641,23 +2660,20 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_55.orig_time = {}
 -- Size: Orig Time
 cboe_edgaequities_binaryorderentry_boe_v2_4_55.orig_time.size = 8
 
--- Display: Orig Time
-cboe_edgaequities_binaryorderentry_boe_v2_4_55.orig_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Orig Time
 cboe_edgaequities_binaryorderentry_boe_v2_4_55.orig_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_binaryorderentry_boe_v2_4_55.orig_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_55.orig_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.orig_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.orig_time
+  if cboe_edgaequities_binaryorderentry_boe_v2_4_55.absolute_time_base == 1 then field = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.orig_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3572,23 +3588,20 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_55.transaction_time = {}
 -- Size: Transaction Time
 cboe_edgaequities_binaryorderentry_boe_v2_4_55.transaction_time.size = 8
 
--- Display: Transaction Time
-cboe_edgaequities_binaryorderentry_boe_v2_4_55.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 cboe_edgaequities_binaryorderentry_boe_v2_4_55.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_binaryorderentry_boe_v2_4_55.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_55.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.transaction_time
+  if cboe_edgaequities_binaryorderentry_boe_v2_4_55.absolute_time_base == 1 then field = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

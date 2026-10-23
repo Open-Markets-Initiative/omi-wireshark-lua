@@ -100,7 +100,8 @@ omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.priority = ProtoField.n
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.quote_quantity = ProtoField.new("Quote Quantity", "hkex.hkexderivatives.standardretrans.omd.v2.0.quotequantity", ftypes.INT32, nil, nil, nil, "Quantity")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexderivatives.standardretrans.omd.v2.0.retransstatus", ftypes.UINT8, nil, nil, nil, "Status of the Retransmission response")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.standardretrans.omd.v2.0.secondfiller3", ftypes.BYTES, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.standardretrans.omd.v2.0.sendtime", ftypes.UINT64, nil, nil, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.standardretrans.omd.v2.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexderivatives.standardretrans.omd.v2.0.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.standardretrans.omd.v2.0.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.standardretrans.omd.v2.0.session", ftypes.UINT8, nil, nil, nil, "Session indicator used to distinguish between the T and T+1 sessions")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.session_status = ProtoField.new("Session Status", "hkex.hkexderivatives.standardretrans.omd.v2.0.sessionstatus", ftypes.UINT8, nil, nil, nil, "Status of the session")
@@ -166,6 +167,20 @@ omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.content_index = ProtoFi
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.standardretrans.omd.v2.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Hkex HkexDerivatives StandardRetrans Omd 2.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+hkex_hkexderivatives_standardretrans_omd_v2_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -185,6 +200,8 @@ omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.show_structs = Pref.bool
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs_changed()
 
@@ -203,6 +220,9 @@ function omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs_changed()
   end
   if show.indexes ~= omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.show_indexes then
     show.indexes = omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.show_indexes
+  end
+  if hkex_hkexderivatives_standardretrans_omd_v2_0.absolute_time_base ~= omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.absolute_time_base then
+    hkex_hkexderivatives_standardretrans_omd_v2_0.absolute_time_base = omi_hkex_hkexderivatives_standardretrans_omd_v2_0.prefs.absolute_time_base
   end
 end
 
@@ -2336,23 +2356,20 @@ hkex_hkexderivatives_standardretrans_omd_v2_0.send_time = {}
 -- Size: Send Time
 hkex_hkexderivatives_standardretrans_omd_v2_0.send_time.size = 8
 
--- Display: Send Time
-hkex_hkexderivatives_standardretrans_omd_v2_0.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 hkex_hkexderivatives_standardretrans_omd_v2_0.send_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_standardretrans_omd_v2_0.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.send_time
+  if hkex_hkexderivatives_standardretrans_omd_v2_0.absolute_time_base == 1 then field = omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -453,14 +453,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -692,7 +698,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.accumulated_trading_quantity
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.accumulated_trading_quantity, range, value, "Accumulated Trading Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Accumulated Trading Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -768,7 +774,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.accumulated_trading_volume.d
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2036,7 +2042,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_block_trading_
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_block_trading_in_offhours_session, range, value, "Buying Volume Block Trading In Offhours Session: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Buying Volume Block Trading In Offhours Session is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2067,7 +2073,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_open_single_pr
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_open_single_price_session, range, value, "Buying Volume Open Single Price Session: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Buying Volume Open Single Price Session is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2098,7 +2104,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.buying_volume_regular_sessio
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.buying_volume_regular_session, range, value, "Buying Volume Regular Session: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Buying Volume Regular Session is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4511,7 +4517,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_market_capitalization.
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4908,7 +4914,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.issued_amount.dissect = func
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5557,7 +5563,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.lot_size_afterhours_trading.
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lot_size_afterhours_trading, range, value, "Lot Size Afterhours Trading: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Lot Size Afterhours Trading is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6279,7 +6285,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.maximum_volume_of_multiple_o
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.maximum_volume_of_multiple_order, range, value, "Maximum Volume Of Multiple Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Maximum Volume Of Multiple Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6459,7 +6465,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.minimum_order_volume.dissect
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.minimum_order_volume, range, value, "Minimum Order Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Minimum Order Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6644,7 +6650,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.number_of_listed_shares.diss
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.number_of_listed_shares, range, value, "Number Of Listed Shares: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Number Of Listed Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -8064,7 +8070,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.spread_multiple_for_market_h
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.spread_multiple_for_market_holidays, range, value, "Spread Multiple For Market Holidays: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Spread Multiple For Market Holidays is not a number: '"..range:string().."'")
     return offset + length, value
@@ -9086,7 +9092,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.unit_of_volume_in_main_board
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.unit_of_volume_in_main_board, range, value, "Unit Of Volume In Main Board: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Unit Of Volume In Main Board is not a number: '"..range:string().."'")
     return offset + length, value
@@ -9425,7 +9431,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_018.yesterdays_accumulated_tradi
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.yesterdays_accumulated_trading_amount, range, value, "Yesterdays Accumulated Trading Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_018.experts.not_a_number, "Yesterdays Accumulated Trading Amount is not a number: '"..range:string().."'")
     return offset + length, value

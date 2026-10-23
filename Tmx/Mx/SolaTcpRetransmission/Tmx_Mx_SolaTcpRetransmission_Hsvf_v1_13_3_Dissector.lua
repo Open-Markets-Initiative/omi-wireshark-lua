@@ -253,7 +253,8 @@ omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_price_negative_thousan
 omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_price_negative_whole_pair = ProtoField.new("Last Price Negative Whole Pair", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.lastpricenegativewholepair", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_price_numeric_pair = ProtoField.new("Last Price Numeric Pair", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.lastpricenumericpair", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_price_sign = ProtoField.new("Last Price Sign", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.lastpricesign", ftypes.STRING, nil, nil, nil, "For the Last Price field")
-omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_trading_datetime = ProtoField.new("Last Trading Datetime", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.lasttradingdatetime", ftypes.UINT64, nil, nil, nil, "Indicates when the instrument stops trading")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_trading_datetime = ProtoField.new("Last Trading Datetime", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.lasttradingdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates when the instrument stops trading")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_trading_datetime_utc = ProtoField.new("Last Trading Datetime", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.lasttradingdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Indicates when the instrument stops trading")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.leg_group_instrument = ProtoField.new("Leg Group Instrument", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.leggroupinstrument", ftypes.STRING, nil, nil, nil, "Group of the Leg Instrument")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.leg_instrument = ProtoField.new("Leg Instrument", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.leginstrument", ftypes.STRING)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.leg_price = ProtoField.new("Leg Price", "tmx.mx.solatcpretransmission.hsvf.v1.13.3.legprice", ftypes.UINT24, nil, nil, nil, "Significant if the leg is a fixed leg of a covered strategy")
@@ -860,14 +861,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -1951,7 +1958,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_13_3.end_.dissect = function(buffer, offset
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.end_, range, value, "End: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solatcpretransmission_hsvf_v1_13_3.experts.not_a_number, "End is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2968,30 +2975,46 @@ tmx_mx_solatcpretransmission_hsvf_v1_13_3.last_trading_datetime = {}
 -- Size: Last Trading Datetime
 tmx_mx_solatcpretransmission_hsvf_v1_13_3.last_trading_datetime.size = 14
 
--- Display: Last Trading Datetime
-tmx_mx_solatcpretransmission_hsvf_v1_13_3.last_trading_datetime.display = function(value)
-  local packed = value:tonumber()
-
-  local year = math.floor(packed / 10000000000)
-  local month = math.floor(packed / 100000000) % 100
-  local day = math.floor(packed / 1000000) % 100
-  local hour = math.floor(packed / 10000) % 100
-  local minute = math.floor(packed / 100) % 100
-  local second = packed % 100
-
-  return string.format("Last Trading Datetime: %04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second)
-end
-
 -- Dissect: Last Trading Datetime
 tmx_mx_solatcpretransmission_hsvf_v1_13_3.last_trading_datetime.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_13_3.last_trading_datetime.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_solatcpretransmission_hsvf_v1_13_3.last_trading_datetime.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_trading_datetime, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_trading_datetime
+  if tmx_mx_solatcpretransmission_hsvf_v1_13_3.absolute_time_base == 1 then field = omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.last_trading_datetime_utc end
 
-  return offset + length, value
+  -- Fourteen digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second
+  if #text == 14 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Last Trading Datetime: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  parent:add(field, range, NSTime.new(seconds, 0))
+
+  return offset + length, text
 end
 
 -- Leg Group Instrument
@@ -7442,7 +7465,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_13_3.sequence_number.dissect = function(buf
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solatcpretransmission_hsvf_v1_13_3.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7680,7 +7703,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_13_3.start.dissect = function(buffer, offse
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3.fields.start, range, value, "Start: Not Applicable")
     item:add_proto_expert_info(tmx_mx_solatcpretransmission_hsvf_v1_13_3.experts.not_a_number, "Start is not a number: '"..range:string().."'")
     return offset + length, value

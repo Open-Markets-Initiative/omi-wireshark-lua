@@ -79,7 +79,8 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.special_dividend_indicator = Proto
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.lse.mifid2posttrade.gtp.v26.2.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.mifid2posttrade.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.mifid2posttrade.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v26.2.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated.")
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.lse.mifid2posttrade.gtp.v26.2.tradequalifier", ftypes.STRING, nil, nil, nil, "Qualifier of the trade.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "lseg.lse.mifid2posttrade.gtp.v26.2.tradingdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was executed/agreed upon. If a trade is cancelled or amended, this field will contain the Trading Date and Time of the original trade.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.lse.mifid2posttrade.gtp.v26.2.tradingmode", ftypes.STRING, nil, nil, nil, "Trading mode the trade was executed under.")
@@ -112,6 +113,20 @@ lseg_lse_mifid2posttrade_gtp_v26_2.experts.not_a_number = ProtoExpert.new("lseg.
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.experts = { lseg_lse_mifid2posttrade_gtp_v26_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- Lseg Lse Mifid2PostTrade Gtp 26.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_lse_mifid2posttrade_gtp_v26_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -129,6 +144,8 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_application_messages = Pref.bo
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs_changed()
 
@@ -144,6 +161,9 @@ function omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs_changed()
   end
   if show.indexes ~= omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_indexes then
     show.indexes = omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_indexes
+  end
+  if lseg_lse_mifid2posttrade_gtp_v26_2.absolute_time_base ~= omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.absolute_time_base then
+    lseg_lse_mifid2posttrade_gtp_v26_2.absolute_time_base = omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.absolute_time_base
   end
 end
 
@@ -2083,23 +2103,20 @@ lseg_lse_mifid2posttrade_gtp_v26_2.timestamp = {}
 -- Size: Timestamp
 lseg_lse_mifid2posttrade_gtp_v26_2.timestamp.size = 8
 
--- Display: Timestamp
-lseg_lse_mifid2posttrade_gtp_v26_2.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 lseg_lse_mifid2posttrade_gtp_v26_2.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_mifid2posttrade_gtp_v26_2.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp
+  if lseg_lse_mifid2posttrade_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

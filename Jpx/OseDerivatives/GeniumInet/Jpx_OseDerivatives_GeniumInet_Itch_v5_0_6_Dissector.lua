@@ -65,7 +65,8 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.put_or_call = ProtoField.ne
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.quantity = ProtoField.new("Quantity", "jpx.osederivatives.geniuminet.itch.v5.0.6.quantity", ftypes.UINT64, nil, nil, nil, "Visible quantity")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.reserved_24 = ProtoField.new("Reserved 24", "jpx.osederivatives.geniuminet.itch.v5.0.6.reserved24", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.round_lot_size = ProtoField.new("Round Lot Size", "jpx.osederivatives.geniuminet.itch.v5.0.6.roundlotsize", ftypes.UINT32)
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds = ProtoField.new("Seconds", "jpx.osederivatives.geniuminet.itch.v5.0.6.seconds", ftypes.UINT32, nil, nil, nil, "Unix time (seconds since 1970-01-01 00:00:00 UTC)")
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds = ProtoField.new("Seconds", "jpx.osederivatives.geniuminet.itch.v5.0.6.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (seconds since 1970-01-01 00:00:00 UTC)")
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds_utc = ProtoField.new("Seconds", "jpx.osederivatives.geniuminet.itch.v5.0.6.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (seconds since 1970-01-01 00:00:00 UTC)")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.osederivatives.geniuminet.itch.v5.0.6.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.session = ProtoField.new("Session", "jpx.osederivatives.geniuminet.itch.v5.0.6.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.short_sell = ProtoField.new("Short Sell", "jpx.osederivatives.geniuminet.itch.v5.0.6.shortsell", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
@@ -115,6 +116,15 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.timestamp = ProtoField.new(
 -- Jpx OseDerivatives GeniumInet Itch 5.0.6 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+jpx_osederivatives_geniuminet_itch_v5_0_6.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 jpx_osederivatives_geniuminet_itch_v5_0_6.format_timestamp = true
 
@@ -140,6 +150,8 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes = Pref.bool("Sh
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()
 
@@ -161,6 +173,9 @@ function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()
   end
   if jpx_osederivatives_geniuminet_itch_v5_0_6.format_timestamp ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.format_timestamp then
     jpx_osederivatives_geniuminet_itch_v5_0_6.format_timestamp = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.format_timestamp
+  end
+  if jpx_osederivatives_geniuminet_itch_v5_0_6.absolute_time_base ~= omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.absolute_time_base then
+    jpx_osederivatives_geniuminet_itch_v5_0_6.absolute_time_base = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.absolute_time_base
   end
 end
 
@@ -1406,20 +1421,20 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.generated = function(value, ra
   seconds:set_generated()
 end
 
--- Display: Seconds
-jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds
+  if jpx_osederivatives_geniuminet_itch_v5_0_6.absolute_time_base == 1 then field = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

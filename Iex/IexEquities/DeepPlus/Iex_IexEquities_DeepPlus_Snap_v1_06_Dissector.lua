@@ -50,7 +50,8 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.round_lot_size = ProtoField.new("
 omi_iex_iexequities_deepplus_snap_v1_06.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.deepplus.snap.v1.06.saleconditionflags", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.security_directory_flags = ProtoField.new("Security Directory Flags", "iex.iexequities.deepplus.snap.v1.06.securitydirectoryflags", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.security_event = ProtoField.new("Security Event", "iex.iexequities.deepplus.snap.v1.06.securityevent", ftypes.STRING, nil, nil, nil, "Security event identifier")
-omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.deepplus.snap.v1.06.sendtime", ftypes.INT64, nil, nil, nil, "Send time of segment")
+omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.deepplus.snap.v1.06.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
+omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.deepplus.snap.v1.06.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.deepplus.snap.v1.06.sessionid", ftypes.UINT32, nil, nil, nil, "Session identifier from the Deep Plus feed IexTp header")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.iexequities.deepplus.snap.v1.06.shortsalepriceteststatus", ftypes.UINT8, nil, nil, nil, "Reg. SHO short sale price test restriction status")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.side = ProtoField.new("Side", "iex.iexequities.deepplus.snap.v1.06.side", ftypes.STRING, nil, nil, nil, "Side of order")
@@ -62,7 +63,8 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.stream_offset = ProtoField.new("S
 omi_iex_iexequities_deepplus_snap_v1_06.fields.symbol = ProtoField.new("Symbol", "iex.iexequities.deepplus.snap.v1.06.symbol", ftypes.STRING, nil, nil, nil, "Security identifier")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.system_event = ProtoField.new("System Event", "iex.iexequities.deepplus.snap.v1.06.systemevent", ftypes.STRING, nil, nil, nil, "System event identifier")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.test_security = ProtoField.new("Test Security", "iex.iexequities.deepplus.snap.v1.06.testsecurity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Symbol is a test security")
-omi_iex_iexequities_deepplus_snap_v1_06.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.deepplus.snap.v1.06.timestamp", ftypes.INT64, nil, nil, nil, "Time stamp of the system event")
+omi_iex_iexequities_deepplus_snap_v1_06.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.deepplus.snap.v1.06.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp of the system event")
+omi_iex_iexequities_deepplus_snap_v1_06.fields.timestamp_utc = ProtoField.new("Timestamp", "iex.iexequities.deepplus.snap.v1.06.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamp of the system event")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.trade_id = ProtoField.new("Trade Id", "iex.iexequities.deepplus.snap.v1.06.tradeid", ftypes.UINT64, nil, nil, nil, "IEX Generated Identifier")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.iexequities.deepplus.snap.v1.06.tradethroughexempt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Trade is not subject to Rule 611")
 omi_iex_iexequities_deepplus_snap_v1_06.fields.trading_status = ProtoField.new("Trading Status", "iex.iexequities.deepplus.snap.v1.06.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status identifier")
@@ -99,6 +101,20 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.trade_message = ProtoField.new("T
 omi_iex_iexequities_deepplus_snap_v1_06.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.iexequities.deepplus.snap.v1.06.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status Message is used to indicate the current trading status of a security.")
 
 -----------------------------------------------------------------------
+-- Iex IexEquities DeepPlus Snap 1.06 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+iex_iexequities_deepplus_snap_v1_06.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -114,6 +130,8 @@ omi_iex_iexequities_deepplus_snap_v1_06.prefs.show_application_messages = Pref.b
 omi_iex_iexequities_deepplus_snap_v1_06.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexequities_deepplus_snap_v1_06.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_iex_iexequities_deepplus_snap_v1_06.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_iex_iexequities_deepplus_snap_v1_06.prefs_changed()
 
@@ -126,6 +144,9 @@ function omi_iex_iexequities_deepplus_snap_v1_06.prefs_changed()
   end
   if show.structs ~= omi_iex_iexequities_deepplus_snap_v1_06.prefs.show_structs then
     show.structs = omi_iex_iexequities_deepplus_snap_v1_06.prefs.show_structs
+  end
+  if iex_iexequities_deepplus_snap_v1_06.absolute_time_base ~= omi_iex_iexequities_deepplus_snap_v1_06.prefs.absolute_time_base then
+    iex_iexequities_deepplus_snap_v1_06.absolute_time_base = omi_iex_iexequities_deepplus_snap_v1_06.prefs.absolute_time_base
   end
 end
 
@@ -900,23 +921,20 @@ iex_iexequities_deepplus_snap_v1_06.send_time = {}
 -- Size: Send Time
 iex_iexequities_deepplus_snap_v1_06.send_time.size = 8
 
--- Display: Send Time
-iex_iexequities_deepplus_snap_v1_06.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 iex_iexequities_deepplus_snap_v1_06.send_time.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_deepplus_snap_v1_06.send_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = iex_iexequities_deepplus_snap_v1_06.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time
+  if iex_iexequities_deepplus_snap_v1_06.absolute_time_base == 1 then field = omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1167,23 +1185,20 @@ iex_iexequities_deepplus_snap_v1_06.timestamp = {}
 -- Size: Timestamp
 iex_iexequities_deepplus_snap_v1_06.timestamp.size = 8
 
--- Display: Timestamp
-iex_iexequities_deepplus_snap_v1_06.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 iex_iexequities_deepplus_snap_v1_06.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_deepplus_snap_v1_06.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = iex_iexequities_deepplus_snap_v1_06.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexequities_deepplus_snap_v1_06.fields.timestamp
+  if iex_iexequities_deepplus_snap_v1_06.absolute_time_base == 1 then field = omi_iex_iexequities_deepplus_snap_v1_06.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

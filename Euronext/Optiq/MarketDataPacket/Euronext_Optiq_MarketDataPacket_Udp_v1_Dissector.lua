@@ -25,7 +25,8 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.has_status_message = ProtoFiel
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatapacket.udp.v1.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E, "Will be set to 0 every morning and incremented for each restart of MDG in the same day")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatapacket.udp.v1.packetflags", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "euronext.optiq.marketdatapacket.udp.v1.packetsequencenumber", ftypes.UINT32, nil, nil, nil, "Each channel has its own PSN sequence")
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatapacket.udp.v1.packettime", ftypes.UINT64, nil, nil, nil, "Time when the packet is pushed to the clients")
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatapacket.udp.v1.packettime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the packet is pushed to the clients")
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time_utc = ProtoField.new("Packet Time", "euronext.optiq.marketdatapacket.udp.v1.packettime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the packet is pushed to the clients")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.payload = ProtoField.new("Payload", "euronext.optiq.marketdatapacket.udp.v1.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatapacket.udp.v1.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0070, "Packet Sequence Number goes over (2^32)-1. They are PSN high weight bits")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatapacket.udp.v1.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00, "Bits Reserved for future use")
@@ -38,6 +39,20 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.market_data_packet_header = Pr
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatapacket.udp.v1.messageheader", ftypes.STRING, nil, nil, nil, "Optiq Sbe message header — message identifiers and length of message root")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatapacket.udp.v1.optiqmessage", ftypes.STRING, nil, nil, nil, "Optiq Udp Message")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatapacket.udp.v1.packet", ftypes.STRING, nil, nil, nil, "Optiq Udp Packet")
+
+-----------------------------------------------------------------------
+-- Euronext Optiq MarketDataPacket Udp 1 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+euronext_optiq_marketdatapacket_udp_v1.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -53,6 +68,8 @@ show.structs = true
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
+omi_euronext_optiq_marketdatapacket_udp_v1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatapacket_udp_v1.prefs_changed()
 
@@ -62,6 +79,9 @@ function omi_euronext_optiq_marketdatapacket_udp_v1.prefs_changed()
   end
   if show.structs ~= omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_structs then
     show.structs = omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_structs
+  end
+  if euronext_optiq_marketdatapacket_udp_v1.absolute_time_base ~= omi_euronext_optiq_marketdatapacket_udp_v1.prefs.absolute_time_base then
+    euronext_optiq_marketdatapacket_udp_v1.absolute_time_base = omi_euronext_optiq_marketdatapacket_udp_v1.prefs.absolute_time_base
   end
 end
 
@@ -241,23 +261,20 @@ euronext_optiq_marketdatapacket_udp_v1.packet_time = {}
 -- Size: Packet Time
 euronext_optiq_marketdatapacket_udp_v1.packet_time.size = 8
 
--- Display: Packet Time
-euronext_optiq_marketdatapacket_udp_v1.packet_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Packet Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Packet Time
 euronext_optiq_marketdatapacket_udp_v1.packet_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatapacket_udp_v1.packet_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatapacket_udp_v1.packet_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time
+  if euronext_optiq_marketdatapacket_udp_v1.absolute_time_base == 1 then field = omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

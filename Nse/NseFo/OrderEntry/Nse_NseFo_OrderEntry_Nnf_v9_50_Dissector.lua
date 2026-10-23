@@ -18,7 +18,8 @@ local nse_nsefo_orderentry_nnf_v9_50 = {}
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.account_number = ProtoField.new("Account Number", "nse.nsefo.orderentry.nnf.v9.50.accountnumber", ftypes.STRING, nil, nil, nil, "Account number the order is for")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.account_number_1 = ProtoField.new("Account Number 1", "nse.nsefo.orderentry.nnf.v9.50.accountnumber1", ftypes.STRING, nil, nil, nil, "Account number the order is for")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.action_code = ProtoField.new("Action Code", "nse.nsefo.orderentry.nnf.v9.50.actioncode", ftypes.STRING, nil, nil, nil, "Action code indicating the action taken")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time = ProtoField.new("Activity Time", "nse.nsefo.orderentry.nnf.v9.50.activitytime", ftypes.INT32, nil, nil, nil, "Time the activity occurred")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time = ProtoField.new("Activity Time", "nse.nsefo.orderentry.nnf.v9.50.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity occurred")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time_utc = ProtoField.new("Activity Time", "nse.nsefo.orderentry.nnf.v9.50.activitytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the activity occurred")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_type = ProtoField.new("Activity Type", "nse.nsefo.orderentry.nnf.v9.50.activitytype", ftypes.STRING, nil, nil, nil, "Type of activity being confirmed")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.additional_order_flags = ProtoField.new("Additional Order Flags", "nse.nsefo.orderentry.nnf.v9.50.additionalorderflags", ftypes.STRING, nil, nil, nil, "Further terms attached to the order")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.algo_id = ProtoField.new("Algo Id", "nse.nsefo.orderentry.nnf.v9.50.algoid", ftypes.INT32, nil, nil, nil, "Identifier of the algorithm that generated the order")
@@ -28,7 +29,8 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.ask_price = ProtoField.new("Ask Price"
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.ask_size = ProtoField.new("Ask Size", "nse.nsefo.orderentry.nnf.v9.50.asksize", ftypes.DOUBLE, nil, nil, nil, "Quantity at the best ask")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.ato = ProtoField.new("Ato", "nse.nsefo.orderentry.nnf.v9.50.ato", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "At the open order")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.auction_market = ProtoField.new("Auction Market", "nse.nsefo.orderentry.nnf.v9.50.auctionmarket", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000, "Eligible for the auction market")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time = ProtoField.new("Batch 2 Start Time", "nse.nsefo.orderentry.nnf.v9.50.batch2starttime", ftypes.INT32, nil, nil, nil, "Start time of the second batch")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time = ProtoField.new("Batch 2 Start Time", "nse.nsefo.orderentry.nnf.v9.50.batch2starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start time of the second batch")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time_utc = ProtoField.new("Batch 2 Start Time", "nse.nsefo.orderentry.nnf.v9.50.batch2starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start time of the second batch")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.bid_price = ProtoField.new("Bid Price", "nse.nsefo.orderentry.nnf.v9.50.bidprice", ftypes.DOUBLE, nil, nil, nil, "Best bid price")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.bid_size = ProtoField.new("Bid Size", "nse.nsefo.orderentry.nnf.v9.50.bidsize", ftypes.DOUBLE, nil, nil, nil, "Quantity at the best bid")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.board_lot_quantity = ProtoField.new("Board Lot Quantity", "nse.nsefo.orderentry.nnf.v9.50.boardlotquantity", ftypes.INT32, nil, nil, nil, "Regular lot quantity")
@@ -100,10 +102,13 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.download_payload = ProtoField.new("Dow
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.dynamic_cryptographic_iv = ProtoField.new("Dynamic Cryptographic Iv", "nse.nsefo.orderentry.nnf.v9.50.dynamiccryptographiciv", ftypes.INT64, nil, nil, nil, "Varying half of the initialisation vector")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.eligible_aon = ProtoField.new("Eligible Aon", "nse.nsefo.orderentry.nnf.v9.50.eligibleaon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "Eligible for all or none orders")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_alpha_1 = ProtoField.new("End Alpha 1", "nse.nsefo.orderentry.nnf.v9.50.endalpha1", ftypes.STRING, nil, nil, nil, "End of the alpha range")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time = ProtoField.new("End Time", "nse.nsefo.orderentry.nnf.v9.50.endtime", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time = ProtoField.new("End Time", "nse.nsefo.orderentry.nnf.v9.50.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time_utc = ProtoField.new("End Time", "nse.nsefo.orderentry.nnf.v9.50.endtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.enhncd_mkt_stats_data = ProtoField.new("Enhncd Mkt Stats Data", "nse.nsefo.orderentry.nnf.v9.50.enhncdmktstatsdata", ftypes.STRING, nil, nil, nil, "ENHNCD_MKT_STATS_DATA")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nsefo.orderentry.nnf.v9.50.entrydatetime", ftypes.INT32, nil, nil, nil, "Time the order entered the system")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1 = ProtoField.new("Entry Date Time 1", "nse.nsefo.orderentry.nnf.v9.50.entrydatetime1", ftypes.INT32, nil, nil, nil, "Time the order entered the system")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nsefo.orderentry.nnf.v9.50.entrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order entered the system")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_utc = ProtoField.new("Entry Date Time", "nse.nsefo.orderentry.nnf.v9.50.entrydatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order entered the system")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1 = ProtoField.new("Entry Date Time 1", "nse.nsefo.orderentry.nnf.v9.50.entrydatetime1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order entered the system")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1_utc = ProtoField.new("Entry Date Time 1", "nse.nsefo.orderentry.nnf.v9.50.entrydatetime1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order entered the system")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.error_code = ProtoField.new("Error Code", "nse.nsefo.orderentry.nnf.v9.50.errorcode", ftypes.INT16, nil, nil, nil, "Error code of the record")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.ex_market_status_auction = ProtoField.new("Ex Market Status Auction", "nse.nsefo.orderentry.nnf.v9.50.exmarketstatusauction", ftypes.INT16, nil, nil, nil, "Status of the auction market")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.ex_market_status_normal = ProtoField.new("Ex Market Status Normal", "nse.nsefo.orderentry.nnf.v9.50.exmarketstatusnormal", ftypes.INT16, nil, nil, nil, "Status of the normal market")
@@ -113,9 +118,12 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.existing_encryption_tail = ProtoField.
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.exp_day = ProtoField.new("Exp Day", "nse.nsefo.orderentry.nnf.v9.50.expday", ftypes.INT16, nil, nil, nil, "Day the contract expires")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.exp_month = ProtoField.new("Exp Month", "nse.nsefo.orderentry.nnf.v9.50.expmonth", ftypes.INT16, nil, nil, nil, "Month the contract expires")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.exp_year = ProtoField.new("Exp Year", "nse.nsefo.orderentry.nnf.v9.50.expyear", ftypes.INT16, nil, nil, nil, "Year the contract expires")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnf.v9.50.expirydate", ftypes.INT32, nil, nil, nil, "Date the contract expires")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1 = ProtoField.new("Expirydate 1", "nse.nsefo.orderentry.nnf.v9.50.expirydate1", ftypes.INT32, nil, nil, nil, "Expiry of the first leg")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2 = ProtoField.new("Expirydate 2", "nse.nsefo.orderentry.nnf.v9.50.expirydate2", ftypes.INT32, nil, nil, nil, "Expiry of the second leg")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnf.v9.50.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date the contract expires")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnf.v9.50.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date the contract expires")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1 = ProtoField.new("Expirydate 1", "nse.nsefo.orderentry.nnf.v9.50.expirydate1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry of the first leg")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1_utc = ProtoField.new("Expirydate 1", "nse.nsefo.orderentry.nnf.v9.50.expirydate1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry of the first leg")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2 = ProtoField.new("Expirydate 2", "nse.nsefo.orderentry.nnf.v9.50.expirydate2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry of the second leg")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2_utc = ProtoField.new("Expirydate 2", "nse.nsefo.orderentry.nnf.v9.50.expirydate2.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry of the second leg")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "nse.nsefo.orderentry.nnf.v9.50.fifthreserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.fill_number = ProtoField.new("Fill Number", "nse.nsefo.orderentry.nnf.v9.50.fillnumber", ftypes.INT32, nil, nil, nil, "Number of the trade")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.orderentry.nnf.v9.50.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price the trade occurred at")
@@ -143,7 +151,8 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.giveup_flag = ProtoField.new("Giveup F
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nsefo.orderentry.nnf.v9.50.goodtilldate", ftypes.INT32, nil, nil, nil, "Number of days a good till date order remains, from two to the maximum the market allows")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.good_till_date_1 = ProtoField.new("Good Till Date 1", "nse.nsefo.orderentry.nnf.v9.50.goodtilldate1", ftypes.INT32, nil, nil, nil, "Number of days a good till date order remains, from two to the maximum the market allows")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.gtc = ProtoField.new("Gtc", "nse.nsefo.orderentry.nnf.v9.50.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Good till cancelled order")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnf.v9.50.headertimestamp", ftypes.INT64, nil, nil, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnf.v9.50.headertimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.header_timestamp_utc = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnf.v9.50.headertimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.high = ProtoField.new("High", "nse.nsefo.orderentry.nnf.v9.50.high", ftypes.INT32, nil, nil, nil, "Highest index")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.high_price = ProtoField.new("High Price", "nse.nsefo.orderentry.nnf.v9.50.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest price")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.hipd = ProtoField.new("Hipd", "nse.nsefo.orderentry.nnf.v9.50.hipd", ftypes.INT32, nil, nil, nil, "Highest price difference")
@@ -159,7 +168,8 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.initiated_by_control = ProtoField.new(
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_alpha_char = ProtoField.new("Inner Alpha Char", "nse.nsefo.orderentry.nnf.v9.50.inneralphachar", ftypes.STRING, nil, nil, nil, "First two characters of Symbol when the record carries one")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_error_code = ProtoField.new("Inner Error Code", "nse.nsefo.orderentry.nnf.v9.50.innererrorcode", ftypes.INT16, nil, nil, nil, "Zero when the record is valid")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_header = ProtoField.new("Inner Header", "nse.nsefo.orderentry.nnf.v9.50.innerheader", ftypes.STRING, nil, nil, nil, "INNER_MESSAGE_HEADER")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time = ProtoField.new("Inner Log Time", "nse.nsefo.orderentry.nnf.v9.50.innerlogtime", ftypes.INT32, nil, nil, nil, "Time the message was generated by the trading system")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time = ProtoField.new("Inner Log Time", "nse.nsefo.orderentry.nnf.v9.50.innerlogtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time_utc = ProtoField.new("Inner Log Time", "nse.nsefo.orderentry.nnf.v9.50.innerlogtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated by the trading system")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_message_length = ProtoField.new("Inner Message Length", "nse.nsefo.orderentry.nnf.v9.50.innermessagelength", ftypes.INT16, nil, nil, nil, "Length of the record including the inner header")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_time_stamp_1 = ProtoField.new("Inner Time Stamp 1", "nse.nsefo.orderentry.nnf.v9.50.innertimestamp1", ftypes.STRING, nil, nil, nil, "Reserved for the host")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_time_stamp_2 = ProtoField.new("Inner Time Stamp 2", "nse.nsefo.orderentry.nnf.v9.50.innertimestamp2", ftypes.STRING, nil, nil, nil, "Time the record reached the gateway")
@@ -176,20 +186,28 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.last = ProtoField.new("Last", "nse.nse
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nsefo.orderentry.nnf.v9.50.lastactivityreference", ftypes.INT64, nil, nil, nil, "Reference of the last activity on the order")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified = ProtoField.new("Last Modified", "nse.nsefo.orderentry.nnf.v9.50.lastmodified", ftypes.INT32, nil, nil, nil, "Time the order was last modified")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_1 = ProtoField.new("Last Modified 1", "nse.nsefo.orderentry.nnf.v9.50.lastmodified1", ftypes.INT32, nil, nil, nil, "Time the order was last modified")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nsefo.orderentry.nnf.v9.50.lastmodifieddatetime", ftypes.INT32, nil, nil, nil, "Time the give up was last modified")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date = ProtoField.new("Last Password Change Date", "nse.nsefo.orderentry.nnf.v9.50.lastpasswordchangedate", ftypes.INT32, nil, nil, nil, "Date the password was last changed")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time = ProtoField.new("Last Update Index Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateindextime", ftypes.INT32, nil, nil, nil, "Time the index master was last updated")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time = ProtoField.new("Last Update Instrument Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateinstrumenttime", ftypes.INT32, nil, nil, nil, "Time the instrument master was last updated")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time = ProtoField.new("Last Update Participant Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateparticipanttime", ftypes.INT32, nil, nil, nil, "Time the participant master was last updated")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime = ProtoField.new("Last Update Portfolio T Ime", "nse.nsefo.orderentry.nnf.v9.50.lastupdateportfoliotime", ftypes.INT32, nil, nil, nil, "Time the portfolio was last updated")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time = ProtoField.new("Last Update Security Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdatesecuritytime", ftypes.INT32, nil, nil, nil, "Time the security master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nsefo.orderentry.nnf.v9.50.lastmodifieddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the give up was last modified")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time_utc = ProtoField.new("Last Modified Date Time", "nse.nsefo.orderentry.nnf.v9.50.lastmodifieddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the give up was last modified")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date = ProtoField.new("Last Password Change Date", "nse.nsefo.orderentry.nnf.v9.50.lastpasswordchangedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date the password was last changed")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date_utc = ProtoField.new("Last Password Change Date", "nse.nsefo.orderentry.nnf.v9.50.lastpasswordchangedate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date the password was last changed")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time = ProtoField.new("Last Update Index Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateindextime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the index master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time_utc = ProtoField.new("Last Update Index Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateindextime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the index master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time = ProtoField.new("Last Update Instrument Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateinstrumenttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the instrument master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time_utc = ProtoField.new("Last Update Instrument Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateinstrumenttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the instrument master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time = ProtoField.new("Last Update Participant Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateparticipanttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the participant master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time_utc = ProtoField.new("Last Update Participant Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdateparticipanttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the participant master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime = ProtoField.new("Last Update Portfolio T Ime", "nse.nsefo.orderentry.nnf.v9.50.lastupdateportfoliotime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the portfolio was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime_utc = ProtoField.new("Last Update Portfolio T Ime", "nse.nsefo.orderentry.nnf.v9.50.lastupdateportfoliotime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the portfolio was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time = ProtoField.new("Last Update Security Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdatesecuritytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the security master was last updated")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time_utc = ProtoField.new("Last Update Security Time", "nse.nsefo.orderentry.nnf.v9.50.lastupdatesecuritytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the security master was last updated")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.lasttradedpd = ProtoField.new("Lasttradedpd", "nse.nsefo.orderentry.nnf.v9.50.lasttradedpd", ftypes.INT32, nil, nil, nil, "Last traded price difference")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.life_high = ProtoField.new("Life High", "nse.nsefo.orderentry.nnf.v9.50.lifehigh", ftypes.INT32, nil, nil, nil, "Highest value on record")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.life_low = ProtoField.new("Life Low", "nse.nsefo.orderentry.nnf.v9.50.lifelow", ftypes.INT32, nil, nil, nil, "Lowest value on record")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.limit_high = ProtoField.new("Limit High", "nse.nsefo.orderentry.nnf.v9.50.limithigh", ftypes.INT32, nil, nil, nil, "Upper price limit")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.limit_low = ProtoField.new("Limit Low", "nse.nsefo.orderentry.nnf.v9.50.limitlow", ftypes.INT32, nil, nil, nil, "Lower price limit")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.local_database_data = ProtoField.new("Local Database Data", "nse.nsefo.orderentry.nnf.v9.50.localdatabasedata", ftypes.STRING, nil, nil, nil, "Record body selected by Inner Transaction Code")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnf.v9.50.logtime", ftypes.INT32, nil, nil, nil, "Time the record was logged")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnf.v9.50.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the record was logged")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time_utc = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnf.v9.50.logtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the record was logged")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.low = ProtoField.new("Low", "nse.nsefo.orderentry.nnf.v9.50.low", ftypes.INT32, nil, nil, nil, "Lowest index")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.low_price = ProtoField.new("Low Price", "nse.nsefo.orderentry.nnf.v9.50.lowprice", ftypes.DOUBLE, nil, nil, nil, "Lowest price")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.lowpd = ProtoField.new("Lowpd", "nse.nsefo.orderentry.nnf.v9.50.lowpd", ftypes.INT32, nil, nil, nil, "Lowest price difference")
@@ -291,7 +309,8 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.reason_code = ProtoField.new("Reason C
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.reason_code_1 = ProtoField.new("Reason Code 1", "nse.nsefo.orderentry.nnf.v9.50.reasoncode1", ftypes.INT16, nil, nil, nil, "Reason the request was rejected or the order changed")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.reference = ProtoField.new("Reference", "nse.nsefo.orderentry.nnf.v9.50.reference", ftypes.STRING, nil, nil, nil, "Reference supplied with the request")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.remaining_volume = ProtoField.new("Remaining Volume", "nse.nsefo.orderentry.nnf.v9.50.remainingvolume", ftypes.INT32, nil, nil, nil, "Quantity still outstanding")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date = ProtoField.new("Report Date", "nse.nsefo.orderentry.nnf.v9.50.reportdate", ftypes.INT32, nil, nil, nil, "Date of the report")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date = ProtoField.new("Report Date", "nse.nsefo.orderentry.nnf.v9.50.reportdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date of the report")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date_utc = ProtoField.new("Report Date", "nse.nsefo.orderentry.nnf.v9.50.reportdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date of the report")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_header_body = ProtoField.new("Report Header Body", "nse.nsefo.orderentry.nnf.v9.50.reportheaderbody", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_statistics_body = ProtoField.new("Report Statistics Body", "nse.nsefo.orderentry.nnf.v9.50.reportstatisticsbody", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_trailer_body = ProtoField.new("Report Trailer Body", "nse.nsefo.orderentry.nnf.v9.50.reporttrailerbody", ftypes.STRING)
@@ -497,6 +516,20 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.spd_stats_data_index = ProtoField.new(
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_limits_index = ProtoField.new("User Limits Index", "nse.nsefo.orderentry.nnf.v9.50.userlimitsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nse NseFo OrderEntry Nnf 9.50 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nse_nsefo_orderentry_nnf_v9_50.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -514,6 +547,8 @@ omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_application_messages = Pref.bool("
 omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nse_nsefo_orderentry_nnf_v9_50.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nse_nsefo_orderentry_nnf_v9_50.prefs_changed()
 
@@ -529,6 +564,9 @@ function omi_nse_nsefo_orderentry_nnf_v9_50.prefs_changed()
   end
   if show.indexes ~= omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_indexes then
     show.indexes = omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_indexes
+  end
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base ~= omi_nse_nsefo_orderentry_nnf_v9_50.prefs.absolute_time_base then
+    nse_nsefo_orderentry_nnf_v9_50.absolute_time_base = omi_nse_nsefo_orderentry_nnf_v9_50.prefs.absolute_time_base
   end
 end
 
@@ -628,26 +666,20 @@ nse_nsefo_orderentry_nnf_v9_50.activity_time = {}
 -- Size: Activity Time
 nse_nsefo_orderentry_nnf_v9_50.activity_time.size = 4
 
--- Display: Activity Time
-nse_nsefo_orderentry_nnf_v9_50.activity_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Activity Time: "..value
-  end
-
-  return "Activity Time: "..text
-end
-
 -- Dissect: Activity Time
 nse_nsefo_orderentry_nnf_v9_50.activity_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.activity_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.activity_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -779,26 +811,20 @@ nse_nsefo_orderentry_nnf_v9_50.batch_2_start_time = {}
 -- Size: Batch 2 Start Time
 nse_nsefo_orderentry_nnf_v9_50.batch_2_start_time.size = 4
 
--- Display: Batch 2 Start Time
-nse_nsefo_orderentry_nnf_v9_50.batch_2_start_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Batch 2 Start Time: "..value
-  end
-
-  return "Batch 2 Start Time: "..text
-end
-
 -- Dissect: Batch 2 Start Time
 nse_nsefo_orderentry_nnf_v9_50.batch_2_start_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.batch_2_start_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.batch_2_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2282,26 +2308,20 @@ nse_nsefo_orderentry_nnf_v9_50.end_time = {}
 -- Size: End Time
 nse_nsefo_orderentry_nnf_v9_50.end_time.size = 4
 
--- Display: End Time
-nse_nsefo_orderentry_nnf_v9_50.end_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "End Time: "..value
-  end
-
-  return "End Time: "..text
-end
-
 -- Dissect: End Time
 nse_nsefo_orderentry_nnf_v9_50.end_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.end_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2312,26 +2332,20 @@ nse_nsefo_orderentry_nnf_v9_50.entry_date_time = {}
 -- Size: Entry Date Time
 nse_nsefo_orderentry_nnf_v9_50.entry_date_time.size = 4
 
--- Display: Entry Date Time
-nse_nsefo_orderentry_nnf_v9_50.entry_date_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Entry Date Time: "..value
-  end
-
-  return "Entry Date Time: "..text
-end
-
 -- Dissect: Entry Date Time
 nse_nsefo_orderentry_nnf_v9_50.entry_date_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.entry_date_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.entry_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2342,26 +2356,20 @@ nse_nsefo_orderentry_nnf_v9_50.entry_date_time_1 = {}
 -- Size: Entry Date Time 1
 nse_nsefo_orderentry_nnf_v9_50.entry_date_time_1.size = 4
 
--- Display: Entry Date Time 1
-nse_nsefo_orderentry_nnf_v9_50.entry_date_time_1.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Entry Date Time 1: "..value
-  end
-
-  return "Entry Date Time 1: "..text
-end
-
 -- Dissect: Entry Date Time 1
 nse_nsefo_orderentry_nnf_v9_50.entry_date_time_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.entry_date_time_1.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.entry_date_time_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3362,26 +3370,20 @@ nse_nsefo_orderentry_nnf_v9_50.expiry_date = {}
 -- Size: Expiry Date
 nse_nsefo_orderentry_nnf_v9_50.expiry_date.size = 4
 
--- Display: Expiry Date
-nse_nsefo_orderentry_nnf_v9_50.expiry_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Expiry Date: "..value
-  end
-
-  return "Expiry Date: "..text
-end
-
 -- Dissect: Expiry Date
 nse_nsefo_orderentry_nnf_v9_50.expiry_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.expiry_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.expiry_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3392,26 +3394,20 @@ nse_nsefo_orderentry_nnf_v9_50.expirydate_1 = {}
 -- Size: Expirydate 1
 nse_nsefo_orderentry_nnf_v9_50.expirydate_1.size = 4
 
--- Display: Expirydate 1
-nse_nsefo_orderentry_nnf_v9_50.expirydate_1.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Expirydate 1: "..value
-  end
-
-  return "Expirydate 1: "..text
-end
-
 -- Dissect: Expirydate 1
 nse_nsefo_orderentry_nnf_v9_50.expirydate_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.expirydate_1.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.expirydate_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3422,26 +3418,20 @@ nse_nsefo_orderentry_nnf_v9_50.expirydate_2 = {}
 -- Size: Expirydate 2
 nse_nsefo_orderentry_nnf_v9_50.expirydate_2.size = 4
 
--- Display: Expirydate 2
-nse_nsefo_orderentry_nnf_v9_50.expirydate_2.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Expirydate 2: "..value
-  end
-
-  return "Expirydate 2: "..text
-end
-
 -- Dissect: Expirydate 2
 nse_nsefo_orderentry_nnf_v9_50.expirydate_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.expirydate_2.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.expirydate_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4010,30 +4000,20 @@ nse_nsefo_orderentry_nnf_v9_50.header_timestamp = {}
 -- Size: Header Timestamp
 nse_nsefo_orderentry_nnf_v9_50.header_timestamp.size = 8
 
--- Display: Header Timestamp
-nse_nsefo_orderentry_nnf_v9_50.header_timestamp.display = function(value)
-  -- Parse Dos epoch nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  -- a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "%Y-%m-%d %H:%M:%S.", seconds)
-
-  if not ok then
-    return "Header Timestamp: "..tostring(value)
-  end
-
-  return "Header Timestamp: "..text..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Header Timestamp
 nse_nsefo_orderentry_nnf_v9_50.header_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.header_timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = nse_nsefo_orderentry_nnf_v9_50.header_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.header_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.header_timestamp
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.header_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4303,26 +4283,20 @@ nse_nsefo_orderentry_nnf_v9_50.inner_log_time = {}
 -- Size: Inner Log Time
 nse_nsefo_orderentry_nnf_v9_50.inner_log_time.size = 4
 
--- Display: Inner Log Time
-nse_nsefo_orderentry_nnf_v9_50.inner_log_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Inner Log Time: "..value
-  end
-
-  return "Inner Log Time: "..text
-end
-
 -- Dissect: Inner Log Time
 nse_nsefo_orderentry_nnf_v9_50.inner_log_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.inner_log_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.inner_log_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4655,26 +4629,20 @@ nse_nsefo_orderentry_nnf_v9_50.last_modified_date_time = {}
 -- Size: Last Modified Date Time
 nse_nsefo_orderentry_nnf_v9_50.last_modified_date_time.size = 4
 
--- Display: Last Modified Date Time
-nse_nsefo_orderentry_nnf_v9_50.last_modified_date_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Last Modified Date Time: "..value
-  end
-
-  return "Last Modified Date Time: "..text
-end
-
 -- Dissect: Last Modified Date Time
 nse_nsefo_orderentry_nnf_v9_50.last_modified_date_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.last_modified_date_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.last_modified_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4685,26 +4653,20 @@ nse_nsefo_orderentry_nnf_v9_50.last_password_change_date = {}
 -- Size: Last Password Change Date
 nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.size = 4
 
--- Display: Last Password Change Date
-nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Last Password Change Date: "..value
-  end
-
-  return "Last Password Change Date: "..text
-end
-
 -- Dissect: Last Password Change Date
 nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4715,26 +4677,20 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_index_time = {}
 -- Size: Last Update Index Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_index_time.size = 4
 
--- Display: Last Update Index Time
-nse_nsefo_orderentry_nnf_v9_50.last_update_index_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Last Update Index Time: "..value
-  end
-
-  return "Last Update Index Time: "..text
-end
-
 -- Dissect: Last Update Index Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_index_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.last_update_index_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.last_update_index_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4745,26 +4701,20 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_instrument_time = {}
 -- Size: Last Update Instrument Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_instrument_time.size = 4
 
--- Display: Last Update Instrument Time
-nse_nsefo_orderentry_nnf_v9_50.last_update_instrument_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Last Update Instrument Time: "..value
-  end
-
-  return "Last Update Instrument Time: "..text
-end
-
 -- Dissect: Last Update Instrument Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_instrument_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.last_update_instrument_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.last_update_instrument_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4775,26 +4725,20 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_participant_time = {}
 -- Size: Last Update Participant Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_participant_time.size = 4
 
--- Display: Last Update Participant Time
-nse_nsefo_orderentry_nnf_v9_50.last_update_participant_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Last Update Participant Time: "..value
-  end
-
-  return "Last Update Participant Time: "..text
-end
-
 -- Dissect: Last Update Participant Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_participant_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.last_update_participant_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.last_update_participant_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4805,26 +4749,20 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_portfolio_t_ime = {}
 -- Size: Last Update Portfolio T Ime
 nse_nsefo_orderentry_nnf_v9_50.last_update_portfolio_t_ime.size = 4
 
--- Display: Last Update Portfolio T Ime
-nse_nsefo_orderentry_nnf_v9_50.last_update_portfolio_t_ime.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Last Update Portfolio T Ime: "..value
-  end
-
-  return "Last Update Portfolio T Ime: "..text
-end
-
 -- Dissect: Last Update Portfolio T Ime
 nse_nsefo_orderentry_nnf_v9_50.last_update_portfolio_t_ime.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.last_update_portfolio_t_ime.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.last_update_portfolio_t_ime.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4835,26 +4773,20 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_security_time = {}
 -- Size: Last Update Security Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_security_time.size = 4
 
--- Display: Last Update Security Time
-nse_nsefo_orderentry_nnf_v9_50.last_update_security_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Last Update Security Time: "..value
-  end
-
-  return "Last Update Security Time: "..text
-end
-
 -- Dissect: Last Update Security Time
 nse_nsefo_orderentry_nnf_v9_50.last_update_security_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.last_update_security_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.last_update_security_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4980,26 +4912,20 @@ nse_nsefo_orderentry_nnf_v9_50.log_time = {}
 -- Size: Log Time
 nse_nsefo_orderentry_nnf_v9_50.log_time.size = 4
 
--- Display: Log Time
-nse_nsefo_orderentry_nnf_v9_50.log_time.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Log Time: "..value
-  end
-
-  return "Log Time: "..text
-end
-
 -- Dissect: Log Time
 nse_nsefo_orderentry_nnf_v9_50.log_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.log_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.log_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7220,26 +7146,20 @@ nse_nsefo_orderentry_nnf_v9_50.report_date = {}
 -- Size: Report Date
 nse_nsefo_orderentry_nnf_v9_50.report_date.size = 4
 
--- Display: Report Date
-nse_nsefo_orderentry_nnf_v9_50.report_date.display = function(value)
-  -- Parse Dos epoch seconds timestamp; a value os.date cannot represent is shown raw rather than aborting the dissection
-  local ok, text = pcall(os.date, "!%Y-%m-%d %H:%M:%S", value + 315532800)
-
-  if not ok then
-    return "Report Date: "..value
-  end
-
-  return "Report Date: "..text
-end
-
 -- Dissect: Report Date
 nse_nsefo_orderentry_nnf_v9_50.report_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnf_v9_50.report_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsefo_orderentry_nnf_v9_50.report_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date
+  if nse_nsefo_orderentry_nnf_v9_50.absolute_time_base == 1 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

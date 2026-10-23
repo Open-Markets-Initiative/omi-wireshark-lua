@@ -18,7 +18,8 @@ local txse_txseequities_bale_rake_v1_0 = {}
 omi_txse_txseequities_bale_rake_v1_0.fields.ask_price = ProtoField.new("Ask Price", "txse.txseequities.bale.rake.v1.0.askprice", ftypes.DOUBLE, nil, nil, nil, "Best ask price. Zero when cumulative displayed ask liquidity does not reach a round lot.")
 omi_txse_txseequities_bale_rake_v1_0.fields.ask_qty = ProtoField.new("Ask Qty", "txse.txseequities.bale.rake.v1.0.askqty", ftypes.INT32, nil, nil, nil, "Total cumulative displayed quantity at the BBO ask price and all more aggressive ask prices. Zero when cumulative displayed ask liquidity does not reach a round lot. Capped at the maximum value of a 32-bit signed integer; when the cumulative displayed quantity reaches this cap, the field indicates at least that many shares rather than an exact count.")
 omi_txse_txseequities_bale_rake_v1_0.fields.auction_price = ProtoField.new("Auction Price", "txse.txseequities.bale.rake.v1.0.auctionprice", ftypes.DOUBLE, nil, nil, nil, "Auction clearing price.")
-omi_txse_txseequities_bale_rake_v1_0.fields.auction_start = ProtoField.new("Auction Start", "txse.txseequities.bale.rake.v1.0.auctionstart", ftypes.INT64, nil, nil, nil, "Scheduled cross time for this auction, expressed as nanoseconds since the Unix epoch (UTC). For Opening and Closing auctions, reflects the Exchange's published session schedule. For Halt and IPO auctions, reflects the cross time announced for this specific event.")
+omi_txse_txseequities_bale_rake_v1_0.fields.auction_start = ProtoField.new("Auction Start", "txse.txseequities.bale.rake.v1.0.auctionstart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Scheduled cross time for this auction, expressed as nanoseconds since the Unix epoch (UTC). For Opening and Closing auctions, reflects the Exchange's published session schedule. For Halt and IPO auctions, reflects the cross time announced for this specific event.")
+omi_txse_txseequities_bale_rake_v1_0.fields.auction_start_utc = ProtoField.new("Auction Start", "txse.txseequities.bale.rake.v1.0.auctionstart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Scheduled cross time for this auction, expressed as nanoseconds since the Unix epoch (UTC). For Opening and Closing auctions, reflects the Exchange's published session schedule. For Halt and IPO auctions, reflects the cross time announced for this specific event.")
 omi_txse_txseequities_bale_rake_v1_0.fields.auction_type = ProtoField.new("Auction Type", "txse.txseequities.bale.rake.v1.0.auctiontype", ftypes.INT8, nil, nil, nil, "Enum AuctionType. Type of auction event.")
 omi_txse_txseequities_bale_rake_v1_0.fields.bid_price = ProtoField.new("Bid Price", "txse.txseequities.bale.rake.v1.0.bidprice", ftypes.DOUBLE, nil, nil, nil, "Best bid price. Zero when cumulative displayed bid liquidity does not reach a round lot.")
 omi_txse_txseequities_bale_rake_v1_0.fields.bid_qty = ProtoField.new("Bid Qty", "txse.txseequities.bale.rake.v1.0.bidqty", ftypes.INT32, nil, nil, nil, "Total cumulative displayed quantity at the BBO bid price and all more aggressive bid prices. Zero when cumulative displayed bid liquidity does not reach a round lot. Capped at the maximum value of a 32-bit signed integer; when the cumulative displayed quantity reaches this cap, the field indicates at least that many shares rather than an exact count.")
@@ -66,7 +67,8 @@ omi_txse_txseequities_bale_rake_v1_0.fields.trade_through_exemption_reason = Pro
 omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_operational_halt_reason = ProtoField.new("Trading Session Status Operational Halt Reason", "txse.txseequities.bale.rake.v1.0.tradingsessionstatusoperationalhaltreason", ftypes.INT8, nil, nil, nil, "Enum TradingSessionStatusOperationalHaltReason. Operational and technical reasons for trading halts initiated by the Exchange.")
 omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_presence_bits = ProtoField.new("Trading Session Status Presence Bits", "txse.txseequities.bale.rake.v1.0.tradingsessionstatuspresencebits", ftypes.STRING, nil, nil, nil, "Presence bit flags for optional fields in the enclosing message.")
 omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_regulatory_halt_reason = ProtoField.new("Trading Session Status Regulatory Halt Reason", "txse.txseequities.bale.rake.v1.0.tradingsessionstatusregulatoryhaltreason", ftypes.INT8, nil, nil, nil, "Enum TradingSessionStatusRegulatoryHaltReason. Regulatory reasons for trading halts and pauses.")
-omi_txse_txseequities_bale_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.bale.rake.v1.0.transacttime", ftypes.INT64, nil, nil, nil, "Transaction time")
+omi_txse_txseequities_bale_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.bale.rake.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time")
+omi_txse_txseequities_bale_rake_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "txse.txseequities.bale.rake.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction time")
 omi_txse_txseequities_bale_rake_v1_0.fields.upper_participation_band = ProtoField.new("Upper Participation Band", "txse.txseequities.bale.rake.v1.0.upperparticipationband", ftypes.DOUBLE, nil, nil, nil, "Price of the upper boundary of the Participation Band. Auction-Only buy orders entered during the Band Window and priced above this value have their price adjusted to this price.")
 
 -- Txse TxseEquities Bale Rake 1.0 Framing
@@ -88,6 +90,20 @@ omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_message = Pro
 omi_txse_txseequities_bale_rake_v1_0.fields.udp_sequenced_message_index = ProtoField.new("Udp Sequenced Message Index", "txse.txseequities.bale.rake.v1.0.udpsequencedmessageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Txse TxseEquities Bale Rake 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+txse_txseequities_bale_rake_v1_0.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -105,6 +121,8 @@ omi_txse_txseequities_bale_rake_v1_0.prefs.show_structs = Pref.bool("Show Struct
 omi_txse_txseequities_bale_rake_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_txse_txseequities_bale_rake_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_txse_txseequities_bale_rake_v1_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_txse_txseequities_bale_rake_v1_0.prefs_changed()
 
@@ -120,6 +138,9 @@ function omi_txse_txseequities_bale_rake_v1_0.prefs_changed()
   end
   if show.indexes ~= omi_txse_txseequities_bale_rake_v1_0.prefs.show_indexes then
     show.indexes = omi_txse_txseequities_bale_rake_v1_0.prefs.show_indexes
+  end
+  if txse_txseequities_bale_rake_v1_0.absolute_time_base ~= omi_txse_txseequities_bale_rake_v1_0.prefs.absolute_time_base then
+    txse_txseequities_bale_rake_v1_0.absolute_time_base = omi_txse_txseequities_bale_rake_v1_0.prefs.absolute_time_base
   end
 end
 
@@ -231,23 +252,20 @@ txse_txseequities_bale_rake_v1_0.auction_start = {}
 -- Size: Auction Start
 txse_txseequities_bale_rake_v1_0.auction_start.size = 8
 
--- Display: Auction Start
-txse_txseequities_bale_rake_v1_0.auction_start.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Auction Start: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Auction Start
 txse_txseequities_bale_rake_v1_0.auction_start.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.auction_start.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = txse_txseequities_bale_rake_v1_0.auction_start.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.auction_start, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_txse_txseequities_bale_rake_v1_0.fields.auction_start
+  if txse_txseequities_bale_rake_v1_0.absolute_time_base == 1 then field = omi_txse_txseequities_bale_rake_v1_0.fields.auction_start_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1497,23 +1515,20 @@ txse_txseequities_bale_rake_v1_0.transact_time = {}
 -- Size: Transact Time
 txse_txseequities_bale_rake_v1_0.transact_time.size = 8
 
--- Display: Transact Time
-txse_txseequities_bale_rake_v1_0.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 txse_txseequities_bale_rake_v1_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = txse_txseequities_bale_rake_v1_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_txse_txseequities_bale_rake_v1_0.fields.transact_time
+  if txse_txseequities_bale_rake_v1_0.absolute_time_base == 1 then field = omi_txse_txseequities_bale_rake_v1_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

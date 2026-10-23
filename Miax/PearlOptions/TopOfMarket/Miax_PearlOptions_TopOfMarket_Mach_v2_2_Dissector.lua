@@ -60,7 +60,8 @@ omi_miax_pearloptions_topofmarket_mach_v2_2.fields.reference_correction_number =
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.pearloptions.topofmarket.mach.v2.2.referencetradeid", ftypes.UINT32, nil, nil, nil, "0 (zero) if new trade. Trade ID of the original trade if this trade originated as a correction of the original trade.")
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearloptions.topofmarket.mach.v2.2.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.topofmarket.mach.v2.2.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
-omi_miax_pearloptions_topofmarket_mach_v2_2.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v2.2.seconds", ftypes.UINT32, nil, nil, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearloptions_topofmarket_mach_v2_2.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v2.2.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearloptions_topofmarket_mach_v2_2.fields.seconds_utc = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v2.2.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.security_symbol = ProtoField.new("Security Symbol", "miax.pearloptions.topofmarket.mach.v2.2.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.topofmarket.mach.v2.2.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.session_id = ProtoField.new("Session Id", "miax.pearloptions.topofmarket.mach.v2.2.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session")
@@ -100,6 +101,15 @@ omi_miax_pearloptions_topofmarket_mach_v2_2.fields.timestamp = ProtoField.new("T
 -- Miax PearlOptions TopOfMarket Mach 2.2 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_pearloptions_topofmarket_mach_v2_2.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 miax_pearloptions_topofmarket_mach_v2_2.format_timestamp = true
 
@@ -119,6 +129,8 @@ omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_structs = Pref.bool("Show
 omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v2_2.prefs_changed()
 
@@ -131,6 +143,9 @@ function omi_miax_pearloptions_topofmarket_mach_v2_2.prefs_changed()
   end
   if miax_pearloptions_topofmarket_mach_v2_2.format_timestamp ~= omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.format_timestamp then
     miax_pearloptions_topofmarket_mach_v2_2.format_timestamp = omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.format_timestamp
+  end
+  if miax_pearloptions_topofmarket_mach_v2_2.absolute_time_base ~= omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.absolute_time_base then
+    miax_pearloptions_topofmarket_mach_v2_2.absolute_time_base = omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.absolute_time_base
   end
 end
 
@@ -1460,20 +1475,20 @@ miax_pearloptions_topofmarket_mach_v2_2.seconds.generated = function(value, rang
   seconds:set_generated()
 end
 
--- Display: Seconds
-miax_pearloptions_topofmarket_mach_v2_2.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 miax_pearloptions_topofmarket_mach_v2_2.seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v2_2.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_pearloptions_topofmarket_mach_v2_2.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearloptions_topofmarket_mach_v2_2.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearloptions_topofmarket_mach_v2_2.fields.seconds
+  if miax_pearloptions_topofmarket_mach_v2_2.absolute_time_base == 1 then field = omi_miax_pearloptions_topofmarket_mach_v2_2.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

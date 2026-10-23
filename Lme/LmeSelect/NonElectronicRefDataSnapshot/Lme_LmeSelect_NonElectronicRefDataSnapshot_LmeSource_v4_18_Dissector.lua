@@ -51,14 +51,16 @@ omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.prompt_typ
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.record_count = ProtoField.new("Record Count", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.recordcount", ftypes.UINT16, nil, nil, nil, "The number of records in this message.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.remaining_records = ProtoField.new("Remaining Records", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.remainingrecords", ftypes.UINT16, nil, nil, nil, "Number of remaining records to be published. When the value of RemainingRecords equals RecordCount this is the last message.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.ring_session = ProtoField.new("Ring Session", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.ringsession", ftypes.STRING, nil, nil, nil, "This identifies the ring trading session.")
-omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.sendtime", ftypes.UINT64, nil, nil, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.settlement_date = ProtoField.new("Settlement Date", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.settlementdate", ftypes.UINT32, nil, nil, nil, "Settlement Date, as YYYYMMDD. Null for a rolling prompt or strategy.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.strategy_leg_count = ProtoField.new("Strategy Leg Count", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.strategylegcount", ftypes.UINT32, nil, nil, nil, "Number of strategy legs.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.strategy_type_code = ProtoField.new("Strategy Type Code", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.strategytypecode", ftypes.UINT32, nil, nil, nil, "Strategy Type. Null for an outright.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.strike_price = ProtoField.new("Strike Price", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Option Exercise Price, in implicit six decimal place format. Null for futures.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.tick_size_id = ProtoField.new("Tick Size Id", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.ticksizeid", ftypes.UINT32, nil, nil, nil, "Tick Size ID.")
-omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.timeofevent", ftypes.UINT64, nil, nil, nil, "The time at which the transaction occurred.")
+omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred.")
+omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.time_of_event_utc = ProtoField.new("Time Of Event", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.timeofevent.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the transaction occurred.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.tradable_instrument_id = ProtoField.new("Tradable Instrument Id", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.tradableinstrumentid", ftypes.UINT64, nil, nil, nil, "Tradable instrument ID.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.trade_at_reference = ProtoField.new("Trade At Reference", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.tradeatreference", ftypes.UINT8, nil, nil, nil, "A flag to indicate that the instrument is a TaS or TaR type.")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.trading_currency = ProtoField.new("Trading Currency", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.tradingcurrency", ftypes.STRING, nil, nil, nil, "The currency code according to ISO 4217.")
@@ -84,6 +86,20 @@ omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.definition
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.message_index = ProtoField.new("Message Index", "lme.lmeselect.nonelectronicrefdatasnapshot.lmesource.v4.18.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lme LmeSelect NonElectronicRefDataSnapshot LmeSource 4.18 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -103,6 +119,8 @@ omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.show_struct
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs_changed()
 
@@ -121,6 +139,9 @@ function omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs_ch
   end
   if show.indexes ~= omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.show_indexes then
     show.indexes = omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.show_indexes
+  end
+  if lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.absolute_time_base ~= omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.absolute_time_base then
+    lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.absolute_time_base = omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.prefs.absolute_time_base
   end
 end
 
@@ -1102,23 +1123,20 @@ lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.send_time = {}
 -- Size: Send Time
 lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.send_time.size = 8
 
--- Display: Send Time
-lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.send_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Send Time
 lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.send_time.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.send_time
+  if lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1296,23 +1314,20 @@ lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.time_of_event = {}
 -- Size: Time Of Event
 lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.time_of_event.size = 8
 
--- Display: Time Of Event
-lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.time_of_event.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Time Of Event: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Time Of Event
 lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.time_of_event.dissect = function(buffer, offset, packet, parent)
   local length = lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.time_of_event.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.time_of_event.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.time_of_event, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.time_of_event
+  if lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.absolute_time_base == 1 then field = omi_lme_lmeselect_nonelectronicrefdatasnapshot_lmesource_v4_18.fields.time_of_event_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

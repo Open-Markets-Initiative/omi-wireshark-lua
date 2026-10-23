@@ -49,7 +49,8 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.price_to = ProtoField.new(
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.put_or_call = ProtoField.new("Put Or Call", "bist.borsaistanbul.geniuminet.glimpse.v2.7.putorcall", ftypes.UINT8, nil, nil, nil, "Option type. A value of 0 indicates that Put or Call is undefined for the order book")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.quantity = ProtoField.new("Quantity", "bist.borsaistanbul.geniuminet.glimpse.v2.7.quantity", ftypes.UINT64, nil, nil, nil, "The visible quantity of the order. Orders with an undisclosed quantity will have this field set to 0")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_sequence_number = ProtoField.new("Ranking Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingsequencenumber", ftypes.UINT32, nil, nil, nil, "Transaction-based and sequential number starting from 1. Used only in ranking logic with ranking time. Does not show order book position")
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtime", ftypes.UINT64, nil, nil, nil, "Ranking timestamp, in nanoseconds")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ranking timestamp, in nanoseconds")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time_utc = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Ranking timestamp, in nanoseconds")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_type = ProtoField.new("Ranking Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtype", ftypes.UINT8, nil, nil, nil, "Specifies what ranking type should be used. 1 = Price Time")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
@@ -58,7 +59,8 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_13 = ProtoField.n
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_2 = ProtoField.new("Reserved 2", "bist.borsaistanbul.geniuminet.glimpse.v2.7.reserved2", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_4 = ProtoField.new("Reserved 4", "bist.borsaistanbul.geniuminet.glimpse.v2.7.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.round_lot_size = ProtoField.new("Round Lot Size", "bist.borsaistanbul.geniuminet.glimpse.v2.7.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represents a round lot for the issue")
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.glimpse.v2.7.second", ftypes.UINT32, nil, nil, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.glimpse.v2.7.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second_utc = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.glimpse.v2.7.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequence_number = ProtoField.new("Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.sequencenumber", ftypes.STRING, nil, nil, nil, "Genium INET ITCH SoupBinTCP sequence number when the snapshot was taken. To be used when logging in to the SoupBinTCP ITCH feed. While GLIMPSE is a binary feed, the SoupBinTCP sequence number is represented using ASCII characters")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.server_packet_type = ProtoField.new("Packet Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -118,6 +120,15 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.experts = { bist_borsaistanbul_ge
 -- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 bist_borsaistanbul_geniuminet_glimpse_v2_7.format_timestamp = true
 
@@ -153,6 +164,8 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_session_messages = Pre
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs_changed()
 
@@ -174,6 +187,9 @@ function omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs_changed()
   end
   if bist_borsaistanbul_geniuminet_glimpse_v2_7.format_timestamp ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.format_timestamp then
     bist_borsaistanbul_geniuminet_glimpse_v2_7.format_timestamp = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.format_timestamp
+  end
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base ~= omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.absolute_time_base then
+    bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.absolute_time_base
   end
 end
 
@@ -247,14 +263,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -280,7 +302,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.dissect = fu
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(bist_borsaistanbul_geniuminet_glimpse_v2_7.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1094,23 +1116,20 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_time = {}
 -- Size: Ranking Time
 bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_time.size = 8
 
--- Display: Ranking Time
-bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Ranking Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Ranking Time
 bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_time.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base == 1 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1190,7 +1209,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.requested_sequence_number.dissect = f
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(bist_borsaistanbul_geniuminet_glimpse_v2_7.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1288,20 +1307,20 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.second.generated = function(value, ra
   second:set_generated()
 end
 
--- Display: Second
-bist_borsaistanbul_geniuminet_glimpse_v2_7.second.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Second: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Second
 bist_borsaistanbul_geniuminet_glimpse_v2_7.second.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second
+  if bist_borsaistanbul_geniuminet_glimpse_v2_7.absolute_time_base == 1 then field = omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

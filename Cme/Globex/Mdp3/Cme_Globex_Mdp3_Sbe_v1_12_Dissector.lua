@@ -57,7 +57,8 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.encoding_type = ProtoField.new("Encoding Ty
 omi_cme_globex_mdp3_sbe_v1_12.fields.end_date = ProtoField.new("End Date", "cme.globex.mdp3.sbe.v1.12.enddate", ftypes.UINT16, nil, nil, nil, "End date of a financing deal, i.e. the date the seller reimburses the buyer and takes back control of the collateral")
 omi_cme_globex_mdp3_sbe_v1_12.fields.end_of_event = ProtoField.new("End Of Event", "cme.globex.mdp3.sbe.v1.12.endofevent", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "EndOfEvent")
 omi_cme_globex_mdp3_sbe_v1_12.fields.error_codes = ProtoField.new("Error Codes", "cme.globex.mdp3.sbe.v1.12.errorcodes", ftypes.UINT8, nil, nil, nil, "Error code for reject reason")
-omi_cme_globex_mdp3_sbe_v1_12.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.12.eventtime", ftypes.UINT64, nil, nil, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.12.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.event_time_utc = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.12.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_12.fields.event_type = ProtoField.new("Event Type", "cme.globex.mdp3.sbe.v1.12.eventtype", ftypes.UINT8, nil, nil, nil, "Code to represent the type of event")
 omi_cme_globex_mdp3_sbe_v1_12.fields.events_group = ProtoField.new("Events Group", "cme.globex.mdp3.sbe.v1.12.eventsgroup", ftypes.STRING, nil, nil, nil, "Number of repeating EventType entries")
 omi_cme_globex_mdp3_sbe_v1_12.fields.events_groups = ProtoField.new("Events Groups", "cme.globex.mdp3.sbe.v1.12.eventsgroups", ftypes.STRING, nil, nil, nil, "NoEvents Block")
@@ -130,7 +131,8 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.last_qty = ProtoField.new("Last Qty", "cme.
 omi_cme_globex_mdp3_sbe_v1_12.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.globex.mdp3.sbe.v1.12.lastquotemsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "LastQuoteMsg")
 omi_cme_globex_mdp3_sbe_v1_12.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.globex.mdp3.sbe.v1.12.laststatsmsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "LastStatsMsg")
 omi_cme_globex_mdp3_sbe_v1_12.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.globex.mdp3.sbe.v1.12.lasttrademsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "LastTradeMsg")
-omi_cme_globex_mdp3_sbe_v1_12.fields.last_update_time = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.12.lastupdatetime", ftypes.UINT64, nil, nil, nil, "UTC Date and time of last Security Definition add, update or delete on a given Market Data channel")
+omi_cme_globex_mdp3_sbe_v1_12.fields.last_update_time = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.12.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC Date and time of last Security Definition add, update or delete on a given Market Data channel")
+omi_cme_globex_mdp3_sbe_v1_12.fields.last_update_time_utc = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.12.lastupdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC Date and time of last Security Definition add, update or delete on a given Market Data channel")
 omi_cme_globex_mdp3_sbe_v1_12.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.globex.mdp3.sbe.v1.12.lastvolumemsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "LastVolumeMsg")
 omi_cme_globex_mdp3_sbe_v1_12.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.globex.mdp3.sbe.v1.12.legoptiondelta", ftypes.DOUBLE, nil, nil, nil, "Delta used to calculate the quantity of futures used to cover the option or option strategy")
 omi_cme_globex_mdp3_sbe_v1_12.fields.leg_price = ProtoField.new("Leg Price", "cme.globex.mdp3.sbe.v1.12.legprice", ftypes.DOUBLE, nil, nil, nil, "Price for the future leg of a UDS Covered instrument")
@@ -256,7 +258,8 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.request_ack_related_symbol_group = ProtoFie
 omi_cme_globex_mdp3_sbe_v1_12.fields.request_ack_related_symbol_groups = ProtoField.new("Request Ack Related Symbol Groups", "cme.globex.mdp3.sbe.v1.12.requestackrelatedsymbolgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_cme_globex_mdp3_sbe_v1_12.fields.request_ack_security_group = ProtoField.new("Request Ack Security Group", "cme.globex.mdp3.sbe.v1.12.requestacksecuritygroup", ftypes.STRING, nil, nil, nil, "Number of SecurityGroups acknowledged")
 omi_cme_globex_mdp3_sbe_v1_12.fields.request_ack_security_groups = ProtoField.new("Request Ack Security Groups", "cme.globex.mdp3.sbe.v1.12.requestacksecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
-omi_cme_globex_mdp3_sbe_v1_12.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.12.requesttimestamp", ftypes.UINT64, nil, nil, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.12.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.12.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_12.fields.reserved = ProtoField.new("Reserved", "cme.globex.mdp3.sbe.v1.12.reserved", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cme_globex_mdp3_sbe_v1_12.fields.reserved_4 = ProtoField.new("Reserved 4", "cme.globex.mdp3.sbe.v1.12.reserved4", ftypes.UINT32, nil, base.DEC, 0xF0000000, "4 reserved bits")
 omi_cme_globex_mdp3_sbe_v1_12.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.globex.mdp3.sbe.v1.12.reservedbits", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "ReservedBits")
@@ -288,7 +291,8 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.security_trading_status = ProtoField.new("S
 omi_cme_globex_mdp3_sbe_v1_12.fields.security_type = ProtoField.new("Security Type", "cme.globex.mdp3.sbe.v1.12.securitytype", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.security_update_action = ProtoField.new("Security Update Action", "cme.globex.mdp3.sbe.v1.12.securityupdateaction", ftypes.STRING, nil, nil, nil, "Last Security update action on Incremental feed, 'D' or 'M' is used when a mid-week deletion or modification (i.e. extension) occurs")
 omi_cme_globex_mdp3_sbe_v1_12.fields.sef_regulated = ProtoField.new("Sef Regulated", "cme.globex.mdp3.sbe.v1.12.sefregulated", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x01000000, "SEFRegulated")
-omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.12.sendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
+omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.12.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
+omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.12.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_12.fields.session = ProtoField.new("Session", "cme.globex.mdp3.sbe.v1.12.session", ftypes.STRING, nil, nil, nil, "Session ID")
 omi_cme_globex_mdp3_sbe_v1_12.fields.settl_currency = ProtoField.new("Settl Currency", "cme.globex.mdp3.sbe.v1.12.settlcurrency", ftypes.STRING, nil, nil, nil, "Identifies currency used for settlement, if different from trading currency")
 omi_cme_globex_mdp3_sbe_v1_12.fields.settl_date = ProtoField.new("Settl Date", "cme.globex.mdp3.sbe.v1.12.settldate", ftypes.UINT16, nil, nil, nil, "Settle (Value) Date corresponding to Trade Date")
@@ -316,7 +320,8 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.sub_fraction = ProtoField.new("Sub Fraction
 omi_cme_globex_mdp3_sbe_v1_12.fields.subscription_req_type = ProtoField.new("Subscription Req Type", "cme.globex.mdp3.sbe.v1.12.subscriptionreqtype", ftypes.UINT8, nil, nil, nil, "Subscription Request Type indicates to the type of response expected")
 omi_cme_globex_mdp3_sbe_v1_12.fields.symbol = ProtoField.new("Symbol", "cme.globex.mdp3.sbe.v1.12.symbol", ftypes.STRING, nil, nil, nil, "Instrument Name or Symbol")
 omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.mdp3.sbe.v1.12.tcpmessagesize", ftypes.UINT16, nil, nil, nil, "Message Size")
-omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.12.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.12.tcpsendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time_utc = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.12.tcpsendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_12.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.12.templateid", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.term_code = ProtoField.new("Term Code", "cme.globex.mdp3.sbe.v1.12.termcode", ftypes.STRING, nil, nil, nil, "Full Repo Term Code")
 omi_cme_globex_mdp3_sbe_v1_12.fields.termination_type = ProtoField.new("Termination Type", "cme.globex.mdp3.sbe.v1.12.terminationtype", ftypes.STRING, nil, nil, nil, "For Repos the timing or method for terminating the agreement. Term code")
@@ -331,7 +336,8 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.trading_reference_date = ProtoField.new("Tr
 omi_cme_globex_mdp3_sbe_v1_12.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.globex.mdp3.sbe.v1.12.tradingreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Reference price for prelisted instruments or the last calculated Settlement whether it be Theoretical, Preliminary or a Final Settle of the session.")
 omi_cme_globex_mdp3_sbe_v1_12.fields.trading_sessions_group = ProtoField.new("Trading Sessions Group", "cme.globex.mdp3.sbe.v1.12.tradingsessionsgroup", ftypes.STRING, nil, nil, nil, "Number of scheduled Trading Dates")
 omi_cme_globex_mdp3_sbe_v1_12.fields.trading_sessions_groups = ProtoField.new("Trading Sessions Groups", "cme.globex.mdp3.sbe.v1.12.tradingsessionsgroups", ftypes.STRING, nil, nil, nil, "NoTradingSessions Block")
-omi_cme_globex_mdp3_sbe_v1_12.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.12.transacttime", ftypes.UINT64, nil, nil, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.12.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_12.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.12.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_12.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.globex.mdp3.sbe.v1.12.triangulationeligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00100000, "TriangulationEligible")
 omi_cme_globex_mdp3_sbe_v1_12.fields.underlying_country_of_issue = ProtoField.new("Underlying Country Of Issue", "cme.globex.mdp3.sbe.v1.12.underlyingcountryofissue", ftypes.STRING, nil, nil, nil, "Underlying Security's CountryOfIssue. See CountryOfIssue (470) field for description")
 omi_cme_globex_mdp3_sbe_v1_12.fields.underlying_financial_instrument_full_name = ProtoField.new("Underlying Financial Instrument Full Name", "cme.globex.mdp3.sbe.v1.12.underlyingfinancialinstrumentfullname", ftypes.STRING, nil, nil, nil, "Long Name of the Underlying Instrument. For the instruments listed on Globex this value will be the same as of that contained in Security Definition Tag 2714-FinancialInstrumentFullName")
@@ -475,6 +481,15 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.trading_sessions_group_index = ProtoField.n
 -- Cme Globex Mdp3 Sbe 1.12 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cme_globex_mdp3_sbe_v1_12.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -508,6 +523,8 @@ omi_cme_globex_mdp3_sbe_v1_12.prefs.show_structs = Pref.bool("Show Structs", sho
 omi_cme_globex_mdp3_sbe_v1_12.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cme_globex_mdp3_sbe_v1_12.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cme_globex_mdp3_sbe_v1_12.prefs_changed()
 
@@ -529,6 +546,9 @@ function omi_cme_globex_mdp3_sbe_v1_12.prefs_changed()
   end
   if show.indexes ~= omi_cme_globex_mdp3_sbe_v1_12.prefs.show_indexes then
     show.indexes = omi_cme_globex_mdp3_sbe_v1_12.prefs.show_indexes
+  end
+  if cme_globex_mdp3_sbe_v1_12.absolute_time_base ~= omi_cme_globex_mdp3_sbe_v1_12.prefs.absolute_time_base then
+    cme_globex_mdp3_sbe_v1_12.absolute_time_base = omi_cme_globex_mdp3_sbe_v1_12.prefs.absolute_time_base
   end
 end
 
@@ -1395,23 +1415,20 @@ cme_globex_mdp3_sbe_v1_12.event_time = {}
 -- Size: Event Time
 cme_globex_mdp3_sbe_v1_12.event_time.size = 8
 
--- Display: Event Time
-cme_globex_mdp3_sbe_v1_12.event_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Event Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Event Time
 cme_globex_mdp3_sbe_v1_12.event_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_mdp3_sbe_v1_12.event_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_mdp3_sbe_v1_12.event_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.event_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_mdp3_sbe_v1_12.fields.event_time
+  if cme_globex_mdp3_sbe_v1_12.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_12.fields.event_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2027,23 +2044,20 @@ cme_globex_mdp3_sbe_v1_12.last_update_time = {}
 -- Size: Last Update Time
 cme_globex_mdp3_sbe_v1_12.last_update_time.size = 8
 
--- Display: Last Update Time
-cme_globex_mdp3_sbe_v1_12.last_update_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Update Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Last Update Time
 cme_globex_mdp3_sbe_v1_12.last_update_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_mdp3_sbe_v1_12.last_update_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_mdp3_sbe_v1_12.last_update_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.last_update_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_mdp3_sbe_v1_12.fields.last_update_time
+  if cme_globex_mdp3_sbe_v1_12.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_12.fields.last_update_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4986,23 +5000,20 @@ cme_globex_mdp3_sbe_v1_12.request_timestamp = {}
 -- Size: Request Timestamp
 cme_globex_mdp3_sbe_v1_12.request_timestamp.size = 8
 
--- Display: Request Timestamp
-cme_globex_mdp3_sbe_v1_12.request_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Request Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Request Timestamp
 cme_globex_mdp3_sbe_v1_12.request_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_mdp3_sbe_v1_12.request_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_mdp3_sbe_v1_12.request_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.request_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_mdp3_sbe_v1_12.fields.request_timestamp
+  if cme_globex_mdp3_sbe_v1_12.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_12.fields.request_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5566,23 +5577,20 @@ cme_globex_mdp3_sbe_v1_12.sending_time = {}
 -- Size: Sending Time
 cme_globex_mdp3_sbe_v1_12.sending_time.size = 8
 
--- Display: Sending Time
-cme_globex_mdp3_sbe_v1_12.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 cme_globex_mdp3_sbe_v1_12.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_mdp3_sbe_v1_12.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_mdp3_sbe_v1_12.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time
+  if cme_globex_mdp3_sbe_v1_12.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6064,23 +6072,20 @@ cme_globex_mdp3_sbe_v1_12.tcp_sending_time = {}
 -- Size: Tcp Sending Time
 cme_globex_mdp3_sbe_v1_12.tcp_sending_time.size = 8
 
--- Display: Tcp Sending Time
-cme_globex_mdp3_sbe_v1_12.tcp_sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Tcp Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Tcp Sending Time
 cme_globex_mdp3_sbe_v1_12.tcp_sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_mdp3_sbe_v1_12.tcp_sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_mdp3_sbe_v1_12.tcp_sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time
+  if cme_globex_mdp3_sbe_v1_12.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_12.fields.tcp_sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6580,23 +6585,20 @@ cme_globex_mdp3_sbe_v1_12.transact_time = {}
 -- Size: Transact Time
 cme_globex_mdp3_sbe_v1_12.transact_time.size = 8
 
--- Display: Transact Time
-cme_globex_mdp3_sbe_v1_12.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 cme_globex_mdp3_sbe_v1_12.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_mdp3_sbe_v1_12.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cme_globex_mdp3_sbe_v1_12.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cme_globex_mdp3_sbe_v1_12.fields.transact_time
+  if cme_globex_mdp3_sbe_v1_12.absolute_time_base == 1 then field = omi_cme_globex_mdp3_sbe_v1_12.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

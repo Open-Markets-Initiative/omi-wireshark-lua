@@ -94,7 +94,8 @@ omi_siac_cqs_output_cta_v2_9.fields.quote_message_type = ProtoField.new("Quote M
 omi_siac_cqs_output_cta_v2_9.fields.reserved = ProtoField.new("Reserved", "siac.cqs.output.cta.v2.9.reserved", ftypes.UINT8, nil, nil, nil, "Field is reserved for future use.")
 omi_siac_cqs_output_cta_v2_9.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.output.cta.v2.9.retailinterestindicator", ftypes.STRING, nil, nil, nil, "When Retail Price Improvement (RPI) interest is priced better than the Protected Best Bid or Offer (PBBO) by a minimum of $0.001, an indication of interest on the Bid, Offer, or both the Bid and Offer will identify that interest will be eligible to interact with incoming Retail Order interest.")
 omi_siac_cqs_output_cta_v2_9.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cqs.output.cta.v2.9.retransmissionindicator", ftypes.STRING, nil, nil, nil, "Indicates an original message or a retransmitted block")
-omi_siac_cqs_output_cta_v2_9.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.9.seconds", ftypes.UINT32, nil, nil, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_cqs_output_cta_v2_9.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.9.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_cqs_output_cta_v2_9.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.9.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_cqs_output_cta_v2_9.fields.security_status_indicator = ProtoField.new("Security Status Indicator", "siac.cqs.output.cta.v2.9.securitystatusindicator", ftypes.STRING, nil, nil, nil, "The Security Status Indicator field is used to report trading suspensions in a security, price indications, trading range indications, LULD Price Bands and Market Wide Circuit Breaker activity")
 omi_siac_cqs_output_cta_v2_9.fields.security_symbol_long = ProtoField.new("Security Symbol Long", "siac.cqs.output.cta.v2.9.securitysymbollong", ftypes.STRING, nil, nil, nil, "Contains the security symbol")
 omi_siac_cqs_output_cta_v2_9.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cqs.output.cta.v2.9.securitysymbolshort", ftypes.STRING, nil, nil, nil, "Contains the security symbol")
@@ -2614,20 +2615,20 @@ siac_cqs_output_cta_v2_9.seconds = {}
 -- Size: Seconds
 siac_cqs_output_cta_v2_9.seconds.size = 4
 
--- Display: Seconds
-siac_cqs_output_cta_v2_9.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 siac_cqs_output_cta_v2_9.seconds.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_9.seconds.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_output_cta_v2_9.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_output_cta_v2_9.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_siac_cqs_output_cta_v2_9.fields.seconds
+  if siac_cqs_output_cta_v2_9.absolute_time_base == 1 then field = omi_siac_cqs_output_cta_v2_9.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

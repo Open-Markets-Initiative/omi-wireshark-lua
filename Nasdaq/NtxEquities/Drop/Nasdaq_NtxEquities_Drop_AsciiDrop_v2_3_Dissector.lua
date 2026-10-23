@@ -166,14 +166,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -199,7 +205,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_3.accepted_sequence_number.dissect = functi
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_3.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_ntxequities_drop_asciidrop_v2_3.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -622,7 +628,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_3.match_number.dissect = function(buffer, o
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_3.fields.match_number, range, value, "Match Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_ntxequities_drop_asciidrop_v2_3.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -772,7 +778,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_3.reference.dissect = function(buffer, offs
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_3.fields.reference, range, value, "Reference: Not Applicable")
     item:add_proto_expert_info(nasdaq_ntxequities_drop_asciidrop_v2_3.experts.not_a_number, "Reference is not a number: '"..range:string().."'")
     return offset + length, value
@@ -849,7 +855,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_3.requested_sequence_number.dissect = funct
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_3.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_ntxequities_drop_asciidrop_v2_3.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1065,7 +1071,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_3.time_in_force.dissect = function(buffer, 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_3.fields.time_in_force, range, value, "Time In Force: Not Applicable")
     item:add_proto_expert_info(nasdaq_ntxequities_drop_asciidrop_v2_3.experts.not_a_number, "Time In Force is not a number: '"..range:string().."'")
     return offset + length, value

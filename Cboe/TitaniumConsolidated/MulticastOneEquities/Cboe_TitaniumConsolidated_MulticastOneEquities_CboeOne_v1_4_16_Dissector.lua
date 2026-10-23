@@ -38,7 +38,8 @@ omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.high_p
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_price = ProtoField.new("Last Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastprice", ftypes.DOUBLE, nil, nil, nil, "Last trade price.")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastquantity", ftypes.UINT64, nil, nil, nil, "Last trade quantity.")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastupdatetimestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastupdatetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp_utc = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastupdatetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.length = ProtoField.new("Length", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.longupdateadapblock", ftypes.STRING)
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.low_price = ProtoField.new("Low Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lowprice", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price of the day.")
@@ -67,9 +68,11 @@ omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.side =
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.sideindicator", ftypes.STRING, nil, nil, nil, "B=Buy Side S=Sell Side")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.sip_volume_status = ProtoField.new("Sip Volume Status", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.sipvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.symbol = ProtoField.new("Symbol", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.symbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
-omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.tradingstatus", ftypes.STRING, nil, nil, nil, "A=Accepting Orders for Queuing H=Halted Q=Quote-Only S=Exchange Specific Suspension T=Trading")
-omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_5 = ProtoField.new("Unused 5", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
@@ -100,6 +103,20 @@ omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.messag
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -120,6 +137,8 @@ omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_ap
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs_changed()
@@ -142,6 +161,9 @@ function omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.pref
   end
   if show.sequences ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_sequences then
     show.sequences = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_sequences
+  end
+  if cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.absolute_time_base ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.absolute_time_base then
+    cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.absolute_time_base = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.absolute_time_base
   end
 end
 
@@ -566,23 +588,20 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_times
 -- Size: Last Update Timestamp
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size = 8
 
--- Display: Last Update Timestamp
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Last Update Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Last Update Timestamp
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp
+  if cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.absolute_time_base == 1 then field = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1269,23 +1288,20 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp = {}
 -- Size: Timestamp
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size = 8
 
--- Display: Timestamp
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp
+  if cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.absolute_time_base == 1 then field = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1335,23 +1351,20 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time 
 -- Size: Transaction Time
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.size = 8
 
--- Display: Transaction Time
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transaction Time
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time
+  if cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.absolute_time_base == 1 then field = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

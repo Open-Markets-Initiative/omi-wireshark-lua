@@ -73,7 +73,8 @@ omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.shares = ProtoField
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.sideindicator", ftypes.STRING, nil, nil, nil, "Order side indicator.")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.sst = ProtoField.new("Sst", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.sst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Special Settlement Term book allowed.")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.symbol = ProtoField.new("Symbol", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
-omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated.")
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.tradeflags", ftypes.STRING, nil, nil, nil, "Trade flags.")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.trading_status = ProtoField.new("Trading Status", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status code.")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.trading_sub_status = ProtoField.new("Trading Sub Status", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.tradingsubstatus", ftypes.STRING, nil, nil, nil, "Current trading sub-status code.")
@@ -109,6 +110,20 @@ omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.message_index = Pro
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.neoequities.multicastfulldepth.pitch.v1.0.13.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe NeoEquities MulticastFullDepth Pitch 1.0.13 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+cboe_neoequities_multicastfulldepth_pitch_v1_0_13.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -128,6 +143,8 @@ omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.show_headers = Pref.
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs_changed()
 
@@ -146,6 +163,9 @@ function omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs_changed()
   end
   if show.sequences ~= omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.show_sequences then
     show.sequences = omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.show_sequences
+  end
+  if cboe_neoequities_multicastfulldepth_pitch_v1_0_13.absolute_time_base ~= omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.absolute_time_base then
+    cboe_neoequities_multicastfulldepth_pitch_v1_0_13.absolute_time_base = omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.prefs.absolute_time_base
   end
 end
 
@@ -1475,23 +1495,20 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_13.timestamp = {}
 -- Size: Timestamp
 cboe_neoequities_multicastfulldepth_pitch_v1_0_13.timestamp.size = 8
 
--- Display: Timestamp
-cboe_neoequities_multicastfulldepth_pitch_v1_0_13.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 cboe_neoequities_multicastfulldepth_pitch_v1_0_13.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastfulldepth_pitch_v1_0_13.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_neoequities_multicastfulldepth_pitch_v1_0_13.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.timestamp
+  if cboe_neoequities_multicastfulldepth_pitch_v1_0_13.absolute_time_base == 1 then field = omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_13.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

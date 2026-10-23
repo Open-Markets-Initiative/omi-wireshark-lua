@@ -64,7 +64,8 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_12 = ProtoField.ne
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearloptions.liquidityfeed.mach.v1.2.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.liquidityfeed.mach.v1.2.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearloptions.liquidityfeed.mach.v1.2.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request a retransmission server to retransmit a range of packets")
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.liquidityfeed.mach.v1.2.seconds", ftypes.UINT32, nil, nil, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.liquidityfeed.mach.v1.2.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds_utc = ProtoField.new("Seconds", "miax.pearloptions.liquidityfeed.mach.v1.2.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.security_symbol = ProtoField.new("Security Symbol", "miax.pearloptions.liquidityfeed.mach.v1.2.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.liquidityfeed.mach.v1.2.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed.")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
@@ -113,6 +114,15 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.timestamp = ProtoField.new(
 -- Miax PearlOptions LiquidityFeed Mach 1.2 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+miax_pearloptions_liquidityfeed_mach_v1_2.absolute_time_base = 0
+
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 miax_pearloptions_liquidityfeed_mach_v1_2.format_timestamp = true
 
@@ -134,6 +144,8 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_application_messages = 
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs_changed()
 
@@ -149,6 +161,9 @@ function omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs_changed()
   end
   if miax_pearloptions_liquidityfeed_mach_v1_2.format_timestamp ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.format_timestamp then
     miax_pearloptions_liquidityfeed_mach_v1_2.format_timestamp = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.format_timestamp
+  end
+  if miax_pearloptions_liquidityfeed_mach_v1_2.absolute_time_base ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.absolute_time_base then
+    miax_pearloptions_liquidityfeed_mach_v1_2.absolute_time_base = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.absolute_time_base
   end
 end
 
@@ -1469,20 +1484,20 @@ miax_pearloptions_liquidityfeed_mach_v1_2.seconds.generated = function(value, ra
   seconds:set_generated()
 end
 
--- Display: Seconds
-miax_pearloptions_liquidityfeed_mach_v1_2.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 miax_pearloptions_liquidityfeed_mach_v1_2.seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_liquidityfeed_mach_v1_2.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_pearloptions_liquidityfeed_mach_v1_2.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds
+  if miax_pearloptions_liquidityfeed_mach_v1_2.absolute_time_base == 1 then field = omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

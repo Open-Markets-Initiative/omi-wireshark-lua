@@ -35,18 +35,21 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.event_code = ProtoField
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.event_status = ProtoField.new("Event Status", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.eventstatus", ftypes.STRING, nil, nil, nil, "Current status of the event.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.executed_quantity = ProtoField.new("Executed Quantity", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.executedquantity", ftypes.UINT64, nil, nil, nil, "The quantity executed.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.execution_price = ProtoField.new("Execution Price", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.executionprice", ftypes.INT64, nil, nil, nil, "The price at which the execution occurred.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry = ProtoField.new("Expiry", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.expiry", ftypes.UINT64, nil, nil, nil, "Expiry/delist date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry = ProtoField.new("Expiry", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.expiry", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry/delist date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry_utc = ProtoField.new("Expiry", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.expiry.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry/delist date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.firm_code = ProtoField.new("Firm Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.firmcode", ftypes.STRING, nil, nil, nil, "The firm's text identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.firm_id = ProtoField.new("Firm Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.firmid", ftypes.UINT32, nil, nil, nil, "Unique firm identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.group = ProtoField.new("Group", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.group", ftypes.STRING, nil, nil, nil, "Identifies the Board for which this event applies. Left blank if not at Board level.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.index_orderbook = ProtoField.new("Index Orderbook", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.indexorderbook", ftypes.UINT32, nil, nil, nil, "Unique orderbook identifier for the index.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.index_value = ProtoField.new("Index Value", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.indexvalue", ftypes.UINT64, nil, nil, nil, "Value for the index, using the price decimals for the orderbook.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.isin = ProtoField.new("Isin", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.isin", ftypes.STRING, nil, nil, nil, "ISIN Code. Left blank if not applicable.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing = ProtoField.new("Listing", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.listing", ftypes.UINT64, nil, nil, nil, "Listing date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing = ProtoField.new("Listing", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.listing", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Listing date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing_utc = ProtoField.new("Listing", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.listing.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Listing date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.match_number = ProtoField.new("Match Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.matchnumber", ftypes.UINT64, nil, nil, nil, "The day unique match identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.member_orderbook = ProtoField.new("Member Orderbook", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.memberorderbook", ftypes.UINT32, nil, nil, nil, "Unique orderbook identifier for the index member.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.minimumquantity", ftypes.UINT64, nil, nil, nil, "Minimum order quantity. Maximum value indicates non-tradeable.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond = ProtoField.new("Nanosecond", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.nanosecond", ftypes.UINT64, nil, nil, nil, "Nanoseconds since Epoch.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond = ProtoField.new("Nanosecond", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.nanosecond", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since Epoch.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond_utc = ProtoField.new("Nanosecond", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.nanosecond.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since Epoch.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.new_order_number = ProtoField.new("New Order Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.newordernumber", ftypes.UINT64, nil, nil, nil, "The new reference number for the order following its replacement.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.news_id = ProtoField.new("News Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.newsid", ftypes.UINT32, nil, nil, nil, "Unique news item identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.news_text = ProtoField.new("News Text", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.newstext", ftypes.STRING, nil, nil, nil, "News data. Null-terminated string, maximum 512 characters.")
@@ -148,6 +151,15 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = { nsxaustralia_nets_
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base = 0
+
 -- Composite Timestamp format (true = decimal-scaled, false = raw mantissa)
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.format_composite_timestamp = true
 
@@ -183,6 +195,8 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_session_messages = 
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.format_composite_timestamp = Pref.bool("Format Composite Timestamp", true, "Compose Composite Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs_changed()
 
@@ -204,6 +218,9 @@ function omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs_changed()
   end
   if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.format_composite_timestamp ~= omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.format_composite_timestamp then
     nsxaustralia_nets_marketdatafeed_itch_v4_2_55.format_composite_timestamp = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.format_composite_timestamp
+  end
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base ~= omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.absolute_time_base then
+    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.absolute_time_base
   end
 end
 
@@ -277,14 +294,20 @@ ascii_to_uint64 = function(str)
     return nil
   end
 
-  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
-  local significant = digits:gsub("^0+", "")
+  local value = UInt64.new(digits)
 
-  if #significant > 20 then
-    return nil
+  -- UInt64.new stops at its maximum rather than failing, so an overrun would
+  -- read as that maximum. Nineteen digits always fit, so only a longer run is
+  -- read back and compared against the digits it came from
+  if #digits > 19 then
+    local significant = digits:match("^0*(%d+)$")
+
+    if tostring(value) ~= significant then
+      return nil
+    end
   end
 
-  return UInt64.new(digits)
+  return value
 end
 
 
@@ -310,7 +333,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.dissect =
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -873,14 +896,16 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry = {}
 -- Size: Expiry
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.size = 8
 
--- Display: Expiry
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Expiry: No Value"
-  end
+-- Dissect: Expiry
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.dissect = function(buffer, offset, packet, parent)
+  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.size
+  local range = buffer(offset, length)
+  local packed = range:uint64():tonumber()
 
-  local packed = value:tonumber()
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base == 1 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry_utc end
 
   local year = math.floor(packed / 10000000000)
   local month = math.floor(packed / 100000000) % 100
@@ -889,19 +914,24 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.display = function(value)
   local minute = math.floor(packed / 100) % 100
   local second = packed % 100
 
-  return string.format("Expiry: %04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second)
-end
+  if month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expiry: " .. tostring(packed))
+    return offset + length, packed
+  end
 
--- Dissect: Expiry
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.dissect = function(buffer, offset, packet, parent)
-  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.display(value, buffer, offset, packet, parent)
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
 
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry, range, value, display)
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  parent:add(field, range, NSTime.new(seconds, 0))
 
-  return offset + length, value
+  return offset + length, packed
 end
 
 -- Firm Code
@@ -1048,14 +1078,16 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing = {}
 -- Size: Listing
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.size = 8
 
--- Display: Listing
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Listing: No Value"
-  end
+-- Dissect: Listing
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.dissect = function(buffer, offset, packet, parent)
+  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.size
+  local range = buffer(offset, length)
+  local packed = range:uint64():tonumber()
 
-  local packed = value:tonumber()
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base == 1 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing_utc end
 
   local year = math.floor(packed / 10000000000)
   local month = math.floor(packed / 100000000) % 100
@@ -1064,19 +1096,24 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.display = function(value)
   local minute = math.floor(packed / 100) % 100
   local second = packed % 100
 
-  return string.format("Listing: %04d-%02d-%02d %02d:%02d:%02d", year, month, day, hour, minute, second)
-end
+  if month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Listing: " .. tostring(packed))
+    return offset + length, packed
+  end
 
--- Dissect: Listing
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.dissect = function(buffer, offset, packet, parent)
-  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.display(value, buffer, offset, packet, parent)
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
 
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing, range, value, display)
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  parent:add(field, range, NSTime.new(seconds, 0))
 
-  return offset + length, value
+  return offset + length, packed
 end
 
 -- Match Number
@@ -1154,23 +1191,20 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond = {}
 -- Size: Nanosecond
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.size = 8
 
--- Display: Nanosecond
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Nanosecond: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Nanosecond
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.dissect = function(buffer, offset, packet, parent)
   local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.absolute_time_base == 1 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1808,7 +1842,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.requested_sequence_number.dissect 
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = UInt64.new(0)
+    value = UInt64.new("0")
     local item = parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

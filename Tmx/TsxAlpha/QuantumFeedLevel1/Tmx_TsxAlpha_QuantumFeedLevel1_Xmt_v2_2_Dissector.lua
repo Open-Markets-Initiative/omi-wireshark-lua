@@ -61,7 +61,8 @@ omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.symbol = ProtoField.new("Symb
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.test_symbol = ProtoField.new("Test Symbol", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.2.testsymbol", ftypes.STRING, nil, nil, nil, "Indicates The Symbol Is A Test Symbol")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trade_number = ProtoField.new("Trade Number", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.2.tradenumber", ftypes.UINT32, nil, nil, nil, "A Unique Identifier Per Stock Assigned To Each Trade")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.2.tradetimestamp", ftypes.UINT32, nil, nil, nil, "The Time At Which The Trade Occurred Manually Set When A Trade Is Added")
-omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.2.tradingsystemtimestamp", ftypes.UINT64, nil, nil, nil, "The Time At Which The Event Being Reported Occurred In The Trading Engine")
+omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.2.tradingsystemtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The Time At Which The Event Being Reported Occurred In The Trading Engine")
+omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trading_system_time_stamp_utc = ProtoField.new("Trading System Time Stamp", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.2.tradingsystemtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The Time At Which The Event Being Reported Occurred In The Trading Engine")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.volume = ProtoField.new("Volume", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.2.volume", ftypes.UINT32, nil, nil, nil, "The Quantity Of Shares For An Order Or Trade")
 
 -- Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.2 Framing
@@ -93,6 +94,20 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.experts.not_a_number = ProtoExpert.new("
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.experts = { tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
+-- Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -112,6 +127,8 @@ omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.show_application_messages = Pr
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs_changed()
 
@@ -130,6 +147,9 @@ function omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs_changed()
   end
   if show.indexes ~= omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.show_indexes then
     show.indexes = omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.show_indexes
+  end
+  if tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.absolute_time_base ~= omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.absolute_time_base then
+    tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.absolute_time_base = omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.prefs.absolute_time_base
   end
 end
 
@@ -1462,29 +1482,27 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp = {}
 -- Size: Trading System Time Stamp
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.size = 8
 
--- Display: Trading System Time Stamp
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Trading System Time Stamp: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trading System Time Stamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trading System Time Stamp
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trading_system_time_stamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trading_system_time_stamp
+  if tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.absolute_time_base == 1 then field = omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.trading_system_time_stamp_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Trading System Time Stamp: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

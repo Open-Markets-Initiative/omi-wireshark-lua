@@ -217,7 +217,8 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_type = ProtoField.new(
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.public_order_id = ProtoField.new("Public Order Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicorderid", ftypes.UINT64, nil, nil, nil, "Order identifier (ID)")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.public_product_identification = ProtoField.new("Public Product Identification", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicproductidentification", ftypes.STRING, nil, nil, nil, "PublicProductIdentification")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_order = ProtoField.new("Publication Order", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicationorder", ftypes.UINT16, nil, nil, nil, "Index publication presentation order")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicationtimestamp", ftypes.UINT64, nil, nil, nil, "Date and time when the transaction was published by a trading venue")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction was published by a trading venue")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp_utc = ProtoField.new("Publication Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time when the transaction was published by a trading venue")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.quantity = ProtoField.new("Quantity", "gpw.wse.streamfulldepth.wats.v1.7.6.20.quantity", ftypes.UINT64, nil, nil, nil, "Auction quantity (final auction volume)")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.quotation_system = ProtoField.new("Quotation System", "gpw.wse.streamfulldepth.wats.v1.7.6.20.quotationsystem", ftypes.UINT8, nil, nil, nil, "The field informing about the system of listing the instrument")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.reference_instrument_id = ProtoField.new("Reference Instrument Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.referenceinstrumentid", ftypes.UINT32, nil, nil, nil, "Identifier of reference instrument")
@@ -244,7 +245,8 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_type = ProtoField.n
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value_price = ProtoField.new("Settlement Value Price", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementvalueprice", ftypes.DOUBLE, nil, nil, nil, "Settlement value")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value_value = ProtoField.new("Settlement Value Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementvaluevalue", ftypes.DOUBLE, nil, nil, nil, "Settlement value")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.side = ProtoField.new("Side", "gpw.wse.streamfulldepth.wats.v1.7.6.20.side", ftypes.UINT8, nil, nil, nil, "Side (buy or sell)")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.sourcetimestamp", ftypes.UINT64, nil, nil, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.sourcetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp_utc = ProtoField.new("Source Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.sourcetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.split = ProtoField.new("Split", "gpw.wse.streamfulldepth.wats.v1.7.6.20.split", ftypes.UINT8, nil, nil, nil, "The positive field value (true) informs that the instruments are traded the first time after the change of the nominal value of shares")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.static_collar_volatility_auction_id = ProtoField.new("Static Collar Volatility Auction Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.staticcollarvolatilityauctionid", ftypes.UINT32)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.status = ProtoField.new("Status", "gpw.wse.streamfulldepth.wats.v1.7.6.20.status", ftypes.UINT8, nil, nil, nil, "Instrument status")
@@ -260,7 +262,8 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.threshold_max = ProtoField.new
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.threshold_min = ProtoField.new("Threshold Min", "gpw.wse.streamfulldepth.wats.v1.7.6.20.thresholdmin", ftypes.DOUBLE, nil, nil, nil, "lower threshold for leveraged instruments")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.tick_size = ProtoField.new("Tick Size", "gpw.wse.streamfulldepth.wats.v1.7.6.20.ticksize", ftypes.DOUBLE, nil, nil, nil, "Size of the tick")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.tick_table_id = ProtoField.new("Tick Table Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.ticktableid", ftypes.UINT32)
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp = ProtoField.new("Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.timestamp", ftypes.UINT64, nil, nil, nil, "Exact date and time of the event, in nanoseconds since the Unix epoch. Section 12.1 states the zone, that GPW WATS runs on UTC time, and the worked example of section 6.1.4.2 states the unit, 1717902001730705137 being 9 June 2024")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp = ProtoField.new("Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exact date and time of the event, in nanoseconds since the Unix epoch. Section 12.1 states the zone, that GPW WATS runs on UTC time, and the worked example of section 6.1.4.2 states the unit, 1717902001730705137 being 9 June 2024")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp_utc = ProtoField.new("Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Exact date and time of the event, in nanoseconds since the Unix epoch. Section 12.1 states the zone, that GPW WATS runs on UTC time, and the worked example of section 6.1.4.2 states the unit, 1717902001730705137 being 9 June 2024")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.title = ProtoField.new("Title", "gpw.wse.streamfulldepth.wats.v1.7.6.20.title", ftypes.STRING, nil, nil, nil, "News title, unique per message")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.total = ProtoField.new("Total", "gpw.wse.streamfulldepth.wats.v1.7.6.20.total", ftypes.UINT8, nil, nil, nil, "Total number of news entries")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.total_buy_quantity_at_imp = ProtoField.new("Total Buy Quantity At Imp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.totalbuyquantityatimp", ftypes.UINT64)
@@ -275,11 +278,13 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_currency = ProtoField.
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_id = ProtoField.new("Trading Phase Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingphaseid", ftypes.UINT32)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_max_block_settlement_cycle = ProtoField.new("Trading Phase Max Block Settlement Cycle", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingphasemaxblocksettlementcycle", ftypes.UINT8, nil, nil, nil, "Max settlement cycle for block transactions")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_settlement_cycle = ProtoField.new("Trading Phase Settlement Cycle", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingphasesettlementcycle", ftypes.UINT8, nil, nil, nil, "Settlement cycle for transactions made during a continuous phase")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time = ProtoField.new("Trading Phase Start Time", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingphasestarttime", ftypes.UINT64)
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time = ProtoField.new("Trading Phase Start Time", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingphasestarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time_utc = ProtoField.new("Trading Phase Start Time", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingphasestarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_type = ProtoField.new("Trading Phase Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingphasetype", ftypes.UINT8, nil, nil, nil, "Type of matching algorithm")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_schedule_id = ProtoField.new("Trading Schedule Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingscheduleid", ftypes.UINT32)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_session_event = ProtoField.new("Trading Session Event", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingsessionevent", ftypes.UINT8, nil, nil, nil, "Identifies an event related to the trading status of a trading session")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp = ProtoField.new("Trading Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingtimestamp", ftypes.UINT64, nil, nil, nil, "Date and time when the transaction was executed")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp = ProtoField.new("Trading Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction was executed")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp_utc = ProtoField.new("Trading Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time when the transaction was executed")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_value = ProtoField.new("Trading Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingvalue", ftypes.DOUBLE, nil, nil, nil, "Value of trading in the instruments from the given index")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_value_currency = ProtoField.new("Trading Value Currency", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingvaluecurrency", ftypes.DOUBLE, nil, nil, nil, "The field comprises the trading value expressed in trading currency")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.uncrossing = ProtoField.new("Uncrossing", "gpw.wse.streamfulldepth.wats.v1.7.6.20.uncrossing", ftypes.UINT8, nil, nil, nil, "True if the phase includes an uncrossing")
@@ -353,6 +358,20 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.items_index = ProtoField.new("
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.sell_index = ProtoField.new("Sell Index", "gpw.wse.streamfulldepth.wats.v1.7.6.20.sellindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Gpw Wse StreamFullDepth Wats 1.7.6.20 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -372,6 +391,8 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_repeating_groups = Pref.bo
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs_changed()
 
@@ -390,6 +411,9 @@ function omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs_changed()
   end
   if show.indexes ~= omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_indexes then
     show.indexes = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.show_indexes
+  end
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base ~= omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.absolute_time_base then
+    gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.prefs.absolute_time_base
   end
 end
 
@@ -8058,23 +8082,20 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp = {}
 -- Size: Publication Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp.size = 8
 
--- Display: Publication Timestamp
-gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Publication Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Publication Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.publication_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8629,23 +8650,20 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.source_timestamp = {}
 -- Size: Source Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.source_timestamp.size = 8
 
--- Display: Source Timestamp
-gpw_wse_streamfulldepth_wats_v1_7_6_20.source_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Source Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Source Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.source_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.source_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.source_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -9600,23 +9618,20 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp = {}
 -- Size: Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp.size = 8
 
--- Display: Timestamp
-gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -10496,23 +10511,20 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_phase_start_time = {}
 -- Size: Trading Phase Start Time
 gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_phase_start_time.size = 8
 
--- Display: Trading Phase Start Time
-gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_phase_start_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trading Phase Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trading Phase Start Time
 gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_phase_start_time.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_phase_start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_phase_start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_phase_start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -10696,23 +10708,20 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp = {}
 -- Size: Trading Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp.size = 8
 
--- Display: Trading Timestamp
-gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trading Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trading Timestamp
 gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp
+  if gpw_wse_streamfulldepth_wats_v1_7_6_20.absolute_time_base == 1 then field = omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

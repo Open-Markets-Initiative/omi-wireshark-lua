@@ -16,7 +16,8 @@ local b3_b3derivatives_binaryumdf_sbe_v2_2 = {}
 
 -- B3 B3Derivatives BinaryUmdf Sbe 2.2 Fields
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.aggressor_side = ProtoField.new("Aggressor Side", "b3.b3derivatives.binaryumdf.sbe.v2.2.aggressorside", ftypes.UINT8, nil, nil, nil, "aggressorSide")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.aggressor_time = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.aggressortime", ftypes.UINT64, nil, nil, nil, "aggressorTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.aggressor_time = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.aggressortime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "aggressorTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.aggressor_time_utc = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.aggressortime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "aggressorTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.asset = ProtoField.new("Asset", "b3.b3derivatives.binaryumdf.sbe.v2.2.asset", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.avg_daily_traded_qty = ProtoField.new("Avg Daily Traded Qty", "b3.b3derivatives.binaryumdf.sbe.v2.2.avgdailytradedqty", ftypes.INT64, nil, nil, nil, "avgDailyTradedQty")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.block_length = ProtoField.new("Block Length", "b3.b3derivatives.binaryumdf.sbe.v2.2.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
@@ -88,10 +89,12 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_prev_size = ProtoField.
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_seller = ProtoField.new("Md Entry Seller", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentryseller", ftypes.UINT32, nil, nil, nil, "mDEntrySeller")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_quantity = ProtoField.new("Md Entry Size Quantity", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrysizequantity", ftypes.INT64, nil, nil, nil, "mDEntrySize")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_quantity_optional = ProtoField.new("Md Entry Size Quantity Optional", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrysizequantityoptional", ftypes.INT64, nil, nil, nil, "mDEntrySize")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrytimestamp", ftypes.UINT64, nil, nil, nil, "mDEntryTimestamp")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "mDEntryTimestamp")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp_utc = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "mDEntryTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_type = ProtoField.new("Md Entry Type", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrytype", ftypes.STRING, nil, nil, nil, "mDEntryType")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_future_price = ProtoField.new("Md Future Price", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdfutureprice", ftypes.DOUBLE, nil, nil, nil, "mDEntryPx")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_insert_timestamp = ProtoField.new("Md Insert Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdinserttimestamp", ftypes.UINT64, nil, nil, nil, "mDInsertTimestamp")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_insert_timestamp = ProtoField.new("Md Insert Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdinserttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "mDInsertTimestamp")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_insert_timestamp_utc = ProtoField.new("Md Insert Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdinserttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "mDInsertTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_update_action = ProtoField.new("Md Update Action", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdupdateaction", ftypes.UINT8, nil, nil, nil, "mDUpdateAction")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.message_length = ProtoField.new("Message Length", "b3.b3derivatives.binaryumdf.sbe.v2.2.messagelength", ftypes.UINT16, nil, nil, nil, "Overall message length including framing and SBE headers")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.min_cross_qty = ProtoField.new("Min Cross Qty", "b3.b3derivatives.binaryumdf.sbe.v2.2.mincrossqty", ftypes.INT64, nil, nil, nil, "minCrossQty")
@@ -126,7 +129,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_9_padding_3 = ProtoField.
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "b3.b3derivatives.binaryumdf.sbe.v2.2.openclosesettlflag", ftypes.UINT8, nil, nil, nil, "openCloseSettlFlag")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.opening_price = ProtoField.new("Opening Price", "b3.b3derivatives.binaryumdf.sbe.v2.2.openingprice", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "OpeningPrice")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.opt_payout_type = ProtoField.new("Opt Payout Type", "b3.b3derivatives.binaryumdf.sbe.v2.2.optpayouttype", ftypes.UINT8, nil, nil, nil, "optPayoutType")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.origtime", ftypes.UINT64, nil, nil, nil, "origTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "origTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.orig_time_utc = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "origTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.b3derivatives.binaryumdf.sbe.v2.2.outofsequence", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "OutOfSequence")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.packet_reserved = ProtoField.new("Packet Reserved", "b3.b3derivatives.binaryumdf.sbe.v2.2.packetreserved", ftypes.UINT8, nil, nil, nil, "Packet Reserved Field")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.padding_1 = ProtoField.new("Padding 1", "b3.b3derivatives.binaryumdf.sbe.v2.2.padding1", ftypes.BYTES, nil, nil, nil, "1 bytes padding")
@@ -165,7 +169,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.security_type = ProtoField.new("
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.security_update_action = ProtoField.new("Security Update Action", "b3.b3derivatives.binaryumdf.sbe.v2.2.securityupdateaction", ftypes.STRING, nil, nil, nil, "securityUpdateAction")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.security_validity_timestamp = ProtoField.new("Security Validity Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.securityvaliditytimestamp", ftypes.INT64, nil, nil, nil, "securityValidityTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.seller_days = ProtoField.new("Seller Days", "b3.b3derivatives.binaryumdf.sbe.v2.2.sellerdays", ftypes.UINT16, nil, nil, nil, "sellerDays")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.sendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sending_time_utc = ProtoField.new("Sending Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sequence_number = ProtoField.new("Sequence Number", "b3.b3derivatives.binaryumdf.sbe.v2.2.sequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sequence_version = ProtoField.new("Sequence Version", "b3.b3derivatives.binaryumdf.sbe.v2.2.sequenceversion", ftypes.UINT16, nil, nil, nil, "Packet Sequence Version")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.settl_currency = ProtoField.new("Settl Currency", "b3.b3derivatives.binaryumdf.sbe.v2.2.settlcurrency", ftypes.STRING, nil, nil, nil, "settlCurrency")
@@ -189,7 +194,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.tot_num_offers = ProtoField.new(
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "b3.b3derivatives.binaryumdf.sbe.v2.2.totnumreports", ftypes.UINT32, nil, nil, nil, "totNumReports")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.tot_num_stats = ProtoField.new("Tot Num Stats", "b3.b3derivatives.binaryumdf.sbe.v2.2.totnumstats", ftypes.UINT16, nil, nil, nil, "totNumStats")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.total_text_length = ProtoField.new("Total Text Length", "b3.b3derivatives.binaryumdf.sbe.v2.2.totaltextlength", ftypes.UINT32, nil, nil, nil, "totalTextLength")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.tradsesopentime", ftypes.UINT64, nil, nil, nil, "tradSesOpenTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.tradsesopentime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "tradSesOpenTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trad_ses_open_time_utc = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.binaryumdf.sbe.v2.2.tradsesopentime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "tradSesOpenTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trade_condition = ProtoField.new("Trade Condition", "b3.b3derivatives.binaryumdf.sbe.v2.2.tradecondition", ftypes.STRING, nil, nil, nil, "TradeCondition bit set")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trade_date = ProtoField.new("Trade Date", "b3.b3derivatives.binaryumdf.sbe.v2.2.tradedate", ftypes.UINT16, nil, nil, nil, "tradeDate")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trade_id = ProtoField.new("Trade Id", "b3.b3derivatives.binaryumdf.sbe.v2.2.tradeid", ftypes.UINT32, nil, nil, nil, "tradeID")
@@ -279,6 +285,20 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.snapshot_full_refresh_orders_mb_
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.underlyings_group_index = ProtoField.new("Underlyings Group Index", "b3.b3derivatives.binaryumdf.sbe.v2.2.underlyingsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- B3 B3Derivatives BinaryUmdf Sbe 2.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -298,6 +318,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.show_repeating_groups = Pref.bool
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs_changed()
 
@@ -316,6 +338,9 @@ function omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs_changed()
   end
   if show.indexes ~= omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.show_indexes then
     show.indexes = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.show_indexes
+  end
+  if b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base ~= omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.absolute_time_base then
+    b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs.absolute_time_base
   end
 end
 
@@ -363,29 +388,27 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.aggressor_time = {}
 -- Size: Aggressor Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.aggressor_time.size = 8
 
--- Display: Aggressor Time
-b3_b3derivatives_binaryumdf_sbe_v2_2.aggressor_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Aggressor Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Aggressor Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Aggressor Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.aggressor_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v2_2.aggressor_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.aggressor_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.aggressor_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.aggressor_time
+  if b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.aggressor_time_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Aggressor Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2071,29 +2094,27 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp = {}
 -- Size: Md Entry Timestamp
 b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.size = 8
 
--- Display: Md Entry Timestamp
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Md Entry Timestamp: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Md Entry Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Md Entry Timestamp
 b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp
+  if b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Md Entry Timestamp: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2233,29 +2254,27 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp = {}
 -- Size: Md Insert Timestamp
 b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp.size = 8
 
--- Display: Md Insert Timestamp
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Md Insert Timestamp: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Md Insert Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Md Insert Timestamp
 b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_insert_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_insert_timestamp
+  if b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_insert_timestamp_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Md Insert Timestamp: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3213,29 +3232,27 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.orig_time = {}
 -- Size: Orig Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.orig_time.size = 8
 
--- Display: Orig Time
-b3_b3derivatives_binaryumdf_sbe_v2_2.orig_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Orig Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Orig Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Orig Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.orig_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v2_2.orig_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.orig_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.orig_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.orig_time
+  if b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.orig_time_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Orig Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4326,23 +4343,20 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.sending_time = {}
 -- Size: Sending Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.sending_time.size = 8
 
--- Display: Sending Time
-b3_b3derivatives_binaryumdf_sbe_v2_2.sending_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Sending Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v2_2.sending_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sending_time
+  if b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4991,29 +5005,27 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trad_ses_open_time = {}
 -- Size: Trad Ses Open Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.trad_ses_open_time.size = 8
 
--- Display: Trad Ses Open Time
-b3_b3derivatives_binaryumdf_sbe_v2_2.trad_ses_open_time.display = function(value)
-  -- Check null value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Trad Ses Open Time: No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Trad Ses Open Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Trad Ses Open Time
 b3_b3derivatives_binaryumdf_sbe_v2_2.trad_ses_open_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v2_2.trad_ses_open_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.trad_ses_open_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trad_ses_open_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trad_ses_open_time
+  if b3_b3derivatives_binaryumdf_sbe_v2_2.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trad_ses_open_time_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Trad Ses Open Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

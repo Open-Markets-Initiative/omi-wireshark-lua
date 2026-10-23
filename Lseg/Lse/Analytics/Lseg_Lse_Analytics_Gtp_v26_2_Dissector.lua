@@ -26,7 +26,8 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.buy_order_size = ProtoField.new("Buy Ord
 omi_lseg_lse_analytics_gtp_v26_2.fields.currency = ProtoField.new("Currency", "lseg.lse.analytics.gtp.v26.2.currency", ftypes.STRING, nil, nil, nil, "Currency Code as per ISO 4217.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.lse.analytics.gtp.v26.2.dynamiccircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Dynamic Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.lse.analytics.gtp.v26.2.electronicorderbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_lseg_lse_analytics_gtp_v26_2.fields.end_time = ProtoField.new("End Time", "lseg.lse.analytics.gtp.v26.2.endtime", ftypes.UINT64, nil, nil, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.end_time = ProtoField.new("End Time", "lseg.lse.analytics.gtp.v26.2.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.end_time_utc = ProtoField.new("End Time", "lseg.lse.analytics.gtp.v26.2.endtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message ended.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.event_code = ProtoField.new("Event Code", "lseg.lse.analytics.gtp.v26.2.eventcode", ftypes.STRING, nil, nil, nil, "Start or end of day event code.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.firm_quote_book = ProtoField.new("Firm Quote Book", "lseg.lse.analytics.gtp.v26.2.firmquotebook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_lseg_lse_analytics_gtp_v26_2.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.lse.analytics.gtp.v26.2.fourthreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
@@ -57,11 +58,13 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.sell_order_size = ProtoField.new("Sell O
 omi_lseg_lse_analytics_gtp_v26_2.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.lse.analytics.gtp.v26.2.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first payload message")
 omi_lseg_lse_analytics_gtp_v26_2.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.lse.analytics.gtp.v26.2.sessionchangereason", ftypes.UINT8, nil, nil, nil, "Reason the trading session changed.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.source_venue = ProtoField.new("Source Venue", "lseg.lse.analytics.gtp.v26.2.sourcevenue", ftypes.UINT16, nil, nil, nil, "Venue from which market data is received for the instrument.")
-omi_lseg_lse_analytics_gtp_v26_2.fields.start_time = ProtoField.new("Start Time", "lseg.lse.analytics.gtp.v26.2.starttime", ftypes.UINT64, nil, nil, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.start_time = ProtoField.new("Start Time", "lseg.lse.analytics.gtp.v26.2.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.start_time_utc = ProtoField.new("Start Time", "lseg.lse.analytics.gtp.v26.2.starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message began.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.lse.analytics.gtp.v26.2.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.analytics.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.analytics.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.analytics.gtp.v26.2.timestamp", ftypes.UINT64, nil, nil, nil, "Time the message was generated.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.analytics.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.analytics.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.analytics.gtp.v26.2.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.analytics.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
 omi_lseg_lse_analytics_gtp_v26_2.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse.analytics.gtp.v26.2.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved")
@@ -85,6 +88,20 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.system_event_message = ProtoField.new("S
 omi_lseg_lse_analytics_gtp_v26_2.fields.message_index = ProtoField.new("Message Index", "lseg.lse.analytics.gtp.v26.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Lseg Lse Analytics Gtp 26.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+lseg_lse_analytics_gtp_v26_2.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -102,6 +119,8 @@ omi_lseg_lse_analytics_gtp_v26_2.prefs.show_application_messages = Pref.bool("Sh
 omi_lseg_lse_analytics_gtp_v26_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_lse_analytics_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_lseg_lse_analytics_gtp_v26_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_lseg_lse_analytics_gtp_v26_2.prefs_changed()
 
@@ -117,6 +136,9 @@ function omi_lseg_lse_analytics_gtp_v26_2.prefs_changed()
   end
   if show.indexes ~= omi_lseg_lse_analytics_gtp_v26_2.prefs.show_indexes then
     show.indexes = omi_lseg_lse_analytics_gtp_v26_2.prefs.show_indexes
+  end
+  if lseg_lse_analytics_gtp_v26_2.absolute_time_base ~= omi_lseg_lse_analytics_gtp_v26_2.prefs.absolute_time_base then
+    lseg_lse_analytics_gtp_v26_2.absolute_time_base = omi_lseg_lse_analytics_gtp_v26_2.prefs.absolute_time_base
   end
 end
 
@@ -383,23 +405,20 @@ lseg_lse_analytics_gtp_v26_2.end_time = {}
 -- Size: End Time
 lseg_lse_analytics_gtp_v26_2.end_time.size = 8
 
--- Display: End Time
-lseg_lse_analytics_gtp_v26_2.end_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "End Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: End Time
 lseg_lse_analytics_gtp_v26_2.end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_analytics_gtp_v26_2.end_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_analytics_gtp_v26_2.end_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_analytics_gtp_v26_2.fields.end_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_analytics_gtp_v26_2.fields.end_time
+  if lseg_lse_analytics_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_analytics_gtp_v26_2.fields.end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1141,23 +1160,20 @@ lseg_lse_analytics_gtp_v26_2.start_time = {}
 -- Size: Start Time
 lseg_lse_analytics_gtp_v26_2.start_time.size = 8
 
--- Display: Start Time
-lseg_lse_analytics_gtp_v26_2.start_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Start Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Start Time
 lseg_lse_analytics_gtp_v26_2.start_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_analytics_gtp_v26_2.start_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_analytics_gtp_v26_2.start_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_analytics_gtp_v26_2.fields.start_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_analytics_gtp_v26_2.fields.start_time
+  if lseg_lse_analytics_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_analytics_gtp_v26_2.fields.start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1248,23 +1264,20 @@ lseg_lse_analytics_gtp_v26_2.timestamp = {}
 -- Size: Timestamp
 lseg_lse_analytics_gtp_v26_2.timestamp.size = 8
 
--- Display: Timestamp
-lseg_lse_analytics_gtp_v26_2.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 lseg_lse_analytics_gtp_v26_2.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_analytics_gtp_v26_2.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = lseg_lse_analytics_gtp_v26_2.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp
+  if lseg_lse_analytics_gtp_v26_2.absolute_time_base == 1 then field = omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
