@@ -18,25 +18,25 @@ local cboe_bzxequities_top_asciipitch_v1_3_10 = {}
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.ask_price_extended = ProtoField.new("Ask Price Extended", "cboe.bzxequities.top.asciipitch.v1.3.10.askpriceextended", ftypes.DOUBLE, nil, nil, nil, "Ask price; 0 if no offers")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.bzxequities.top.asciipitch.v1.3.10.askpricelong", ftypes.DOUBLE, nil, nil, nil, "Ask price; 0 if no offers")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.bzxequities.top.asciipitch.v1.3.10.askpriceshort", ftypes.DOUBLE, nil, nil, nil, "Ask price; 0 if no offers")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.10.askquantitylong", ftypes.UINT32, nil, nil, nil, "Ask quantity; 0 if no offers")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.10.askquantityshort", ftypes.UINT32, nil, nil, nil, "Ask size; 0 if no offers")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.10.askquantitylong", ftypes.UINT24, nil, nil, nil, "Ask quantity; 0 if no offers")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.10.askquantityshort", ftypes.UINT24, nil, nil, nil, "Ask size; 0 if no offers")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.bid_price_extended = ProtoField.new("Bid Price Extended", "cboe.bzxequities.top.asciipitch.v1.3.10.bidpriceextended", ftypes.DOUBLE, nil, nil, nil, "Bid price; 0 if no bids")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.bzxequities.top.asciipitch.v1.3.10.bidpricelong", ftypes.DOUBLE, nil, nil, nil, "Bid price; 0 if no bids")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.bid_price_short = ProtoField.new("Bid Price Short", "cboe.bzxequities.top.asciipitch.v1.3.10.bidpriceshort", ftypes.DOUBLE, nil, nil, nil, "Bid price; 0 if no bids")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.10.bidquantitylong", ftypes.UINT32, nil, nil, nil, "Bid quantity; 0 if no bids")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.10.bidquantityshort", ftypes.UINT32, nil, nil, nil, "Bid size; 0 if no bids")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.10.bidquantitylong", ftypes.UINT24, nil, nil, nil, "Bid quantity; 0 if no bids")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.10.bidquantityshort", ftypes.UINT24, nil, nil, nil, "Bid size; 0 if no bids")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.cumulative_volume_long = ProtoField.new("Cumulative Volume Long", "cboe.bzxequities.top.asciipitch.v1.3.10.cumulativevolumelong", ftypes.UINT32, nil, nil, nil, "Cumulative volume executed today; 0 if no trades")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.cumulative_volume_short = ProtoField.new("Cumulative Volume Short", "cboe.bzxequities.top.asciipitch.v1.3.10.cumulativevolumeshort", ftypes.UINT32, nil, nil, nil, "Cumulative number of shares traded today")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.cumulative_volume_short = ProtoField.new("Cumulative Volume Short", "cboe.bzxequities.top.asciipitch.v1.3.10.cumulativevolumeshort", ftypes.UINT24, nil, nil, nil, "Cumulative number of shares traded today")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.halt_status = ProtoField.new("Halt Status", "cboe.bzxequities.top.asciipitch.v1.3.10.haltstatus", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_price_extended = ProtoField.new("Last Price Extended", "cboe.bzxequities.top.asciipitch.v1.3.10.lastpriceextended", ftypes.DOUBLE, nil, nil, nil, "Last trade price")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_price_long = ProtoField.new("Last Price Long", "cboe.bzxequities.top.asciipitch.v1.3.10.lastpricelong", ftypes.DOUBLE, nil, nil, nil, "Last trade price")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_price_short = ProtoField.new("Last Price Short", "cboe.bzxequities.top.asciipitch.v1.3.10.lastpriceshort", ftypes.DOUBLE, nil, nil, nil, "Last trade price")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_quantity_long = ProtoField.new("Last Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.10.lastquantitylong", ftypes.UINT32, nil, nil, nil, "Last trade quantity")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_quantity_short = ProtoField.new("Last Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.10.lastquantityshort", ftypes.UINT32, nil, nil, nil, "Last trade quantity")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_quantity_long = ProtoField.new("Last Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.10.lastquantitylong", ftypes.UINT24, nil, nil, nil, "Last trade quantity")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_quantity_short = ProtoField.new("Last Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.10.lastquantityshort", ftypes.UINT24, nil, nil, nil, "Last trade quantity")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_day_indicator = ProtoField.new("Last Trade Day Indicator", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradedayindicator", ftypes.STRING, nil, nil, nil, "Effective 11/02/26. Always 0 for BYX/EDGA.")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_price_long = ProtoField.new("Last Trade Price Long", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradepricelong", ftypes.DOUBLE, nil, nil, nil, "Last trade price; 0 if no trades")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_price_short = ProtoField.new("Last Trade Price Short", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradepriceshort", ftypes.DOUBLE, nil, nil, nil, "Last trade price; 0 if no trades")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_size = ProtoField.new("Last Trade Size", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradesize", ftypes.UINT32, nil, nil, nil, "Last trade size; 0 if no trades")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_size = ProtoField.new("Last Trade Size", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradesize", ftypes.UINT24, nil, nil, nil, "Last trade size; 0 if no trades")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradetime", ftypes.UINT32, nil, nil, nil, "Time of last trade; milliseconds since midnight, Eastern time")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.top.asciipitch.v1.3.10.messagetype", ftypes.STRING, nil, nil, nil, "Single ASCII byte identifying this packet type")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.bzxequities.top.asciipitch.v1.3.10.midnightreference", ftypes.UINT64, nil, nil, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
@@ -46,7 +46,7 @@ omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.reg_sho_action = ProtoField.n
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.reject_reason = ProtoField.new("Reject Reason", "cboe.bzxequities.top.asciipitch.v1.3.10.rejectreason", ftypes.STRING, nil, nil, nil, "\"A\" = Authentication or authorization problem (currently the only reason sent)")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.top.asciipitch.v1.3.10.reserved1", ftypes.STRING, nil, nil, nil, "Reserved")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.bzxequities.top.asciipitch.v1.3.10.reserved2", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.seconds = ProtoField.new("Seconds", "cboe.bzxequities.top.asciipitch.v1.3.10.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight; e.g,. 32400 = 9:00am")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.seconds = ProtoField.new("Seconds", "cboe.bzxequities.top.asciipitch.v1.3.10.seconds", ftypes.UINT24, nil, nil, nil, "Number of seconds since midnight; e.g,. 32400 = 9:00am")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.spin_flag = ProtoField.new("Spin Flag", "cboe.bzxequities.top.asciipitch.v1.3.10.spinflag", ftypes.STRING, nil, nil, nil, "If \"Y\", spin current top of book")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.bzxequities.top.asciipitch.v1.3.10.symbolextended", ftypes.STRING, nil, nil, nil, "Symbol")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bzxequities.top.asciipitch.v1.3.10.symbollong", ftypes.STRING, nil, nil, nil, "Symbol")
@@ -199,6 +199,24 @@ format_implied_decimal_text = function(str, places)
   end
 
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -1110,10 +1128,10 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_10.midnight_reference.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_top_asciipitch_v1_3_10.midnight_reference.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.midnight_reference, range, value, "Midnight Reference: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_top_asciipitch_v1_3_10.experts.not_a_number, "Midnight Reference is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1417,10 +1435,10 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_10.time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_top_asciipitch_v1_3_10.time.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.time, range, value, "Time: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_top_asciipitch_v1_3_10.experts.not_a_number, "Time is not a number: '"..range:string().."'")
     return offset + length, value

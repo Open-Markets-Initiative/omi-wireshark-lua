@@ -30,7 +30,7 @@ omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.order_token = ProtoField.new("
 omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.drop.asciidrop.v2.1.price", ftypes.STRING, nil, nil, nil, "For a new order accepted, the limit price of the order; for an execution, the execution price; for a cancel, the limit price of the open order.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.reference = ProtoField.new("Reference", "nasdaq.nsmequities.drop.asciidrop.v2.1.reference", ftypes.UINT64, nil, nil, nil, "The order unique reference number assigned by Nasdaq to this order.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.replaced_token = ProtoField.new("Replaced Token", "nasdaq.nsmequities.drop.asciidrop.v2.1.replacedtoken", ftypes.STRING, nil, nil, nil, "The free form Token field as specified by the order entry firm when the order was entered. Only used on a replaced message.")
-omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.drop.asciidrop.v2.1.shares", ftypes.UINT32, nil, nil, nil, "For a new order accept, the total number of shares entered; for a cancel, the incremental number of shares canceled; for an execution, the incremental number of shares executed in this trade; for a broken execution, the number of shares in the previously transmitted execution.")
+omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.drop.asciidrop.v2.1.shares", ftypes.UINT24, nil, nil, nil, "For a new order accept, the total number of shares entered; for a cancel, the incremental number of shares canceled; for an execution, the incremental number of shares executed in this trade; for a broken execution, the number of shares in the previously transmitted execution.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.source = ProtoField.new("Source", "nasdaq.nsmequities.drop.asciidrop.v2.1.source", ftypes.STRING, nil, nil, nil, "The source of the order. Typically the account of the OUCH port used to enter the order, but can also have the special value \"$PHON \" for orders received via the phone desk.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.drop.asciidrop.v2.1.stock", ftypes.STRING, nil, nil, nil, "The stock symbol.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.drop.asciidrop.v2.1.timeinforce", ftypes.UINT64, nil, nil, nil, "On messages other than executions and breaks the Match field carries the order's Time in Force (TIF).")
@@ -110,6 +110,24 @@ trim_left_spaces = function(str)
   end
 
   return str:sub(start)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -532,10 +550,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_1.match_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_1.match_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.match_number, range, value, "Match Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_1.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -651,10 +669,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_1.reference.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_1.reference.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.reference, range, value, "Reference: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_1.experts.not_a_number, "Reference is not a number: '"..range:string().."'")
     return offset + length, value
@@ -782,10 +800,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_1.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_1.time_in_force.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_1.fields.time_in_force, range, value, "Time In Force: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_1.experts.not_a_number, "Time In Force is not a number: '"..range:string().."'")
     return offset + length, value

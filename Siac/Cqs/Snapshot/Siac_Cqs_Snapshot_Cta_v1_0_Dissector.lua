@@ -3142,7 +3142,7 @@ udp_table:add_for_decode_as(omi_siac_cqs_snapshot_cta_v1_0)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 1.0
 --   Date: Monday, January 24, 2022
---   Specification: Siac.Cqs.Output.Cta.v2.10.a.pdf
+--   Specification: Siac.Cqs.Snapshot.v1.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

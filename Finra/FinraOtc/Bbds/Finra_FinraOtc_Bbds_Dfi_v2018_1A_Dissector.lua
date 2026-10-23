@@ -21,10 +21,10 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative_message = ProtoField.
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.finraotc.bbds.dfi.v2018.1a.administrativemessagetype", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price = ProtoField.new("Ask Price", "finra.finraotc.bbds.dfi.v2018.1a.askprice", ftypes.UINT64, nil, nil, nil, "The Ask price is the price at which the quoting participant is willing to sell (offer) the security for at any given time")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price_denominator = ProtoField.new("Ask Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.askpricedenominator", ftypes.STRING, nil, nil, nil, "The Ask Price Denominator denotes the whole dollar and decimal digit composition of the Ask Price field")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_size = ProtoField.new("Ask Size", "finra.finraotc.bbds.dfi.v2018.1a.asksize", ftypes.UINT32, nil, nil, nil, "The Ask Size represents the amount of shares available at the quoting participant’s Ask Price in the given security")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_size = ProtoField.new("Ask Size", "finra.finraotc.bbds.dfi.v2018.1a.asksize", ftypes.UINT24, nil, nil, nil, "The Ask Size represents the amount of shares available at the quoting participant’s Ask Price in the given security")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price = ProtoField.new("Bid Price", "finra.finraotc.bbds.dfi.v2018.1a.bidprice", ftypes.UINT64, nil, nil, nil, "The Bid Price is the price at which the OTCBB quoting participant is willing to buy the security for at a given time")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price_denominator = ProtoField.new("Bid Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.bidpricedenominator", ftypes.STRING, nil, nil, nil, "The Bid Price Denominator denotes the whole dollar and decimal digit composition of the Ask Price field")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "finra.finraotc.bbds.dfi.v2018.1a.bidsize", ftypes.UINT32, nil, nil, nil, "The Bid Size represents the amount of shares available at the quoting participant’s Bid Price in the given security")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "finra.finraotc.bbds.dfi.v2018.1a.bidsize", ftypes.UINT24, nil, nil, nil, "The Bid Size represents the amount of shares available at the quoting participant’s Bid Price in the given security")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.block_soh = ProtoField.new("Block Soh", "finra.finraotc.bbds.dfi.v2018.1a.blocksoh", ftypes.UINT8, nil, nil, nil, "start of messages")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message = ProtoField.new("Control Message", "finra.finraotc.bbds.dfi.v2018.1a.controlmessage", ftypes.STRING, nil, nil, nil, "Control Messages Header")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message_type = ProtoField.new("Control Message Type", "finra.finraotc.bbds.dfi.v2018.1a.controlmessagetype", ftypes.STRING)
@@ -137,6 +137,24 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Finra FinraOtc Bbds Dfi 2018.1A Fields
@@ -220,10 +238,10 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.ask_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price, range, value, "Ask Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -305,10 +323,10 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.bid_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price, range, value, "Bid Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -578,10 +596,10 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, "Inside Ask Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Ask Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -632,10 +650,10 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, "Inside Ask Size: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Ask Size is not a number: '"..range:string().."'")
     return offset + length, value
@@ -663,10 +681,10 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, "Inside Bid Price: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Bid Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -717,10 +735,10 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, "Inside Bid Size: Not Applicable")
     item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Bid Size is not a number: '"..range:string().."'")
     return offset + length, value

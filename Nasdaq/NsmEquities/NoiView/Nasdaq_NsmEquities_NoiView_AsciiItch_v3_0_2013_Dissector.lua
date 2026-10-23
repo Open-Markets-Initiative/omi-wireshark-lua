@@ -21,7 +21,7 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.cross_type = ProtoFiel
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.currentreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Indicates price at which the NOII shares are being calculated.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.currenttradingstate", ftypes.STRING, nil, nil, nil, "Reflects the current trading state for the issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.etpflag", ftypes.STRING, nil, nil, nil, "Indicates whether the security is an exchange traded product (ETP).")
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.etpleveragefactor", ftypes.UINT32, nil, nil, nil, "Tracks the integeral relationship of the ETP to the underlying index.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.etpleveragefactor", ftypes.UINT24, nil, nil, nil, "Tracks the integeral relationship of the ETP to the underlying index.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.eventcode", ftypes.STRING, nil, nil, nil, "Refer to System Event Codes below.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.far_price = ProtoField.new("Far Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.farprice", ftypes.DOUBLE, nil, nil, nil, "A hypothetical auction-clearing price for cross orders only.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.financialstatusindicator", ftypes.STRING, nil, nil, nil, "Indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
@@ -31,7 +31,7 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.inverse_indicator = Pr
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoflag", ftypes.STRING, nil, nil, nil, "Indicates if the NASDAQ security is set up for IPO release.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the IPO price to be used for intraday net change calculations.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotationreleasequalifier", ftypes.STRING, nil, nil, nil, "Denotes the qualifier for the IPO quotation release.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotationreleasetime", ftypes.UINT32, nil, nil, nil, "Denotes the IPO release time for quotation to the nearest second.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotationreleasetime", ftypes.UINT24, nil, nil, nil, "Denotes the IPO release time for quotation to the nearest second.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issue as assigned by NASDAQ.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by NASDAQ.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.luldreferencepricetier", ftypes.UINT8, nil, nil, nil, "Indicates which Limit Up / Limit Down price band calculation parameter is to be used for the instrument.")
@@ -46,7 +46,7 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.paired_shares = ProtoF
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.pricevariationindicator", ftypes.STRING, nil, nil, nil, "This field indicates the absolute value of the percentage of deviation of the Near Indicative Clearing Price to the nearest Current Reference Price.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.reason", ftypes.STRING, nil, nil, nil, "Reflects the Market Ops or MarketWatch code for the trading state change.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.roundlotsize", ftypes.UINT32, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.roundlotsize", ftypes.UINT24, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
@@ -231,6 +231,24 @@ format_implied_decimal_text = function(str, places)
   end
 
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -996,10 +1014,10 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.match_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.match_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.match_number, range, value, "Match Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
     return offset + length, value

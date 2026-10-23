@@ -57,7 +57,7 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price = ProtoField.
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solatradereporting.atr.v4.5.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Define the number of decimal places or fraction positions")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.subtrader_id = ProtoField.new("Subtrader Id", "box.boxoptions.solatradereporting.atr.v4.5.subtraderid", ftypes.STRING, nil, nil, nil, "For Allocation (40) and Allocation Cancel (41) messages, the 'Sub-trader ID' field contains the Market Maker OCC sub-account. For Trade (30) and Trade Cancel (31) messages, the ‘Sub-trader ID’ field contains the last 2 digits of the Trader ID.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.symbol = ProtoField.new("Symbol", "box.boxoptions.solatradereporting.atr.v4.5.symbol", ftypes.STRING, nil, nil, nil, "Instrument symbol Left justified, Blank padded")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time = ProtoField.new("Time", "box.boxoptions.solatradereporting.atr.v4.5.time", ftypes.UINT32, nil, nil, nil, "Time at which the Client Signon is sent (HHMMSS)")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time = ProtoField.new("Time", "box.boxoptions.solatradereporting.atr.v4.5.time", ftypes.UINT24, nil, nil, nil, "Time at which the Client Signon is sent (HHMMSS)")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.timestamp = ProtoField.new("Timestamp", "box.boxoptions.solatradereporting.atr.v4.5.timestamp", ftypes.STRING, nil, nil, nil, "Time at which the trade occurred (Eastern Time) HHMMSS")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.trade_number = ProtoField.new("Trade Number", "box.boxoptions.solatradereporting.atr.v4.5.tradenumber", ftypes.STRING, nil, nil, nil, "Standard TradeId consisting of: Side field: only the first letter of the verb, i.e., \"B\" for Buy and \"S\" for Sell InstrumentId and GroupId field TradeId field")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.trade_type = ProtoField.new("Trade Type", "box.boxoptions.solatradereporting.atr.v4.5.tradetype", ftypes.STRING, nil, nil, nil, "Possible values: N: Normal – A regular trade O: CrossedOrders – A trade with the same Firm ID on both sides T: TraderCrossedOrders – A trade with the same Trader ID on both sides M: TPR Trade – A trade done by a Third Party Router P: PIP – A trade done at the end of a PIP auction F: FirmDo – A trade resulting from a Directed Order A: AsOf – A trade entered by the BOX MOC to correct a trade executed on a previous day E: Late – A trade entered by the BOX MOC to correct a trade executed on the same day S: Solicitation – A trade done as part of a Solicitation auction I: Facilitation – A trade done as part of a Facilitation auction R: FloorTrade C: Customer Cross Orders or Qualified Contingent Cross Orders")
@@ -236,6 +236,24 @@ format_implied_decimal_text = function(str, places)
   end
 
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -1124,10 +1142,10 @@ end
 box_boxoptions_solatradereporting_atr_v4_5.parent_transaction_id.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solatradereporting_atr_v4_5.parent_transaction_id.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.parent_transaction_id, range, value, "Parent Transaction Id: Not Applicable")
     item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Parent Transaction Id is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1316,10 +1334,10 @@ end
 box_boxoptions_solatradereporting_atr_v4_5.reference_transaction_id.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solatradereporting_atr_v4_5.reference_transaction_id.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_transaction_id, range, value, "Reference Transaction Id: Not Applicable")
     item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Reference Transaction Id is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1717,10 +1735,10 @@ end
 box_boxoptions_solatradereporting_atr_v4_5.unique_transaction_id.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solatradereporting_atr_v4_5.unique_transaction_id.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.unique_transaction_id, range, value, "Unique Transaction Id: Not Applicable")
     item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Unique Transaction Id is not a number: '"..range:string().."'")
     return offset + length, value

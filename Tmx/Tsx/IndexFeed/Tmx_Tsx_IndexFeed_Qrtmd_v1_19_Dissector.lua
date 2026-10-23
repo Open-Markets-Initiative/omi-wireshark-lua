@@ -165,6 +165,24 @@ format_implied_decimal_text = function(str, places)
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Tmx Tsx IndexFeed Qrtmd 1.19 Fields
@@ -960,10 +978,10 @@ end
 tmx_tsx_indexfeed_qrtmd_v1_19.value.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsx_indexfeed_qrtmd_v1_19.value.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.value, range, value, "Value: Not Applicable")
     item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Value is not a number: '"..range:string().."'")
     return offset + length, value
@@ -991,10 +1009,10 @@ end
 tmx_tsx_indexfeed_qrtmd_v1_19.volume.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsx_indexfeed_qrtmd_v1_19.volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.volume, range, value, "Volume: Not Applicable")
     item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
     return offset + length, value

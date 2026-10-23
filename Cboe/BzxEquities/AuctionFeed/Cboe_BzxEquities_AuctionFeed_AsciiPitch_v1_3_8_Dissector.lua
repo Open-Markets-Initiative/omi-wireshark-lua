@@ -169,6 +169,24 @@ format_implied_decimal_text = function(str, places)
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Fields
@@ -227,10 +245,10 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_short, range, value, "Auction Only Price Short: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Auction Only Price Short is not a number: '"..range:string().."'")
     return offset + length, value
@@ -297,10 +315,10 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.buy_shares, range, value, "Buy Shares: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Buy Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -366,10 +384,10 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_short, range, value, "Indicative Price Short: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Indicative Price Short is not a number: '"..range:string().."'")
     return offset + length, value
@@ -509,10 +527,10 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_short, range, value, "Price Short: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Price Short is not a number: '"..range:string().."'")
     return offset + length, value
@@ -578,10 +596,10 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_short, range, value, "Reference Price Short: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Reference Price Short is not a number: '"..range:string().."'")
     return offset + length, value
@@ -678,10 +696,10 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sell_shares, range, value, "Sell Shares: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Sell Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -791,10 +809,10 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.shares, range, value, "Shares: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
     return offset + length, value

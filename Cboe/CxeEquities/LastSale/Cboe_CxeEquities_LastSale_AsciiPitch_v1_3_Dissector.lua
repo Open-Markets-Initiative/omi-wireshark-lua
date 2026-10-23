@@ -119,6 +119,24 @@ trim_left_spaces = function(str)
   return str:sub(start)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Cboe CxeEquities LastSale AsciiPitch 1.3 Fields
@@ -231,10 +249,10 @@ end
 cboe_cxeequities_lastsale_asciipitch_v1_3.executed_shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_lastsale_asciipitch_v1_3.executed_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_3.fields.executed_shares, range, value, "Executed Shares: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_lastsale_asciipitch_v1_3.experts.not_a_number, "Executed Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -428,10 +446,10 @@ end
 cboe_cxeequities_lastsale_asciipitch_v1_3.price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_lastsale_asciipitch_v1_3.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_3.fields.price, range, value, "Price: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_lastsale_asciipitch_v1_3.experts.not_a_number, "Price is not a number: '"..range:string().."'")
     return offset + length, value

@@ -15,7 +15,7 @@ local koscom_mdcsrealtime_equityderivatives_exture_v2_020 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime EquityDerivatives Exture 2.020 Fields
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.adesignatednumberforanissue", ftypes.UINT32, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.adesignatednumberforanissue", ftypes.UINT24, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.apricechangeagainstthepreviousday", ftypes.DOUBLE, nil, nil, nil, "A Price change against the previous day.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.abbreviatedissuecode", ftypes.STRING, nil, nil, nil, "Abbreviated Issue Code.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.abbreviatedissuename", ftypes.STRING, nil, nil, nil, "Abbreviated issue Name.")
@@ -29,7 +29,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.after_market_poss
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.amortization_type_code = ProtoField.new("Amortization Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.amortizationtypecode", ftypes.STRING, nil, nil, nil, "Amortization Type Code 1: Level Payment of Principal 2: Level Payment of Principal and Interest 3: Un-level Payment.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.an_abbreviated_name_of_a_market_participant_in_kr = ProtoField.new("An Abbreviated Name Of A Market Participant In Kr", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.anabbreviatednameofamarketparticipantinkr", ftypes.STRING, nil, nil, nil, "Managing an abbreviated name of a market participant in KR.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.an_issue_of_which_base_price_is_settled_with_a_todays_single_price = ProtoField.new("An Issue Of Which Base Price Is Settled With A Todays Single Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.anissueofwhichbasepriceissettledwithatodayssingleprice", ftypes.STRING, nil, nil, nil, "Y/N to an Issue of which base price is settled with a today's single price.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.an_obligatory_time_interval_to_place_an_order = ProtoField.new("An Obligatory Time Interval To Place An Order", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.anobligatorytimeintervaltoplaceanorder", ftypes.UINT32, nil, nil, nil, "A time interval that a market maker should obey between placing an bid/ask order. Unit: Sec.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.an_obligatory_time_interval_to_place_an_order = ProtoField.new("An Obligatory Time Interval To Place An Order", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.anobligatorytimeintervaltoplaceanorder", ftypes.UINT24, nil, nil, nil, "A time interval that a market maker should obey between placing an bid/ask order. Unit: Sec.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.announcement_of_estimated_trading_price = ProtoField.new("Announcement Of Estimated Trading Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.announcementofestimatedtradingprice", ftypes.STRING, nil, nil, nil, "Announcement of Estimated Trading Price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.appraisal_ratio_of_substitute_price = ProtoField.new("Appraisal Ratio Of Substitute Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.appraisalratioofsubstituteprice", ftypes.DOUBLE, nil, nil, nil, "Appraisal ratio of substitute price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.appraised_price = ProtoField.new("Appraised Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.appraisedprice", ftypes.DOUBLE, nil, nil, nil, "An appraised price is a base price of an Issue of which base price is settled with today's single price, and it determines an upper/lower limit price for its opening price.")
@@ -51,7 +51,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.base_price_change
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.base_time = ProtoField.new("Base Time", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.basetime", ftypes.STRING, nil, nil, nil, "Base time for the index calculation in HHMMSS format.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.basis_price = ProtoField.new("Basis Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.basisprice", ftypes.DOUBLE, nil, nil, nil, "Basis price of the constituent (10 ASCII digits with 2 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.basket_trading_in_the_preopening_market = ProtoField.new("Basket Trading In The Preopening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.bestfavorableorderpermissiontypecode", ftypes.UINT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.bestfavorableorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.bid_ask_spread_unit_code = ProtoField.new("Bid Ask Spread Unit Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.bidaskspreadunitcode", ftypes.STRING, nil, nil, nil, "R: Price Ratio Y: Yield Ratio T: Tick.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.block_trading_in_the_preopening_market = ProtoField.new("Block Trading In The Preopening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.board_id = ProtoField.new("Board Id", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.boardid", ftypes.STRING, nil, nil, nil, "The Board ID refers to each Board in which an issue is traded under different trading schedules and rules. Individual issue can be traded on more than two Boards under each Board's schedule and with d.")
@@ -85,7 +85,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.closing_date = Pr
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.closing_price_trading_in_the_preopening_market = ProtoField.new("Closing Price Trading In The Preopening Market", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.closingpricetradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Y/N to a Closing Price Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.closing_price_trading_possibility_in_the_after_hours = ProtoField.new("Closing Price Trading Possibility In The After Hours", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.closingpricetradingpossibilityintheafterhours", ftypes.STRING, nil, nil, nil, "Closing PriceTrading Possibility in the After Hours.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.closingpricetypecode", ftypes.STRING, nil, nil, nil, "1: Closing price 2: Quotation 3: No Trades 4: Quotation of an Issue of which base price is settled with a today's single price.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.conditioned_order_permission_type_code = ProtoField.new("Conditioned Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.conditionedorderpermissiontypecode", ftypes.UINT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.conditioned_order_permission_type_code = ProtoField.new("Conditioned Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.conditionedorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.convexity = ProtoField.new("Convexity", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.convexity", ftypes.DOUBLE, nil, nil, nil, "Bond index average convexity (7 ASCII digits with 3 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.corporate_bonds_related_to_securities_exercise_price = ProtoField.new("Corporate Bonds Related To Securities Exercise Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.corporatebondsrelatedtosecuritiesexerciseprice", ftypes.DOUBLE, nil, nil, nil, "Equity-linked Bond Exercise Price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.country_code = ProtoField.new("Country Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.countrycode", ftypes.STRING, nil, nil, nil, "Country Code.")
@@ -126,7 +126,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_1 = ProtoF
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.filler3", ftypes.STRING, nil, nil, nil, "Reserved filler. ASCII spaces.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.filler4", ftypes.STRING, nil, nil, nil, "Reserved filler. Always 4 ASCII space characters.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.filler8", ftypes.STRING, nil, nil, nil, "Filler 8.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.first_best_order_permission_type_code = ProtoField.new("First Best Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.firstbestorderpermissiontypecode", ftypes.UINT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.first_best_order_permission_type_code = ProtoField.new("First Best Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.firstbestorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.futuresbasisprice", ftypes.DOUBLE, nil, nil, nil, "Futures basis price (10 ASCII digits with 2 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.group_code = ProtoField.new("Group Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.groupcode", ftypes.STRING, nil, nil, nil, "Bond Prime Index Group Code. JA000 group identifier; check the TR-CODE for the specific group.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.group_number = ProtoField.new("Group Number", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.groupnumber", ftypes.STRING, nil, nil, nil, "Group Number.")
@@ -177,7 +177,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.krx_300 = ProtoFi
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.krx_bbig_index = ProtoField.new("Krx Bbig Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.krxbbigindex", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KRX BBIG Index).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.krx_bio_top_10_index = ProtoField.new("Krx Bio Top 10 Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.krxbiotop10index", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KRX Bio TOP 10 Index).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.krx_secondary_battery_top_10_index = ProtoField.new("Krx Secondary Battery Top 10 Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.krxsecondarybatterytop10index", ftypes.STRING, nil, nil, nil, "Y/N (whether an issue is a constituent of KRX Secondary Battery TOP 10 Index).")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.limit_order_permission_type_code = ProtoField.new("Limit Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.limitorderpermissiontypecode", ftypes.UINT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.limit_order_permission_type_code = ProtoField.new("Limit Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.limitorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.liquidation_trade = ProtoField.new("Liquidation Trade", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.liquidationtrade", ftypes.STRING, nil, nil, nil, "Liquidation Trade.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.listed_amount = ProtoField.new("Listed Amount", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.listedamount", ftypes.DOUBLE, nil, nil, nil, "Listed Amount.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.listing_date = ProtoField.new("Listing Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.listingdate", ftypes.STRING, nil, nil, nil, "Listing Date of derivatives(CLASS) or issues.")
@@ -199,7 +199,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_participan
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_index_krx = ProtoField.new("Market Price Index Krx", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceindexkrx", ftypes.DOUBLE, nil, nil, nil, "Market price index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceindexktb", ftypes.DOUBLE, nil, nil, nil, "Market price index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted market price index value (16 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_order_permission_type_code = ProtoField.new("Market Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceorderpermissiontypecode", ftypes.UINT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_order_permission_type_code = ProtoField.new("Market Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_value = ProtoField.new("Market Value", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketvalue", ftypes.DOUBLE, nil, nil, nil, "Market Value.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maturitycode", ftypes.STRING, nil, nil, nil, "Bond Prime Index Maturity Code. JA000 maturity identifier; check the TR-CODE for the specific maturity bucket.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maturity_date = ProtoField.new("Maturity Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maturitydate", ftypes.STRING, nil, nil, nil, "Maturity date of Mutual Fund, REITs, Shipbuilding Company.")
@@ -207,7 +207,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_bid_price
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_order_price = ProtoField.new("Maximum Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maximumorderprice", ftypes.DOUBLE, nil, nil, nil, "Maximum Order Price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_volume_of_multiple_order = ProtoField.new("Maximum Volume Of Multiple Order", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maximumvolumeofmultipleorder", ftypes.UINT64, nil, nil, nil, "Maximum number of trading unit for LP/MM placing an order.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information Ca.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.mid_price_order_permission_type_code = ProtoField.new("Mid Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.midpriceorderpermissiontypecode", ftypes.UINT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.mid_price_order_permission_type_code = ProtoField.new("Mid Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.midpriceorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.minimum_ask_price = ProtoField.new("Minimum Ask Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.minimumaskprice", ftypes.DOUBLE, nil, nil, nil, "LP_Minimum ask price.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.minimum_order_price = ProtoField.new("Minimum Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.minimumorderprice", ftypes.DOUBLE, nil, nil, nil, "A minimum order price for Block/Basket Trading. (Block: 100 million KRW, Basket: more than 1 billion KRW).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.minimum_order_volume = ProtoField.new("Minimum Order Volume", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.minimumordervolume", ftypes.UINT64, nil, nil, nil, "Minimum number of trading unit for LP/MM placing an order Eg) If the value is 10 and trading_x000D_ unit is 10 shares, LP/MM Quote should be_x000D_ more than 100 shares (Contract).")
@@ -216,7 +216,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.name_of_a_market_
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.name_of_a_market_participant_in_kr = ProtoField.new("Name Of A Market Participant In Kr", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.nameofamarketparticipantinkr", ftypes.STRING, nil, nil, nil, "Name of a Market Participant in KR.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.national_stock = ProtoField.new("National Stock", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.nationalstock", ftypes.STRING, nil, nil, nil, "National Stock (only for KOSPI).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.next_coupon_payment_date = ProtoField.new("Next Coupon Payment Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.nextcouponpaymentdate", ftypes.STRING, nil, nil, nil, "Next Coupon Payment Date.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_amortization = ProtoField.new("Number Of Amortization", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberofamortization", ftypes.UINT32, nil, nil, nil, "Number of Amortization.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_amortization = ProtoField.new("Number Of Amortization", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberofamortization", ftypes.UINT24, nil, nil, nil, "Number of Amortization.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_listed_shares = ProtoField.new("Number Of Listed Shares", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberoflistedshares", ftypes.UINT64, nil, nil, nil, "Number of listed shares.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_months_for_grace = ProtoField.new("Number Of Months For Grace", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberofmonthsforgrace", ftypes.UINT16, nil, nil, nil, "Number of Months for Grace.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_repo_trade_periods = ProtoField.new("Number Of Repo Trade Periods", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberofrepotradeperiods", ftypes.UINT16, nil, nil, nil, "Acutal number of Repo trade periods in Spec.")
@@ -269,7 +269,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.small_medium_size
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.spac = ProtoField.new("Spac", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.spac", ftypes.STRING, nil, nil, nil, "Y/N to SPAC (Special Purpose Acquisition Company).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.spac_merger = ProtoField.new("Spac Merger", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.spacmerger", ftypes.STRING, nil, nil, nil, "Y/N.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.spread_multiple_for_market_holidays = ProtoField.new("Spread Multiple For Market Holidays", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.spreadmultipleformarketholidays", ftypes.UINT64, nil, nil, nil, "In case the underlying assets for Derivatives, ELW, ETF are indices or issues of foreign market, when the present value of tracking assets is unable to be judged because of the holiday, pre-hours sess.")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.stop_limit_price_order_permission_type_code = ProtoField.new("Stop Limit Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.stoplimitpriceorderpermissiontypecode", ftypes.UINT32, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.stop_limit_price_order_permission_type_code = ProtoField.new("Stop Limit Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.stoplimitpriceorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.strip_bond_type_code = ProtoField.new("Strip Bond Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.stripbondtypecode", ftypes.STRING, nil, nil, nil, "Strip Bond Type Code 1: General bond 2: Separation of Principal 3: Separation of Interest.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.substitutepriceofsecurities", ftypes.DOUBLE, nil, nil, nil, "Substitute price of securities as a consignment guarantee money.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.target_stock_isin_code = ProtoField.new("Target Stock Isin Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.targetstockisincode", ftypes.STRING, nil, nil, nil, "Target Stock_ISIN Code.")
@@ -281,7 +281,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.todays_high = Pro
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.todays_low = ProtoField.new("Todays Low", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.todayslow", ftypes.DOUBLE, nil, nil, nil, "The lowest price or index at which an issue traded during the course of a day, week, month or year.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalearningsindex", ftypes.DOUBLE, nil, nil, nil, "Total earnings index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalearningsindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted total earnings index value (16 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalnumberofinstrumentsofthecontract", ftypes.UINT32, nil, nil, nil, "- Total number of instruments per each Information Category.")
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalnumberofinstrumentsofthecontract", ftypes.UINT24, nil, nil, nil, "- Total number of instruments per each Information Category.")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalprofitindex", ftypes.DOUBLE, nil, nil, nil, "Total profit index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.trcode", ftypes.STRING, nil, nil, nil, "Five-character ASCII TR-CODE identifying the disseminated market data record. Formed by concatenating a 2-character Data Category (message family, e.g. \"IA\" Krx Index, \"B6\" Quote, \"C4\" Negotiated Trade, \"A7\" Market Operation TS) with a 3-character Information Category (market/product variant, typically 2-digit information code plus 1-character market code, e.g. \"01S\" = Equities/KOSPI, \"01F\" = Derivatives, \"000\" = All Market).")
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.tracking_index_leverage_inverse_type_code = ProtoField.new("Tracking Index Leverage Inverse Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.trackingindexleverageinversetypecode", ftypes.STRING, nil, nil, nil, "Tracking Index Leverage/Inverse Type Code.")
@@ -443,6 +443,24 @@ format_decimal_text = function(str)
   end
 
   return sign..text
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -671,10 +689,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.accumulated_trading_quantity, range, value, "Accumulated Trading Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Accumulated Trading Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -747,10 +765,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2015,10 +2033,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.buying_volume_block_trading_in_offhours_session.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.buying_volume_block_trading_in_offhours_session.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.buying_volume_block_trading_in_offhours_session, range, value, "Buying Volume Block Trading In Offhours Session: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Buying Volume Block Trading In Offhours Session is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2046,10 +2064,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.buying_volume_open_single_price_session.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.buying_volume_open_single_price_session.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.buying_volume_open_single_price_session, range, value, "Buying Volume Open Single Price Session: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Buying Volume Open Single Price Session is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2077,10 +2095,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.buying_volume_regular_session.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.buying_volume_regular_session.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.buying_volume_regular_session, range, value, "Buying Volume Regular Session: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Buying Volume Regular Session is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4490,10 +4508,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.index_market_capitalization.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.index_market_capitalization.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4887,10 +4905,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.issued_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.issued_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5536,10 +5554,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.lot_size_afterhours_trading.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.lot_size_afterhours_trading.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lot_size_afterhours_trading, range, value, "Lot Size Afterhours Trading: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Lot Size Afterhours Trading is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6258,10 +6276,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_volume_of_multiple_order.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_volume_of_multiple_order.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_volume_of_multiple_order, range, value, "Maximum Volume Of Multiple Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Maximum Volume Of Multiple Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6438,10 +6456,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_order_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_order_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.minimum_order_volume, range, value, "Minimum Order Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Minimum Order Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6623,10 +6641,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.number_of_listed_shares.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.number_of_listed_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_listed_shares, range, value, "Number Of Listed Shares: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Number Of Listed Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -8043,10 +8061,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.spread_multiple_for_market_holidays.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.spread_multiple_for_market_holidays.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.spread_multiple_for_market_holidays, range, value, "Spread Multiple For Market Holidays: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Spread Multiple For Market Holidays is not a number: '"..range:string().."'")
     return offset + length, value
@@ -9065,10 +9083,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.unit_of_volume_in_main_board.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.unit_of_volume_in_main_board.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.unit_of_volume_in_main_board, range, value, "Unit Of Volume In Main Board: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Unit Of Volume In Main Board is not a number: '"..range:string().."'")
     return offset + length, value
@@ -9404,10 +9422,10 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_accumulated_trading_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_accumulated_trading_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.yesterdays_accumulated_trading_amount, range, value, "Yesterdays Accumulated Trading Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_equityderivatives_exture_v2_020.experts.not_a_number, "Yesterdays Accumulated Trading Amount is not a number: '"..range:string().."'")
     return offset + length, value

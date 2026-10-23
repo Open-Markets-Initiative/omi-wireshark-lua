@@ -28,7 +28,7 @@ omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.corrected_trade_size 
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.corrected_trade_through_exemption = ProtoField.new("Corrected Trade Through Exemption", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.correctedtradethroughexemption", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 2, used for SEC Regulation NMS Trade Through Exemption Codes")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.currenttradingstate", ftypes.STRING, nil, nil, nil, "Reflects the current trading state for the issue.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.etpflag", ftypes.STRING, nil, nil, nil, "Indicates whether the security is an exchange traded product (ETP).")
-omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.etpleveragefactor", ftypes.UINT32, nil, nil, nil, "Tracks the integral relationship of the ETP to the underlying index.")
+omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.etpleveragefactor", ftypes.UINT24, nil, nil, nil, "Tracks the integral relationship of the ETP to the underlying index.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.eventcode", ftypes.STRING, nil, nil, nil, "Denotes the NLS type of system event for which the message is being generated.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.extended_hours_or_sold_code = ProtoField.new("Extended Hours Or Sold Code", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.extendedhoursorsoldcode", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 3, used for Extended Hours or Sold Codes")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.financialstatusindicator", ftypes.STRING, nil, nil, nil, "For NASDAQ-listed issues, this field indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
@@ -36,7 +36,7 @@ omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.inverse_indicator = P
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.ipoflag", ftypes.STRING, nil, nil, nil, "Indicates if the NASDAQ security is set up for IPO release.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.ipoprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the IPO price to be used for intraday net change calculations.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.ipoquotationreleasequalifier", ftypes.STRING, nil, nil, nil, "IPO Quotation Release Qualifier.")
-omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.ipoquotationreleasetime", ftypes.UINT32, nil, nil, nil, "Denotes the IPO release time for quotation to the nearest second. Format: HHMMSS.")
+omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.ipoquotationreleasetime", ftypes.UINT24, nil, nil, nil, "Denotes the IPO release time for quotation to the nearest second. Format: HHMMSS.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issue as assigned by NASDAQ.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by NASDAQ.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.issue_symbol = ProtoField.new("Issue Symbol", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.issuesymbol", ftypes.STRING, nil, nil, nil, "Denotes the NASDAQ-assigned issue symbol of the security for which the trade report is being generated.")
@@ -60,7 +60,7 @@ omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.original_trade_size =
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.original_trade_through_exemption = ProtoField.new("Original Trade Through Exemption", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.originaltradethroughexemption", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 2, used for SEC Regulation NMS Trade Through Exemption Codes")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.reason", ftypes.STRING, nil, nil, nil, "Reflects the Market Ops or MarketWatch code for the trading state change (Appendix C).")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
-omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.roundlotsize", ftypes.UINT32, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue.")
+omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.roundlotsize", ftypes.UINT24, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.sale_condition_modifier = ProtoField.new("Sale Condition Modifier", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.saleconditionmodifier", ftypes.STRING)
 omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.security_class = ProtoField.new("Security Class", "nasdaq.nsmequities.lastsale.asciiitch.v2.0.2013.securityclass", ftypes.STRING, nil, nil, nil, "Indicates the primary listing market for the issue.")
@@ -254,6 +254,24 @@ format_implied_decimal_text = function(str, places)
   end
 
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -1300,10 +1318,10 @@ end
 nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.level_1.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.level_1.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.level_1, range, value, "Level 1: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.experts.not_a_number, "Level 1 is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1331,10 +1349,10 @@ end
 nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.level_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.level_2.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.level_2, range, value, "Level 2: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.experts.not_a_number, "Level 2 is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1362,10 +1380,10 @@ end
 nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.level_3.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.level_3.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.fields.level_3, range, value, "Level 3: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_lastsale_asciiitch_v2_0_2013.experts.not_a_number, "Level 3 is not a number: '"..range:string().."'")
     return offset + length, value

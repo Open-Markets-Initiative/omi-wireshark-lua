@@ -17,11 +17,11 @@ local nasdaq_nsmequities_totalview_asciiitch_v2_0_a = {}
 -- Nasdaq NsmEquities TotalView AsciiItch 2.0.a Fields
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.canceledshares", ftypes.UINT32, nil, nil, nil, "The number of shares canceled.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.canceledshares", ftypes.UINT24, nil, nil, nil, "The number of shares canceled.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.display", ftypes.STRING, nil, nil, nil, "Attributable orders will have an extra 4 bytes added to the end of this message, revealing the MMID of the firm that entered this order.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.executedshares", ftypes.UINT32, nil, nil, nil, "The number of shares executed.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.executedshares", ftypes.UINT24, nil, nil, nil, "The number of shares executed.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.matchnumber", ftypes.UINT32, nil, nil, nil, "The NASDAQ generated day-unique Match Number of this execution. The match number is also referenced in the Trade Break Message.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
@@ -38,7 +38,7 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.sequence_number = Proto
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.shares", ftypes.UINT32, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered).")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.shares", ftypes.UINT24, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered).")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.side", ftypes.STRING, nil, nil, nil, "\"B\" = buy order. \"S\" = sell order.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.souplf", ftypes.UINT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.asciiitch.v2.0.a.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
@@ -251,6 +251,24 @@ format_implied_decimal_text = function(str, places)
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView AsciiItch 2.0.a Fields
@@ -271,10 +289,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v2_0_a.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -746,10 +764,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_a.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v2_0_a.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

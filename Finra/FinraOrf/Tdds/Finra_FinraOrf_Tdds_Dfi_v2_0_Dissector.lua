@@ -61,7 +61,7 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.original_trade_information = ProtoField.
 omi_finra_finraorf_tdds_dfi_v2_0.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.finraorf.tdds.dfi.v2.0.pricechangeindicator", ftypes.STRING, nil, nil, nil, "The Price Change Indicator field indicates if the high, low, and/or last sale prices were impacted by the current trade transaction.")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.0.reportfunction", ftypes.STRING, nil, nil, nil, "This Function field denotes if the original trade report is being cancelled or was reported in error")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_volume = ProtoField.new("Report Volume", "finra.finraorf.tdds.dfi.v2.0.reportvolume", ftypes.UINT32, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
-omi_finra_finraorf_tdds_dfi_v2_0.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.0.reportvolumeshort", ftypes.UINT32, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
+omi_finra_finraorf_tdds_dfi_v2_0.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.0.reportvolumeshort", ftypes.UINT24, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraorf.tdds.dfi.v2.0.reserved1", ftypes.STRING, nil, nil, nil, "This field will be space filled")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.finraorf.tdds.dfi.v2.0.retransmissionrequester", ftypes.STRING, nil, nil, nil, "This field indicates if the message is an original transmission or retransmission")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.sale_condition_level_1 = ProtoField.new("Sale Condition Level 1", "finra.finraorf.tdds.dfi.v2.0.saleconditionlevel1", ftypes.STRING, nil, nil, nil, "This field is used to denote the sale condition associated with a trade transaction")
@@ -80,7 +80,7 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_message = ProtoField.new("Trade Me
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.finraorf.tdds.dfi.v2.0.trademessagetype", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price = ProtoField.new("Trade Price", "finra.finraorf.tdds.dfi.v2.0.tradeprice", ftypes.STRING, nil, nil, nil, "This field indicates the trade price for the current transaction")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price_denominator = ProtoField.new("Trade Price Denominator", "finra.finraorf.tdds.dfi.v2.0.tradepricedenominator", ftypes.STRING, nil, nil, nil, "This field denotes the whole dollar and decimal digit composition for the Trade Price field")
-omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.finraorf.tdds.dfi.v2.0.tradepriceshort", ftypes.UINT32, nil, nil, nil, "This field indicates the trade price for the current transaction.")
+omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.finraorf.tdds.dfi.v2.0.tradepriceshort", ftypes.UINT24, nil, nil, nil, "This field indicates the trade price for the current transaction.")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.finraorf.tdds.dfi.v2.0.tradesummaryinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trading_action_reason_code = ProtoField.new("Trading Action Reason Code", "finra.finraorf.tdds.dfi.v2.0.tradingactionreasoncode", ftypes.STRING, nil, nil, nil, "The Reason Code indicates the reason for the current trading action status.")
 omi_finra_finraorf_tdds_dfi_v2_0.fields.year = ProtoField.new("Year", "finra.finraorf.tdds.dfi.v2.0.year", ftypes.UINT16, nil, nil, nil, "The year the transaction occurred")
@@ -158,6 +158,24 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -312,10 +330,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.closing_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.closing_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.closing_price, range, value, "Closing Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -473,10 +491,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.daily_high_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.daily_high_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.daily_high_price, range, value, "Daily High Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "Daily High Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -527,10 +545,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.daily_low_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.daily_low_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.daily_low_price, range, value, "Daily Low Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "Daily Low Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -612,10 +630,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.high_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.high_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.high_price, range, value, "High Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -697,10 +715,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.last_sale_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.last_sale_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.last_sale_price, range, value, "Last Sale Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "Last Sale Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -784,10 +802,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.low_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.low_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.low_price, range, value, "Low Price: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1093,10 +1111,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.net_change_amount.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.net_change_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.net_change_amount, range, value, "Net Change Amount: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "Net Change Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1688,10 +1706,10 @@ end
 finra_finraorf_tdds_dfi_v2_0.total_security_volume.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.total_security_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.total_security_volume, range, value, "Total Security Volume: Not Applicable")
     item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_0.experts.not_a_number, "Total Security Volume is not a number: '"..range:string().."'")
     return offset + length, value

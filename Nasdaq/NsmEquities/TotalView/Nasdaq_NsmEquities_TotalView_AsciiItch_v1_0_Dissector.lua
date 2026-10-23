@@ -38,7 +38,7 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.side = ProtoField.new("Si
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v1.0.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.asciiitch.v1.0.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.asciiitch.v1.0.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
-omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.asciiitch.v1.0.timestamp", ftypes.UINT32, nil, nil, nil, "Hundredths of a second past midnight Eastern the message was generated")
+omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.asciiitch.v1.0.timestamp", ftypes.UINT24, nil, nil, nil, "Hundredths of a second past midnight Eastern the message was generated")
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.asciiitch.v1.0.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.asciiitch.v1.0.username", ftypes.STRING, nil, nil, nil, "Session username")
 
@@ -185,6 +185,24 @@ format_decimal_text = function(str)
   return sign..text
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView AsciiItch 1.0 Fields
@@ -205,10 +223,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v1_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v1_0.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v1_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -628,10 +646,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v1_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v1_0.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v1_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

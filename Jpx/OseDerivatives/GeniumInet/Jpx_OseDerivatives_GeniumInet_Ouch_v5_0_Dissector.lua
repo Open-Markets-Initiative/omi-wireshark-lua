@@ -215,6 +215,24 @@ trim_left_spaces = function(str)
   return str:sub(start)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Fields
@@ -235,10 +253,10 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1433,10 +1451,10 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

@@ -352,8 +352,8 @@ jobs:
       - name: Run Siac Opra Output Obi 6.2 Dissector Tests
         run: bash -x .github/tests/Siac-Opra-Output-Obi-v6-2-Test.sh
 
-      - name: Run Tmx Mx SolaMulticast Hsvf 1.14 Dissector Tests
-        run: bash -x .github/tests/Tmx-Mx-SolaMulticast-Hsvf-v1-14-Test.sh
+      - name: Run Tmx Mx SolaMulticast Hsvf 1.14.1 Dissector Tests
+        run: bash -x .github/tests/Tmx-Mx-SolaMulticast-Hsvf-v1-14-1-Test.sh
 
       - name: Run Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Dissector Tests
         run: bash -x .github/tests/Tmx-Tsx-QuantumFeedLevel2-Xmt-v2-1-Test.sh

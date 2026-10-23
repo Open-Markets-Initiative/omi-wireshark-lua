@@ -19,7 +19,7 @@ omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.authenticity = ProtoFiel
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.breachedlevel", ftypes.STRING, nil, nil, nil, "Denotes the MWCB Level that was breached.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.currenttradingstate", ftypes.STRING, nil, nil, nil, "Reflects the current trading state for the issue.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.etpflag", ftypes.STRING, nil, nil, nil, "Indicates whether the security is an exchange traded product (ETP).")
-omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.etpleveragefactor", ftypes.UINT32, nil, nil, nil, "Tracks the integral relationship of the ETP to the underlying index. Note: Leverage Factor of 1 indicates the ETP is NOT leveraged.")
+omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.etpleveragefactor", ftypes.UINT24, nil, nil, nil, "Tracks the integral relationship of the ETP to the underlying index. Note: Leverage Factor of 1 indicates the ETP is NOT leveraged.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.eventcode", ftypes.STRING, nil, nil, nil, "Denotes the type of event for which the message is being generated.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.financialstatusindicator", ftypes.STRING, nil, nil, nil, "For NASDAQ-listed issues, this field indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.inverseindicator", ftypes.STRING, nil, nil, nil, "Indicates the directional relationship between the ETP and underlying index. This field is used for LULD Tier I price band calculation purposes.")
@@ -41,7 +41,7 @@ omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.psx_best_offer_price = P
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.psxbestoffersize", ftypes.UINT32, nil, nil, nil, "Denotes the aggregated number of shares available for display within the PSX market center system at the PSX Best Offer Price.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.reason", ftypes.STRING, nil, nil, nil, "Reflects the Market Ops or MarketWatch code for the trading state change.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
-omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.roundlotsize", ftypes.UINT32, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue.")
+omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.roundlotsize", ftypes.UINT24, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.security_class = ProtoField.new("Security Class", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.securityclass", ftypes.STRING, nil, nil, nil, "Indicates the primary listing market for the issue.")
 omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.bbo.asciiitch.v2.0.2013.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
@@ -225,6 +225,24 @@ format_implied_decimal_text = function(str, places)
   end
 
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -800,10 +818,10 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_1.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_1.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.level_1, range, value, "Level 1: Not Applicable")
     item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.experts.not_a_number, "Level 1 is not a number: '"..range:string().."'")
     return offset + length, value
@@ -831,10 +849,10 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_2.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.level_2, range, value, "Level 2: Not Applicable")
     item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.experts.not_a_number, "Level 2 is not a number: '"..range:string().."'")
     return offset + length, value
@@ -862,10 +880,10 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_3.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_3.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.fields.level_3, range, value, "Level 3: Not Applicable")
     item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.experts.not_a_number, "Level 3 is not a number: '"..range:string().."'")
     return offset + length, value

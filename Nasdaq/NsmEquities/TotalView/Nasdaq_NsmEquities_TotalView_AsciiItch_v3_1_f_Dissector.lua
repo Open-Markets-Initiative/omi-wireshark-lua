@@ -18,14 +18,14 @@ local nasdaq_nsmequities_totalview_asciiitch_v3_1_f = {}
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.attribution", ftypes.STRING, nil, nil, nil, "NASDAQ market participant identifier associated with the entered order.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.canceledshares", ftypes.UINT32, nil, nil, nil, "The number of shares being removed from the display size of the order as the result of a cancellation.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.canceledshares", ftypes.UINT24, nil, nil, nil, "The number of shares being removed from the display size of the order as the result of a cancellation.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.crossprice", ftypes.DOUBLE, nil, nil, nil, "The price at which the cross occurred. Refer to Data Types for field processing notes.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.crosstype", ftypes.STRING, nil, nil, nil, "The NASDAQ cross session for which the message is being generated.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.currentreferenceprice", ftypes.DOUBLE, nil, nil, nil, "The price at which the NOII shares are being calculated.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.display", ftypes.STRING, nil, nil, nil, "Indicates the Display code for the order.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.executedshares", ftypes.UINT32, nil, nil, nil, "The number of shares executed.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.executedshares", ftypes.UINT24, nil, nil, nil, "The number of shares executed.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.executionprice", ftypes.DOUBLE, nil, nil, nil, "The price at which the order execution occurred. Refer to Data Types for field processing notes.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.far_price = ProtoField.new("Far Price", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.farprice", ftypes.DOUBLE, nil, nil, nil, "A hypothetical auction-clearing price for cross orders only.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.financialstatusindicator", ftypes.STRING, nil, nil, nil, "For NASDAQ-listed issues, this field indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
@@ -55,14 +55,14 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.reject_reason_code = Pr
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.reserved1", ftypes.STRING, nil, nil, nil, "Reserved.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.roundlotsize", ftypes.UINT24, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.second = ProtoField.new("Second", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.second", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.second = ProtoField.new("Second", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.second", ftypes.UINT24, nil, nil, nil, "Number of seconds since midnight.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.shares_numeric_6 = ProtoField.new("Shares Numeric 6", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.sharesnumeric6", ftypes.UINT32, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.shares_numeric_6 = ProtoField.new("Shares Numeric 6", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.sharesnumeric6", ftypes.UINT24, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.shares_numeric_9 = ProtoField.new("Shares Numeric 9", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.sharesnumeric9", ftypes.UINT32, nil, nil, nil, "The number of shares matched in the NASDAQ Cross.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.side", ftypes.STRING, nil, nil, nil, "The type of order being added.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v3.1.f.souplf", ftypes.UINT8, nil, nil, nil, "Terminating line feed character")
@@ -324,6 +324,24 @@ format_implied_decimal_text = function(str, places)
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView AsciiItch 3.1.f Fields
@@ -344,10 +362,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1023,10 +1041,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.match_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.match_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.match_number, range, value, "Match Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1270,10 +1288,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.new_order_reference_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.new_order_reference_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.new_order_reference_number, range, value, "New Order Reference Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "New Order Reference Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1301,10 +1319,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.order_reference_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.order_reference_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.order_reference_number, range, value, "Order Reference Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Order Reference Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1332,10 +1350,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.original_order_reference_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.original_order_reference_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.original_order_reference_number, range, value, "Original Order Reference Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Original Order Reference Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1703,10 +1721,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_1_f.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_1_f.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

@@ -197,6 +197,24 @@ format_decimal_text = function(str)
   return sign..text
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime IndexProduct2 Exture 1.39 Fields
@@ -262,10 +280,10 @@ end
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_trading_value.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.accumulated_trading_value, range, value, "Accumulated Trading Value: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_indexproduct2_exture_v1_39.experts.not_a_number, "Accumulated Trading Value is not a number: '"..range:string().."'")
     return offset + length, value
@@ -293,10 +311,10 @@ end
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.accumulated_trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_indexproduct2_exture_v1_39.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1818,10 +1836,10 @@ end
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.index_market_capitalization.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.index_market_capitalization.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_indexproduct2_exture_v1_39.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1903,10 +1921,10 @@ end
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.issued_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct2_exture_v1_39.issued_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_indexproduct2_exture_v1_39.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
     return offset + length, value

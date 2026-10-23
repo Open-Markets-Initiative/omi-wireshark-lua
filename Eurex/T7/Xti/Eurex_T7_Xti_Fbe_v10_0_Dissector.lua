@@ -26230,7 +26230,6 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v10_0)
 --   Organization: Eurex Exchange
 --   Version: 10.0
 --   Date: Monday, September 20, 2021
---   Specification: T7_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_v.10.0-D0002.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

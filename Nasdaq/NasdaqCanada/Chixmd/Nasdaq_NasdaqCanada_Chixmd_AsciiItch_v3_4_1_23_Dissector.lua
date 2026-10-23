@@ -20,7 +20,7 @@ omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.accepted_session = Pro
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.board_lot_size = ProtoField.new("Board Lot Size", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.boardlotsize", ftypes.UINT16, nil, nil, nil, "Board Lot Size in Shares")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.broker = ProtoField.new("Broker", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.broker", ftypes.UINT16, nil, nil, nil, "The three digit numeric TSX Broker Number or 001 for anonymous.")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.buysellindicator", ftypes.STRING, nil, nil, nil, "B = Buy Order; S = Sell Order")
-omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.canceledshares", ftypes.UINT32, nil, nil, nil, "Number of shares cancelled")
+omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.canceledshares", ftypes.UINT24, nil, nil, nil, "Number of shares cancelled")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.comma = ProtoField.new("Comma", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.comma", ftypes.STRING, nil, nil, nil, "Separator")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.contra_broker = ProtoField.new("Contra Broker", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.contrabroker", ftypes.UINT16, nil, nil, nil, "The three digit numeric TSX Broker Number of the contra order or 001 for anonymous.")
@@ -28,7 +28,7 @@ omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.contra_order_reference
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.crosstype", ftypes.STRING, nil, nil, nil, "I = Internal; B = Basis; C = Contingent; V = VWAP; X = Intentional Cross; D = Derivative Related; N = Net Asset Value")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.currency = ProtoField.new("Currency", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.currency", ftypes.STRING, nil, nil, nil, "CAD = Canadian Dollars, USD = US Dollars")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.event_code = ProtoField.new("Event Code", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.eventcode", ftypes.STRING, nil, nil, nil, "System event code, see Event Code values")
-omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.executedshares", ftypes.UINT32, nil, nil, nil, "The number of shares executed on this trade")
+omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.executedshares", ftypes.UINT24, nil, nil, nil, "The number of shares executed on this trade")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.gef_eligible = ProtoField.new("Gef Eligible", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.gefeligible", ftypes.STRING, nil, nil, nil, "Y = GEF Eligible, N = Not GEF Eligible")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.listing_market = ProtoField.new("Listing Market", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.listingmarket", ftypes.STRING, nil, nil, nil, "T = TSX, V = Venture, C = CSE, N = Neo")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.long_canceled_shares = ProtoField.new("Long Canceled Shares", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.longcanceledshares", ftypes.UINT64, nil, nil, nil, "Number of shares cancelled")
@@ -47,7 +47,7 @@ omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.reserved_1 = ProtoFiel
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.settlement_terms = ProtoField.new("Settlement Terms", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.settlementterms", ftypes.STRING, nil, nil, nil, "T = Cash Today; D = Delayed Delivery")
-omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.shares = ProtoField.new("Shares", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.shares", ftypes.UINT32, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered because part of the order may trade before being posted to the book).")
+omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.shares = ProtoField.new("Shares", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.shares", ftypes.UINT24, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered because part of the order may trade before being posted to the book).")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.stock = ProtoField.new("Stock", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
 omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.text = ProtoField.new("Text", "nasdaq.nasdaqcanada.chixmd.asciiitch.v3.4.1.23.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
@@ -240,6 +240,24 @@ format_implied_decimal_text = function(str, places)
   end
 
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -772,10 +790,10 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_canceled_shares.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_canceled_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.long_canceled_shares, range, value, "Long Canceled Shares: Not Applicable")
     item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.experts.not_a_number, "Long Canceled Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -803,10 +821,10 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_executed_shares.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_executed_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.long_executed_shares, range, value, "Long Executed Shares: Not Applicable")
     item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.experts.not_a_number, "Long Executed Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -872,10 +890,10 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_shares.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.fields.long_shares, range, value, "Long Shares: Not Applicable")
     item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.experts.not_a_number, "Long Shares is not a number: '"..range:string().."'")
     return offset + length, value

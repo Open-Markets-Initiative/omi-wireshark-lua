@@ -42,7 +42,7 @@ omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.requested_sequence_number = Pr
 omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.drop.asciidrop.v2.3.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.drop.asciidrop.v2.3.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.drop.asciidrop.v2.3.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
-omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.drop.asciidrop.v2.3.shares", ftypes.UINT32, nil, nil, nil, "For a new order accept, the total number of shares entered; for a cancel, the incremental number of shares canceled; for an execution, the incremental number of shares executed in this trade; for a broken execution, the number of shares in the previously transmitted execution.")
+omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.drop.asciidrop.v2.3.shares", ftypes.UINT24, nil, nil, nil, "For a new order accept, the total number of shares entered; for a cancel, the incremental number of shares canceled; for an execution, the incremental number of shares executed in this trade; for a broken execution, the number of shares in the previously transmitted execution.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.drop.asciidrop.v2.3.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.source = ProtoField.new("Source", "nasdaq.nsmequities.drop.asciidrop.v2.3.source", ftypes.STRING, nil, nil, nil, "The source of the order. Typically the account of the OUCH port used to enter the order, but can also have the special value \"$PHON \" for orders received via the phone desk.")
 omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.drop.asciidrop.v2.3.stock", ftypes.STRING, nil, nil, nil, "The stock symbol.")
@@ -161,6 +161,24 @@ trim_left_spaces = function(str)
   return str:sub(start)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Drop AsciiDrop 2.3 Fields
@@ -181,10 +199,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_3.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_3.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -688,10 +706,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.match_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_3.match_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.match_number, range, value, "Match Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_3.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -836,10 +854,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.reference.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_3.reference.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.reference, range, value, "Reference: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_3.experts.not_a_number, "Reference is not a number: '"..range:string().."'")
     return offset + length, value
@@ -966,10 +984,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_3.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_3.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1182,10 +1200,10 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_drop_asciidrop_v2_3.time_in_force.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v2_3.fields.time_in_force, range, value, "Time In Force: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v2_3.experts.not_a_number, "Time In Force is not a number: '"..range:string().."'")
     return offset + length, value

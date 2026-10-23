@@ -17,13 +17,13 @@ local cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34 = {}
 -- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Fields
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.auction_type = ProtoField.new("Auction Type", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.auctiontype", ftypes.STRING, nil, nil, nil, "O=Opening C=Closing H=Halt V=Volatility P=Periodic U=Cboe Closing Cross")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_long = ProtoField.new("Cancelled Shares Long", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledshareslong", ftypes.UINT64, nil, nil, nil, "Number of shares cancelled.")
-omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_short = ProtoField.new("Cancelled Shares Short", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledsharesshort", ftypes.UINT32, nil, nil, nil, "Number of shares cancelled.")
+omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_short = ProtoField.new("Cancelled Shares Short", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledsharesshort", ftypes.UINT24, nil, nil, nil, "Number of shares cancelled.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cboe_trade_flags = ProtoField.new("Cboe Trade Flags", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.cboetradeflags", ftypes.STRING, nil, nil, nil, "Cboe trade timing / regulated entity flags.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.currency = ProtoField.new("Currency", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.currency", ftypes.STRING, nil, nil, nil, "Traded currency.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.display = ProtoField.new("Display", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.display", ftypes.STRING, nil, nil, nil, "Always Y. Maintained for compatibility reasons.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_long = ProtoField.new("Executed Shares Long", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.executedshareslong", ftypes.UINT64, nil, nil, nil, "Number of shares executed.")
-omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_short = ProtoField.new("Executed Shares Short", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.executedsharesshort", ftypes.UINT32, nil, nil, nil, "Number of shares executed.")
+omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_short = ProtoField.new("Executed Shares Short", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.executedsharesshort", ftypes.UINT24, nil, nil, nil, "Number of shares executed.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.execution_flag = ProtoField.new("Execution Flag", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.executionflag", ftypes.STRING, nil, nil, nil, "Type flags based on MMT standard.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.execution_flags = ProtoField.new("Execution Flags", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.executionflags", ftypes.STRING, nil, nil, nil, "Type flags based on MMT standard.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.execution_id = ProtoField.new("Execution Id", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.executionid", ftypes.STRING, nil, nil, nil, "Cboe generated day-unique execution identifier.")
@@ -53,7 +53,7 @@ omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_message_ty
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.session = ProtoField.new("Session", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.session", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_extended = ProtoField.new("Shares Extended", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sharesextended", ftypes.UINT64, nil, nil, nil, "Number of shares executed.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_long = ProtoField.new("Shares Long", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.shareslong", ftypes.UINT64, nil, nil, nil, "Number of shares being added to the book.")
-omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_short = ProtoField.new("Shares Short", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sharesshort", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book.")
+omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_short = ProtoField.new("Shares Short", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sharesshort", ftypes.UINT24, nil, nil, nil, "Number of shares being added to the book.")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sideindicator", ftypes.STRING, nil, nil, nil, "B = Buy, S = Sell")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.statistictype", ftypes.STRING, nil, nil, nil, "C=Closing H=High L=Low O=Opening P=Previous Closing Price")
@@ -235,6 +235,24 @@ format_implied_decimal_text = function(str, places)
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Fields
@@ -278,10 +296,10 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_long, range, value, "Cancelled Shares Long: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.experts.not_a_number, "Cancelled Shares Long is not a number: '"..range:string().."'")
     return offset + length, value
@@ -409,10 +427,10 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_long, range, value, "Executed Shares Long: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.experts.not_a_number, "Executed Shares Long is not a number: '"..range:string().."'")
     return offset + length, value
@@ -647,10 +665,10 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_shares.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.indicative_shares, range, value, "Indicative Shares: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.experts.not_a_number, "Indicative Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1142,10 +1160,10 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_extended, range, value, "Shares Extended: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.experts.not_a_number, "Shares Extended is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1173,10 +1191,10 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_long, range, value, "Shares Long: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.experts.not_a_number, "Shares Long is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1450,7 +1468,7 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.timestamp.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
     local item = parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.timestamp, range, value, "Timestamp: Not Applicable")
     item:add_proto_expert_info(cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
     return offset + length, value

@@ -17,7 +17,7 @@ local koscom_mdcsrealtime_koscom_exture_v1_20 = {}
 -- Koscom MdcsRealtime Koscom Exture 1.20 Fields
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.appraised_value = ProtoField.new("Appraised Value", "koscom.mdcsrealtime.koscom.exture.v1.20.appraisedvalue", ftypes.UINT64, nil, nil, nil, "Appraised Value.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_best_order = ProtoField.new("Ask Best Order", "koscom.mdcsrealtime.koscom.exture.v1.20.askbestorder", ftypes.UINT32, nil, nil, nil, "Ask best order.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_quote_number = ProtoField.new("Ask Quote Number", "koscom.mdcsrealtime.koscom.exture.v1.20.askquotenumber", ftypes.UINT32, nil, nil, nil, "quote number for each issue.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_quote_number = ProtoField.new("Ask Quote Number", "koscom.mdcsrealtime.koscom.exture.v1.20.askquotenumber", ftypes.UINT24, nil, nil, nil, "quote number for each issue.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_institution = ProtoField.new("Ask Trading Value Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvalueinstitution", ftypes.UINT64, nil, nil, nil, "Unit:Thousand KRW.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_investor = ProtoField.new("Ask Trading Value Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvalueinvestor", ftypes.UINT64, nil, nil, nil, "Ask Trading Value.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_institution = ProtoField.new("Ask Trading Volume Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvolumeinstitution", ftypes.UINT64, nil, nil, nil, "Unit:Thousand KRW.")
@@ -37,7 +37,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.basis_price_before_action = P
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.best_ask_order = ProtoField.new("Best Ask Order", "koscom.mdcsrealtime.koscom.exture.v1.20.bestaskorder", ftypes.UINT32, nil, nil, nil, "Best ask order.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.best_bid_order = ProtoField.new("Best Bid Order", "koscom.mdcsrealtime.koscom.exture.v1.20.bestbidorder", ftypes.UINT32, nil, nil, nil, "Best bid order.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_best_order = ProtoField.new("Bid Best Order", "koscom.mdcsrealtime.koscom.exture.v1.20.bidbestorder", ftypes.UINT32, nil, nil, nil, "Bid best order.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_quote_number = ProtoField.new("Bid Quote Number", "koscom.mdcsrealtime.koscom.exture.v1.20.bidquotenumber", ftypes.UINT32, nil, nil, nil, "quote number for each issue.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_quote_number = ProtoField.new("Bid Quote Number", "koscom.mdcsrealtime.koscom.exture.v1.20.bidquotenumber", ftypes.UINT24, nil, nil, nil, "quote number for each issue.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_institution = ProtoField.new("Bid Trading Value Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvalueinstitution", ftypes.UINT64, nil, nil, nil, "Unit:Thousand KRW.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_investor = ProtoField.new("Bid Trading Value Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvalueinvestor", ftypes.UINT64, nil, nil, nil, "Bid Trading Value.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_institution = ProtoField.new("Bid Trading Volume Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvolumeinstitution", ftypes.UINT64, nil, nil, nil, "Unit:Thousand KRW.")
@@ -208,7 +208,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.tr_code = ProtoField.new("Tr 
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.tracking_error = ProtoField.new("Tracking Error", "koscom.mdcsrealtime.koscom.exture.v1.20.trackingerror", ftypes.DOUBLE, nil, nil, nil, "9(7)V9(2), Unit:%.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_category = ProtoField.new("Trading Category", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingcategory", ftypes.STRING, nil, nil, nil, "2:Brokerage 4:Direct Participant.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_date = ProtoField.new("Trading Date", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingdate", ftypes.STRING, nil, nil, nil, "YYYYMMDD.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_number = ProtoField.new("Trading Number", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingnumber", ftypes.UINT32, nil, nil, nil, "Trading number for each issue.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_number = ProtoField.new("Trading Number", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingnumber", ftypes.UINT24, nil, nil, nil, "Trading number for each issue.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingprice", ftypes.UINT32, nil, nil, nil, "Trading price.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_price_compare_remaining_quantity_of_ask = ProtoField.new("Trading Price Compare Remaining Quantity Of Ask", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingpricecompareremainingquantityofask", ftypes.UINT64, nil, nil, nil, "Trading price compare remaining quantity of ask.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_price_compare_remaining_quantity_of_bid = ProtoField.new("Trading Price Compare Remaining Quantity Of Bid", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingpricecompareremainingquantityofbid", ftypes.UINT64, nil, nil, nil, "Trading price compare remaining quantity of bid.")
@@ -378,6 +378,24 @@ format_implied_decimal_text = function(str, places)
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime Koscom Exture 1.20 Fields
@@ -398,10 +416,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.appraised_value.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.appraised_value.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.appraised_value, range, value, "Appraised Value: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Appraised Value is not a number: '"..range:string().."'")
     return offset + length, value
@@ -491,10 +509,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_institution, range, value, "Ask Trading Value Institution: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Ask Trading Value Institution is not a number: '"..range:string().."'")
     return offset + length, value
@@ -522,10 +540,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_investor, range, value, "Ask Trading Value Investor: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Ask Trading Value Investor is not a number: '"..range:string().."'")
     return offset + length, value
@@ -553,10 +571,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_institution, range, value, "Ask Trading Volume Institution: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Ask Trading Volume Institution is not a number: '"..range:string().."'")
     return offset + length, value
@@ -584,10 +602,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_investor, range, value, "Ask Trading Volume Investor: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Ask Trading Volume Investor is not a number: '"..range:string().."'")
     return offset + length, value
@@ -691,10 +709,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.available_lending_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.available_lending_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.available_lending_quantity, range, value, "Available Lending Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Available Lending Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1218,10 +1236,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_institution, range, value, "Bid Trading Value Institution: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Bid Trading Value Institution is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1249,10 +1267,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_investor, range, value, "Bid Trading Value Investor: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Bid Trading Value Investor is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1280,10 +1298,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_institution, range, value, "Bid Trading Volume Institution: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Bid Trading Volume Institution is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1311,10 +1329,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_investor, range, value, "Bid Trading Volume Investor: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Bid Trading Volume Investor is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2089,10 +2107,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_sharenumber_of_contractkrw_cashusd_cashconverted_amountkrw.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.cu_unit_sharenumber_of_contractkrw_cashusd_cashconverted_amountkrw.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.cu_unit_sharenumber_of_contractkrw_cashusd_cashconverted_amountkrw, range, value, "CU unit share/Number of contract/KRW Cash/USD Cash/Converted amount(KRW): Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "CU unit share/Number of contract/KRW Cash/USD Cash/Converted amount(KRW) is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2541,10 +2559,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.etf_flow_net_asset_total_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.etf_flow_net_asset_total_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_flow_net_asset_total_amount, range, value, "Etf Flow Net Asset Total Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Etf Flow Net Asset Total Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2610,10 +2628,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_flow_net_asset_total_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_flow_net_asset_total_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_foreign_flow_net_asset_total_amount, range, value, "Etf Foreign Flow Net Asset Total Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Etf Foreign Flow Net Asset Total Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2664,10 +2682,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_net_asset_value_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_net_asset_value_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_foreign_net_asset_value_amount, range, value, "Etf Foreign Net Asset Value Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Etf Foreign Net Asset Value Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2756,10 +2774,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_10, range, value, "Filler 10: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Filler 10 is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3777,10 +3795,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.net_assets_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.net_assets_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.net_assets_amount, range, value, "Net Assets Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Net Assets Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3808,10 +3826,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.number_of_freefloating_etf_shares.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares, range, value, "Number Of Freefloating Etf Shares: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Number Of Freefloating Etf Shares is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3931,10 +3949,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.original_price_compare_remaining_quantity_of_order.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.original_price_compare_remaining_quantity_of_order.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.original_price_compare_remaining_quantity_of_order, range, value, "Original Price Compare Remaining Quantity Of Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Original Price Compare Remaining Quantity Of Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4093,10 +4111,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.par_value_amount_cash_amount_converted_amount_krw.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.par_value_amount_cash_amount_converted_amount_krw.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.par_value_amount_cash_amount_converted_amount_krw, range, value, "Par Value Amount Cash Amount Converted Amount Krw: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Par Value Amount Cash Amount Converted Amount Krw is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4566,10 +4584,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.price_compare_remaining_quantity_of_order.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.price_compare_remaining_quantity_of_order.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.price_compare_remaining_quantity_of_order, range, value, "Price Compare Remaining Quantity Of Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Price Compare Remaining Quantity Of Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4756,10 +4774,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.quantity, range, value, "Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4974,10 +4992,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_ask_best_order.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_ask_best_order.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.remaining_quantity_of_ask_best_order, range, value, "Remaining Quantity Of Ask Best Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Remaining Quantity Of Ask Best Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5005,10 +5023,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_best_ask_order.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_best_ask_order.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.remaining_quantity_of_best_ask_order, range, value, "Remaining Quantity Of Best Ask Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Remaining Quantity Of Best Ask Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5036,10 +5054,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_best_bid_order.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_best_bid_order.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.remaining_quantity_of_best_bid_order, range, value, "Remaining Quantity Of Best Bid Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Remaining Quantity Of Best Bid Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5067,10 +5085,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_bid_best_order.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.remaining_quantity_of_bid_best_order.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.remaining_quantity_of_bid_best_order, range, value, "Remaining Quantity Of Bid Best Order: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Remaining Quantity Of Bid Best Order is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5121,10 +5139,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.risk_appraisal_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.risk_appraisal_amount, range, value, "Risk Appraisal Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Risk Appraisal Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5221,10 +5239,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.security_appraisal_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.security_appraisal_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.security_appraisal_amount, range, value, "Security Appraisal Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Security Appraisal Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5943,10 +5961,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.total_danger_exposure_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.total_danger_exposure_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_danger_exposure_amount, range, value, "Total Danger Exposure Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Total Danger Exposure Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6012,10 +6030,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.total_remaining_quantity_of_ask.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.total_remaining_quantity_of_ask.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_remaining_quantity_of_ask, range, value, "Total Remaining Quantity Of Ask: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Total Remaining Quantity Of Ask is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6043,10 +6061,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.total_remaining_quantity_of_bid.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.total_remaining_quantity_of_bid.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_remaining_quantity_of_bid, range, value, "Total Remaining Quantity Of Bid: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Total Remaining Quantity Of Bid is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6074,10 +6092,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.total_trading_accumulated_value.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.total_trading_accumulated_value.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_trading_accumulated_value, range, value, "Total Trading Accumulated Value: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Total Trading Accumulated Value is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6105,10 +6123,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.total_trading_accumulated_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.total_trading_accumulated_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_trading_accumulated_volume, range, value, "Total Trading Accumulated Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Total Trading Accumulated Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6418,10 +6436,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_price_compare_remaining_quantity_of_ask.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_price_compare_remaining_quantity_of_ask.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_price_compare_remaining_quantity_of_ask, range, value, "Trading Price Compare Remaining Quantity Of Ask: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Trading Price Compare Remaining Quantity Of Ask is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6449,10 +6467,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_price_compare_remaining_quantity_of_bid.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_price_compare_remaining_quantity_of_bid.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_price_compare_remaining_quantity_of_bid, range, value, "Trading Price Compare Remaining Quantity Of Bid: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Trading Price Compare Remaining Quantity Of Bid is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6526,10 +6544,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_value, range, value, "Trading Value: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Trading Value is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6557,10 +6575,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -6690,10 +6708,10 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.volume, range, value, "Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
     return offset + length, value

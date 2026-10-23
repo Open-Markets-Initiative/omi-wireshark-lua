@@ -15,7 +15,7 @@ local koscom_mdcsrealtime_bonda_exture_v2_018 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime BondA Exture 2.018 Fields
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.bonda.exture.v2.018.adesignatednumberforanissue", ftypes.UINT32, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.bonda.exture.v2.018.adesignatednumberforanissue", ftypes.UINT24, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.bonda.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.bonda.exture.v2.018.abbreviatedissuename", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_name_in_en = ProtoField.new("Abbreviated Issue Name In En", "koscom.mdcsrealtime.bonda.exture.v2.018.abbreviatedissuenameinen", ftypes.STRING)
@@ -132,7 +132,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_level_5_yield = 
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_total_remaining_quantity = ProtoField.new("Bid Per Type Total Remaining Quantity", "koscom.mdcsrealtime.bonda.exture.v2.018.bidpertypetotalremainingquantity", ftypes.UINT64, nil, nil, nil, "Bid per Type_Total Remaining Quantity")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_repo_type_code = ProtoField.new("Bid Repo Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.bidrepotypecode", ftypes.STRING, nil, nil, nil, "Type Code of Bond REPO CA: Other Bonds GA: Korea Treasury Bond/Municipal Bonds SA: Monetary Stabilization Bond / Deposit Insurance Bond")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_total_remaining_quantity = ProtoField.new("Bid Total Remaining Quantity", "koscom.mdcsrealtime.bonda.exture.v2.018.bidtotalremainingquantity", ftypes.UINT64)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "koscom.mdcsrealtime.bonda.exture.v2.018.boardeventgroupcode", ftypes.UINT32, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (Not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (Not a discrete-time traded issue.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "koscom.mdcsrealtime.bonda.exture.v2.018.boardeventgroupcode", ftypes.UINT24, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (Not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (Not a discrete-time traded issue.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.board_event_id = ProtoField.new("Board Event Id", "koscom.mdcsrealtime.bonda.exture.v2.018.boardeventid", ftypes.STRING, nil, nil, nil, "An ID indicates an event that occurs on a Board in a designated time.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.board_id = ProtoField.new("Board Id", "koscom.mdcsrealtime.bonda.exture.v2.018.boardid", ftypes.STRING, nil, nil, nil, "The Board ID refers to each Board in which an issue is traded under different trading schedules and rules. Individual issue can be traded on more than two Boards under each Board's schedule and with d")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_category_code = ProtoField.new("Bond Category Code", "koscom.mdcsrealtime.bonda.exture.v2.018.bondcategorycode", ftypes.STRING, nil, nil, nil, "Category code")
@@ -298,13 +298,13 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_value = ProtoField.new
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.bonda.exture.v2.018.maturitycode", ftypes.STRING, nil, nil, nil, "Bond Prime Index Maturity Code. JA000 maturity identifier; check the TR-CODE for the specific maturity bucket.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maximum_yield = ProtoField.new("Maximum Yield", "koscom.mdcsrealtime.bonda.exture.v2.018.maximumyield", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.mb_type_code = ProtoField.new("Mb Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.mbtypecode", ftypes.STRING, nil, nil, nil, "MB_Type Code 1:Offering Regional Bond 2:Regional Development Bond 3:City Railroad Bond 4:Other MB 5:Others")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.member_firm_trust_principal_type_code = ProtoField.new("Member Firm Trust Principal Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.memberfirmtrustprincipaltypecode", ftypes.UINT32, nil, nil, nil, "Allowance or sanctions for member's trading. Bitwise operation. 1: Ask Trust 2: Ask Principal 4: Bid Trust 8: Bid Principal.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.member_firm_trust_principal_type_code = ProtoField.new("Member Firm Trust Principal Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.memberfirmtrustprincipaltypecode", ftypes.UINT24, nil, nil, nil, "Allowance or sanctions for member's trading. Bitwise operation. 1: Ask Trust 2: Ask Principal 4: Bid Trust 8: Bid Principal.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.member_number = ProtoField.new("Member Number", "koscom.mdcsrealtime.bonda.exture.v2.018.membernumber", ftypes.STRING, nil, nil, nil, "A designated number for each member firm.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.bonda.exture.v2.018.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.monthly_cycle_of_coupon_payment = ProtoField.new("Monthly Cycle Of Coupon Payment", "koscom.mdcsrealtime.bonda.exture.v2.018.monthlycycleofcouponpayment", ftypes.UINT16, nil, nil, nil, "0: Irregular 0: Coupon Bond, Compound Interest Bond and others are not transmitted")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.net_bid_per_type_total_remaining_quantity = ProtoField.new("Net Bid Per Type Total Remaining Quantity", "koscom.mdcsrealtime.bonda.exture.v2.018.netbidpertypetotalremainingquantity", ftypes.UINT64, nil, nil, nil, "Net Bid per Type_Total Remaining Quantity")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.next_coupon_payment_date = ProtoField.new("Next Coupon Payment Date", "koscom.mdcsrealtime.bonda.exture.v2.018.nextcouponpaymentdate", ftypes.STRING, nil, nil, nil, "Next Coupon Payment Date.")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_amortization = ProtoField.new("Number Of Amortization", "koscom.mdcsrealtime.bonda.exture.v2.018.numberofamortization", ftypes.UINT32)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_amortization = ProtoField.new("Number Of Amortization", "koscom.mdcsrealtime.bonda.exture.v2.018.numberofamortization", ftypes.UINT24)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_months_for_grace = ProtoField.new("Number Of Months For Grace", "koscom.mdcsrealtime.bonda.exture.v2.018.numberofmonthsforgrace", ftypes.UINT16)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_months_to_pay_interest = ProtoField.new("Number Of Months To Pay Interest", "koscom.mdcsrealtime.bonda.exture.v2.018.numberofmonthstopayinterest", ftypes.UINT16, nil, nil, nil, "Used if it is Coupon Bond, Compounding Interest Bond, or Amortized Bond (Coupon Bond:3-month paid afterwards, 3-month, Compounding Interest Bond:Actual coupon is paid on maturity date. In this case,")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.number_of_repo_trade_periods = ProtoField.new("Number Of Repo Trade Periods", "koscom.mdcsrealtime.bonda.exture.v2.018.numberofrepotradeperiods", ftypes.UINT16, nil, nil, nil, "Acutal number of Repo trade periods in Spec.")
@@ -398,7 +398,7 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_5_price = Pro
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_5_remaining_quantity = ProtoField.new("Total Bid Level 5 Remaining Quantity", "koscom.mdcsrealtime.bonda.exture.v2.018.totalbidlevel5remainingquantity", ftypes.UINT64, nil, nil, nil, "Total Bid Level 5_Remaining Quantity")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.bonda.exture.v2.018.totalearningsindex", ftypes.DOUBLE, nil, nil, nil, "Total earnings index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.totalearningsindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted total earnings index value (16 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.bonda.exture.v2.018.totalnumberofinstrumentsofthecontract", ftypes.UINT32, nil, nil, nil, "- Total number of instruments per each Information Category.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.bonda.exture.v2.018.totalnumberofinstrumentsofthecontract", ftypes.UINT24, nil, nil, nil, "- Total number of instruments per each Information Category.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.bonda.exture.v2.018.totalprofitindex", ftypes.DOUBLE, nil, nil, nil, "Total profit index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.bonda.exture.v2.018.trcode", ftypes.STRING, nil, nil, nil, "Five-character ASCII TR-CODE identifying the disseminated market data record. Formed by concatenating a 2-character Data Category (message family, e.g. \"IA\" Krx Index, \"B6\" Quote, \"C4\" Negotiated Trade, \"A7\" Market Operation TS) with a 3-character Information Category (market/product variant, typically 2-digit information code plus 1-character market code, e.g. \"01S\" = Equities/KOSPI, \"01F\" = Derivatives, \"000\" = All Market).")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_date = ProtoField.new("Trading Date", "koscom.mdcsrealtime.bonda.exture.v2.018.tradingdate", ftypes.STRING)
@@ -570,6 +570,24 @@ format_decimal_text = function(str)
   end
 
   return sign..text
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -782,10 +800,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_ask_trading_volume, range, value, "Accumulated Ask Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Ask Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -858,10 +876,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_bid_trading_volume, range, value, "Accumulated Bid Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Bid Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -979,10 +997,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1215,10 +1233,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_level_1_remaining_quantity, range, value, "Ask Level 1 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Level 1 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1374,10 +1392,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_level_2_remaining_quantity, range, value, "Ask Level 2 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Level 2 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1533,10 +1551,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_level_3_remaining_quantity, range, value, "Ask Level 3 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Level 3 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1692,10 +1710,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_level_4_remaining_quantity, range, value, "Ask Level 4 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Level 4 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1851,10 +1869,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_level_5_remaining_quantity, range, value, "Ask Level 5 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Level 5 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2010,10 +2028,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_per_type_level_1_remaining_quantity, range, value, "Ask Per Type Level 1 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Per Type Level 1 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2169,10 +2187,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_per_type_level_2_remaining_quantity, range, value, "Ask Per Type Level 2 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Per Type Level 2 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2328,10 +2346,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_per_type_level_3_remaining_quantity, range, value, "Ask Per Type Level 3 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Per Type Level 3 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2487,10 +2505,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_per_type_level_4_remaining_quantity, range, value, "Ask Per Type Level 4 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Per Type Level 4 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2646,10 +2664,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_per_type_level_5_remaining_quantity, range, value, "Ask Per Type Level 5 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Per Type Level 5 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2767,10 +2785,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_total_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_total_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_per_type_total_remaining_quantity, range, value, "Ask Per Type Total Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Per Type Total Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2821,10 +2839,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_total_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_total_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_total_remaining_quantity, range, value, "Ask Total Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Ask Total Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3633,10 +3651,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_level_1_remaining_quantity, range, value, "Bid Level 1 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Level 1 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3770,10 +3788,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_level_2_remaining_quantity, range, value, "Bid Level 2 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Level 2 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3907,10 +3925,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_level_3_remaining_quantity, range, value, "Bid Level 3 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Level 3 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4044,10 +4062,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_level_4_remaining_quantity, range, value, "Bid Level 4 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Level 4 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4181,10 +4199,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_level_5_remaining_quantity, range, value, "Bid Level 5 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Level 5 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4295,10 +4313,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_level_1_remaining_quantity, range, value, "Bid Per Type Level 1 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Per Type Level 1 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4409,10 +4427,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_level_2_remaining_quantity, range, value, "Bid Per Type Level 2 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Per Type Level 2 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4523,10 +4541,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_level_3_remaining_quantity, range, value, "Bid Per Type Level 3 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Per Type Level 3 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4637,10 +4655,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_level_4_remaining_quantity, range, value, "Bid Per Type Level 4 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Per Type Level 4 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4751,10 +4769,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_level_5_remaining_quantity, range, value, "Bid Per Type Level 5 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Per Type Level 5 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4827,10 +4845,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_total_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_total_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_per_type_total_remaining_quantity, range, value, "Bid Per Type Total Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Per Type Total Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -4881,10 +4899,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_total_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_total_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_total_remaining_quantity, range, value, "Bid Total Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Bid Total Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5706,10 +5724,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.category_accumulated_trading_volume, range, value, "Category Accumulated Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Category Accumulated Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7112,10 +7130,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_1_repo_remaining_quantity, range, value, "Designated Bid Level 1 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 1 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7204,10 +7222,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_10_repo_remaining_quantity, range, value, "Designated Bid Level 10 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 10 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7296,10 +7314,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_2_repo_remaining_quantity, range, value, "Designated Bid Level 2 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 2 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7388,10 +7406,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_3_repo_remaining_quantity, range, value, "Designated Bid Level 3 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 3 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7480,10 +7498,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_4_repo_remaining_quantity, range, value, "Designated Bid Level 4 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 4 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7572,10 +7590,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_5_repo_remaining_quantity, range, value, "Designated Bid Level 5 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 5 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7664,10 +7682,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_6_repo_remaining_quantity, range, value, "Designated Bid Level 6 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 6 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7756,10 +7774,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_7_repo_remaining_quantity, range, value, "Designated Bid Level 7 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 7 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7848,10 +7866,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_8_repo_remaining_quantity, range, value, "Designated Bid Level 8 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 8 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -7940,10 +7958,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_repo_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_repo_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_9_repo_remaining_quantity, range, value, "Designated Bid Level 9 Repo Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Designated Bid Level 9 Repo Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -8912,10 +8930,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.index_market_capitalization.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.index_market_capitalization.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
     return offset + length, value
@@ -9345,10 +9363,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
     return offset + length, value
@@ -10218,10 +10236,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.net_bid_per_type_total_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.net_bid_per_type_total_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.net_bid_per_type_total_remaining_quantity, range, value, "Net Bid Per Type Total Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Net Bid Per Type Total Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -11721,10 +11739,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.report_trading_total_trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.report_trading_total_trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.report_trading_total_trading_volume, range, value, "Report Trading Total Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Report Trading Total Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value
@@ -12749,10 +12767,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_1_remaining_quantity, range, value, "Total Bid Level 1 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Total Bid Level 1 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -12818,10 +12836,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_2_remaining_quantity, range, value, "Total Bid Level 2 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Total Bid Level 2 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -12887,10 +12905,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_3_remaining_quantity, range, value, "Total Bid Level 3 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Total Bid Level 3 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -12956,10 +12974,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_4_remaining_quantity, range, value, "Total Bid Level 4 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Total Bid Level 4 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -13025,10 +13043,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_remaining_quantity.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_remaining_quantity.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.total_bid_level_5_remaining_quantity, range, value, "Total Bid Level 5 Remaining Quantity: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Total Bid Level 5 Remaining Quantity is not a number: '"..range:string().."'")
     return offset + length, value
@@ -13808,10 +13826,10 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.trading_volume.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.trading_volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
     item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
     return offset + length, value

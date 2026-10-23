@@ -49,7 +49,7 @@ omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.exec_flag = ProtoField.new("Exec F
 omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.expiration = ProtoField.new("Expiration", "nasdaq.ntxoptions.quoting.sqf.v9.0.expiration", ftypes.UINT16, nil, nil, nil, "Expiration Field: year (bits 0-6, 0-99), month (bits 7-10) and day (bits 11-15) encoded into a 2 byte integer; bit 15 is the least significant bit")
 omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.firm_id = ProtoField.new("Firm Id", "nasdaq.ntxoptions.quoting.sqf.v9.0.firmid", ftypes.STRING, nil, nil, nil, "Spaces when auction not flagged Attributable")
 omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.flex_dac_legs = ProtoField.new("Flex Dac Legs", "nasdaq.ntxoptions.quoting.sqf.v9.0.flexdaclegs", ftypes.STRING, nil, nil, nil, "Auction Notification leg definitions, to be used in future to support Delta-Adjusted at Close functionality on Flex")
-omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.heartbeat_timeout = ProtoField.new("Heartbeat Timeout", "nasdaq.ntxoptions.quoting.sqf.v9.0.heartbeattimeout", ftypes.UINT32, nil, nil, nil, "Client Heartbeat Timeout in milliseconds, in ASCII. Failure to receive a message or a heartbeat for the specified duration causes the server socket to close")
+omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.heartbeat_timeout = ProtoField.new("Heartbeat Timeout", "nasdaq.ntxoptions.quoting.sqf.v9.0.heartbeattimeout", ftypes.UINT24, nil, nil, nil, "Client Heartbeat Timeout in milliseconds, in ASCII. Failure to receive a message or a heartbeat for the specified duration causes the server socket to close")
 omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.ntxoptions.quoting.sqf.v9.0.instrumentid", ftypes.UINT32, nil, nil, nil, "Simple Instrument ID")
 omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.instrument_type = ProtoField.new("Instrument Type", "nasdaq.ntxoptions.quoting.sqf.v9.0.instrumenttype", ftypes.STRING, nil, nil, nil, "S=Simple Instruments, C=Complex Instruments")
 omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.interval = ProtoField.new("Interval", "nasdaq.ntxoptions.quoting.sqf.v9.0.interval", ftypes.UINT16, nil, nil, nil, "Time interval (in milliseconds) 100 <= n <= 30,000")
@@ -341,6 +341,24 @@ trim_left_spaces = function(str)
   return str:sub(start)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NtxOptions Quoting Sqf 9.0 Fields
@@ -361,10 +379,10 @@ end
 nasdaq_ntxoptions_quoting_sqf_v9_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_quoting_sqf_v9_0.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_ntxoptions_quoting_sqf_v9_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -2593,10 +2611,10 @@ end
 nasdaq_ntxoptions_quoting_sqf_v9_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_quoting_sqf_v9_0.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_ntxoptions_quoting_sqf_v9_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_ntxoptions_quoting_sqf_v9_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value

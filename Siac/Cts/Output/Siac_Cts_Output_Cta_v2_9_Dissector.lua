@@ -6906,7 +6906,7 @@ udp_table:add_for_decode_as(omi_siac_cts_output_cta_v2_9)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 2.9
 --   Date: Friday, December 16, 2022
---   Specification: CTS_Pillar_Output_Specification.pdf
+--   Specification: Siac.Cts.Output.Cta.v2.9.f.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -19,10 +19,10 @@ omi_finra_trace_btds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.tr
 omi_finra_trace_btds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.trace.btds.dfi.v2.1.actiondatetime", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.administrative_message = ProtoField.new("Administrative Message", "finra.trace.btds.dfi.v2.1.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages Header")
 omi_finra_trace_btds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.trace.btds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.advances_all_securities = ProtoField.new("Advances All Securities", "finra.trace.btds.dfi.v2.1.advancesallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.advances_convertibles = ProtoField.new("Advances Convertibles", "finra.trace.btds.dfi.v2.1.advancesconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.advances_high_yield = ProtoField.new("Advances High Yield", "finra.trace.btds.dfi.v2.1.advanceshighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.advances_investment_grade = ProtoField.new("Advances Investment Grade", "finra.trace.btds.dfi.v2.1.advancesinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_all_securities = ProtoField.new("Advances All Securities", "finra.trace.btds.dfi.v2.1.advancesallsecurities", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_convertibles = ProtoField.new("Advances Convertibles", "finra.trace.btds.dfi.v2.1.advancesconvertibles", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_high_yield = ProtoField.new("Advances High Yield", "finra.trace.btds.dfi.v2.1.advanceshighyield", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_investment_grade = ProtoField.new("Advances Investment Grade", "finra.trace.btds.dfi.v2.1.advancesinvestmentgrade", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
 omi_finra_trace_btds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.trace.btds.dfi.v2.1.asofindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an As/Of trade, Reversal, Cancel or Correction from a prior business day")
 omi_finra_trace_btds_dfi_v2_1.fields.ats_indicator = ProtoField.new("Ats Indicator", "finra.trace.btds.dfi.v2.1.atsindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an Ats execution")
 omi_finra_trace_btds_dfi_v2_1.fields.bsym = ProtoField.new("Bsym", "finra.trace.btds.dfi.v2.1.bsym", ftypes.STRING, nil, nil, nil, "The Bloomberg identifier for the specific corporate bond")
@@ -42,19 +42,19 @@ omi_finra_trace_btds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low
 omi_finra_trace_btds_dfi_v2_1.fields.daily_low_yield = ProtoField.new("Daily Low Yield", "finra.trace.btds.dfi.v2.1.dailylowyield", ftypes.DOUBLE, nil, nil, nil, "The low yield associated with the Daily Low Price")
 omi_finra_trace_btds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.trace.btds.dfi.v2.1.datetime", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.btds.dfi.v2.1.day", ftypes.UINT8, nil, nil, nil, "The day of the month the transaction occurred")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_all_securities = ProtoField.new("Declines All Securities", "finra.trace.btds.dfi.v2.1.declinesallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_convertibles = ProtoField.new("Declines Convertibles", "finra.trace.btds.dfi.v2.1.declinesconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_high_yield = ProtoField.new("Declines High Yield", "finra.trace.btds.dfi.v2.1.declineshighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_investment_grade = ProtoField.new("Declines Investment Grade", "finra.trace.btds.dfi.v2.1.declinesinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_all_securities = ProtoField.new("Declines All Securities", "finra.trace.btds.dfi.v2.1.declinesallsecurities", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_convertibles = ProtoField.new("Declines Convertibles", "finra.trace.btds.dfi.v2.1.declinesconvertibles", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_high_yield = ProtoField.new("Declines High Yield", "finra.trace.btds.dfi.v2.1.declineshighyield", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_investment_grade = ProtoField.new("Declines Investment Grade", "finra.trace.btds.dfi.v2.1.declinesinvestmentgrade", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
 omi_finra_trace_btds_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.trace.btds.dfi.v2.1.executiondatetime", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_all_securities = ProtoField.new("Fifty Two Week High All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_convertibles = ProtoField.new("Fifty Two Week High Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_high_yield = ProtoField.new("Fifty Two Week High High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_investment_grade = ProtoField.new("Fifty Two Week High Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_all_securities = ProtoField.new("Fifty Two Week Low All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_convertibles = ProtoField.new("Fifty Two Week Low Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_high_yield = ProtoField.new("Fifty Two Week Low High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_investment_grade = ProtoField.new("Fifty Two Week Low Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_all_securities = ProtoField.new("Fifty Two Week High All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighallsecurities", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_convertibles = ProtoField.new("Fifty Two Week High Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighconvertibles", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_high_yield = ProtoField.new("Fifty Two Week High High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighhighyield", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_investment_grade = ProtoField.new("Fifty Two Week High Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighinvestmentgrade", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_all_securities = ProtoField.new("Fifty Two Week Low All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowallsecurities", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_convertibles = ProtoField.new("Fifty Two Week Low Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowconvertibles", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_high_yield = ProtoField.new("Fifty Two Week Low High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowhighyield", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_investment_grade = ProtoField.new("Fifty Two Week Low Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowinvestmentgrade", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
 omi_finra_trace_btds_dfi_v2_1.fields.future_use = ProtoField.new("Future Use", "finra.trace.btds.dfi.v2.1.futureuse", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_finra_trace_btds_dfi_v2_1.fields.halt_reason = ProtoField.new("Halt Reason", "finra.trace.btds.dfi.v2.1.haltreason", ftypes.STRING, nil, nil, nil, "Describes the specific reason for a halt being placed on a bond issue")
 omi_finra_trace_btds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.btds.dfi.v2.1.highprice", ftypes.DOUBLE, nil, nil, nil, "The current highest price for which the specified bond issue was traded for the current day")
@@ -78,7 +78,7 @@ omi_finra_trace_btds_dfi_v2_1.fields.message_header = ProtoField.new("Message He
 omi_finra_trace_btds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.trace.btds.dfi.v2.1.minute", ftypes.UINT8, nil, nil, nil, "The minute of the hour the transaction occurred")
 omi_finra_trace_btds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trace.btds.dfi.v2.1.month", ftypes.UINT8, nil, nil, nil, "The month the transaction occurred")
 omi_finra_trace_btds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.trace.btds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.btds.dfi.v2.1.originaltradeidentifier", ftypes.UINT32, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
+omi_finra_trace_btds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.btds.dfi.v2.1.originaltradeidentifier", ftypes.UINT24, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
 omi_finra_trace_btds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.trace.btds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.btds.dfi.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "The bond price inclusive of any commission, mark-ups, and/or mark-downs reported by the sell-side firm")
 omi_finra_trace_btds_dfi_v2_1.fields.quantity = ProtoField.new("Quantity", "finra.trace.btds.dfi.v2.1.quantity", ftypes.STRING, nil, nil, nil, "The par value volume of the transaction")
@@ -97,21 +97,21 @@ omi_finra_trace_btds_dfi_v2_1.fields.special_price_indicator = ProtoField.new("S
 omi_finra_trace_btds_dfi_v2_1.fields.sub_product_type = ProtoField.new("Sub Product Type", "finra.trace.btds.dfi.v2.1.subproducttype", ftypes.STRING, nil, nil, nil, "Identifies the type of debt security traded")
 omi_finra_trace_btds_dfi_v2_1.fields.symbol = ProtoField.new("Symbol", "finra.trace.btds.dfi.v2.1.symbol", ftypes.STRING, nil, nil, nil, "The bond issue symbol as assigned by Finra for Trace trade reporting purposes")
 omi_finra_trace_btds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.trace.btds.dfi.v2.1.text", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy = ProtoField.new("Total Number Of Transactions Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatebuy", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell = ProtoField.new("Total Number Of Transactions Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatesell", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_all_securities = ProtoField.new("Total Number Of Transactions All Securities", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_buy = ProtoField.new("Total Number Of Transactions Customer Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomerbuy", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_sell = ProtoField.new("Total Number Of Transactions Customer Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomersell", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer = ProtoField.new("Total Number Of Transactions Inter Dealer", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsinterdealer", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_buy = ProtoField.new("Total Securities Traded Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatebuy", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_sell = ProtoField.new("Total Securities Traded Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatesell", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_all_securities = ProtoField.new("Total Securities Traded All Securities", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_convertibles = ProtoField.new("Total Securities Traded Convertibles", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_buy = ProtoField.new("Total Securities Traded Customer Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomerbuy", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_sell = ProtoField.new("Total Securities Traded Customer Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomersell", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_high_yield = ProtoField.new("Total Securities Traded High Yield", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_inter_dealer = ProtoField.new("Total Securities Traded Inter Dealer", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinterdealer", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_investment_grade = ProtoField.new("Total Securities Traded Investment Grade", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy = ProtoField.new("Total Number Of Transactions Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatebuy", ftypes.UINT24, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell = ProtoField.new("Total Number Of Transactions Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatesell", ftypes.UINT24, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_all_securities = ProtoField.new("Total Number Of Transactions All Securities", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsallsecurities", ftypes.UINT24, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_buy = ProtoField.new("Total Number Of Transactions Customer Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomerbuy", ftypes.UINT24, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_sell = ProtoField.new("Total Number Of Transactions Customer Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomersell", ftypes.UINT24, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer = ProtoField.new("Total Number Of Transactions Inter Dealer", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsinterdealer", ftypes.UINT24, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_buy = ProtoField.new("Total Securities Traded Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatebuy", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_sell = ProtoField.new("Total Securities Traded Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatesell", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_all_securities = ProtoField.new("Total Securities Traded All Securities", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedallsecurities", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_convertibles = ProtoField.new("Total Securities Traded Convertibles", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedconvertibles", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_buy = ProtoField.new("Total Securities Traded Customer Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomerbuy", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_sell = ProtoField.new("Total Securities Traded Customer Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomersell", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_high_yield = ProtoField.new("Total Securities Traded High Yield", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedhighyield", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_inter_dealer = ProtoField.new("Total Securities Traded Inter Dealer", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinterdealer", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_investment_grade = ProtoField.new("Total Securities Traded Investment Grade", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinvestmentgrade", ftypes.UINT24, nil, nil, nil, "The total number of issues traded on the day")
 omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_buy = ProtoField.new("Total Volume Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalvolumeaffiliatebuy", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
 omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_sell = ProtoField.new("Total Volume Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalvolumeaffiliatesell", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
 omi_finra_trace_btds_dfi_v2_1.fields.total_volume_all_securities = ProtoField.new("Total Volume All Securities", "finra.trace.btds.dfi.v2.1.totalvolumeallsecurities", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
@@ -121,15 +121,15 @@ omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_sell = ProtoField.new
 omi_finra_trace_btds_dfi_v2_1.fields.total_volume_high_yield = ProtoField.new("Total Volume High Yield", "finra.trace.btds.dfi.v2.1.totalvolumehighyield", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
 omi_finra_trace_btds_dfi_v2_1.fields.total_volume_inter_dealer = ProtoField.new("Total Volume Inter Dealer", "finra.trace.btds.dfi.v2.1.totalvolumeinterdealer", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
 omi_finra_trace_btds_dfi_v2_1.fields.total_volume_investment_grade = ProtoField.new("Total Volume Investment Grade", "finra.trace.btds.dfi.v2.1.totalvolumeinvestmentgrade", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.btds.dfi.v2.1.tradeidentifier", ftypes.UINT32, nil, nil, nil, "An identifier for tracking trades")
+omi_finra_trace_btds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.btds.dfi.v2.1.tradeidentifier", ftypes.UINT24, nil, nil, nil, "An identifier for tracking trades")
 omi_finra_trace_btds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.trace.btds.dfi.v2.1.tradeinformation", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.trade_message = ProtoField.new("Trade Message", "finra.trace.btds.dfi.v2.1.trademessage", ftypes.STRING, nil, nil, nil, "Trade Messages Header")
 omi_finra_trace_btds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.trace.btds.dfi.v2.1.trademessagetype", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.trace.btds.dfi.v2.1.tradesummaryinformation", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_all_securities = ProtoField.new("Unchanged All Securities", "finra.trace.btds.dfi.v2.1.unchangedallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_convertibles = ProtoField.new("Unchanged Convertibles", "finra.trace.btds.dfi.v2.1.unchangedconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_high_yield = ProtoField.new("Unchanged High Yield", "finra.trace.btds.dfi.v2.1.unchangedhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_investment_grade = ProtoField.new("Unchanged Investment Grade", "finra.trace.btds.dfi.v2.1.unchangedinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_all_securities = ProtoField.new("Unchanged All Securities", "finra.trace.btds.dfi.v2.1.unchangedallsecurities", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_convertibles = ProtoField.new("Unchanged Convertibles", "finra.trace.btds.dfi.v2.1.unchangedconvertibles", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_high_yield = ProtoField.new("Unchanged High Yield", "finra.trace.btds.dfi.v2.1.unchangedhighyield", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_investment_grade = ProtoField.new("Unchanged Investment Grade", "finra.trace.btds.dfi.v2.1.unchangedinvestmentgrade", ftypes.UINT24, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
 omi_finra_trace_btds_dfi_v2_1.fields.when_issued_indicator = ProtoField.new("When Issued Indicator", "finra.trace.btds.dfi.v2.1.whenissuedindicator", ftypes.STRING, nil, nil, nil, "Indicates if the issue is trading on a when issued basis")
 omi_finra_trace_btds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.btds.dfi.v2.1.year", ftypes.UINT16, nil, nil, nil, "The year the transaction occurred")
 omi_finra_trace_btds_dfi_v2_1.fields.yield = ProtoField.new("Yield", "finra.trace.btds.dfi.v2.1.yield", ftypes.DOUBLE, nil, nil, nil, "Indicates the effective rate of return earned on a security")
@@ -267,6 +267,24 @@ format_decimal_text = function(str)
   end
 
   return sign..text
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -3064,10 +3082,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_affiliate_buy.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_affiliate_buy.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_buy, range, value, "Total Volume Affiliate Buy: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Buy is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3095,10 +3113,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_affiliate_sell.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_affiliate_sell.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_sell, range, value, "Total Volume Affiliate Sell: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Sell is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3126,10 +3144,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_all_securities.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_all_securities.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_all_securities, range, value, "Total Volume All Securities: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume All Securities is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3157,10 +3175,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_convertibles.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_convertibles.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_convertibles, range, value, "Total Volume Convertibles: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Convertibles is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3188,10 +3206,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_customer_buy.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_customer_buy.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_buy, range, value, "Total Volume Customer Buy: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Customer Buy is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3219,10 +3237,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_customer_sell.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_customer_sell.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_sell, range, value, "Total Volume Customer Sell: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Customer Sell is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3250,10 +3268,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_high_yield.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_high_yield.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_high_yield, range, value, "Total Volume High Yield: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume High Yield is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3281,10 +3299,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_inter_dealer.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_inter_dealer.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_inter_dealer, range, value, "Total Volume Inter Dealer: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Inter Dealer is not a number: '"..range:string().."'")
     return offset + length, value
@@ -3312,10 +3330,10 @@ end
 finra_trace_btds_dfi_v2_1.total_volume_investment_grade.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.total_volume_investment_grade.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_investment_grade, range, value, "Total Volume Investment Grade: Not Applicable")
     item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Investment Grade is not a number: '"..range:string().."'")
     return offset + length, value

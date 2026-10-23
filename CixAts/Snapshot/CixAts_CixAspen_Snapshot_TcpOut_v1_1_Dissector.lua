@@ -116,6 +116,24 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- CixAts CixAspen Snapshot TcpOut 1.1 Fields
@@ -470,10 +488,10 @@ end
 cixats_cixaspen_snapshot_tcpout_v1_1.next_sequence.dissect = function(buffer, offset, packet, parent)
   local length = cixats_cixaspen_snapshot_tcpout_v1_1.next_sequence.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.next_sequence, range, value, "Next Sequence: Not Applicable")
     item:add_proto_expert_info(cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, "Next Sequence is not a number: '"..range:string().."'")
     return offset + length, value
@@ -709,10 +727,10 @@ end
 cixats_cixaspen_snapshot_tcpout_v1_1.requested_sequence.dissect = function(buffer, offset, packet, parent)
   local length = cixats_cixaspen_snapshot_tcpout_v1_1.requested_sequence.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.requested_sequence, range, value, "Requested Sequence: Not Applicable")
     item:add_proto_expert_info(cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, "Requested Sequence is not a number: '"..range:string().."'")
     return offset + length, value

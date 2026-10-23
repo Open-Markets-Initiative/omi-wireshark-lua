@@ -35,7 +35,7 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.paired_shares = ProtoF
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.pricevariationindicator", ftypes.STRING, nil, nil, nil, "This field indicates the absolute value of the percentage of deviation of the Near Indicative Clearing Price to the nearest Current Reference Price.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.roundlotsize", ftypes.UINT24, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.noiview.asciiitch.v2.1.2012.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
@@ -216,6 +216,24 @@ format_implied_decimal_text = function(str, places)
   end
 
   return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
 end
 
 
@@ -632,10 +650,10 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.match_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.match_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.fields.match_number, range, value, "Match Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_1_2012.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
     return offset + length, value

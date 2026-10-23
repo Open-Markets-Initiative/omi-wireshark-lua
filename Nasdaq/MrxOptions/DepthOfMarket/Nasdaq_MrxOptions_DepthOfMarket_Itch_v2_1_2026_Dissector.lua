@@ -292,6 +292,24 @@ trim_left_spaces = function(str)
   return str:sub(start)
 end
 
+-- ascii digits as an unsigned 64 bit value, nil when the run is no number
+ascii_to_uint64 = function(str)
+  local digits = str:match("^%s*(%d+)%s*$")
+
+  if digits == nil then
+    return nil
+  end
+
+  -- a run longer than the twenty digits UInt64 holds would wrap rather than read
+  local significant = digits:gsub("^0+", "")
+
+  if #significant > 20 then
+    return nil
+  end
+
+  return UInt64.new(digits)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq MrxOptions DepthOfMarket Itch 2.1.2026 Fields
@@ -312,10 +330,10 @@ end
 nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1749,10 +1767,10 @@ end
 nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = ascii_to_uint64(range:string())
 
   if value == nil then
-    value = 0
+    value = UInt64.new(0)
     local item = parent:add(omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
     item:add_proto_expert_info(nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
     return offset + length, value
@@ -5276,7 +5294,7 @@ udp_table:add_for_decode_as(omi_nasdaq_mrxoptions_depthofmarket_itch_v2_1_2026)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1.2026
 --   Date: Wednesday, July 8, 2026
---   Specification: Options_Depth_of_Market_Feed_2.1.pdf
+--   Specification: Options_Depth_of_Market_Feed_2.1 (2026-08-03).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
