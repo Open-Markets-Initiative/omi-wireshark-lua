@@ -15,7 +15,7 @@ local nasdaq_nomoptions_itto_itch_v4_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NomOptions Itto Itch 4.0 Fields
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nomoptions.itto.itch.v4.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask = ProtoField.new("Ask", "nasdaq.nomoptions.itto.itch.v4.0.ask", ftypes.UINT32, nil, nil, nil, "The display ask price of the new quote.")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nomoptions.itto.itch.v4.0.askpricelong", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the replaced quote.")
@@ -72,7 +72,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.price_short = ProtoField.new("Price 
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.printable = ProtoField.new("Printable", "nasdaq.nomoptions.itto.itch.v4.0.printable", ftypes.STRING, nil, nil, nil, "Indicates if the execution should be reflected on time and sale displays and volume calculations.")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reference_number = ProtoField.new("Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.referencenumber", ftypes.UINT64, nil, nil, nil, "The order/quote reference number associated with the executed order.")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nomoptions.itto.itch.v4.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nomoptions.itto.itch.v4.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.nomoptions.itto.itch.v4.0.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.nomoptions.itto.itch.v4.0.securitysymbol", ftypes.STRING, nil, nil, nil, "Denotes the security symbol.")
@@ -145,6 +145,11 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.unsequenced_data_packet = ProtoField
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nomoptions.itto.itch.v4.0.messageindex", ftypes.UINT16)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NomOptions Itto Itch 4.0 Expert Info
+nasdaq_nomoptions_itto_itch_v4_0.experts = {}
+nasdaq_nomoptions_itto_itch_v4_0.experts.not_a_number = ProtoExpert.new("nasdaq.nomoptions.itto.itch.v4.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nomoptions_itto_itch_v4_0.experts = { nasdaq_nomoptions_itto_itch_v4_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NomOptions Itto Itch 4.0 Formatting
@@ -314,7 +319,10 @@ nasdaq_nomoptions_itto_itch_v4_0.accepted_sequence_number.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nomoptions_itto_itch_v4_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nomoptions_itto_itch_v4_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1904,7 +1912,10 @@ nasdaq_nomoptions_itto_itch_v4_0.requested_sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nomoptions_itto_itch_v4_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nomoptions_itto_itch_v4_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

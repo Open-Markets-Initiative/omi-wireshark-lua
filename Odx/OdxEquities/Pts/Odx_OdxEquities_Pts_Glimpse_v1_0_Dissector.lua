@@ -15,7 +15,7 @@ local odx_odxequities_pts_glimpse_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Odx OdxEquities Pts Glimpse 1.0 Fields
-omi_odx_odxequities_pts_glimpse_v1_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "odx.odxequities.pts.glimpse.v1.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_odx_odxequities_pts_glimpse_v1_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "odx.odxequities.pts.glimpse.v1.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.accepted_session = ProtoField.new("Accepted Session", "odx.odxequities.pts.glimpse.v1.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.attribution = ProtoField.new("Attribution", "odx.odxequities.pts.glimpse.v1.0.attribution", ftypes.STRING, nil, nil, nil, "Reserved Always blank")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.glimpse.v1.0.buysellindicator", ftypes.STRING, nil, nil, nil, "Side of the order Ignore if reference price update")
@@ -37,7 +37,7 @@ omi_odx_odxequities_pts_glimpse_v1_0.fields.price_tick_size = ProtoField.new("Pr
 omi_odx_odxequities_pts_glimpse_v1_0.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "odx.odxequities.pts.glimpse.v1.0.priceticksizetableid", ftypes.UINT32, nil, nil, nil, "Price tick size table identifier")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.quantity = ProtoField.new("Quantity", "odx.odxequities.pts.glimpse.v1.0.quantity", ftypes.UINT32, nil, nil, nil, "Total number of shares added to the book Ignore if reference price update")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "odx.odxequities.pts.glimpse.v1.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_odx_odxequities_pts_glimpse_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "odx.odxequities.pts.glimpse.v1.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_odx_odxequities_pts_glimpse_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "odx.odxequities.pts.glimpse.v1.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.requested_session = ProtoField.new("Requested Session", "odx.odxequities.pts.glimpse.v1.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "odx.odxequities.pts.glimpse.v1.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Number of shares that represent a round lot")
 omi_odx_odxequities_pts_glimpse_v1_0.fields.seconds = ProtoField.new("Seconds", "odx.odxequities.pts.glimpse.v1.0.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight")
@@ -86,6 +86,11 @@ omi_odx_odxequities_pts_glimpse_v1_0.fields.trading_state_message = ProtoField.n
 -- Odx OdxEquities Pts Glimpse 1.0 Generated Fields
 omi_odx_odxequities_pts_glimpse_v1_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "odx.odxequities.pts.glimpse.v1.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_odx_odxequities_pts_glimpse_v1_0.fields.timestamp = ProtoField.new("Timestamp", "odx.odxequities.pts.glimpse.v1.0.timestamp", ftypes.UINT64)
+
+-- Odx OdxEquities Pts Glimpse 1.0 Expert Info
+odx_odxequities_pts_glimpse_v1_0.experts = {}
+odx_odxequities_pts_glimpse_v1_0.experts.not_a_number = ProtoExpert.new("odx.odxequities.pts.glimpse.v1.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_odx_odxequities_pts_glimpse_v1_0.experts = { odx_odxequities_pts_glimpse_v1_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Odx OdxEquities Pts Glimpse 1.0 Formatting
@@ -257,7 +262,10 @@ odx_odxequities_pts_glimpse_v1_0.accepted_sequence_number.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_odx_odxequities_pts_glimpse_v1_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(odx_odxequities_pts_glimpse_v1_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = odx_odxequities_pts_glimpse_v1_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -822,7 +830,10 @@ odx_odxequities_pts_glimpse_v1_0.requested_sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_odx_odxequities_pts_glimpse_v1_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(odx_odxequities_pts_glimpse_v1_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = odx_odxequities_pts_glimpse_v1_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

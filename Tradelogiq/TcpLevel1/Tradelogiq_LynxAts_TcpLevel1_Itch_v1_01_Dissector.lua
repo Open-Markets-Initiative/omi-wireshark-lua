@@ -15,7 +15,7 @@ local tradelogiq_lynxats_tcplevel1_itch_v1_01 = {}
 -----------------------------------------------------------------------
 
 -- Tradelogiq LynxAts TcpLevel1 Itch 1.01 Fields
-omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "tradelogiq.lynxats.tcplevel1.itch.v1.01.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number of the next Sequenced Message to be sent. Left padded with spaces")
+omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "tradelogiq.lynxats.tcplevel1.itch.v1.01.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number of the next Sequenced Message to be sent. Left padded with spaces")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.accepted_session = ProtoField.new("Accepted Session", "tradelogiq.lynxats.tcplevel1.itch.v1.01.acceptedsession", ftypes.STRING, nil, nil, nil, "Session ID of the session that is now logged into. Left padded with spaces")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.best_ask_price = ProtoField.new("Best Ask Price", "tradelogiq.lynxats.tcplevel1.itch.v1.01.bestaskprice", ftypes.DOUBLE, nil, nil, nil, "Denotes best ask price on Tradelogiq's order books either OMEGA or LYNX")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.best_ask_size = ProtoField.new("Best Ask Size", "tradelogiq.lynxats.tcplevel1.itch.v1.01.bestasksize", ftypes.UINT32, nil, nil, nil, "Denotes the total number of shares available for display on Tradelogiq's order books at the best ask price")
@@ -43,7 +43,7 @@ omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.packet_length = ProtoField.ne
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.password = ProtoField.new("Password", "tradelogiq.lynxats.tcplevel1.itch.v1.01.password", ftypes.STRING, nil, nil, nil, "Password, case-insensitive and padded on the right with spaces")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.reason = ProtoField.new("Reason", "tradelogiq.lynxats.tcplevel1.itch.v1.01.reason", ftypes.STRING, nil, nil, nil, "Reason the security is halted. Note: Field may be blank")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "tradelogiq.lynxats.tcplevel1.itch.v1.01.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Why the login was rejected")
-omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "tradelogiq.lynxats.tcplevel1.itch.v1.01.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number the client wants to receive upon connection or 0 to start receiving the most recently generated message")
+omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "tradelogiq.lynxats.tcplevel1.itch.v1.01.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number the client wants to receive upon connection or 0 to start receiving the most recently generated message")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.requested_session = ProtoField.new("Requested Session", "tradelogiq.lynxats.tcplevel1.itch.v1.01.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies session to log onto. All blanks to log onto the currently active session")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.reserved_1 = ProtoField.new("Reserved 1", "tradelogiq.lynxats.tcplevel1.itch.v1.01.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.reserved_2 = ProtoField.new("Reserved 2", "tradelogiq.lynxats.tcplevel1.itch.v1.01.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved")
@@ -94,6 +94,11 @@ omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.trade_report_message = ProtoF
 
 -- Tradelogiq LynxAts TcpLevel1 Itch 1.01 Generated Fields
 omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "tradelogiq.lynxats.tcplevel1.itch.v1.01.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Tradelogiq LynxAts TcpLevel1 Itch 1.01 Expert Info
+tradelogiq_lynxats_tcplevel1_itch_v1_01.experts = {}
+tradelogiq_lynxats_tcplevel1_itch_v1_01.experts.not_a_number = ProtoExpert.new("tradelogiq.lynxats.tcplevel1.itch.v1.01.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.experts = { tradelogiq_lynxats_tcplevel1_itch_v1_01.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Tradelogiq LynxAts TcpLevel1 Itch 1.01 Formatting
@@ -258,7 +263,10 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.accepted_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tradelogiq_lynxats_tcplevel1_itch_v1_01.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tradelogiq_lynxats_tcplevel1_itch_v1_01.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1064,7 +1072,10 @@ tradelogiq_lynxats_tcplevel1_itch_v1_01.requested_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tradelogiq_lynxats_tcplevel1_itch_v1_01.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tradelogiq_lynxats_tcplevel1_itch_v1_01.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tradelogiq_lynxats_tcplevel1_itch_v1_01.requested_sequence_number.display(value, buffer, offset, packet, parent)

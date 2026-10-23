@@ -15,7 +15,7 @@ local nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NasdaqCanada OrderEntry Ouch 5.0.1.4 Fields
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account = ProtoField.new("Account", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.account", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_request_appendage = ProtoField.new("Account Query Request Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.accountqueryrequestappendage", ftypes.STRING)
@@ -103,7 +103,7 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.rejected_order_optional_
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.replace_order_request_appendage = ProtoField.new("Replace Order Request Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.replaceorderrequestappendage", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.replace_order_request_optional_field = ProtoField.new("Replace Order Request Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.replaceorderrequestoptionalfield", ftypes.UINT8, nil, nil, nil, "Appendage Id")
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.reprice_reason = ProtoField.new("Reprice Reason", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.repricereason", ftypes.UINT8, nil, nil, nil, "Populated with a reason code if the order is repriced")
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.restate_reason = ProtoField.new("Restate Reason", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.restatereason", ftypes.STRING, nil, nil, nil, "The reason for this order being restated (printed as Reason)")
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.routing_arrangement_indicator = ProtoField.new("Routing Arrangement Indicator", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.routingarrangementindicator", ftypes.STRING, nil, nil, nil, "0 = No routing arrangement in place; 1 = Routing arrangement in place")
@@ -168,6 +168,11 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.unsequenced_data_packet 
 
 -- Nasdaq NasdaqCanada OrderEntry Ouch 5.0.1.4 Generated Fields
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NasdaqCanada OrderEntry Ouch 5.0.1.4 Expert Info
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.experts = {}
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.experts.not_a_number = ProtoExpert.new("nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.experts = { nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NasdaqCanada OrderEntry Ouch 5.0.1.4 Formatting
@@ -332,7 +337,10 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.accepted_sequence_number.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -3350,7 +3358,10 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.requested_sequence_number.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)

@@ -19,14 +19,14 @@ omi_finra_trace_btds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.tr
 omi_finra_trace_btds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.trace.btds.dfi.v2.1.actiondatetime", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.administrative_message = ProtoField.new("Administrative Message", "finra.trace.btds.dfi.v2.1.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages Header")
 omi_finra_trace_btds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.trace.btds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.advances_all_securities = ProtoField.new("Advances All Securities", "finra.trace.btds.dfi.v2.1.advancesallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.advances_convertibles = ProtoField.new("Advances Convertibles", "finra.trace.btds.dfi.v2.1.advancesconvertibles", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.advances_high_yield = ProtoField.new("Advances High Yield", "finra.trace.btds.dfi.v2.1.advanceshighyield", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.advances_investment_grade = ProtoField.new("Advances Investment Grade", "finra.trace.btds.dfi.v2.1.advancesinvestmentgrade", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_all_securities = ProtoField.new("Advances All Securities", "finra.trace.btds.dfi.v2.1.advancesallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_convertibles = ProtoField.new("Advances Convertibles", "finra.trace.btds.dfi.v2.1.advancesconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_high_yield = ProtoField.new("Advances High Yield", "finra.trace.btds.dfi.v2.1.advanceshighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.advances_investment_grade = ProtoField.new("Advances Investment Grade", "finra.trace.btds.dfi.v2.1.advancesinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
 omi_finra_trace_btds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.trace.btds.dfi.v2.1.asofindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an As/Of trade, Reversal, Cancel or Correction from a prior business day")
 omi_finra_trace_btds_dfi_v2_1.fields.ats_indicator = ProtoField.new("Ats Indicator", "finra.trace.btds.dfi.v2.1.atsindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an Ats execution")
 omi_finra_trace_btds_dfi_v2_1.fields.bsym = ProtoField.new("Bsym", "finra.trace.btds.dfi.v2.1.bsym", ftypes.STRING, nil, nil, nil, "The Bloomberg identifier for the specific corporate bond")
-omi_finra_trace_btds_dfi_v2_1.fields.change_indicator = ProtoField.new("Change Indicator", "finra.trace.btds.dfi.v2.1.changeindicator", ftypes.STRING, nil, nil, nil, "Describes the price change(s) that the transaction caused for the issue traded")
+omi_finra_trace_btds_dfi_v2_1.fields.change_indicator = ProtoField.new("Change Indicator", "finra.trace.btds.dfi.v2.1.changeindicator", ftypes.UINT8, nil, nil, nil, "Describes the price change(s) that the transaction caused for the issue traded")
 omi_finra_trace_btds_dfi_v2_1.fields.close_yield_direction = ProtoField.new("Close Yield Direction", "finra.trace.btds.dfi.v2.1.closeyielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the Daily Close Yield field")
 omi_finra_trace_btds_dfi_v2_1.fields.contra_party_type = ProtoField.new("Contra Party Type", "finra.trace.btds.dfi.v2.1.contrapartytype", ftypes.STRING, nil, nil, nil, "Identifies the type of contra party which the reported trade was executed against")
 omi_finra_trace_btds_dfi_v2_1.fields.control_message = ProtoField.new("Control Message", "finra.trace.btds.dfi.v2.1.controlmessage", ftypes.STRING, nil, nil, nil, "Control Messages Header")
@@ -41,26 +41,26 @@ omi_finra_trace_btds_dfi_v2_1.fields.daily_high_yield = ProtoField.new("Daily Hi
 omi_finra_trace_btds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.trace.btds.dfi.v2.1.dailylowprice", ftypes.DOUBLE, nil, nil, nil, "The low price reported for the specific bond for the day")
 omi_finra_trace_btds_dfi_v2_1.fields.daily_low_yield = ProtoField.new("Daily Low Yield", "finra.trace.btds.dfi.v2.1.dailylowyield", ftypes.DOUBLE, nil, nil, nil, "The low yield associated with the Daily Low Price")
 omi_finra_trace_btds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.trace.btds.dfi.v2.1.datetime", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.btds.dfi.v2.1.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_all_securities = ProtoField.new("Declines All Securities", "finra.trace.btds.dfi.v2.1.declinesallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_convertibles = ProtoField.new("Declines Convertibles", "finra.trace.btds.dfi.v2.1.declinesconvertibles", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_high_yield = ProtoField.new("Declines High Yield", "finra.trace.btds.dfi.v2.1.declineshighyield", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.declines_investment_grade = ProtoField.new("Declines Investment Grade", "finra.trace.btds.dfi.v2.1.declinesinvestmentgrade", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.btds.dfi.v2.1.day", ftypes.UINT8, nil, nil, nil, "The day of the month the transaction occurred")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_all_securities = ProtoField.new("Declines All Securities", "finra.trace.btds.dfi.v2.1.declinesallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_convertibles = ProtoField.new("Declines Convertibles", "finra.trace.btds.dfi.v2.1.declinesconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_high_yield = ProtoField.new("Declines High Yield", "finra.trace.btds.dfi.v2.1.declineshighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.declines_investment_grade = ProtoField.new("Declines Investment Grade", "finra.trace.btds.dfi.v2.1.declinesinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
 omi_finra_trace_btds_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.trace.btds.dfi.v2.1.executiondatetime", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_all_securities = ProtoField.new("Fifty Two Week High All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_convertibles = ProtoField.new("Fifty Two Week High Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighconvertibles", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_high_yield = ProtoField.new("Fifty Two Week High High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighhighyield", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_investment_grade = ProtoField.new("Fifty Two Week High Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighinvestmentgrade", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_all_securities = ProtoField.new("Fifty Two Week Low All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_convertibles = ProtoField.new("Fifty Two Week Low Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowconvertibles", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_high_yield = ProtoField.new("Fifty Two Week Low High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowhighyield", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_investment_grade = ProtoField.new("Fifty Two Week Low Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowinvestmentgrade", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_all_securities = ProtoField.new("Fifty Two Week High All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_convertibles = ProtoField.new("Fifty Two Week High Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_high_yield = ProtoField.new("Fifty Two Week High High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_investment_grade = ProtoField.new("Fifty Two Week High Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweekhighinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_all_securities = ProtoField.new("Fifty Two Week Low All Securities", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_convertibles = ProtoField.new("Fifty Two Week Low Convertibles", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_high_yield = ProtoField.new("Fifty Two Week Low High Yield", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_investment_grade = ProtoField.new("Fifty Two Week Low Investment Grade", "finra.trace.btds.dfi.v2.1.fiftytwoweeklowinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
 omi_finra_trace_btds_dfi_v2_1.fields.future_use = ProtoField.new("Future Use", "finra.trace.btds.dfi.v2.1.futureuse", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_finra_trace_btds_dfi_v2_1.fields.halt_reason = ProtoField.new("Halt Reason", "finra.trace.btds.dfi.v2.1.haltreason", ftypes.STRING, nil, nil, nil, "Describes the specific reason for a halt being placed on a bond issue")
 omi_finra_trace_btds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.btds.dfi.v2.1.highprice", ftypes.DOUBLE, nil, nil, nil, "The current highest price for which the specified bond issue was traded for the current day")
 omi_finra_trace_btds_dfi_v2_1.fields.high_yield = ProtoField.new("High Yield", "finra.trace.btds.dfi.v2.1.highyield", ftypes.DOUBLE, nil, nil, nil, "The yield associated with the high price of the day")
 omi_finra_trace_btds_dfi_v2_1.fields.high_yield_direction = ProtoField.new("High Yield Direction", "finra.trace.btds.dfi.v2.1.highyielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the High Price Yield field")
-omi_finra_trace_btds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.btds.dfi.v2.1.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
+omi_finra_trace_btds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.btds.dfi.v2.1.hour", ftypes.UINT8, nil, nil, nil, "The hour of the day the transaction occurred in military time")
 omi_finra_trace_btds_dfi_v2_1.fields.issuer = ProtoField.new("Issuer", "finra.trace.btds.dfi.v2.1.issuer", ftypes.STRING, nil, nil, nil, "The name of the corporation or agency that issued the security")
 omi_finra_trace_btds_dfi_v2_1.fields.label = ProtoField.new("Label", "finra.trace.btds.dfi.v2.1.label", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.trace.btds.dfi.v2.1.lastsaleprice", ftypes.DOUBLE, nil, nil, nil, "The last sale price reported for the specific bond for the day")
@@ -75,10 +75,10 @@ omi_finra_trace_btds_dfi_v2_1.fields.market_center_originator_id = ProtoField.ne
 omi_finra_trace_btds_dfi_v2_1.fields.market_sentiment_information = ProtoField.new("Market Sentiment Information", "finra.trace.btds.dfi.v2.1.marketsentimentinformation", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.trace.btds.dfi.v2.1.messagecategory", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.trace.btds.dfi.v2.1.messageheader", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.trace.btds.dfi.v2.1.minute", ftypes.STRING, nil, nil, nil, "The minute of the hour the transaction occurred")
-omi_finra_trace_btds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trace.btds.dfi.v2.1.month", ftypes.STRING, nil, nil, nil, "The month the transaction occurred")
+omi_finra_trace_btds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.trace.btds.dfi.v2.1.minute", ftypes.UINT8, nil, nil, nil, "The minute of the hour the transaction occurred")
+omi_finra_trace_btds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trace.btds.dfi.v2.1.month", ftypes.UINT8, nil, nil, nil, "The month the transaction occurred")
 omi_finra_trace_btds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.trace.btds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.btds.dfi.v2.1.originaltradeidentifier", ftypes.STRING, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
+omi_finra_trace_btds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.btds.dfi.v2.1.originaltradeidentifier", ftypes.UINT32, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
 omi_finra_trace_btds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.trace.btds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.btds.dfi.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "The bond price inclusive of any commission, mark-ups, and/or mark-downs reported by the sell-side firm")
 omi_finra_trace_btds_dfi_v2_1.fields.quantity = ProtoField.new("Quantity", "finra.trace.btds.dfi.v2.1.quantity", ftypes.STRING, nil, nil, nil, "The par value volume of the transaction")
@@ -88,7 +88,7 @@ omi_finra_trace_btds_dfi_v2_1.fields.report_function = ProtoField.new("Report Fu
 omi_finra_trace_btds_dfi_v2_1.fields.reporting_party_type = ProtoField.new("Reporting Party Type", "finra.trace.btds.dfi.v2.1.reportingpartytype", ftypes.STRING, nil, nil, nil, "Identifies the type of entity that reported the trade")
 omi_finra_trace_btds_dfi_v2_1.fields.sale_condition_3 = ProtoField.new("Sale Condition 3", "finra.trace.btds.dfi.v2.1.salecondition3", ftypes.STRING, nil, nil, nil, "Indicates if there are any special conditions or modifiers applicable to the trade transaction")
 omi_finra_trace_btds_dfi_v2_1.fields.sale_condition_4 = ProtoField.new("Sale Condition 4", "finra.trace.btds.dfi.v2.1.salecondition4", ftypes.STRING, nil, nil, nil, "Describes a second sale condition that is applicable to the trade")
-omi_finra_trace_btds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.trace.btds.dfi.v2.1.second", ftypes.STRING, nil, nil, nil, "The second of the minute the transaction occurred")
+omi_finra_trace_btds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.trace.btds.dfi.v2.1.second", ftypes.UINT8, nil, nil, nil, "The second of the minute the transaction occurred")
 omi_finra_trace_btds_dfi_v2_1.fields.sequence = ProtoField.new("Sequence", "finra.trace.btds.dfi.v2.1.sequence", ftypes.UINT64, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_finra_trace_btds_dfi_v2_1.fields.session = ProtoField.new("Session", "finra.trace.btds.dfi.v2.1.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_finra_trace_btds_dfi_v2_1.fields.settlement_date = ProtoField.new("Settlement Date", "finra.trace.btds.dfi.v2.1.settlementdate", ftypes.STRING)
@@ -97,41 +97,41 @@ omi_finra_trace_btds_dfi_v2_1.fields.special_price_indicator = ProtoField.new("S
 omi_finra_trace_btds_dfi_v2_1.fields.sub_product_type = ProtoField.new("Sub Product Type", "finra.trace.btds.dfi.v2.1.subproducttype", ftypes.STRING, nil, nil, nil, "Identifies the type of debt security traded")
 omi_finra_trace_btds_dfi_v2_1.fields.symbol = ProtoField.new("Symbol", "finra.trace.btds.dfi.v2.1.symbol", ftypes.STRING, nil, nil, nil, "The bond issue symbol as assigned by Finra for Trace trade reporting purposes")
 omi_finra_trace_btds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.trace.btds.dfi.v2.1.text", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy = ProtoField.new("Total Number Of Transactions Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatebuy", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell = ProtoField.new("Total Number Of Transactions Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatesell", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_all_securities = ProtoField.new("Total Number Of Transactions All Securities", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsallsecurities", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_buy = ProtoField.new("Total Number Of Transactions Customer Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomerbuy", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_sell = ProtoField.new("Total Number Of Transactions Customer Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomersell", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer = ProtoField.new("Total Number Of Transactions Inter Dealer", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsinterdealer", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_buy = ProtoField.new("Total Securities Traded Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatebuy", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_sell = ProtoField.new("Total Securities Traded Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatesell", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_all_securities = ProtoField.new("Total Securities Traded All Securities", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_convertibles = ProtoField.new("Total Securities Traded Convertibles", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedconvertibles", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_buy = ProtoField.new("Total Securities Traded Customer Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomerbuy", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_sell = ProtoField.new("Total Securities Traded Customer Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomersell", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_high_yield = ProtoField.new("Total Securities Traded High Yield", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedhighyield", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_inter_dealer = ProtoField.new("Total Securities Traded Inter Dealer", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinterdealer", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_investment_grade = ProtoField.new("Total Securities Traded Investment Grade", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinvestmentgrade", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_buy = ProtoField.new("Total Volume Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalvolumeaffiliatebuy", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_sell = ProtoField.new("Total Volume Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalvolumeaffiliatesell", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_all_securities = ProtoField.new("Total Volume All Securities", "finra.trace.btds.dfi.v2.1.totalvolumeallsecurities", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_convertibles = ProtoField.new("Total Volume Convertibles", "finra.trace.btds.dfi.v2.1.totalvolumeconvertibles", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_buy = ProtoField.new("Total Volume Customer Buy", "finra.trace.btds.dfi.v2.1.totalvolumecustomerbuy", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_sell = ProtoField.new("Total Volume Customer Sell", "finra.trace.btds.dfi.v2.1.totalvolumecustomersell", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_high_yield = ProtoField.new("Total Volume High Yield", "finra.trace.btds.dfi.v2.1.totalvolumehighyield", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_inter_dealer = ProtoField.new("Total Volume Inter Dealer", "finra.trace.btds.dfi.v2.1.totalvolumeinterdealer", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.total_volume_investment_grade = ProtoField.new("Total Volume Investment Grade", "finra.trace.btds.dfi.v2.1.totalvolumeinvestmentgrade", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_btds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.btds.dfi.v2.1.tradeidentifier", ftypes.STRING, nil, nil, nil, "An identifier for tracking trades")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy = ProtoField.new("Total Number Of Transactions Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatebuy", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell = ProtoField.new("Total Number Of Transactions Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsaffiliatesell", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_all_securities = ProtoField.new("Total Number Of Transactions All Securities", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_buy = ProtoField.new("Total Number Of Transactions Customer Buy", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomerbuy", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_sell = ProtoField.new("Total Number Of Transactions Customer Sell", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionscustomersell", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer = ProtoField.new("Total Number Of Transactions Inter Dealer", "finra.trace.btds.dfi.v2.1.totalnumberoftransactionsinterdealer", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_buy = ProtoField.new("Total Securities Traded Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatebuy", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_sell = ProtoField.new("Total Securities Traded Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedaffiliatesell", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_all_securities = ProtoField.new("Total Securities Traded All Securities", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_convertibles = ProtoField.new("Total Securities Traded Convertibles", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_buy = ProtoField.new("Total Securities Traded Customer Buy", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomerbuy", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_sell = ProtoField.new("Total Securities Traded Customer Sell", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedcustomersell", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_high_yield = ProtoField.new("Total Securities Traded High Yield", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_inter_dealer = ProtoField.new("Total Securities Traded Inter Dealer", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinterdealer", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_investment_grade = ProtoField.new("Total Securities Traded Investment Grade", "finra.trace.btds.dfi.v2.1.totalsecuritiestradedinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_buy = ProtoField.new("Total Volume Affiliate Buy", "finra.trace.btds.dfi.v2.1.totalvolumeaffiliatebuy", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_sell = ProtoField.new("Total Volume Affiliate Sell", "finra.trace.btds.dfi.v2.1.totalvolumeaffiliatesell", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_all_securities = ProtoField.new("Total Volume All Securities", "finra.trace.btds.dfi.v2.1.totalvolumeallsecurities", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_convertibles = ProtoField.new("Total Volume Convertibles", "finra.trace.btds.dfi.v2.1.totalvolumeconvertibles", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_buy = ProtoField.new("Total Volume Customer Buy", "finra.trace.btds.dfi.v2.1.totalvolumecustomerbuy", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_sell = ProtoField.new("Total Volume Customer Sell", "finra.trace.btds.dfi.v2.1.totalvolumecustomersell", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_high_yield = ProtoField.new("Total Volume High Yield", "finra.trace.btds.dfi.v2.1.totalvolumehighyield", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_inter_dealer = ProtoField.new("Total Volume Inter Dealer", "finra.trace.btds.dfi.v2.1.totalvolumeinterdealer", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.total_volume_investment_grade = ProtoField.new("Total Volume Investment Grade", "finra.trace.btds.dfi.v2.1.totalvolumeinvestmentgrade", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_btds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.btds.dfi.v2.1.tradeidentifier", ftypes.UINT32, nil, nil, nil, "An identifier for tracking trades")
 omi_finra_trace_btds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.trace.btds.dfi.v2.1.tradeinformation", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.trade_message = ProtoField.new("Trade Message", "finra.trace.btds.dfi.v2.1.trademessage", ftypes.STRING, nil, nil, nil, "Trade Messages Header")
 omi_finra_trace_btds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.trace.btds.dfi.v2.1.trademessagetype", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.trace.btds.dfi.v2.1.tradesummaryinformation", ftypes.STRING)
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_all_securities = ProtoField.new("Unchanged All Securities", "finra.trace.btds.dfi.v2.1.unchangedallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_convertibles = ProtoField.new("Unchanged Convertibles", "finra.trace.btds.dfi.v2.1.unchangedconvertibles", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_high_yield = ProtoField.new("Unchanged High Yield", "finra.trace.btds.dfi.v2.1.unchangedhighyield", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_btds_dfi_v2_1.fields.unchanged_investment_grade = ProtoField.new("Unchanged Investment Grade", "finra.trace.btds.dfi.v2.1.unchangedinvestmentgrade", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_all_securities = ProtoField.new("Unchanged All Securities", "finra.trace.btds.dfi.v2.1.unchangedallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_convertibles = ProtoField.new("Unchanged Convertibles", "finra.trace.btds.dfi.v2.1.unchangedconvertibles", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_high_yield = ProtoField.new("Unchanged High Yield", "finra.trace.btds.dfi.v2.1.unchangedhighyield", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_btds_dfi_v2_1.fields.unchanged_investment_grade = ProtoField.new("Unchanged Investment Grade", "finra.trace.btds.dfi.v2.1.unchangedinvestmentgrade", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
 omi_finra_trace_btds_dfi_v2_1.fields.when_issued_indicator = ProtoField.new("When Issued Indicator", "finra.trace.btds.dfi.v2.1.whenissuedindicator", ftypes.STRING, nil, nil, nil, "Indicates if the issue is trading on a when issued basis")
-omi_finra_trace_btds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.btds.dfi.v2.1.year", ftypes.STRING, nil, nil, nil, "The year the transaction occurred")
+omi_finra_trace_btds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.btds.dfi.v2.1.year", ftypes.UINT16, nil, nil, nil, "The year the transaction occurred")
 omi_finra_trace_btds_dfi_v2_1.fields.yield = ProtoField.new("Yield", "finra.trace.btds.dfi.v2.1.yield", ftypes.DOUBLE, nil, nil, nil, "Indicates the effective rate of return earned on a security")
 omi_finra_trace_btds_dfi_v2_1.fields.yield_direction = ProtoField.new("Yield Direction", "finra.trace.btds.dfi.v2.1.yielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the subsequent Yield field")
 
@@ -164,6 +164,11 @@ omi_finra_trace_btds_dfi_v2_1.fields.trading_halt_message = ProtoField.new("Trad
 
 -- Finra Trace Btds Dfi 2.1 Generated Fields
 omi_finra_trace_btds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.trace.btds.dfi.v2.1.messageindex", ftypes.UINT16)
+
+-- Finra Trace Btds Dfi 2.1 Expert Info
+finra_trace_btds_dfi_v2_1.experts = {}
+finra_trace_btds_dfi_v2_1.experts.not_a_number = ProtoExpert.new("finra.trace.btds.dfi.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_finra_trace_btds_dfi_v2_1.experts = { finra_trace_btds_dfi_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -371,7 +376,10 @@ finra_trace_btds_dfi_v2_1.advances_all_securities.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.advances_all_securities, range, value, "Advances All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Advances All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.advances_all_securities.display(value, buffer, offset, packet, parent)
@@ -399,7 +407,10 @@ finra_trace_btds_dfi_v2_1.advances_convertibles.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.advances_convertibles, range, value, "Advances Convertibles: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Advances Convertibles is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.advances_convertibles.display(value, buffer, offset, packet, parent)
@@ -427,7 +438,10 @@ finra_trace_btds_dfi_v2_1.advances_high_yield.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.advances_high_yield, range, value, "Advances High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Advances High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.advances_high_yield.display(value, buffer, offset, packet, parent)
@@ -455,7 +469,10 @@ finra_trace_btds_dfi_v2_1.advances_investment_grade.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.advances_investment_grade, range, value, "Advances Investment Grade: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Advances Investment Grade is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.advances_investment_grade.display(value, buffer, offset, packet, parent)
@@ -594,7 +611,10 @@ finra_trace_btds_dfi_v2_1.change_indicator.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.change_indicator, range, value, "Change Indicator: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Change Indicator is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.change_indicator.display(value, buffer, offset, packet, parent)
@@ -791,6 +811,9 @@ finra_trace_btds_dfi_v2_1.daily_close_price.dissect = function(buffer, offset, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.daily_close_price, range, value, "Daily Close Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Daily Close Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.daily_close_price.display(value, buffer, offset, packet, parent)
@@ -833,6 +856,9 @@ finra_trace_btds_dfi_v2_1.daily_close_yield.dissect = function(buffer, offset, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.daily_close_yield, range, value, "Daily Close Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Daily Close Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.daily_close_yield.display(value, buffer, offset, packet, parent)
@@ -875,6 +901,9 @@ finra_trace_btds_dfi_v2_1.daily_high_price.dissect = function(buffer, offset, pa
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.daily_high_price, range, value, "Daily High Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Daily High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -917,6 +946,9 @@ finra_trace_btds_dfi_v2_1.daily_high_yield.dissect = function(buffer, offset, pa
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.daily_high_yield, range, value, "Daily High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Daily High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.daily_high_yield.display(value, buffer, offset, packet, parent)
@@ -959,6 +991,9 @@ finra_trace_btds_dfi_v2_1.daily_low_price.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.daily_low_price, range, value, "Daily Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Daily Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -1001,6 +1036,9 @@ finra_trace_btds_dfi_v2_1.daily_low_yield.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.daily_low_yield, range, value, "Daily Low Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Daily Low Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.daily_low_yield.display(value, buffer, offset, packet, parent)
@@ -1028,7 +1066,10 @@ finra_trace_btds_dfi_v2_1.day.dissect = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.day, range, value, "Day: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.day.display(value, buffer, offset, packet, parent)
@@ -1056,7 +1097,10 @@ finra_trace_btds_dfi_v2_1.declines_all_securities.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.declines_all_securities, range, value, "Declines All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Declines All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.declines_all_securities.display(value, buffer, offset, packet, parent)
@@ -1084,7 +1128,10 @@ finra_trace_btds_dfi_v2_1.declines_convertibles.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.declines_convertibles, range, value, "Declines Convertibles: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Declines Convertibles is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.declines_convertibles.display(value, buffer, offset, packet, parent)
@@ -1112,7 +1159,10 @@ finra_trace_btds_dfi_v2_1.declines_high_yield.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.declines_high_yield, range, value, "Declines High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Declines High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.declines_high_yield.display(value, buffer, offset, packet, parent)
@@ -1140,7 +1190,10 @@ finra_trace_btds_dfi_v2_1.declines_investment_grade.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.declines_investment_grade, range, value, "Declines Investment Grade: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Declines Investment Grade is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.declines_investment_grade.display(value, buffer, offset, packet, parent)
@@ -1168,7 +1221,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_high_all_securities.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_all_securities, range, value, "Fifty Two Week High All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_high_all_securities.display(value, buffer, offset, packet, parent)
@@ -1196,7 +1252,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_high_convertibles.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_convertibles, range, value, "Fifty Two Week High Convertibles: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High Convertibles is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_high_convertibles.display(value, buffer, offset, packet, parent)
@@ -1224,7 +1283,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_high_high_yield.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_high_yield, range, value, "Fifty Two Week High High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_high_high_yield.display(value, buffer, offset, packet, parent)
@@ -1252,7 +1314,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_high_investment_grade.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_high_investment_grade, range, value, "Fifty Two Week High Investment Grade: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High Investment Grade is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_high_investment_grade.display(value, buffer, offset, packet, parent)
@@ -1280,7 +1345,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_low_all_securities.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_all_securities, range, value, "Fifty Two Week Low All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_low_all_securities.display(value, buffer, offset, packet, parent)
@@ -1308,7 +1376,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_low_convertibles.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_convertibles, range, value, "Fifty Two Week Low Convertibles: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low Convertibles is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_low_convertibles.display(value, buffer, offset, packet, parent)
@@ -1336,7 +1407,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_low_high_yield.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_high_yield, range, value, "Fifty Two Week Low High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_low_high_yield.display(value, buffer, offset, packet, parent)
@@ -1364,7 +1438,10 @@ finra_trace_btds_dfi_v2_1.fifty_two_week_low_investment_grade.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.fifty_two_week_low_investment_grade, range, value, "Fifty Two Week Low Investment Grade: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low Investment Grade is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.fifty_two_week_low_investment_grade.display(value, buffer, offset, packet, parent)
@@ -1472,6 +1549,9 @@ finra_trace_btds_dfi_v2_1.high_price.dissect = function(buffer, offset, packet, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.high_price, range, value, "High Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.high_price.display(value, buffer, offset, packet, parent)
@@ -1514,6 +1594,9 @@ finra_trace_btds_dfi_v2_1.high_yield.dissect = function(buffer, offset, packet, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.high_yield, range, value, "High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.high_yield.display(value, buffer, offset, packet, parent)
@@ -1571,7 +1654,10 @@ finra_trace_btds_dfi_v2_1.hour.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.hour, range, value, "Hour: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Hour is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.hour.display(value, buffer, offset, packet, parent)
@@ -1637,6 +1723,9 @@ finra_trace_btds_dfi_v2_1.last_sale_price.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.last_sale_price, range, value, "Last Sale Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Last Sale Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -1679,6 +1768,9 @@ finra_trace_btds_dfi_v2_1.last_sale_yield.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.last_sale_yield, range, value, "Last Sale Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Last Sale Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.last_sale_yield.display(value, buffer, offset, packet, parent)
@@ -1774,6 +1866,9 @@ finra_trace_btds_dfi_v2_1.low_price.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.low_price, range, value, "Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.low_price.display(value, buffer, offset, packet, parent)
@@ -1816,6 +1911,9 @@ finra_trace_btds_dfi_v2_1.low_yield.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.low_yield, range, value, "Low Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Low Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.low_yield.display(value, buffer, offset, packet, parent)
@@ -1933,7 +2031,10 @@ finra_trace_btds_dfi_v2_1.minute.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.minute, range, value, "Minute: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Minute is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.minute.display(value, buffer, offset, packet, parent)
@@ -1961,7 +2062,10 @@ finra_trace_btds_dfi_v2_1.month.dissect = function(buffer, offset, packet, paren
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.month, range, value, "Month: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Month is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.month.display(value, buffer, offset, packet, parent)
@@ -1989,7 +2093,10 @@ finra_trace_btds_dfi_v2_1.original_trade_identifier.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.original_trade_identifier, range, value, "Original Trade Identifier: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Original Trade Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.original_trade_identifier.display(value, buffer, offset, packet, parent)
@@ -2032,6 +2139,9 @@ finra_trace_btds_dfi_v2_1.price.dissect = function(buffer, offset, packet, paren
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.price.display(value, buffer, offset, packet, parent)
@@ -2280,7 +2390,10 @@ finra_trace_btds_dfi_v2_1.second.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.second, range, value, "Second: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Second is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.second.display(value, buffer, offset, packet, parent)
@@ -2489,7 +2602,10 @@ finra_trace_btds_dfi_v2_1.total_number_of_transactions_affiliate_buy.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy, range, value, "Total Number Of Transactions Affiliate Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Affiliate Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_number_of_transactions_affiliate_buy.display(value, buffer, offset, packet, parent)
@@ -2517,7 +2633,10 @@ finra_trace_btds_dfi_v2_1.total_number_of_transactions_affiliate_sell.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell, range, value, "Total Number Of Transactions Affiliate Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Affiliate Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_number_of_transactions_affiliate_sell.display(value, buffer, offset, packet, parent)
@@ -2545,7 +2664,10 @@ finra_trace_btds_dfi_v2_1.total_number_of_transactions_all_securities.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_all_securities, range, value, "Total Number Of Transactions All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_number_of_transactions_all_securities.display(value, buffer, offset, packet, parent)
@@ -2573,7 +2695,10 @@ finra_trace_btds_dfi_v2_1.total_number_of_transactions_customer_buy.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_buy, range, value, "Total Number Of Transactions Customer Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Customer Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_number_of_transactions_customer_buy.display(value, buffer, offset, packet, parent)
@@ -2601,7 +2726,10 @@ finra_trace_btds_dfi_v2_1.total_number_of_transactions_customer_sell.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_customer_sell, range, value, "Total Number Of Transactions Customer Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Customer Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_number_of_transactions_customer_sell.display(value, buffer, offset, packet, parent)
@@ -2629,7 +2757,10 @@ finra_trace_btds_dfi_v2_1.total_number_of_transactions_inter_dealer.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer, range, value, "Total Number Of Transactions Inter Dealer: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Inter Dealer is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_number_of_transactions_inter_dealer.display(value, buffer, offset, packet, parent)
@@ -2657,7 +2788,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_affiliate_buy.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_buy, range, value, "Total Securities Traded Affiliate Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Affiliate Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_affiliate_buy.display(value, buffer, offset, packet, parent)
@@ -2685,7 +2819,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_affiliate_sell.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_affiliate_sell, range, value, "Total Securities Traded Affiliate Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Affiliate Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_affiliate_sell.display(value, buffer, offset, packet, parent)
@@ -2713,7 +2850,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_all_securities.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_all_securities, range, value, "Total Securities Traded All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_all_securities.display(value, buffer, offset, packet, parent)
@@ -2741,7 +2881,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_convertibles.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_convertibles, range, value, "Total Securities Traded Convertibles: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Convertibles is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_convertibles.display(value, buffer, offset, packet, parent)
@@ -2769,7 +2912,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_customer_buy.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_buy, range, value, "Total Securities Traded Customer Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Customer Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_customer_buy.display(value, buffer, offset, packet, parent)
@@ -2797,7 +2943,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_customer_sell.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_customer_sell, range, value, "Total Securities Traded Customer Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Customer Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_customer_sell.display(value, buffer, offset, packet, parent)
@@ -2825,7 +2974,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_high_yield.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_high_yield, range, value, "Total Securities Traded High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_high_yield.display(value, buffer, offset, packet, parent)
@@ -2853,7 +3005,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_inter_dealer.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_inter_dealer, range, value, "Total Securities Traded Inter Dealer: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Inter Dealer is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_inter_dealer.display(value, buffer, offset, packet, parent)
@@ -2881,7 +3036,10 @@ finra_trace_btds_dfi_v2_1.total_securities_traded_investment_grade.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_securities_traded_investment_grade, range, value, "Total Securities Traded Investment Grade: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Investment Grade is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_securities_traded_investment_grade.display(value, buffer, offset, packet, parent)
@@ -2909,7 +3067,10 @@ finra_trace_btds_dfi_v2_1.total_volume_affiliate_buy.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_buy, range, value, "Total Volume Affiliate Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_affiliate_buy.display(value, buffer, offset, packet, parent)
@@ -2937,7 +3098,10 @@ finra_trace_btds_dfi_v2_1.total_volume_affiliate_sell.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_affiliate_sell, range, value, "Total Volume Affiliate Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_affiliate_sell.display(value, buffer, offset, packet, parent)
@@ -2965,7 +3129,10 @@ finra_trace_btds_dfi_v2_1.total_volume_all_securities.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_all_securities, range, value, "Total Volume All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_all_securities.display(value, buffer, offset, packet, parent)
@@ -2993,7 +3160,10 @@ finra_trace_btds_dfi_v2_1.total_volume_convertibles.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_convertibles, range, value, "Total Volume Convertibles: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Convertibles is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_convertibles.display(value, buffer, offset, packet, parent)
@@ -3021,7 +3191,10 @@ finra_trace_btds_dfi_v2_1.total_volume_customer_buy.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_buy, range, value, "Total Volume Customer Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Customer Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_customer_buy.display(value, buffer, offset, packet, parent)
@@ -3049,7 +3222,10 @@ finra_trace_btds_dfi_v2_1.total_volume_customer_sell.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_customer_sell, range, value, "Total Volume Customer Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Customer Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_customer_sell.display(value, buffer, offset, packet, parent)
@@ -3077,7 +3253,10 @@ finra_trace_btds_dfi_v2_1.total_volume_high_yield.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_high_yield, range, value, "Total Volume High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_high_yield.display(value, buffer, offset, packet, parent)
@@ -3105,7 +3284,10 @@ finra_trace_btds_dfi_v2_1.total_volume_inter_dealer.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_inter_dealer, range, value, "Total Volume Inter Dealer: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Inter Dealer is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_inter_dealer.display(value, buffer, offset, packet, parent)
@@ -3133,7 +3315,10 @@ finra_trace_btds_dfi_v2_1.total_volume_investment_grade.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.total_volume_investment_grade, range, value, "Total Volume Investment Grade: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Total Volume Investment Grade is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.total_volume_investment_grade.display(value, buffer, offset, packet, parent)
@@ -3161,7 +3346,10 @@ finra_trace_btds_dfi_v2_1.trade_identifier.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.trade_identifier, range, value, "Trade Identifier: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Trade Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.trade_identifier.display(value, buffer, offset, packet, parent)
@@ -3222,7 +3410,10 @@ finra_trace_btds_dfi_v2_1.unchanged_all_securities.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.unchanged_all_securities, range, value, "Unchanged All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Unchanged All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.unchanged_all_securities.display(value, buffer, offset, packet, parent)
@@ -3250,7 +3441,10 @@ finra_trace_btds_dfi_v2_1.unchanged_convertibles.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.unchanged_convertibles, range, value, "Unchanged Convertibles: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Unchanged Convertibles is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.unchanged_convertibles.display(value, buffer, offset, packet, parent)
@@ -3278,7 +3472,10 @@ finra_trace_btds_dfi_v2_1.unchanged_high_yield.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.unchanged_high_yield, range, value, "Unchanged High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Unchanged High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.unchanged_high_yield.display(value, buffer, offset, packet, parent)
@@ -3306,7 +3503,10 @@ finra_trace_btds_dfi_v2_1.unchanged_investment_grade.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.unchanged_investment_grade, range, value, "Unchanged Investment Grade: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Unchanged Investment Grade is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.unchanged_investment_grade.display(value, buffer, offset, packet, parent)
@@ -3364,7 +3564,10 @@ finra_trace_btds_dfi_v2_1.year.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.year, range, value, "Year: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.year.display(value, buffer, offset, packet, parent)
@@ -3407,6 +3610,9 @@ finra_trace_btds_dfi_v2_1.yield.dissect = function(buffer, offset, packet, paren
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_btds_dfi_v2_1.fields.yield, range, value, "Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_btds_dfi_v2_1.experts.not_a_number, "Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_btds_dfi_v2_1.yield.display(value, buffer, offset, packet, parent)

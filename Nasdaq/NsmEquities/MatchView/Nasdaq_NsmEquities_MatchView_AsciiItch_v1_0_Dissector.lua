@@ -24,7 +24,7 @@ omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.message_type = ProtoField
 omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.matchview.asciiitch.v1.0.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.matchview.asciiitch.v1.0.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.matchview.asciiitch.v1.0.symbol", ftypes.STRING, nil, nil, nil, "The Stock Symbol")
-omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.matchview.asciiitch.v1.0.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
+omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.matchview.asciiitch.v1.0.timestamp", ftypes.UINT32, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 
 -- Nasdaq NsmEquities MatchView AsciiItch 1.0 Framing
 omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.matchview.asciiitch.v1.0.message", ftypes.STRING)
@@ -46,7 +46,8 @@ omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.message_sequence_number =
 -- Nasdaq NsmEquities MatchView AsciiItch 1.0 Expert Info
 nasdaq_nsmequities_matchview_asciiitch_v1_0.experts = {}
 nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.nsmequities.matchview.asciiitch.v1.0.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
-omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.experts = { nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.message_after_end_of_session }
+nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.matchview.asciiitch.v1.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.experts = { nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.message_after_end_of_session, nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities MatchView AsciiItch 1.0 Formatting
@@ -225,6 +226,9 @@ nasdaq_nsmequities_matchview_asciiitch_v1_0.ask_price.dissect = function(buffer,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -260,6 +264,9 @@ nasdaq_nsmequities_matchview_asciiitch_v1_0.bid_price.dissect = function(buffer,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -454,7 +461,10 @@ nasdaq_nsmequities_matchview_asciiitch_v1_0.timestamp.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_matchview_asciiitch_v1_0.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_matchview_asciiitch_v1_0.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_matchview_asciiitch_v1_0.timestamp.display(value, buffer, offset, packet, parent)

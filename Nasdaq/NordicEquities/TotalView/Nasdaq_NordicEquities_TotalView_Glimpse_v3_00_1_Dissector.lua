@@ -15,7 +15,7 @@ local nasdaq_nordicequities_totalview_glimpse_v3_00_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Fields
-omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.aod_mic = ProtoField.new("Aod Mic", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.aodmic", ftypes.STRING, nil, nil, nil, "Venue Mic if an auction on demand order book applies")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.attribution = ProtoField.new("Attribution", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.attribution", ftypes.STRING, nil, nil, nil, "Market participant identifier of the order")
@@ -66,7 +66,7 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.price_notation = Prot
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.quantity = ProtoField.new("Quantity", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.quantity", ftypes.UINT32, nil, nil, nil, "Total number of shares in the order")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.reason = ProtoField.new("Reason", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.reason", ftypes.STRING, nil, nil, nil, "Halt reason code")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.reserved_18 = ProtoField.new("Reserved 18", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.reserved18", ftypes.UINT8, nil, base.DEC, 0xFF)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.reserved_23 = ProtoField.new("Reserved 23", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.reserved23", ftypes.UINT8, nil, base.DEC, 0x06)
@@ -75,7 +75,7 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.reserved_58 = ProtoFi
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.rl_removal_from_listing_in_process = ProtoField.new("Rl Removal From Listing In Process", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.rlremovalfromlistinginprocess", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.roundlotsize", ftypes.UINT32, nil, nil, nil, "Number of shares representing a round lot")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.rs_reversed_split = ProtoField.new("Rs Reversed Split", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.rsreversedsplit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequencenumber", ftypes.STRING, nil, nil, nil, "TotalView Itch sequence number when the snapshot was taken")
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequencenumber", ftypes.UINT64, nil, nil, nil, "TotalView Itch sequence number when the snapshot was taken")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sk_soft_knock = ProtoField.new("Sk Soft Knock", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sksoftknock", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
@@ -132,6 +132,11 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.unsequenced_data_pack
 
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Generated Fields
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Expert Info
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.experts = {}
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.experts.not_a_number = ProtoExpert.new("nasdaq.nordicequities.totalview.glimpse.v3.00.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.experts = { nasdaq_nordicequities_totalview_glimpse_v3_00_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Formatting
@@ -296,7 +301,10 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicequities_totalview_glimpse_v3_00_1.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1046,7 +1054,10 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.requested_sequence_number.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicequities_totalview_glimpse_v3_00_1.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1120,7 +1131,10 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicequities_totalview_glimpse_v3_00_1.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.display(value, buffer, offset, packet, parent)

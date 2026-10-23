@@ -25,16 +25,16 @@ omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_data = ProtoFiel
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestbidprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the PSX best bid price, the highest price for market buy order(s) in the PSX system. Price format is $$$$$$dddd.")
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestbidsize", ftypes.STRING, nil, nil, nil, "Denotes the aggregated number of shares available for display within the PSX market center system at the PSX best bid Price.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestbidsize", ftypes.UINT32, nil, nil, nil, "Denotes the aggregated number of shares available for display within the PSX market center system at the PSX best bid Price.")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestofferprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the PSX exchange's best offer price, the lowest price for market sell order(s) in the PSX system. Price format is $$$$$$dddd.")
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestoffersize", ftypes.STRING, nil, nil, nil, "Denotes the aggregated number of shares available for display within the PSX market center system at the PSX Best Offer Price.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestoffersize", ftypes.UINT32, nil, nil, nil, "Denotes the aggregated number of shares available for display within the PSX market center system at the PSX Best Offer Price.")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.reason", ftypes.STRING, nil, nil, nil, "Reflects the Market Ops or MarketWatch code for the trading state change.")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.security_class = ProtoField.new("Security Class", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.securityclass", ftypes.STRING, nil, nil, nil, "Indicates the primary listing market for the issue.")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.session = ProtoField.new("Session", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.timestamp", ftypes.UINT32, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 
 -- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Framing
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message = ProtoField.new("Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.message", ftypes.STRING)
@@ -60,7 +60,8 @@ omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_sequence_number 
 -- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Expert Info
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts = {}
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts = { nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.message_after_end_of_session }
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.not_a_number = ProtoExpert.new("nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts = { nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.message_after_end_of_session, nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Formatting
@@ -530,6 +531,9 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.psx_best_bid_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_price, range, value, "Psx Best Bid Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.not_a_number, "Psx Best Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -558,7 +562,10 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.psx_best_bid_size.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_size, range, value, "Psx Best Bid Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.not_a_number, "Psx Best Bid Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.psx_best_bid_size.display(value, buffer, offset, packet, parent)
@@ -593,6 +600,9 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.psx_best_offer_price.dissect = func
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_price, range, value, "Psx Best Offer Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.not_a_number, "Psx Best Offer Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -621,7 +631,10 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.psx_best_offer_size.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_size, range, value, "Psx Best Offer Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.not_a_number, "Psx Best Offer Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.psx_best_offer_size.display(value, buffer, offset, packet, parent)
@@ -940,7 +953,10 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.timestamp.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.timestamp.display(value, buffer, offset, packet, parent)

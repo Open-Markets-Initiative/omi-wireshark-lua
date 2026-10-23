@@ -15,7 +15,7 @@ local nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NordicDerivatives DepthOfBook Glimpse 2.22.4 Fields
-omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.block_lot_size = ProtoField.new("Block Lot Size", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.blocklotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of securities that represents an odd lot for the order book (the document repeats the Odd Lot Size wording for this block lot field). NOTE: A value of 0 indicates that this lot type is undefined for the order book")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the client")
@@ -60,7 +60,7 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.price_stabilizat
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.price_to = ProtoField.new("Price To", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.priceto", ftypes.INT32, nil, nil, nil, "End of price range for this entry. Zero (0) means infinity")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.quantity = ProtoField.new("Quantity", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.quantity", ftypes.UINT64, nil, nil, nil, "The visible quantity of the order. NOTE: Orders with an undisclosed quantity will have this field set to 0")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.reserved_bits_14_to_16 = ProtoField.new("Reserved Bits 14 To 16", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.reservedbits14to16", ftypes.UINT16, nil, base.DEC, 0xE000, "Reserved, values 8192 and above are not stated")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.reserved_bits_7_to_10 = ProtoField.new("Reserved Bits 7 To 10", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.reservedbits7to10", ftypes.UINT16, nil, base.DEC, 0x03C0, "Reserved, values 64 through 512 are not stated")
@@ -113,6 +113,11 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.unsequenced_data
 -- Nasdaq NordicDerivatives DepthOfBook Glimpse 2.22.4 Generated Fields
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.timestamp", ftypes.UINT64)
+
+-- Nasdaq NordicDerivatives DepthOfBook Glimpse 2.22.4 Expert Info
+nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts = {}
+nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts.not_a_number = ProtoExpert.new("nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts = { nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NordicDerivatives DepthOfBook Glimpse 2.22.4 Formatting
@@ -262,7 +267,10 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.accepted_sequence_number.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1242,7 +1250,10 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.requested_sequence_number.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.requested_sequence_number.display(value, buffer, offset, packet, parent)

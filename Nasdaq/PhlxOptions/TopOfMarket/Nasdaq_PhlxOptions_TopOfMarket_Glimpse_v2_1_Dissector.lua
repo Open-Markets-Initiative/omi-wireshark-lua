@@ -15,7 +15,7 @@ local nasdaq_phlxoptions_topofmarket_glimpse_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions TopOfMarket Glimpse 2.1 Fields
-omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.ask_cust_size_long = ProtoField.new("Ask Cust Size Long", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.askcustsizelong", ftypes.UINT32, nil, nil, nil, "Customer quantity on the ask side. Not supported on Nasdaq Texas Options (Nasdaq Texas Options is an anonymous market). Always set to \"0\"")
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.ask_cust_size_short = ProtoField.new("Ask Cust Size Short", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.askcustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer quantity on the ask side. Not supported on Nasdaq Texas Options (Nasdaq Texas Options is an anonymous market). Always set to \"0\"")
@@ -61,7 +61,7 @@ omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.procust_size_long = Proto
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.procust_size_short = ProtoField.new("ProCust Size Short", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.procustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer professional quantity on the bid or ask side. Not supported on Nasdaq Texas Options (Nasdaq Texas Options is an anonymous market). Always set to \"0\"")
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.quotecondition", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.reserved16", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.securitysymbol", ftypes.STRING, nil, nil, nil, "Denotes the option root symbol (security symbol)")
@@ -110,6 +110,11 @@ omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.unsequenced_data_packet =
 
 -- Nasdaq PhlxOptions TopOfMarket Glimpse 2.1 Generated Fields
 omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.phlxoptions.topofmarket.glimpse.v2.1.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq PhlxOptions TopOfMarket Glimpse 2.1 Expert Info
+nasdaq_phlxoptions_topofmarket_glimpse_v2_1.experts = {}
+nasdaq_phlxoptions_topofmarket_glimpse_v2_1.experts.not_a_number = ProtoExpert.new("nasdaq.phlxoptions.topofmarket.glimpse.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.experts = { nasdaq_phlxoptions_topofmarket_glimpse_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq PhlxOptions TopOfMarket Glimpse 2.1 Formatting
@@ -274,7 +279,10 @@ nasdaq_phlxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_phlxoptions_topofmarket_glimpse_v2_1.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_phlxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1488,7 +1496,10 @@ nasdaq_phlxoptions_topofmarket_glimpse_v2_1.requested_sequence_number.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_phlxoptions_topofmarket_glimpse_v2_1.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_phlxoptions_topofmarket_glimpse_v2_1.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_phlxoptions_topofmarket_glimpse_v2_1.requested_sequence_number.display(value, buffer, offset, packet, parent)

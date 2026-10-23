@@ -15,32 +15,32 @@ local nasdaq_psxequities_totalview_glimpse_v3_2 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities TotalView Glimpse 3.2 Fields
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.psxequities.totalview.glimpse.v3.2.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.psxequities.totalview.glimpse.v3.2.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.psxequities.totalview.glimpse.v3.2.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.attribution = ProtoField.new("Attribution", "nasdaq.psxequities.totalview.glimpse.v3.2.attribution", ftypes.STRING, nil, nil, nil, "PSX market participant identifier associated with the entered order.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.psxequities.totalview.glimpse.v3.2.buysellindicator", ftypes.STRING, nil, nil, nil, "The type of order being added.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.psxequities.totalview.glimpse.v3.2.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.psxequities.totalview.glimpse.v3.2.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes below.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.psxequities.totalview.glimpse.v3.2.financialstatusindicator", ftypes.STRING, nil, nil, nil, "For NASDAQ-listed issues, this field indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.itch_sequence_number = ProtoField.new("Itch Sequence Number", "nasdaq.psxequities.totalview.glimpse.v3.2.itchsequencenumber", ftypes.STRING, nil, nil, nil, "PSX TotalView-ITCH 3.2 sequence number when the PSX GLIMPSE 3.2 snapshot was taken. To keep the order book current, firms should process real-time PSX TotalView-ITCH 3.2 messages beginning with the message sequence number reflected in this snapshot message.")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.itch_sequence_number = ProtoField.new("Itch Sequence Number", "nasdaq.psxequities.totalview.glimpse.v3.2.itchsequencenumber", ftypes.UINT64, nil, nil, nil, "PSX TotalView-ITCH 3.2 sequence number when the PSX GLIMPSE 3.2 snapshot was taken. To keep the order book current, firms should process real-time PSX TotalView-ITCH 3.2 messages beginning with the message sequence number reflected in this snapshot message.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.totalview.glimpse.v3.2.marketcategory", ftypes.STRING, nil, nil, nil, "Indicates listing market center or listing market tier for the issue")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.totalview.glimpse.v3.2.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.millisecond = ProtoField.new("Millisecond", "nasdaq.psxequities.totalview.glimpse.v3.2.millisecond", ftypes.STRING, nil, nil, nil, "Number of milliseconds since last second.")
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.psxequities.totalview.glimpse.v3.2.orderreferencenumber", ftypes.STRING, nil, nil, nil, "The unique reference number assigned to the new order. The order reference number is Increasing, but not necessarily sequential.")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.millisecond = ProtoField.new("Millisecond", "nasdaq.psxequities.totalview.glimpse.v3.2.millisecond", ftypes.UINT16, nil, nil, nil, "Number of milliseconds since last second.")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.psxequities.totalview.glimpse.v3.2.orderreferencenumber", ftypes.UINT64, nil, nil, nil, "The unique reference number assigned to the new order. The order reference number is Increasing, but not necessarily sequential.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.password = ProtoField.new("Password", "nasdaq.psxequities.totalview.glimpse.v3.2.password", ftypes.STRING, nil, nil, nil, "Login password")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.price = ProtoField.new("Price", "nasdaq.psxequities.totalview.glimpse.v3.2.price", ftypes.DOUBLE, nil, nil, nil, "The display price of the new order. Refer to Data Types for field processing notes.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.totalview.glimpse.v3.2.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.totalview.glimpse.v3.2.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.psxequities.totalview.glimpse.v3.2.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.totalview.glimpse.v3.2.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.totalview.glimpse.v3.2.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.psxequities.totalview.glimpse.v3.2.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.psxequities.totalview.glimpse.v3.2.reserved1", ftypes.STRING, nil, nil, nil, "Reserved.")
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.totalview.glimpse.v3.2.roundlotsize", ftypes.STRING, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.totalview.glimpse.v3.2.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.totalview.glimpse.v3.2.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ or PSX system limits order entry for issue")
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.second = ProtoField.new("Second", "nasdaq.psxequities.totalview.glimpse.v3.2.second", ftypes.STRING, nil, nil, nil, "Number of second since midnight.")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.second = ProtoField.new("Second", "nasdaq.psxequities.totalview.glimpse.v3.2.second", ftypes.UINT32, nil, nil, nil, "Number of second since midnight.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.psxequities.totalview.glimpse.v3.2.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.psxequities.totalview.glimpse.v3.2.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.shares = ProtoField.new("Shares", "nasdaq.psxequities.totalview.glimpse.v3.2.shares", ftypes.STRING, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.shares = ProtoField.new("Shares", "nasdaq.psxequities.totalview.glimpse.v3.2.shares", ftypes.UINT32, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.psxequities.totalview.glimpse.v3.2.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.totalview.glimpse.v3.2.stock", ftypes.STRING, nil, nil, nil, "The security symbol for which the order is being added.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.text = ProtoField.new("Text", "nasdaq.psxequities.totalview.glimpse.v3.2.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
@@ -74,6 +74,11 @@ omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.login_accepted_packet = Pro
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.psxequities.totalview.glimpse.v3.2.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends this packet in response to an invalid Login Request Packet from the client.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.psxequities.totalview.glimpse.v3.2.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.psxequities.totalview.glimpse.v3.2.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
+
+-- Nasdaq PsxEquities TotalView Glimpse 3.2 Expert Info
+nasdaq_psxequities_totalview_glimpse_v3_2.experts = {}
+nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number = ProtoExpert.new("nasdaq.psxequities.totalview.glimpse.v3.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.experts = { nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities TotalView Glimpse 3.2 Formatting
@@ -228,7 +233,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.accepted_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -473,7 +481,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.itch_sequence_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.itch_sequence_number, range, value, "Itch Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Itch Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.itch_sequence_number.display(value, buffer, offset, packet, parent)
@@ -600,7 +611,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.millisecond.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.millisecond, range, value, "Millisecond: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Millisecond is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.millisecond.display(value, buffer, offset, packet, parent)
@@ -628,7 +642,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.order_reference_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.order_reference_number, range, value, "Order Reference Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Order Reference Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.order_reference_number.display(value, buffer, offset, packet, parent)
@@ -686,6 +703,9 @@ nasdaq_psxequities_totalview_glimpse_v3_2.price.dissect = function(buffer, offse
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -793,7 +813,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.requested_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -867,7 +890,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.round_lot_size.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.round_lot_size, range, value, "Round Lot Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Round Lot Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.round_lot_size.display(value, buffer, offset, packet, parent)
@@ -925,7 +951,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.second.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.second, range, value, "Second: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Second is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.second.display(value, buffer, offset, packet, parent)
@@ -992,7 +1021,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.shares.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.shares.display(value, buffer, offset, packet, parent)

@@ -299,9 +299,7 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.control_message_to_trader_message = Pro
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.error_response_message = ProtoField.new("Error Response Message", "nse.nsecm.orderentry.nnf.v6.6.errorresponsemessage", ftypes.STRING, nil, nil, nil, "Sent as ERROR_RESPONSE_OUT")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.gateway_router_request_message = ProtoField.new("Gateway Router Request Message", "nse.nsecm.orderentry.nnf.v6.6.gatewayrouterrequestmessage", ftypes.STRING, nil, nil, nil, "Sent as GR_REQUEST")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.gateway_router_response_message = ProtoField.new("Gateway Router Response Message", "nse.nsecm.orderentry.nnf.v6.6.gatewayrouterresponsemessage", ftypes.STRING, nil, nil, nil, "Sent as GR_RESPONSE")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.header_record_message = ProtoField.new("Header Record Message", "nse.nsecm.orderentry.nnf.v6.6.headerrecordmessage", ftypes.BYTES)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.message_download_request_message = ProtoField.new("Message Download Request Message", "nse.nsecm.orderentry.nnf.v6.6.messagedownloadrequestmessage", ftypes.STRING, nil, nil, nil, "Sent as DOWNLOAD_REQUEST")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.message_record_message = ProtoField.new("Message Record Message", "nse.nsecm.orderentry.nnf.v6.6.messagerecordmessage", ftypes.BYTES)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.order_entry_in_message = ProtoField.new("Order Entry In Message", "nse.nsecm.orderentry.nnf.v6.6.orderentryinmessage", ftypes.STRING, nil, nil, nil, "Sent as BOARD_LOT_IN, ORDER_MOD_IN, KILL_SWITCH_IN, ORDER_CANCEL_IN")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.order_entry_out_message = ProtoField.new("Order Entry Out Message", "nse.nsecm.orderentry.nnf.v6.6.orderentryoutmessage", ftypes.STRING, nil, nil, nil, "Sent as PRICE_CONFIRMATION, ORDER_MOD_REJECT, QUICK_CANCEL_OUT, ORDER_CANCEL_REJECT, and others")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.order_entry_short_message = ProtoField.new("Order Entry Short Message", "nse.nsecm.orderentry.nnf.v6.6.orderentryshortmessage", ftypes.STRING, nil, nil, nil, "Sent as BOARD_LOT_OUT, ORDER_CANCEL_OUT")
@@ -310,21 +308,17 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.order_limit_update_out_message = ProtoF
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.password_reset_in_message = ProtoField.new("Password Reset In Message", "nse.nsecm.orderentry.nnf.v6.6.passwordresetinmessage", ftypes.STRING, nil, nil, nil, "Sent as RESET_PASSWORD_IN")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.password_reset_out_message = ProtoField.new("Password Reset Out Message", "nse.nsecm.orderentry.nnf.v6.6.passwordresetoutmessage", ftypes.STRING, nil, nil, nil, "Sent as RESET_PASSWORD_OUT")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.secure_box_registration_request_message = ProtoField.new("Secure Box Registration Request Message", "nse.nsecm.orderentry.nnf.v6.6.secureboxregistrationrequestmessage", ftypes.STRING, nil, nil, nil, "Sent as SECURE_BOX_REGISTRATION_REQUE")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.secure_box_registration_response_message = ProtoField.new("Secure Box Registration Response Message", "nse.nsecm.orderentry.nnf.v6.6.secureboxregistrationresponsemessage", ftypes.BYTES)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.security_master_change_message = ProtoField.new("Security Master Change Message", "nse.nsecm.orderentry.nnf.v6.6.securitymasterchangemessage", ftypes.STRING, nil, nil, nil, "Sent as BCAST_SECURITY_MSTR_CHG")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.security_status_change_message = ProtoField.new("Security Status Change Message", "nse.nsecm.orderentry.nnf.v6.6.securitystatuschangemessage", ftypes.STRING, nil, nil, nil, "Sent as BCAST_SECURITY_STATUS_CHG, BCAST_SECURITY_STATUS_CHG_PREO")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.sign_off_confirmation_message = ProtoField.new("Sign Off Confirmation Message", "nse.nsecm.orderentry.nnf.v6.6.signoffconfirmationmessage", ftypes.BYTES)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.sign_on_request_in_message = ProtoField.new("Sign On Request In Message", "nse.nsecm.orderentry.nnf.v6.6.signonrequestinmessage", ftypes.STRING, nil, nil, nil, "Sent as SIGN_ON_REQUEST_IN, SIGN_OFF_TRADER_IN")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.sign_on_request_out_message = ProtoField.new("Sign On Request Out Message", "nse.nsecm.orderentry.nnf.v6.6.signonrequestoutmessage", ftypes.STRING, nil, nil, nil, "Sent as SIGN_OFF_TRADER_OUT")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.sign_on_response_message = ProtoField.new("Sign On Response Message", "nse.nsecm.orderentry.nnf.v6.6.signonresponsemessage", ftypes.STRING, nil, nil, nil, "Sent as SIGN_ON_REQUEST_OUT")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.system_information_message = ProtoField.new("System Information Message", "nse.nsecm.orderentry.nnf.v6.6.systeminformationmessage", ftypes.STRING, nil, nil, nil, "Sent as SYSTEM_INFORMATION_OUT, PARTIAL_SYSTEM_INFORMATION")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.system_information_request_message = ProtoField.new("System Information Request Message", "nse.nsecm.orderentry.nnf.v6.6.systeminformationrequestmessage", ftypes.BYTES)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.trade_confirmation_message = ProtoField.new("Trade Confirmation Message", "nse.nsecm.orderentry.nnf.v6.6.tradeconfirmationmessage", ftypes.STRING, nil, nil, nil, "Sent as ON_STOP_NOTIFICATION, TRADE_CONFIRMATION, TRADE_CANCEL_CONFIRM, TRADE_CANCEL_REJECT, and others")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.trade_inquiry_in_message = ProtoField.new("Trade Inquiry In Message", "nse.nsecm.orderentry.nnf.v6.6.tradeinquiryinmessage", ftypes.STRING, nil, nil, nil, "Sent as TRADE_CANCEL_IN, TRADE_MOD_IN")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.trade_inquiry_out_message = ProtoField.new("Trade Inquiry Out Message", "nse.nsecm.orderentry.nnf.v6.6.tradeinquiryoutmessage", ftypes.STRING, nil, nil, nil, "Sent as TRADE_ERROR, TRADE_CANCEL_OUT")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.trade_modification_cancellation_status_request_message = ProtoField.new("Trade Modification Cancellation Status Request Message", "nse.nsecm.orderentry.nnf.v6.6.trademodificationcancellationstatusrequestmessage", ftypes.STRING, nil, nil, nil, "Sent as TRD_MOD_CXL_STATUS_CHANGE _IN")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.trade_modification_cancellation_status_response_message = ProtoField.new("Trade Modification Cancellation Status Response Message", "nse.nsecm.orderentry.nnf.v6.6.trademodificationcancellationstatusresponsemessage", ftypes.STRING, nil, nil, nil, "Sent as TRD_MOD_CXL_STATUS_CHANGE _OUT")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.trailer_record_message = ProtoField.new("Trailer Record Message", "nse.nsecm.orderentry.nnf.v6.6.trailerrecordmessage", ftypes.BYTES)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.update_local_database_data_message = ProtoField.new("Update Local Database Data Message", "nse.nsecm.orderentry.nnf.v6.6.updatelocaldatabasedatamessage", ftypes.STRING, nil, nil, nil, "Carries one local database record wrapped in an inner header")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.update_local_database_header_message = ProtoField.new("Update Local Database Header Message", "nse.nsecm.orderentry.nnf.v6.6.updatelocaldatabaseheadermessage", ftypes.STRING, nil, nil, nil, "Sent as UPDATE_LOCALDB_HEADER")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.update_local_database_request_message = ProtoField.new("Update Local Database Request Message", "nse.nsecm.orderentry.nnf.v6.6.updatelocaldatabaserequestmessage", ftypes.STRING, nil, nil, nil, "Sent as UPDATE_LOCALDB_IN")
@@ -334,6 +328,14 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.user_order_value_limit_update_out_messa
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.user_unlock_approval_rejection_message = ProtoField.new("User Unlock Approval Rejection Message", "nse.nsecm.orderentry.nnf.v6.6.userunlockapprovalrejectionmessage", ftypes.STRING, nil, nil, nil, "Sent as USER_ADDR_UNLOCK_APPROVE_OUT, USER_ADDR_UNLOCK_REJECT_OUT")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.user_unlock_request_message = ProtoField.new("User Unlock Request Message", "nse.nsecm.orderentry.nnf.v6.6.userunlockrequestmessage", ftypes.STRING, nil, nil, nil, "Sent as USER_ADDR_UNLOCK_IN")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.user_unlock_requested_response_message = ProtoField.new("User Unlock Requested Response Message", "nse.nsecm.orderentry.nnf.v6.6.userunlockrequestedresponsemessage", ftypes.STRING, nil, nil, nil, "Sent as USER_ADDR_UNLOCK_OUT")
+
+-- Nse NseCm OrderEntry 6.6 Session Messages
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.header_record_message = ProtoField.new("Header Record Message", "nse.nsecm.orderentry.nnf.v6.6.headerrecordmessage", ftypes.BYTES, nil, nil, nil, "Opens the message download for a stream")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.message_record_message = ProtoField.new("Message Record Message", "nse.nsecm.orderentry.nnf.v6.6.messagerecordmessage", ftypes.BYTES, nil, nil, nil, "One record of the message download, which carries no body of its own")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.secure_box_registration_response_message = ProtoField.new("Secure Box Registration Response Message", "nse.nsecm.orderentry.nnf.v6.6.secureboxregistrationresponsemessage", ftypes.BYTES, nil, nil, nil, "The trading system answers a secure box registration")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.sign_off_confirmation_message = ProtoField.new("Sign Off Confirmation Message", "nse.nsecm.orderentry.nnf.v6.6.signoffconfirmationmessage", ftypes.BYTES, nil, nil, nil, "The trading system confirms the trader is signed off")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.system_information_request_message = ProtoField.new("System Information Request Message", "nse.nsecm.orderentry.nnf.v6.6.systeminformationrequestmessage", ftypes.BYTES, nil, nil, nil, "A trader asks the trading system for its system information")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.trailer_record_message = ProtoField.new("Trailer Record Message", "nse.nsecm.orderentry.nnf.v6.6.trailerrecordmessage", ftypes.BYTES, nil, nil, nil, "Signals the message download is complete for a stream")
 
 -- Nse NseCm OrderEntry Nnf 6.6 Generated Fields
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.inquirydata_index = ProtoField.new("Inquirydata Index", "nse.nsecm.orderentry.nnf.v6.6.inquirydataindex", ftypes.UINT16)
@@ -5696,6 +5698,91 @@ nse_nsecm_orderentry_nnf_v6_6.update_local_database_data_message.dissect = funct
   end
 end
 
+-- Secure Box Registration Response Message
+nse_nsecm_orderentry_nnf_v6_6.secure_box_registration_response_message = {}
+
+-- Display: Secure Box Registration Response Message
+nse_nsecm_orderentry_nnf_v6_6.secure_box_registration_response_message.display = function(packet, parent, length)
+  return "Secure Box Registration Response Message"
+end
+
+
+-- Dissect: Secure Box Registration Response Message
+nse_nsecm_orderentry_nnf_v6_6.secure_box_registration_response_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecm_orderentry_nnf_v6_6.secure_box_registration_response_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Trailer Record Message
+nse_nsecm_orderentry_nnf_v6_6.trailer_record_message = {}
+
+-- Display: Trailer Record Message
+nse_nsecm_orderentry_nnf_v6_6.trailer_record_message.display = function(packet, parent, length)
+  return "Trailer Record Message"
+end
+
+
+-- Dissect: Trailer Record Message
+nse_nsecm_orderentry_nnf_v6_6.trailer_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecm_orderentry_nnf_v6_6.trailer_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Message Record Message
+nse_nsecm_orderentry_nnf_v6_6.message_record_message = {}
+
+-- Display: Message Record Message
+nse_nsecm_orderentry_nnf_v6_6.message_record_message.display = function(packet, parent, length)
+  return "Message Record Message"
+end
+
+
+-- Dissect: Message Record Message
+nse_nsecm_orderentry_nnf_v6_6.message_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecm_orderentry_nnf_v6_6.message_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Header Record Message
+nse_nsecm_orderentry_nnf_v6_6.header_record_message = {}
+
+-- Display: Header Record Message
+nse_nsecm_orderentry_nnf_v6_6.header_record_message.display = function(packet, parent, length)
+  return "Header Record Message"
+end
+
+
+-- Dissect: Header Record Message
+nse_nsecm_orderentry_nnf_v6_6.header_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecm_orderentry_nnf_v6_6.header_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Sign Off Confirmation Message
+nse_nsecm_orderentry_nnf_v6_6.sign_off_confirmation_message = {}
+
+-- Display: Sign Off Confirmation Message
+nse_nsecm_orderentry_nnf_v6_6.sign_off_confirmation_message.display = function(packet, parent, length)
+  return "Sign Off Confirmation Message"
+end
+
+
+-- Dissect: Sign Off Confirmation Message
+nse_nsecm_orderentry_nnf_v6_6.sign_off_confirmation_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecm_orderentry_nnf_v6_6.sign_off_confirmation_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Trade Modification Cancellation Status Response Message
 nse_nsecm_orderentry_nnf_v6_6.trade_modification_cancellation_status_response_message = {}
 
@@ -9059,23 +9146,23 @@ nse_nsecm_orderentry_nnf_v6_6.server_message_payload.dissect = function(buffer, 
   end
   -- Dissect Sign Off Confirmation Message
   if transaction_code == 2321 then
-    return offset
+    return nse_nsecm_orderentry_nnf_v6_6.sign_off_confirmation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Header Record Message
   if transaction_code == 7011 then
-    return offset
+    return nse_nsecm_orderentry_nnf_v6_6.header_record_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Message Record Message
   if transaction_code == 7021 then
-    return offset
+    return nse_nsecm_orderentry_nnf_v6_6.message_record_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trailer Record Message
   if transaction_code == 7031 then
-    return offset
+    return nse_nsecm_orderentry_nnf_v6_6.trailer_record_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Secure Box Registration Response Message
   if transaction_code == 23009 then
-    return offset
+    return nse_nsecm_orderentry_nnf_v6_6.secure_box_registration_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Update Local Database Data Message
   if transaction_code == 7304 then
@@ -9259,6 +9346,23 @@ nse_nsecm_orderentry_nnf_v6_6.server_packet.dissect = function(buffer, packet, p
   end
 
   return index
+end
+
+-- System Information Request Message
+nse_nsecm_orderentry_nnf_v6_6.system_information_request_message = {}
+
+-- Display: System Information Request Message
+nse_nsecm_orderentry_nnf_v6_6.system_information_request_message.display = function(packet, parent, length)
+  return "System Information Request Message"
+end
+
+
+-- Dissect: System Information Request Message
+nse_nsecm_orderentry_nnf_v6_6.system_information_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsecm_orderentry_nnf_v6_6.system_information_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- User Order Value Limit Update In Message
@@ -10448,7 +10552,7 @@ nse_nsecm_orderentry_nnf_v6_6.client_message_payload.dissect = function(buffer, 
   end
   -- Dissect System Information Request Message
   if transaction_code == 1600 then
-    return offset
+    return nse_nsecm_orderentry_nnf_v6_6.system_information_request_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

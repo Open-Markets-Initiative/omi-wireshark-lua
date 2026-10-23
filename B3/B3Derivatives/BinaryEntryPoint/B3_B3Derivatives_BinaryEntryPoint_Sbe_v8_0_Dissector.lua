@@ -13945,7 +13945,7 @@ tcp_table:add_for_decode_as(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0)
 --   Organization: Brasil, Bolsa, Balcão
 --   Version: 8.0
 --   Date: Monday, September 18, 2023
---   Specification: BinaryEntryPoint-MessageReference-8.0.0-enUS.pdf
+--   Specification: BinaryEntryPoint-MessageReference-8.0.0.1-enUS.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

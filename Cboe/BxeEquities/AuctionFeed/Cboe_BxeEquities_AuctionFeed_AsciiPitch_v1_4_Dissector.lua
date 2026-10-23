@@ -19,7 +19,7 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_type = ProtoFiel
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.includes_primary = ProtoField.new("Includes Primary", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.includesprimary", ftypes.STRING, nil, nil, nil, "P=Includes Primary N=Excludes Primary -=Not specified")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the auction would match if executed now.")
-omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.indicative_shares = ProtoField.new("Indicative Shares", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.indicativeshares", ftypes.STRING, nil, nil, nil, "Number of shares at the Indicative Price.")
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.indicative_shares = ProtoField.new("Indicative Shares", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.indicativeshares", ftypes.UINT64, nil, nil, nil, "Number of shares at the Indicative Price.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends this packet in response to an invalid Login Request Packet from the client.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
@@ -35,7 +35,7 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequence_number = ProtoF
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Single ASCII character identifying the sequenced message type")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.session = ProtoField.new("Session", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.session", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
-omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.shares = ProtoField.new("Shares", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.shares", ftypes.STRING, nil, nil, nil, "Cumulative number of shares executed during the auction.")
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.shares = ProtoField.new("Shares", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.shares", ftypes.UINT64, nil, nil, nil, "Cumulative number of shares executed during the auction.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.symbol = ProtoField.new("Symbol", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.symbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.text = ProtoField.new("Text", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
@@ -52,6 +52,11 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_message_header
 -- Cboe BxeEquities AuctionFeed 1.4 Application Messages
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.auctionsummarymessage", ftypes.STRING, nil, nil, nil, "Disseminates the results of an auction in a Cboe auction-eligible security.")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.auctionupdatemessage", ftypes.STRING, nil, nil, nil, "Disseminates indicative price and size information during auctions for Cboe auction-eligible securities.")
+
+-- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Expert Info
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts = {}
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number = ProtoExpert.new("cboe.bxeequities.auctionfeed.asciipitch.v1.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts = { cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Formatting
@@ -266,6 +271,9 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.dissect = function
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.indicative_price, range, value, "Indicative Price: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number, "Indicative Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -294,7 +302,10 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_shares.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.indicative_shares, range, value, "Indicative Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number, "Indicative Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_shares.display(value, buffer, offset, packet, parent)
@@ -426,6 +437,9 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.dissect = function(buffer, of
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -461,6 +475,9 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.dissect = function(
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.reference_price, range, value, "Reference Price: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number, "Reference Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -634,7 +651,10 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.shares.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.shares.display(value, buffer, offset, packet, parent)
@@ -760,6 +780,9 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.dissect = function(buffer
 
   if value == nil then
     value = "Not Applicable"
+    local item = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.display(value, buffer, offset, packet, parent)

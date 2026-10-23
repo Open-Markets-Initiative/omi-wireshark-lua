@@ -27,7 +27,7 @@ omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.deferral_size_specific = Pr
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.duplicative_across_jurisdiction = ProtoField.new("Duplicative Across Jurisdiction", "cboe.bxeequities.lastsale.asciipitch.v1.7.duplicativeacrossjurisdiction", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 5.2")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "cboe.bxeequities.lastsale.asciipitch.v1.7.duplicativeindicator", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 5")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.duplicative_within_jurisdiction = ProtoField.new("Duplicative Within Jurisdiction", "cboe.bxeequities.lastsale.asciipitch.v1.7.duplicativewithinjurisdiction", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 5.1")
-omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.bxeequities.lastsale.asciipitch.v1.7.executedshares", ftypes.STRING, nil, nil, nil, "Number of shares executed")
+omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.bxeequities.lastsale.asciipitch.v1.7.executedshares", ftypes.UINT64, nil, nil, nil, "Number of shares executed")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.bxeequities.lastsale.asciipitch.v1.7.executionvenue", ftypes.STRING, nil, nil, nil, "ISO 10383 segment MIC, and SINT for Systematic internalisers, XOFF for OTC trades")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.giveup_flag = ProtoField.new("Giveup Flag", "cboe.bxeequities.lastsale.asciipitch.v1.7.giveupflag", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.13")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.intra_group_indicator = ProtoField.new("Intra Group Indicator", "cboe.bxeequities.lastsale.asciipitch.v1.7.intragroupindicator", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 5.3")
@@ -38,7 +38,7 @@ omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.login_request_packet = Prot
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.market_mechanism = ProtoField.new("Market Mechanism", "cboe.bxeequities.lastsale.asciipitch.v1.7.marketmechanism", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 1 “LB” = Central Limit Order Book “QB” = Quote Driven Market “DB” = Dark Order Book “OB” = Oﬀ Book (including Voice or Messaging Trading) “PA” = Periodic Auction “RQ” = Request for Quotes “AH” = Any Other, Including Hybrid (original ESMA definition in RTSs 1 and 2) “HS” = Hybrid System (revised ESMA definition, replacing ’Any Other, Including Hybrid’) “AO” = Any Other, Excluding Hybrid (revised ESMA definition, replacing ’Any Other, Including Hybrid’)")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.bxeequities.lastsale.asciipitch.v1.7.modificationindicator", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.4")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.negotiation_flag = ProtoField.new("Negotiation Flag", "cboe.bxeequities.lastsale.asciipitch.v1.7.negotiationflag", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.2")
-omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.notional_amount = ProtoField.new("Notional Amount", "cboe.bxeequities.lastsale.asciipitch.v1.7.notionalamount", ftypes.STRING, nil, nil, nil, "Value of the trade, in the major currency. Price times Executed Shares")
+omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.notional_amount = ProtoField.new("Notional Amount", "cboe.bxeequities.lastsale.asciipitch.v1.7.notionalamount", ftypes.UINT64, nil, nil, nil, "Value of the trade, in the major currency. Price times Executed Shares")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.notional_currency = ProtoField.new("Notional Currency", "cboe.bxeequities.lastsale.asciipitch.v1.7.notionalcurrency", ftypes.STRING, nil, nil, nil, "ISO 3-letter Currency code representing the major currency in which the notional amount is denominated.")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.off_book_automated = ProtoField.new("Off Book Automated", "cboe.bxeequities.lastsale.asciipitch.v1.7.offbookautomated", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 3.7")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.packet_type = ProtoField.new("Packet Type", "cboe.bxeequities.lastsale.asciipitch.v1.7.packettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
@@ -46,7 +46,7 @@ omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.password = ProtoField.new("
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.portfolio_flag = ProtoField.new("Portfolio Flag", "cboe.bxeequities.lastsale.asciipitch.v1.7.portfolioflag", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.11")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "cboe.bxeequities.lastsale.asciipitch.v1.7.posttradedeferralreason", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 4.1")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.pre_trade_transparency_waiver = ProtoField.new("Pre Trade Transparency Waiver", "cboe.bxeequities.lastsale.asciipitch.v1.7.pretradetransparencywaiver", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.10")
-omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.price = ProtoField.new("Price", "cboe.bxeequities.lastsale.asciipitch.v1.7.price", ftypes.STRING, nil, nil, nil, "Price of the trade. This may be zero if the price is pending, as denoted by the “Price Discovery Process” field")
+omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.price = ProtoField.new("Price", "cboe.bxeequities.lastsale.asciipitch.v1.7.price", ftypes.UINT64, nil, nil, nil, "Price of the trade. This may be zero if the price is pending, as denoted by the “Price Discovery Process” field")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.price_currency = ProtoField.new("Price Currency", "cboe.bxeequities.lastsale.asciipitch.v1.7.pricecurrency", ftypes.STRING, nil, nil, nil, "ISO 3-letter Currency code")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.price_discovery_process = ProtoField.new("Price Discovery Process", "cboe.bxeequities.lastsale.asciipitch.v1.7.pricediscoveryprocess", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v3 Level 3.8")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.price_notation = ProtoField.new("Price Notation", "cboe.bxeequities.lastsale.asciipitch.v1.7.pricenotation", ftypes.STRING)
@@ -64,7 +64,7 @@ omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.special_dividend = ProtoFie
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.symbol = ProtoField.new("Symbol", "cboe.bxeequities.lastsale.asciipitch.v1.7.symbol", ftypes.STRING, nil, nil, nil, "ISIN Code that identifies the financial instrument")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.text = ProtoField.new("Text", "cboe.bxeequities.lastsale.asciipitch.v1.7.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.third_country_trading_venue = ProtoField.new("Third Country Trading Venue", "cboe.bxeequities.lastsale.asciipitch.v1.7.thirdcountrytradingvenue", ftypes.STRING, nil, nil, nil, "When populated, indicates the trade was executed on a venue not deemed equivalent under ESMA Opinion on determining third-country trading venues for the purpose of transparency under Mifid II/Mifir. The column contains the venue MIC, and the execution venue will contain the value ”XOFF”. Not applicable to reports from Cboe’s UK APA.")
-omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.timestamp = ProtoField.new("Timestamp", "cboe.bxeequities.lastsale.asciipitch.v1.7.timestamp", ftypes.STRING)
+omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.timestamp = ProtoField.new("Timestamp", "cboe.bxeequities.lastsale.asciipitch.v1.7.timestamp", ftypes.UINT32)
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.trade_id = ProtoField.new("Trade Id", "cboe.bxeequities.lastsale.asciipitch.v1.7.tradeid", ftypes.STRING, nil, nil, nil, "Cboe generated day-unique execution/trade identifier")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.trading_date_time = ProtoField.new("Trading Date Time", "cboe.bxeequities.lastsale.asciipitch.v1.7.tradingdatetime", ftypes.STRING, nil, nil, nil, "Date and time the trade occurred")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.trading_mode = ProtoField.new("Trading Mode", "cboe.bxeequities.lastsale.asciipitch.v1.7.tradingmode", ftypes.STRING, nil, nil, nil, "Corresponds to MMT v4.1 Level 2")
@@ -80,6 +80,11 @@ omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.packet = ProtoField.new("Pa
 -- Cboe BxeEquities LastSale 1.7 Application Messages
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.last_sale_europe_message = ProtoField.new("Last Sale Europe Message", "cboe.bxeequities.lastsale.asciipitch.v1.7.lastsaleeuropemessage", ftypes.STRING, nil, nil, nil, "Last Sale Europe Messages are sent when an order on a Cboe order book is executed in whole or in part, or when a reported trade is submitted to Cboe")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.last_sale_europe_message_new = ProtoField.new("Last Sale Europe Message New", "cboe.bxeequities.lastsale.asciipitch.v1.7.lastsaleeuropemessagenew", ftypes.STRING, nil, nil, nil, "Last Sale Europe Messages are sent when an order on a Cboe order book is executed in whole or in part, or when a reported trade is submitted to Cboe")
+
+-- Cboe BxeEquities LastSale AsciiPitch 1.7 Expert Info
+cboe_bxeequities_lastsale_asciipitch_v1_7.experts = {}
+cboe_bxeequities_lastsale_asciipitch_v1_7.experts.not_a_number = ProtoExpert.new("cboe.bxeequities.lastsale.asciipitch.v1.7.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cboe_bxeequities_lastsale_asciipitch_v1_7.experts = { cboe_bxeequities_lastsale_asciipitch_v1_7.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -410,7 +415,10 @@ cboe_bxeequities_lastsale_asciipitch_v1_7.executed_shares.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.executed_shares, range, value, "Executed Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_lastsale_asciipitch_v1_7.experts.not_a_number, "Executed Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bxeequities_lastsale_asciipitch_v1_7.executed_shares.display(value, buffer, offset, packet, parent)
@@ -599,7 +607,10 @@ cboe_bxeequities_lastsale_asciipitch_v1_7.notional_amount.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_lastsale_asciipitch_v1_7.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bxeequities_lastsale_asciipitch_v1_7.notional_amount.display(value, buffer, offset, packet, parent)
@@ -816,7 +827,10 @@ cboe_bxeequities_lastsale_asciipitch_v1_7.price.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_lastsale_asciipitch_v1_7.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bxeequities_lastsale_asciipitch_v1_7.price.display(value, buffer, offset, packet, parent)
@@ -1200,7 +1214,10 @@ cboe_bxeequities_lastsale_asciipitch_v1_7.timestamp.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bxeequities_lastsale_asciipitch_v1_7.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(cboe_bxeequities_lastsale_asciipitch_v1_7.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bxeequities_lastsale_asciipitch_v1_7.timestamp.display(value, buffer, offset, packet, parent)

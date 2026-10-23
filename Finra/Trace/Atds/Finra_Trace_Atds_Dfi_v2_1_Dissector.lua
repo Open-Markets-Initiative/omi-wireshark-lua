@@ -19,14 +19,14 @@ omi_finra_trace_atds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.tr
 omi_finra_trace_atds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.trace.atds.dfi.v2.1.actiondatetime", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.administrative_message = ProtoField.new("Administrative Message", "finra.trace.atds.dfi.v2.1.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages Header")
 omi_finra_trace_atds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.trace.atds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.advances_all_securities = ProtoField.new("Advances All Securities", "finra.trace.atds.dfi.v2.1.advancesallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.advances_fannie_mae = ProtoField.new("Advances Fannie Mae", "finra.trace.atds.dfi.v2.1.advancesfanniemae", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.advances_fhlb = ProtoField.new("Advances Fhlb", "finra.trace.atds.dfi.v2.1.advancesfhlb", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.advances_freddie_mac = ProtoField.new("Advances Freddie Mac", "finra.trace.atds.dfi.v2.1.advancesfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.advances_all_securities = ProtoField.new("Advances All Securities", "finra.trace.atds.dfi.v2.1.advancesallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.advances_fannie_mae = ProtoField.new("Advances Fannie Mae", "finra.trace.atds.dfi.v2.1.advancesfanniemae", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.advances_fhlb = ProtoField.new("Advances Fhlb", "finra.trace.atds.dfi.v2.1.advancesfhlb", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.advances_freddie_mac = ProtoField.new("Advances Freddie Mac", "finra.trace.atds.dfi.v2.1.advancesfreddiemac", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than the prior closing price")
 omi_finra_trace_atds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.trace.atds.dfi.v2.1.asofindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an As/Of trade, Reversal, Cancel or Correction from a prior business day")
 omi_finra_trace_atds_dfi_v2_1.fields.ats_indicator = ProtoField.new("Ats Indicator", "finra.trace.atds.dfi.v2.1.atsindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an Ats execution")
 omi_finra_trace_atds_dfi_v2_1.fields.bsym = ProtoField.new("Bsym", "finra.trace.atds.dfi.v2.1.bsym", ftypes.STRING, nil, nil, nil, "The Bloomberg identifier for the specific agency bond")
-omi_finra_trace_atds_dfi_v2_1.fields.change_indicator = ProtoField.new("Change Indicator", "finra.trace.atds.dfi.v2.1.changeindicator", ftypes.STRING, nil, nil, nil, "Describes the price change(s) that the transaction caused for the issue traded")
+omi_finra_trace_atds_dfi_v2_1.fields.change_indicator = ProtoField.new("Change Indicator", "finra.trace.atds.dfi.v2.1.changeindicator", ftypes.UINT8, nil, nil, nil, "Describes the price change(s) that the transaction caused for the issue traded")
 omi_finra_trace_atds_dfi_v2_1.fields.close_yield_direction = ProtoField.new("Close Yield Direction", "finra.trace.atds.dfi.v2.1.closeyielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the Daily Close Yield field")
 omi_finra_trace_atds_dfi_v2_1.fields.contra_party_type = ProtoField.new("Contra Party Type", "finra.trace.atds.dfi.v2.1.contrapartytype", ftypes.STRING, nil, nil, nil, "Identifies the type of contra party which the reported trade was executed against")
 omi_finra_trace_atds_dfi_v2_1.fields.control_message = ProtoField.new("Control Message", "finra.trace.atds.dfi.v2.1.controlmessage", ftypes.STRING, nil, nil, nil, "Control Messages Header")
@@ -41,26 +41,26 @@ omi_finra_trace_atds_dfi_v2_1.fields.daily_high_yield = ProtoField.new("Daily Hi
 omi_finra_trace_atds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.trace.atds.dfi.v2.1.dailylowprice", ftypes.DOUBLE, nil, nil, nil, "The low price reported for the specific bond for the day")
 omi_finra_trace_atds_dfi_v2_1.fields.daily_low_yield = ProtoField.new("Daily Low Yield", "finra.trace.atds.dfi.v2.1.dailylowyield", ftypes.DOUBLE, nil, nil, nil, "The low yield associated with the Daily Low Price")
 omi_finra_trace_atds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.trace.atds.dfi.v2.1.datetime", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.atds.dfi.v2.1.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
-omi_finra_trace_atds_dfi_v2_1.fields.declines_all_securities = ProtoField.new("Declines All Securities", "finra.trace.atds.dfi.v2.1.declinesallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.declines_fannie_mae = ProtoField.new("Declines Fannie Mae", "finra.trace.atds.dfi.v2.1.declinesfanniemae", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.declines_fhlb = ProtoField.new("Declines Fhlb", "finra.trace.atds.dfi.v2.1.declinesfhlb", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.declines_freddie_mac = ProtoField.new("Declines Freddie Mac", "finra.trace.atds.dfi.v2.1.declinesfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.atds.dfi.v2.1.day", ftypes.UINT8, nil, nil, nil, "The day of the month the transaction occurred")
+omi_finra_trace_atds_dfi_v2_1.fields.declines_all_securities = ProtoField.new("Declines All Securities", "finra.trace.atds.dfi.v2.1.declinesallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.declines_fannie_mae = ProtoField.new("Declines Fannie Mae", "finra.trace.atds.dfi.v2.1.declinesfanniemae", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.declines_fhlb = ProtoField.new("Declines Fhlb", "finra.trace.atds.dfi.v2.1.declinesfhlb", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.declines_freddie_mac = ProtoField.new("Declines Freddie Mac", "finra.trace.atds.dfi.v2.1.declinesfreddiemac", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
 omi_finra_trace_atds_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.trace.atds.dfi.v2.1.executiondatetime", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_all_securities = ProtoField.new("Fifty Two Week High All Securities", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_fannie_mae = ProtoField.new("Fifty Two Week High Fannie Mae", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighfanniemae", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_fhlb = ProtoField.new("Fifty Two Week High Fhlb", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighfhlb", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_freddie_mac = ProtoField.new("Fifty Two Week High Freddie Mac", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_all_securities = ProtoField.new("Fifty Two Week Low All Securities", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_fannie_mae = ProtoField.new("Fifty Two Week Low Fannie Mae", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowfanniemae", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_fhlb = ProtoField.new("Fifty Two Week Low Fhlb", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowfhlb", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
-omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_freddie_mac = ProtoField.new("Fifty Two Week Low Freddie Mac", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_all_securities = ProtoField.new("Fifty Two Week High All Securities", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_fannie_mae = ProtoField.new("Fifty Two Week High Fannie Mae", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighfanniemae", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_fhlb = ProtoField.new("Fifty Two Week High Fhlb", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighfhlb", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_freddie_mac = ProtoField.new("Fifty Two Week High Freddie Mac", "finra.trace.atds.dfi.v2.1.fiftytwoweekhighfreddiemac", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is higher than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_all_securities = ProtoField.new("Fifty Two Week Low All Securities", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_fannie_mae = ProtoField.new("Fifty Two Week Low Fannie Mae", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowfanniemae", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_fhlb = ProtoField.new("Fifty Two Week Low Fhlb", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowfhlb", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
+omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_freddie_mac = ProtoField.new("Fifty Two Week Low Freddie Mac", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowfreddiemac", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
 omi_finra_trace_atds_dfi_v2_1.fields.future_use = ProtoField.new("Future Use", "finra.trace.atds.dfi.v2.1.futureuse", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_finra_trace_atds_dfi_v2_1.fields.halt_reason = ProtoField.new("Halt Reason", "finra.trace.atds.dfi.v2.1.haltreason", ftypes.STRING, nil, nil, nil, "Describes the specific reason for a halt being placed on a bond issue")
 omi_finra_trace_atds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.atds.dfi.v2.1.highprice", ftypes.DOUBLE, nil, nil, nil, "The current highest price for which the specified bond issue was traded for the current day")
 omi_finra_trace_atds_dfi_v2_1.fields.high_yield = ProtoField.new("High Yield", "finra.trace.atds.dfi.v2.1.highyield", ftypes.DOUBLE, nil, nil, nil, "The yield associated with the high price of the day")
 omi_finra_trace_atds_dfi_v2_1.fields.high_yield_direction = ProtoField.new("High Yield Direction", "finra.trace.atds.dfi.v2.1.highyielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the High Price Yield field")
-omi_finra_trace_atds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.atds.dfi.v2.1.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
+omi_finra_trace_atds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.atds.dfi.v2.1.hour", ftypes.UINT8, nil, nil, nil, "The hour of the day the transaction occurred in military time")
 omi_finra_trace_atds_dfi_v2_1.fields.issuer = ProtoField.new("Issuer", "finra.trace.atds.dfi.v2.1.issuer", ftypes.STRING, nil, nil, nil, "The name of the Agency or Government-sponsored enterprise that issued the security")
 omi_finra_trace_atds_dfi_v2_1.fields.label = ProtoField.new("Label", "finra.trace.atds.dfi.v2.1.label", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.trace.atds.dfi.v2.1.lastsaleprice", ftypes.DOUBLE, nil, nil, nil, "The last sale price reported for the specific bond for the day")
@@ -75,10 +75,10 @@ omi_finra_trace_atds_dfi_v2_1.fields.market_center_originator_id = ProtoField.ne
 omi_finra_trace_atds_dfi_v2_1.fields.market_sentiment_information = ProtoField.new("Market Sentiment Information", "finra.trace.atds.dfi.v2.1.marketsentimentinformation", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.trace.atds.dfi.v2.1.messagecategory", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.trace.atds.dfi.v2.1.messageheader", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.trace.atds.dfi.v2.1.minute", ftypes.STRING, nil, nil, nil, "The minute of the hour the transaction occurred")
-omi_finra_trace_atds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trace.atds.dfi.v2.1.month", ftypes.STRING, nil, nil, nil, "The month the transaction occurred")
+omi_finra_trace_atds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.trace.atds.dfi.v2.1.minute", ftypes.UINT8, nil, nil, nil, "The minute of the hour the transaction occurred")
+omi_finra_trace_atds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trace.atds.dfi.v2.1.month", ftypes.UINT8, nil, nil, nil, "The month the transaction occurred")
 omi_finra_trace_atds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.trace.atds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.atds.dfi.v2.1.originaltradeidentifier", ftypes.STRING, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
+omi_finra_trace_atds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.atds.dfi.v2.1.originaltradeidentifier", ftypes.UINT32, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
 omi_finra_trace_atds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.trace.atds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.atds.dfi.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "The bond price inclusive of any commission, mark-ups, and/or mark-downs reported by the sell-side firm")
 omi_finra_trace_atds_dfi_v2_1.fields.quantity = ProtoField.new("Quantity", "finra.trace.atds.dfi.v2.1.quantity", ftypes.STRING, nil, nil, nil, "The par value volume of the transaction")
@@ -88,7 +88,7 @@ omi_finra_trace_atds_dfi_v2_1.fields.report_function = ProtoField.new("Report Fu
 omi_finra_trace_atds_dfi_v2_1.fields.reporting_party_type = ProtoField.new("Reporting Party Type", "finra.trace.atds.dfi.v2.1.reportingpartytype", ftypes.STRING, nil, nil, nil, "Identifies the type of entity that reported the trade")
 omi_finra_trace_atds_dfi_v2_1.fields.sale_condition_3 = ProtoField.new("Sale Condition 3", "finra.trace.atds.dfi.v2.1.salecondition3", ftypes.STRING, nil, nil, nil, "Indicates if there are any special conditions or modifiers applicable to the trade transaction")
 omi_finra_trace_atds_dfi_v2_1.fields.sale_condition_4 = ProtoField.new("Sale Condition 4", "finra.trace.atds.dfi.v2.1.salecondition4", ftypes.STRING, nil, nil, nil, "Describes a second sale condition that is applicable to the trade")
-omi_finra_trace_atds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.trace.atds.dfi.v2.1.second", ftypes.STRING, nil, nil, nil, "The second of the minute the transaction occurred")
+omi_finra_trace_atds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.trace.atds.dfi.v2.1.second", ftypes.UINT8, nil, nil, nil, "The second of the minute the transaction occurred")
 omi_finra_trace_atds_dfi_v2_1.fields.sequence = ProtoField.new("Sequence", "finra.trace.atds.dfi.v2.1.sequence", ftypes.UINT64, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_finra_trace_atds_dfi_v2_1.fields.session = ProtoField.new("Session", "finra.trace.atds.dfi.v2.1.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_finra_trace_atds_dfi_v2_1.fields.settlement_date = ProtoField.new("Settlement Date", "finra.trace.atds.dfi.v2.1.settlementdate", ftypes.STRING)
@@ -97,41 +97,41 @@ omi_finra_trace_atds_dfi_v2_1.fields.special_price_indicator = ProtoField.new("S
 omi_finra_trace_atds_dfi_v2_1.fields.sub_product_type = ProtoField.new("Sub Product Type", "finra.trace.atds.dfi.v2.1.subproducttype", ftypes.STRING, nil, nil, nil, "Identifies the type of debt security traded")
 omi_finra_trace_atds_dfi_v2_1.fields.symbol = ProtoField.new("Symbol", "finra.trace.atds.dfi.v2.1.symbol", ftypes.STRING, nil, nil, nil, "The agency bond issue symbol as assigned by Finra for Trace trade reporting purposes")
 omi_finra_trace_atds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.trace.atds.dfi.v2.1.text", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy = ProtoField.new("Total Number Of Transactions Affiliate Buy", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsaffiliatebuy", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell = ProtoField.new("Total Number Of Transactions Affiliate Sell", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsaffiliatesell", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_all_securities = ProtoField.new("Total Number Of Transactions All Securities", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsallsecurities", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_customer_buy = ProtoField.new("Total Number Of Transactions Customer Buy", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionscustomerbuy", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_customer_sell = ProtoField.new("Total Number Of Transactions Customer Sell", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionscustomersell", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer = ProtoField.new("Total Number Of Transactions Inter Dealer", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsinterdealer", ftypes.STRING, nil, nil, nil, "The total number of valid trades reported on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_affiliate_buy = ProtoField.new("Total Securities Traded Affiliate Buy", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedaffiliatebuy", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_affiliate_sell = ProtoField.new("Total Securities Traded Affiliate Sell", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedaffiliatesell", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_all_securities = ProtoField.new("Total Securities Traded All Securities", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_customer_buy = ProtoField.new("Total Securities Traded Customer Buy", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedcustomerbuy", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_customer_sell = ProtoField.new("Total Securities Traded Customer Sell", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedcustomersell", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_fannie_mae = ProtoField.new("Total Securities Traded Fannie Mae", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedfanniemae", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_fhlb = ProtoField.new("Total Securities Traded Fhlb", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedfhlb", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_freddie_mac = ProtoField.new("Total Securities Traded Freddie Mac", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_inter_dealer = ProtoField.new("Total Securities Traded Inter Dealer", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedinterdealer", ftypes.STRING, nil, nil, nil, "The total number of issues traded on the day")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_affiliate_buy = ProtoField.new("Total Volume Affiliate Buy", "finra.trace.atds.dfi.v2.1.totalvolumeaffiliatebuy", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_affiliate_sell = ProtoField.new("Total Volume Affiliate Sell", "finra.trace.atds.dfi.v2.1.totalvolumeaffiliatesell", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_all_securities = ProtoField.new("Total Volume All Securities", "finra.trace.atds.dfi.v2.1.totalvolumeallsecurities", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_customer_buy = ProtoField.new("Total Volume Customer Buy", "finra.trace.atds.dfi.v2.1.totalvolumecustomerbuy", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_customer_sell = ProtoField.new("Total Volume Customer Sell", "finra.trace.atds.dfi.v2.1.totalvolumecustomersell", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_fannie_mae = ProtoField.new("Total Volume Fannie Mae", "finra.trace.atds.dfi.v2.1.totalvolumefanniemae", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_fhlb = ProtoField.new("Total Volume Fhlb", "finra.trace.atds.dfi.v2.1.totalvolumefhlb", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_freddie_mac = ProtoField.new("Total Volume Freddie Mac", "finra.trace.atds.dfi.v2.1.totalvolumefreddiemac", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.total_volume_inter_dealer = ProtoField.new("Total Volume Inter Dealer", "finra.trace.atds.dfi.v2.1.totalvolumeinterdealer", ftypes.STRING, nil, nil, nil, "The current day's total traded par value in millions")
-omi_finra_trace_atds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.atds.dfi.v2.1.tradeidentifier", ftypes.STRING, nil, nil, nil, "An identifier for tracking trades")
+omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy = ProtoField.new("Total Number Of Transactions Affiliate Buy", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsaffiliatebuy", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell = ProtoField.new("Total Number Of Transactions Affiliate Sell", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsaffiliatesell", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_all_securities = ProtoField.new("Total Number Of Transactions All Securities", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_customer_buy = ProtoField.new("Total Number Of Transactions Customer Buy", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionscustomerbuy", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_customer_sell = ProtoField.new("Total Number Of Transactions Customer Sell", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionscustomersell", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer = ProtoField.new("Total Number Of Transactions Inter Dealer", "finra.trace.atds.dfi.v2.1.totalnumberoftransactionsinterdealer", ftypes.UINT32, nil, nil, nil, "The total number of valid trades reported on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_affiliate_buy = ProtoField.new("Total Securities Traded Affiliate Buy", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedaffiliatebuy", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_affiliate_sell = ProtoField.new("Total Securities Traded Affiliate Sell", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedaffiliatesell", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_all_securities = ProtoField.new("Total Securities Traded All Securities", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_customer_buy = ProtoField.new("Total Securities Traded Customer Buy", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedcustomerbuy", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_customer_sell = ProtoField.new("Total Securities Traded Customer Sell", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedcustomersell", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_fannie_mae = ProtoField.new("Total Securities Traded Fannie Mae", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedfanniemae", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_fhlb = ProtoField.new("Total Securities Traded Fhlb", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedfhlb", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_freddie_mac = ProtoField.new("Total Securities Traded Freddie Mac", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedfreddiemac", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_inter_dealer = ProtoField.new("Total Securities Traded Inter Dealer", "finra.trace.atds.dfi.v2.1.totalsecuritiestradedinterdealer", ftypes.UINT32, nil, nil, nil, "The total number of issues traded on the day")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_affiliate_buy = ProtoField.new("Total Volume Affiliate Buy", "finra.trace.atds.dfi.v2.1.totalvolumeaffiliatebuy", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_affiliate_sell = ProtoField.new("Total Volume Affiliate Sell", "finra.trace.atds.dfi.v2.1.totalvolumeaffiliatesell", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_all_securities = ProtoField.new("Total Volume All Securities", "finra.trace.atds.dfi.v2.1.totalvolumeallsecurities", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_customer_buy = ProtoField.new("Total Volume Customer Buy", "finra.trace.atds.dfi.v2.1.totalvolumecustomerbuy", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_customer_sell = ProtoField.new("Total Volume Customer Sell", "finra.trace.atds.dfi.v2.1.totalvolumecustomersell", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_fannie_mae = ProtoField.new("Total Volume Fannie Mae", "finra.trace.atds.dfi.v2.1.totalvolumefanniemae", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_fhlb = ProtoField.new("Total Volume Fhlb", "finra.trace.atds.dfi.v2.1.totalvolumefhlb", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_freddie_mac = ProtoField.new("Total Volume Freddie Mac", "finra.trace.atds.dfi.v2.1.totalvolumefreddiemac", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.total_volume_inter_dealer = ProtoField.new("Total Volume Inter Dealer", "finra.trace.atds.dfi.v2.1.totalvolumeinterdealer", ftypes.UINT64, nil, nil, nil, "The current day's total traded par value in millions")
+omi_finra_trace_atds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.atds.dfi.v2.1.tradeidentifier", ftypes.UINT32, nil, nil, nil, "An identifier for tracking trades")
 omi_finra_trace_atds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.trace.atds.dfi.v2.1.tradeinformation", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.trade_message = ProtoField.new("Trade Message", "finra.trace.atds.dfi.v2.1.trademessage", ftypes.STRING, nil, nil, nil, "Trade Messages Header")
 omi_finra_trace_atds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.trace.atds.dfi.v2.1.trademessagetype", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.trace.atds.dfi.v2.1.tradesummaryinformation", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.unchanged_all_securities = ProtoField.new("Unchanged All Securities", "finra.trace.atds.dfi.v2.1.unchangedallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.unchanged_fannie_mae = ProtoField.new("Unchanged Fannie Mae", "finra.trace.atds.dfi.v2.1.unchangedfanniemae", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.unchanged_fhlb = ProtoField.new("Unchanged Fhlb", "finra.trace.atds.dfi.v2.1.unchangedfhlb", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
-omi_finra_trace_atds_dfi_v2_1.fields.unchanged_freddie_mac = ProtoField.new("Unchanged Freddie Mac", "finra.trace.atds.dfi.v2.1.unchangedfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.unchanged_all_securities = ProtoField.new("Unchanged All Securities", "finra.trace.atds.dfi.v2.1.unchangedallsecurities", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.unchanged_fannie_mae = ProtoField.new("Unchanged Fannie Mae", "finra.trace.atds.dfi.v2.1.unchangedfanniemae", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.unchanged_fhlb = ProtoField.new("Unchanged Fhlb", "finra.trace.atds.dfi.v2.1.unchangedfhlb", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
+omi_finra_trace_atds_dfi_v2_1.fields.unchanged_freddie_mac = ProtoField.new("Unchanged Freddie Mac", "finra.trace.atds.dfi.v2.1.unchangedfreddiemac", ftypes.UINT32, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
 omi_finra_trace_atds_dfi_v2_1.fields.when_issued_indicator = ProtoField.new("When Issued Indicator", "finra.trace.atds.dfi.v2.1.whenissuedindicator", ftypes.STRING, nil, nil, nil, "Indicates if the issue is trading on a when issued basis")
-omi_finra_trace_atds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.atds.dfi.v2.1.year", ftypes.STRING, nil, nil, nil, "The year the transaction occurred")
+omi_finra_trace_atds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.atds.dfi.v2.1.year", ftypes.UINT16, nil, nil, nil, "The year the transaction occurred")
 omi_finra_trace_atds_dfi_v2_1.fields.yield = ProtoField.new("Yield", "finra.trace.atds.dfi.v2.1.yield", ftypes.DOUBLE, nil, nil, nil, "Indicates the effective rate of return earned on a security")
 omi_finra_trace_atds_dfi_v2_1.fields.yield_direction = ProtoField.new("Yield Direction", "finra.trace.atds.dfi.v2.1.yielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the subsequent Yield field")
 
@@ -162,6 +162,11 @@ omi_finra_trace_atds_dfi_v2_1.fields.trading_halt_message = ProtoField.new("Trad
 
 -- Finra Trace Atds Dfi 2.1 Generated Fields
 omi_finra_trace_atds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.trace.atds.dfi.v2.1.messageindex", ftypes.UINT16)
+
+-- Finra Trace Atds Dfi 2.1 Expert Info
+finra_trace_atds_dfi_v2_1.experts = {}
+finra_trace_atds_dfi_v2_1.experts.not_a_number = ProtoExpert.new("finra.trace.atds.dfi.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_finra_trace_atds_dfi_v2_1.experts = { finra_trace_atds_dfi_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -363,7 +368,10 @@ finra_trace_atds_dfi_v2_1.advances_all_securities.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.advances_all_securities, range, value, "Advances All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Advances All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.advances_all_securities.display(value, buffer, offset, packet, parent)
@@ -391,7 +399,10 @@ finra_trace_atds_dfi_v2_1.advances_fannie_mae.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.advances_fannie_mae, range, value, "Advances Fannie Mae: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Advances Fannie Mae is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.advances_fannie_mae.display(value, buffer, offset, packet, parent)
@@ -419,7 +430,10 @@ finra_trace_atds_dfi_v2_1.advances_fhlb.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.advances_fhlb, range, value, "Advances Fhlb: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Advances Fhlb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.advances_fhlb.display(value, buffer, offset, packet, parent)
@@ -447,7 +461,10 @@ finra_trace_atds_dfi_v2_1.advances_freddie_mac.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.advances_freddie_mac, range, value, "Advances Freddie Mac: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Advances Freddie Mac is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.advances_freddie_mac.display(value, buffer, offset, packet, parent)
@@ -586,7 +603,10 @@ finra_trace_atds_dfi_v2_1.change_indicator.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.change_indicator, range, value, "Change Indicator: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Change Indicator is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.change_indicator.display(value, buffer, offset, packet, parent)
@@ -783,6 +803,9 @@ finra_trace_atds_dfi_v2_1.daily_close_price.dissect = function(buffer, offset, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.daily_close_price, range, value, "Daily Close Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Daily Close Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_close_price.display(value, buffer, offset, packet, parent)
@@ -825,6 +848,9 @@ finra_trace_atds_dfi_v2_1.daily_close_yield.dissect = function(buffer, offset, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.daily_close_yield, range, value, "Daily Close Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Daily Close Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_close_yield.display(value, buffer, offset, packet, parent)
@@ -867,6 +893,9 @@ finra_trace_atds_dfi_v2_1.daily_high_price.dissect = function(buffer, offset, pa
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.daily_high_price, range, value, "Daily High Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Daily High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -909,6 +938,9 @@ finra_trace_atds_dfi_v2_1.daily_high_yield.dissect = function(buffer, offset, pa
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.daily_high_yield, range, value, "Daily High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Daily High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_high_yield.display(value, buffer, offset, packet, parent)
@@ -951,6 +983,9 @@ finra_trace_atds_dfi_v2_1.daily_low_price.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.daily_low_price, range, value, "Daily Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Daily Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -993,6 +1028,9 @@ finra_trace_atds_dfi_v2_1.daily_low_yield.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.daily_low_yield, range, value, "Daily Low Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Daily Low Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_low_yield.display(value, buffer, offset, packet, parent)
@@ -1020,7 +1058,10 @@ finra_trace_atds_dfi_v2_1.day.dissect = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.day, range, value, "Day: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.day.display(value, buffer, offset, packet, parent)
@@ -1048,7 +1089,10 @@ finra_trace_atds_dfi_v2_1.declines_all_securities.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.declines_all_securities, range, value, "Declines All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Declines All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.declines_all_securities.display(value, buffer, offset, packet, parent)
@@ -1076,7 +1120,10 @@ finra_trace_atds_dfi_v2_1.declines_fannie_mae.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.declines_fannie_mae, range, value, "Declines Fannie Mae: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Declines Fannie Mae is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.declines_fannie_mae.display(value, buffer, offset, packet, parent)
@@ -1104,7 +1151,10 @@ finra_trace_atds_dfi_v2_1.declines_fhlb.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.declines_fhlb, range, value, "Declines Fhlb: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Declines Fhlb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.declines_fhlb.display(value, buffer, offset, packet, parent)
@@ -1132,7 +1182,10 @@ finra_trace_atds_dfi_v2_1.declines_freddie_mac.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.declines_freddie_mac, range, value, "Declines Freddie Mac: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Declines Freddie Mac is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.declines_freddie_mac.display(value, buffer, offset, packet, parent)
@@ -1160,7 +1213,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_high_all_securities.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_all_securities, range, value, "Fifty Two Week High All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_high_all_securities.display(value, buffer, offset, packet, parent)
@@ -1188,7 +1244,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_high_fannie_mae.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_fannie_mae, range, value, "Fifty Two Week High Fannie Mae: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High Fannie Mae is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_high_fannie_mae.display(value, buffer, offset, packet, parent)
@@ -1216,7 +1275,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_high_fhlb.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_fhlb, range, value, "Fifty Two Week High Fhlb: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High Fhlb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_high_fhlb.display(value, buffer, offset, packet, parent)
@@ -1244,7 +1306,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_high_freddie_mac.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_high_freddie_mac, range, value, "Fifty Two Week High Freddie Mac: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week High Freddie Mac is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_high_freddie_mac.display(value, buffer, offset, packet, parent)
@@ -1272,7 +1337,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_low_all_securities.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_all_securities, range, value, "Fifty Two Week Low All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_low_all_securities.display(value, buffer, offset, packet, parent)
@@ -1300,7 +1368,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_low_fannie_mae.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_fannie_mae, range, value, "Fifty Two Week Low Fannie Mae: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low Fannie Mae is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_low_fannie_mae.display(value, buffer, offset, packet, parent)
@@ -1328,7 +1399,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_low_fhlb.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_fhlb, range, value, "Fifty Two Week Low Fhlb: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low Fhlb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_low_fhlb.display(value, buffer, offset, packet, parent)
@@ -1356,7 +1430,10 @@ finra_trace_atds_dfi_v2_1.fifty_two_week_low_freddie_mac.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_freddie_mac, range, value, "Fifty Two Week Low Freddie Mac: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Fifty Two Week Low Freddie Mac is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.fifty_two_week_low_freddie_mac.display(value, buffer, offset, packet, parent)
@@ -1464,6 +1541,9 @@ finra_trace_atds_dfi_v2_1.high_price.dissect = function(buffer, offset, packet, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.high_price, range, value, "High Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.high_price.display(value, buffer, offset, packet, parent)
@@ -1506,6 +1586,9 @@ finra_trace_atds_dfi_v2_1.high_yield.dissect = function(buffer, offset, packet, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.high_yield, range, value, "High Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "High Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.high_yield.display(value, buffer, offset, packet, parent)
@@ -1563,7 +1646,10 @@ finra_trace_atds_dfi_v2_1.hour.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.hour, range, value, "Hour: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Hour is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.hour.display(value, buffer, offset, packet, parent)
@@ -1629,6 +1715,9 @@ finra_trace_atds_dfi_v2_1.last_sale_price.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.last_sale_price, range, value, "Last Sale Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Last Sale Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -1671,6 +1760,9 @@ finra_trace_atds_dfi_v2_1.last_sale_yield.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.last_sale_yield, range, value, "Last Sale Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Last Sale Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.last_sale_yield.display(value, buffer, offset, packet, parent)
@@ -1766,6 +1858,9 @@ finra_trace_atds_dfi_v2_1.low_price.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.low_price, range, value, "Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.low_price.display(value, buffer, offset, packet, parent)
@@ -1808,6 +1903,9 @@ finra_trace_atds_dfi_v2_1.low_yield.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.low_yield, range, value, "Low Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Low Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.low_yield.display(value, buffer, offset, packet, parent)
@@ -1925,7 +2023,10 @@ finra_trace_atds_dfi_v2_1.minute.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.minute, range, value, "Minute: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Minute is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.minute.display(value, buffer, offset, packet, parent)
@@ -1953,7 +2054,10 @@ finra_trace_atds_dfi_v2_1.month.dissect = function(buffer, offset, packet, paren
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.month, range, value, "Month: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Month is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.month.display(value, buffer, offset, packet, parent)
@@ -1981,7 +2085,10 @@ finra_trace_atds_dfi_v2_1.original_trade_identifier.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.original_trade_identifier, range, value, "Original Trade Identifier: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Original Trade Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.original_trade_identifier.display(value, buffer, offset, packet, parent)
@@ -2024,6 +2131,9 @@ finra_trace_atds_dfi_v2_1.price.dissect = function(buffer, offset, packet, paren
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.price.display(value, buffer, offset, packet, parent)
@@ -2272,7 +2382,10 @@ finra_trace_atds_dfi_v2_1.second.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.second, range, value, "Second: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Second is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.second.display(value, buffer, offset, packet, parent)
@@ -2475,7 +2588,10 @@ finra_trace_atds_dfi_v2_1.total_number_of_transactions_affiliate_buy.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_affiliate_buy, range, value, "Total Number Of Transactions Affiliate Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Affiliate Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_number_of_transactions_affiliate_buy.display(value, buffer, offset, packet, parent)
@@ -2503,7 +2619,10 @@ finra_trace_atds_dfi_v2_1.total_number_of_transactions_affiliate_sell.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_affiliate_sell, range, value, "Total Number Of Transactions Affiliate Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Affiliate Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_number_of_transactions_affiliate_sell.display(value, buffer, offset, packet, parent)
@@ -2531,7 +2650,10 @@ finra_trace_atds_dfi_v2_1.total_number_of_transactions_all_securities.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_all_securities, range, value, "Total Number Of Transactions All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_number_of_transactions_all_securities.display(value, buffer, offset, packet, parent)
@@ -2559,7 +2681,10 @@ finra_trace_atds_dfi_v2_1.total_number_of_transactions_customer_buy.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_customer_buy, range, value, "Total Number Of Transactions Customer Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Customer Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_number_of_transactions_customer_buy.display(value, buffer, offset, packet, parent)
@@ -2587,7 +2712,10 @@ finra_trace_atds_dfi_v2_1.total_number_of_transactions_customer_sell.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_customer_sell, range, value, "Total Number Of Transactions Customer Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Customer Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_number_of_transactions_customer_sell.display(value, buffer, offset, packet, parent)
@@ -2615,7 +2743,10 @@ finra_trace_atds_dfi_v2_1.total_number_of_transactions_inter_dealer.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_number_of_transactions_inter_dealer, range, value, "Total Number Of Transactions Inter Dealer: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Number Of Transactions Inter Dealer is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_number_of_transactions_inter_dealer.display(value, buffer, offset, packet, parent)
@@ -2643,7 +2774,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_affiliate_buy.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_affiliate_buy, range, value, "Total Securities Traded Affiliate Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Affiliate Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_affiliate_buy.display(value, buffer, offset, packet, parent)
@@ -2671,7 +2805,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_affiliate_sell.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_affiliate_sell, range, value, "Total Securities Traded Affiliate Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Affiliate Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_affiliate_sell.display(value, buffer, offset, packet, parent)
@@ -2699,7 +2836,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_all_securities.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_all_securities, range, value, "Total Securities Traded All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_all_securities.display(value, buffer, offset, packet, parent)
@@ -2727,7 +2867,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_customer_buy.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_customer_buy, range, value, "Total Securities Traded Customer Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Customer Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_customer_buy.display(value, buffer, offset, packet, parent)
@@ -2755,7 +2898,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_customer_sell.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_customer_sell, range, value, "Total Securities Traded Customer Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Customer Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_customer_sell.display(value, buffer, offset, packet, parent)
@@ -2783,7 +2929,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_fannie_mae.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_fannie_mae, range, value, "Total Securities Traded Fannie Mae: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Fannie Mae is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_fannie_mae.display(value, buffer, offset, packet, parent)
@@ -2811,7 +2960,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_fhlb.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_fhlb, range, value, "Total Securities Traded Fhlb: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Fhlb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_fhlb.display(value, buffer, offset, packet, parent)
@@ -2839,7 +2991,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_freddie_mac.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_freddie_mac, range, value, "Total Securities Traded Freddie Mac: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Freddie Mac is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_freddie_mac.display(value, buffer, offset, packet, parent)
@@ -2867,7 +3022,10 @@ finra_trace_atds_dfi_v2_1.total_securities_traded_inter_dealer.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_securities_traded_inter_dealer, range, value, "Total Securities Traded Inter Dealer: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Securities Traded Inter Dealer is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_securities_traded_inter_dealer.display(value, buffer, offset, packet, parent)
@@ -2895,7 +3053,10 @@ finra_trace_atds_dfi_v2_1.total_volume_affiliate_buy.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_affiliate_buy, range, value, "Total Volume Affiliate Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_affiliate_buy.display(value, buffer, offset, packet, parent)
@@ -2923,7 +3084,10 @@ finra_trace_atds_dfi_v2_1.total_volume_affiliate_sell.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_affiliate_sell, range, value, "Total Volume Affiliate Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Affiliate Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_affiliate_sell.display(value, buffer, offset, packet, parent)
@@ -2951,7 +3115,10 @@ finra_trace_atds_dfi_v2_1.total_volume_all_securities.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_all_securities, range, value, "Total Volume All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_all_securities.display(value, buffer, offset, packet, parent)
@@ -2979,7 +3146,10 @@ finra_trace_atds_dfi_v2_1.total_volume_customer_buy.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_customer_buy, range, value, "Total Volume Customer Buy: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Customer Buy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_customer_buy.display(value, buffer, offset, packet, parent)
@@ -3007,7 +3177,10 @@ finra_trace_atds_dfi_v2_1.total_volume_customer_sell.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_customer_sell, range, value, "Total Volume Customer Sell: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Customer Sell is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_customer_sell.display(value, buffer, offset, packet, parent)
@@ -3035,7 +3208,10 @@ finra_trace_atds_dfi_v2_1.total_volume_fannie_mae.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_fannie_mae, range, value, "Total Volume Fannie Mae: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Fannie Mae is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_fannie_mae.display(value, buffer, offset, packet, parent)
@@ -3063,7 +3239,10 @@ finra_trace_atds_dfi_v2_1.total_volume_fhlb.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_fhlb, range, value, "Total Volume Fhlb: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Fhlb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_fhlb.display(value, buffer, offset, packet, parent)
@@ -3091,7 +3270,10 @@ finra_trace_atds_dfi_v2_1.total_volume_freddie_mac.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_freddie_mac, range, value, "Total Volume Freddie Mac: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Freddie Mac is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_freddie_mac.display(value, buffer, offset, packet, parent)
@@ -3119,7 +3301,10 @@ finra_trace_atds_dfi_v2_1.total_volume_inter_dealer.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.total_volume_inter_dealer, range, value, "Total Volume Inter Dealer: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Total Volume Inter Dealer is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.total_volume_inter_dealer.display(value, buffer, offset, packet, parent)
@@ -3147,7 +3332,10 @@ finra_trace_atds_dfi_v2_1.trade_identifier.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.trade_identifier, range, value, "Trade Identifier: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Trade Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.trade_identifier.display(value, buffer, offset, packet, parent)
@@ -3208,7 +3396,10 @@ finra_trace_atds_dfi_v2_1.unchanged_all_securities.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.unchanged_all_securities, range, value, "Unchanged All Securities: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Unchanged All Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.unchanged_all_securities.display(value, buffer, offset, packet, parent)
@@ -3236,7 +3427,10 @@ finra_trace_atds_dfi_v2_1.unchanged_fannie_mae.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.unchanged_fannie_mae, range, value, "Unchanged Fannie Mae: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Unchanged Fannie Mae is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.unchanged_fannie_mae.display(value, buffer, offset, packet, parent)
@@ -3264,7 +3458,10 @@ finra_trace_atds_dfi_v2_1.unchanged_fhlb.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.unchanged_fhlb, range, value, "Unchanged Fhlb: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Unchanged Fhlb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.unchanged_fhlb.display(value, buffer, offset, packet, parent)
@@ -3292,7 +3489,10 @@ finra_trace_atds_dfi_v2_1.unchanged_freddie_mac.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.unchanged_freddie_mac, range, value, "Unchanged Freddie Mac: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Unchanged Freddie Mac is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.unchanged_freddie_mac.display(value, buffer, offset, packet, parent)
@@ -3350,7 +3550,10 @@ finra_trace_atds_dfi_v2_1.year.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.year, range, value, "Year: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.year.display(value, buffer, offset, packet, parent)
@@ -3393,6 +3596,9 @@ finra_trace_atds_dfi_v2_1.yield.dissect = function(buffer, offset, packet, paren
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_atds_dfi_v2_1.fields.yield, range, value, "Yield: Not Applicable")
+    item:add_proto_expert_info(finra_trace_atds_dfi_v2_1.experts.not_a_number, "Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_atds_dfi_v2_1.yield.display(value, buffer, offset, packet, parent)

@@ -15,7 +15,7 @@ local nasdaq_ntxoptions_topofmarket_itch_v2_2 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NtxOptions TopOfMarket Itch 2.2 Fields
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.ntxoptions.topofmarket.itch.v2.2.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.ask_cust_size_long = ProtoField.new("Ask Cust Size Long", "nasdaq.ntxoptions.topofmarket.itch.v2.2.askcustsizelong", ftypes.UINT32, nil, nil, nil, "Customer quantity on the ask side.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.ask_cust_size_short = ProtoField.new("Ask Cust Size Short", "nasdaq.ntxoptions.topofmarket.itch.v2.2.askcustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer quantity on the ask side.")
@@ -75,7 +75,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.procust_size_long = ProtoFiel
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.procust_size_short = ProtoField.new("ProCust Size Short", "nasdaq.ntxoptions.topofmarket.itch.v2.2.procustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer professional quantity on the bid or ask side.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.ntxoptions.topofmarket.itch.v2.2.quotecondition", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.ntxoptions.topofmarket.itch.v2.2.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.ntxoptions.topofmarket.itch.v2.2.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.ntxoptions.topofmarket.itch.v2.2.securitysymbol", ftypes.STRING, nil, nil, nil, "Denotes the option root symbol (security symbol)")
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
@@ -139,6 +139,11 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.unsequenced_data_packet = Pro
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxoptions.topofmarket.itch.v2.2.messageindex", ftypes.UINT16)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NtxOptions TopOfMarket Itch 2.2 Expert Info
+nasdaq_ntxoptions_topofmarket_itch_v2_2.experts = {}
+nasdaq_ntxoptions_topofmarket_itch_v2_2.experts.not_a_number = ProtoExpert.new("nasdaq.ntxoptions.topofmarket.itch.v2.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.experts = { nasdaq_ntxoptions_topofmarket_itch_v2_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NtxOptions TopOfMarket Itch 2.2 Formatting
@@ -308,7 +313,10 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_ntxoptions_topofmarket_itch_v2_2.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1878,7 +1886,10 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_ntxoptions_topofmarket_itch_v2_2.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_sequence_number.display(value, buffer, offset, packet, parent)

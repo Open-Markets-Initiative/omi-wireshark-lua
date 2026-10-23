@@ -29001,7 +29001,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v11_1)
 --   Version: 11.1
 --   Date: Thursday, February 23, 2023
 --   Specification: T7_Enhanced_Trading_Interface_-_Cash_Message_Reference_v.11.1-C0001.pdf
---   Specification: T7_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_v.11.1-D0001
+--   Specification: T7_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_v.11.1-D0003.pdf
 --   Specification: T7_Enhanced_Trading_Interface_-_Cash_Message_Reference_v.11.1-C0003.pdf
 --
 -- Script:

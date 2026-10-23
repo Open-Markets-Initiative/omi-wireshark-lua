@@ -15,7 +15,7 @@ local biva_bivaequities_orderentry_ouch_v1_05 = {}
 -----------------------------------------------------------------------
 
 -- Biva BivaEquities OrderEntry Ouch 1.05 Fields
-omi_biva_bivaequities_orderentry_ouch_v1_05.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "biva.bivaequities.orderentry.ouch.v1.05.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_biva_bivaequities_orderentry_ouch_v1_05.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "biva.bivaequities.orderentry.ouch.v1.05.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.accepted_session = ProtoField.new("Accepted Session", "biva.bivaequities.orderentry.ouch.v1.05.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.account_id = ProtoField.new("Account Id", "biva.bivaequities.orderentry.ouch.v1.05.accountid", ftypes.UINT32, nil, nil, nil, "Assigned by the participant and forwarded to the clearing and settlement venues")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.account_type = ProtoField.new("Account Type", "biva.bivaequities.orderentry.ouch.v1.05.accounttype", ftypes.STRING)
@@ -45,7 +45,7 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.fields.quantity = ProtoField.new("Qu
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "biva.bivaequities.orderentry.ouch.v1.05.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.rejected_reason = ProtoField.new("Rejected Reason", "biva.bivaequities.orderentry.ouch.v1.05.rejectedreason", ftypes.STRING, nil, nil, nil, "The reason the order was rejected")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "biva.bivaequities.orderentry.ouch.v1.05.replacementordertoken", ftypes.UINT32, nil, nil, nil, "Token must be unique for each Ouch user per trading cycle")
-omi_biva_bivaequities_orderentry_ouch_v1_05.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "biva.bivaequities.orderentry.ouch.v1.05.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_biva_bivaequities_orderentry_ouch_v1_05.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "biva.bivaequities.orderentry.ouch.v1.05.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.requested_session = ProtoField.new("Requested Session", "biva.bivaequities.orderentry.ouch.v1.05.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "biva.bivaequities.orderentry.ouch.v1.05.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.server_packet_type = ProtoField.new("Packet Type", "biva.bivaequities.orderentry.ouch.v1.05.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -88,6 +88,11 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.fields.unsequenced_data_packet = Pro
 
 -- Biva BivaEquities OrderEntry Ouch 1.05 Generated Fields
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "biva.bivaequities.orderentry.ouch.v1.05.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Biva BivaEquities OrderEntry Ouch 1.05 Expert Info
+biva_bivaequities_orderentry_ouch_v1_05.experts = {}
+biva_bivaequities_orderentry_ouch_v1_05.experts.not_a_number = ProtoExpert.new("biva.bivaequities.orderentry.ouch.v1.05.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_biva_bivaequities_orderentry_ouch_v1_05.experts = { biva_bivaequities_orderentry_ouch_v1_05.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Biva BivaEquities OrderEntry Ouch 1.05 Formatting
@@ -252,7 +257,10 @@ biva_bivaequities_orderentry_ouch_v1_05.accepted_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(biva_bivaequities_orderentry_ouch_v1_05.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = biva_bivaequities_orderentry_ouch_v1_05.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1091,7 +1099,10 @@ biva_bivaequities_orderentry_ouch_v1_05.requested_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(biva_bivaequities_orderentry_ouch_v1_05.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = biva_bivaequities_orderentry_ouch_v1_05.requested_sequence_number.display(value, buffer, offset, packet, parent)

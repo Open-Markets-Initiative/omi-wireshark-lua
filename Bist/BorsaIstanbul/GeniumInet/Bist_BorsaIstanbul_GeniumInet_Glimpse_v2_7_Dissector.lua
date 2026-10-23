@@ -15,7 +15,7 @@ local bist_borsaistanbul_geniuminet_glimpse_v2_7 = {}
 -----------------------------------------------------------------------
 
 -- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Fields
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_session = ProtoField.new("Accepted Session", "bist.borsaistanbul.geniuminet.glimpse.v2.7.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.bait_implied_order = ProtoField.new("Bait Implied Order", "bist.borsaistanbul.geniuminet.glimpse.v2.7.baitimpliedorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000, "Bait/implied order")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.block_lot_size = ProtoField.new("Block Lot Size", "bist.borsaistanbul.geniuminet.glimpse.v2.7.blocklotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of securities that represents a block lot for the order book. A value of 0 indicates that this lot type is undefined for the order book")
@@ -52,7 +52,7 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_sequence_number = 
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtime", ftypes.UINT64, nil, nil, nil, "Ranking timestamp, in nanoseconds")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_type = ProtoField.new("Ranking Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtype", ftypes.UINT8, nil, nil, nil, "Specifies what ranking type should be used. 1 = Price Time")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.requested_session = ProtoField.new("Requested Session", "bist.borsaistanbul.geniuminet.glimpse.v2.7.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_13 = ProtoField.new("Reserved 13", "bist.borsaistanbul.geniuminet.glimpse.v2.7.reserved13", ftypes.UINT16, nil, base.DEC, 0x1FFF, "Reserved")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_2 = ProtoField.new("Reserved 2", "bist.borsaistanbul.geniuminet.glimpse.v2.7.reserved2", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved")
@@ -108,6 +108,11 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.unsequenced_data_packet = 
 -- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Generated Fields
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.timestamp = ProtoField.new("Timestamp", "bist.borsaistanbul.geniuminet.glimpse.v2.7.timestamp", ftypes.UINT64)
+
+-- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Expert Info
+bist_borsaistanbul_geniuminet_glimpse_v2_7.experts = {}
+bist_borsaistanbul_geniuminet_glimpse_v2_7.experts.not_a_number = ProtoExpert.new("bist.borsaistanbul.geniuminet.glimpse.v2.7.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.experts = { bist_borsaistanbul_geniuminet_glimpse_v2_7.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Formatting
@@ -257,7 +262,10 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(bist_borsaistanbul_geniuminet_glimpse_v2_7.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1164,7 +1172,10 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.requested_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(bist_borsaistanbul_geniuminet_glimpse_v2_7.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.requested_sequence_number.display(value, buffer, offset, packet, parent)

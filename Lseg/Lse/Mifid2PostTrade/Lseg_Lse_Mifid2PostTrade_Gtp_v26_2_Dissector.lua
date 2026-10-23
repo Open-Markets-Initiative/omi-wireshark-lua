@@ -39,13 +39,13 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.market_mechanism = ProtoField.new(
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_count = ProtoField.new("Message Count", "lseg.lse.mifid2posttrade.gtp.v26.2.messagecount", ftypes.UINT8, nil, nil, nil, "Number of payload messages that will follow the header")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_length = ProtoField.new("Message Length", "lseg.lse.mifid2posttrade.gtp.v26.2.messagelength", ftypes.UINT16, nil, nil, nil, "Length of message including this field")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_type = ProtoField.new("Message Type", "lseg.lse.mifid2posttrade.gtp.v26.2.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_price = ProtoField.new("Mifid Price", "lseg.lse.mifid2posttrade.gtp.v26.2.mifidprice", ftypes.STRING, nil, nil, nil, "MiFID compliant Price field populated using either Price or Percentage. {DECIMAL-18/13} in case the price is expressed as monetary value. {DECIMAL-11/10} in case the price is expressed as percentage.")
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_quantity = ProtoField.new("Mifid Quantity", "lseg.lse.mifid2posttrade.gtp.v26.2.mifidquantity", ftypes.STRING, nil, nil, nil, "Number of units of the financial instrument. {DECIMAL-18/17} Will be set to default value (20 spaces) if the traded security is a bond.")
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_price = ProtoField.new("Mifid Price", "lseg.lse.mifid2posttrade.gtp.v26.2.mifidprice", ftypes.DOUBLE, nil, nil, nil, "MiFID compliant Price field populated using either Price or Percentage. {DECIMAL-18/13} in case the price is expressed as monetary value. {DECIMAL-11/10} in case the price is expressed as percentage.")
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_quantity = ProtoField.new("Mifid Quantity", "lseg.lse.mifid2posttrade.gtp.v26.2.mifidquantity", ftypes.DOUBLE, nil, nil, nil, "Number of units of the financial instrument. {DECIMAL-18/17} Will be set to default value (20 spaces) if the traded security is a bond.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_trade_type = ProtoField.new("Mifid Trade Type", "lseg.lse.mifid2posttrade.gtp.v26.2.mifidtradetype", ftypes.UINT8, nil, nil, nil, "Type of the trade.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.modificationindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the report cancels or amends a previous report.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.negotiationindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade was negotiated.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.new_end_time = ProtoField.new("New End Time", "lseg.lse.mifid2posttrade.gtp.v26.2.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. The field will contain only spaces if Session Change Reason is '0' or the Session Change Reason is not present. New End Time will be in terms of the local time on the server (i.e., not UTC).")
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.lse.mifid2posttrade.gtp.v26.2.notionalamount", ftypes.STRING, nil, nil, nil, "Notional value relevant to the security. {DECIMAL-18/5} Only relevant for non-equity instruments.")
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.lse.mifid2posttrade.gtp.v26.2.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional value relevant to the security. {DECIMAL-18/5} Only relevant for non-equity instruments.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.lse.mifid2posttrade.gtp.v26.2.notionalcurrency", ftypes.STRING, nil, nil, nil, "Major Currency in which the notional amount is denominated. Only relevant for non-equity instruments.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.lse.mifid2posttrade.gtp.v26.2.offbookautomatedindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the off book trade was automated.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lseg.lse.mifid2posttrade.gtp.v26.2.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
@@ -106,6 +106,11 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.system_event_message = ProtoField.
 -- Lseg Lse Mifid2PostTrade Gtp 26.2 Generated Fields
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.message_index = ProtoField.new("Message Index", "lseg.lse.mifid2posttrade.gtp.v26.2.messageindex", ftypes.UINT16)
 
+-- Lseg Lse Mifid2PostTrade Gtp 26.2 Expert Info
+lseg_lse_mifid2posttrade_gtp_v26_2.experts = {}
+lseg_lse_mifid2posttrade_gtp_v26_2.experts.not_a_number = ProtoExpert.new("lseg.lse.mifid2posttrade.gtp.v26.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.experts = { lseg_lse_mifid2posttrade_gtp_v26_2.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -156,6 +161,53 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
 end
 
 
@@ -844,20 +896,30 @@ lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.size = 20
 
 -- Display: Mifid Price
-lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Mifid Price: No Value"
   end
 
-  return "Mifid Price: "..value
+  return "Mifid Price: "..text
 end
 
 -- Dissect: Mifid Price
 lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_price, range, value, "Mifid Price: Not Applicable")
+    item:add_proto_expert_info(lseg_lse_mifid2posttrade_gtp_v26_2.experts.not_a_number, "Mifid Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_price, range, value, display)
@@ -872,20 +934,30 @@ lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.size = 20
 
 -- Display: Mifid Quantity
-lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Mifid Quantity: No Value"
   end
 
-  return "Mifid Quantity: "..value
+  return "Mifid Quantity: "..text
 end
 
 -- Dissect: Mifid Quantity
 lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_quantity, range, value, "Mifid Quantity: Not Applicable")
+    item:add_proto_expert_info(lseg_lse_mifid2posttrade_gtp_v26_2.experts.not_a_number, "Mifid Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_quantity, range, value, display)
@@ -1066,20 +1138,30 @@ lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.size = 20
 
 -- Display: Notional Amount
-lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Notional Amount: No Value"
   end
 
-  return "Notional Amount: "..value
+  return "Notional Amount: "..text
 end
 
 -- Dissect: Notional Amount
 lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(lseg_lse_mifid2posttrade_gtp_v26_2.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_amount, range, value, display)

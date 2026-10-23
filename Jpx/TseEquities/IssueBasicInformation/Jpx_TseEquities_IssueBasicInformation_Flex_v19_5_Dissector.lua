@@ -111,6 +111,11 @@ omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.control_message = Pr
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.issue_information_message = ProtoField.new("Issue Information Message", "jpx.tseequities.issuebasicinformation.flex.v19.5.issueinformationmessage", ftypes.STRING, nil, nil, nil, "In this tag, the new security code, etc., of each issue will be set. This tag appears as part of an issue basic message.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.multicast_group_number_information_message = ProtoField.new("Multicast Group Number Information Message", "jpx.tseequities.issuebasicinformation.flex.v19.5.multicastgroupnumberinformationmessage", ftypes.STRING, nil, nil, nil, "In this tag, Multicast Group Number with which the issue is output is set. This tag appears as part of an Issue Realtime Message.")
 
+-- Jpx TseEquities IssueBasicInformation Flex 19.5 Expert Info
+jpx_tseequities_issuebasicinformation_flex_v19_5.experts = {}
+jpx_tseequities_issuebasicinformation_flex_v19_5.experts.not_a_number = ProtoExpert.new("jpx.tseequities.issuebasicinformation.flex.v19.5.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jpx_tseequities_issuebasicinformation_flex_v19_5.experts = { jpx_tseequities_issuebasicinformation_flex_v19_5.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -1554,6 +1559,9 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.price.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_issuebasicinformation_flex_v19_5.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 

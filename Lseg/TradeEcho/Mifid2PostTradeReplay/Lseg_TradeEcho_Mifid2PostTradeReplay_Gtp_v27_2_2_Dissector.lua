@@ -69,7 +69,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.new_end_time = Proto
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.non_price_contribution_to_discovery = ProtoField.new("Non Price Contribution To Discovery", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.nonpricecontributiontodiscovery", ftypes.STRING, nil, nil, nil, "TNCP when the trade does not contribute to the price discovery process.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.non_price_forming_transactions_flag = ProtoField.new("Non Price Forming Transactions Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.nonpriceformingtransactionsflag", ftypes.STRING, nil, nil, nil, "NPFT when the trade is a non-price forming trade.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.notation_of_the_quantity_in_measurement_unit = ProtoField.new("Notation Of The Quantity In Measurement Unit", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.notationofthequantityinmeasurementunit", ftypes.STRING, nil, nil, nil, "Indication of measurement units used to represent the value in the Quantity in Measurement Unit.")
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.notionalamount", ftypes.STRING, nil, nil, nil, "Notional value relevant to the security, limited to a precision of {DECIMAL-19/18}.")
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional value relevant to the security, limited to a precision of {DECIMAL-19/18}.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.notionalcurrency", ftypes.STRING, nil, nil, nil, "Major currency in which the notional amount is denominated.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.nt_large_in_scale_flag = ProtoField.new("Nt Large In Scale Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.ntlargeinscaleflag", ftypes.STRING, nil, nil, nil, "NTLS for a negotiated trade larger than LIS brought onto a venue.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.nt_liquidity_flag = ProtoField.new("Nt Liquidity Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.ntliquidityflag", ftypes.STRING, nil, nil, nil, "Negotiated trade liquidity indication, NLIQ or OILQ.")
@@ -82,7 +82,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.offbook = ProtoField
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.orderbooktype", ftypes.UINT8, nil, nil, nil, "Order book type the status applies to.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.portfolio_transaction_flag = ProtoField.new("Portfolio Transaction Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.portfoliotransactionflag", ftypes.STRING, nil, nil, nil, "PORT when the trade is a portfolio trade.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.posttradedeferralreason", ftypes.STRING, nil, nil, nil, "Post trade deferral reason short code.")
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price = ProtoField.new("Price", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.price", ftypes.STRING, nil, nil, nil, "The trade price, limited to a precision of {DECIMAL-19/18}. Will be set to default value (20 spaces) if there is a pending price (PNDG). In case of transactions under ESMA jurisdiction, will be set to default value (20 spaces) if price is not available (NOAP).")
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price = ProtoField.new("Price", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.price", ftypes.DOUBLE, nil, nil, nil, "The trade price, limited to a precision of {DECIMAL-19/18}. Will be set to default value (20 spaces) if there is a pending price (PNDG). In case of transactions under ESMA jurisdiction, will be set to default value (20 spaces) if price is not available (NOAP).")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.pricebandtolerances", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.priceformationindicator", ftypes.STRING, nil, nil, nil, "Price formation indicator short code.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price_improvement_flag = ProtoField.new("Price Improvement Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.priceimprovementflag", ftypes.STRING, nil, nil, nil, "RPRI when the trade has received price improvement.")
@@ -91,8 +91,8 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price_notation = Pro
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.pt_deferral_reason_flag = ProtoField.new("Pt Deferral Reason Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.ptdeferralreasonflag", ftypes.STRING, nil, nil, nil, "Post trade deferral reason, SIZE or LRGS.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.pt_illiquid_flag = ProtoField.new("Pt Illiquid Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.ptilliquidflag", ftypes.STRING, nil, nil, nil, "ILQD when publication is deferred for an illiquid instrument.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.publicationdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was published.")
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity = ProtoField.new("Quantity", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.quantity", ftypes.STRING, nil, nil, nil, "The number of units of the financial instrument or the number of derivative contracts in the trade, limited to a precision of {DECIMAL-19/18}. Will be set to default value (20 spaces) if quantity is not available. In case of transactions under FCA jurisdiction, will be set to default value (20 spaces) if the traded security is a bond.")
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.quantityinmeasurementunit", ftypes.STRING, nil, nil, nil, "The Quantity in Measurement Unit, limited to a precision of IEEE 754 Double Standard.")
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity = ProtoField.new("Quantity", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.quantity", ftypes.DOUBLE, nil, nil, nil, "The number of units of the financial instrument or the number of derivative contracts in the trade, limited to a precision of {DECIMAL-19/18}. Will be set to default value (20 spaces) if quantity is not available. In case of transactions under FCA jurisdiction, will be set to default value (20 spaces) if the traded security is a bond.")
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.quantityinmeasurementunit", ftypes.DOUBLE, nil, nil, nil, "The Quantity in Measurement Unit, limited to a precision of IEEE 754 Double Standard.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.referencepriceindicator", ftypes.STRING, nil, nil, nil, "Reference price indicator short code.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reference_price_transaction_flag = ProtoField.new("Reference Price Transaction Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.referencepricetransactionflag", ftypes.STRING, nil, nil, nil, "RFPT when the trade is a reference price trade.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.replay_status = ProtoField.new("Replay Status", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.replaystatus", ftypes.STRING, nil, nil, nil, "Status of the replay request.")
@@ -110,7 +110,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.session_change_reaso
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.sourcevenue", ftypes.UINT16, nil, nil, nil, "Venue from which market data is received for the instrument.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.special_dividend_flag = ProtoField.new("Special Dividend Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.specialdividendflag", ftypes.STRING, nil, nil, nil, "SDIV when the trade is a special dividend trade.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.specialdividendindicator", ftypes.STRING, nil, nil, nil, "Special dividend indicator short code.")
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.spread = ProtoField.new("Spread", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.spread", ftypes.STRING, nil, nil, nil, "The spread on the floating leg, limited to a precision of IEEE 754 Double Standard. Blank if not applicable.")
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.spread = ProtoField.new("Spread", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.spread", ftypes.DOUBLE, nil, nil, nil, "The spread on the floating leg, limited to a precision of IEEE 754 Double Standard. Blank if not applicable.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.tcp_unit = ProtoField.new("Tcp Unit", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.tcpunit", ftypes.STRING, nil, nil, nil, "One unit on the tcp stream: the unit header and its payload messages")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
@@ -129,7 +129,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.turnover = ProtoFiel
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unused_2 = ProtoField.new("Unused 2", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.unused2", ftypes.UINT8, nil, base.DEC, 0x03, "Reserved for future use")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unused_5 = ProtoField.new("Unused 5", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved for future use")
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.upfront_payment = ProtoField.new("Upfront Payment", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.upfrontpayment", ftypes.STRING, nil, nil, nil, "The upfront payment exchanged as part of CDS transactions, limited to a precision of {DECIMAL-19/18}. Blank if not applicable.")
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.upfront_payment = ProtoField.new("Upfront Payment", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.upfrontpayment", ftypes.DOUBLE, nil, nil, nil, "The upfront payment exchanged as part of CDS transactions, limited to a precision of {DECIMAL-19/18}. Blank if not applicable.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.username = ProtoField.new("Username", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.username", ftypes.STRING, nil, nil, nil, "CompID assigned to the client.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.venue_book_definition_id = ProtoField.new("Venue Book Definition Id", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.venuebookdefinitionid", ftypes.UINT8, nil, nil, nil, "Book Definition ID sent by the venue.")
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.venueinstrumentid", ftypes.STRING, nil, nil, nil, "Instrument identifier used by the source venue.")
@@ -164,6 +164,11 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.system_event_message
 
 -- Lseg TradeEcho Mifid2PostTradeReplay Gtp 27.2.2 Generated Fields
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.messageindex", ftypes.UINT16)
+
+-- Lseg TradeEcho Mifid2PostTradeReplay Gtp 27.2.2 Expert Info
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts = {}
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number = ProtoExpert.new("lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts = { lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -215,6 +220,53 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
 end
 
 
@@ -2010,20 +2062,30 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.size = 20
 
 -- Display: Notional Amount
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Notional Amount: No Value"
   end
 
-  return "Notional Amount: "..value
+  return "Notional Amount: "..text
 end
 
 -- Dissect: Notional Amount
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.notional_amount, range, value, display)
@@ -2403,20 +2465,30 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.size = 20
 
 -- Display: Price
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Price: No Value"
   end
 
-  return "Price: "..value
+  return "Price: "..text
 end
 
 -- Dissect: Price
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price, range, value, display)
@@ -2690,20 +2762,30 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.size = 20
 
 -- Display: Quantity
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Quantity: No Value"
   end
 
-  return "Quantity: "..value
+  return "Quantity: "..text
 end
 
 -- Dissect: Quantity
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity, range, value, "Quantity: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number, "Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity, range, value, display)
@@ -2718,20 +2800,30 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit = 
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.size = 20
 
 -- Display: Quantity In Measurement Unit
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Quantity In Measurement Unit: No Value"
   end
 
-  return "Quantity In Measurement Unit: "..value
+  return "Quantity In Measurement Unit: "..text
 end
 
 -- Dissect: Quantity In Measurement Unit
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity_in_measurement_unit, range, value, "Quantity In Measurement Unit: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number, "Quantity In Measurement Unit is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity_in_measurement_unit, range, value, display)
@@ -3267,20 +3359,30 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.size = 20
 
 -- Display: Spread
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Spread: No Value"
   end
 
-  return "Spread: "..value
+  return "Spread: "..text
 end
 
 -- Dissect: Spread
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.spread, range, value, "Spread: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number, "Spread is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.spread, range, value, display)
@@ -3829,20 +3931,30 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.size = 20
 
 -- Display: Upfront Payment
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Upfront Payment: No Value"
   end
 
-  return "Upfront Payment: "..value
+  return "Upfront Payment: "..text
 end
 
 -- Dissect: Upfront Payment
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.upfront_payment, range, value, "Upfront Payment: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.experts.not_a_number, "Upfront Payment is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.upfront_payment, range, value, display)

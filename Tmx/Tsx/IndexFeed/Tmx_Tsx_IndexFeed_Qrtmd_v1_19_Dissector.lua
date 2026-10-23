@@ -24,7 +24,7 @@ omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.index_id = ProtoField.new("Index Id", "
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.last_level = ProtoField.new("Last Level", "tmx.tsx.indexfeed.qrtmd.v1.19.lastlevel", ftypes.DOUBLE, nil, nil, nil, "The level of the index as of the time of the calculation.")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.low_level = ProtoField.new("Low Level", "tmx.tsx.indexfeed.qrtmd.v1.19.lowlevel", ftypes.DOUBLE, nil, nil, nil, "Lowest level of the index for the day.")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.markers = ProtoField.new("Markers", "tmx.tsx.indexfeed.qrtmd.v1.19.markers", ftypes.STRING, nil, nil, nil, "Marks the message carrying the closing values.")
-omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.message_length = ProtoField.new("Message Length", "tmx.tsx.indexfeed.qrtmd.v1.19.messagelength", ftypes.STRING, nil, nil, nil, "Total length of header and message business content, excluding Stx and Etx")
+omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.message_length = ProtoField.new("Message Length", "tmx.tsx.indexfeed.qrtmd.v1.19.messagelength", ftypes.UINT16, nil, nil, nil, "Total length of header and message business content, excluding Stx and Etx")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.message_type = ProtoField.new("Message Type", "tmx.tsx.indexfeed.qrtmd.v1.19.messagetype", ftypes.STRING, nil, nil, nil, "Unique code assigned to each message type, specific to each market service")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.net_change = ProtoField.new("Net Change", "tmx.tsx.indexfeed.qrtmd.v1.19.netchange", ftypes.DOUBLE, nil, nil, nil, "Net change from previous index level close.")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.open_level = ProtoField.new("Open Level", "tmx.tsx.indexfeed.qrtmd.v1.19.openlevel", ftypes.DOUBLE, nil, nil, nil, "Level of the index at the first calculation of the day.")
@@ -33,13 +33,13 @@ omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.percent_trading = ProtoField.new("Perce
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.qrtmd_etx = ProtoField.new("Qrtmd Etx", "tmx.tsx.indexfeed.qrtmd.v1.19.qrtmdetx", ftypes.INT8, nil, nil, nil, "End of Qrtmd message")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.qrtmd_stx = ProtoField.new("Qrtmd Stx", "tmx.tsx.indexfeed.qrtmd.v1.19.qrtmdstx", ftypes.INT8, nil, nil, nil, "Start of Qrtmd message")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.retransmission_identifier = ProtoField.new("Retransmission Identifier", "tmx.tsx.indexfeed.qrtmd.v1.19.retransmissionidentifier", ftypes.STRING, nil, nil, nil, "Marks a normal transmission, and is always blank on a heartbeat")
-omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.tsx.indexfeed.qrtmd.v1.19.sequencenumber", ftypes.STRING, nil, nil, nil, "Assigned at service broadcast from 000000001 to 999999999, blank on a heartbeat")
+omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.tsx.indexfeed.qrtmd.v1.19.sequencenumber", ftypes.UINT32, nil, nil, nil, "Assigned at service broadcast from 000000001 to 999999999, blank on a heartbeat")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.service_identifier = ProtoField.new("Service Identifier", "tmx.tsx.indexfeed.qrtmd.v1.19.serviceidentifier", ftypes.STRING, nil, nil, nil, "Service code identifying the market data service carried on the feed")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.settlement_value = ProtoField.new("Settlement Value", "tmx.tsx.indexfeed.qrtmd.v1.19.settlementvalue", ftypes.DOUBLE, nil, nil, nil, "Settlement open.")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.special_opening_quote = ProtoField.new("Special Opening Quote", "tmx.tsx.indexfeed.qrtmd.v1.19.specialopeningquote", ftypes.DOUBLE, nil, nil, nil, "Adjusted index open value.")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.time = ProtoField.new("Time", "tmx.tsx.indexfeed.qrtmd.v1.19.time", ftypes.STRING, nil, nil, nil, "Time of the index level calculation.")
-omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.value = ProtoField.new("Value", "tmx.tsx.indexfeed.qrtmd.v1.19.value", ftypes.STRING, nil, nil, nil, "Total dollar of shares traded for the index.")
-omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.volume = ProtoField.new("Volume", "tmx.tsx.indexfeed.qrtmd.v1.19.volume", ftypes.STRING, nil, nil, nil, "Total number of shares traded for the index.")
+omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.value = ProtoField.new("Value", "tmx.tsx.indexfeed.qrtmd.v1.19.value", ftypes.UINT64, nil, nil, nil, "Total dollar of shares traded for the index.")
+omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.volume = ProtoField.new("Volume", "tmx.tsx.indexfeed.qrtmd.v1.19.volume", ftypes.UINT64, nil, nil, nil, "Total number of shares traded for the index.")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.yield = ProtoField.new("Yield", "tmx.tsx.indexfeed.qrtmd.v1.19.yield", ftypes.DOUBLE, nil, nil, nil, "Dividend Yield for the index, expressed as a percentage.")
 
 -- Tmx Tsx IndexFeed Qrtmd 1.19 Framing
@@ -49,6 +49,11 @@ omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.packet = ProtoField.new("Packet", "tmx.
 -- Tmx Tsx IndexFeed 1.19 Application Messages
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.beginning_of_index_summary_message = ProtoField.new("Beginning Of Index Summary Message", "tmx.tsx.indexfeed.qrtmd.v1.19.beginningofindexsummarymessage", ftypes.BYTES, nil, nil, nil, "Indicates that the end of day Index is to follow.")
 omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.s_and_p_tsx_official_index_level_message = ProtoField.new("S And P Tsx Official Index Level Message", "tmx.tsx.indexfeed.qrtmd.v1.19.sandptsxofficialindexlevelmessage", ftypes.STRING, nil, nil, nil, "Level of an index as of the time of the calculation.")
+
+-- Tmx Tsx IndexFeed Qrtmd 1.19 Expert Info
+tmx_tsx_indexfeed_qrtmd_v1_19.experts = {}
+tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number = ProtoExpert.new("tmx.tsx.indexfeed.qrtmd.v1.19.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tmx_tsx_indexfeed_qrtmd_v1_19.experts = { tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -190,6 +195,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.ask_price.dissect = function(buffer, offset, packe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -225,6 +233,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.bid_price.dissect = function(buffer, offset, packe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -320,6 +331,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.high_level.dissect = function(buffer, offset, pack
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.high_level, range, value, "High Level: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "High Level is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -378,6 +392,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.last_level.dissect = function(buffer, offset, pack
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.last_level, range, value, "Last Level: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Last Level is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -413,6 +430,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.low_level.dissect = function(buffer, offset, packe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.low_level, range, value, "Low Level: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Low Level is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -468,7 +488,10 @@ tmx_tsx_indexfeed_qrtmd_v1_19.message_length.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.message_length, range, value, "Message Length: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Message Length is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_indexfeed_qrtmd_v1_19.message_length.display(value, buffer, offset, packet, parent)
@@ -533,6 +556,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.net_change.dissect = function(buffer, offset, pack
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.net_change, range, value, "Net Change: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Net Change is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -568,6 +594,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.open_level.dissect = function(buffer, offset, pack
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.open_level, range, value, "Open Level: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Open Level is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -603,6 +632,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.pe.dissect = function(buffer, offset, packet, pare
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.pe, range, value, "Pe: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Pe is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -638,6 +670,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.percent_trading.dissect = function(buffer, offset,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.percent_trading, range, value, "Percent Trading: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Percent Trading is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -743,7 +778,10 @@ tmx_tsx_indexfeed_qrtmd_v1_19.sequence_number.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_indexfeed_qrtmd_v1_19.sequence_number.display(value, buffer, offset, packet, parent)
@@ -829,6 +867,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.settlement_value.dissect = function(buffer, offset
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.settlement_value, range, value, "Settlement Value: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Settlement Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -864,6 +905,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.special_opening_quote.dissect = function(buffer, o
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.special_opening_quote, range, value, "Special Opening Quote: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Special Opening Quote is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -919,7 +963,10 @@ tmx_tsx_indexfeed_qrtmd_v1_19.value.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.value, range, value, "Value: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_indexfeed_qrtmd_v1_19.value.display(value, buffer, offset, packet, parent)
@@ -947,7 +994,10 @@ tmx_tsx_indexfeed_qrtmd_v1_19.volume.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.volume, range, value, "Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_indexfeed_qrtmd_v1_19.volume.display(value, buffer, offset, packet, parent)
@@ -982,6 +1032,9 @@ tmx_tsx_indexfeed_qrtmd_v1_19.yield.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_indexfeed_qrtmd_v1_19.fields.yield, range, value, "Yield: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_indexfeed_qrtmd_v1_19.experts.not_a_number, "Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 

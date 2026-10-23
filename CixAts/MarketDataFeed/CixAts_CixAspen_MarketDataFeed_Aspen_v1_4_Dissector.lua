@@ -27,7 +27,7 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.feed_identifier = ProtoFiel
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.info = ProtoField.new("Info", "cixats.cixaspen.marketdatafeed.aspen.v1.4.info", ftypes.STRING, nil, nil, nil, "optional text")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.length = ProtoField.new("Length", "cixats.cixaspen.marketdatafeed.aspen.v1.4.length", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.listing_market = ProtoField.new("Listing Market", "cixats.cixaspen.marketdatafeed.aspen.v1.4.listingmarket", ftypes.STRING, nil, nil, nil, "Code identifying the primary listing market")
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "cixats.cixaspen.marketdatafeed.aspen.v1.4.marketdayidentifier", ftypes.STRING, nil, nil, nil, "Unique identifier for trading day")
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "cixats.cixaspen.marketdatafeed.aspen.v1.4.marketdayidentifier", ftypes.UINT32, nil, nil, nil, "Unique identifier for trading day")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_type = ProtoField.new("Message Type", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying message type")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.order_id = ProtoField.new("Order Id", "cixats.cixaspen.marketdatafeed.aspen.v1.4.orderid", ftypes.UINT64, nil, nil, nil, "Market Issued Unique Order ID")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.original_execution_id = ProtoField.new("Original Execution Id", "cixats.cixaspen.marketdatafeed.aspen.v1.4.originalexecutionid", ftypes.UINT64, nil, nil, nil, "Execution ID of the original trade being corrected")
@@ -67,6 +67,11 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.trade_message = ProtoField.
 
 -- CixAts CixAspen MarketDataFeed Aspen 1.4 Generated Fields
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_index = ProtoField.new("Message Index", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messageindex", ftypes.UINT16)
+
+-- CixAts CixAspen MarketDataFeed Aspen 1.4 Expert Info
+cixats_cixaspen_marketdatafeed_aspen_v1_4.experts = {}
+cixats_cixaspen_marketdatafeed_aspen_v1_4.experts.not_a_number = ProtoExpert.new("cixats.cixaspen.marketdatafeed.aspen.v1.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.experts = { cixats_cixaspen_marketdatafeed_aspen_v1_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -479,7 +484,10 @@ cixats_cixaspen_marketdatafeed_aspen_v1_4.market_day_identifier.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.market_day_identifier, range, value, "Market Day Identifier: Not Applicable")
+    item:add_proto_expert_info(cixats_cixaspen_marketdatafeed_aspen_v1_4.experts.not_a_number, "Market Day Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cixats_cixaspen_marketdatafeed_aspen_v1_4.market_day_identifier.display(value, buffer, offset, packet, parent)

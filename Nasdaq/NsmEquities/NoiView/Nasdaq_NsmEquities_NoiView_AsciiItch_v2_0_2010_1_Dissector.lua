@@ -21,23 +21,23 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.event_code = ProtoFi
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.far_price = ProtoField.new("Far Price", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.farprice", ftypes.DOUBLE, nil, nil, nil, "A hypothetical auction-clearing price for cross orders only.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.financialstatusindicator", ftypes.STRING, nil, nil, nil, "Indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.imbalancedirection", ftypes.STRING, nil, nil, nil, "Indicates the market side of the imbalance.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.imbalanceshares", ftypes.STRING, nil, nil, nil, "Number of shares not paired at the Current Reference Price.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.imbalanceshares", ftypes.UINT32, nil, nil, nil, "Number of shares not paired at the Current Reference Price.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.marketcategory", ftypes.STRING, nil, nil, nil, "Indicates Listing market or listing market tier for the issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.nearprice", ftypes.DOUBLE, nil, nil, nil, "A hypothetical auction-clearing price for cross orders as well as continuous orders.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.pairedshares", ftypes.STRING, nil, nil, nil, "Indicates the total number of shares that are eligible to be matched at the Current Reference Price.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.pairedshares", ftypes.UINT32, nil, nil, nil, "Indicates the total number of shares that are eligible to be matched at the Current Reference Price.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.pricevariationindicator", ftypes.STRING, nil, nil, nil, "This field indicates the absolute value of the percentage of deviation of the Near Indicative Clearing Price to the nearest Current Reference Price.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.reserved1", ftypes.STRING, nil, nil, nil, "Reserved.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.roundlotsize", ftypes.STRING, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.stock", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the NASDAQ Single Book.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
+omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.timestamp", ftypes.UINT32, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.tradingstate", ftypes.STRING, nil, nil, nil, "Indicates the current trading state for the stock.")
 
 -- Nasdaq NsmEquities NoiView AsciiItch 2.0.2010.1 Framing
@@ -63,7 +63,8 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.message_sequence_num
 -- Nasdaq NsmEquities NoiView AsciiItch 2.0.2010.1 Expert Info
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
-omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts = { nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.message_after_end_of_session }
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.noiview.asciiitch.v2.0.2010.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts = { nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.message_after_end_of_session, nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities NoiView AsciiItch 2.0.2010.1 Formatting
@@ -275,6 +276,9 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.current_reference_price.dissect
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.current_reference_price, range, value, "Current Reference Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number, "Current Reference Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -355,6 +359,9 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.far_price.dissect = function(bu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.far_price, range, value, "Far Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number, "Far Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -470,7 +477,10 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_shares.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.imbalance_shares, range, value, "Imbalance Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number, "Imbalance Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_shares.display(value, buffer, offset, packet, parent)
@@ -623,6 +633,9 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.near_price.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.near_price, range, value, "Near Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number, "Near Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -651,7 +664,10 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.paired_shares.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.paired_shares, range, value, "Paired Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number, "Paired Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.paired_shares.display(value, buffer, offset, packet, parent)
@@ -873,7 +889,10 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lot_size.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.round_lot_size, range, value, "Round Lot Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number, "Round Lot Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lot_size.display(value, buffer, offset, packet, parent)
@@ -1024,7 +1043,10 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.timestamp.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.timestamp.display(value, buffer, offset, packet, parent)

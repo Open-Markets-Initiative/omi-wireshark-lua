@@ -15,7 +15,7 @@ local nasdaq_iseoptions_quoting_sqf_v9_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions Quoting Sqf 9.0 Fields
-omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.iseoptions.quoting.sqf.v9.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.iseoptions.quoting.sqf.v9.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.iseoptions.quoting.sqf.v9.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.active_counter_value = ProtoField.new("Active Counter Value", "nasdaq.iseoptions.quoting.sqf.v9.0.activecountervalue", ftypes.UINT32, nil, nil, nil, "Risk counter value after processing replenishment request.")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.iseoptions.quoting.sqf.v9.0.askprice", ftypes.DOUBLE)
@@ -49,7 +49,7 @@ omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.exec_flag = ProtoField.new("Exec F
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.expiration = ProtoField.new("Expiration", "nasdaq.iseoptions.quoting.sqf.v9.0.expiration", ftypes.UINT16, nil, nil, nil, "Expiration Field: year (bits 0-6, 0-99), month (bits 7-10) and day (bits 11-15) encoded into a 2 byte integer; bit 15 is the least significant bit")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.firm_id = ProtoField.new("Firm Id", "nasdaq.iseoptions.quoting.sqf.v9.0.firmid", ftypes.STRING, nil, nil, nil, "Spaces when auction not flagged Attributable")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.flex_dac_legs = ProtoField.new("Flex Dac Legs", "nasdaq.iseoptions.quoting.sqf.v9.0.flexdaclegs", ftypes.STRING, nil, nil, nil, "Auction Notification leg definitions, to be used in future to support Delta-Adjusted at Close functionality on Flex")
-omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.heartbeat_timeout = ProtoField.new("Heartbeat Timeout", "nasdaq.iseoptions.quoting.sqf.v9.0.heartbeattimeout", ftypes.STRING, nil, nil, nil, "Client Heartbeat Timeout in milliseconds, in ASCII. Failure to receive a message or a heartbeat for the specified duration causes the server socket to close")
+omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.heartbeat_timeout = ProtoField.new("Heartbeat Timeout", "nasdaq.iseoptions.quoting.sqf.v9.0.heartbeattimeout", ftypes.UINT32, nil, nil, nil, "Client Heartbeat Timeout in milliseconds, in ASCII. Failure to receive a message or a heartbeat for the specified duration causes the server socket to close")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.iseoptions.quoting.sqf.v9.0.instrumentid", ftypes.UINT32, nil, nil, nil, "Simple Instrument ID")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.instrument_type = ProtoField.new("Instrument Type", "nasdaq.iseoptions.quoting.sqf.v9.0.instrumenttype", ftypes.STRING, nil, nil, nil, "S=Simple Instruments, C=Complex Instruments")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.interval = ProtoField.new("Interval", "nasdaq.iseoptions.quoting.sqf.v9.0.interval", ftypes.UINT16, nil, nil, nil, "Time interval (in milliseconds) 100 <= n <= 30,000")
@@ -89,7 +89,7 @@ omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.reentry_scope = ProtoField.new("Re
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.iseoptions.quoting.sqf.v9.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.replenishment_value = ProtoField.new("Replenishment Value", "nasdaq.iseoptions.quoting.sqf.v9.0.replenishmentvalue", ftypes.UINT32, nil, nil, nil, "Number of contracts for replenishment or 0 for full replenishment. Full replenishment is required after underlying purge")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.requested_replenishment_value = ProtoField.new("Requested Replenishment Value", "nasdaq.iseoptions.quoting.sqf.v9.0.requestedreplenishmentvalue", ftypes.UINT32, nil, nil, nil, "Echo requested replenishment value")
-omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.quoting.sqf.v9.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.quoting.sqf.v9.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.iseoptions.quoting.sqf.v9.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.iseoptions.quoting.sqf.v9.0.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved field with value zero")
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.quoting.sqf.v9.0.reserved16", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
@@ -204,6 +204,11 @@ omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.quote_responses_index = ProtoField
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.simple_quotes_index = ProtoField.new("Simple Quotes Index", "nasdaq.iseoptions.quoting.sqf.v9.0.simplequotesindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.simple_quotes_long_form_index = ProtoField.new("Simple Quotes Long Form Index", "nasdaq.iseoptions.quoting.sqf.v9.0.simplequoteslongformindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.iseoptions.quoting.sqf.v9.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq IseOptions Quoting Sqf 9.0 Expert Info
+nasdaq_iseoptions_quoting_sqf_v9_0.experts = {}
+nasdaq_iseoptions_quoting_sqf_v9_0.experts.not_a_number = ProtoExpert.new("nasdaq.iseoptions.quoting.sqf.v9.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_iseoptions_quoting_sqf_v9_0.experts = { nasdaq_iseoptions_quoting_sqf_v9_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq IseOptions Quoting Sqf 9.0 Formatting
@@ -356,7 +361,10 @@ nasdaq_iseoptions_quoting_sqf_v9_0.accepted_sequence_number.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_iseoptions_quoting_sqf_v9_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_iseoptions_quoting_sqf_v9_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1238,7 +1246,10 @@ nasdaq_iseoptions_quoting_sqf_v9_0.heartbeat_timeout.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.heartbeat_timeout, range, value, "Heartbeat Timeout: Not Applicable")
+    item:add_proto_expert_info(nasdaq_iseoptions_quoting_sqf_v9_0.experts.not_a_number, "Heartbeat Timeout is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_iseoptions_quoting_sqf_v9_0.heartbeat_timeout.display(value, buffer, offset, packet, parent)
@@ -2582,7 +2593,10 @@ nasdaq_iseoptions_quoting_sqf_v9_0.requested_sequence_number.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_iseoptions_quoting_sqf_v9_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_iseoptions_quoting_sqf_v9_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_iseoptions_quoting_sqf_v9_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

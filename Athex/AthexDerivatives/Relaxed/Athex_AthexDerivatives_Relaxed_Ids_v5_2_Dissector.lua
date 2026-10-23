@@ -20,7 +20,8 @@ omi_athex_athexderivatives_relaxed_ids_v5_2.fields.datf = ProtoField.new("Datf",
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.deferral_indicator = ProtoField.new("Deferral Indicator", "athex.athexderivatives.relaxed.ids.v5.2.deferralindicator", ftypes.STRING, nil, nil, nil, "Whether publication of the trade is deferred")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.delivery_type = ProtoField.new("Delivery Type", "athex.athexderivatives.relaxed.ids.v5.2.deliverytype", ftypes.STRING, nil, nil, nil, "How the instrument settles. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.etx = ProtoField.new("Etx", "athex.athexderivatives.relaxed.ids.v5.2.etx", ftypes.INT8, nil, nil, nil, "Signals the end of the packet's text")
-omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time = ProtoField.new("Event Time", "athex.athexderivatives.relaxed.ids.v5.2.eventtime", ftypes.STRING, nil, nil, nil, "Time the event was processed, expressed as Utc, which may be prior to the current trading date")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time = ProtoField.new("Event Time", "athex.athexderivatives.relaxed.ids.v5.2.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the event was processed, expressed as Utc, which may be prior to the current trading date")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time_utc = ProtoField.new("Event Time", "athex.athexderivatives.relaxed.ids.v5.2.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the event was processed, expressed as Utc, which may be prior to the current trading date")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.expiry_date = ProtoField.new("Expiry Date", "athex.athexderivatives.relaxed.ids.v5.2.expirydate", ftypes.STRING, nil, nil, nil, "Expiry date of the instrument. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.fula = ProtoField.new("Fula", "athex.athexderivatives.relaxed.ids.v5.2.fula", ftypes.STRING, nil, nil, nil, "Mifid II deferral flag FULA")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.fulf = ProtoField.new("Fulf", "athex.athexderivatives.relaxed.ids.v5.2.fulf", ftypes.STRING, nil, nil, nil, "Mifid II deferral flag FULF")
@@ -36,19 +37,20 @@ omi_athex_athexderivatives_relaxed_ids_v5_2.fields.lmtf = ProtoField.new("Lmtf",
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.lrc = ProtoField.new("Lrc", "athex.athexderivatives.relaxed.ids.v5.2.lrc", ftypes.INT8, nil, nil, nil, "Longitudinal Redundancy Check character signalling the packet's end, the exclusive or of all message bytes from the header up to and including the Etx")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.maturity_date = ProtoField.new("Maturity Date", "athex.athexderivatives.relaxed.ids.v5.2.maturitydate", ftypes.STRING, nil, nil, nil, "Maturity date of the instrument. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.message_category = ProtoField.new("Message Category", "athex.athexderivatives.relaxed.ids.v5.2.messagecategory", ftypes.STRING, nil, nil, nil, "Identifies the category of the transmitted message, and selects the Message Text that follows the header")
-omi_athex_athexderivatives_relaxed_ids_v5_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "athex.athexderivatives.relaxed.ids.v5.2.messagesequencenumber", ftypes.STRING, nil, nil, nil, "Sequence number of the packet. The first message sent has a sequence number of zero and every message thereafter increments it by one, except a Line Verification control message, which repeats the number of the last message sent. A vendor asks the Ids to retransmit by naming the first and last sequence numbers to send, and a retransmitted packet carries its original number")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "athex.athexderivatives.relaxed.ids.v5.2.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the packet. The first message sent has a sequence number of zero and every message thereafter increments it by one, except a Line Verification control message, which repeats the number of the last message sent. A vendor asks the Ids to retransmit by naming the first and last sequence numbers to send, and a retransmitted packet carries its original number")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.message_subcategory = ProtoField.new("Message Subcategory", "athex.athexderivatives.relaxed.ids.v5.2.messagesubcategory", ftypes.STRING, nil, nil, nil, "Identifies the financial product whose information is conveyed and imposes a second level of categorization upon it. The Ids sends one space when the packet's category is not directly related to a specific financial product")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.notation_of_the_quantity_in_measurement_unit = ProtoField.new("Notation Of The Quantity In Measurement Unit", "athex.athexderivatives.relaxed.ids.v5.2.notationofthequantityinmeasurementunit", ftypes.STRING, nil, nil, nil, "TOCD for tons of carbon dioxide equivalent, or free text otherwise Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.notional_amount = ProtoField.new("Notional Amount", "athex.athexderivatives.relaxed.ids.v5.2.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional amount of the trade. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.notional_currency = ProtoField.new("Notional Currency", "athex.athexderivatives.relaxed.ids.v5.2.notionalcurrency", ftypes.STRING, nil, nil, nil, "Currency the notional amount is expressed in. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.option_exercise_style = ProtoField.new("Option Exercise Style", "athex.athexderivatives.relaxed.ids.v5.2.optionexercisestyle", ftypes.STRING, nil, nil, nil, "Exercise style of the option. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.option_type = ProtoField.new("Option Type", "athex.athexderivatives.relaxed.ids.v5.2.optiontype", ftypes.STRING, nil, nil, nil, "Whether the option is a put or a call. Conditionally required.")
-omi_athex_athexderivatives_relaxed_ids_v5_2.fields.otc_posttrade_indicator = ProtoField.new("Otc Posttrade Indicator", "athex.athexderivatives.relaxed.ids.v5.2.otcposttradeindicator", ftypes.STRING, nil, nil, nil, "Bitmap of one or more flags: bit 1 BENC benchmark, bit 2 ACTX agency cross, bit 3 LRGS large in scale, bit 4 ILQD illiquid instrument, bit 5 SIZE above specified size, bit 6 CANC cancellations, bit 7 AMND amendments, bit 8 SDIV special dividend, bit 9 RPRI price improvement, bit 10 DUPL duplicative, bit 11 TNCP not contributing to price discovery process, bit 12 TPAC package, bit 13 XFPH exchange for physical Conditionally required.")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.otc_posttrade_indicator = ProtoField.new("Otc Posttrade Indicator", "athex.athexderivatives.relaxed.ids.v5.2.otcposttradeindicator", ftypes.UINT16, nil, nil, nil, "Bitmap of one or more flags: bit 1 BENC benchmark, bit 2 ACTX agency cross, bit 3 LRGS large in scale, bit 4 ILQD illiquid instrument, bit 5 SIZE above specified size, bit 6 CANC cancellations, bit 7 AMND amendments, bit 8 SDIV special dividend, bit 9 RPRI price improvement, bit 10 DUPL duplicative, bit 11 TNCP not contributing to price discovery process, bit 12 TPAC package, bit 13 XFPH exchange for physical Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.price = ProtoField.new("Price", "athex.athexderivatives.relaxed.ids.v5.2.price", ftypes.DOUBLE, nil, nil, nil, "Eighteen digits of which thirteen may be fraction digits when the price is a monetary value, ten when it is a percentage or a yield, and seventeen when it is basis points")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.price_currency = ProtoField.new("Price Currency", "athex.athexderivatives.relaxed.ids.v5.2.pricecurrency", ftypes.STRING, nil, nil, nil, "Currency the price is expressed in. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.price_multiplier = ProtoField.new("Price Multiplier", "athex.athexderivatives.relaxed.ids.v5.2.pricemultiplier", ftypes.DOUBLE, nil, nil, nil, "Price multiplier of the instrument. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.price_notation = ProtoField.new("Price Notation", "athex.athexderivatives.relaxed.ids.v5.2.pricenotation", ftypes.STRING, nil, nil, nil, "How the price is expressed")
-omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexderivatives.relaxed.ids.v5.2.publicationtimestamp", ftypes.STRING, nil, nil, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexderivatives.relaxed.ids.v5.2.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp_utc = ProtoField.new("Publication Timestamp", "athex.athexderivatives.relaxed.ids.v5.2.publicationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.quantity = ProtoField.new("Quantity", "athex.athexderivatives.relaxed.ids.v5.2.quantity", ftypes.DOUBLE, nil, nil, nil, "Seventeen fraction digits when the quantity is a number of units, and five when it is a monetary or nominal value")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.quantity_currency = ProtoField.new("Quantity Currency", "athex.athexderivatives.relaxed.ids.v5.2.quantitycurrency", ftypes.STRING, nil, nil, nil, "Currency the quantity is expressed in, and spaces when the Quantity expresses units. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "athex.athexderivatives.relaxed.ids.v5.2.quantityinmeasurementunit", ftypes.DOUBLE, nil, nil, nil, "Quantity expressed in the measurement unit. Conditionally required.")
@@ -64,7 +66,8 @@ omi_athex_athexderivatives_relaxed_ids_v5_2.fields.submitting_entity_identificat
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.term_of_the_underlying_index = ProtoField.new("Term Of The Underlying Index", "athex.athexderivatives.relaxed.ids.v5.2.termoftheunderlyingindex", ftypes.STRING, nil, nil, nil, "Three digits of term followed by its unit, DAYS, WEEK, MNTH or YEAR Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trade_id = ProtoField.new("Trade Id", "athex.athexderivatives.relaxed.ids.v5.2.tradeid", ftypes.STRING, nil, nil, nil, "Identifier of the trade")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trade_id_indicator = ProtoField.new("Trade Id Indicator", "athex.athexderivatives.relaxed.ids.v5.2.tradeidindicator", ftypes.STRING, nil, nil, nil, "Which system assigned the Trade ID")
-omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "athex.athexderivatives.relaxed.ids.v5.2.tradingdateandtime", ftypes.STRING, nil, nil, nil, "Date and time of the trade, expressed as Utc, which may be prior to the current trading date")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "athex.athexderivatives.relaxed.ids.v5.2.tradingdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the trade, expressed as Utc, which may be prior to the current trading date")
+omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time_utc = ProtoField.new("Trading Date And Time", "athex.athexderivatives.relaxed.ids.v5.2.tradingdateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time of the trade, expressed as Utc, which may be prior to the current trading date")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "athex.athexderivatives.relaxed.ids.v5.2.transactiontobecleared", ftypes.STRING, nil, nil, nil, "Whether the transaction is to be cleared")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.type_emission_allowance = ProtoField.new("Type Emission Allowance", "athex.athexderivatives.relaxed.ids.v5.2.typeemissionallowance", ftypes.STRING, nil, nil, nil, "Type of the emission allowance. Conditionally required.")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.underlying_index_name = ProtoField.new("Underlying Index Name", "athex.athexderivatives.relaxed.ids.v5.2.underlyingindexname", ftypes.STRING, nil, nil, nil, "One of the index codes of section 5.1, or free text when the index name is not in that list Conditionally required.")
@@ -84,6 +87,25 @@ omi_athex_athexderivatives_relaxed_ids_v5_2.fields.packet = ProtoField.new("Pack
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.apa_post_trade_message = ProtoField.new("Apa Post Trade Message", "athex.athexderivatives.relaxed.ids.v5.2.apaposttrademessage", ftypes.STRING, nil, nil, nil, "Transmitted whenever a trade is reported to the Ids subsystem, for the Athex Apa post trade transparency service required by Mifid II")
 omi_athex_athexderivatives_relaxed_ids_v5_2.fields.apa_pre_trade_message = ProtoField.new("Apa Pre Trade Message", "athex.athexderivatives.relaxed.ids.v5.2.apapretrademessage", ftypes.STRING, nil, nil, nil, "Transmitted whenever a quote is reported to the Ids subsystem by the Athex Apa service, for the Athex Apa pre trade transparency service")
 
+-- Athex AthexDerivatives Relaxed Ids 5.2 Expert Info
+athex_athexderivatives_relaxed_ids_v5_2.experts = {}
+athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number = ProtoExpert.new("athex.athexderivatives.relaxed.ids.v5.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_athex_athexderivatives_relaxed_ids_v5_2.experts = { athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number }
+
+-----------------------------------------------------------------------
+-- Athex AthexDerivatives Relaxed Ids 5.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base = 0
+
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -100,6 +122,8 @@ omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_application_messages = Pr
 omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
+omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_athex_athexderivatives_relaxed_ids_v5_2.prefs_changed()
 
@@ -112,6 +136,9 @@ function omi_athex_athexderivatives_relaxed_ids_v5_2.prefs_changed()
   end
   if show.structs ~= omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_structs then
     show.structs = omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.show_structs
+  end
+  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base ~= omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.absolute_time_base then
+    athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base = omi_athex_athexderivatives_relaxed_ids_v5_2.prefs.absolute_time_base
   end
 end
 
@@ -339,30 +366,48 @@ athex_athexderivatives_relaxed_ids_v5_2.event_time = {}
 -- Size: Event Time
 athex_athexderivatives_relaxed_ids_v5_2.event_time.size = 20
 
--- Display: Event Time
-athex_athexderivatives_relaxed_ids_v5_2.event_time.display = function(value)
-  local digits = tostring(value)
-
-  if #digits ~= 20 or digits:find("%D") then
-    return "Event Time: "..digits
-  end
-
-  return string.format("Event Time: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 20))
-end
-
 -- Dissect: Event Time
 athex_athexderivatives_relaxed_ids_v5_2.event_time.dissect = function(buffer, offset, packet, parent)
   local length = athex_athexderivatives_relaxed_ids_v5_2.event_time.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = athex_athexderivatives_relaxed_ids_v5_2.event_time.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time
+  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.event_time_utc end
 
-  return offset + length, value
+  -- Twenty digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second, micros
+  if #text == 20 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+    micros = tonumber(text:sub(15, 20))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Event Time: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = micros * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, text
 end
 
 -- Expiry Date
@@ -799,7 +844,10 @@ athex_athexderivatives_relaxed_ids_v5_2.message_sequence_number.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.message_sequence_number, range, value, "Message Sequence Number: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Message Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.message_sequence_number.display(value, buffer, offset, packet, parent)
@@ -915,6 +963,9 @@ athex_athexderivatives_relaxed_ids_v5_2.notional_amount.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.notional_amount.display(value, buffer, offset, packet, parent)
@@ -1037,7 +1088,10 @@ athex_athexderivatives_relaxed_ids_v5_2.otc_posttrade_indicator.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.otc_posttrade_indicator, range, value, "Otc Posttrade Indicator: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Otc Posttrade Indicator is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.otc_posttrade_indicator.display(value, buffer, offset, packet, parent)
@@ -1073,6 +1127,9 @@ athex_athexderivatives_relaxed_ids_v5_2.price.dissect = function(buffer, offset,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.price.display(value, buffer, offset, packet, parent)
@@ -1131,6 +1188,9 @@ athex_athexderivatives_relaxed_ids_v5_2.price_multiplier.dissect = function(buff
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.price_multiplier, range, value, "Price Multiplier: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Price Multiplier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.price_multiplier.display(value, buffer, offset, packet, parent)
@@ -1188,30 +1248,48 @@ athex_athexderivatives_relaxed_ids_v5_2.publication_timestamp = {}
 -- Size: Publication Timestamp
 athex_athexderivatives_relaxed_ids_v5_2.publication_timestamp.size = 20
 
--- Display: Publication Timestamp
-athex_athexderivatives_relaxed_ids_v5_2.publication_timestamp.display = function(value)
-  local digits = tostring(value)
-
-  if #digits ~= 20 or digits:find("%D") then
-    return "Publication Timestamp: "..digits
-  end
-
-  return string.format("Publication Timestamp: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 20))
-end
-
 -- Dissect: Publication Timestamp
 athex_athexderivatives_relaxed_ids_v5_2.publication_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = athex_athexderivatives_relaxed_ids_v5_2.publication_timestamp.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = athex_athexderivatives_relaxed_ids_v5_2.publication_timestamp.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp
+  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.publication_timestamp_utc end
 
-  return offset + length, value
+  -- Twenty digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second, micros
+  if #text == 20 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+    micros = tonumber(text:sub(15, 20))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Publication Timestamp: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = micros * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, text
 end
 
 -- Quantity
@@ -1240,6 +1318,9 @@ athex_athexderivatives_relaxed_ids_v5_2.quantity.dissect = function(buffer, offs
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.quantity, range, value, "Quantity: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.quantity.display(value, buffer, offset, packet, parent)
@@ -1298,6 +1379,9 @@ athex_athexderivatives_relaxed_ids_v5_2.quantity_in_measurement_unit.dissect = f
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.quantity_in_measurement_unit, range, value, "Quantity In Measurement Unit: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Quantity In Measurement Unit is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.quantity_in_measurement_unit.display(value, buffer, offset, packet, parent)
@@ -1476,6 +1560,9 @@ athex_athexderivatives_relaxed_ids_v5_2.strike_price.dissect = function(buffer, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.strike_price, range, value, "Strike Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_relaxed_ids_v5_2.experts.not_a_number, "Strike Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_relaxed_ids_v5_2.strike_price.display(value, buffer, offset, packet, parent)
@@ -1655,30 +1742,48 @@ athex_athexderivatives_relaxed_ids_v5_2.trading_date_and_time = {}
 -- Size: Trading Date And Time
 athex_athexderivatives_relaxed_ids_v5_2.trading_date_and_time.size = 20
 
--- Display: Trading Date And Time
-athex_athexderivatives_relaxed_ids_v5_2.trading_date_and_time.display = function(value)
-  local digits = tostring(value)
-
-  if #digits ~= 20 or digits:find("%D") then
-    return "Trading Date And Time: "..digits
-  end
-
-  return string.format("Trading Date And Time: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 20))
-end
-
 -- Dissect: Trading Date And Time
 athex_athexderivatives_relaxed_ids_v5_2.trading_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = athex_athexderivatives_relaxed_ids_v5_2.trading_date_and_time.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = athex_athexderivatives_relaxed_ids_v5_2.trading_date_and_time.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time
+  if athex_athexderivatives_relaxed_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_relaxed_ids_v5_2.fields.trading_date_and_time_utc end
 
-  return offset + length, value
+  -- Twenty digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second, micros
+  if #text == 20 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+    micros = tonumber(text:sub(15, 20))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Trading Date And Time: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = micros * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, text
 end
 
 -- Transaction To Be Cleared

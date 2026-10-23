@@ -65,7 +65,7 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.price = ProtoField.new("Price", "t
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.priority_time_stamp = ProtoField.new("Priority Time Stamp", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.prioritytimestamp", ftypes.UINT64, nil, nil, nil, "Time Stamp Assigned By The Trading Engine To Specify Time Priority Of An Order Orders Are Sequenced In The Order Book Based On Symbol Price And Priority Time Stamp")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.product_type = ProtoField.new("Product Type", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.producttype", ftypes.STRING, nil, nil, nil, "The Product Type For A Symbol")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.protocolname", ftypes.STRING)
-omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.protocolversion", ftypes.STRING, nil, nil, nil, "Protocol major version number")
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.protocolversion", ftypes.UINT8, nil, nil, nil, "Protocol major version number")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.sellbrokernumber", ftypes.UINT16, nil, nil, nil, "An Exchangeassigned Number Uniquely Identifying A Participating Organization Associated With A Sell Order")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.sell_display_volume = ProtoField.new("Sell Display Volume", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.selldisplayvolume", ftypes.UINT32, nil, nil, nil, "Public Remaining Volume For The Sell Order")
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.sell_maximum_quantity = ProtoField.new("Sell Maximum Quantity", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.sellmaximumquantity", ftypes.UINT32, nil, nil, nil, "The Maximum Quantity Of A Mutual Fund Allowed To Sell")
@@ -129,6 +129,11 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.admin_body_index = ProtoField.new(
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.body_index = ProtoField.new("Body Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.bodyindex", ftypes.UINT16)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_limit_index = ProtoField.new("Cop Limit Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coplimitindex", ftypes.UINT16)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_order_index = ProtoField.new("Cop Order Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coporderindex", ftypes.UINT16)
+
+-- Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Expert Info
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.experts = {}
+tmx_tsx_quantumfeedlevel2_xmt_v2_1.experts.not_a_number = ProtoExpert.new("tmx.tsx.quantumfeedlevel2.xmt.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.experts = { tmx_tsx_quantumfeedlevel2_xmt_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -1725,7 +1730,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.protocol_version.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.protocol_version, range, value, "Protocol Version: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_quantumfeedlevel2_xmt_v2_1.experts.not_a_number, "Protocol Version is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_quantumfeedlevel2_xmt_v2_1.protocol_version.display(value, buffer, offset, packet, parent)

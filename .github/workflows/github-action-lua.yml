@@ -283,6 +283,9 @@ jobs:
       - name: Run Nyse NationalEquities Trades Pillar 2.6 Dissector Tests
         run: bash -x .github/tests/Nyse-NationalEquities-Trades-Pillar-v2-6-Test.sh
 
+      - name: Run Nyse NyseBonds DepthOfBook Abp 4.01.b Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseBonds-DepthOfBook-Abp-v4-01-b-Test.sh
+
       - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh
 

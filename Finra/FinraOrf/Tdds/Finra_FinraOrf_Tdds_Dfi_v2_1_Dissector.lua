@@ -20,7 +20,7 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action
 omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative_message = ProtoField.new("Administrative Message", "finra.finraorf.tdds.dfi.v2.1.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages Header")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.finraorf.tdds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.finraorf.tdds.dfi.v2.1.asofindicator", ftypes.STRING, nil, nil, nil, "This field will be populated if the transaction being reported is an As/Of trade, Reversal, Cancel or Correction from a prior business day")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price = ProtoField.new("Closing Price", "finra.finraorf.tdds.dfi.v2.1.closingprice", ftypes.STRING, nil, nil, nil, "This Closing Price field reflects the final last sale eligible transaction reported to ORF for the security during the current business day")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price = ProtoField.new("Closing Price", "finra.finraorf.tdds.dfi.v2.1.closingprice", ftypes.UINT64, nil, nil, nil, "This Closing Price field reflects the final last sale eligible transaction reported to ORF for the security during the current business day")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price_denominator = ProtoField.new("Closing Price Denominator", "finra.finraorf.tdds.dfi.v2.1.closingpricedenominator", ftypes.STRING, nil, nil, nil, "The Closing Price Denominator field indicates the whole dollar and decimal digit composition of the Closing Price field")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price_market_center = ProtoField.new("Closing Price Market Center", "finra.finraorf.tdds.dfi.v2.1.closingpricemarketcenter", ftypes.STRING, nil, nil, nil, "This field indicates the market center responsible for the closing price")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.control_message = ProtoField.new("Control Message", "finra.finraorf.tdds.dfi.v2.1.controlmessage", ftypes.STRING, nil, nil, nil, "Control Messages Header")
@@ -28,61 +28,61 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.control_message_type = ProtoField.new("C
 omi_finra_finraorf_tdds_dfi_v2_1.fields.corrected_trade_information = ProtoField.new("Corrected Trade Information", "finra.finraorf.tdds.dfi.v2.1.correctedtradeinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.count = ProtoField.new("Count", "finra.finraorf.tdds.dfi.v2.1.count", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.currency = ProtoField.new("Currency", "finra.finraorf.tdds.dfi.v2.1.currency", ftypes.STRING, nil, nil, nil, "This field indicates the currency in which the trade transaction was reported")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.finraorf.tdds.dfi.v2.1.dailyhighprice", ftypes.STRING, nil, nil, nil, "This Daily High Price field indicates the highest price at which the security traded during the session")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.finraorf.tdds.dfi.v2.1.dailyhighprice", ftypes.UINT64, nil, nil, nil, "This Daily High Price field indicates the highest price at which the security traded during the session")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_high_price_denominator = ProtoField.new("Daily High Price Denominator", "finra.finraorf.tdds.dfi.v2.1.dailyhighpricedenominator", ftypes.STRING, nil, nil, nil, "The Closing Price Denominator field indicates the whole dollar and decimal digit composition of the Closing Price field")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.finraorf.tdds.dfi.v2.1.dailylowprice", ftypes.STRING, nil, nil, nil, "This Daily High Price field indicates the lowest price at which the security traded during the session")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.finraorf.tdds.dfi.v2.1.dailylowprice", ftypes.UINT64, nil, nil, nil, "This Daily High Price field indicates the lowest price at which the security traded during the session")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_low_price_denominator = ProtoField.new("Daily Low Price Denominator", "finra.finraorf.tdds.dfi.v2.1.dailylowpricedenominator", ftypes.STRING, nil, nil, nil, "The Closing Price Denominator field indicates the whole dollar and decimal digit composition of the Closing Price field")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.finraorf.tdds.dfi.v2.1.datetime", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.finraorf.tdds.dfi.v2.1.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.finraorf.tdds.dfi.v2.1.day", ftypes.UINT8, nil, nil, nil, "The day of the month the transaction occurred")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.finraorf.tdds.dfi.v2.1.executiondatetime", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.fractional_second = ProtoField.new("Fractional Second", "finra.finraorf.tdds.dfi.v2.1.fractionalsecond", ftypes.STRING, nil, nil, nil, "The smallest unit of seconds, up to nanoseconds, the transaction occurred.")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.finraorf.tdds.dfi.v2.1.highprice", ftypes.STRING, nil, nil, nil, "The High Price field indicates the highest price at which the security traded up to the current point in the trading session")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.fractional_second = ProtoField.new("Fractional Second", "finra.finraorf.tdds.dfi.v2.1.fractionalsecond", ftypes.UINT32, nil, nil, nil, "The smallest unit of seconds, up to nanoseconds, the transaction occurred.")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.finraorf.tdds.dfi.v2.1.highprice", ftypes.UINT64, nil, nil, nil, "The High Price field indicates the highest price at which the security traded up to the current point in the trading session")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.high_price_denominator = ProtoField.new("High Price Denominator", "finra.finraorf.tdds.dfi.v2.1.highpricedenominator", ftypes.STRING, nil, nil, nil, "The High Price Denominator indicates the whole dollar and decimal digit composition of the High Price field")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.finraorf.tdds.dfi.v2.1.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.finraorf.tdds.dfi.v2.1.lastsaleprice", ftypes.STRING, nil, nil, nil, "This Last Sale Price field indicates the current last sale price for the given security")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.finraorf.tdds.dfi.v2.1.hour", ftypes.UINT8, nil, nil, nil, "The hour of the day the transaction occurred in military time")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.finraorf.tdds.dfi.v2.1.lastsaleprice", ftypes.UINT64, nil, nil, nil, "This Last Sale Price field indicates the current last sale price for the given security")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.last_sale_price_denominator = ProtoField.new("Last Sale Price Denominator", "finra.finraorf.tdds.dfi.v2.1.lastsalepricedenominator", ftypes.STRING, nil, nil, nil, "The Last Sale Price Denominator field indicates the whole dollar and decimal digit composition of the Last Sale Price field")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.last_sale_price_market_center = ProtoField.new("Last Sale Price Market Center", "finra.finraorf.tdds.dfi.v2.1.lastsalepricemarketcenter", ftypes.STRING, nil, nil, nil, "This field indicates the market center responsible for the closing price")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.length = ProtoField.new("Length", "finra.finraorf.tdds.dfi.v2.1.length", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.finraorf.tdds.dfi.v2.1.lowprice", ftypes.STRING, nil, nil, nil, "The Low Price field indicates the lowest price at which the security traded up to the current point in the trading session")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.finraorf.tdds.dfi.v2.1.lowprice", ftypes.UINT64, nil, nil, nil, "The Low Price field indicates the lowest price at which the security traded up to the current point in the trading session")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.low_price_denominator = ProtoField.new("Low Price Denominator", "finra.finraorf.tdds.dfi.v2.1.lowpricedenominator", ftypes.STRING, nil, nil, nil, "The Low Price Denominator field indicates the whole dollar and decimal digit composition of the Low Price field")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.finraorf.tdds.dfi.v2.1.marketcenteroriginatorid", ftypes.STRING, nil, nil, nil, "This field indicates the market center or system that originated the message that follows")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.market_wide_circuit_breaker_reason_code = ProtoField.new("Market Wide Circuit Breaker Reason Code", "finra.finraorf.tdds.dfi.v2.1.marketwidecircuitbreakerreasoncode", ftypes.STRING, nil, nil, nil, "The Reason Code indicates the reason for the current trading action status.")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.finraorf.tdds.dfi.v2.1.messagecategory", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.finraorf.tdds.dfi.v2.1.messageheader", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.finraorf.tdds.dfi.v2.1.minute", ftypes.STRING, nil, nil, nil, "The minute of the hour the transaction occurred.")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.finraorf.tdds.dfi.v2.1.month", ftypes.STRING, nil, nil, nil, "The month the transaction occurred")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_amount = ProtoField.new("Net Change Amount", "finra.finraorf.tdds.dfi.v2.1.netchangeamount", ftypes.STRING, nil, nil, nil, "The Net Change Amount field reflects the absolute value of the difference between the current closing price and the adjusted previous day’s closing price")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.finraorf.tdds.dfi.v2.1.minute", ftypes.UINT8, nil, nil, nil, "The minute of the hour the transaction occurred.")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.finraorf.tdds.dfi.v2.1.month", ftypes.UINT8, nil, nil, nil, "The month the transaction occurred")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_amount = ProtoField.new("Net Change Amount", "finra.finraorf.tdds.dfi.v2.1.netchangeamount", ftypes.UINT64, nil, nil, nil, "The Net Change Amount field reflects the absolute value of the difference between the current closing price and the adjusted previous day’s closing price")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_denominator = ProtoField.new("Net Change Denominator", "finra.finraorf.tdds.dfi.v2.1.netchangedenominator", ftypes.STRING, nil, nil, nil, "The Net Change Denominator indicates the whole dollar and decimal digit composition of the Net Change Amount field")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_direction = ProtoField.new("Net Change Direction", "finra.finraorf.tdds.dfi.v2.1.netchangedirection", ftypes.STRING, nil, nil, nil, "This field indicates the direction of net change field")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.finraorf.tdds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.finraorf.tdds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.finraorf.tdds.dfi.v2.1.pricechangeindicator", ftypes.STRING, nil, nil, nil, "The Price Change Indicator field indicates if the high, low, and/or last sale prices were impacted by the current trade transaction.")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.1.reportfunction", ftypes.STRING, nil, nil, nil, "This Function field denotes if the original trade report is being cancelled or was reported in error")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume = ProtoField.new("Report Volume", "finra.finraorf.tdds.dfi.v2.1.reportvolume", ftypes.STRING, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.1.reportvolumeshort", ftypes.STRING, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume = ProtoField.new("Report Volume", "finra.finraorf.tdds.dfi.v2.1.reportvolume", ftypes.UINT32, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.1.reportvolumeshort", ftypes.UINT32, nil, nil, nil, "This field denotes the number of shares reported in the current Trade Report")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraorf.tdds.dfi.v2.1.reserved1", ftypes.STRING, nil, nil, nil, "This field will be space filled")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_1 = ProtoField.new("Sale Condition Level 1", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel1", ftypes.STRING, nil, nil, nil, "This field is used to denote the sale condition associated with a trade transaction")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_2 = ProtoField.new("Sale Condition Level 2", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel2", ftypes.STRING, nil, nil, nil, "This field is reserved and may be used in the future.")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_3 = ProtoField.new("Sale Condition Level 3", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel3", ftypes.STRING, nil, nil, nil, "This field is used to denote the sale condition associated with a trade transaction")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_4 = ProtoField.new("Sale Condition Level 4", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel4", ftypes.STRING, nil, nil, nil, "This field is used to denote the sale condition associated with a trade transaction")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.finraorf.tdds.dfi.v2.1.second", ftypes.STRING, nil, nil, nil, "The second of the minute the transaction occurred")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.finraorf.tdds.dfi.v2.1.second", ftypes.UINT8, nil, nil, nil, "The second of the minute the transaction occurred")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "finra.finraorf.tdds.dfi.v2.1.securitysymbol", ftypes.STRING, nil, nil, nil, "This Security Symbol field indicates the security identifier assigned by FINRA for a given security")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "finra.finraorf.tdds.dfi.v2.1.securitysymbolshort", ftypes.STRING, nil, nil, nil, "This Security Symbol field indicates the security identifier assigned by FINRA for a given security")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "finra.finraorf.tdds.dfi.v2.1.sellerssaledays", ftypes.STRING, nil, nil, nil, "this field will reflect the number of days that may elapse before delivery of the stock")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "finra.finraorf.tdds.dfi.v2.1.sellerssaledays", ftypes.UINT8, nil, nil, nil, "this field will reflect the number of days that may elapse before delivery of the stock")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sequence = ProtoField.new("Sequence", "finra.finraorf.tdds.dfi.v2.1.sequence", ftypes.UINT64, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.session = ProtoField.new("Session", "finra.finraorf.tdds.dfi.v2.1.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.finraorf.tdds.dfi.v2.1.text", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.total_security_volume = ProtoField.new("Total Security Volume", "finra.finraorf.tdds.dfi.v2.1.totalsecurityvolume", ftypes.STRING, nil, nil, nil, "This field reflects the total number of shares traded during the session for the given security")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.total_security_volume = ProtoField.new("Total Security Volume", "finra.finraorf.tdds.dfi.v2.1.totalsecurityvolume", ftypes.UINT64, nil, nil, nil, "This field reflects the total number of shares traded during the session for the given security")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.finraorf.tdds.dfi.v2.1.tradeidentifier", ftypes.STRING, nil, nil, nil, "An identifier for tracking trades")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.finraorf.tdds.dfi.v2.1.tradeinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_message = ProtoField.new("Trade Message", "finra.finraorf.tdds.dfi.v2.1.trademessage", ftypes.STRING, nil, nil, nil, "Trade Messages Header")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.finraorf.tdds.dfi.v2.1.trademessagetype", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_price = ProtoField.new("Trade Price", "finra.finraorf.tdds.dfi.v2.1.tradeprice", ftypes.STRING, nil, nil, nil, "This field indicates the trade price for the current transaction")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_price_denominator = ProtoField.new("Trade Price Denominator", "finra.finraorf.tdds.dfi.v2.1.tradepricedenominator", ftypes.STRING, nil, nil, nil, "This field denotes the whole dollar and decimal digit composition for the Trade Price field")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.finraorf.tdds.dfi.v2.1.tradepriceshort", ftypes.STRING, nil, nil, nil, "This field indicates the trade price for the current transaction.")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.finraorf.tdds.dfi.v2.1.tradepriceshort", ftypes.UINT32, nil, nil, nil, "This field indicates the trade price for the current transaction.")
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.finraorf.tdds.dfi.v2.1.tradesummaryinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trading_action_reason_code = ProtoField.new("Trading Action Reason Code", "finra.finraorf.tdds.dfi.v2.1.tradingactionreasoncode", ftypes.STRING, nil, nil, nil, "The Reason Code indicates the reason for the current trading action status.")
-omi_finra_finraorf_tdds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.finraorf.tdds.dfi.v2.1.year", ftypes.STRING, nil, nil, nil, "The year the transaction occurred")
+omi_finra_finraorf_tdds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.finraorf.tdds.dfi.v2.1.year", ftypes.UINT16, nil, nil, nil, "The year the transaction occurred")
 
 -- Finra FinraOrf Tdds Dfi 2.1 Framing
 omi_finra_finraorf_tdds_dfi_v2_1.fields.message = ProtoField.new("Message", "finra.finraorf.tdds.dfi.v2.1.message", ftypes.STRING)
@@ -111,6 +111,11 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.trading_action_message = ProtoField.new(
 
 -- Finra FinraOrf Tdds Dfi 2.1 Generated Fields
 omi_finra_finraorf_tdds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.finraorf.tdds.dfi.v2.1.messageindex", ftypes.UINT16)
+
+-- Finra FinraOrf Tdds Dfi 2.1 Expert Info
+finra_finraorf_tdds_dfi_v2_1.experts = {}
+finra_finraorf_tdds_dfi_v2_1.experts.not_a_number = ProtoExpert.new("finra.finraorf.tdds.dfi.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_finra_finraorf_tdds_dfi_v2_1.experts = { finra_finraorf_tdds_dfi_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -292,7 +297,10 @@ finra_finraorf_tdds_dfi_v2_1.closing_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price, range, value, "Closing Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.closing_price.display(value, buffer, offset, packet, parent)
@@ -470,7 +478,10 @@ finra_finraorf_tdds_dfi_v2_1.daily_high_price.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_high_price, range, value, "Daily High Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Daily High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -521,7 +532,10 @@ finra_finraorf_tdds_dfi_v2_1.daily_low_price.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.daily_low_price, range, value, "Daily Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Daily Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -572,7 +586,10 @@ finra_finraorf_tdds_dfi_v2_1.day.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.day, range, value, "Day: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.day.display(value, buffer, offset, packet, parent)
@@ -600,7 +617,10 @@ finra_finraorf_tdds_dfi_v2_1.fractional_second.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.fractional_second, range, value, "Fractional Second: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Fractional Second is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.fractional_second.display(value, buffer, offset, packet, parent)
@@ -628,7 +648,10 @@ finra_finraorf_tdds_dfi_v2_1.high_price.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.high_price, range, value, "High Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.high_price.display(value, buffer, offset, packet, parent)
@@ -679,7 +702,10 @@ finra_finraorf_tdds_dfi_v2_1.hour.dissect = function(buffer, offset, packet, par
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.hour, range, value, "Hour: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Hour is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.hour.display(value, buffer, offset, packet, parent)
@@ -707,7 +733,10 @@ finra_finraorf_tdds_dfi_v2_1.last_sale_price.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.last_sale_price, range, value, "Last Sale Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Last Sale Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -811,7 +840,10 @@ finra_finraorf_tdds_dfi_v2_1.low_price.dissect = function(buffer, offset, packet
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.low_price, range, value, "Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.low_price.display(value, buffer, offset, packet, parent)
@@ -964,7 +996,10 @@ finra_finraorf_tdds_dfi_v2_1.minute.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.minute, range, value, "Minute: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Minute is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.minute.display(value, buffer, offset, packet, parent)
@@ -992,7 +1027,10 @@ finra_finraorf_tdds_dfi_v2_1.month.dissect = function(buffer, offset, packet, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.month, range, value, "Month: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Month is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.month.display(value, buffer, offset, packet, parent)
@@ -1020,7 +1058,10 @@ finra_finraorf_tdds_dfi_v2_1.net_change_amount.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.net_change_amount, range, value, "Net Change Amount: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Net Change Amount is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.net_change_amount.display(value, buffer, offset, packet, parent)
@@ -1185,7 +1226,10 @@ finra_finraorf_tdds_dfi_v2_1.report_volume.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume, range, value, "Report Volume: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Report Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.report_volume.display(value, buffer, offset, packet, parent)
@@ -1213,7 +1257,10 @@ finra_finraorf_tdds_dfi_v2_1.report_volume_short.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume_short, range, value, "Report Volume Short: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Report Volume Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.report_volume_short.display(value, buffer, offset, packet, parent)
@@ -1395,7 +1442,10 @@ finra_finraorf_tdds_dfi_v2_1.second.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.second, range, value, "Second: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Second is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.second.display(value, buffer, offset, packet, parent)
@@ -1469,7 +1519,10 @@ finra_finraorf_tdds_dfi_v2_1.sellers_sale_days.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.sellers_sale_days, range, value, "Sellers Sale Days: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Sellers Sale Days is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.sellers_sale_days.display(value, buffer, offset, packet, parent)
@@ -1562,7 +1615,10 @@ finra_finraorf_tdds_dfi_v2_1.total_security_volume.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.total_security_volume, range, value, "Total Security Volume: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Total Security Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.total_security_volume.display(value, buffer, offset, packet, parent)
@@ -1695,7 +1751,10 @@ finra_finraorf_tdds_dfi_v2_1.trade_price_short.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_price_short, range, value, "Trade Price Short: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Trade Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.trade_price_short.display(value, buffer, offset, packet, parent)
@@ -1768,7 +1827,10 @@ finra_finraorf_tdds_dfi_v2_1.year.dissect = function(buffer, offset, packet, par
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.year, range, value, "Year: Not Applicable")
+    item:add_proto_expert_info(finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, "Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraorf_tdds_dfi_v2_1.year.display(value, buffer, offset, packet, parent)

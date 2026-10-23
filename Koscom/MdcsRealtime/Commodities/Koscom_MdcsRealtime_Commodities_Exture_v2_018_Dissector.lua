@@ -15,40 +15,40 @@ local koscom_mdcsrealtime_commodities_exture_v2_018 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime Commodities Exture 2.018 Fields
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.commodities.exture.v2.018.adesignatednumberforanissue", ftypes.STRING, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.commodities.exture.v2.018.adesignatednumberforanissue", ftypes.UINT32, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.a_representative_issue_to_calculate_base_price = ProtoField.new("A Representative Issue To Calculate Base Price", "koscom.mdcsrealtime.commodities.exture.v2.018.arepresentativeissuetocalculatebaseprice", ftypes.STRING, nil, nil, nil, "A Representative Issue to Calculate Base Price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.commodities.exture.v2.018.abbreviatedissuecode", ftypes.STRING, nil, nil, nil, "Abbreviated Issue Code.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.commodities.exture.v2.018.abbreviatedissuename", ftypes.STRING, nil, nil, nil, "Abbreviated issue Name.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_name_in_en = ProtoField.new("Abbreviated Issue Name In En", "koscom.mdcsrealtime.commodities.exture.v2.018.abbreviatedissuenameinen", ftypes.STRING, nil, nil, nil, "Abbreviated issue Name in EN.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_cash = ProtoField.new("Accumulated Cash", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedcash", ftypes.DOUBLE, nil, nil, nil, "Accumulated cash position (26 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedtradingvolume", ftypes.STRING, nil, nil, nil, "Accumulated Trading Volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Trading Volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.an_issue_of_which_base_price_is_settled_with_a_todays_single_price = ProtoField.new("An Issue Of Which Base Price Is Settled With A Todays Single Price", "koscom.mdcsrealtime.commodities.exture.v2.018.anissueofwhichbasepriceissettledwithatodayssingleprice", ftypes.STRING, nil, nil, nil, "Y/N to an Issue of which base price is settled with a today's single price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.appraisal_ratio_of_substitute_price = ProtoField.new("Appraisal Ratio Of Substitute Price", "koscom.mdcsrealtime.commodities.exture.v2.018.appraisalratioofsubstituteprice", ftypes.DOUBLE, nil, nil, nil, "Appraisal ratio of substitute price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel1price", ftypes.DOUBLE, nil, nil, nil, "The best ask.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel1volume", ftypes.STRING, nil, nil, nil, "The best ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel1volume", ftypes.UINT64, nil, nil, nil, "The best ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_10_price = ProtoField.new("Ask Level 10 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel10price", ftypes.DOUBLE, nil, nil, nil, "The tenth highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_10_volume = ProtoField.new("Ask Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel10volume", ftypes.STRING, nil, nil, nil, "The tenth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_10_volume = ProtoField.new("Ask Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel10volume", ftypes.UINT64, nil, nil, nil, "The tenth highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel2price", ftypes.DOUBLE, nil, nil, nil, "The second highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel2volume", ftypes.STRING, nil, nil, nil, "The second highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel2volume", ftypes.UINT64, nil, nil, nil, "The second highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel3price", ftypes.DOUBLE, nil, nil, nil, "The third highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel3volume", ftypes.STRING, nil, nil, nil, "The third highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel3volume", ftypes.UINT64, nil, nil, nil, "The third highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_4_price = ProtoField.new("Ask Level 4 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel4price", ftypes.DOUBLE, nil, nil, nil, "The fourth highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_4_volume = ProtoField.new("Ask Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel4volume", ftypes.STRING, nil, nil, nil, "The fourth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_4_volume = ProtoField.new("Ask Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel4volume", ftypes.UINT64, nil, nil, nil, "The fourth highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_5_price = ProtoField.new("Ask Level 5 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel5price", ftypes.DOUBLE, nil, nil, nil, "The fifth highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_5_volume = ProtoField.new("Ask Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel5volume", ftypes.STRING, nil, nil, nil, "The fifth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_5_volume = ProtoField.new("Ask Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel5volume", ftypes.UINT64, nil, nil, nil, "The fifth highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_6_price = ProtoField.new("Ask Level 6 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel6price", ftypes.DOUBLE, nil, nil, nil, "The sixth highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_6_volume = ProtoField.new("Ask Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel6volume", ftypes.STRING, nil, nil, nil, "The sixth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_6_volume = ProtoField.new("Ask Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel6volume", ftypes.UINT64, nil, nil, nil, "The sixth highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_7_price = ProtoField.new("Ask Level 7 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel7price", ftypes.DOUBLE, nil, nil, nil, "The seventh highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_7_volume = ProtoField.new("Ask Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel7volume", ftypes.STRING, nil, nil, nil, "The seventh highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_7_volume = ProtoField.new("Ask Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel7volume", ftypes.UINT64, nil, nil, nil, "The seventh highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_8_price = ProtoField.new("Ask Level 8 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel8price", ftypes.DOUBLE, nil, nil, nil, "The eighth highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_8_volume = ProtoField.new("Ask Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel8volume", ftypes.STRING, nil, nil, nil, "The eighth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_8_volume = ProtoField.new("Ask Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel8volume", ftypes.UINT64, nil, nil, nil, "The eighth highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_9_price = ProtoField.new("Ask Level 9 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel9price", ftypes.DOUBLE, nil, nil, nil, "The ninth highest ask price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_9_volume = ProtoField.new("Ask Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel9volume", ftypes.STRING, nil, nil, nil, "The ninth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_9_volume = ProtoField.new("Ask Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.asklevel9volume", ftypes.UINT64, nil, nil, nil, "The ninth highest ask volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_quote = ProtoField.new("Ask Quote", "koscom.mdcsrealtime.commodities.exture.v2.018.askquote", ftypes.STRING, nil, nil, nil, "999999V999 ex) : \" 1209855\".")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_bid_volume = ProtoField.new("Auction Bid Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.auctionbidvolume", ftypes.STRING, nil, nil, nil, "Auction_Bid Volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_bid_volume = ProtoField.new("Auction Bid Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.auctionbidvolume", ftypes.UINT64, nil, nil, nil, "Auction_Bid Volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_price = ProtoField.new("Auction Price", "koscom.mdcsrealtime.commodities.exture.v2.018.auctionprice", ftypes.DOUBLE, nil, nil, nil, "Auction Price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_volume = ProtoField.new("Auction Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.auctionvolume", ftypes.STRING, nil, nil, nil, "Auction Volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_volume = ProtoField.new("Auction Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.auctionvolume", ftypes.UINT64, nil, nil, nil, "Auction Volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_convexity = ProtoField.new("Average Convexity", "koscom.mdcsrealtime.commodities.exture.v2.018.averageconvexity", ftypes.DOUBLE, nil, nil, nil, "Average convexity across the index constituents (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_coupon_price = ProtoField.new("Average Coupon Price", "koscom.mdcsrealtime.commodities.exture.v2.018.averagecouponprice", ftypes.DOUBLE, nil, nil, nil, "Average coupon price (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_current_yield = ProtoField.new("Average Current Yield", "koscom.mdcsrealtime.commodities.exture.v2.018.averagecurrentyield", ftypes.DOUBLE, nil, nil, nil, "Average current yield (16 ASCII digits with 6 implied decimal places).")
@@ -64,30 +64,30 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.base_price = ProtoField
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.base_time = ProtoField.new("Base Time", "koscom.mdcsrealtime.commodities.exture.v2.018.basetime", ftypes.STRING, nil, nil, nil, "Base time for the index calculation in HHMMSS format.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.basis_price = ProtoField.new("Basis Price", "koscom.mdcsrealtime.commodities.exture.v2.018.basisprice", ftypes.DOUBLE, nil, nil, nil, "Basis price of the constituent (10 ASCII digits with 2 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel1price", ftypes.DOUBLE, nil, nil, nil, "The best bid.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel1volume", ftypes.STRING, nil, nil, nil, "The best bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel1volume", ftypes.UINT64, nil, nil, nil, "The best bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_10_price = ProtoField.new("Bid Level 10 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel10price", ftypes.DOUBLE, nil, nil, nil, "The tenth lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_10_volume = ProtoField.new("Bid Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel10volume", ftypes.STRING, nil, nil, nil, "The tenth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_10_volume = ProtoField.new("Bid Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel10volume", ftypes.UINT64, nil, nil, nil, "The tenth lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel2price", ftypes.DOUBLE, nil, nil, nil, "The second lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel2volume", ftypes.STRING, nil, nil, nil, "The second lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel2volume", ftypes.UINT64, nil, nil, nil, "The second lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel3price", ftypes.DOUBLE, nil, nil, nil, "The third lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel3volume", ftypes.STRING, nil, nil, nil, "The third lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel3volume", ftypes.UINT64, nil, nil, nil, "The third lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_4_price = ProtoField.new("Bid Level 4 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel4price", ftypes.DOUBLE, nil, nil, nil, "The fourth lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_4_volume = ProtoField.new("Bid Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel4volume", ftypes.STRING, nil, nil, nil, "The fourth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_4_volume = ProtoField.new("Bid Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel4volume", ftypes.UINT64, nil, nil, nil, "The fourth lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_5_price = ProtoField.new("Bid Level 5 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel5price", ftypes.DOUBLE, nil, nil, nil, "The fifth lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_5_volume = ProtoField.new("Bid Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel5volume", ftypes.STRING, nil, nil, nil, "The fifth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_5_volume = ProtoField.new("Bid Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel5volume", ftypes.UINT64, nil, nil, nil, "The fifth lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_6_price = ProtoField.new("Bid Level 6 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel6price", ftypes.DOUBLE, nil, nil, nil, "The sixth lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_6_volume = ProtoField.new("Bid Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel6volume", ftypes.STRING, nil, nil, nil, "The sixth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_6_volume = ProtoField.new("Bid Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel6volume", ftypes.UINT64, nil, nil, nil, "The sixth lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_7_price = ProtoField.new("Bid Level 7 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel7price", ftypes.DOUBLE, nil, nil, nil, "The seventh lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_7_volume = ProtoField.new("Bid Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel7volume", ftypes.STRING, nil, nil, nil, "The seventh lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_7_volume = ProtoField.new("Bid Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel7volume", ftypes.UINT64, nil, nil, nil, "The seventh lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_8_price = ProtoField.new("Bid Level 8 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel8price", ftypes.DOUBLE, nil, nil, nil, "The eighth lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_8_volume = ProtoField.new("Bid Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel8volume", ftypes.STRING, nil, nil, nil, "The eighth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_8_volume = ProtoField.new("Bid Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel8volume", ftypes.UINT64, nil, nil, nil, "The eighth lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel9price", ftypes.DOUBLE, nil, nil, nil, "The ninth lowest bid price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_9_volume = ProtoField.new("Bid Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel9volume", ftypes.STRING, nil, nil, nil, "The ninth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_9_volume = ProtoField.new("Bid Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.bidlevel9volume", ftypes.UINT64, nil, nil, nil, "The ninth lowest bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_quote = ProtoField.new("Bid Quote", "koscom.mdcsrealtime.commodities.exture.v2.018.bidquote", ftypes.STRING, nil, nil, nil, "999999V999 ex) : \" 1209855\".")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bidtocover_ratio = ProtoField.new("Bidtocover Ratio", "koscom.mdcsrealtime.commodities.exture.v2.018.bidtocoverratio", ftypes.DOUBLE, nil, nil, nil, "Bid-to-cover Ratio.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.block_trading_lower_limit_price = ProtoField.new("Block Trading Lower Limit Price", "koscom.mdcsrealtime.commodities.exture.v2.018.blocktradinglowerlimitprice", ftypes.DOUBLE, nil, nil, nil, "Lower Limit Price of Block Trading After hours.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.block_trading_upper_limit_price = ProtoField.new("Block Trading Upper Limit Price", "koscom.mdcsrealtime.commodities.exture.v2.018.blocktradingupperlimitprice", ftypes.DOUBLE, nil, nil, nil, "Upper Limit Price of Block Trading After hours.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "koscom.mdcsrealtime.commodities.exture.v2.018.boardeventgroupcode", ftypes.STRING, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (Not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (Not a discrete-time traded issue.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "koscom.mdcsrealtime.commodities.exture.v2.018.boardeventgroupcode", ftypes.UINT32, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (Not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (Not a discrete-time traded issue.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.board_event_id = ProtoField.new("Board Event Id", "koscom.mdcsrealtime.commodities.exture.v2.018.boardeventid", ftypes.STRING, nil, nil, nil, "An ID indicates an event that occurs on a Board in a designated time.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.board_id = ProtoField.new("Board Id", "koscom.mdcsrealtime.commodities.exture.v2.018.boardid", ftypes.STRING, nil, nil, nil, "The Board ID refers to each Board in which an issue is traded under different trading schedules and rules. Individual issue can be traded on more than two Boards under each Board's schedule and with d.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bond_index_id = ProtoField.new("Bond Index Id", "koscom.mdcsrealtime.commodities.exture.v2.018.bondindexid", ftypes.STRING, nil, nil, nil, "Bond index identifier. Examples: BGG01T (KTB Index), BGG03T (KTB 10Y Index).")
@@ -122,7 +122,7 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.duration = ProtoField.n
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.commodities.exture.v2.018.endkeyword", ftypes.UINT8, nil, nil, nil, "End of text sentinel (0xFF).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.english_issue_name = ProtoField.new("English Issue Name", "koscom.mdcsrealtime.commodities.exture.v2.018.englishissuename", ftypes.STRING, nil, nil, nil, "English Issue Name.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.estimated_trading_price = ProtoField.new("Estimated Trading Price", "koscom.mdcsrealtime.commodities.exture.v2.018.estimatedtradingprice", ftypes.DOUBLE, nil, nil, nil, "An estimated trading price before the single price trade session.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.estimated_trading_volume = ProtoField.new("Estimated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.estimatedtradingvolume", ftypes.STRING, nil, nil, nil, "An estimated trading volume before the single price trade session.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.estimated_trading_volume = ProtoField.new("Estimated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.estimatedtradingvolume", ftypes.UINT64, nil, nil, nil, "An estimated trading volume before the single price trade session.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.expected_time_of_expanding_price_limit_range = ProtoField.new("Expected Time Of Expanding Price Limit Range", "koscom.mdcsrealtime.commodities.exture.v2.018.expectedtimeofexpandingpricelimitrange", ftypes.STRING, nil, nil, nil, "Expected Time of Expanding Price Limit Range.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.commodities.exture.v2.018.filler11", ftypes.DOUBLE, nil, nil, nil, "Upper Limit Price on the Single Price Trade in the Off-Hours Session.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.commodities.exture.v2.018.filler4", ftypes.STRING, nil, nil, nil, "Reserved filler. Always 4 ASCII space characters.")
@@ -136,39 +136,39 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_change_against_th
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_change_sign_against_the_previous_day = ProtoField.new("Index Change Sign Against The Previous Day", "koscom.mdcsrealtime.commodities.exture.v2.018.indexchangesignagainstthepreviousday", ftypes.STRING, nil, nil, nil, "Sign of the index change against the previous day. '+' ascended, ' ' unchanged, '-' declined.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_constituent = ProtoField.new("Index Constituent", "koscom.mdcsrealtime.commodities.exture.v2.018.indexconstituent", ftypes.STRING, nil, nil, nil, "Flag identifying whether the security is included in the index. '0' securities are included in the ETF but not in the Index; '1' securities are included in the Index.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_id = ProtoField.new("Index Id", "koscom.mdcsrealtime.commodities.exture.v2.018.indexid", ftypes.STRING, nil, nil, nil, "Index identifier. Refer to Code Table sheet \"Index List by Contracts (Real-Time)\".")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_market_capitalization = ProtoField.new("Index Market Capitalization", "koscom.mdcsrealtime.commodities.exture.v2.018.indexmarketcapitalization", ftypes.STRING, nil, nil, nil, "Total market capitalization of the index constituents (20 ASCII digits). Unit: KRW.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_number_of_securities = ProtoField.new("Index Number Of Securities", "koscom.mdcsrealtime.commodities.exture.v2.018.indexnumberofsecurities", ftypes.STRING, nil, nil, nil, "Number of constituent securities included in the index (8 ASCII digits).")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_market_capitalization = ProtoField.new("Index Market Capitalization", "koscom.mdcsrealtime.commodities.exture.v2.018.indexmarketcapitalization", ftypes.UINT64, nil, nil, nil, "Total market capitalization of the index constituents (20 ASCII digits). Unit: KRW.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_number_of_securities = ProtoField.new("Index Number Of Securities", "koscom.mdcsrealtime.commodities.exture.v2.018.indexnumberofsecurities", ftypes.UINT32, nil, nil, nil, "Number of constituent securities included in the index (8 ASCII digits).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.isin_code = ProtoField.new("Isin Code", "koscom.mdcsrealtime.commodities.exture.v2.018.isincode", ftypes.STRING, nil, nil, nil, "ISIN Code.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.isin_code_of_a_common_stock = ProtoField.new("Isin Code Of A Common Stock", "koscom.mdcsrealtime.commodities.exture.v2.018.isincodeofacommonstock", ftypes.STRING, nil, nil, nil, "ISIN code of a Common Stock.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issue_name = ProtoField.new("Issue Name", "koscom.mdcsrealtime.commodities.exture.v2.018.issuename", ftypes.STRING, nil, nil, nil, "Issue Name.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.commodities.exture.v2.018.issuedamount", ftypes.STRING, nil, nil, nil, "Total issued amount across constituents (20 ASCII digits). Unit: KRW.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.commodities.exture.v2.018.issuedamount", ftypes.UINT64, nil, nil, nil, "Total issued amount across constituents (20 ASCII digits). Unit: KRW.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.issuedamountweight", ftypes.DOUBLE, nil, nil, nil, "Weighted issued amount (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.job_code_symbol = ProtoField.new("Job Code Symbol", "koscom.mdcsrealtime.commodities.exture.v2.018.jobcodesymbol", ftypes.STRING, nil, nil, nil, "\"GOLDUSDOZ \" or \"GOLDKRWGR \".")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.listing_date = ProtoField.new("Listing Date", "koscom.mdcsrealtime.commodities.exture.v2.018.listingdate", ftypes.STRING, nil, nil, nil, "Listing Date of derivatives(CLASS) or issues.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.low_price = ProtoField.new("Low Price", "koscom.mdcsrealtime.commodities.exture.v2.018.lowprice", ftypes.STRING, nil, nil, nil, "999999V999 ex) : \" 1209855\".")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lower_limit_of_base_price = ProtoField.new("Lower Limit Of Base Price", "koscom.mdcsrealtime.commodities.exture.v2.018.lowerlimitofbaseprice", ftypes.DOUBLE, nil, nil, nil, "Lower Price of Base Price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.commodities.exture.v2.018.lowerlimitprice", ftypes.DOUBLE, nil, nil, nil, "A price subtracting the price limit from the base price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_1_volume = ProtoField.new("Lp Ask Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel1volume", ftypes.STRING, nil, nil, nil, "LP_The best ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_10_volume = ProtoField.new("Lp Ask Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel10volume", ftypes.STRING, nil, nil, nil, "LP_The tenth highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_2_volume = ProtoField.new("Lp Ask Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel2volume", ftypes.STRING, nil, nil, nil, "LP_The second highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_3_volume = ProtoField.new("Lp Ask Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel3volume", ftypes.STRING, nil, nil, nil, "LP_The third highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_4_volume = ProtoField.new("Lp Ask Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel4volume", ftypes.STRING, nil, nil, nil, "LP_The fourth highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_5_volume = ProtoField.new("Lp Ask Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel5volume", ftypes.STRING, nil, nil, nil, "LP_The fifth highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_6_volume = ProtoField.new("Lp Ask Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel6volume", ftypes.STRING, nil, nil, nil, "LP_The sixth highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_7_volume = ProtoField.new("Lp Ask Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel7volume", ftypes.STRING, nil, nil, nil, "LP_The seventh highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_8_volume = ProtoField.new("Lp Ask Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel8volume", ftypes.STRING, nil, nil, nil, "LP_The eighth highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_9_volume = ProtoField.new("Lp Ask Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel9volume", ftypes.STRING, nil, nil, nil, "LP_The ninth highest ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_1_volume = ProtoField.new("Lp Bid Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel1volume", ftypes.STRING, nil, nil, nil, "LP_The best bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_10_volume = ProtoField.new("Lp Bid Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel10volume", ftypes.STRING, nil, nil, nil, "LP_The tenth lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_2_volume = ProtoField.new("Lp Bid Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel2volume", ftypes.STRING, nil, nil, nil, "LP_The second lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_3_volume = ProtoField.new("Lp Bid Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel3volume", ftypes.STRING, nil, nil, nil, "LP_The third lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_4_volume = ProtoField.new("Lp Bid Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel4volume", ftypes.STRING, nil, nil, nil, "LP_The fourth lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_5_volume = ProtoField.new("Lp Bid Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel5volume", ftypes.STRING, nil, nil, nil, "LP_The fifth lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_6_volume = ProtoField.new("Lp Bid Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel6volume", ftypes.STRING, nil, nil, nil, "LP_The sixth lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_7_volume = ProtoField.new("Lp Bid Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel7volume", ftypes.STRING, nil, nil, nil, "LP_The seventh lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_8_volume = ProtoField.new("Lp Bid Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel8volume", ftypes.STRING, nil, nil, nil, "LP_The eighth lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_9_volume = ProtoField.new("Lp Bid Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel9volume", ftypes.STRING, nil, nil, nil, "LP_The ninth lowest bid volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_holding_quantity = ProtoField.new("Lp Holding Quantity", "koscom.mdcsrealtime.commodities.exture.v2.018.lpholdingquantity", ftypes.STRING, nil, nil, nil, "LP holding quantity per each account.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_1_volume = ProtoField.new("Lp Ask Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel1volume", ftypes.UINT64, nil, nil, nil, "LP_The best ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_10_volume = ProtoField.new("Lp Ask Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel10volume", ftypes.UINT64, nil, nil, nil, "LP_The tenth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_2_volume = ProtoField.new("Lp Ask Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel2volume", ftypes.UINT64, nil, nil, nil, "LP_The second highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_3_volume = ProtoField.new("Lp Ask Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel3volume", ftypes.UINT64, nil, nil, nil, "LP_The third highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_4_volume = ProtoField.new("Lp Ask Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel4volume", ftypes.UINT64, nil, nil, nil, "LP_The fourth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_5_volume = ProtoField.new("Lp Ask Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel5volume", ftypes.UINT64, nil, nil, nil, "LP_The fifth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_6_volume = ProtoField.new("Lp Ask Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel6volume", ftypes.UINT64, nil, nil, nil, "LP_The sixth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_7_volume = ProtoField.new("Lp Ask Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel7volume", ftypes.UINT64, nil, nil, nil, "LP_The seventh highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_8_volume = ProtoField.new("Lp Ask Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel8volume", ftypes.UINT64, nil, nil, nil, "LP_The eighth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_9_volume = ProtoField.new("Lp Ask Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpasklevel9volume", ftypes.UINT64, nil, nil, nil, "LP_The ninth highest ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_1_volume = ProtoField.new("Lp Bid Level 1 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel1volume", ftypes.UINT64, nil, nil, nil, "LP_The best bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_10_volume = ProtoField.new("Lp Bid Level 10 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel10volume", ftypes.UINT64, nil, nil, nil, "LP_The tenth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_2_volume = ProtoField.new("Lp Bid Level 2 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel2volume", ftypes.UINT64, nil, nil, nil, "LP_The second lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_3_volume = ProtoField.new("Lp Bid Level 3 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel3volume", ftypes.UINT64, nil, nil, nil, "LP_The third lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_4_volume = ProtoField.new("Lp Bid Level 4 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel4volume", ftypes.UINT64, nil, nil, nil, "LP_The fourth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_5_volume = ProtoField.new("Lp Bid Level 5 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel5volume", ftypes.UINT64, nil, nil, nil, "LP_The fifth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_6_volume = ProtoField.new("Lp Bid Level 6 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel6volume", ftypes.UINT64, nil, nil, nil, "LP_The sixth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_7_volume = ProtoField.new("Lp Bid Level 7 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel7volume", ftypes.UINT64, nil, nil, nil, "LP_The seventh lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_8_volume = ProtoField.new("Lp Bid Level 8 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel8volume", ftypes.UINT64, nil, nil, nil, "LP_The eighth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_9_volume = ProtoField.new("Lp Bid Level 9 Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.lpbidlevel9volume", ftypes.UINT64, nil, nil, nil, "LP_The ninth lowest bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_holding_quantity = ProtoField.new("Lp Holding Quantity", "koscom.mdcsrealtime.commodities.exture.v2.018.lpholdingquantity", ftypes.UINT64, nil, nil, nil, "LP holding quantity per each account.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.marketcapitalizationweight", ftypes.DOUBLE, nil, nil, nil, "Weighted market capitalization (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_id = ProtoField.new("Market Id", "koscom.mdcsrealtime.commodities.exture.v2.018.marketid", ftypes.STRING, nil, nil, nil, "Market ID (KOSPI, KOSDAQ, Index Derivatives, Equities Derivatives, Bonds Derivatives etc.).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_operation_product_id = ProtoField.new("Market Operation Product Id", "koscom.mdcsrealtime.commodities.exture.v2.018.marketoperationproductid", ftypes.STRING, nil, nil, nil, "The ID refers to a group of products that are traded with the same trading schedule control.")
@@ -176,12 +176,12 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_krx 
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.commodities.exture.v2.018.marketpriceindexktb", ftypes.DOUBLE, nil, nil, nil, "Market price index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.marketpriceindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted market price index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.commodities.exture.v2.018.maturitycode", ftypes.STRING, nil, nil, nil, "Bond Prime Index Maturity Code. JA000 maturity identifier; check the TR-CODE for the specific maturity bucket.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.commodities.exture.v2.018.messagesequencenumber", ftypes.STRING, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information Ca.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.commodities.exture.v2.018.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information Ca.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_value = ProtoField.new("Negotiated Block Trade Trading Value", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedblocktradetradingvalue", ftypes.DOUBLE, nil, nil, nil, "Negotiated Block Trade_Trading Value.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_volume = ProtoField.new("Negotiated Block Trade Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedblocktradetradingvolume", ftypes.STRING, nil, nil, nil, "Negotiated Block Trade_Trading Volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_volume = ProtoField.new("Negotiated Block Trade Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedblocktradetradingvolume", ftypes.UINT64, nil, nil, nil, "Negotiated Block Trade_Trading Volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_value = ProtoField.new("Negotiated Trade Accumulated Trading Value", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedtradeaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Negotiated Trade_Accumulated Trading value.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_volume = ProtoField.new("Negotiated Trade Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedtradeaccumulatedtradingvolume", ftypes.STRING, nil, nil, nil, "Negotiated Trade_Accumulated Trading volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.number_of_bidders = ProtoField.new("Number Of Bidders", "koscom.mdcsrealtime.commodities.exture.v2.018.numberofbidders", ftypes.STRING, nil, nil, nil, "Number of Bidders.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_volume = ProtoField.new("Negotiated Trade Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedtradeaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Negotiated Trade_Accumulated Trading volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.number_of_bidders = ProtoField.new("Number Of Bidders", "koscom.mdcsrealtime.commodities.exture.v2.018.numberofbidders", ftypes.UINT64, nil, nil, nil, "Number of Bidders.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.commodities.exture.v2.018.openingprice", ftypes.STRING, nil, nil, nil, "999999V999 ex) : \" 1209855\".")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.previous_price = ProtoField.new("Previous Price", "koscom.mdcsrealtime.commodities.exture.v2.018.previousprice", ftypes.DOUBLE, nil, nil, nil, "A trading price made right before the final trading price as of now but with a differenct value. E.g.) 10 am: 90 KRW, 10:10 a.m: 100 KRW, 10:20 a.m (now): 100 -> the previous price is 90 KRW.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.price_limit_range_expansion_for_base_issue_type_code = ProtoField.new("Price Limit Range Expansion For Base Issue Type Code", "koscom.mdcsrealtime.commodities.exture.v2.018.pricelimitrangeexpansionforbaseissuetypecode", ftypes.STRING, nil, nil, nil, "A code to expand price limit range for Base Issue D: descending U: Up X: N/A.")
@@ -194,17 +194,17 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.security_group_id = Pro
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.session_id = ProtoField.new("Session Id", "koscom.mdcsrealtime.commodities.exture.v2.018.sessionid", ftypes.STRING, nil, nil, nil, "A Session is a subordinate concept of a Board and each session follows different trading methods and rules.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.session_start_end_code = ProtoField.new("Session Start End Code", "koscom.mdcsrealtime.commodities.exture.v2.018.sessionstartendcode", ftypes.STRING, nil, nil, nil, "A code refers to the start/end of session. Board will end when the last session ends. BS: Board Start BE: Board End SS: Session Start SE: Session End SH: Session Halt SR: Session Resumption.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.start_time_of_a_board_event = ProtoField.new("Start Time Of A Board Event", "koscom.mdcsrealtime.commodities.exture.v2.018.starttimeofaboardevent", ftypes.STRING, nil, nil, nil, "The time when a Board Event occurs.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.step_applied = ProtoField.new("Step Applied", "koscom.mdcsrealtime.commodities.exture.v2.018.stepapplied", ftypes.STRING, nil, nil, nil, "Managing steps to be applied.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.step_applied = ProtoField.new("Step Applied", "koscom.mdcsrealtime.commodities.exture.v2.018.stepapplied", ftypes.UINT8, nil, nil, nil, "Managing steps to be applied.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.commodities.exture.v2.018.substitutepriceofsecurities", ftypes.DOUBLE, nil, nil, nil, "Substitute price of securities as a consignment guarantee money.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.todays_high = ProtoField.new("Todays High", "koscom.mdcsrealtime.commodities.exture.v2.018.todayshigh", ftypes.DOUBLE, nil, nil, nil, "The highest price at which an issue traded during the course of the trading day. Also, the record high of a year refers to the highest price of a year.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.todays_low = ProtoField.new("Todays Low", "koscom.mdcsrealtime.commodities.exture.v2.018.todayslow", ftypes.DOUBLE, nil, nil, nil, "The lowest price or index at which an issue traded during the course of a day, week, month or year.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_accumulated_trading_value = ProtoField.new("Total Accumulated Trading Value", "koscom.mdcsrealtime.commodities.exture.v2.018.totalaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Total Accumulated Trading Value.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_accumulated_trading_volume = ProtoField.new("Total Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.totalaccumulatedtradingvolume", ftypes.STRING, nil, nil, nil, "Total Accumulated Trading volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_ask_volume = ProtoField.new("Total Ask Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.totalaskvolume", ftypes.STRING, nil, nil, nil, "Total ask volume.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_bid_volume = ProtoField.new("Total Bid Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.totalbidvolume", ftypes.STRING, nil, nil, nil, "Total bid volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_accumulated_trading_volume = ProtoField.new("Total Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.totalaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Total Accumulated Trading volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_ask_volume = ProtoField.new("Total Ask Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.totalaskvolume", ftypes.UINT64, nil, nil, nil, "Total ask volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_bid_volume = ProtoField.new("Total Bid Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.totalbidvolume", ftypes.UINT64, nil, nil, nil, "Total bid volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.commodities.exture.v2.018.totalearningsindex", ftypes.DOUBLE, nil, nil, nil, "Total earnings index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.totalearningsindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted total earnings index value (16 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.commodities.exture.v2.018.totalnumberofinstrumentsofthecontract", ftypes.STRING, nil, nil, nil, "- Total number of instruments per each Information Category.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.commodities.exture.v2.018.totalnumberofinstrumentsofthecontract", ftypes.UINT32, nil, nil, nil, "- Total number of instruments per each Information Category.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.commodities.exture.v2.018.totalprofitindex", ftypes.DOUBLE, nil, nil, nil, "Total profit index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.commodities.exture.v2.018.trcode", ftypes.STRING, nil, nil, nil, "Five-character ASCII TR-CODE identifying the disseminated market data record. Formed by concatenating a 2-character Data Category (message family, e.g. \"IA\" Krx Index, \"B6\" Quote, \"C4\" Negotiated Trade, \"A7\" Market Operation TS) with a 3-character Information Category (market/product variant, typically 2-digit information code plus 1-character market code, e.g. \"01S\" = Equities/KOSPI, \"01F\" = Derivatives, \"000\" = All Market).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_date = ProtoField.new("Trading Date", "koscom.mdcsrealtime.commodities.exture.v2.018.tradingdate", ftypes.STRING, nil, nil, nil, "YYYYMMDD.")
@@ -213,12 +213,12 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_halt_reason_cod
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_halt_type_code = ProtoField.new("Trading Halt Type Code", "koscom.mdcsrealtime.commodities.exture.v2.018.tradinghalttypecode", ftypes.STRING, nil, nil, nil, "1: Treasury Stock 2: Warrant 3: Right 4: Underlying Asset ELW 5: Issue ELW 6: Listed Company 7: Underlying Asset Applied Market 8: Index(not using) 9: Issue ETN D: Issue (New securities).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.commodities.exture.v2.018.tradingprice", ftypes.DOUBLE, nil, nil, nil, "The price at which a security is currently selling in the market.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_time = ProtoField.new("Trading Time", "koscom.mdcsrealtime.commodities.exture.v2.018.tradingtime", ftypes.STRING, nil, nil, nil, "HHMMSS.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.tradingvolume", ftypes.STRING, nil, nil, nil, "Trading volume.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.tradingvolume", ftypes.UINT64, nil, nil, nil, "Trading volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.transmission_time = ProtoField.new("Transmission Time", "koscom.mdcsrealtime.commodities.exture.v2.018.transmissiontime", ftypes.STRING, nil, nil, nil, "Transmission time in HHMMSSMM format (8 ASCII digits).")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.unit_of_volume_in_main_board = ProtoField.new("Unit Of Volume In Main Board", "koscom.mdcsrealtime.commodities.exture.v2.018.unitofvolumeinmainboard", ftypes.STRING, nil, nil, nil, "Unit of Volume in Main Board.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.unit_of_volume_in_main_board = ProtoField.new("Unit Of Volume In Main Board", "koscom.mdcsrealtime.commodities.exture.v2.018.unitofvolumeinmainboard", ftypes.UINT64, nil, nil, nil, "Unit of Volume in Main Board.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.upper_limit_of_base_price = ProtoField.new("Upper Limit Of Base Price", "koscom.mdcsrealtime.commodities.exture.v2.018.upperlimitofbaseprice", ftypes.DOUBLE, nil, nil, nil, "Upper Price of Base Price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.upper_limit_price = ProtoField.new("Upper Limit Price", "koscom.mdcsrealtime.commodities.exture.v2.018.upperlimitprice", ftypes.DOUBLE, nil, nil, nil, "A price adding up the price limit to the base price.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.volume_in_the_bid_invitation = ProtoField.new("Volume In The Bid Invitation", "koscom.mdcsrealtime.commodities.exture.v2.018.volumeinthebidinvitation", ftypes.STRING, nil, nil, nil, "Volume in the Bid Invitation.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.volume_in_the_bid_invitation = ProtoField.new("Volume In The Bid Invitation", "koscom.mdcsrealtime.commodities.exture.v2.018.volumeinthebidinvitation", ftypes.UINT64, nil, nil, nil, "Volume in the Bid Invitation.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE, nil, nil, nil, "Integrity-index weight for the call re-investment index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE, nil, nil, nil, "Integrity-index weight for the clean index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.weight_of_sum_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Sum Index Value For Integrity Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.weightofsumindexvalueforintegrityindexweight", ftypes.DOUBLE, nil, nil, nil, "Integrity-index weight for the sum index value (16 ASCII digits with 6 implied decimal places).")
@@ -265,6 +265,11 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.spot_gold_order_filled_
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.spot_gold_quote_message = ProtoField.new("Spot Gold Quote Message", "koscom.mdcsrealtime.commodities.exture.v2.018.spotgoldquotemessage", ftypes.STRING, nil, nil, nil, "Spot Gold Quote. Multi-level bid/ask quotes for Spot Gold.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.spot_gold_random_end_message = ProtoField.new("Spot Gold Random End Message", "koscom.mdcsrealtime.commodities.exture.v2.018.spotgoldrandomendmessage", ftypes.STRING, nil, nil, nil, "Spot Gold Random End. Reports random extension of the call auction window when conditional random-end is triggered.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.spot_gold_snapshot_message = ProtoField.new("Spot Gold Snapshot Message", "koscom.mdcsrealtime.commodities.exture.v2.018.spotgoldsnapshotmessage", ftypes.STRING, nil, nil, nil, "Spot Gold Market Data Snapshot. Periodic full state snapshot.")
+
+-- Koscom MdcsRealtime Commodities Exture 2.018 Expert Info
+koscom_mdcsrealtime_commodities_exture_v2_018.experts = {}
+koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number = ProtoExpert.new("koscom.mdcsrealtime.commodities.exture.v2.018.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.experts = { koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime Commodities Exture 2.018 Formatting
@@ -386,7 +391,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.a_designated_number_for_an_issue, range, value, "A Designated Number For An Issue: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "A Designated Number For An Issue is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.display(value, buffer, offset, packet, parent)
@@ -521,6 +529,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_cash.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_cash, range, value, "Accumulated Cash: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Accumulated Cash is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_cash.display(value, buffer, offset, packet, parent)
@@ -563,6 +574,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value, range, value, "Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -590,7 +604,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -656,6 +673,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.appraisal_ratio_of_substitute_pric
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.appraisal_ratio_of_substitute_price, range, value, "Appraisal Ratio Of Substitute Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Appraisal Ratio Of Substitute Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.appraisal_ratio_of_substitute_price.display(value, buffer, offset, packet, parent)
@@ -691,6 +711,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_1_price, range, value, "Ask Level 1 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 1 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_price.display(value, buffer, offset, packet, parent)
@@ -718,7 +741,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_1_volume, range, value, "Ask Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -754,6 +780,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_10_price.dissect = funct
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_10_price, range, value, "Ask Level 10 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 10 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_10_price.display(value, buffer, offset, packet, parent)
@@ -781,7 +810,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_10_volume.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_10_volume, range, value, "Ask Level 10 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 10 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_10_volume.display(value, buffer, offset, packet, parent)
@@ -817,6 +849,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_2_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_2_price, range, value, "Ask Level 2 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 2 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_2_price.display(value, buffer, offset, packet, parent)
@@ -844,7 +879,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_2_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_2_volume, range, value, "Ask Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -880,6 +918,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_3_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_3_price, range, value, "Ask Level 3 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 3 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_3_price.display(value, buffer, offset, packet, parent)
@@ -907,7 +948,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_3_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_3_volume, range, value, "Ask Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -943,6 +987,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_4_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_4_price, range, value, "Ask Level 4 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 4 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_4_price.display(value, buffer, offset, packet, parent)
@@ -970,7 +1017,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_4_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_4_volume, range, value, "Ask Level 4 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 4 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_4_volume.display(value, buffer, offset, packet, parent)
@@ -1006,6 +1056,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_5_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_5_price, range, value, "Ask Level 5 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 5 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_5_price.display(value, buffer, offset, packet, parent)
@@ -1033,7 +1086,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_5_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_5_volume, range, value, "Ask Level 5 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 5 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_5_volume.display(value, buffer, offset, packet, parent)
@@ -1069,6 +1125,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_6_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_6_price, range, value, "Ask Level 6 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 6 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_6_price.display(value, buffer, offset, packet, parent)
@@ -1096,7 +1155,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_6_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_6_volume, range, value, "Ask Level 6 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 6 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_6_volume.display(value, buffer, offset, packet, parent)
@@ -1132,6 +1194,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_7_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_7_price, range, value, "Ask Level 7 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 7 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_7_price.display(value, buffer, offset, packet, parent)
@@ -1159,7 +1224,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_7_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_7_volume, range, value, "Ask Level 7 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 7 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_7_volume.display(value, buffer, offset, packet, parent)
@@ -1195,6 +1263,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_8_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_8_price, range, value, "Ask Level 8 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 8 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_8_price.display(value, buffer, offset, packet, parent)
@@ -1222,7 +1293,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_8_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_8_volume, range, value, "Ask Level 8 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 8 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_8_volume.display(value, buffer, offset, packet, parent)
@@ -1258,6 +1332,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_9_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_9_price, range, value, "Ask Level 9 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 9 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_9_price.display(value, buffer, offset, packet, parent)
@@ -1285,7 +1362,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_9_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_level_9_volume, range, value, "Ask Level 9 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Ask Level 9 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_9_volume.display(value, buffer, offset, packet, parent)
@@ -1336,7 +1416,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.auction_bid_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_bid_volume, range, value, "Auction Bid Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Auction Bid Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.auction_bid_volume.display(value, buffer, offset, packet, parent)
@@ -1372,6 +1455,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.auction_price.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_price, range, value, "Auction Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Auction Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.auction_price.display(value, buffer, offset, packet, parent)
@@ -1399,7 +1485,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.auction_volume.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.auction_volume, range, value, "Auction Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Auction Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.auction_volume.display(value, buffer, offset, packet, parent)
@@ -1442,6 +1531,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_convexity.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_convexity, range, value, "Average Convexity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Convexity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_convexity.display(value, buffer, offset, packet, parent)
@@ -1484,6 +1576,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_coupon_price.dissect = fun
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_coupon_price, range, value, "Average Coupon Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Coupon Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_coupon_price.display(value, buffer, offset, packet, parent)
@@ -1526,6 +1621,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_current_yield.dissect = fu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_current_yield, range, value, "Average Current Yield: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Current Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_current_yield.display(value, buffer, offset, packet, parent)
@@ -1568,6 +1666,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_duration.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_duration, range, value, "Average Duration: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Duration is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_duration.display(value, buffer, offset, packet, parent)
@@ -1610,6 +1711,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_forward_ytm.dissect = func
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_forward_ytm, range, value, "Average Forward Ytm: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Forward Ytm is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_forward_ytm.display(value, buffer, offset, packet, parent)
@@ -1652,6 +1756,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_remaining_maturity_price.d
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_remaining_maturity_price, range, value, "Average Remaining Maturity Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Remaining Maturity Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_remaining_maturity_price.display(value, buffer, offset, packet, parent)
@@ -1694,6 +1801,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_spread.dissect = function(
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_spread, range, value, "Average Spread: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Spread is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_spread.display(value, buffer, offset, packet, parent)
@@ -1769,6 +1879,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_yld.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_yld, range, value, "Average Yld: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Yld is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_yld.display(value, buffer, offset, packet, parent)
@@ -1811,6 +1924,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.average_ytm.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.average_ytm, range, value, "Average Ytm: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Average Ytm is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.average_ytm.display(value, buffer, offset, packet, parent)
@@ -1873,6 +1989,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.base_price.dissect = function(buff
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.base_price, range, value, "Base Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Base Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.base_price.display(value, buffer, offset, packet, parent)
@@ -1942,6 +2061,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.basis_price.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.basis_price, range, value, "Basis Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Basis Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.basis_price.display(value, buffer, offset, packet, parent)
@@ -1977,6 +2099,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_1_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_1_price, range, value, "Bid Level 1 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 1 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_1_price.display(value, buffer, offset, packet, parent)
@@ -2004,7 +2129,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_1_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_1_volume, range, value, "Bid Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -2040,6 +2168,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_10_price.dissect = funct
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_10_price, range, value, "Bid Level 10 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 10 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_10_price.display(value, buffer, offset, packet, parent)
@@ -2067,7 +2198,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_10_volume.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_10_volume, range, value, "Bid Level 10 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 10 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_10_volume.display(value, buffer, offset, packet, parent)
@@ -2103,6 +2237,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_2_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_2_price, range, value, "Bid Level 2 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 2 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_2_price.display(value, buffer, offset, packet, parent)
@@ -2130,7 +2267,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_2_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_2_volume, range, value, "Bid Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -2166,6 +2306,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_3_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_3_price, range, value, "Bid Level 3 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 3 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_3_price.display(value, buffer, offset, packet, parent)
@@ -2193,7 +2336,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_3_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_3_volume, range, value, "Bid Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -2229,6 +2375,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_4_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_4_price, range, value, "Bid Level 4 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 4 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_4_price.display(value, buffer, offset, packet, parent)
@@ -2256,7 +2405,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_4_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_4_volume, range, value, "Bid Level 4 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 4 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_4_volume.display(value, buffer, offset, packet, parent)
@@ -2292,6 +2444,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_5_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_5_price, range, value, "Bid Level 5 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 5 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_5_price.display(value, buffer, offset, packet, parent)
@@ -2319,7 +2474,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_5_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_5_volume, range, value, "Bid Level 5 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 5 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_5_volume.display(value, buffer, offset, packet, parent)
@@ -2355,6 +2513,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_6_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_6_price, range, value, "Bid Level 6 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 6 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_6_price.display(value, buffer, offset, packet, parent)
@@ -2382,7 +2543,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_6_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_6_volume, range, value, "Bid Level 6 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 6 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_6_volume.display(value, buffer, offset, packet, parent)
@@ -2418,6 +2582,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_7_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_7_price, range, value, "Bid Level 7 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 7 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_7_price.display(value, buffer, offset, packet, parent)
@@ -2445,7 +2612,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_7_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_7_volume, range, value, "Bid Level 7 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 7 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_7_volume.display(value, buffer, offset, packet, parent)
@@ -2481,6 +2651,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_8_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_8_price, range, value, "Bid Level 8 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 8 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_8_price.display(value, buffer, offset, packet, parent)
@@ -2508,7 +2681,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_8_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_8_volume, range, value, "Bid Level 8 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 8 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_8_volume.display(value, buffer, offset, packet, parent)
@@ -2544,6 +2720,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_9_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_9_price, range, value, "Bid Level 9 Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 9 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_9_price.display(value, buffer, offset, packet, parent)
@@ -2571,7 +2750,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_9_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_level_9_volume, range, value, "Bid Level 9 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bid Level 9 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_9_volume.display(value, buffer, offset, packet, parent)
@@ -2637,6 +2819,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.bidtocover_ratio.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bidtocover_ratio, range, value, "Bidtocover Ratio: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Bidtocover Ratio is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bidtocover_ratio.display(value, buffer, offset, packet, parent)
@@ -2672,6 +2857,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.block_trading_lower_limit_price.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.block_trading_lower_limit_price, range, value, "Block Trading Lower Limit Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Block Trading Lower Limit Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.block_trading_lower_limit_price.display(value, buffer, offset, packet, parent)
@@ -2707,6 +2895,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.block_trading_upper_limit_price.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.block_trading_upper_limit_price, range, value, "Block Trading Upper Limit Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Block Trading Upper Limit Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.block_trading_upper_limit_price.display(value, buffer, offset, packet, parent)
@@ -2734,7 +2925,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.board_event_group_code.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.board_event_group_code, range, value, "Board Event Group Code: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Board Event Group Code is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.board_event_group_code.display(value, buffer, offset, packet, parent)
@@ -2950,6 +3144,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.call_re_investment_index_weight.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.call_re_investment_index_weight, range, value, "Call Re Investment Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Call Re Investment Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.call_re_investment_index_weight.display(value, buffer, offset, packet, parent)
@@ -2992,6 +3189,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.call_reinvestment_index_krx.dissec
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.call_reinvestment_index_krx, range, value, "Call Re-Investment Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Call Re-Investment Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.call_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
@@ -3034,6 +3234,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.call_reinvestment_index_ktb.dissec
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.call_reinvestment_index_ktb, range, value, "Call Re-Investment Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Call Re-Investment Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.call_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)
@@ -3076,6 +3279,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.cash_inflow.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.cash_inflow, range, value, "Cash Inflow: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Cash Inflow is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.cash_inflow.display(value, buffer, offset, packet, parent)
@@ -3164,6 +3370,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.clean_price.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price, range, value, "Clean Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Clean Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.clean_price.display(value, buffer, offset, packet, parent)
@@ -3206,6 +3415,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.clean_price_index_krx.dissect = fu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price_index_krx, range, value, "Clean Price Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Clean Price Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.clean_price_index_krx.display(value, buffer, offset, packet, parent)
@@ -3248,6 +3460,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.clean_price_index_ktb.dissect = fu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price_index_ktb, range, value, "Clean Price Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Clean Price Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.clean_price_index_ktb.display(value, buffer, offset, packet, parent)
@@ -3290,6 +3505,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.clean_price_index_weight.dissect =
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price_index_weight, range, value, "Clean Price Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Clean Price Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.clean_price_index_weight.display(value, buffer, offset, packet, parent)
@@ -3325,6 +3543,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price, range, value, "Closing Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.display(value, buffer, offset, packet, parent)
@@ -3360,6 +3581,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_base_price_of_buy_in
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_base_price_of_buy_in, range, value, "Closing Price Base Price Of Buy In: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Closing Price Base Price Of Buy In is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_base_price_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -3395,6 +3619,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_lower_limit_of_buy_i
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_lower_limit_of_buy_in, range, value, "Closing Price Lower Limit Of Buy In: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Closing Price Lower Limit Of Buy In is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_lower_limit_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -3466,6 +3693,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_upper_limit_of_buy_i
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_upper_limit_of_buy_in, range, value, "Closing Price Upper Limit Of Buy In: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Closing Price Upper Limit Of Buy In is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_upper_limit_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -3501,6 +3731,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_weighted_stock_price
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_weighted_stock_price_average, range, value, "Closing Price Weighted Stock Price Average: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Closing Price Weighted Stock Price Average is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_weighted_stock_price_average.display(value, buffer, offset, packet, parent)
@@ -3566,6 +3799,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.convexity.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.convexity, range, value, "Convexity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Convexity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.convexity.display(value, buffer, offset, packet, parent)
@@ -3649,6 +3885,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.current_price.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.current_price, range, value, "Current Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Current Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.current_price.display(value, buffer, offset, packet, parent)
@@ -3771,6 +4010,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.duration.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.duration, range, value, "Duration: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Duration is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.duration.display(value, buffer, offset, packet, parent)
@@ -3856,6 +4098,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.estimated_trading_price.dissect = 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.estimated_trading_price, range, value, "Estimated Trading Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Estimated Trading Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.estimated_trading_price.display(value, buffer, offset, packet, parent)
@@ -3883,7 +4128,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.estimated_trading_volume.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.estimated_trading_volume, range, value, "Estimated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Estimated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.estimated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -3942,6 +4190,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.filler_11, range, value, "Filler 11: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Filler 11 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.display(value, buffer, offset, packet, parent)
@@ -4066,6 +4317,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.futures_basis_price.dissect = func
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.futures_basis_price, range, value, "Futures Basis Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Futures Basis Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.futures_basis_price.display(value, buffer, offset, packet, parent)
@@ -4154,6 +4408,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.index.dissect = function(buffer, o
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index, range, value, "Index: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Index is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.index.display(value, buffer, offset, packet, parent)
@@ -4196,6 +4453,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.index_change_against_the_previous_
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_change_against_the_previous_day, range, value, "Index Change Against The Previous Day: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Index Change Against The Previous Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.index_change_against_the_previous_day.display(value, buffer, offset, packet, parent)
@@ -4309,7 +4569,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.index_market_capitalization.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.index_market_capitalization.display(value, buffer, offset, packet, parent)
@@ -4337,7 +4600,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.index_number_of_securities.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_number_of_securities, range, value, "Index Number Of Securities: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Index Number Of Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.index_number_of_securities.display(value, buffer, offset, packet, parent)
@@ -4434,7 +4700,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.issued_amount.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.issued_amount.display(value, buffer, offset, packet, parent)
@@ -4477,6 +4746,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.issued_amount_weight.dissect = fun
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issued_amount_weight, range, value, "Issued Amount Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Issued Amount Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.issued_amount_weight.display(value, buffer, offset, packet, parent)
@@ -4581,6 +4853,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lower_limit_of_base_price.dissect 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lower_limit_of_base_price, range, value, "Lower Limit Of Base Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lower Limit Of Base Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lower_limit_of_base_price.display(value, buffer, offset, packet, parent)
@@ -4616,6 +4891,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lower_limit_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lower_limit_price, range, value, "Lower Limit Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lower Limit Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lower_limit_price.display(value, buffer, offset, packet, parent)
@@ -4643,7 +4921,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_1_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_1_volume, range, value, "Lp Ask Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -4671,7 +4952,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_10_volume.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_10_volume, range, value, "Lp Ask Level 10 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 10 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_10_volume.display(value, buffer, offset, packet, parent)
@@ -4699,7 +4983,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_2_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_2_volume, range, value, "Lp Ask Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -4727,7 +5014,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_3_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_3_volume, range, value, "Lp Ask Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -4755,7 +5045,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_4_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_4_volume, range, value, "Lp Ask Level 4 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 4 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_4_volume.display(value, buffer, offset, packet, parent)
@@ -4783,7 +5076,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_5_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_5_volume, range, value, "Lp Ask Level 5 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 5 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_5_volume.display(value, buffer, offset, packet, parent)
@@ -4811,7 +5107,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_6_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_6_volume, range, value, "Lp Ask Level 6 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 6 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_6_volume.display(value, buffer, offset, packet, parent)
@@ -4839,7 +5138,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_7_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_7_volume, range, value, "Lp Ask Level 7 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 7 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_7_volume.display(value, buffer, offset, packet, parent)
@@ -4867,7 +5169,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_8_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_8_volume, range, value, "Lp Ask Level 8 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 8 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_8_volume.display(value, buffer, offset, packet, parent)
@@ -4895,7 +5200,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_9_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_ask_level_9_volume, range, value, "Lp Ask Level 9 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Ask Level 9 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_ask_level_9_volume.display(value, buffer, offset, packet, parent)
@@ -4923,7 +5231,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_1_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_1_volume, range, value, "Lp Bid Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -4951,7 +5262,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_10_volume.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_10_volume, range, value, "Lp Bid Level 10 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 10 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_10_volume.display(value, buffer, offset, packet, parent)
@@ -4979,7 +5293,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_2_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_2_volume, range, value, "Lp Bid Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -5007,7 +5324,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_3_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_3_volume, range, value, "Lp Bid Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -5035,7 +5355,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_4_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_4_volume, range, value, "Lp Bid Level 4 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 4 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_4_volume.display(value, buffer, offset, packet, parent)
@@ -5063,7 +5386,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_5_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_5_volume, range, value, "Lp Bid Level 5 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 5 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_5_volume.display(value, buffer, offset, packet, parent)
@@ -5091,7 +5417,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_6_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_6_volume, range, value, "Lp Bid Level 6 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 6 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_6_volume.display(value, buffer, offset, packet, parent)
@@ -5119,7 +5448,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_7_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_7_volume, range, value, "Lp Bid Level 7 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 7 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_7_volume.display(value, buffer, offset, packet, parent)
@@ -5147,7 +5479,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_8_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_8_volume, range, value, "Lp Bid Level 8 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 8 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_8_volume.display(value, buffer, offset, packet, parent)
@@ -5175,7 +5510,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_9_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_bid_level_9_volume, range, value, "Lp Bid Level 9 Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Bid Level 9 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_bid_level_9_volume.display(value, buffer, offset, packet, parent)
@@ -5203,7 +5541,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.lp_holding_quantity.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.lp_holding_quantity, range, value, "Lp Holding Quantity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Lp Holding Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.lp_holding_quantity.display(value, buffer, offset, packet, parent)
@@ -5246,6 +5587,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.market_capitalization_weight.disse
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_capitalization_weight, range, value, "Market Capitalization Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Market Capitalization Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.market_capitalization_weight.display(value, buffer, offset, packet, parent)
@@ -5334,6 +5678,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.market_price_index_krx.dissect = f
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_krx, range, value, "Market Price Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Market Price Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.market_price_index_krx.display(value, buffer, offset, packet, parent)
@@ -5376,6 +5723,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.market_price_index_ktb.dissect = f
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_ktb, range, value, "Market Price Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Market Price Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.market_price_index_ktb.display(value, buffer, offset, packet, parent)
@@ -5418,6 +5768,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.market_price_index_weight.dissect 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_weight, range, value, "Market Price Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Market Price Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.market_price_index_weight.display(value, buffer, offset, packet, parent)
@@ -5511,6 +5864,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_val
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_value, range, value, "Negotiated Block Trade Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Negotiated Block Trade Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_value.display(value, buffer, offset, packet, parent)
@@ -5538,7 +5894,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_vol
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_volume, range, value, "Negotiated Block Trade Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Negotiated Block Trade Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_volume.display(value, buffer, offset, packet, parent)
@@ -5581,6 +5940,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_trade_accumulated_tradi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_value, range, value, "Negotiated Trade Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Negotiated Trade Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_trade_accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -5608,7 +5970,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_trade_accumulated_tradi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_volume, range, value, "Negotiated Trade Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Negotiated Trade Accumulated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_trade_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -5636,7 +6001,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.number_of_bidders.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.number_of_bidders, range, value, "Number Of Bidders: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Number Of Bidders is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.number_of_bidders.display(value, buffer, offset, packet, parent)
@@ -5695,6 +6063,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.previous_price.dissect = function(
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.previous_price, range, value, "Previous Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Previous Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.previous_price.display(value, buffer, offset, packet, parent)
@@ -5833,6 +6204,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.reinvest_call_cash.dissect = funct
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.reinvest_call_cash, range, value, "Reinvest Call Cash: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Reinvest Call Cash is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.reinvest_call_cash.display(value, buffer, offset, packet, parent)
@@ -5868,6 +6242,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.second_filler_11, range, value, "Second Filler 11: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Second Filler 11 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.display(value, buffer, offset, packet, parent)
@@ -5987,7 +6364,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.step_applied.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.step_applied, range, value, "Step Applied: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Step Applied is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.step_applied.display(value, buffer, offset, packet, parent)
@@ -6023,6 +6403,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.substitute_price_of_securities.dis
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.substitute_price_of_securities, range, value, "Substitute Price Of Securities: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Substitute Price Of Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.substitute_price_of_securities.display(value, buffer, offset, packet, parent)
@@ -6065,6 +6448,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.todays_high, range, value, "Todays High: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Todays High is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.display(value, buffer, offset, packet, parent)
@@ -6107,6 +6493,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.dissect = function(buff
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.todays_low, range, value, "Todays Low: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Todays Low is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.display(value, buffer, offset, packet, parent)
@@ -6149,6 +6538,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_accumulated_trading_value.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_accumulated_trading_value, range, value, "Total Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -6176,7 +6568,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_accumulated_trading_volume.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_accumulated_trading_volume, range, value, "Total Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Accumulated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -6204,7 +6599,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_ask_volume.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_ask_volume, range, value, "Total Ask Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Ask Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_ask_volume.display(value, buffer, offset, packet, parent)
@@ -6232,7 +6630,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_bid_volume.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_bid_volume, range, value, "Total Bid Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Bid Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_bid_volume.display(value, buffer, offset, packet, parent)
@@ -6275,6 +6676,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_earnings_index.dissect = fun
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_earnings_index, range, value, "Total Earnings Index: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Earnings Index is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_earnings_index.display(value, buffer, offset, packet, parent)
@@ -6317,6 +6721,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_earnings_index_weight.dissec
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_earnings_index_weight, range, value, "Total Earnings Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Earnings Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_earnings_index_weight.display(value, buffer, offset, packet, parent)
@@ -6344,7 +6751,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_number_of_instruments_of_the
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_number_of_instruments_of_the_contract, range, value, "Total Number Of Instruments Of The Contract: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Number Of Instruments Of The Contract is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_number_of_instruments_of_the_contract.display(value, buffer, offset, packet, parent)
@@ -6387,6 +6797,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_profit_index.dissect = funct
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_profit_index, range, value, "Total Profit Index: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Total Profit Index is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_profit_index.display(value, buffer, offset, packet, parent)
@@ -6641,6 +7054,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.trading_price.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_price, range, value, "Trading Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Trading Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.trading_price.display(value, buffer, offset, packet, parent)
@@ -6695,7 +7111,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.display(value, buffer, offset, packet, parent)
@@ -6750,7 +7169,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.unit_of_volume_in_main_board.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.unit_of_volume_in_main_board, range, value, "Unit Of Volume In Main Board: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Unit Of Volume In Main Board is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.unit_of_volume_in_main_board.display(value, buffer, offset, packet, parent)
@@ -6786,6 +7208,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.upper_limit_of_base_price.dissect 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.upper_limit_of_base_price, range, value, "Upper Limit Of Base Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Upper Limit Of Base Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.upper_limit_of_base_price.display(value, buffer, offset, packet, parent)
@@ -6821,6 +7246,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.upper_limit_price.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.upper_limit_price, range, value, "Upper Limit Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Upper Limit Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.upper_limit_price.display(value, buffer, offset, packet, parent)
@@ -6848,7 +7276,10 @@ koscom_mdcsrealtime_commodities_exture_v2_018.volume_in_the_bid_invitation.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.volume_in_the_bid_invitation, range, value, "Volume In The Bid Invitation: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Volume In The Bid Invitation is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.volume_in_the_bid_invitation.display(value, buffer, offset, packet, parent)
@@ -6891,6 +7322,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_call_re_investment_index
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight, range, value, "Weight Of Call Re Investment Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Weight Of Call Re Investment Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -6933,6 +7367,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_clean_index_value_for_in
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.weight_of_clean_index_value_for_integrity_index_weight, range, value, "Weight Of Clean Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Weight Of Clean Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -6975,6 +7412,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_sum_index_value_for_inte
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.weight_of_sum_index_value_for_integrity_index_weight, range, value, "Weight Of Sum Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Weight Of Sum Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -7017,6 +7457,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_zero_re_investment_index
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight, range, value, "Weight Of Zero Re Investment Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Weight Of Zero Re Investment Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -7052,6 +7495,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.yesterdays_closing_price.dissect =
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.yesterdays_closing_price, range, value, "Yesterdays Closing Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Yesterdays Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.yesterdays_closing_price.display(value, buffer, offset, packet, parent)
@@ -7117,6 +7563,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.zero_re_investment_index_weight.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.zero_re_investment_index_weight, range, value, "Zero Re Investment Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Zero Re Investment Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.zero_re_investment_index_weight.display(value, buffer, offset, packet, parent)
@@ -7159,6 +7608,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.zero_reinvestment_index_krx.dissec
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.zero_reinvestment_index_krx, range, value, "Zero Re-Investment Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Zero Re-Investment Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.zero_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
@@ -7201,6 +7653,9 @@ koscom_mdcsrealtime_commodities_exture_v2_018.zero_reinvestment_index_ktb.dissec
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.zero_reinvestment_index_ktb, range, value, "Zero Re-Investment Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Zero Re-Investment Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.zero_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)

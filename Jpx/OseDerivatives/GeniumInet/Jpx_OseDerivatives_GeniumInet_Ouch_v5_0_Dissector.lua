@@ -15,7 +15,7 @@ local jpx_osederivatives_geniuminet_ouch_v5_0 = {}
 -----------------------------------------------------------------------
 
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Fields
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "jpx.osederivatives.geniuminet.ouch.v5.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelreason", ftypes.UINT8, nil, nil, nil, "System-defined reason code for the cancellation.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account = ProtoField.new("Client Account", "jpx.osederivatives.geniuminet.ouch.v5.0.clientaccount", ftypes.STRING, nil, nil, nil, "Pass-through client/account field")
@@ -40,7 +40,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.quantity = ProtoField.new("Qu
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.reject_code = ProtoField.new("Reject Code", "jpx.osederivatives.geniuminet.ouch.v5.0.rejectcode", ftypes.INT32, nil, nil, nil, "Backend error code. See System Error Messages Reference for more information.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jpx.osederivatives.geniuminet.ouch.v5.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.replacementordertoken", ftypes.STRING, nil, nil, nil, "Client-generated replacement order identifier.")
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_session = ProtoField.new("Requested Session", "jpx.osederivatives.geniuminet.ouch.v5.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.scope = ProtoField.new("Scope", "jpx.osederivatives.geniuminet.ouch.v5.0.scope", ftypes.UINT8, nil, nil, nil, "Cancellation scope")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
@@ -91,6 +91,11 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.unsequenced_data_packet = Pro
 
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Generated Fields
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Jpx OseDerivatives GeniumInet Ouch 5.0 Expert Info
+jpx_osederivatives_geniuminet_ouch_v5_0.experts = {}
+jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number = ProtoExpert.new("jpx.osederivatives.geniuminet.ouch.v5.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.experts = { jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Formatting
@@ -233,7 +238,10 @@ jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1428,7 +1436,10 @@ jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

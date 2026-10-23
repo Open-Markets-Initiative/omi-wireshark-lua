@@ -15,7 +15,7 @@ local jpx_osederivatives_geniuminet_glimpse_v2_2 = {}
 -----------------------------------------------------------------------
 
 -- Jpx OseDerivatives GeniumInet Glimpse 2.2 Fields
-omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jpx.osederivatives.geniuminet.glimpse.v2.2.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jpx.osederivatives.geniuminet.glimpse.v2.2.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.accepted_session = ProtoField.new("Accepted Session", "jpx.osederivatives.geniuminet.glimpse.v2.2.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.available_ask_quantity_at_equilibrium_price = ProtoField.new("Available Ask Quantity At Equilibrium Price", "jpx.osederivatives.geniuminet.glimpse.v2.2.availableaskquantityatequilibriumprice", ftypes.UINT64, nil, nil, nil, "Total ask order quantity at the EP is set")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.available_bid_quantity_at_equilibrium_price = ProtoField.new("Available Bid Quantity At Equilibrium Price", "jpx.osederivatives.geniuminet.glimpse.v2.2.availablebidquantityatequilibriumprice", ftypes.UINT64, nil, nil, nil, "Total bid order quantity at the EP is set")
@@ -56,7 +56,7 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.printable = ProtoField.new
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.put_or_call = ProtoField.new("Put Or Call", "jpx.osederivatives.geniuminet.glimpse.v2.2.putorcall", ftypes.UINT8, nil, nil, nil, "Distinction of Put or Call is set; if the case is futures or combination series, 0 is set")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.quantity = ProtoField.new("Quantity", "jpx.osederivatives.geniuminet.glimpse.v2.2.quantity", ftypes.UINT64, nil, nil, nil, "A new order quantity is set")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jpx.osederivatives.geniuminet.glimpse.v2.2.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jpx.osederivatives.geniuminet.glimpse.v2.2.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jpx.osederivatives.geniuminet.glimpse.v2.2.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.requested_session = ProtoField.new("Requested Session", "jpx.osederivatives.geniuminet.glimpse.v2.2.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_12 = ProtoField.new("Reserved 12", "jpx.osederivatives.geniuminet.glimpse.v2.2.reserved12", ftypes.BYTES, nil, nil, nil, "Reserved item")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_4_a = ProtoField.new("Reserved 4 A", "jpx.osederivatives.geniuminet.glimpse.v2.2.reserved4a", ftypes.BYTES, nil, nil, nil, "Reserved item, if any value is set ignore it")
@@ -119,6 +119,11 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.trading_status_data_messag
 -- Jpx OseDerivatives GeniumInet Glimpse 2.2 Generated Fields
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "jpx.osederivatives.geniuminet.glimpse.v2.2.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.glimpse.v2.2.timestamp", ftypes.UINT64)
+
+-- Jpx OseDerivatives GeniumInet Glimpse 2.2 Expert Info
+jpx_osederivatives_geniuminet_glimpse_v2_2.experts = {}
+jpx_osederivatives_geniuminet_glimpse_v2_2.experts.not_a_number = ProtoExpert.new("jpx.osederivatives.geniuminet.glimpse.v2.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.experts = { jpx_osederivatives_geniuminet_glimpse_v2_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Jpx OseDerivatives GeniumInet Glimpse 2.2 Formatting
@@ -268,7 +273,10 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.accepted_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jpx_osederivatives_geniuminet_glimpse_v2_2.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jpx_osederivatives_geniuminet_glimpse_v2_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1296,7 +1304,10 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.requested_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jpx_osederivatives_geniuminet_glimpse_v2_2.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jpx_osederivatives_geniuminet_glimpse_v2_2.requested_sequence_number.display(value, buffer, offset, packet, parent)

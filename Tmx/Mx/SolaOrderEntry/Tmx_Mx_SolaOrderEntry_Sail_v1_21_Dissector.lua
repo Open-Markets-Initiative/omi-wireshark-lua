@@ -19,7 +19,7 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.account_type = ProtoField.new("Accou
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.account_type_filter = ProtoField.new("Account Type Filter", "tmx.mx.solaorderentry.sail.v1.21.accounttypefilter", ftypes.STRING, nil, nil, nil, "List of account types: ‘24’ for both House and Pro ‘12’ for both Customer and House")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.active_y_on_n_off = ProtoField.new("Active Y On N Off", "tmx.mx.solaorderentry.sail.v1.21.activeyonnoff", ftypes.STRING, nil, nil, nil, "Y = Yes N = No")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.additional_price = ProtoField.new("Additional Price", "tmx.mx.solaorderentry.sail.v1.21.additionalprice", ftypes.STRING, nil, nil, nil, "If Special Price Term is equal to ‘S’, this field represents the trigger price: i.e., the price from which a STOP order will be triggered. Note: Mandatory if Special Price Term is different from spaces.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.additional_quantity = ProtoField.new("Additional Quantity", "tmx.mx.solaorderentry.sail.v1.21.additionalquantity", ftypes.STRING, nil, nil, nil, "Minimum Quantity Indicates the number of contracts that the trader wishes to trade on the market as soon as the order is introduced. If the market situation allows this minimum amount to be filled immediately, the balance of the order is put in the order book. Otherwise, the order is automatically eliminated. Disclosed Quantity • Indicates the number of contracts that the trader wishes to display on the market sheet • Must be different from ‘0’ if Quantity Term is equal to ‘M’ or ‘D’ • Must be lower than the number in the Quantity field")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.additional_quantity = ProtoField.new("Additional Quantity", "tmx.mx.solaorderentry.sail.v1.21.additionalquantity", ftypes.UINT32, nil, nil, nil, "Minimum Quantity Indicates the number of contracts that the trader wishes to trade on the market as soon as the order is introduced. If the market situation allows this minimum amount to be filled immediately, the balance of the order is put in the order book. Otherwise, the order is automatically eliminated. Disclosed Quantity • Indicates the number of contracts that the trader wishes to display on the market sheet • Must be different from ‘0’ if Quantity Term is equal to ‘M’ or ‘D’ • Must be lower than the number in the Quantity field")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.alignment_padding = ProtoField.new("Alignment Padding", "tmx.mx.solaorderentry.sail.v1.21.alignmentpadding", ftypes.BYTES, nil, nil, nil, "Spaces for alignment, up to three bytes")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.anti_wash_id = ProtoField.new("Anti Wash Id", "tmx.mx.solaorderentry.sail.v1.21.antiwashid", ftypes.STRING, nil, nil, nil, "Anti-Wash ID for the Wash Trade Protection. Note: This field cannot be empty if the AntiWashInstruction is set to a value.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.anti_wash_instruction = ProtoField.new("Anti Wash Instruction", "tmx.mx.solaorderentry.sail.v1.21.antiwashinstruction", ftypes.STRING, nil, nil, nil, "Anti-Wash instruction to indicate how to handle the trade situation: B = CancelBothInboundOrderAndOpposite RestingOrder I = CancelInboundOrder O = CancelOppositeRestingOrder Note: This field is not provided if the AntiWashId field is empty. Note: This field must be provided if the AntiWashId field is not empty.")
@@ -44,12 +44,12 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_6_occurr
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.bulk_quote_price_8_quantity_8_occurrence = ProtoField.new("Bulk Quote Price 8 Quantity 8 Occurrence", "tmx.mx.solaorderentry.sail.v1.21.bulkquoteprice8quantity8occurrence", ftypes.STRING, nil, nil, nil, "1 to 280 occurrences")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.buying_clearing_data = ProtoField.new("Buying Clearing Data", "tmx.mx.solaorderentry.sail.v1.21.buyingclearingdata", ftypes.STRING, nil, nil, nil, "Clearing Data for the buying side, which OX: Cross Entry carries alongside the other side.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.buying_owner_data = ProtoField.new("Buying Owner Data", "tmx.mx.solaorderentry.sail.v1.21.buyingownerdata", ftypes.STRING, nil, nil, nil, "Owner Data for the buying side, which OX: Cross Entry carries alongside the other side.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.calculation_time_interval = ProtoField.new("Calculation Time Interval", "tmx.mx.solaorderentry.sail.v1.21.calculationtimeinterval", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.calculation_time_interval = ProtoField.new("Calculation Time Interval", "tmx.mx.solaorderentry.sail.v1.21.calculationtimeinterval", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.cancel_reason = ProtoField.new("Cancel Reason", "tmx.mx.solaorderentry.sail.v1.21.cancelreason", ftypes.STRING, nil, nil, nil, "Cancel Reason for emitting the NP:Cancellation of All Quotes Notice message: A = Cancelled by Trader C = Cancelled by Circuit Breaker G = Cancelled by Supervisor I = Eliminated by Disconnection M = Cancelled by MOD N = BQM - Maximum Delta Volume has been reached P = BQM - Maximum Number of Trades has been reached R = BQM - Maximum Value has been reached S = Cancelled by System T= BQM - Maximum Volume has been reached V = BQM - Maximum Delta Value has been reached W = Cancel Pending")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.cancelled_order_id = ProtoField.new("Cancelled Order Id", "tmx.mx.solaorderentry.sail.v1.21.cancelledorderid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID. It is the order key identifier.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.clearing_data = ProtoField.new("Clearing Data", "tmx.mx.solaorderentry.sail.v1.21.clearingdata", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as Clearing Data, for every message that carries them.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.clearing_instruction = ProtoField.new("Clearing Instruction", "tmx.mx.solaorderentry.sail.v1.21.clearinginstruction", ftypes.STRING, nil, nil, nil, "Client account number")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.command_number = ProtoField.new("Command Number", "tmx.mx.solaorderentry.sail.v1.21.commandnumber", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (4)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.command_number = ProtoField.new("Command Number", "tmx.mx.solaorderentry.sail.v1.21.commandnumber", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (4)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.counterpart_order_id = ProtoField.new("Counterpart Order Id", "tmx.mx.solaorderentry.sail.v1.21.counterpartorderid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID. It is the order key identifier.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.counterpart_owner_data = ProtoField.new("Counterpart Owner Data", "tmx.mx.solaorderentry.sail.v1.21.counterpartownerdata", ftypes.STRING, nil, nil, nil, "Owner Data of the counterpart, which NO: Overstepped Order or Quote Notice carries.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.counterpart_trader_id = ProtoField.new("Counterpart Trader Id", "tmx.mx.solaorderentry.sail.v1.21.counterparttraderid", ftypes.STRING, nil, nil, nil, "Identifies the Trader: 4 first characters = Firm identifier 4 last characters = Trader identifier")
@@ -59,31 +59,31 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.current_usage = ProtoField.new("Curr
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_long_exposure_action = ProtoField.new("Default Long Exposure Action", "tmx.mx.solaorderentry.sail.v1.21.defaultlongexposureaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_long_exposure_limit = ProtoField.new("Default Long Exposure Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultlongexposurelimit", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_long_position_action = ProtoField.new("Default Long Position Action", "tmx.mx.solaorderentry.sail.v1.21.defaultlongpositionaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_long_position_limit = ProtoField.new("Default Long Position Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultlongpositionlimit", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_maximum_order_quantity = ProtoField.new("Default Maximum Order Quantity", "tmx.mx.solaorderentry.sail.v1.21.defaultmaximumorderquantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_long_position_limit = ProtoField.new("Default Long Position Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultlongpositionlimit", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_maximum_order_quantity = ProtoField.new("Default Maximum Order Quantity", "tmx.mx.solaorderentry.sail.v1.21.defaultmaximumorderquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_net_exposure_action = ProtoField.new("Default Net Exposure Action", "tmx.mx.solaorderentry.sail.v1.21.defaultnetexposureaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_net_exposure_limit = ProtoField.new("Default Net Exposure Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultnetexposurelimit", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_net_position_action = ProtoField.new("Default Net Position Action", "tmx.mx.solaorderentry.sail.v1.21.defaultnetpositionaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_net_position_limit = ProtoField.new("Default Net Position Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultnetpositionlimit", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_net_position_limit = ProtoField.new("Default Net Position Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultnetpositionlimit", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_short_exposure_action = ProtoField.new("Default Short Exposure Action", "tmx.mx.solaorderentry.sail.v1.21.defaultshortexposureaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_short_exposure_limit = ProtoField.new("Default Short Exposure Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultshortexposurelimit", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_short_position_action = ProtoField.new("Default Short Position Action", "tmx.mx.solaorderentry.sail.v1.21.defaultshortpositionaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_short_position_limit = ProtoField.new("Default Short Position Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultshortpositionlimit", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.delta_maximum_value = ProtoField.new("Delta Maximum Value", "tmx.mx.solaorderentry.sail.v1.21.deltamaximumvalue", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.delta_maximum_volume = ProtoField.new("Delta Maximum Volume", "tmx.mx.solaorderentry.sail.v1.21.deltamaximumvolume", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_short_position_limit = ProtoField.new("Default Short Position Limit", "tmx.mx.solaorderentry.sail.v1.21.defaultshortpositionlimit", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.delta_maximum_value = ProtoField.new("Delta Maximum Value", "tmx.mx.solaorderentry.sail.v1.21.deltamaximumvalue", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.delta_maximum_volume = ProtoField.new("Delta Maximum Volume", "tmx.mx.solaorderentry.sail.v1.21.deltamaximumvolume", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.disconnection_instruction_note_cancel_quotes_only_q_quotes_only = ProtoField.new("Disconnection Instruction Note Cancel Quotes Only Q Quotes Only", "tmx.mx.solaorderentry.sail.v1.21.disconnectioninstructionnotecancelquotesonlyqquotesonly", ftypes.STRING, nil, nil, nil, "Type of cancellation: A = All Q = QuotesOnly O = OrdersOnly S = StopOrdersOnly M = MarketOrdersOnly")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.disconnection_instruction_occurrence = ProtoField.new("Disconnection Instruction Occurrence", "tmx.mx.solaorderentry.sail.v1.21.disconnectioninstructionoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 99 occurrences).")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.duration_type = ProtoField.new("Duration Type", "tmx.mx.solaorderentry.sail.v1.21.durationtype", ftypes.STRING, nil, nil, nil, "Indicates the order validity duration: D = Valid until GTD date (GTD) E = Immediate order, cannot be booked (FAK) F = Valid until Instrument expiration (GTC) J = Valid for the current Day only (Day) P = Valid during current pre-opening W = While Connected")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.end_of_text = ProtoField.new("End Of Text", "tmx.mx.solaorderentry.sail.v1.21.endoftext", ftypes.UINT8, nil, nil, nil, "End of Text character closing each business message")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.ended_session_id = ProtoField.new("Ended Session Id", "tmx.mx.solaorderentry.sail.v1.21.endedsessionid", ftypes.STRING, nil, nil, nil, "Identifies the current Session ID. If set to blank spaces, means that the Participant wants to connect to the current Session ID.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_code = ProtoField.new("Error Code", "tmx.mx.solaorderentry.sail.v1.21.errorcode", ftypes.STRING, nil, nil, nil, "Numeric identifier of the error")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_code = ProtoField.new("Error Code", "tmx.mx.solaorderentry.sail.v1.21.errorcode", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the error")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_description = ProtoField.new("Error Description", "tmx.mx.solaorderentry.sail.v1.21.errordescription", ftypes.STRING, nil, nil, nil, "Stated inline as String (100)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_message = ProtoField.new("Error Message", "tmx.mx.solaorderentry.sail.v1.21.errormessage", ftypes.STRING, nil, nil, nil, "First 100 characters of an erroneous message")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_position = ProtoField.new("Error Position", "tmx.mx.solaorderentry.sail.v1.21.errorposition", ftypes.STRING, nil, nil, nil, "Determines the bytes at which an error has been detected")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_position = ProtoField.new("Error Position", "tmx.mx.solaorderentry.sail.v1.21.errorposition", ftypes.UINT16, nil, nil, nil, "Determines the bytes at which an error has been detected")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.exchange_message_id = ProtoField.new("Exchange Message Id", "tmx.mx.solaorderentry.sail.v1.21.exchangemessageid", ftypes.STRING, nil, nil, nil, "Identifies a message sent by the exchange for a Participant connection. It represents the exchange identifier of the message for the current session. It is used in a connection message as a retransmission starting point. • Zeroes = start from 1st message of the session • Blanks = start from next message for Participant • Valid Exchange Message ID = start at this message ID or the next message for the Participant • Contains spaces = it means that this field is not subject to re-transmission")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.excluded_instrument_notice_occurrence = ProtoField.new("Excluded Instrument Notice Occurrence", "tmx.mx.solaorderentry.sail.v1.21.excludedinstrumentnoticeoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 200 occurrences).")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.executing_participant = ProtoField.new("Executing Participant", "tmx.mx.solaorderentry.sail.v1.21.executingparticipant", ftypes.STRING, nil, nil, nil, "Identifies a firm referenced in the system")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.expected_last_user_sequence_id = ProtoField.new("Expected Last User Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.expectedlastusersequenceid", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.expected_last_user_sequence_id = ProtoField.new("Expected Last User Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.expectedlastusersequenceid", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_1 = ProtoField.new("Filler 1", "tmx.mx.solaorderentry.sail.v1.21.filler1", ftypes.BYTES, nil, nil, nil, "Stated inline as String (1)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_2 = ProtoField.new("Filler 2", "tmx.mx.solaorderentry.sail.v1.21.filler2", ftypes.BYTES, nil, nil, nil, "Stated inline as String (2)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_20 = ProtoField.new("Filler 20", "tmx.mx.solaorderentry.sail.v1.21.filler20", ftypes.BYTES, nil, nil, nil, "Stated inline as String (20)")
@@ -93,7 +93,7 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_6 = ProtoField.new("Filler 6"
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_level_risk_option = ProtoField.new("Firm Level Risk Option", "tmx.mx.solaorderentry.sail.v1.21.firmlevelriskoption", ftypes.STRING, nil, nil, nil, "Configures the Risk Netting Options: ‘ ’ = Netting is disabled T = Cancel post Trader-Team level netting N = Netting is enabled P = Cancel post Firm level netting")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_risk_config_trader_team = ProtoField.new("Firm Risk Config Trader Team", "tmx.mx.solaorderentry.sail.v1.21.firmriskconfigtraderteam", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 5 occurrences).")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_risk_config_trader_team_trader = ProtoField.new("Firm Risk Config Trader Team Trader", "tmx.mx.solaorderentry.sail.v1.21.firmriskconfigtraderteamtrader", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 200 occurrences).")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.gap_sequence_id = ProtoField.new("Gap Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.gapsequenceid", ftypes.STRING, nil, nil, nil, "A numeric sequence (base 10) used to track gaps, running from 0 to 99 over and over. If the Participant detects a gap, they must reconnect with a Trader Connection message.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.gap_sequence_id = ProtoField.new("Gap Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.gapsequenceid", ftypes.UINT8, nil, nil, nil, "A numeric sequence (base 10) used to track gaps, running from 0 to 99 over and over. If the Participant detects a gap, they must reconnect with a Trader Connection message.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.global_net_exposure_action = ProtoField.new("Global Net Exposure Action", "tmx.mx.solaorderentry.sail.v1.21.globalnetexposureaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.global_net_exposure_limit = ProtoField.new("Global Net Exposure Limit", "tmx.mx.solaorderentry.sail.v1.21.globalnetexposurelimit", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.group = ProtoField.new("Group", "tmx.mx.solaorderentry.sail.v1.21.group", ftypes.STRING, nil, nil, nil, "Group identification within the system. A group is composed of instruments.")
@@ -101,52 +101,52 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.group_state = ProtoField.new("Group 
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.gtd_date = ProtoField.new("Gtd Date", "tmx.mx.solaorderentry.sail.v1.21.gtddate", ftypes.STRING, nil, nil, nil, "Year, Month and Day (YYYYMMDD)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.hedge_spec = ProtoField.new("Hedge Spec", "tmx.mx.solaorderentry.sail.v1.21.hedgespec", ftypes.STRING, nil, nil, nil, "• H = Hedger • S = Speculator")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.id_code_for_the_counterpart_participant = ProtoField.new("Id Code For The Counterpart Participant", "tmx.mx.solaorderentry.sail.v1.21.idcodeforthecounterpartparticipant", ftypes.STRING, nil, nil, nil, "Blank, except for cross trades. For cross trades, it will be Firm ID unless Participant requests it to be hidden.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.inactivity_interval = ProtoField.new("Inactivity Interval", "tmx.mx.solaorderentry.sail.v1.21.inactivityinterval", ftypes.STRING, nil, nil, nil, "Number of missed heartbeats before considering the user disconnected. If set to 0, the user is never considered as disconnected by the system.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.inactivity_interval = ProtoField.new("Inactivity Interval", "tmx.mx.solaorderentry.sail.v1.21.inactivityinterval", ftypes.UINT8, nil, nil, nil, "Number of missed heartbeats before considering the user disconnected. If set to 0, the user is never considered as disconnected by the system.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.incoming_messages_header = ProtoField.new("Incoming Messages Header", "tmx.mx.solaorderentry.sail.v1.21.incomingmessagesheader", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as the Incoming Messages Header, for every business message a Participant sends. Message Type is read by the packet before the branch, so it is not repeated here.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.instrument = ProtoField.new("Instrument", "tmx.mx.solaorderentry.sail.v1.21.instrument", ftypes.STRING, nil, nil, nil, "Instrument identification within a group")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.instrument_state = ProtoField.new("Instrument State", "tmx.mx.solaorderentry.sail.v1.21.instrumentstate", ftypes.STRING, nil, nil, nil, "Instrument state: N = Normal. The instrument follows group state processing. F = Forbidden. Trading is forbidden for this instrument. Orders and quotes are rejected. R = Orders and quotes are processed in pre- opening if the group is in trading status.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.last_exchange_message_id_sent_to_participant = ProtoField.new("Last Exchange Message Id Sent To Participant", "tmx.mx.solaorderentry.sail.v1.21.lastexchangemessageidsenttoparticipant", ftypes.STRING, nil, nil, nil, "Identifies a message sent by the exchange for a Participant connection. It represents the exchange identifier of the message for the current session. It is used in a connection message as a retransmission starting point. • Zeroes = start from 1st message of the session • Blanks = start from next message for Participant • Valid Exchange Message ID = start at this message ID or the next message for the Participant • Contains spaces = it means that this field is not subject to re-transmission")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.last_user_sequence_id_received = ProtoField.new("Last User Sequence Id Received", "tmx.mx.solaorderentry.sail.v1.21.lastusersequenceidreceived", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.last_user_sequence_id_received_if_no_business_message_has_been_received_on_this_connection_this_field_is_equal_to_zeroes = ProtoField.new("Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes", "tmx.mx.solaorderentry.sail.v1.21.lastusersequenceidreceivedifnobusinessmessagehasbeenreceivedonthisconnectionthisfieldisequaltozeroes", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.last_user_sequence_id_received = ProtoField.new("Last User Sequence Id Received", "tmx.mx.solaorderentry.sail.v1.21.lastusersequenceidreceived", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.last_user_sequence_id_received_if_no_business_message_has_been_received_on_this_connection_this_field_is_equal_to_zeroes = ProtoField.new("Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes", "tmx.mx.solaorderentry.sail.v1.21.lastusersequenceidreceivedifnobusinessmessagehasbeenreceivedonthisconnectionthisfieldisequaltozeroes", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_group = ProtoField.new("Leg Group", "tmx.mx.solaorderentry.sail.v1.21.leggroup", ftypes.STRING, nil, nil, nil, "Group identification within the system. A group is composed of instruments.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_instrument = ProtoField.new("Leg Instrument", "tmx.mx.solaorderentry.sail.v1.21.leginstrument", ftypes.STRING, nil, nil, nil, "Instrument identification within a group")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_number = ProtoField.new("Leg Number", "tmx.mx.solaorderentry.sail.v1.21.legnumber", ftypes.STRING, nil, nil, nil, "ID of the leg of the strategy instrument. Maximum value of 40.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_quantity_ratio = ProtoField.new("Leg Quantity Ratio", "tmx.mx.solaorderentry.sail.v1.21.legquantityratio", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_number = ProtoField.new("Leg Number", "tmx.mx.solaorderentry.sail.v1.21.legnumber", ftypes.UINT8, nil, nil, nil, "ID of the leg of the strategy instrument. Maximum value of 40.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_quantity_ratio = ProtoField.new("Leg Quantity Ratio", "tmx.mx.solaorderentry.sail.v1.21.legquantityratio", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_verb = ProtoField.new("Leg Verb", "tmx.mx.solaorderentry.sail.v1.21.legverb", ftypes.STRING, nil, nil, nil, "Identifies an order/quote side: B = Buy S = Sell")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.limit_type = ProtoField.new("Limit Type", "tmx.mx.solaorderentry.sail.v1.21.limittype", ftypes.STRING, nil, nil, nil, "Type of limit: 1 = Net Exposure 2 = Long Exposure 3 = Short Exposure 4 = Net Position 5 = Long Position 6 = Short Position")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.limit_value = ProtoField.new("Limit Value", "tmx.mx.solaorderentry.sail.v1.21.limitvalue", ftypes.STRING, nil, nil, nil, "Represents price or quantity. Actual container type is context dependent. Note: Price or Quantity field contains a price when limit type is an Exposure Limit, o a quantity when limit type is a Position Limit.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.long_exposure_action = ProtoField.new("Long Exposure Action", "tmx.mx.solaorderentry.sail.v1.21.longexposureaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.long_exposure_limit = ProtoField.new("Long Exposure Limit", "tmx.mx.solaorderentry.sail.v1.21.longexposurelimit", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.long_position_action = ProtoField.new("Long Position Action", "tmx.mx.solaorderentry.sail.v1.21.longpositionaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.long_position_limit = ProtoField.new("Long Position Limit", "tmx.mx.solaorderentry.sail.v1.21.longpositionlimit", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.market_side = ProtoField.new("Market Side", "tmx.mx.solaorderentry.sail.v1.21.marketside", ftypes.STRING, nil, nil, nil, "The market side of interest. Must be equal either to ‘B’ (Buy), ‘S’ (Sell) or ‘2’ (Both)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_number_trades = ProtoField.new("Maximum Number Trades", "tmx.mx.solaorderentry.sail.v1.21.maximumnumbertrades", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (2)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_order_quantity = ProtoField.new("Maximum Order Quantity", "tmx.mx.solaorderentry.sail.v1.21.maximumorderquantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_total_value = ProtoField.new("Maximum Total Value", "tmx.mx.solaorderentry.sail.v1.21.maximumtotalvalue", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_total_volume = ProtoField.new("Maximum Total Volume", "tmx.mx.solaorderentry.sail.v1.21.maximumtotalvolume", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.long_position_limit = ProtoField.new("Long Position Limit", "tmx.mx.solaorderentry.sail.v1.21.longpositionlimit", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.market_side = ProtoField.new("Market Side", "tmx.mx.solaorderentry.sail.v1.21.marketside", ftypes.UINT8, nil, nil, nil, "The market side of interest. Must be equal either to ‘B’ (Buy), ‘S’ (Sell) or ‘2’ (Both)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_number_trades = ProtoField.new("Maximum Number Trades", "tmx.mx.solaorderentry.sail.v1.21.maximumnumbertrades", ftypes.UINT8, nil, nil, nil, "Stated inline as Numeric (2)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_order_quantity = ProtoField.new("Maximum Order Quantity", "tmx.mx.solaorderentry.sail.v1.21.maximumorderquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_total_value = ProtoField.new("Maximum Total Value", "tmx.mx.solaorderentry.sail.v1.21.maximumtotalvalue", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_total_volume = ProtoField.new("Maximum Total Volume", "tmx.mx.solaorderentry.sail.v1.21.maximumtotalvolume", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.memo = ProtoField.new("Memo", "tmx.mx.solaorderentry.sail.v1.21.memo", ftypes.STRING, nil, nil, nil, "Free text zone, which can be used to transmit additional information for processing. No validations are carried out on this field.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.message_length = ProtoField.new("Message Length", "tmx.mx.solaorderentry.sail.v1.21.messagelength", ftypes.UINT32, nil, nil, nil, "Length of the business message in bytes")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.message_type = ProtoField.new("Message Type", "tmx.mx.solaorderentry.sail.v1.21.messagetype", ftypes.STRING, nil, nil, nil, "Type of message")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.message_types_to_be_received = ProtoField.new("Message Types To Be Received", "tmx.mx.solaorderentry.sail.v1.21.messagetypestobereceived", ftypes.STRING, nil, nil, nil, "Type of message")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.minimum_volume = ProtoField.new("Minimum Volume", "tmx.mx.solaorderentry.sail.v1.21.minimumvolume", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.minimum_volume = ProtoField.new("Minimum Volume", "tmx.mx.solaorderentry.sail.v1.21.minimumvolume", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.modified_order_id = ProtoField.new("Modified Order Id", "tmx.mx.solaorderentry.sail.v1.21.modifiedorderid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID. It is the order key identifier.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.nb_of_instruments = ProtoField.new("Nb Of Instruments", "tmx.mx.solaorderentry.sail.v1.21.nbofinstruments", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (4)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.nb_of_instruments = ProtoField.new("Nb Of Instruments", "tmx.mx.solaorderentry.sail.v1.21.nbofinstruments", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (4)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.net_exposure_action = ProtoField.new("Net Exposure Action", "tmx.mx.solaorderentry.sail.v1.21.netexposureaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.net_exposure_limit = ProtoField.new("Net Exposure Limit", "tmx.mx.solaorderentry.sail.v1.21.netexposurelimit", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.net_position_action = ProtoField.new("Net Position Action", "tmx.mx.solaorderentry.sail.v1.21.netpositionaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.net_position_limit = ProtoField.new("Net Position Limit", "tmx.mx.solaorderentry.sail.v1.21.netpositionlimit", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.net_position_limit = ProtoField.new("Net Position Limit", "tmx.mx.solaorderentry.sail.v1.21.netpositionlimit", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.new_strategy_instrument_acknowledgement_leg_definition_repeating_block = ProtoField.new("New Strategy Instrument Acknowledgement Leg Definition Repeating Block", "tmx.mx.solaorderentry.sail.v1.21.newstrategyinstrumentacknowledgementlegdefinitionrepeatingblock", ftypes.STRING, nil, nil, nil, "The guide states this block as (2 to 4 occurrences).")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.new_strategy_instrument_leg_definition_repeating_block = ProtoField.new("New Strategy Instrument Leg Definition Repeating Block", "tmx.mx.solaorderentry.sail.v1.21.newstrategyinstrumentlegdefinitionrepeatingblock", ftypes.STRING, nil, nil, nil, "The guide states this block as (2 to 4 occurrences).")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_commands = ProtoField.new("Number Of Commands", "tmx.mx.solaorderentry.sail.v1.21.numberofcommands", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (4)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_group_limits = ProtoField.new("Number Of Group Limits", "tmx.mx.solaorderentry.sail.v1.21.numberofgrouplimits", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_instructions_present_in_the_message = ProtoField.new("Number Of Instructions Present In The Message", "tmx.mx.solaorderentry.sail.v1.21.numberofinstructionspresentinthemessage", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (2)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_legs = ProtoField.new("Number Of Legs", "tmx.mx.solaorderentry.sail.v1.21.numberoflegs", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (2)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_message_types_to_be_received = ProtoField.new("Number Of Message Types To Be Received", "tmx.mx.solaorderentry.sail.v1.21.numberofmessagetypestobereceived", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (2)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_quotes = ProtoField.new("Number Of Quotes", "tmx.mx.solaorderentry.sail.v1.21.numberofquotes", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_quotes_in_error = ProtoField.new("Number Of Quotes In Error", "tmx.mx.solaorderentry.sail.v1.21.numberofquotesinerror", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_trader_teams = ProtoField.new("Number Of Trader Teams", "tmx.mx.solaorderentry.sail.v1.21.numberoftraderteams", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_traders_in_team = ProtoField.new("Number Of Traders In Team", "tmx.mx.solaorderentry.sail.v1.21.numberoftradersinteam", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_usage_blocks = ProtoField.new("Number Of Usage Blocks", "tmx.mx.solaorderentry.sail.v1.21.numberofusageblocks", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (4)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_commands = ProtoField.new("Number Of Commands", "tmx.mx.solaorderentry.sail.v1.21.numberofcommands", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (4)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_group_limits = ProtoField.new("Number Of Group Limits", "tmx.mx.solaorderentry.sail.v1.21.numberofgrouplimits", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_instructions_present_in_the_message = ProtoField.new("Number Of Instructions Present In The Message", "tmx.mx.solaorderentry.sail.v1.21.numberofinstructionspresentinthemessage", ftypes.UINT8, nil, nil, nil, "Stated inline as Numeric (2)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_legs = ProtoField.new("Number Of Legs", "tmx.mx.solaorderentry.sail.v1.21.numberoflegs", ftypes.UINT8, nil, nil, nil, "Stated inline as Numeric (2)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_message_types_to_be_received = ProtoField.new("Number Of Message Types To Be Received", "tmx.mx.solaorderentry.sail.v1.21.numberofmessagetypestobereceived", ftypes.UINT8, nil, nil, nil, "Stated inline as Numeric (2)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_quotes = ProtoField.new("Number Of Quotes", "tmx.mx.solaorderentry.sail.v1.21.numberofquotes", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_quotes_in_error = ProtoField.new("Number Of Quotes In Error", "tmx.mx.solaorderentry.sail.v1.21.numberofquotesinerror", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_trader_teams = ProtoField.new("Number Of Trader Teams", "tmx.mx.solaorderentry.sail.v1.21.numberoftraderteams", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_traders_in_team = ProtoField.new("Number Of Traders In Team", "tmx.mx.solaorderentry.sail.v1.21.numberoftradersinteam", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_usage_blocks = ProtoField.new("Number Of Usage Blocks", "tmx.mx.solaorderentry.sail.v1.21.numberofusageblocks", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (4)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.open_close = ProtoField.new("Open Close", "tmx.mx.solaorderentry.sail.v1.21.openclose", ftypes.STRING, nil, nil, nil, "Indicates how the Participant's position will be handled by the clearing system:")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_id = ProtoField.new("Order Id", "tmx.mx.solaorderentry.sail.v1.21.orderid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID. It is the order key identifier.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_type = ProtoField.new("Order Type", "tmx.mx.solaorderentry.sail.v1.21.ordertype", ftypes.STRING, nil, nil, nil, "Indicates the order type: O = Order Q = Quote")
@@ -156,7 +156,7 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.original_reference_id = ProtoField.n
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.outgoing_messages_header = ProtoField.new("Outgoing Messages Header", "tmx.mx.solaorderentry.sail.v1.21.outgoingmessagesheader", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as the Outgoing Messages Header, for every business message the Exchange sends. Message Type is read by the packet before the branch, so it is not repeated here.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.owner_data = ProtoField.new("Owner Data", "tmx.mx.solaorderentry.sail.v1.21.ownerdata", ftypes.STRING, nil, nil, nil, "The guide states this field once, as Owner Data, for every message that carries it.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.password_md_5_encryption = ProtoField.new("Password Md 5 Encryption", "tmx.mx.solaorderentry.sail.v1.21.passwordmd5encryption", ftypes.STRING, nil, nil, nil, "Contact MX’s Technical Help Desk for details. (MD5 Encryption)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.preceding_user_sequence_id_received_zeroes_if_none = ProtoField.new("Preceding User Sequence Id Received Zeroes If None", "tmx.mx.solaorderentry.sail.v1.21.precedingusersequenceidreceivedzeroesifnone", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.preceding_user_sequence_id_received_zeroes_if_none = ProtoField.new("Preceding User Sequence Id Received Zeroes If None", "tmx.mx.solaorderentry.sail.v1.21.precedingusersequenceidreceivedzeroesifnone", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.price = ProtoField.new("Price", "tmx.mx.solaorderentry.sail.v1.21.price", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_4 = ProtoField.new("Price 4", "tmx.mx.solaorderentry.sail.v1.21.price4", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_6 = ProtoField.new("Price 6", "tmx.mx.solaorderentry.sail.v1.21.price6", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa")
@@ -164,20 +164,20 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_8 = ProtoField.new("Price 8", 
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.price_type = ProtoField.new("Price Type", "tmx.mx.solaorderentry.sail.v1.21.pricetype", ftypes.STRING, nil, nil, nil, "Must contain one of the following Price Types: C = Committed L = Limit (price set in message) O = At opening price M = At best opposite price (Top Order)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.protection_type_advanced_protection_advanced_protection_disabled = ProtoField.new("Protection Type Advanced Protection Advanced Protection Disabled", "tmx.mx.solaorderentry.sail.v1.21.protectiontypeadvancedprotectionadvancedprotectiondisabled", ftypes.STRING, nil, nil, nil, "Type of protection requested by the Bulk Quote Participant (BQP): A = Advanced Protection N = Advanced Protection Disabled Note: If no RP: Bulk Quote Participant (BQP) Protection Subscription message is sent, MX will assume that the BQP did not request an Advanced Protection. BQP will be required to enable the Advanced Protection.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.protocol_id = ProtoField.new("Protocol Id", "tmx.mx.solaorderentry.sail.v1.21.protocolid", ftypes.STRING, nil, nil, nil, "Version of the protocol used by this connection")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity = ProtoField.new("Quantity", "tmx.mx.solaorderentry.sail.v1.21.quantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_2 = ProtoField.new("Quantity 2", "tmx.mx.solaorderentry.sail.v1.21.quantity2", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_4 = ProtoField.new("Quantity 4", "tmx.mx.solaorderentry.sail.v1.21.quantity4", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_6 = ProtoField.new("Quantity 6", "tmx.mx.solaorderentry.sail.v1.21.quantity6", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "tmx.mx.solaorderentry.sail.v1.21.quantityremaining", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity = ProtoField.new("Quantity", "tmx.mx.solaorderentry.sail.v1.21.quantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_2 = ProtoField.new("Quantity 2", "tmx.mx.solaorderentry.sail.v1.21.quantity2", ftypes.UINT8, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_4 = ProtoField.new("Quantity 4", "tmx.mx.solaorderentry.sail.v1.21.quantity4", ftypes.UINT16, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_6 = ProtoField.new("Quantity 6", "tmx.mx.solaorderentry.sail.v1.21.quantity6", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "tmx.mx.solaorderentry.sail.v1.21.quantityremaining", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_sign = ProtoField.new("Quantity Sign", "tmx.mx.solaorderentry.sail.v1.21.quantitysign", ftypes.STRING, nil, nil, nil, "For an order or quote update, it identifies how to handle the quantity: ‘+’ adds the incoming quantity to the booked quantity ‘-’ subtracts the incoming quantity from the booked quantity ‘=’ replaces the booked quantity with the incoming quantity")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_sign_or = ProtoField.new("Quantity Sign Or", "tmx.mx.solaorderentry.sail.v1.21.quantitysignor", ftypes.STRING, nil, nil, nil, "For an order or quote update, it identifies how to handle the quantity: ‘+’ adds the incoming quantity to the booked quantity ‘-’ subtracts the incoming quantity from the booked quantity ‘=’ replaces the booked quantity with the incoming quantity")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_term = ProtoField.new("Quantity Term", "tmx.mx.solaorderentry.sail.v1.21.quantityterm", ftypes.STRING, nil, nil, nil, "If included, must contain one of the following values: ‘ ’ = None D = Disclosed M = Minimum")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_traded = ProtoField.new("Quantity Traded", "tmx.mx.solaorderentry.sail.v1.21.quantitytraded", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_traded = ProtoField.new("Quantity Traded", "tmx.mx.solaorderentry.sail.v1.21.quantitytraded", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quote_id_identifies_traders_quote_on_this_group = ProtoField.new("Quote Id Identifies Traders Quote On This Group", "tmx.mx.solaorderentry.sail.v1.21.quoteididentifiestradersquoteonthisgroup", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID. It is the order key identifier.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.quote_identifier_on_this_group = ProtoField.new("Quote Identifier On This Group", "tmx.mx.solaorderentry.sail.v1.21.quoteidentifieronthisgroup", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID. It is the order key identifier.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.quote_number = ProtoField.new("Quote Number", "tmx.mx.solaorderentry.sail.v1.21.quotenumber", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.quote_number = ProtoField.new("Quote Number", "tmx.mx.solaorderentry.sail.v1.21.quotenumber", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.received_message_type = ProtoField.new("Received Message Type", "tmx.mx.solaorderentry.sail.v1.21.receivedmessagetype", ftypes.STRING, nil, nil, nil, "Type of message")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.received_user_sequence_id = ProtoField.new("Received User Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.receivedusersequenceid", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.received_user_sequence_id = ProtoField.new("Received User Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.receivedusersequenceid", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.reference_id_order_id_or_quote_id = ProtoField.new("Reference Id Order Id Or Quote Id", "tmx.mx.solaorderentry.sail.v1.21.referenceidorderidorquoteid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID. It is the order key identifier.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.reset_all_groups = ProtoField.new("Reset All Groups", "tmx.mx.solaorderentry.sail.v1.21.resetallgroups", ftypes.STRING, nil, nil, nil, "Y = Yes N = No")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.risk_limits_usage_occurrence = ProtoField.new("Risk Limits Usage Occurrence", "tmx.mx.solaorderentry.sail.v1.21.risklimitsusageoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 350 occurrences).")
@@ -188,7 +188,7 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.set_group_risk_limits_occurrence = P
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.short_exposure_action = ProtoField.new("Short Exposure Action", "tmx.mx.solaorderentry.sail.v1.21.shortexposureaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.short_exposure_limit = ProtoField.new("Short Exposure Limit", "tmx.mx.solaorderentry.sail.v1.21.shortexposurelimit", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.short_position_action = ProtoField.new("Short Position Action", "tmx.mx.solaorderentry.sail.v1.21.shortpositionaction", ftypes.STRING, nil, nil, nil, "Action related to the corresponding limit: ? = Not Set (message does not modify the Limit) E = Enforce Limit (by rejecting and eliminating orders when Limit is reached) N = None (Limit is disabled) W = Warning (by sending an MN: Risk Limits Usage message when Limit is reached)")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.short_position_limit = ProtoField.new("Short Position Limit", "tmx.mx.solaorderentry.sail.v1.21.shortpositionlimit", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.short_position_limit = ProtoField.new("Short Position Limit", "tmx.mx.solaorderentry.sail.v1.21.shortpositionlimit", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.special_price_term = ProtoField.new("Special Price Term", "tmx.mx.solaorderentry.sail.v1.21.specialpriceterm", ftypes.STRING, nil, nil, nil, "If included, must contain one of the following values: ‘ ’ = None S = Stop order")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.special_trade_indicator = ProtoField.new("Special Trade Indicator", "tmx.mx.solaorderentry.sail.v1.21.specialtradeindicator", ftypes.STRING, nil, nil, nil, "Identifies a particular TradeType: ‘ ’ = Normal Trade A = As Of Trade B = Block Trade C = Contingent Trade D = Cross E = Exchange For Physical H = Hidden Trade I = Implied J = Delta Trade K = Committed Block L = Late Trade M = For future use N = For future use O = For future use P = For future use Q = For future use T = Committed U = Basis On Close V = Trade Correction Z = Price/Volume Adjustment Trade")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.start_of_message_in_error = ProtoField.new("Start Of Message In Error", "tmx.mx.solaorderentry.sail.v1.21.startofmessageinerror", ftypes.STRING, nil, nil, nil, "Stated inline as String (100)")
@@ -196,27 +196,27 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.status = ProtoField.new("Status", "t
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.strategy_group = ProtoField.new("Strategy Group", "tmx.mx.solaorderentry.sail.v1.21.strategygroup", ftypes.STRING, nil, nil, nil, "Group identification within the system. A group is composed of instruments.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.strategy_instrument = ProtoField.new("Strategy Instrument", "tmx.mx.solaorderentry.sail.v1.21.strategyinstrument", ftypes.STRING, nil, nil, nil, "Instrument identification within a group")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.strategy_instrument_id = ProtoField.new("Strategy Instrument Id", "tmx.mx.solaorderentry.sail.v1.21.strategyinstrumentid", ftypes.STRING, nil, nil, nil, "Identifies the strategy Instrument ID that has traded in the system")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.strategy_trade_number = ProtoField.new("Strategy Trade Number", "tmx.mx.solaorderentry.sail.v1.21.strategytradenumber", ftypes.STRING, nil, nil, nil, "Trade number of the strategy order as specified in the NT message of the strategy")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.strategy_trade_number = ProtoField.new("Strategy Trade Number", "tmx.mx.solaorderentry.sail.v1.21.strategytradenumber", ftypes.UINT32, nil, nil, nil, "Trade number of the strategy order as specified in the NT message of the strategy")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.strategy_verb_side = ProtoField.new("Strategy Verb Side", "tmx.mx.solaorderentry.sail.v1.21.strategyverbside", ftypes.STRING, nil, nil, nil, "Verb of the strategy order as specified in the NT: Execution Notice message of the strategy")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.team_level_risk_option = ProtoField.new("Team Level Risk Option", "tmx.mx.solaorderentry.sail.v1.21.teamlevelriskoption", ftypes.STRING, nil, nil, nil, "Configures the Risk Netting Options: ‘ ’ = Netting is disabled T = Cancel post Trader-Team level netting N = Netting is enabled P = Cancel post Firm level netting")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_memo = ProtoField.new("Trade Memo", "tmx.mx.solaorderentry.sail.v1.21.tradememo", ftypes.STRING, nil, nil, nil, "Text entered by the MOD when it is a manual trade entry")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_number = ProtoField.new("Trade Number", "tmx.mx.solaorderentry.sail.v1.21.tradenumber", ftypes.STRING, nil, nil, nil, "Identifies the trade number for an Instrument and one day")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_number = ProtoField.new("Trade Number", "tmx.mx.solaorderentry.sail.v1.21.tradenumber", ftypes.UINT32, nil, nil, nil, "Identifies the trade number for an Instrument and one day")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_price = ProtoField.new("Trade Price", "tmx.mx.solaorderentry.sail.v1.21.tradeprice", ftypes.STRING, nil, nil, nil, "Price format with format indicator and price mantissa: Format indicator (1) • Alpha: the price is negative (‘A’ means negative value with no decimal, ‘B’ means negative value with 1 decimal, ‘C’ means negative value with 2 decimals, etc.) • Numeric: the price is positive (‘0’ means positive value with no decimal, ‘1’ means positive value with one decimal, ‘2’ means positive value with 2 decimals, etc.) • Set to spaces: the price is not significant Price mantissa (9) • Represents the price value including the number of decimals defined in the format indicator Examples: • Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 • Format indicator = A; Price mantissa = 3567838; Price = -3567838 • Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_type = ProtoField.new("Trade Type", "tmx.mx.solaorderentry.sail.v1.21.tradetype", ftypes.STRING, nil, nil, nil, "Identifies the origin of the Trade: F = Traded during continuous trading following FIFO algorithm M = Trade entered by MOD O = Traded during opening")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.trader = ProtoField.new("Trader", "tmx.mx.solaorderentry.sail.v1.21.trader", ftypes.STRING, nil, nil, nil, "Last four (4) Characters of the Trader ID")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.trader_id = ProtoField.new("Trader Id", "tmx.mx.solaorderentry.sail.v1.21.traderid", ftypes.STRING, nil, nil, nil, "Identifies the Trader: 4 first characters = Firm identifier 4 last characters = Trader identifier")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.trading_engine_timestamp_local_hhmmss = ProtoField.new("Trading Engine Timestamp Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.tradingenginetimestamplocalhhmmss", ftypes.STRING, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.trading_engine_timestamp_of_the_trade_local_hhmmss = ProtoField.new("Trading Engine Timestamp Of The Trade Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.tradingenginetimestampofthetradelocalhhmmss", ftypes.STRING, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.trading_engine_timestamp_local_hhmmss = ProtoField.new("Trading Engine Timestamp Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.tradingenginetimestamplocalhhmmss", ftypes.UINT32, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.trading_engine_timestamp_of_the_trade_local_hhmmss = ProtoField.new("Trading Engine Timestamp Of The Trade Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.tradingenginetimestampofthetradelocalhhmmss", ftypes.UINT32, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.type_of_cancellation = ProtoField.new("Type Of Cancellation", "tmx.mx.solaorderentry.sail.v1.21.typeofcancellation", ftypes.STRING, nil, nil, nil, "Type of cancellation: A = All Q = QuotesOnly O = OrdersOnly S = StopOrdersOnly M = MarketOrdersOnly")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.type_of_cancellation_only_q_quotes_only_can_be_returned = ProtoField.new("Type Of Cancellation Only Q Quotes Only Can Be Returned", "tmx.mx.solaorderentry.sail.v1.21.typeofcancellationonlyqquotesonlycanbereturned", ftypes.STRING, nil, nil, nil, "Type of cancellation: A = All Q = QuotesOnly O = OrdersOnly S = StopOrdersOnly M = MarketOrdersOnly")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.type_of_cancellation_q_quotes_only = ProtoField.new("Type Of Cancellation Q Quotes Only", "tmx.mx.solaorderentry.sail.v1.21.typeofcancellationqquotesonly", ftypes.STRING, nil, nil, nil, "Type of cancellation: A = All Q = QuotesOnly O = OrdersOnly S = StopOrdersOnly M = MarketOrdersOnly")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.usage_status = ProtoField.new("Usage Status", "tmx.mx.solaorderentry.sail.v1.21.usagestatus", ftypes.STRING, nil, nil, nil, "Status of current usage vs limit: I = Info (current usage is below the warning level) L = Limit (usage is at or above the limit) R = Rejection (an order was rejected because either the limit is reached, or accepting the order would cause the limit to be exceeded) W = Warning (current usage is over the warning level)")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_connection_occurrence = ProtoField.new("User Connection Occurrence", "tmx.mx.solaorderentry.sail.v1.21.userconnectionoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 99 occurrences).")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_id = ProtoField.new("User Id", "tmx.mx.solaorderentry.sail.v1.21.userid", ftypes.STRING, nil, nil, nil, "Identifies the Participant for a given connection. User ID must be referenced in the SOLA® configuration database.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_message_timestamp_local_hhmmss = ProtoField.new("User Message Timestamp Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.usermessagetimestamplocalhhmmss", ftypes.STRING, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_sequence_id = ProtoField.new("User Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.usersequenceid", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_sequence_id_first_user_sequence_id_for_nextcurrent_heartbeat_period = ProtoField.new("User Sequence Id First User Sequence Id For Nextcurrent Heartbeat Period", "tmx.mx.solaorderentry.sail.v1.21.usersequenceidfirstusersequenceidfornextcurrentheartbeatperiod", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_timestamp_local_hhmmss = ProtoField.new("User Timestamp Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.usertimestamplocalhhmmss", ftypes.STRING, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_message_timestamp_local_hhmmss = ProtoField.new("User Message Timestamp Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.usermessagetimestamplocalhhmmss", ftypes.UINT32, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_sequence_id = ProtoField.new("User Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.usersequenceid", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_sequence_id_first_user_sequence_id_for_nextcurrent_heartbeat_period = ProtoField.new("User Sequence Id First User Sequence Id For Nextcurrent Heartbeat Period", "tmx.mx.solaorderentry.sail.v1.21.usersequenceidfirstusersequenceidfornextcurrentheartbeatperiod", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence.")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_timestamp_local_hhmmss = ProtoField.new("User Timestamp Local Hhmmss", "tmx.mx.solaorderentry.sail.v1.21.usertimestamplocalhhmmss", ftypes.UINT32, nil, nil, nil, "User message or trading engine timestamp, Local, HHMMSS")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.verb = ProtoField.new("Verb", "tmx.mx.solaorderentry.sail.v1.21.verb", ftypes.STRING, nil, nil, nil, "Identifies an order/quote side: B = Buy S = Sell")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.verb_side = ProtoField.new("Verb Side", "tmx.mx.solaorderentry.sail.v1.21.verbside", ftypes.STRING, nil, nil, nil, "Identifies an order/quote side: B = Buy S = Sell")
 
@@ -319,6 +319,11 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.new_strategy_instrument_leg_definiti
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.risk_limits_usage_occurrence_index = ProtoField.new("Risk Limits Usage Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.risklimitsusageoccurrenceindex", ftypes.UINT16)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.set_group_risk_limits_occurrence_index = ProtoField.new("Set Group Risk Limits Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.setgrouprisklimitsoccurrenceindex", ftypes.UINT16)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_connection_occurrence_index = ProtoField.new("User Connection Occurrence Index", "tmx.mx.solaorderentry.sail.v1.21.userconnectionoccurrenceindex", ftypes.UINT16)
+
+-- Tmx Mx SolaOrderEntry Sail 1.21 Expert Info
+tmx_mx_solaorderentry_sail_v1_21.experts = {}
+tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number = ProtoExpert.new("tmx.mx.solaorderentry.sail.v1.21.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tmx_mx_solaorderentry_sail_v1_21.experts = { tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Tmx Mx SolaOrderEntry Sail 1.21 Formatting
@@ -557,7 +562,10 @@ tmx_mx_solaorderentry_sail_v1_21.additional_quantity.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.additional_quantity, range, value, "Additional Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Additional Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.additional_quantity.display(value, buffer, offset, packet, parent)
@@ -700,7 +708,10 @@ tmx_mx_solaorderentry_sail_v1_21.calculation_time_interval.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.calculation_time_interval, range, value, "Calculation Time Interval: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Calculation Time Interval is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.calculation_time_interval.display(value, buffer, offset, packet, parent)
@@ -834,7 +845,10 @@ tmx_mx_solaorderentry_sail_v1_21.command_number.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.command_number, range, value, "Command Number: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Command Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.command_number.display(value, buffer, offset, packet, parent)
@@ -1089,7 +1103,10 @@ tmx_mx_solaorderentry_sail_v1_21.default_long_position_limit.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_long_position_limit, range, value, "Default Long Position Limit: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Default Long Position Limit is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.default_long_position_limit.display(value, buffer, offset, packet, parent)
@@ -1117,7 +1134,10 @@ tmx_mx_solaorderentry_sail_v1_21.default_maximum_order_quantity.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_maximum_order_quantity, range, value, "Default Maximum Order Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Default Maximum Order Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.default_maximum_order_quantity.display(value, buffer, offset, packet, parent)
@@ -1250,7 +1270,10 @@ tmx_mx_solaorderentry_sail_v1_21.default_net_position_limit.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_net_position_limit, range, value, "Default Net Position Limit: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Default Net Position Limit is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.default_net_position_limit.display(value, buffer, offset, packet, parent)
@@ -1383,7 +1406,10 @@ tmx_mx_solaorderentry_sail_v1_21.default_short_position_limit.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.default_short_position_limit, range, value, "Default Short Position Limit: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Default Short Position Limit is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.default_short_position_limit.display(value, buffer, offset, packet, parent)
@@ -1416,7 +1442,10 @@ tmx_mx_solaorderentry_sail_v1_21.delta_maximum_value.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.delta_maximum_value, range, value, "Delta Maximum Value: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Delta Maximum Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.delta_maximum_value.display(value, buffer, offset, packet, parent)
@@ -1449,7 +1478,10 @@ tmx_mx_solaorderentry_sail_v1_21.delta_maximum_volume.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.delta_maximum_volume, range, value, "Delta Maximum Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Delta Maximum Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.delta_maximum_volume.display(value, buffer, offset, packet, parent)
@@ -1885,7 +1917,10 @@ tmx_mx_solaorderentry_sail_v1_21.error_code.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_code, range, value, "Error Code: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Error Code is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.error_code.display(value, buffer, offset, packet, parent)
@@ -1959,7 +1994,10 @@ tmx_mx_solaorderentry_sail_v1_21.error_position.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_position, range, value, "Error Position: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Error Position is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.error_position.display(value, buffer, offset, packet, parent)
@@ -2033,7 +2071,10 @@ tmx_mx_solaorderentry_sail_v1_21.expected_last_user_sequence_id.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.expected_last_user_sequence_id, range, value, "Expected Last User Sequence Id: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Expected Last User Sequence Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.expected_last_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -2235,7 +2276,10 @@ tmx_mx_solaorderentry_sail_v1_21.gap_sequence_id.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.gap_sequence_id, range, value, "Gap Sequence Id: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Gap Sequence Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.gap_sequence_id.display(value, buffer, offset, packet, parent)
@@ -2492,7 +2536,10 @@ tmx_mx_solaorderentry_sail_v1_21.inactivity_interval.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.inactivity_interval, range, value, "Inactivity Interval: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Inactivity Interval is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.inactivity_interval.display(value, buffer, offset, packet, parent)
@@ -2604,7 +2651,10 @@ tmx_mx_solaorderentry_sail_v1_21.last_user_sequence_id_received.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.last_user_sequence_id_received, range, value, "Last User Sequence Id Received: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Last User Sequence Id Received is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.last_user_sequence_id_received.display(value, buffer, offset, packet, parent)
@@ -2637,7 +2687,10 @@ tmx_mx_solaorderentry_sail_v1_21.last_user_sequence_id_received_if_no_business_m
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.last_user_sequence_id_received_if_no_business_message_has_been_received_on_this_connection_this_field_is_equal_to_zeroes, range, value, "Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.last_user_sequence_id_received_if_no_business_message_has_been_received_on_this_connection_this_field_is_equal_to_zeroes.display(value, buffer, offset, packet, parent)
@@ -2711,7 +2764,10 @@ tmx_mx_solaorderentry_sail_v1_21.leg_number.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_number, range, value, "Leg Number: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Leg Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.leg_number.display(value, buffer, offset, packet, parent)
@@ -2739,7 +2795,10 @@ tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.leg_quantity_ratio, range, value, "Leg Quantity Ratio: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Leg Quantity Ratio is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.display(value, buffer, offset, packet, parent)
@@ -2967,7 +3026,10 @@ tmx_mx_solaorderentry_sail_v1_21.long_position_limit.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.long_position_limit, range, value, "Long Position Limit: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Long Position Limit is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.long_position_limit.display(value, buffer, offset, packet, parent)
@@ -3005,7 +3067,10 @@ tmx_mx_solaorderentry_sail_v1_21.market_side.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.market_side, range, value, "Market Side: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Market Side is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.market_side.display(value, buffer, offset, packet, parent)
@@ -3033,7 +3098,10 @@ tmx_mx_solaorderentry_sail_v1_21.maximum_number_trades.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_number_trades, range, value, "Maximum Number Trades: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Maximum Number Trades is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.maximum_number_trades.display(value, buffer, offset, packet, parent)
@@ -3061,7 +3129,10 @@ tmx_mx_solaorderentry_sail_v1_21.maximum_order_quantity.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_order_quantity, range, value, "Maximum Order Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Maximum Order Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.maximum_order_quantity.display(value, buffer, offset, packet, parent)
@@ -3094,7 +3165,10 @@ tmx_mx_solaorderentry_sail_v1_21.maximum_total_value.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_total_value, range, value, "Maximum Total Value: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Maximum Total Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.maximum_total_value.display(value, buffer, offset, packet, parent)
@@ -3127,7 +3201,10 @@ tmx_mx_solaorderentry_sail_v1_21.maximum_total_volume.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.maximum_total_volume, range, value, "Maximum Total Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Maximum Total Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.maximum_total_volume.display(value, buffer, offset, packet, parent)
@@ -3453,7 +3530,10 @@ tmx_mx_solaorderentry_sail_v1_21.minimum_volume.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.minimum_volume, range, value, "Minimum Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Minimum Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.minimum_volume.display(value, buffer, offset, packet, parent)
@@ -3504,7 +3584,10 @@ tmx_mx_solaorderentry_sail_v1_21.nb_of_instruments.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.nb_of_instruments, range, value, "Nb Of Instruments: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Nb Of Instruments is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.nb_of_instruments.display(value, buffer, offset, packet, parent)
@@ -3637,7 +3720,10 @@ tmx_mx_solaorderentry_sail_v1_21.net_position_limit.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.net_position_limit, range, value, "Net Position Limit: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Net Position Limit is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.net_position_limit.display(value, buffer, offset, packet, parent)
@@ -3665,7 +3751,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_commands.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_commands, range, value, "Number Of Commands: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Commands is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_commands.display(value, buffer, offset, packet, parent)
@@ -3693,7 +3782,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_group_limits.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_group_limits, range, value, "Number Of Group Limits: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Group Limits is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_group_limits.display(value, buffer, offset, packet, parent)
@@ -3721,7 +3813,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_instructions_present_in_the_message.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_instructions_present_in_the_message, range, value, "Number Of Instructions Present In The Message: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Instructions Present In The Message is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_instructions_present_in_the_message.display(value, buffer, offset, packet, parent)
@@ -3749,7 +3844,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_legs.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_legs, range, value, "Number Of Legs: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Legs is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_legs.display(value, buffer, offset, packet, parent)
@@ -3777,7 +3875,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_message_types_to_be_received.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_message_types_to_be_received, range, value, "Number Of Message Types To Be Received: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Message Types To Be Received is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_message_types_to_be_received.display(value, buffer, offset, packet, parent)
@@ -3805,7 +3906,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_quotes, range, value, "Number Of Quotes: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Quotes is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes.display(value, buffer, offset, packet, parent)
@@ -3833,7 +3937,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_quotes_in_error.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_quotes_in_error, range, value, "Number Of Quotes In Error: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Quotes In Error is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_quotes_in_error.display(value, buffer, offset, packet, parent)
@@ -3861,7 +3968,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_trader_teams.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_trader_teams, range, value, "Number Of Trader Teams: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Trader Teams is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_trader_teams.display(value, buffer, offset, packet, parent)
@@ -3889,7 +3999,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_traders_in_team.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_traders_in_team, range, value, "Number Of Traders In Team: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Traders In Team is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_traders_in_team.display(value, buffer, offset, packet, parent)
@@ -3917,7 +4030,10 @@ tmx_mx_solaorderentry_sail_v1_21.number_of_usage_blocks.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.number_of_usage_blocks, range, value, "Number Of Usage Blocks: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Number Of Usage Blocks is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.number_of_usage_blocks.display(value, buffer, offset, packet, parent)
@@ -4186,7 +4302,10 @@ tmx_mx_solaorderentry_sail_v1_21.preceding_user_sequence_id_received_zeroes_if_n
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.preceding_user_sequence_id_received_zeroes_if_none, range, value, "Preceding User Sequence Id Received Zeroes If None: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Preceding User Sequence Id Received Zeroes If None is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.preceding_user_sequence_id_received_zeroes_if_none.display(value, buffer, offset, packet, parent)
@@ -4420,7 +4539,10 @@ tmx_mx_solaorderentry_sail_v1_21.quantity.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity, range, value, "Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.quantity.display(value, buffer, offset, packet, parent)
@@ -4453,7 +4575,10 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_2.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_2, range, value, "Quantity 2: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Quantity 2 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.quantity_2.display(value, buffer, offset, packet, parent)
@@ -4486,7 +4611,10 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_4.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_4, range, value, "Quantity 4: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Quantity 4 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.quantity_4.display(value, buffer, offset, packet, parent)
@@ -4519,7 +4647,10 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_6.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_6, range, value, "Quantity 6: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Quantity 6 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.quantity_6.display(value, buffer, offset, packet, parent)
@@ -4547,7 +4678,10 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_remaining.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_remaining, range, value, "Quantity Remaining: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Quantity Remaining is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.quantity_remaining.display(value, buffer, offset, packet, parent)
@@ -4674,7 +4808,10 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_traded.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quantity_traded, range, value, "Quantity Traded: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Quantity Traded is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.quantity_traded.display(value, buffer, offset, packet, parent)
@@ -4748,7 +4885,10 @@ tmx_mx_solaorderentry_sail_v1_21.quote_number.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.quote_number, range, value, "Quote Number: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Quote Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.quote_number.display(value, buffer, offset, packet, parent)
@@ -4799,7 +4939,10 @@ tmx_mx_solaorderentry_sail_v1_21.received_user_sequence_id.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.received_user_sequence_id, range, value, "Received User Sequence Id: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Received User Sequence Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.received_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -5008,7 +5151,10 @@ tmx_mx_solaorderentry_sail_v1_21.short_position_limit.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.short_position_limit, range, value, "Short Position Limit: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Short Position Limit is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.short_position_limit.display(value, buffer, offset, packet, parent)
@@ -5311,7 +5457,10 @@ tmx_mx_solaorderentry_sail_v1_21.strategy_trade_number.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.strategy_trade_number, range, value, "Strategy Trade Number: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Strategy Trade Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.strategy_trade_number.display(value, buffer, offset, packet, parent)
@@ -5421,7 +5570,10 @@ tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_number, range, value, "Trade Number: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "Trade Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.trade_number.display(value, buffer, offset, packet, parent)
@@ -5818,7 +5970,10 @@ tmx_mx_solaorderentry_sail_v1_21.user_sequence_id.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_sequence_id, range, value, "User Sequence Id: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "User Sequence Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -5846,7 +6001,10 @@ tmx_mx_solaorderentry_sail_v1_21.user_sequence_id_first_user_sequence_id_for_nex
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.user_sequence_id_first_user_sequence_id_for_nextcurrent_heartbeat_period, range, value, "User Sequence Id First User Sequence Id For Nextcurrent Heartbeat Period: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solaorderentry_sail_v1_21.experts.not_a_number, "User Sequence Id First User Sequence Id For Nextcurrent Heartbeat Period is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solaorderentry_sail_v1_21.user_sequence_id_first_user_sequence_id_for_nextcurrent_heartbeat_period.display(value, buffer, offset, packet, parent)

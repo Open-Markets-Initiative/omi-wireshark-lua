@@ -3837,7 +3837,7 @@ function omi_siac_opra_input_obi_v5_0_i.dissector(buffer, packet, parent)
     local remaining = length - index
 
     -- The message length lives in the header: wait for the header before reading it
-    if remaining < siac_opra_input_obi_v5_0_i.block_header.size then
+    if remaining < 2 + siac_opra_input_obi_v5_0_i.block_header.size then
       packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length

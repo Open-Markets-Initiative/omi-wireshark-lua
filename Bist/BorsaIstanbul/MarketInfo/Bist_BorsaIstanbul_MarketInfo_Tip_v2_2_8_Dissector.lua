@@ -15,14 +15,14 @@ local bist_borsaistanbul_marketinfo_tip_v2_2_8 = {}
 -----------------------------------------------------------------------
 
 -- Bist BorsaIstanbul MarketInfo Tip 2.2.8 Fields
-omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "bist.borsaistanbul.marketinfo.tip.v2.2.8.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "bist.borsaistanbul.marketinfo.tip.v2.2.8.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accepted_session = ProtoField.new("Accepted Session", "bist.borsaistanbul.marketinfo.tip.v2.2.8.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.client_packet_type = ProtoField.new("Packet Type", "bist.borsaistanbul.marketinfo.tip.v2.2.8.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the client")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.debug_text = ProtoField.new("Debug Text", "bist.borsaistanbul.marketinfo.tip.v2.2.8.debugtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.packet_length = ProtoField.new("Packet Length", "bist.borsaistanbul.marketinfo.tip.v2.2.8.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.password = ProtoField.new("Password", "bist.borsaistanbul.marketinfo.tip.v2.2.8.password", ftypes.STRING, nil, nil, nil, "Login password")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "bist.borsaistanbul.marketinfo.tip.v2.2.8.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.marketinfo.tip.v2.2.8.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.marketinfo.tip.v2.2.8.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.requested_session = ProtoField.new("Requested Session", "bist.borsaistanbul.marketinfo.tip.v2.2.8.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sequenced_message = ProtoField.new("Sequenced Message", "bist.borsaistanbul.marketinfo.tip.v2.2.8.sequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw sequenced message bytes")
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "bist.borsaistanbul.marketinfo.tip.v2.2.8.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
@@ -53,6 +53,11 @@ omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.unsequenced_data_packet = Pr
 
 -- Bist BorsaIstanbul MarketInfo Tip 2.2.8 Generated Fields
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "bist.borsaistanbul.marketinfo.tip.v2.2.8.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Bist BorsaIstanbul MarketInfo Tip 2.2.8 Expert Info
+bist_borsaistanbul_marketinfo_tip_v2_2_8.experts = {}
+bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.not_a_number = ProtoExpert.new("bist.borsaistanbul.marketinfo.tip.v2.2.8.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.experts = { bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Tip Fields
@@ -10747,7 +10752,10 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accepted_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -10932,7 +10940,10 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.requested_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.requested_sequence_number.display(value, buffer, offset, packet, parent)

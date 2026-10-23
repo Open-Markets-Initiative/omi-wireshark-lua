@@ -15,7 +15,7 @@ local lseg_turquoise_mifid2pretrade_gtp_v26_3 = {}
 -----------------------------------------------------------------------
 
 -- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Fields
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes = ProtoField.new("Aggregated No Of Orders And Quotes", "lseg.turquoise.mifid2pretrade.gtp.v26.3.aggregatednoofordersandquotes", ftypes.STRING, nil, nil, nil, "For continuous trading, the number of orders aggregated at a given price level. For periodic auction and empty side during continuous trading, this will be set to 0 (zero)")
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes = ProtoField.new("Aggregated No Of Orders And Quotes", "lseg.turquoise.mifid2pretrade.gtp.v26.3.aggregatednoofordersandquotes", ftypes.DOUBLE, nil, nil, nil, "For continuous trading, the number of orders aggregated at a given price level. For periodic auction and empty side during continuous trading, this will be set to 0 (zero)")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.mifid2pretrade.gtp.v26.3.allowedbooktypes", ftypes.STRING, nil, nil, nil, "Allowed Book Types Flags")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.turquoise.mifid2pretrade.gtp.v26.3.averagedailyturnoveradt", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to Turquoise.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.clearing_type = ProtoField.new("Clearing Type", "lseg.turquoise.mifid2pretrade.gtp.v26.3.clearingtype", ftypes.UINT8, nil, nil, nil, "Indicates the settlement mode of the security.")
@@ -54,11 +54,11 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_type = ProtoField.
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_update = ProtoField.new("Order Book Update", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbookupdate", ftypes.STRING, nil, nil, nil, "Position of the price level within the order book")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.partition_id = ProtoField.new("Partition Id", "lseg.turquoise.mifid2pretrade.gtp.v26.3.partitionid", ftypes.STRING, nil, nil, nil, "Trading System's partition in which the instrument is traded.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.previous_days_closing_price = ProtoField.new("Previous Days Closing Price", "lseg.turquoise.mifid2pretrade.gtp.v26.3.previousdaysclosingprice", ftypes.DOUBLE, nil, nil, nil, "Primary market's closing price reported for the previous trading day.")
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price = ProtoField.new("Price", "lseg.turquoise.mifid2pretrade.gtp.v26.3.price", ftypes.STRING, nil, nil, nil, "For continuous trading, a price of orders aggregated at a given price level. For periodic auctions, the price at which the auction trading system would best satisfy its trading algorithm. Will be set to 0 (zero) when the order book is cleared or the indicative auction price is reset.")
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price = ProtoField.new("Price", "lseg.turquoise.mifid2pretrade.gtp.v26.3.price", ftypes.DOUBLE, nil, nil, nil, "For continuous trading, a price of orders aggregated at a given price level. For periodic auctions, the price at which the auction trading system would best satisfy its trading algorithm. Will be set to 0 (zero) when the order book is cleared or the indicative auction price is reset.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_currency = ProtoField.new("Price Currency", "lseg.turquoise.mifid2pretrade.gtp.v26.3.pricecurrency", ftypes.STRING, nil, nil, nil, "Major currency unit in which the price is expressed")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_notation = ProtoField.new("Price Notation", "lseg.turquoise.mifid2pretrade.gtp.v26.3.pricenotation", ftypes.STRING, nil, nil, nil, "Indicates the notation in which the price is expressed")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.turquoise.mifid2pretrade.gtp.v26.3.publicationdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the information was published by the trading venue.")
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.quantity = ProtoField.new("Quantity", "lseg.turquoise.mifid2pretrade.gtp.v26.3.quantity", ftypes.STRING, nil, nil, nil, "For continuous trading, number of units of the financial instruments aggregated on the price level. For periodic auction, the aggregated quantity attached to the price that would best satisfy the trading algorithm. Will be set to 0 (zero) when the order book is cleared or the indicative auction price is reset.")
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.quantity = ProtoField.new("Quantity", "lseg.turquoise.mifid2pretrade.gtp.v26.3.quantity", ftypes.DOUBLE, nil, nil, nil, "For continuous trading, number of units of the financial instruments aggregated on the price level. For periodic auction, the aggregated quantity attached to the price that would best satisfy the trading algorithm. Will be set to 0 (zero) when the order book is cleared or the indicative auction price is reset.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved12", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_2 = ProtoField.new("Reserved 2", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
@@ -109,6 +109,11 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.system_event_message = ProtoF
 
 -- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Generated Fields
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messageindex", ftypes.UINT16)
+
+-- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Expert Info
+lseg_turquoise_mifid2pretrade_gtp_v26_3.experts = {}
+lseg_turquoise_mifid2pretrade_gtp_v26_3.experts.not_a_number = ProtoExpert.new("lseg.turquoise.mifid2pretrade.gtp.v26.3.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.experts = { lseg_turquoise_mifid2pretrade_gtp_v26_3.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -162,6 +167,53 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
+end
+
 
 -----------------------------------------------------------------------
 -- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Fields
@@ -174,20 +226,30 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes = {}
 lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.size = 20
 
 -- Display: Aggregated No Of Orders And Quotes
-lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Aggregated No Of Orders And Quotes: No Value"
   end
 
-  return "Aggregated No Of Orders And Quotes: "..value
+  return "Aggregated No Of Orders And Quotes: "..text
 end
 
 -- Dissect: Aggregated No Of Orders And Quotes
 lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes, range, value, "Aggregated No Of Orders And Quotes: Not Applicable")
+    item:add_proto_expert_info(lseg_turquoise_mifid2pretrade_gtp_v26_3.experts.not_a_number, "Aggregated No Of Orders And Quotes is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes, range, value, display)
@@ -1165,20 +1227,30 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.price = {}
 lseg_turquoise_mifid2pretrade_gtp_v26_3.price.size = 20
 
 -- Display: Price
-lseg_turquoise_mifid2pretrade_gtp_v26_3.price.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_turquoise_mifid2pretrade_gtp_v26_3.price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_turquoise_mifid2pretrade_gtp_v26_3.price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Price: No Value"
   end
 
-  return "Price: "..value
+  return "Price: "..text
 end
 
 -- Dissect: Price
 lseg_turquoise_mifid2pretrade_gtp_v26_3.price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(lseg_turquoise_mifid2pretrade_gtp_v26_3.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price, range, value, display)
@@ -1276,20 +1348,30 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity = {}
 lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.size = 20
 
 -- Display: Quantity
-lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Quantity: No Value"
   end
 
-  return "Quantity: "..value
+  return "Quantity: "..text
 end
 
 -- Dissect: Quantity
 lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.quantity, range, value, "Quantity: Not Applicable")
+    item:add_proto_expert_info(lseg_turquoise_mifid2pretrade_gtp_v26_3.experts.not_a_number, "Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.quantity, range, value, display)

@@ -15,7 +15,7 @@ local nasdaq_nsmequities_totalview_glimpse_v5_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities TotalView Glimpse 5.0 Fields
-omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v5.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v5.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.glimpse.v5.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.glimpse.v5.0.attribution", ftypes.STRING, nil, nil, nil, "Nasdaq Market participant identifier associated with the entered order")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.totalview.glimpse.v5.0.authenticity", ftypes.STRING, nil, nil, nil, "Denotes if an issue or quoting participant record is set-up in Nasdaq systems in a live/production, test, or demo state.")
@@ -43,7 +43,7 @@ omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.price = ProtoField.new("Pri
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.totalview.glimpse.v5.0.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.totalview.glimpse.v5.0.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.glimpse.v5.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v5.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v5.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.glimpse.v5.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.nsmequities.totalview.glimpse.v5.0.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved.")
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.glimpse.v5.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue")
@@ -95,6 +95,11 @@ omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.unsequenced_data_packet = P
 
 -- Nasdaq NsmEquities TotalView Glimpse 5.0 Generated Fields
 omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nsmequities.totalview.glimpse.v5.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NsmEquities TotalView Glimpse 5.0 Expert Info
+nasdaq_nsmequities_totalview_glimpse_v5_0.experts = {}
+nasdaq_nsmequities_totalview_glimpse_v5_0.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.totalview.glimpse.v5.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_totalview_glimpse_v5_0.experts = { nasdaq_nsmequities_totalview_glimpse_v5_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Glimpse 5.0 Formatting
@@ -259,7 +264,10 @@ nasdaq_nsmequities_totalview_glimpse_v5_0.accepted_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v5_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_totalview_glimpse_v5_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1065,7 +1073,10 @@ nasdaq_nsmequities_totalview_glimpse_v5_0.requested_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v5_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v5_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_totalview_glimpse_v5_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

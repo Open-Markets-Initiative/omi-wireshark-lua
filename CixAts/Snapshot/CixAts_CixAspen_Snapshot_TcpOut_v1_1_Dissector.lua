@@ -27,9 +27,9 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.length = ProtoField.new("Length"
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.listing_market = ProtoField.new("Listing Market", "cixats.cixaspen.snapshot.tcpout.v1.1.listingmarket", ftypes.STRING, nil, nil, nil, "Code identifying the primary listing market")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.login_message = ProtoField.new("Login Message", "cixats.cixaspen.snapshot.tcpout.v1.1.loginmessage", ftypes.STRING, nil, nil, nil, "The client must login to the server before it will receive data")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.login_reject_message = ProtoField.new("Login Reject Message", "cixats.cixaspen.snapshot.tcpout.v1.1.loginrejectmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to reject a Login Message")
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "cixats.cixaspen.snapshot.tcpout.v1.1.marketdayidentifier", ftypes.STRING, nil, nil, nil, "Unique identifier for trading day")
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "cixats.cixaspen.snapshot.tcpout.v1.1.marketdayidentifier", ftypes.UINT32, nil, nil, nil, "Unique identifier for trading day")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.message_type = ProtoField.new("Message Type", "cixats.cixaspen.snapshot.tcpout.v1.1.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying the encapsulated message type")
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.next_sequence = ProtoField.new("Next Sequence", "cixats.cixaspen.snapshot.tcpout.v1.1.nextsequence", ftypes.STRING, nil, nil, nil, "Ascii sequence number of the next Binary Data Message")
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.next_sequence = ProtoField.new("Next Sequence", "cixats.cixaspen.snapshot.tcpout.v1.1.nextsequence", ftypes.UINT64, nil, nil, nil, "Ascii sequence number of the next Binary Data Message")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.order_id = ProtoField.new("Order Id", "cixats.cixaspen.snapshot.tcpout.v1.1.orderid", ftypes.UINT64, nil, nil, nil, "Market Issued Unique Order ID")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.packet_type = ProtoField.new("Packet Type", "cixats.cixaspen.snapshot.tcpout.v1.1.packettype", ftypes.STRING, nil, nil, nil, "Code identifying the TcpOut packet type")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.pass = ProtoField.new("Pass", "cixats.cixaspen.snapshot.tcpout.v1.1.pass", ftypes.STRING, nil, nil, nil, "Password")
@@ -37,7 +37,7 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.price = ProtoField.new("Price", 
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.quantity = ProtoField.new("Quantity", "cixats.cixaspen.snapshot.tcpout.v1.1.quantity", ftypes.DOUBLE, nil, nil, nil, "Quantity - 6 implied decimals")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.quantity_canceled = ProtoField.new("Quantity Canceled", "cixats.cixaspen.snapshot.tcpout.v1.1.quantitycanceled", ftypes.DOUBLE, nil, nil, nil, "Quantity canceled - Quantity 6 implied decimals")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.reason_code = ProtoField.new("Reason Code", "cixats.cixaspen.snapshot.tcpout.v1.1.reasoncode", ftypes.STRING, nil, nil, nil, "Reject Reason")
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.requested_sequence = ProtoField.new("Requested Sequence", "cixats.cixaspen.snapshot.tcpout.v1.1.requestedsequence", ftypes.STRING, nil, nil, nil, "Requested starting sequence, 0 starts at the latest message and snapshot connections must specify 1")
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.requested_sequence = ProtoField.new("Requested Sequence", "cixats.cixaspen.snapshot.tcpout.v1.1.requestedsequence", ftypes.UINT64, nil, nil, nil, "Requested starting sequence, 0 starts at the latest message and snapshot connections must specify 1")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.reserved_1 = ProtoField.new("Reserved 1", "cixats.cixaspen.snapshot.tcpout.v1.1.reserved1", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.reserved_2 = ProtoField.new("Reserved 2", "cixats.cixaspen.snapshot.tcpout.v1.1.reserved2", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.sequence = ProtoField.new("Sequence", "cixats.cixaspen.snapshot.tcpout.v1.1.sequence", ftypes.UINT64, nil, nil, nil, "Multicast output feed sequence number of the previous message, where this snapshot ends")
@@ -63,6 +63,11 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.order_executed_message = ProtoFi
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.order_partial_cancel_message = ProtoField.new("Order Partial Cancel Message", "cixats.cixaspen.snapshot.tcpout.v1.1.orderpartialcancelmessage", ftypes.STRING, nil, nil, nil, "Part of a resting order is canceled")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.symbol_information_message = ProtoField.new("Symbol Information Message", "cixats.cixaspen.snapshot.tcpout.v1.1.symbolinformationmessage", ftypes.STRING, nil, nil, nil, "Reference data for each symbol that may be traded")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.symbol_state_message = ProtoField.new("Symbol State Message", "cixats.cixaspen.snapshot.tcpout.v1.1.symbolstatemessage", ftypes.STRING, nil, nil, nil, "Individual symbol trading state (halts)")
+
+-- CixAts CixAspen Snapshot TcpOut 1.1 Expert Info
+cixats_cixaspen_snapshot_tcpout_v1_1.experts = {}
+cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number = ProtoExpert.new("cixats.cixaspen.snapshot.tcpout.v1.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.experts = { cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -389,7 +394,10 @@ cixats_cixaspen_snapshot_tcpout_v1_1.market_day_identifier.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.market_day_identifier, range, value, "Market Day Identifier: Not Applicable")
+    item:add_proto_expert_info(cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, "Market Day Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cixats_cixaspen_snapshot_tcpout_v1_1.market_day_identifier.display(value, buffer, offset, packet, parent)
@@ -465,7 +473,10 @@ cixats_cixaspen_snapshot_tcpout_v1_1.next_sequence.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.next_sequence, range, value, "Next Sequence: Not Applicable")
+    item:add_proto_expert_info(cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, "Next Sequence is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cixats_cixaspen_snapshot_tcpout_v1_1.next_sequence.display(value, buffer, offset, packet, parent)
@@ -701,7 +712,10 @@ cixats_cixaspen_snapshot_tcpout_v1_1.requested_sequence.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.requested_sequence, range, value, "Requested Sequence: Not Applicable")
+    item:add_proto_expert_info(cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, "Requested Sequence is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cixats_cixaspen_snapshot_tcpout_v1_1.requested_sequence.display(value, buffer, offset, packet, parent)

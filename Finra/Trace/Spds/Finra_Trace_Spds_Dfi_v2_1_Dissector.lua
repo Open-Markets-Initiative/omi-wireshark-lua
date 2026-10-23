@@ -22,7 +22,7 @@ omi_finra_trace_spds_dfi_v2_1.fields.administrative_message_type = ProtoField.ne
 omi_finra_trace_spds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.trace.spds.dfi.v2.1.asofindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an As/Of trade or Reversal from a prior business day")
 omi_finra_trace_spds_dfi_v2_1.fields.ats_indicator = ProtoField.new("Ats Indicator", "finra.trace.spds.dfi.v2.1.atsindicator", ftypes.STRING, nil, nil, nil, "Populated if the transaction being reported is an Ats execution")
 omi_finra_trace_spds_dfi_v2_1.fields.bsym = ProtoField.new("Bsym", "finra.trace.spds.dfi.v2.1.bsym", ftypes.STRING, nil, nil, nil, "The Bloomberg identifier for the specific security")
-omi_finra_trace_spds_dfi_v2_1.fields.change_indicator = ProtoField.new("Change Indicator", "finra.trace.spds.dfi.v2.1.changeindicator", ftypes.STRING, nil, nil, nil, "Describes the price change(s) that the transaction caused for the issue traded")
+omi_finra_trace_spds_dfi_v2_1.fields.change_indicator = ProtoField.new("Change Indicator", "finra.trace.spds.dfi.v2.1.changeindicator", ftypes.UINT8, nil, nil, nil, "Describes the price change(s) that the transaction caused for the issue traded")
 omi_finra_trace_spds_dfi_v2_1.fields.contra_party_type = ProtoField.new("Contra Party Type", "finra.trace.spds.dfi.v2.1.contrapartytype", ftypes.STRING, nil, nil, nil, "Identifies the type of contra party which the reported trade was executed against")
 omi_finra_trace_spds_dfi_v2_1.fields.control_message = ProtoField.new("Control Message", "finra.trace.spds.dfi.v2.1.controlmessage", ftypes.STRING, nil, nil, nil, "Control Messages Header")
 omi_finra_trace_spds_dfi_v2_1.fields.control_message_type = ProtoField.new("Control Message Type", "finra.trace.spds.dfi.v2.1.controlmessagetype", ftypes.STRING)
@@ -33,13 +33,13 @@ omi_finra_trace_spds_dfi_v2_1.fields.daily_close_price = ProtoField.new("Daily C
 omi_finra_trace_spds_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.trace.spds.dfi.v2.1.dailyhighprice", ftypes.DOUBLE, nil, nil, nil, "The high price reported for the specific security for the day")
 omi_finra_trace_spds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.trace.spds.dfi.v2.1.dailylowprice", ftypes.DOUBLE, nil, nil, nil, "The low price reported for the specific security for the day")
 omi_finra_trace_spds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.trace.spds.dfi.v2.1.datetime", ftypes.STRING)
-omi_finra_trace_spds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.spds.dfi.v2.1.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
+omi_finra_trace_spds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.spds.dfi.v2.1.day", ftypes.UINT8, nil, nil, nil, "The day of the month the transaction occurred")
 omi_finra_trace_spds_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.trace.spds.dfi.v2.1.executiondatetime", ftypes.STRING)
 omi_finra_trace_spds_dfi_v2_1.fields.factor = ProtoField.new("Factor", "finra.trace.spds.dfi.v2.1.factor", ftypes.DOUBLE, nil, nil, nil, "Indicates a reported factor on a trade that was not based on the latest published factor")
 omi_finra_trace_spds_dfi_v2_1.fields.future_use = ProtoField.new("Future Use", "finra.trace.spds.dfi.v2.1.futureuse", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_finra_trace_spds_dfi_v2_1.fields.halt_reason = ProtoField.new("Halt Reason", "finra.trace.spds.dfi.v2.1.haltreason", ftypes.STRING, nil, nil, nil, "Describes the specific reason for a halt being placed on a security")
 omi_finra_trace_spds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.spds.dfi.v2.1.highprice", ftypes.DOUBLE, nil, nil, nil, "The current highest price for which the specified issue was traded for the current day")
-omi_finra_trace_spds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.spds.dfi.v2.1.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
+omi_finra_trace_spds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.spds.dfi.v2.1.hour", ftypes.UINT8, nil, nil, nil, "The hour of the day the transaction occurred in military time")
 omi_finra_trace_spds_dfi_v2_1.fields.issuer = ProtoField.new("Issuer", "finra.trace.spds.dfi.v2.1.issuer", ftypes.STRING, nil, nil, nil, "The name of the entity that issued the security")
 omi_finra_trace_spds_dfi_v2_1.fields.label = ProtoField.new("Label", "finra.trace.spds.dfi.v2.1.label", ftypes.STRING)
 omi_finra_trace_spds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.trace.spds.dfi.v2.1.lastsaleprice", ftypes.DOUBLE, nil, nil, nil, "The last sale price reported for the specific security for the day")
@@ -52,10 +52,10 @@ omi_finra_trace_spds_dfi_v2_1.fields.mbs_original_trade_information = ProtoField
 omi_finra_trace_spds_dfi_v2_1.fields.mbs_trade_information = ProtoField.new("Mbs Trade Information", "finra.trace.spds.dfi.v2.1.mbstradeinformation", ftypes.STRING)
 omi_finra_trace_spds_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.trace.spds.dfi.v2.1.messagecategory", ftypes.STRING)
 omi_finra_trace_spds_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.trace.spds.dfi.v2.1.messageheader", ftypes.STRING)
-omi_finra_trace_spds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.trace.spds.dfi.v2.1.minute", ftypes.STRING, nil, nil, nil, "The minute of the hour the transaction occurred")
-omi_finra_trace_spds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trace.spds.dfi.v2.1.month", ftypes.STRING, nil, nil, nil, "The month the transaction occurred")
+omi_finra_trace_spds_dfi_v2_1.fields.minute = ProtoField.new("Minute", "finra.trace.spds.dfi.v2.1.minute", ftypes.UINT8, nil, nil, nil, "The minute of the hour the transaction occurred")
+omi_finra_trace_spds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trace.spds.dfi.v2.1.month", ftypes.UINT8, nil, nil, nil, "The month the transaction occurred")
 omi_finra_trace_spds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.trace.spds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
-omi_finra_trace_spds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.spds.dfi.v2.1.originaltradeidentifier", ftypes.STRING, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
+omi_finra_trace_spds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.spds.dfi.v2.1.originaltradeidentifier", ftypes.UINT32, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
 omi_finra_trace_spds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.trace.spds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
 omi_finra_trace_spds_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.spds.dfi.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "The security price inclusive of any commission, mark-ups and mark-downs reported in the transaction")
 omi_finra_trace_spds_dfi_v2_1.fields.quantity = ProtoField.new("Quantity", "finra.trace.spds.dfi.v2.1.quantity", ftypes.STRING, nil, nil, nil, "The dollar size amount of the transaction, inclusive of a decimal")
@@ -66,7 +66,7 @@ omi_finra_trace_spds_dfi_v2_1.fields.report_function = ProtoField.new("Report Fu
 omi_finra_trace_spds_dfi_v2_1.fields.reporting_party_type = ProtoField.new("Reporting Party Type", "finra.trace.spds.dfi.v2.1.reportingpartytype", ftypes.STRING, nil, nil, nil, "Identifies the type of entity that reported the trade")
 omi_finra_trace_spds_dfi_v2_1.fields.sale_condition_3 = ProtoField.new("Sale Condition 3", "finra.trace.spds.dfi.v2.1.salecondition3", ftypes.STRING, nil, nil, nil, "Describes a sale condition that is applicable to the trade")
 omi_finra_trace_spds_dfi_v2_1.fields.sale_condition_4 = ProtoField.new("Sale Condition 4", "finra.trace.spds.dfi.v2.1.salecondition4", ftypes.STRING, nil, nil, nil, "Indicates special conditions or modifiers applicable to the trade transaction")
-omi_finra_trace_spds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.trace.spds.dfi.v2.1.second", ftypes.STRING, nil, nil, nil, "The second of the minute the transaction occurred")
+omi_finra_trace_spds_dfi_v2_1.fields.second = ProtoField.new("Second", "finra.trace.spds.dfi.v2.1.second", ftypes.UINT8, nil, nil, nil, "The second of the minute the transaction occurred")
 omi_finra_trace_spds_dfi_v2_1.fields.sequence = ProtoField.new("Sequence", "finra.trace.spds.dfi.v2.1.sequence", ftypes.UINT64, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_finra_trace_spds_dfi_v2_1.fields.session = ProtoField.new("Session", "finra.trace.spds.dfi.v2.1.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_finra_trace_spds_dfi_v2_1.fields.settlement_date = ProtoField.new("Settlement Date", "finra.trace.spds.dfi.v2.1.settlementdate", ftypes.STRING)
@@ -75,12 +75,12 @@ omi_finra_trace_spds_dfi_v2_1.fields.special_price_indicator = ProtoField.new("S
 omi_finra_trace_spds_dfi_v2_1.fields.sub_product_type = ProtoField.new("Sub Product Type", "finra.trace.spds.dfi.v2.1.subproducttype", ftypes.STRING, nil, nil, nil, "Identifies the type of securitized product security traded")
 omi_finra_trace_spds_dfi_v2_1.fields.symbol = ProtoField.new("Symbol", "finra.trace.spds.dfi.v2.1.symbol", ftypes.STRING, nil, nil, nil, "The security symbol assigned by Finra for Trace trade reporting purposes")
 omi_finra_trace_spds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.trace.spds.dfi.v2.1.text", ftypes.STRING)
-omi_finra_trace_spds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.spds.dfi.v2.1.tradeidentifier", ftypes.STRING, nil, nil, nil, "An identifier for tracking trades")
+omi_finra_trace_spds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.trace.spds.dfi.v2.1.tradeidentifier", ftypes.UINT32, nil, nil, nil, "An identifier for tracking trades")
 omi_finra_trace_spds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.trace.spds.dfi.v2.1.tradeinformation", ftypes.STRING)
 omi_finra_trace_spds_dfi_v2_1.fields.trade_message = ProtoField.new("Trade Message", "finra.trace.spds.dfi.v2.1.trademessage", ftypes.STRING, nil, nil, nil, "Trade Messages Header")
 omi_finra_trace_spds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.trace.spds.dfi.v2.1.trademessagetype", ftypes.STRING)
 omi_finra_trace_spds_dfi_v2_1.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.trace.spds.dfi.v2.1.tradesummaryinformation", ftypes.STRING)
-omi_finra_trace_spds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.spds.dfi.v2.1.year", ftypes.STRING, nil, nil, nil, "The year the transaction occurred")
+omi_finra_trace_spds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.spds.dfi.v2.1.year", ftypes.UINT16, nil, nil, nil, "The year the transaction occurred")
 
 -- Finra Trace Spds Dfi 2.1 Framing
 omi_finra_trace_spds_dfi_v2_1.fields.message = ProtoField.new("Message", "finra.trace.spds.dfi.v2.1.message", ftypes.STRING)
@@ -108,6 +108,11 @@ omi_finra_trace_spds_dfi_v2_1.fields.trading_halt_message = ProtoField.new("Trad
 
 -- Finra Trace Spds Dfi 2.1 Generated Fields
 omi_finra_trace_spds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.trace.spds.dfi.v2.1.messageindex", ftypes.UINT16)
+
+-- Finra Trace Spds Dfi 2.1 Expert Info
+finra_trace_spds_dfi_v2_1.experts = {}
+finra_trace_spds_dfi_v2_1.experts.not_a_number = ProtoExpert.new("finra.trace.spds.dfi.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_finra_trace_spds_dfi_v2_1.experts = { finra_trace_spds_dfi_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -408,7 +413,10 @@ finra_trace_spds_dfi_v2_1.change_indicator.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.change_indicator, range, value, "Change Indicator: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Change Indicator is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.change_indicator.display(value, buffer, offset, packet, parent)
@@ -575,6 +583,9 @@ finra_trace_spds_dfi_v2_1.daily_close_price.dissect = function(buffer, offset, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.daily_close_price, range, value, "Daily Close Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Daily Close Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.daily_close_price.display(value, buffer, offset, packet, parent)
@@ -617,6 +628,9 @@ finra_trace_spds_dfi_v2_1.daily_high_price.dissect = function(buffer, offset, pa
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.daily_high_price, range, value, "Daily High Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Daily High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -659,6 +673,9 @@ finra_trace_spds_dfi_v2_1.daily_low_price.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.daily_low_price, range, value, "Daily Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Daily Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -686,7 +703,10 @@ finra_trace_spds_dfi_v2_1.day.dissect = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.day, range, value, "Day: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.day.display(value, buffer, offset, packet, parent)
@@ -729,6 +749,9 @@ finra_trace_spds_dfi_v2_1.factor.dissect = function(buffer, offset, packet, pare
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.factor, range, value, "Factor: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Factor is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.factor.display(value, buffer, offset, packet, parent)
@@ -836,6 +859,9 @@ finra_trace_spds_dfi_v2_1.high_price.dissect = function(buffer, offset, packet, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.high_price, range, value, "High Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.high_price.display(value, buffer, offset, packet, parent)
@@ -863,7 +889,10 @@ finra_trace_spds_dfi_v2_1.hour.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.hour, range, value, "Hour: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Hour is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.hour.display(value, buffer, offset, packet, parent)
@@ -929,6 +958,9 @@ finra_trace_spds_dfi_v2_1.last_sale_price.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.last_sale_price, range, value, "Last Sale Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Last Sale Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -994,6 +1026,9 @@ finra_trace_spds_dfi_v2_1.low_price.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.low_price, range, value, "Low Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.low_price.display(value, buffer, offset, packet, parent)
@@ -1081,7 +1116,10 @@ finra_trace_spds_dfi_v2_1.minute.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.minute, range, value, "Minute: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Minute is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.minute.display(value, buffer, offset, packet, parent)
@@ -1109,7 +1147,10 @@ finra_trace_spds_dfi_v2_1.month.dissect = function(buffer, offset, packet, paren
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.month, range, value, "Month: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Month is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.month.display(value, buffer, offset, packet, parent)
@@ -1137,7 +1178,10 @@ finra_trace_spds_dfi_v2_1.original_trade_identifier.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.original_trade_identifier, range, value, "Original Trade Identifier: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Original Trade Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.original_trade_identifier.display(value, buffer, offset, packet, parent)
@@ -1180,6 +1224,9 @@ finra_trace_spds_dfi_v2_1.price.dissect = function(buffer, offset, packet, paren
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.price.display(value, buffer, offset, packet, parent)
@@ -1460,7 +1507,10 @@ finra_trace_spds_dfi_v2_1.second.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.second, range, value, "Second: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Second is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.second.display(value, buffer, offset, packet, parent)
@@ -1672,7 +1722,10 @@ finra_trace_spds_dfi_v2_1.trade_identifier.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.trade_identifier, range, value, "Trade Identifier: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Trade Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.trade_identifier.display(value, buffer, offset, packet, parent)
@@ -1742,7 +1795,10 @@ finra_trace_spds_dfi_v2_1.year.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_trace_spds_dfi_v2_1.fields.year, range, value, "Year: Not Applicable")
+    item:add_proto_expert_info(finra_trace_spds_dfi_v2_1.experts.not_a_number, "Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_trace_spds_dfi_v2_1.year.display(value, buffer, offset, packet, parent)

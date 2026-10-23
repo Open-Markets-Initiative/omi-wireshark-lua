@@ -15,7 +15,7 @@ local nasdaq_nomoptions_bono_itch_v3_3 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NomOptions Bono Itch 3.3 Fields
-omi_nasdaq_nomoptions_bono_itch_v3_3.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nomoptions.bono.itch.v3.3.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nomoptions_bono_itch_v3_3.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nomoptions.bono.itch.v3.3.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nomoptions.bono.itch.v3.3.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.nomoptions.bono.itch.v3.3.askprice2", ftypes.DOUBLE, nil, nil, nil, "Best ask price. NOTE: When converted to a decimal format, the price is in fixed point format with 3 whole number places followed by 2 decimal digits.")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.nomoptions.bono.itch.v3.3.askprice4", ftypes.DOUBLE, nil, nil, nil, "Best ask price.")
@@ -52,7 +52,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_3.fields.price_2 = ProtoField.new("Price 2", 
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.price_4 = ProtoField.new("Price 4", "nasdaq.nomoptions.bono.itch.v3.3.price4", ftypes.DOUBLE, nil, nil, nil, "Best bid or ask price, the side determined by the Message Type.")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.nomoptions.bono.itch.v3.3.quotecondition", ftypes.STRING, nil, nil, nil, "Quote Condition value")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nomoptions.bono.itch.v3.3.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nomoptions_bono_itch_v3_3.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nomoptions.bono.itch.v3.3.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nomoptions_bono_itch_v3_3.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nomoptions.bono.itch.v3.3.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nomoptions.bono.itch.v3.3.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.second = ProtoField.new("Second", "nasdaq.nomoptions.bono.itch.v3.3.second", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight (U.S. Eastern Time).")
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.nomoptions.bono.itch.v3.3.securitysymbol", ftypes.STRING, nil, nil, nil, "Denotes the option symbol (security symbol)")
@@ -121,6 +121,11 @@ omi_nasdaq_nomoptions_bono_itch_v3_3.fields.message_index = ProtoField.new("Mess
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nomoptions.bono.itch.v3.3.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nomoptions.bono.itch.v3.3.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_nasdaq_nomoptions_bono_itch_v3_3.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nomoptions.bono.itch.v3.3.timestamp", ftypes.UINT64)
+
+-- Nasdaq NomOptions Bono Itch 3.3 Expert Info
+nasdaq_nomoptions_bono_itch_v3_3.experts = {}
+nasdaq_nomoptions_bono_itch_v3_3.experts.not_a_number = ProtoExpert.new("nasdaq.nomoptions.bono.itch.v3.3.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nomoptions_bono_itch_v3_3.experts = { nasdaq_nomoptions_bono_itch_v3_3.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NomOptions Bono Itch 3.3 Formatting
@@ -297,7 +302,10 @@ nasdaq_nomoptions_bono_itch_v3_3.accepted_sequence_number.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nomoptions_bono_itch_v3_3.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nomoptions_bono_itch_v3_3.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nomoptions_bono_itch_v3_3.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1327,7 +1335,10 @@ nasdaq_nomoptions_bono_itch_v3_3.requested_sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nomoptions_bono_itch_v3_3.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nomoptions_bono_itch_v3_3.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nomoptions_bono_itch_v3_3.requested_sequence_number.display(value, buffer, offset, packet, parent)

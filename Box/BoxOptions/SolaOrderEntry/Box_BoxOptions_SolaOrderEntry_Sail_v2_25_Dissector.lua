@@ -21,12 +21,12 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.action = ProtoField.new("Act
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.active_y_on_n_off = ProtoField.new("Active Y On N Off", "box.boxoptions.solaorderentry.sail.v2.25.activeyonnoff", ftypes.STRING, nil, nil, nil, "Y: Yes N: No")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.additional_client_memo = ProtoField.new("Additional Client Memo", "box.boxoptions.solaorderentry.sail.v2.25.additionalclientmemo", ftypes.STRING, nil, nil, nil, "Free format text string can be used to transmit additional information for processing. Left justified, right blank filled Format rules: None of the following ascii characters: ‘%’ (percent sign), ‘,’ (comma), ‘;’ (semi-colon), ‘#’ (pound sign), ‘ “ ’ (double-quote) and ‘|’ (pipe) ASCII characters in the decimal code ranges between 0 and 31 and 127 and up are not permitted.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.additional_price = ProtoField.new("Additional Price", "box.boxoptions.solaorderentry.sail.v2.25.additionalprice", ftypes.STRING, nil, nil, nil, "Must be left empty for Solicitation")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.additional_quantity = ProtoField.new("Additional Quantity", "box.boxoptions.solaorderentry.sail.v2.25.additionalquantity", ftypes.STRING, nil, nil, nil, "For OA Auction Entry, indicates the number of contracts the InitO is willing to surrender. For Solicitation, Facilitation and Floor Trade it is used when the field Quantity Term is set to ’B’. It must contain a quantity less than or equal to the quantity being auctioned.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.additional_quantity = ProtoField.new("Additional Quantity", "box.boxoptions.solaorderentry.sail.v2.25.additionalquantity", ftypes.UINT32, nil, nil, nil, "For OA Auction Entry, indicates the number of contracts the InitO is willing to surrender. For Solicitation, Facilitation and Floor Trade it is used when the field Quantity Term is set to ’B’. It must contain a quantity less than or equal to the quantity being auctioned.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.assigned_price = ProtoField.new("Assigned Price", "box.boxoptions.solaorderentry.sail.v2.25.assignedprice", ftypes.STRING, nil, nil, nil, "Price assigned by the Trading System. Refer toPrice for format details.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_id = ProtoField.new("Auction ID", "box.boxoptions.solaorderentry.sail.v2.25.auctionid", ftypes.STRING, nil, nil, nil, "Identifies the number of an auction (Improvement Phase). It is a sequential number which is unique per Instrument and per Trading Day. Current Auction identifier if the trade occurred during an auction.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_id_optional = ProtoField.new("Auction ID Optional", "box.boxoptions.solaorderentry.sail.v2.25.auctionidoptional", ftypes.STRING, nil, nil, nil, "Identifies the number of an auction (Improvement Phase). It is a sequential number which is unique per Instrument and per Trading Day. Current Auction identifier if the trade occurred during an auction.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_id = ProtoField.new("Auction ID", "box.boxoptions.solaorderentry.sail.v2.25.auctionid", ftypes.UINT32, nil, nil, nil, "Identifies the number of an auction (Improvement Phase). It is a sequential number which is unique per Instrument and per Trading Day. Current Auction identifier if the trade occurred during an auction.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_id_optional = ProtoField.new("Auction ID Optional", "box.boxoptions.solaorderentry.sail.v2.25.auctionidoptional", ftypes.UINT32, nil, nil, nil, "Identifies the number of an auction (Improvement Phase). It is a sequential number which is unique per Instrument and per Trading Day. Current Auction identifier if the trade occurred during an auction.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_price = ProtoField.new("Auction Price", "box.boxoptions.solaorderentry.sail.v2.25.auctionprice", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_quantity = ProtoField.new("Auction Quantity", "box.boxoptions.solaorderentry.sail.v2.25.auctionquantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_quantity = ProtoField.new("Auction Quantity", "box.boxoptions.solaorderentry.sail.v2.25.auctionquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_starting_price = ProtoField.new("Auction Starting Price", "box.boxoptions.solaorderentry.sail.v2.25.auctionstartingprice", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.bulk_quote_acknowledgement_occurrence = ProtoField.new("Bulk Quote Acknowledgement Occurrence", "box.boxoptions.solaorderentry.sail.v2.25.bulkquoteacknowledgementoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as 1 to 280 occurrences.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.bulk_quote_occurrence = ProtoField.new("Bulk Quote Occurrence", "box.boxoptions.solaorderentry.sail.v2.25.bulkquoteoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as 1 to 280 occurrences.")
@@ -34,7 +34,7 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_additional_client_mem
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_clearing_data = ProtoField.new("Buying Clearing Data", "box.boxoptions.solaorderentry.sail.v2.25.buyingclearingdata", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as Clearing Data, for every message that carries them.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_owner_data = ProtoField.new("Buying Owner Data", "box.boxoptions.solaorderentry.sail.v2.25.buyingownerdata", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as Owner Data, for every message that carries them.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_post_trading_instruction = ProtoField.new("Buying Post Trading Instruction", "box.boxoptions.solaorderentry.sail.v2.25.buyingposttradinginstruction", ftypes.STRING, nil, nil, nil, "String of characters This field is used for 4 reasons: Specify a CMTA Specify a Give-Up Firm Specify a SubAccount at OCC. The SubAccount represents the Market Maker ID (MMID) at OCC. Specify the Open Close of a Complex Order The information can be specified as follows: To specify a CMTA, enclose the CMTA Firm ID (up to 4 digits) between 2 'C' To specify a Give-Up Firm, enclose the Give-Up Firm ID (up to 4 digits) between 2 'G' To specify a SubAccount (ClearingAccount at OCC), enclose the SubAccount between 2 ‘#’ (pound sign). SubAccount is defined as a string up to 3 AlphaNumeric as is currently supported by OCC). Any preceeding space is allowed, but any trailing space is ignored. o #ABC# means ‘ABC’ will be sent to OCC (Sent as is) o # AB# means ‘ AB’ will be sent to OCC (Preceding space conserved) o #AB # means ‘AB’ will be sent to OCC (Trailing space removed) o #ABCD# means ‘ABC’ (truncated to 3) will be sent to OCC To specify the OpenClose of a Complex Order, enclose the Open (O) or Close (C) position of each leg between 2 'P' - up to 16 legs Open/Close are supported. For example: \"C950CG980G#ABC#POOCCOCOCCCP\" is interpreted as follows: The CMTA is 950 The Give-Up is 980 The SubAccount is ABC The Open/Close of the 10 legs of the strategy is as follows: . Leg 1: Open . Leg 2: Open . Leg 3: Close . Leg 4: Close . Leg 5: Open . Leg 6: Close . Leg 7: Open . Leg 8: Close . Leg 9: Close . Leg 10: Close")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.calculation_time_interval = ProtoField.new("Calculation Time Interval", "box.boxoptions.solaorderentry.sail.v2.25.calculationtimeinterval", ftypes.STRING, nil, nil, nil, "Expressed in number of milliseconds")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.calculation_time_interval = ProtoField.new("Calculation Time Interval", "box.boxoptions.solaorderentry.sail.v2.25.calculationtimeinterval", ftypes.UINT32, nil, nil, nil, "Expressed in number of milliseconds")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.cancelled_order_id = ProtoField.new("Cancelled Order Id", "box.boxoptions.solaorderentry.sail.v2.25.cancelledorderid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID; it is the Order Key identifier")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_data = ProtoField.new("Clearing Data", "box.boxoptions.solaorderentry.sail.v2.25.clearingdata", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as Clearing Data, for every message that carries them.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_data_dealer = ProtoField.new("Clearing Data Dealer", "box.boxoptions.solaorderentry.sail.v2.25.clearingdatadealer", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as Clearing Data, for every message that carries them.")
@@ -52,58 +52,58 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.duration_type = ProtoField.n
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.enabled_y_yes_n_no = ProtoField.new("Enabled Y Yes N No", "box.boxoptions.solaorderentry.sail.v2.25.enabledyyesnno", ftypes.STRING, nil, nil, nil, "Y: Yes N: No")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.end_of_text = ProtoField.new("End Of Text", "box.boxoptions.solaorderentry.sail.v2.25.endoftext", ftypes.INT8, nil, nil, nil, "End of text, a byte of binary 3, closing every Sail message")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.ended_session_id = ProtoField.new("Ended Session Id", "box.boxoptions.solaorderentry.sail.v2.25.endedsessionid", ftypes.STRING, nil, nil, nil, "Identifies current session ID If set to blank spaces, this means the Participant wants to connect to the current session ID.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_code = ProtoField.new("Error Code", "box.boxoptions.solaorderentry.sail.v2.25.errorcode", ftypes.STRING, nil, nil, nil, "Refer to Error Codes for error code definitions.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_code = ProtoField.new("Error Code", "box.boxoptions.solaorderentry.sail.v2.25.errorcode", ftypes.UINT16, nil, nil, nil, "Refer to Error Codes for error code definitions.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_description = ProtoField.new("Error Description", "box.boxoptions.solaorderentry.sail.v2.25.errordescription", ftypes.STRING, nil, nil, nil, "Stated inline as String (100)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_detail = ProtoField.new("Error Detail", "box.boxoptions.solaorderentry.sail.v2.25.errordetail", ftypes.STRING, nil, nil, nil, "Free format text string used to provide additional detail on errors. Left justified, right blank filled Format rules: None of the following ascii characters: ‘%’ (percent sign), ‘,’ (comma), ‘;’ (semi-colon), ‘#’ (pound sign), ‘ “ ’ (double-quote) and ‘|’ (pipe) ASCII characters in the decimal code ranges between 0 and 31 and 127 and up.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_message = ProtoField.new("Error Message", "box.boxoptions.solaorderentry.sail.v2.25.errormessage", ftypes.STRING, nil, nil, nil, "Stated inline as String (100)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_position = ProtoField.new("Error Position", "box.boxoptions.solaorderentry.sail.v2.25.errorposition", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (4)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_position = ProtoField.new("Error Position", "box.boxoptions.solaorderentry.sail.v2.25.errorposition", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (4)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.exchange_message_id = ProtoField.new("Exchange Message Id", "box.boxoptions.solaorderentry.sail.v2.25.exchangemessageid", ftypes.STRING, nil, nil, nil, "Identifies a message sent by the exchange for a Participant connection. It represents the exchange identifier of the message for the current session. It is used in a Connection message as a retransmission starting point. If equal to zeroes: start from 1st message of the session. If equal to blanks: start from next message for Participant. If valid Exchange Message ID: start at this message ID or the next message for the Participant. If it contains spaces, it means that this field is not subject to re-transmission.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.executing_participant = ProtoField.new("Executing Participant", "box.boxoptions.solaorderentry.sail.v2.25.executingparticipant", ftypes.STRING, nil, nil, nil, "Contains the digit portion of the Participant ID of the Participant to whom the")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.expected_last_user_sequence_id = ProtoField.new("Expected Last User Sequence Id", "box.boxoptions.solaorderentry.sail.v2.25.expectedlastusersequenceid", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.expected_last_user_sequence_id = ProtoField.new("Expected Last User Sequence Id", "box.boxoptions.solaorderentry.sail.v2.25.expectedlastusersequenceid", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.firm_id = ProtoField.new("Firm Id", "box.boxoptions.solaorderentry.sail.v2.25.firmid", ftypes.STRING, nil, nil, nil, "Identifies a firm referenced in the SOLA® database")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.first_user_sequence_id = ProtoField.new("First User Sequence ID", "box.boxoptions.solaorderentry.sail.v2.25.firstusersequenceid", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.gap_sequence_id = ProtoField.new("Gap Sequence ID", "box.boxoptions.solaorderentry.sail.v2.25.gapsequenceid", ftypes.STRING, nil, nil, nil, "States a gap in the exchange message sequence")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.first_user_sequence_id = ProtoField.new("First User Sequence ID", "box.boxoptions.solaorderentry.sail.v2.25.firstusersequenceid", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.gap_sequence_id = ProtoField.new("Gap Sequence ID", "box.boxoptions.solaorderentry.sail.v2.25.gapsequenceid", ftypes.UINT8, nil, nil, nil, "States a gap in the exchange message sequence")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.group = ProtoField.new("Group", "box.boxoptions.solaorderentry.sail.v2.25.group", ftypes.STRING, nil, nil, nil, "Group Identification within the system. A Group is composed of instruments and is usually associated with a specific underlying.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.group_state = ProtoField.new("Group State", "box.boxoptions.solaorderentry.sail.v2.25.groupstate", ftypes.STRING, nil, nil, nil, "This parameter indicates the new status of the group. For message type NG, it contains one of the following values: B: Post session C: Consultation Start F: Consultation End I: Prohibited M: Mini-batch N: Market Operation Center Intervention O: Opening P: Pre-opening S: Continuous Trading Session Z: Interrupted")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.gtd_date = ProtoField.new("Gtd Date", "box.boxoptions.solaorderentry.sail.v2.25.gtddate", ftypes.STRING, nil, nil, nil, "Must be present if Duration Type is D. Represents the order's last active day.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.hedge_spec = ProtoField.new("Hedge Spec", "box.boxoptions.solaorderentry.sail.v2.25.hedgespec", ftypes.STRING, nil, nil, nil, "H: Hedger S: Speculator")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.id_code_for_the_counterpart_participant = ProtoField.new("Id Code For The Counterpart Participant", "box.boxoptions.solaorderentry.sail.v2.25.idcodeforthecounterpartparticipant", ftypes.STRING, nil, nil, nil, "Identifies a firm referenced in the SOLA® database")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.iml_handling = ProtoField.new("Iml Handling", "box.boxoptions.solaorderentry.sail.v2.25.imlhandling", ftypes.STRING, nil, nil, nil, "All Public Customer Orders sent to BOX must include NBBO filtering instructions: 1. NBBO Filtering and IML Routing: The order is filtered for NBBO and is routed to the best away Exchange if it is executed and BOX is not at NBBO. 2. No NBBO Filtering: The order is not filtered for NBBO. This type of filtering is not acceptable for Public Customer and Broker Dealer origin orders, regardless of whether they are for BOX Participants or not. 3. NBBO Filtering and No IML Routing: Order filtered against NBBO without Inter-Market Linkage routing instructions, the Order being rejected back to the sender if it is marketable at the time of reception and BOX is not at NBBO. For Complex Order, this is the only valid value. 4. InBound ISO order. The order is a Limit and IOC order. It is not filtered against NBBO and not routed away. 5. Contingent Orders: Specifies that the Auction or Floor Trade is contingent and should not be controlled against the NBBO for the execution price. Only used for Solicitation, Facilitation and Floor Trades. The only values supported for Solicitation and Facilitation are 3 and 5. 6. No Exposure for Complex Order Instrument upon entry. Default behaviour for Complex Order Instrument is to be exposed upon entry. Only valid for Complex Order.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.inactivity_interval = ProtoField.new("Inactivity Interval", "box.boxoptions.solaorderentry.sail.v2.25.inactivityinterval", ftypes.STRING, nil, nil, nil, "Number of missed heartbeats before considering the user disconnected. If set to 0, the user is never considered as disconnected by the system.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.inactivity_interval = ProtoField.new("Inactivity Interval", "box.boxoptions.solaorderentry.sail.v2.25.inactivityinterval", ftypes.UINT8, nil, nil, nil, "Number of missed heartbeats before considering the user disconnected. If set to 0, the user is never considered as disconnected by the system.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.instrument = ProtoField.new("Instrument", "box.boxoptions.solaorderentry.sail.v2.25.instrument", ftypes.STRING, nil, nil, nil, "Instrument identification within a Group")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.instrument_optional = ProtoField.new("Instrument Optional", "box.boxoptions.solaorderentry.sail.v2.25.instrumentoptional", ftypes.STRING, nil, nil, nil, "Instrument identification within a Group")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.last_exchange_message_id_sent_to_participant = ProtoField.new("Last Exchange Message Id Sent To Participant", "box.boxoptions.solaorderentry.sail.v2.25.lastexchangemessageidsenttoparticipant", ftypes.STRING, nil, nil, nil, "Identifies a message sent by the exchange for a Participant connection. It represents the exchange identifier of the message for the current session. It is used in a Connection message as a retransmission starting point. If equal to zeroes: start from 1st message of the session. If equal to blanks: start from next message for Participant. If valid Exchange Message ID: start at this message ID or the next message for the Participant. If it contains spaces, it means that this field is not subject to re-transmission.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.last_user_sequence_id_received = ProtoField.new("Last User Sequence Id Received", "box.boxoptions.solaorderentry.sail.v2.25.lastusersequenceidreceived", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.last_user_sequence_id_received = ProtoField.new("Last User Sequence Id Received", "box.boxoptions.solaorderentry.sail.v2.25.lastusersequenceidreceived", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_group = ProtoField.new("Leg Group", "box.boxoptions.solaorderentry.sail.v2.25.leggroup", ftypes.STRING, nil, nil, nil, "Group Identification within the system. A Group is composed of instruments and is usually associated with a specific underlying.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_instrument = ProtoField.new("Leg Instrument", "box.boxoptions.solaorderentry.sail.v2.25.leginstrument", ftypes.STRING, nil, nil, nil, "Instrument identification within a Group")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_instrument_id = ProtoField.new("Leg Instrument Id", "box.boxoptions.solaorderentry.sail.v2.25.leginstrumentid", ftypes.STRING, nil, nil, nil, "Instrument identification within a Group")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_number = ProtoField.new("Leg Number", "box.boxoptions.solaorderentry.sail.v2.25.legnumber", ftypes.STRING, nil, nil, nil, "ID of the leg of the Complex Order Instrument. Maximum value of 16.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_quantity_ratio = ProtoField.new("Leg Quantity Ratio", "box.boxoptions.solaorderentry.sail.v2.25.legquantityratio", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_number = ProtoField.new("Leg Number", "box.boxoptions.solaorderentry.sail.v2.25.legnumber", ftypes.UINT8, nil, nil, nil, "ID of the leg of the Complex Order Instrument. Maximum value of 16.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_quantity_ratio = ProtoField.new("Leg Quantity Ratio", "box.boxoptions.solaorderentry.sail.v2.25.legquantityratio", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_verb = ProtoField.new("Leg Verb", "box.boxoptions.solaorderentry.sail.v2.25.legverb", ftypes.STRING, nil, nil, nil, "Identifies an order/quote side B: Buy S: Sell")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.liquidity_status = ProtoField.new("Liquidity Status", "box.boxoptions.solaorderentry.sail.v2.25.liquiditystatus", ftypes.STRING, nil, nil, nil, "Indicates if the trade adds or removes liquidity M: Maker T: Taker [ ]: Trade is not eligible for Make or Take fee pricing structure")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_delta_value = ProtoField.new("Maximum Delta Value", "box.boxoptions.solaorderentry.sail.v2.25.maximumdeltavalue", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_delta_volume = ProtoField.new("Maximum Delta Volume", "box.boxoptions.solaorderentry.sail.v2.25.maximumdeltavolume", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_total_value = ProtoField.new("Maximum Total Value", "box.boxoptions.solaorderentry.sail.v2.25.maximumtotalvalue", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_total_volume = ProtoField.new("Maximum Total Volume", "box.boxoptions.solaorderentry.sail.v2.25.maximumtotalvolume", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_delta_value = ProtoField.new("Maximum Delta Value", "box.boxoptions.solaorderentry.sail.v2.25.maximumdeltavalue", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_delta_volume = ProtoField.new("Maximum Delta Volume", "box.boxoptions.solaorderentry.sail.v2.25.maximumdeltavolume", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_total_value = ProtoField.new("Maximum Total Value", "box.boxoptions.solaorderentry.sail.v2.25.maximumtotalvalue", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_total_volume = ProtoField.new("Maximum Total Volume", "box.boxoptions.solaorderentry.sail.v2.25.maximumtotalvolume", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.memo = ProtoField.new("Memo", "box.boxoptions.solaorderentry.sail.v2.25.memo", ftypes.STRING, nil, nil, nil, "Free text zone can be used to transmit additional information for processing. No validations are carried out on this field.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_length = ProtoField.new("Message Length", "box.boxoptions.solaorderentry.sail.v2.25.messagelength", ftypes.UINT32, nil, nil, nil, "Length of the Sail message, little endian, right justified and left filled with zeroes, ahead of the message itself")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_time_local = ProtoField.new("Message Time Local", "box.boxoptions.solaorderentry.sail.v2.25.messagetimelocal", ftypes.STRING, nil, nil, nil, "HHMMSS")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_timestamp = ProtoField.new("Message Timestamp", "box.boxoptions.solaorderentry.sail.v2.25.messagetimestamp", ftypes.STRING, nil, nil, nil, "Time of day the trading engine states, HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_time_local = ProtoField.new("Message Time Local", "box.boxoptions.solaorderentry.sail.v2.25.messagetimelocal", ftypes.UINT32, nil, nil, nil, "HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_timestamp = ProtoField.new("Message Timestamp", "box.boxoptions.solaorderentry.sail.v2.25.messagetimestamp", ftypes.UINT32, nil, nil, nil, "Time of day the trading engine states, HHMMSS")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_type = ProtoField.new("Message Type", "box.boxoptions.solaorderentry.sail.v2.25.messagetype", ftypes.STRING, nil, nil, nil, "The two characters naming which message follows the header")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_types_to_be_received = ProtoField.new("Message Types To Be Received", "box.boxoptions.solaorderentry.sail.v2.25.messagetypestobereceived", ftypes.STRING, nil, nil, nil, "List of message types requested by the Participant.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.mm_cat_user_time = ProtoField.new("Mm Cat User Time", "box.boxoptions.solaorderentry.sail.v2.25.mmcatusertime", ftypes.STRING, nil, nil, nil, "Time at which Market Maker sent their Bulk Quote message to BOX, represented in number of nanoseconds since midnight of the current day, use Eastern Time zone. Must be left blank if not used. BOX will not do any validation of the value provided. The Base62 character set is: “0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz” Any other character is evaluated as 0.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.modified_order_id = ProtoField.new("Modified Order Id", "box.boxoptions.solaorderentry.sail.v2.25.modifiedorderid", ftypes.STRING, nil, nil, nil, "Order ID of the order being modified.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.nb_legs = ProtoField.new("Nb Legs", "box.boxoptions.solaorderentry.sail.v2.25.nblegs", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (2)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.nb_of_instruments = ProtoField.new("Nb Of Instruments", "box.boxoptions.solaorderentry.sail.v2.25.nbofinstruments", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (4)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.nb_legs = ProtoField.new("Nb Legs", "box.boxoptions.solaorderentry.sail.v2.25.nblegs", ftypes.UINT8, nil, nil, nil, "Stated inline as Numeric (2)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.nb_of_instruments = ProtoField.new("Nb Of Instruments", "box.boxoptions.solaorderentry.sail.v2.25.nbofinstruments", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (4)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_complex_order_instrument_acknowledgement_occurrence = ProtoField.new("New Complex Order Instrument Acknowledgement Occurrence", "box.boxoptions.solaorderentry.sail.v2.25.newcomplexorderinstrumentacknowledgementoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as 2 to 16 occurrences.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_complex_order_instrument_occurrence = ProtoField.new("New Complex Order Instrument Occurrence", "box.boxoptions.solaorderentry.sail.v2.25.newcomplexorderinstrumentoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as 2 to 16 occurrences.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_price = ProtoField.new("New Price", "box.boxoptions.solaorderentry.sail.v2.25.newprice", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_quantity = ProtoField.new("New Quantity", "box.boxoptions.solaorderentry.sail.v2.25.newquantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_instructions_present_in_the_message = ProtoField.new("Number Of Instructions Present In The Message", "box.boxoptions.solaorderentry.sail.v2.25.numberofinstructionspresentinthemessage", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (2)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.boxoptions.solaorderentry.sail.v2.25.numberoflegs", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (2)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_message_types_to_be_received = ProtoField.new("Number Of Message Types To Be Received", "box.boxoptions.solaorderentry.sail.v2.25.numberofmessagetypestobereceived", ftypes.STRING, nil, nil, nil, "Indicates the number of message types (specified further in the message) the")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_quotes = ProtoField.new("Number Of Quotes", "box.boxoptions.solaorderentry.sail.v2.25.numberofquotes", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_quotes_in_error = ProtoField.new("Number Of Quotes In Error", "box.boxoptions.solaorderentry.sail.v2.25.numberofquotesinerror", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_quantity = ProtoField.new("New Quantity", "box.boxoptions.solaorderentry.sail.v2.25.newquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_instructions_present_in_the_message = ProtoField.new("Number Of Instructions Present In The Message", "box.boxoptions.solaorderentry.sail.v2.25.numberofinstructionspresentinthemessage", ftypes.UINT8, nil, nil, nil, "Stated inline as Numeric (2)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.boxoptions.solaorderentry.sail.v2.25.numberoflegs", ftypes.UINT8, nil, nil, nil, "Stated inline as Numeric (2)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_message_types_to_be_received = ProtoField.new("Number Of Message Types To Be Received", "box.boxoptions.solaorderentry.sail.v2.25.numberofmessagetypestobereceived", ftypes.UINT8, nil, nil, nil, "Indicates the number of message types (specified further in the message) the")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_quotes = ProtoField.new("Number Of Quotes", "box.boxoptions.solaorderentry.sail.v2.25.numberofquotes", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_quotes_in_error = ProtoField.new("Number Of Quotes In Error", "box.boxoptions.solaorderentry.sail.v2.25.numberofquotesinerror", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.open_close = ProtoField.new("Open Close", "box.boxoptions.solaorderentry.sail.v2.25.openclose", ftypes.STRING, nil, nil, nil, "Indicates how the Participant's position will be handled by the clearing system. Valid Values for options and individual leg of a Complex Order instrument: C: Close (all legs or single instrument) O: Open (all legs or single instrument) For Complex Orders, ' ' must be used. It indicates that the OpenClose positions are specified in the Post Trading Instruction field. For Legacy support, the following values are still supported for Complex Orders: 1: 1st leg Open, 2nd leg Close 2: 1st leg Close, 2nd leg Open 3: 1st leg Open, 2nd leg Open, 3rd leg Close 4: 1st leg Open, 2nd leg Close, 3rd leg Open 5: 1st leg Open, 2nd leg Close, 3rd leg Close 6: 1st leg Close, 2nd leg Open, 3rd leg Open 7: 1st leg Close, 2nd leg Open, 3rd leg Close 8: 1st leg Close, 2nd leg Close, 3rd leg Open A: 1st leg Open, 2nd leg Open, 3rd leg Open, 4th leg Close B: 1st leg Open, 2nd leg Open, 3rd leg Close, 4th leg Open D: 1st leg Open, 2nd leg Open, 3rd leg Close, 4th leg Close E: 1st leg Open, 2nd leg Close, 3rd leg Open, 4th leg Open F: 1st leg Open, 2nd leg Close, 3rd leg Open, 4th leg Close G: 1st leg Open, 2nd leg Close, 3rd leg Close, 4th leg Open H: 1st leg Open, 2nd leg Close, 3rd leg Close, 4th leg Close I: 1st leg Close, 2nd leg Open, 3rd leg Open, 4th leg Open J: 1st leg Close, 2nd leg Open, 3rd leg Open, 4th leg Close K: 1st leg Close, 2nd leg Open, 3rd leg Close, 4th leg Open L: 1st leg Close, 2nd leg Open, 3rd leg Close, 4th leg Close M: 1st leg Close, 2nd leg Close, 3rd leg Open, 4th leg Open N: 1st leg Close, 2nd leg Close, 3rd leg Open, 4th leg Close P: 1st leg Close, 2nd leg Close, 3rd leg Close, 4th leg Open")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.order_id = ProtoField.new("Order Id", "box.boxoptions.solaorderentry.sail.v2.25.orderid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID; it is the Order Key identifier")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.order_id_error_notice = ProtoField.new("Order Id Error Notice", "box.boxoptions.solaorderentry.sail.v2.25.orderiderrornotice", ftypes.STRING, nil, nil, nil, "Client Order Id Unique identifier for orders as assigned by participants. Trailing blanks are not significant.")
@@ -115,34 +115,34 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.original_reference_id_quote_
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.owner_data = ProtoField.new("Owner Data", "box.boxoptions.solaorderentry.sail.v2.25.ownerdata", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as Owner Data, for every message that carries them.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.owner_data_dealer = ProtoField.new("Owner Data Dealer", "box.boxoptions.solaorderentry.sail.v2.25.ownerdatadealer", ftypes.STRING, nil, nil, nil, "The guide states these fields once, as Owner Data, for every message that carries them.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.password_md_5_encryption = ProtoField.new("Password Md 5 Encryption", "box.boxoptions.solaorderentry.sail.v2.25.passwordmd5encryption", ftypes.STRING, nil, nil, nil, "Contact Technical Help Desk for details Used when establishing a SAIL Logical connection See section 7 for details on how to encode it.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.percent_of_quote = ProtoField.new("Percent Of Quote", "box.boxoptions.solaorderentry.sail.v2.25.percentofquote", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (8)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.percent_of_quote = ProtoField.new("Percent Of Quote", "box.boxoptions.solaorderentry.sail.v2.25.percentofquote", ftypes.UINT32, nil, nil, nil, "Stated inline as Numeric (8)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instruction = ProtoField.new("Post Trading Instruction", "box.boxoptions.solaorderentry.sail.v2.25.posttradinginstruction", ftypes.STRING, nil, nil, nil, "String of characters This field is used for 4 reasons: Specify a CMTA Specify a Give-Up Firm Specify a SubAccount at OCC. The SubAccount represents the Market Maker ID (MMID) at OCC. Specify the Open Close of a Complex Order The information can be specified as follows: To specify a CMTA, enclose the CMTA Firm ID (up to 4 digits) between 2 'C' To specify a Give-Up Firm, enclose the Give-Up Firm ID (up to 4 digits) between 2 'G' To specify a SubAccount (ClearingAccount at OCC), enclose the SubAccount between 2 ‘#’ (pound sign). SubAccount is defined as a string up to 3 AlphaNumeric as is currently supported by OCC). Any preceeding space is allowed, but any trailing space is ignored. o #ABC# means ‘ABC’ will be sent to OCC (Sent as is) o # AB# means ‘ AB’ will be sent to OCC (Preceding space conserved) o #AB # means ‘AB’ will be sent to OCC (Trailing space removed) o #ABCD# means ‘ABC’ (truncated to 3) will be sent to OCC To specify the OpenClose of a Complex Order, enclose the Open (O) or Close (C) position of each leg between 2 'P' - up to 16 legs Open/Close are supported. For example: \"C950CG980G#ABC#POOCCOCOCCCP\" is interpreted as follows: The CMTA is 950 The Give-Up is 980 The SubAccount is ABC The Open/Close of the 10 legs of the strategy is as follows: . Leg 1: Open . Leg 2: Open . Leg 3: Close . Leg 4: Close . Leg 5: Open . Leg 6: Close . Leg 7: Open . Leg 8: Close . Leg 9: Close . Leg 10: Close")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instructions = ProtoField.new("Post Trading Instructions", "box.boxoptions.solaorderentry.sail.v2.25.posttradinginstructions", ftypes.STRING, nil, nil, nil, "String of characters This field is used for 4 reasons: Specify a CMTA Specify a Give-Up Firm Specify a SubAccount at OCC. The SubAccount represents the Market Maker ID (MMID) at OCC. Specify the Open Close of a Complex Order The information can be specified as follows: To specify a CMTA, enclose the CMTA Firm ID (up to 4 digits) between 2 'C' To specify a Give-Up Firm, enclose the Give-Up Firm ID (up to 4 digits) between 2 'G' To specify a SubAccount (ClearingAccount at OCC), enclose the SubAccount between 2 ‘#’ (pound sign). SubAccount is defined as a string up to 3 AlphaNumeric as is currently supported by OCC). Any preceeding space is allowed, but any trailing space is ignored. o #ABC# means ‘ABC’ will be sent to OCC (Sent as is) o # AB# means ‘ AB’ will be sent to OCC (Preceding space conserved) o #AB # means ‘AB’ will be sent to OCC (Trailing space removed) o #ABCD# means ‘ABC’ (truncated to 3) will be sent to OCC To specify the OpenClose of a Complex Order, enclose the Open (O) or Close (C) position of each leg between 2 'P' - up to 16 legs Open/Close are supported. For example: \"C950CG980G#ABC#POOCCOCOCCCP\" is interpreted as follows: The CMTA is 950 The Give-Up is 980 The SubAccount is ABC The Open/Close of the 10 legs of the strategy is as follows: . Leg 1: Open . Leg 2: Open . Leg 3: Close . Leg 4: Close . Leg 5: Open . Leg 6: Close . Leg 7: Open . Leg 8: Close . Leg 9: Close . Leg 10: Close")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.pound_sign = ProtoField.new("Pound Sign", "box.boxoptions.solaorderentry.sail.v2.25.poundsign", ftypes.STRING, nil, nil, nil, "Printed by the guide as a field named #. Separates the ClientOrderId from the Memo within Owner Data: anything before it is the ClientOrderId, anything after it the Memo. # Pound sign")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.preceding_user_sequence_id_received = ProtoField.new("Preceding User Sequence ID Received", "box.boxoptions.solaorderentry.sail.v2.25.precedingusersequenceidreceived", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.preceding_user_sequence_id_received = ProtoField.new("Preceding User Sequence ID Received", "box.boxoptions.solaorderentry.sail.v2.25.precedingusersequenceidreceived", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.previous_price = ProtoField.new("Previous Price", "box.boxoptions.solaorderentry.sail.v2.25.previousprice", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.previous_quantity = ProtoField.new("Previous Quantity", "box.boxoptions.solaorderentry.sail.v2.25.previousquantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.previous_quantity = ProtoField.new("Previous Quantity", "box.boxoptions.solaorderentry.sail.v2.25.previousquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.price = ProtoField.new("Price", "box.boxoptions.solaorderentry.sail.v2.25.price", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.price_type = ProtoField.new("Price Type", "box.boxoptions.solaorderentry.sail.v2.25.pricetype", ftypes.STRING, nil, nil, nil, "For regular order: L: Limit (price set in message) O: At Opening price W: At any price (Market Order)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.protection_type_advanced_normal = ProtoField.new("Protection Type Advanced Normal", "box.boxoptions.solaorderentry.sail.v2.25.protectiontypeadvancednormal", ftypes.STRING, nil, nil, nil, "Type of protection requested by the Market Maker A: Advanced Protection C: Functionally equivalent to N N: Standard Protection Note: If no Market Maker Protection Subscription message is sent, BOX will assume the Participant requested standard protection (N). BOX will reset the selected protection to standard every morning before the pre-opening phase. A new Market Maker Protection Subscription message will be required to activate advanced protection.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.protocol_version = ProtoField.new("Protocol Version", "box.boxoptions.solaorderentry.sail.v2.25.protocolversion", ftypes.STRING, nil, nil, nil, "Protocol ID: Versions A0, A1, A2, and A5 are no longer supported. A6 (includes Complex Order), A7, A8, B1, B3")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.qualified_quantity = ProtoField.new("Qualified Quantity", "box.boxoptions.solaorderentry.sail.v2.25.qualifiedquantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity = ProtoField.new("Quantity", "box.boxoptions.solaorderentry.sail.v2.25.quantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_1 = ProtoField.new("Quantity 1", "box.boxoptions.solaorderentry.sail.v2.25.quantity1", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.qualified_quantity = ProtoField.new("Qualified Quantity", "box.boxoptions.solaorderentry.sail.v2.25.qualifiedquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity = ProtoField.new("Quantity", "box.boxoptions.solaorderentry.sail.v2.25.quantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_1 = ProtoField.new("Quantity 1", "box.boxoptions.solaorderentry.sail.v2.25.quantity1", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_sign = ProtoField.new("Quantity Sign", "box.boxoptions.solaorderentry.sail.v2.25.quantitysign", ftypes.STRING, nil, nil, nil, "For a quote or an order update, it identifies how to handle the quantity: \"+\": Add the incoming quantity to the booked quantity \"-\": Subtract the incoming quantity from the booked quantity \"=\": Replace the booked quantity with the incoming quantity Participants are able to modify the quantity of an order by specifying the quantity variation from the original value (+, - signs) instead of being limited to specifying only the remaining quantity.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_term = ProtoField.new("Quantity Term", "box.boxoptions.solaorderentry.sail.v2.25.quantityterm", ftypes.STRING, nil, nil, nil, "B: Surrender Quantity for Solicitation, Facilitation and Floor Trade J: Indicates that the Auction type as MIP Space: None The above value indicates that the InitO is willing to surrender a portion of the total number of contracts")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_traded = ProtoField.new("Quantity Traded", "box.boxoptions.solaorderentry.sail.v2.25.quantitytraded", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_traded = ProtoField.new("Quantity Traded", "box.boxoptions.solaorderentry.sail.v2.25.quantitytraded", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_cancel_reason = ProtoField.new("Quote Cancel Reason", "box.boxoptions.solaorderentry.sail.v2.25.quotecancelreason", ftypes.STRING, nil, nil, nil, "Identifies the type of quote cancellation A: Cancelled by the Trader D: MMP – Percent Of Quote has been reached E: Maximum Triggers Protection Limit Exceeded G: Cancelled By Supervisor I: Eliminated on Disconnect L: Traded Activity Protection Limit Exceeded M: Cancelled by the BOX Market Operations Center (MOC) O: Eliminated Due To Drill Through Protection P: MMP - Max number of trades has been reached Q: Quotes Cancelled R: MMP - Max value has been reached S: Cancelled by the System T: MMP - Max Volume has been reached N: MMP - Max Delta Volume has been reached V: MMP - Max Delta Value has been reached W: Cancel Pending")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_id = ProtoField.new("Quote ID", "box.boxoptions.solaorderentry.sail.v2.25.quoteid", ftypes.STRING, nil, nil, nil, "If entered by Participant Quote ID is validated against the Quote ID received in the KD “Sail Bulk Quote Acknowledgment message”, On failed validation the system returns an ER “Sail Error Notice” message with the expected Quote ID. An empty Quote ID is accepted and not validated by the system. An empty Quote ID is defined as follows: All ‘ ‘ (blank) spaces 00000000 On all outbound messages with Quote ID, the Quote ID corresponds to the Quote ID referenced in the KD message.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_number = ProtoField.new("Quote Number", "box.boxoptions.solaorderentry.sail.v2.25.quotenumber", ftypes.STRING, nil, nil, nil, "Stated inline as Numeric (3)")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_number = ProtoField.new("Quote Number", "box.boxoptions.solaorderentry.sail.v2.25.quotenumber", ftypes.UINT16, nil, nil, nil, "Stated inline as Numeric (3)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_price = ProtoField.new("Quote Price", "box.boxoptions.solaorderentry.sail.v2.25.quoteprice", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_quantity = ProtoField.new("Quote Quantity", "box.boxoptions.solaorderentry.sail.v2.25.quotequantity", ftypes.STRING, nil, nil, nil, "Number of contracts or shares")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_quantity = ProtoField.new("Quote Quantity", "box.boxoptions.solaorderentry.sail.v2.25.quotequantity", ftypes.UINT32, nil, nil, nil, "Number of contracts or shares")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.received_message_type = ProtoField.new("Received Message Type", "box.boxoptions.solaorderentry.sail.v2.25.receivedmessagetype", ftypes.STRING, nil, nil, nil, "Received Message type in Error")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.received_user_sequence_id = ProtoField.new("Received User Sequence Id", "box.boxoptions.solaorderentry.sail.v2.25.receivedusersequenceid", ftypes.STRING, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.received_user_sequence_id = ProtoField.new("Received User Sequence Id", "box.boxoptions.solaorderentry.sail.v2.25.receivedusersequenceid", ftypes.UINT32, nil, nil, nil, "Identifies all the incoming business messages for one connection. Must be sequential and start at 1 at the beginning of the day. Used by SOLA® to track gaps in message sequence. When the maximum User Sequence ID of 99999999 is reached, the Participant is required to reset back to 0 (zero), and then increment by 1 for each new business message sent to the Exchange. The same reset is required when the Participant reaches the next maximum User Sequence ID of 99999999 and so on.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reference_id = ProtoField.new("Reference Id", "box.boxoptions.solaorderentry.sail.v2.25.referenceid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID; it is the Order Key identifier")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reference_id_quote = ProtoField.new("Reference Id Quote", "box.boxoptions.solaorderentry.sail.v2.25.referenceidquote", ftypes.STRING, nil, nil, nil, "If entered by Participant Quote ID is validated against the Quote ID received in the KD “Sail Bulk Quote Acknowledgment message”, On failed validation the system returns an ER “Sail Error Notice” message with the expected Quote ID. An empty Quote ID is accepted and not validated by the system. An empty Quote ID is defined as follows: All ‘ ‘ (blank) spaces 00000000 On all outbound messages with Quote ID, the Quote ID corresponds to the Quote ID referenced in the KD message.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.referenced_order_id = ProtoField.new("Referenced Order Id", "box.boxoptions.solaorderentry.sail.v2.25.referencedorderid", ftypes.STRING, nil, nil, nil, "Identifies an order. Associated with Group ID and Instrument ID; it is the Order Key identifier")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.rejection_code = ProtoField.new("Rejection Code", "box.boxoptions.solaorderentry.sail.v2.25.rejectioncode", ftypes.STRING, nil, nil, nil, "0001: Executing Participant Discretion 0002: Auction Order failed")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.rejection_code = ProtoField.new("Rejection Code", "box.boxoptions.solaorderentry.sail.v2.25.rejectioncode", ftypes.UINT16, nil, nil, nil, "0001: Executing Participant Discretion 0002: Auction Order failed")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reserved_1 = ProtoField.new("Reserved 1", "box.boxoptions.solaorderentry.sail.v2.25.reserved1", ftypes.BYTES, nil, nil, nil, "Stated inline as String (1)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reserved_10 = ProtoField.new("Reserved 10", "box.boxoptions.solaorderentry.sail.v2.25.reserved10", ftypes.BYTES, nil, nil, nil, "Stated inline as String (10)")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reserved_17 = ProtoField.new("Reserved 17", "box.boxoptions.solaorderentry.sail.v2.25.reserved17", ftypes.BYTES, nil, nil, nil, "Stated inline as String (17)")
@@ -163,17 +163,17 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.start_of_message_in_error = 
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.status = ProtoField.new("Status", "box.boxoptions.solaorderentry.sail.v2.25.status", ftypes.STRING, nil, nil, nil, "Provides the Participant with the outcome reserved for the order that is the subject of the entry, modification, or cancellation. \" \": Order put in the Order Book (having possibly been partially executed) A: Order cancelled by the trader or at the end of the exposition phase B: Order has been eliminated by the trading system due to invalid out of limits price D: The order is a 'Directed/Routed Order' and has been received by ExecutingParticipant E: The order has been eliminated by the trading system G: Cancelled By Supervisor I: Session Order has been cancelled when the Participant closes or loses his connection to the SOLA trading system J: Eliminated Due To Maximum Nb Triggers Limit Exceeded K: Eliminated Due To Trade Activity Limit Exceeded L: Order has been sent to the away exchange M: Cancelled by the BOX Market Operations Center (MOC) O: Eliminated Due To Drill Through Protection P: Order is being exposed R: Order is eliminated due to trading restriction T: Eliminated Due To Trade Limit Exceeded W: Cancel Pending X: Order executed in full (or partially and the remaining part could not be put in the Order Book) (Fill & Kill) The guide states no width for this type. One character is inferred from the values it states, each of which is one character wide.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_group = ProtoField.new("Strategy Group", "box.boxoptions.solaorderentry.sail.v2.25.strategygroup", ftypes.STRING, nil, nil, nil, "Group Identification within the system. A Group is composed of instruments and is usually associated with a specific underlying.")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_instrument_id = ProtoField.new("Strategy Instrument Id", "box.boxoptions.solaorderentry.sail.v2.25.strategyinstrumentid", ftypes.STRING, nil, nil, nil, "Instrument identification within a Group")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_trade_number = ProtoField.new("Strategy Trade Number", "box.boxoptions.solaorderentry.sail.v2.25.strategytradenumber", ftypes.STRING, nil, nil, nil, "Identifies the trade number for an instrument and one day")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_trade_number = ProtoField.new("Strategy Trade Number", "box.boxoptions.solaorderentry.sail.v2.25.strategytradenumber", ftypes.UINT32, nil, nil, nil, "Identifies the trade number for an instrument and one day")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_verb_side = ProtoField.new("Strategy Verb Side", "box.boxoptions.solaorderentry.sail.v2.25.strategyverbside", ftypes.STRING, nil, nil, nil, "Identifies an order/quote side B: Buy S: Sell")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.system_sequence_id = ProtoField.new("System Sequence ID", "box.boxoptions.solaorderentry.sail.v2.25.systemsequenceid", ftypes.STRING, nil, nil, nil, "Sequence number the trading system assigns")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time = ProtoField.new("Time", "box.boxoptions.solaorderentry.sail.v2.25.time", ftypes.STRING, nil, nil, nil, "HHMMSS")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_hhmmss = ProtoField.new("Time Hhmmss", "box.boxoptions.solaorderentry.sail.v2.25.timehhmmss", ftypes.STRING, nil, nil, nil, "HHMMSS")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_local = ProtoField.new("Time Local", "box.boxoptions.solaorderentry.sail.v2.25.timelocal", ftypes.STRING, nil, nil, nil, "HHMMSS")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_of_the_trade_hhmmss = ProtoField.new("Time Of The Trade Hhmmss", "box.boxoptions.solaorderentry.sail.v2.25.timeofthetradehhmmss", ftypes.STRING, nil, nil, nil, "HHMMSS")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_trade_hhmmss = ProtoField.new("Time Trade Hhmmss", "box.boxoptions.solaorderentry.sail.v2.25.timetradehhmmss", ftypes.STRING, nil, nil, nil, "HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time = ProtoField.new("Time", "box.boxoptions.solaorderentry.sail.v2.25.time", ftypes.UINT32, nil, nil, nil, "HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_hhmmss = ProtoField.new("Time Hhmmss", "box.boxoptions.solaorderentry.sail.v2.25.timehhmmss", ftypes.UINT32, nil, nil, nil, "HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_local = ProtoField.new("Time Local", "box.boxoptions.solaorderentry.sail.v2.25.timelocal", ftypes.UINT32, nil, nil, nil, "HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_of_the_trade_hhmmss = ProtoField.new("Time Of The Trade Hhmmss", "box.boxoptions.solaorderentry.sail.v2.25.timeofthetradehhmmss", ftypes.UINT32, nil, nil, nil, "HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_trade_hhmmss = ProtoField.new("Time Trade Hhmmss", "box.boxoptions.solaorderentry.sail.v2.25.timetradehhmmss", ftypes.UINT32, nil, nil, nil, "HHMMSS")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_leg_price = ProtoField.new("Trade Leg Price", "box.boxoptions.solaorderentry.sail.v2.25.tradelegprice", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_memo = ProtoField.new("Trade Memo", "box.boxoptions.solaorderentry.sail.v2.25.tradememo", ftypes.STRING, nil, nil, nil, "Stated inline as String (50)")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_number = ProtoField.new("Trade Number", "box.boxoptions.solaorderentry.sail.v2.25.tradenumber", ftypes.STRING, nil, nil, nil, "Identifies the trade number for an instrument and one day")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_number = ProtoField.new("Trade Number", "box.boxoptions.solaorderentry.sail.v2.25.tradenumber", ftypes.UINT32, nil, nil, nil, "Identifies the trade number for an instrument and one day")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_price = ProtoField.new("Trade Price", "box.boxoptions.solaorderentry.sail.v2.25.tradeprice", ftypes.STRING, nil, nil, nil, "Price with format indicator and price mantissa Format indicator (1): If the format indicator is Alpha, it means that the price is negative (A means negative value with no decimal, B means negative value with 1 decimal, C means negative value with 2 decimals, etc.). If the format indicator is Numeric, it means that the price is positive (0 means positive value with no decimal, 1 means positive value with one decimal, 2 means positive value with 2 decimals, etc.). If the format indicator is set to spaces, it means that the price is not significant. Price mantissa (9): Represents the price value including the number of decimals defined in the format indicator. Examples: Format indicator = 2; Price mantissa = 3509438; Price = 35094.38 Format indicator = A; Price mantissa = 3567838; Price = -3567838 Format indicator = ; Price mantissa = 3567838; Price = not significant")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_type = ProtoField.new("Trade Type", "box.boxoptions.solaorderentry.sail.v2.25.tradetype", ftypes.STRING, nil, nil, nil, "Identifies the origin of the trade A: Traded during a Guaranteed Auction B: Solicitation Auction C: Facilitation Auction F: Traded during Continuous Trading following FIFO algorithm M: Trade entered by Market Operations O: Traded during Opening")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trader_id = ProtoField.new("Trader Id", "box.boxoptions.solaorderentry.sail.v2.25.traderid", ftypes.STRING, nil, nil, nil, "Identifies the trader 4 first characters: Firm Identifier 4 Last characters: Trader Identifier")
@@ -181,8 +181,8 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trader_lock_out = ProtoField
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.type_of_cancellation = ProtoField.new("Type Of Cancellation", "box.boxoptions.solaorderentry.sail.v2.25.typeofcancellation", ftypes.STRING, nil, nil, nil, "Type of cancellation A: All L: Locked O: OrdersOnly Q: QuotesOnly")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_connection_occurrence = ProtoField.new("User Connection Occurrence", "box.boxoptions.solaorderentry.sail.v2.25.userconnectionoccurrence", ftypes.STRING, nil, nil, nil, "The guide states this block as (1 to 99 occurrences).")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_id = ProtoField.new("User Id", "box.boxoptions.solaorderentry.sail.v2.25.userid", ftypes.STRING, nil, nil, nil, "Identifies the User for a connection. The User ID must be referenced in the SOLA® configuration database.")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_sequence_id = ProtoField.new("User Sequence ID", "box.boxoptions.solaorderentry.sail.v2.25.usersequenceid", ftypes.STRING, nil, nil, nil, "Sequence number the participant assigns, incremented by one for each new business message and reset to zero after 99999999")
-omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_time = ProtoField.new("User Time", "box.boxoptions.solaorderentry.sail.v2.25.usertime", ftypes.STRING, nil, nil, nil, "Time of day the participant states, HHMMSS")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_sequence_id = ProtoField.new("User Sequence ID", "box.boxoptions.solaorderentry.sail.v2.25.usersequenceid", ftypes.UINT32, nil, nil, nil, "Sequence number the participant assigns, incremented by one for each new business message and reset to zero after 99999999")
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_time = ProtoField.new("User Time", "box.boxoptions.solaorderentry.sail.v2.25.usertime", ftypes.UINT32, nil, nil, nil, "Time of day the participant states, HHMMSS")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.verb = ProtoField.new("Verb", "box.boxoptions.solaorderentry.sail.v2.25.verb", ftypes.STRING, nil, nil, nil, "Identifies an order/quote side B: Buy S: Sell")
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.verb_side = ProtoField.new("Verb Side", "box.boxoptions.solaorderentry.sail.v2.25.verbside", ftypes.STRING, nil, nil, nil, "Identifies an order/quote side B: Buy S: Sell")
 
@@ -256,6 +256,11 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.disconnection_instruction_oc
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_complex_order_instrument_acknowledgement_occurrence_index = ProtoField.new("New Complex Order Instrument Acknowledgement Occurrence Index", "box.boxoptions.solaorderentry.sail.v2.25.newcomplexorderinstrumentacknowledgementoccurrenceindex", ftypes.UINT16)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_complex_order_instrument_occurrence_index = ProtoField.new("New Complex Order Instrument Occurrence Index", "box.boxoptions.solaorderentry.sail.v2.25.newcomplexorderinstrumentoccurrenceindex", ftypes.UINT16)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_connection_occurrence_index = ProtoField.new("User Connection Occurrence Index", "box.boxoptions.solaorderentry.sail.v2.25.userconnectionoccurrenceindex", ftypes.UINT16)
+
+-- Box BoxOptions SolaOrderEntry Sail 2.25 Expert Info
+box_boxoptions_solaorderentry_sail_v2_25.experts = {}
+box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number = ProtoExpert.new("box.boxoptions.solaorderentry.sail.v2.25.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_box_boxoptions_solaorderentry_sail_v2_25.experts = { box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Box BoxOptions SolaOrderEntry Sail 2.25 Formatting
@@ -531,7 +536,10 @@ box_boxoptions_solaorderentry_sail_v2_25.additional_quantity.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.additional_quantity, range, value, "Additional Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Additional Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.additional_quantity.display(value, buffer, offset, packet, parent)
@@ -582,7 +590,10 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_id.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_id, range, value, "Auction ID: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Auction ID is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.auction_id.display(value, buffer, offset, packet, parent)
@@ -615,7 +626,10 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_id_optional.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_id_optional, range, value, "Auction ID Optional: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Auction ID Optional is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.auction_id_optional.display(value, buffer, offset, packet, parent)
@@ -666,7 +680,10 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_quantity.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.auction_quantity, range, value, "Auction Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Auction Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.auction_quantity.display(value, buffer, offset, packet, parent)
@@ -778,7 +795,10 @@ box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.calculation_time_interval, range, value, "Calculation Time Interval: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Calculation Time Interval is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.display(value, buffer, offset, packet, parent)
@@ -1193,7 +1213,10 @@ box_boxoptions_solaorderentry_sail_v2_25.error_code.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_code, range, value, "Error Code: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Error Code is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.error_code.display(value, buffer, offset, packet, parent)
@@ -1295,7 +1318,10 @@ box_boxoptions_solaorderentry_sail_v2_25.error_position.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_position, range, value, "Error Position: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Error Position is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.error_position.display(value, buffer, offset, packet, parent)
@@ -1369,7 +1395,10 @@ box_boxoptions_solaorderentry_sail_v2_25.expected_last_user_sequence_id.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.expected_last_user_sequence_id, range, value, "Expected Last User Sequence Id: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Expected Last User Sequence Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.expected_last_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -1420,7 +1449,10 @@ box_boxoptions_solaorderentry_sail_v2_25.first_user_sequence_id.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.first_user_sequence_id, range, value, "First User Sequence ID: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "First User Sequence ID is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.first_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -1448,7 +1480,10 @@ box_boxoptions_solaorderentry_sail_v2_25.gap_sequence_id.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.gap_sequence_id, range, value, "Gap Sequence ID: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Gap Sequence ID is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.gap_sequence_id.display(value, buffer, offset, packet, parent)
@@ -1670,7 +1705,10 @@ box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.inactivity_interval, range, value, "Inactivity Interval: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Inactivity Interval is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.display(value, buffer, offset, packet, parent)
@@ -1772,7 +1810,10 @@ box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.last_user_sequence_id_received, range, value, "Last User Sequence Id Received: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Last User Sequence Id Received is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.display(value, buffer, offset, packet, parent)
@@ -1874,7 +1915,10 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_number, range, value, "Leg Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Leg Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.leg_number.display(value, buffer, offset, packet, parent)
@@ -1902,7 +1946,10 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_quantity_ratio.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_quantity_ratio, range, value, "Leg Quantity Ratio: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Leg Quantity Ratio is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.leg_quantity_ratio.display(value, buffer, offset, packet, parent)
@@ -1995,7 +2042,10 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_delta_value, range, value, "Maximum Delta Value: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Maximum Delta Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.display(value, buffer, offset, packet, parent)
@@ -2028,7 +2078,10 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_delta_volume, range, value, "Maximum Delta Volume: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Maximum Delta Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.display(value, buffer, offset, packet, parent)
@@ -2061,7 +2114,10 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_total_value, range, value, "Maximum Total Value: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Maximum Total Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.display(value, buffer, offset, packet, parent)
@@ -2094,7 +2150,10 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.maximum_total_volume, range, value, "Maximum Total Volume: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Maximum Total Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.display(value, buffer, offset, packet, parent)
@@ -2173,7 +2232,10 @@ box_boxoptions_solaorderentry_sail_v2_25.message_time_local.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_time_local, range, value, "Message Time Local: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Message Time Local is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.message_time_local.display(value, buffer, offset, packet, parent)
@@ -2201,7 +2263,10 @@ box_boxoptions_solaorderentry_sail_v2_25.message_timestamp.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.message_timestamp, range, value, "Message Timestamp: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Message Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.message_timestamp.display(value, buffer, offset, packet, parent)
@@ -2484,7 +2549,10 @@ box_boxoptions_solaorderentry_sail_v2_25.nb_legs.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.nb_legs, range, value, "Nb Legs: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Nb Legs is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.nb_legs.display(value, buffer, offset, packet, parent)
@@ -2512,7 +2580,10 @@ box_boxoptions_solaorderentry_sail_v2_25.nb_of_instruments.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.nb_of_instruments, range, value, "Nb Of Instruments: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Nb Of Instruments is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.nb_of_instruments.display(value, buffer, offset, packet, parent)
@@ -2563,7 +2634,10 @@ box_boxoptions_solaorderentry_sail_v2_25.new_quantity.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.new_quantity, range, value, "New Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "New Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.new_quantity.display(value, buffer, offset, packet, parent)
@@ -2591,7 +2665,10 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_instructions_present_in_the_m
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_instructions_present_in_the_message, range, value, "Number Of Instructions Present In The Message: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Number Of Instructions Present In The Message is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_instructions_present_in_the_message.display(value, buffer, offset, packet, parent)
@@ -2619,7 +2696,10 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_legs.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_legs, range, value, "Number Of Legs: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Number Of Legs is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_legs.display(value, buffer, offset, packet, parent)
@@ -2647,7 +2727,10 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_message_types_to_be_received.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_message_types_to_be_received, range, value, "Number Of Message Types To Be Received: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Number Of Message Types To Be Received is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_message_types_to_be_received.display(value, buffer, offset, packet, parent)
@@ -2675,7 +2758,10 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_quotes, range, value, "Number Of Quotes: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Number Of Quotes is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes.display(value, buffer, offset, packet, parent)
@@ -2703,7 +2789,10 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes_in_error.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.number_of_quotes_in_error, range, value, "Number Of Quotes In Error: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Number Of Quotes In Error is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes_in_error.display(value, buffer, offset, packet, parent)
@@ -3028,7 +3117,10 @@ box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.percent_of_quote, range, value, "Percent Of Quote: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Percent Of Quote is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.display(value, buffer, offset, packet, parent)
@@ -3148,7 +3240,10 @@ box_boxoptions_solaorderentry_sail_v2_25.preceding_user_sequence_id_received.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.preceding_user_sequence_id_received, range, value, "Preceding User Sequence ID Received: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Preceding User Sequence ID Received is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.preceding_user_sequence_id_received.display(value, buffer, offset, packet, parent)
@@ -3199,7 +3294,10 @@ box_boxoptions_solaorderentry_sail_v2_25.previous_quantity.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.previous_quantity, range, value, "Previous Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Previous Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.previous_quantity.display(value, buffer, offset, packet, parent)
@@ -3343,7 +3441,10 @@ box_boxoptions_solaorderentry_sail_v2_25.qualified_quantity.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.qualified_quantity, range, value, "Qualified Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Qualified Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.qualified_quantity.display(value, buffer, offset, packet, parent)
@@ -3376,7 +3477,10 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity, range, value, "Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quantity.display(value, buffer, offset, packet, parent)
@@ -3409,7 +3513,10 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_1.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_1, range, value, "Quantity 1: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Quantity 1 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quantity_1.display(value, buffer, offset, packet, parent)
@@ -3506,7 +3613,10 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_traded, range, value, "Quantity Traded: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Quantity Traded is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.display(value, buffer, offset, packet, parent)
@@ -3629,7 +3739,10 @@ box_boxoptions_solaorderentry_sail_v2_25.quote_number.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_number, range, value, "Quote Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Quote Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quote_number.display(value, buffer, offset, packet, parent)
@@ -3685,7 +3798,10 @@ box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_quantity, range, value, "Quote Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Quote Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.display(value, buffer, offset, packet, parent)
@@ -3736,7 +3852,10 @@ box_boxoptions_solaorderentry_sail_v2_25.received_user_sequence_id.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.received_user_sequence_id, range, value, "Received User Sequence Id: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Received User Sequence Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.received_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -3840,7 +3959,10 @@ box_boxoptions_solaorderentry_sail_v2_25.rejection_code.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.rejection_code, range, value, "Rejection Code: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Rejection Code is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.rejection_code.display(value, buffer, offset, packet, parent)
@@ -4411,7 +4533,10 @@ box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_trade_number, range, value, "Strategy Trade Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Strategy Trade Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.display(value, buffer, offset, packet, parent)
@@ -4500,7 +4625,10 @@ box_boxoptions_solaorderentry_sail_v2_25.time.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time, range, value, "Time: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time.display(value, buffer, offset, packet, parent)
@@ -4528,7 +4656,10 @@ box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_hhmmss, range, value, "Time Hhmmss: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time Hhmmss is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.display(value, buffer, offset, packet, parent)
@@ -4556,7 +4687,10 @@ box_boxoptions_solaorderentry_sail_v2_25.time_local.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_local, range, value, "Time Local: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time Local is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_local.display(value, buffer, offset, packet, parent)
@@ -4584,7 +4718,10 @@ box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_of_the_trade_hhmmss, range, value, "Time Of The Trade Hhmmss: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time Of The Trade Hhmmss is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.display(value, buffer, offset, packet, parent)
@@ -4612,7 +4749,10 @@ box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_trade_hhmmss, range, value, "Time Trade Hhmmss: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time Trade Hhmmss is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.display(value, buffer, offset, packet, parent)
@@ -4691,7 +4831,10 @@ box_boxoptions_solaorderentry_sail_v2_25.trade_number.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_number, range, value, "Trade Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Trade Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.trade_number.display(value, buffer, offset, packet, parent)
@@ -4896,7 +5039,10 @@ box_boxoptions_solaorderentry_sail_v2_25.user_sequence_id.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_sequence_id, range, value, "User Sequence ID: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "User Sequence ID is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -4924,7 +5070,10 @@ box_boxoptions_solaorderentry_sail_v2_25.user_time.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.user_time, range, value, "User Time: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "User Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.user_time.display(value, buffer, offset, packet, parent)

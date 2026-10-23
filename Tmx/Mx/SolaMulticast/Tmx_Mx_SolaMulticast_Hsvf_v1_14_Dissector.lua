@@ -18,7 +18,7 @@ local tmx_mx_solamulticast_hsvf_v1_14 = {}
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.askpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_futures_depth_market_depth_level_hf_numeric_pair = ProtoField.new("Ask Price Futures Depth Market Depth Level HF Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricefuturesdepthmarketdepthlevelhfnumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_futures_depth_market_depth_level_hf_opening_pair = ProtoField.new("Ask Price Futures Depth Market Depth Level HF Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricefuturesdepthmarketdepthlevelhfopeningpair", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_futures_depth_numeric = ProtoField.new("Ask Price Futures Depth Numeric", "tmx.mx.solamulticast.hsvf.v1.14.askpricefuturesdepthnumeric", ftypes.STRING, nil, nil, nil, "Ask Price for the future contract For Implied, it represents the best (1st limit) indicative implied ask price")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_futures_depth_numeric = ProtoField.new("Ask Price Futures Depth Numeric", "tmx.mx.solamulticast.hsvf.v1.14.askpricefuturesdepthnumeric", ftypes.UINT32, nil, nil, nil, "Ask Price for the future contract For Implied, it represents the best (1st limit) indicative implied ask price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_futures_depth_opening = ProtoField.new("Ask Price Futures Depth Opening", "tmx.mx.solamulticast.hsvf.v1.14.askpricefuturesdepthopening", ftypes.STRING, nil, nil, nil, "Ask Price for the future contract For Implied, it represents the best (1st limit) indicative implied ask price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_futures_quote_message_numeric_pair = ProtoField.new("Ask Price Quote Futures Quote Message Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotefuturesquotemessagenumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_futures_quote_message_opening_pair = ProtoField.new("Ask Price Quote Futures Quote Message Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotefuturesquotemessageopeningpair", ftypes.STRING)
@@ -26,18 +26,19 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_market_depth_level_hb
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_market_depth_level_hb_opening_pair = ProtoField.new("Ask Price Quote Market Depth Level HB Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotemarketdepthlevelhbopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_market_depth_level_numeric_pair = ProtoField.new("Ask Price Quote Market Depth Level Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotemarketdepthlevelnumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_market_depth_level_opening_pair = ProtoField.new("Ask Price Quote Market Depth Level Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotemarketdepthlevelopeningpair", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_numeric = ProtoField.new("Ask Price Quote Numeric", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotenumeric", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_numeric = ProtoField.new("Ask Price Quote Numeric", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotenumeric", ftypes.UINT32, nil, nil, nil, "Ask price for the option series")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_numeric_pair = ProtoField.new("Ask Price Quote Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotenumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_opening = ProtoField.new("Ask Price Quote Opening", "tmx.mx.solamulticast.hsvf.v1.14.askpricequoteopening", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_opening_pair = ProtoField.new("Ask Price Quote Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequoteopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_strategy_market_depth_level_numeric_pair = ProtoField.new("Ask Price Quote Strategy Market Depth Level Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotestrategymarketdepthlevelnumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_strategy_market_depth_level_opening_pair = ProtoField.new("Ask Price Quote Strategy Market Depth Level Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.askpricequotestrategymarketdepthlevelopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.askpricesign", ftypes.STRING, nil, nil, nil, "For Ask Price field")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_summary = ProtoField.new("Ask Price Summary", "tmx.mx.solamulticast.hsvf.v1.14.askpricesummary", ftypes.STRING, nil, nil, nil, "Closing or most recent ask price")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_summary = ProtoField.new("Ask Price Summary", "tmx.mx.solamulticast.hsvf.v1.14.askpricesummary", ftypes.UINT32, nil, nil, nil, "Closing or most recent ask price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_size = ProtoField.new("Ask Size", "tmx.mx.solamulticast.hsvf.v1.14.asksize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by the Ask Price. If size is greater than 99999, the 5th character becomes an exponent")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.associated_product = ProtoField.new("Associated Product", "tmx.mx.solamulticast.hsvf.v1.14.associatedproduct", ftypes.STRING, nil, nil, nil, "Associated future product symbology")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_duration = ProtoField.new("Auction Duration", "tmx.mx.solamulticast.hsvf.v1.14.auctionduration", ftypes.STRING, nil, nil, nil, "Indicates the duration of the auction")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_expiry_timestamp = ProtoField.new("Auction Expiry Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.auctionexpirytimestamp", ftypes.STRING, nil, nil, nil, "Indicates the expiry time of the auction")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_duration = ProtoField.new("Auction Duration", "tmx.mx.solamulticast.hsvf.v1.14.auctionduration", ftypes.UINT64, nil, nil, nil, "Indicates the duration of the auction")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_expiry_timestamp = ProtoField.new("Auction Expiry Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.auctionexpirytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates the expiry time of the auction")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_expiry_timestamp_utc = ProtoField.new("Auction Expiry Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.auctionexpirytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Indicates the expiry time of the auction")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_id = ProtoField.new("Auction Id", "tmx.mx.solamulticast.hsvf.v1.14.auctionid", ftypes.STRING, nil, nil, nil, "Identifier of an auction")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.bidpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_futures_quote_message_numeric_pair = ProtoField.new("Bid Price Quote Futures Quote Message Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotefuturesquotemessagenumericpair", ftypes.STRING)
@@ -48,36 +49,36 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_market_depth_level_hf
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_market_depth_level_hf_opening_pair = ProtoField.new("Bid Price Quote Market Depth Level HF Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotemarketdepthlevelhfopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_market_depth_level_numeric_pair = ProtoField.new("Bid Price Quote Market Depth Level Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotemarketdepthlevelnumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_market_depth_level_opening_pair = ProtoField.new("Bid Price Quote Market Depth Level Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotemarketdepthlevelopeningpair", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_numeric = ProtoField.new("Bid Price Quote Numeric", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotenumeric", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_numeric = ProtoField.new("Bid Price Quote Numeric", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotenumeric", ftypes.UINT32, nil, nil, nil, "Bid price for the option series")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_numeric_pair = ProtoField.new("Bid Price Quote Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotenumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_opening = ProtoField.new("Bid Price Quote Opening", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequoteopening", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_opening_pair = ProtoField.new("Bid Price Quote Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequoteopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_strategy_market_depth_level_numeric_pair = ProtoField.new("Bid Price Quote Strategy Market Depth Level Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotestrategymarketdepthlevelnumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_strategy_market_depth_level_opening_pair = ProtoField.new("Bid Price Quote Strategy Market Depth Level Opening Pair", "tmx.mx.solamulticast.hsvf.v1.14.bidpricequotestrategymarketdepthlevelopeningpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.bidpricesign", ftypes.STRING, nil, nil, nil, "For Bid Price field")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_summary = ProtoField.new("Bid Price Summary", "tmx.mx.solamulticast.hsvf.v1.14.bidpricesummary", ftypes.STRING, nil, nil, nil, "Closing or most recent bid price")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_summary = ProtoField.new("Bid Price Summary", "tmx.mx.solamulticast.hsvf.v1.14.bidpricesummary", ftypes.UINT32, nil, nil, nil, "Closing or most recent bid price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_size = ProtoField.new("Bid Size", "tmx.mx.solamulticast.hsvf.v1.14.bidsize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by the Bid Price. If size is greater than 99999, the 5th character becomes an exponent")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bond_definition = ProtoField.new("Bond Definition", "tmx.mx.solamulticast.hsvf.v1.14.bonddefinition", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bulletin_type = ProtoField.new("Bulletin Type", "tmx.mx.solamulticast.hsvf.v1.14.bulletintype", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.business_date = ProtoField.new("Business Date", "tmx.mx.solamulticast.hsvf.v1.14.businessdate", ftypes.STRING, nil, nil, nil, "Current business date")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.business_date = ProtoField.new("Business Date", "tmx.mx.solamulticast.hsvf.v1.14.businessdate", ftypes.UINT32, nil, nil, nil, "Current business date")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.call_put_code = ProtoField.new("Call Put Code", "tmx.mx.solamulticast.hsvf.v1.14.callputcode", ftypes.STRING, nil, nil, nil, "Call or Put")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.closing_price = ProtoField.new("Closing Price", "tmx.mx.solamulticast.hsvf.v1.14.closingprice", ftypes.STRING, nil, nil, nil, "Settlement Price")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.closing_price = ProtoField.new("Closing Price", "tmx.mx.solamulticast.hsvf.v1.14.closingprice", ftypes.UINT32, nil, nil, nil, "Settlement Price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.closing_price_fraction_indicator = ProtoField.new("Closing Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.closingpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.continue_marker = ProtoField.new("Continue Marker", "tmx.mx.solamulticast.hsvf.v1.14.continuemarker", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.contract_size = ProtoField.new("Contract Size", "tmx.mx.solamulticast.hsvf.v1.14.contractsize", ftypes.STRING, nil, nil, nil, "Defines the quantity of an underlying per contract")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.conversion_factor = ProtoField.new("Conversion Factor", "tmx.mx.solamulticast.hsvf.v1.14.conversionfactor", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.continue_marker = ProtoField.new("Continue Marker", "tmx.mx.solamulticast.hsvf.v1.14.continuemarker", ftypes.UINT8)
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.contract_size = ProtoField.new("Contract Size", "tmx.mx.solamulticast.hsvf.v1.14.contractsize", ftypes.UINT32, nil, nil, nil, "Defines the quantity of an underlying per contract")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.conversion_factor = ProtoField.new("Conversion Factor", "tmx.mx.solamulticast.hsvf.v1.14.conversionfactor", ftypes.UINT32)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.conversion_factor_fraction_indicator = ProtoField.new("Conversion Factor Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.conversionfactorfractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.coupon = ProtoField.new("Coupon", "tmx.mx.solamulticast.hsvf.v1.14.coupon", ftypes.STRING, nil, nil, nil, "Bond Coupon rate")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.coupon = ProtoField.new("Coupon", "tmx.mx.solamulticast.hsvf.v1.14.coupon", ftypes.UINT32, nil, nil, nil, "Bond Coupon rate")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.coupon_fraction_indicator = ProtoField.new("Coupon Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.couponfractionindicator", ftypes.STRING, nil, nil, nil, "Coupon rate decimal indicator")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.currency = ProtoField.new("Currency", "tmx.mx.solamulticast.hsvf.v1.14.currency", ftypes.STRING, nil, nil, nil, "Defines the currency of an underlying")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.delivery_type = ProtoField.new("Delivery Type", "tmx.mx.solamulticast.hsvf.v1.14.deliverytype", ftypes.STRING, nil, nil, nil, "Indicates the delivery type of the instrument")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.exchange_id = ProtoField.new("Exchange Id", "tmx.mx.solamulticast.hsvf.v1.14.exchangeid", ftypes.STRING, nil, nil, nil, "Exchange on which the trade occurred")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_date = ProtoField.new("Expiry Date", "tmx.mx.solamulticast.hsvf.v1.14.expirydate", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_day = ProtoField.new("Expiry Day", "tmx.mx.solamulticast.hsvf.v1.14.expiryday", ftypes.STRING, nil, nil, nil, "Expiry day of the option")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_date = ProtoField.new("Expiry Date", "tmx.mx.solamulticast.hsvf.v1.14.expirydate", ftypes.UINT32)
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_day = ProtoField.new("Expiry Day", "tmx.mx.solamulticast.hsvf.v1.14.expiryday", ftypes.UINT8, nil, nil, nil, "Expiry day of the option")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_month = ProtoField.new("Expiry Month", "tmx.mx.solamulticast.hsvf.v1.14.expirymonth", ftypes.STRING, nil, nil, nil, "Option expiry month code Refer to Month Codes")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_month_strategy = ProtoField.new("Expiry Month Strategy", "tmx.mx.solamulticast.hsvf.v1.14.expirymonthstrategy", ftypes.STRING, nil, nil, nil, "Contract expiry month from the first expiring leg Refer to Month Codes")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_year = ProtoField.new("Expiry Year", "tmx.mx.solamulticast.hsvf.v1.14.expiryyear", ftypes.STRING, nil, nil, nil, "Last two digits of the option expiry year")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.external_price_at_source = ProtoField.new("External Price At Source", "tmx.mx.solamulticast.hsvf.v1.14.externalpriceatsource", ftypes.STRING, nil, nil, nil, "Last price obtained from an external pricing source")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_year = ProtoField.new("Expiry Year", "tmx.mx.solamulticast.hsvf.v1.14.expiryyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the option expiry year")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.external_price_at_source = ProtoField.new("External Price At Source", "tmx.mx.solamulticast.hsvf.v1.14.externalpriceatsource", ftypes.UINT32, nil, nil, nil, "Last price obtained from an external pricing source")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.external_price_fraction_indicator = ProtoField.new("External Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.externalpricefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction indicator for last price obtained from external pricing source")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.future_option_symbol = ProtoField.new("Future Option Symbol", "tmx.mx.solamulticast.hsvf.v1.14.futureoptionsymbol", ftypes.STRING, nil, nil, nil, "Option on future symbology")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.future_options_market_depth_level = ProtoField.new("Future Options Market Depth Level", "tmx.mx.solamulticast.hsvf.v1.14.futureoptionsmarketdepthlevel", ftypes.STRING, nil, nil, nil, "Option Market Depth")
@@ -85,82 +86,83 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.future_product = ProtoField.new("Futu
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.futures_market_depth_level = ProtoField.new("Futures Market Depth Level", "tmx.mx.solamulticast.hsvf.v1.14.futuresmarketdepthlevel", ftypes.STRING, nil, nil, nil, "Option Market Depth")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.group_instrument = ProtoField.new("Group Instrument", "tmx.mx.solamulticast.hsvf.v1.14.groupinstrument", ftypes.STRING, nil, nil, nil, "group of the instrument")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.group_status = ProtoField.new("Group Status", "tmx.mx.solamulticast.hsvf.v1.14.groupstatus", ftypes.STRING, nil, nil, nil, "Group status of the trading instrument")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.high_price = ProtoField.new("High Price", "tmx.mx.solamulticast.hsvf.v1.14.highprice", ftypes.STRING, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.high_price = ProtoField.new("High Price", "tmx.mx.solamulticast.hsvf.v1.14.highprice", ftypes.UINT32, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.high_price_fraction_indicator = ProtoField.new("High Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.highpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.high_price_sign = ProtoField.new("High Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.highpricesign", ftypes.STRING, nil, nil, nil, "For the High Price field")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "tmx.mx.solamulticast.hsvf.v1.14.hsvfetx", ftypes.UINT8, nil, nil, nil, "End of Hsvf message")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "tmx.mx.solamulticast.hsvf.v1.14.hsvfstx", ftypes.UINT8, nil, nil, nil, "Start of Hsvf message")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_price = ProtoField.new("Initial Order Price", "tmx.mx.solamulticast.hsvf.v1.14.initialorderprice", ftypes.STRING, nil, nil, nil, "Indicates the price of the initial order")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_price = ProtoField.new("Initial Order Price", "tmx.mx.solamulticast.hsvf.v1.14.initialorderprice", ftypes.UINT32, nil, nil, nil, "Indicates the price of the initial order")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.initialorderpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "tmx.mx.solamulticast.hsvf.v1.14.initialorderquantity", ftypes.STRING, nil, nil, nil, "Indicates the quantity of the initial order")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "tmx.mx.solamulticast.hsvf.v1.14.initialorderquantity", ftypes.UINT32, nil, nil, nil, "Indicates the quantity of the initial order")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_side = ProtoField.new("Initial Order Side", "tmx.mx.solamulticast.hsvf.v1.14.initialorderside", ftypes.STRING, nil, nil, nil, "Indicates the side of the initial order")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_quantity_assured = ProtoField.new("Initial Quantity Assured", "tmx.mx.solamulticast.hsvf.v1.14.initialquantityassured", ftypes.STRING, nil, nil, nil, "Indicates the quantity of the initial order guaranteed to the dealer if he remains at the best price point")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_quantity_assured = ProtoField.new("Initial Quantity Assured", "tmx.mx.solamulticast.hsvf.v1.14.initialquantityassured", ftypes.UINT32, nil, nil, nil, "Indicates the quantity of the initial order guaranteed to the dealer if he remains at the best price point")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.instrument = ProtoField.new("Instrument", "tmx.mx.solamulticast.hsvf.v1.14.instrument", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.instrument_external_code = ProtoField.new("Instrument External Code", "tmx.mx.solamulticast.hsvf.v1.14.instrumentexternalcode", ftypes.STRING, nil, nil, nil, "External identifier used by traders when entering an order")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "tmx.mx.solamulticast.hsvf.v1.14.instrumentstatusmarker", ftypes.STRING, nil, nil, nil, "Indicates instrument status")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_price = ProtoField.new("Last Price", "tmx.mx.solamulticast.hsvf.v1.14.lastprice", ftypes.STRING, nil, nil, nil, "Closing or most recent trade price")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_price = ProtoField.new("Last Price", "tmx.mx.solamulticast.hsvf.v1.14.lastprice", ftypes.UINT32, nil, nil, nil, "Closing or most recent trade price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_price_fraction_indicator = ProtoField.new("Last Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.lastpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_price_sign = ProtoField.new("Last Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.lastpricesign", ftypes.STRING, nil, nil, nil, "For the Last Price field")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_trading_datetime = ProtoField.new("Last Trading Datetime", "tmx.mx.solamulticast.hsvf.v1.14.lasttradingdatetime", ftypes.STRING, nil, nil, nil, "Indicates when the instrument stops trading")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_trading_datetime = ProtoField.new("Last Trading Datetime", "tmx.mx.solamulticast.hsvf.v1.14.lasttradingdatetime", ftypes.UINT64, nil, nil, nil, "Indicates when the instrument stops trading")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_group_instrument = ProtoField.new("Leg Group Instrument", "tmx.mx.solamulticast.hsvf.v1.14.leggroupinstrument", ftypes.STRING, nil, nil, nil, "Group of the Leg Instrument")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_instrument = ProtoField.new("Leg Instrument", "tmx.mx.solamulticast.hsvf.v1.14.leginstrument", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_price = ProtoField.new("Leg Price", "tmx.mx.solamulticast.hsvf.v1.14.legprice", ftypes.STRING, nil, nil, nil, "Significant if the leg is a fixed leg of a covered strategy")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_price = ProtoField.new("Leg Price", "tmx.mx.solamulticast.hsvf.v1.14.legprice", ftypes.UINT32, nil, nil, nil, "Significant if the leg is a fixed leg of a covered strategy")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_price_fraction_indicator = ProtoField.new("Leg Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.legpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_ratio_or_delta = ProtoField.new("Leg Ratio Or Delta", "tmx.mx.solamulticast.hsvf.v1.14.legratioordelta", ftypes.STRING, nil, nil, nil, "Quantity (bought or sold) on underlying in the strategy")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_ratio_or_delta = ProtoField.new("Leg Ratio Or Delta", "tmx.mx.solamulticast.hsvf.v1.14.legratioordelta", ftypes.UINT16, nil, nil, nil, "Quantity (bought or sold) on underlying in the strategy")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_ratio_or_delta_fraction_indicator = ProtoField.new("Leg Ratio Or Delta Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.legratioordeltafractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.level_of_market_depth = ProtoField.new("Level Of Market Depth", "tmx.mx.solamulticast.hsvf.v1.14.levelofmarketdepth", ftypes.STRING, nil, nil, nil, "Level of market depth. 1 to 5 and A (Implied)")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.low_price = ProtoField.new("Low Price", "tmx.mx.solamulticast.hsvf.v1.14.lowprice", ftypes.STRING, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.low_price = ProtoField.new("Low Price", "tmx.mx.solamulticast.hsvf.v1.14.lowprice", ftypes.UINT32, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.low_price_fraction_indicator = ProtoField.new("Low Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.lowpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.low_price_sign = ProtoField.new("Low Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.lowpricesign", ftypes.STRING, nil, nil, nil, "For the Low Price field")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.market_depth_level = ProtoField.new("Market Depth Level", "tmx.mx.solamulticast.hsvf.v1.14.marketdepthlevel", ftypes.STRING, nil, nil, nil, "Option Market Depth")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.market_flow_indicator = ProtoField.new("Market Flow Indicator", "tmx.mx.solamulticast.hsvf.v1.14.marketflowindicator", ftypes.STRING, nil, nil, nil, "Defines the type of instruments")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maturity_date = ProtoField.new("Maturity Date", "tmx.mx.solamulticast.hsvf.v1.14.maturitydate", ftypes.STRING, nil, nil, nil, "Bond expiration")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "tmx.mx.solamulticast.hsvf.v1.14.maximumnumberofcontractsperorder", ftypes.STRING, nil, nil, nil, "Maximum authorized number of contract per order")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdprice", ftypes.STRING, nil, nil, nil, "Maximum threshold price authorized for an option contract")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdprice", ftypes.UINT32, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_threshold_price_futures = ProtoField.new("Maximum Threshold Price Futures", "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdpricefutures", ftypes.STRING, nil, nil, nil, "Maximum threshold price authorized for an option contract")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_timestamp = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.messagetimestamp", ftypes.STRING, nil, nil, nil, "System timestamp, YYYYMMDDHHMMSSmmmuuu.")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_threshold_price_futures = ProtoField.new("Maximum Threshold Price Futures", "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdpricefutures", ftypes.UINT32, nil, nil, nil, "Maximum threshold price authorized for an option contract")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_timestamp = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.messagetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "System timestamp, YYYYMMDDHHMMSSmmmuuu.")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_timestamp_utc = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.messagetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "System timestamp, YYYYMMDDHHMMSSmmmuuu.")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_type = ProtoField.new("Message Type", "tmx.mx.solamulticast.hsvf.v1.14.messagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of message being sent")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.min_price = ProtoField.new("Min Price", "tmx.mx.solamulticast.hsvf.v1.14.minprice", ftypes.STRING, nil, nil, nil, "Starting price for this tick entry")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.min_price = ProtoField.new("Min Price", "tmx.mx.solamulticast.hsvf.v1.14.minprice", ftypes.UINT32, nil, nil, nil, "Starting price for this tick entry")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.min_price_fraction_indicator = ProtoField.new("Min Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.minpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "tmx.mx.solamulticast.hsvf.v1.14.minimumnumberofcontractsperorder", ftypes.STRING, nil, nil, nil, "Minimum authorized number of contract per order")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_futures = ProtoField.new("Minimum Threshold Price Futures", "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricefutures", ftypes.STRING, nil, nil, nil, "Minimum threshold price authorized for an option contract")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_instrument = ProtoField.new("Minimum Threshold Price Instrument", "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpriceinstrument", ftypes.STRING, nil, nil, nil, "Minimum threshold price authorized for an option contract")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_strategy = ProtoField.new("Minimum Threshold Price Strategy", "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricestrategy", ftypes.STRING, nil, nil, nil, "Minimum threshold price authorized for an option contract")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.net_change = ProtoField.new("Net Change", "tmx.mx.solamulticast.hsvf.v1.14.netchange", ftypes.STRING, nil, nil, nil, "Net change = last trade price - previous close")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_futures = ProtoField.new("Minimum Threshold Price Futures", "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricefutures", ftypes.UINT32, nil, nil, nil, "Minimum threshold price authorized for an option contract")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_instrument = ProtoField.new("Minimum Threshold Price Instrument", "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpriceinstrument", ftypes.UINT32, nil, nil, nil, "Minimum threshold price authorized for an option contract")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_strategy = ProtoField.new("Minimum Threshold Price Strategy", "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricestrategy", ftypes.UINT32, nil, nil, nil, "Minimum threshold price authorized for an option contract")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.net_change = ProtoField.new("Net Change", "tmx.mx.solamulticast.hsvf.v1.14.netchange", ftypes.UINT32, nil, nil, nil, "Net change = last trade price - previous close")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.netchangefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction indicator for the net change")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.net_change_sign = ProtoField.new("Net Change Sign", "tmx.mx.solamulticast.hsvf.v1.14.netchangesign", ftypes.STRING, nil, nil, nil, "For the net change field")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_ask_orders = ProtoField.new("Number Of Ask Orders", "tmx.mx.solamulticast.hsvf.v1.14.numberofaskorders", ftypes.STRING, nil, nil, nil, "Number of Ask Orders, present at a given moment, in the order book. For Implied, it represents the indicative number of implied ask orders making up the implied ask size at that implied ask price. If greater than 99, the 2nd character becomes an exponent")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_bid_orders = ProtoField.new("Number Of Bid Orders", "tmx.mx.solamulticast.hsvf.v1.14.numberofbidorders", ftypes.STRING, nil, nil, nil, "Number of bid orders, present at a given moment, in the order book. For Implied, it represents the indicative number of implied bid orders making up the implied bid size at that implied bid price. If greater than 99-> the 2nd character becomes an exponent.")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_bonds = ProtoField.new("Number Of Bonds", "tmx.mx.solamulticast.hsvf.v1.14.numberofbonds", ftypes.STRING, nil, nil, nil, "Total number of contracts traded")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_entries = ProtoField.new("Number Of Entries", "tmx.mx.solamulticast.hsvf.v1.14.numberofentries", ftypes.STRING, nil, nil, nil, "Indicates the number of entries in the table (from 1 to 30)")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_legs = ProtoField.new("Number Of Legs", "tmx.mx.solamulticast.hsvf.v1.14.numberoflegs", ftypes.STRING, nil, nil, nil, "Number of legs in the strategy")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_levels = ProtoField.new("Number Of Levels", "tmx.mx.solamulticast.hsvf.v1.14.numberoflevels", ftypes.STRING, nil, nil, nil, "Number of level for the trading instrument. 1 to 5")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_interest = ProtoField.new("Open Interest", "tmx.mx.solamulticast.hsvf.v1.14.openinterest", ftypes.STRING, nil, nil, nil, "This field contains current outstanding number of contracts in the series Updated on a trade by trade basis Refer to Indicator Code")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_interest_date = ProtoField.new("Open Interest Date", "tmx.mx.solamulticast.hsvf.v1.14.openinterestdate", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_price = ProtoField.new("Open Price", "tmx.mx.solamulticast.hsvf.v1.14.openprice", ftypes.STRING, nil, nil, nil, "Price of the first trade of the day")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_bonds = ProtoField.new("Number Of Bonds", "tmx.mx.solamulticast.hsvf.v1.14.numberofbonds", ftypes.UINT8, nil, nil, nil, "Total number of contracts traded")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_entries = ProtoField.new("Number Of Entries", "tmx.mx.solamulticast.hsvf.v1.14.numberofentries", ftypes.UINT8, nil, nil, nil, "Indicates the number of entries in the table (from 1 to 30)")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_legs = ProtoField.new("Number Of Legs", "tmx.mx.solamulticast.hsvf.v1.14.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of legs in the strategy")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_levels = ProtoField.new("Number Of Levels", "tmx.mx.solamulticast.hsvf.v1.14.numberoflevels", ftypes.UINT8, nil, nil, nil, "Number of level for the trading instrument. 1 to 5")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_interest = ProtoField.new("Open Interest", "tmx.mx.solamulticast.hsvf.v1.14.openinterest", ftypes.UINT32, nil, nil, nil, "This field contains current outstanding number of contracts in the series Updated on a trade by trade basis Refer to Indicator Code")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_interest_date = ProtoField.new("Open Interest Date", "tmx.mx.solamulticast.hsvf.v1.14.openinterestdate", ftypes.UINT32)
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_price = ProtoField.new("Open Price", "tmx.mx.solamulticast.hsvf.v1.14.openprice", ftypes.UINT32, nil, nil, nil, "Price of the first trade of the day")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.openpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_price_sign = ProtoField.new("Open Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.openpricesign", ftypes.STRING, nil, nil, nil, "For the Open Price field")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.opening_price = ProtoField.new("Opening Price", "tmx.mx.solamulticast.hsvf.v1.14.openingprice", ftypes.STRING, nil, nil, nil, "Opening price of the option series for the day")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.opening_price = ProtoField.new("Opening Price", "tmx.mx.solamulticast.hsvf.v1.14.openingprice", ftypes.UINT32, nil, nil, nil, "Opening price of the option series for the day")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.opening_price_fraction_indicator = ProtoField.new("Opening Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.openingpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.option_marker = ProtoField.new("Option Marker", "tmx.mx.solamulticast.hsvf.v1.14.optionmarker", ftypes.STRING, nil, nil, nil, "Refer to Options Markers")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.option_symbol = ProtoField.new("Option Symbol", "tmx.mx.solamulticast.hsvf.v1.14.optionsymbol", ftypes.STRING, nil, nil, nil, "Option symbology")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.option_symbol_schedule_notice = ProtoField.new("Option Symbol Schedule Notice", "tmx.mx.solamulticast.hsvf.v1.14.optionsymbolschedulenotice", ftypes.STRING, nil, nil, nil, "Option symbology")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.option_type = ProtoField.new("Option Type", "tmx.mx.solamulticast.hsvf.v1.14.optiontype", ftypes.STRING, nil, nil, nil, "Type of option")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_id = ProtoField.new("Order Id", "tmx.mx.solamulticast.hsvf.v1.14.orderid", ftypes.STRING, nil, nil, nil, "Allocated by the trading engine at each valid order entry")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_price = ProtoField.new("Order Price", "tmx.mx.solamulticast.hsvf.v1.14.orderprice", ftypes.STRING, nil, nil, nil, "For a buy order, represents the highest price that the order issuer is willing to pay or for a sell order, represents the lowest price at which the order issuer is willing to sell")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_price = ProtoField.new("Order Price", "tmx.mx.solamulticast.hsvf.v1.14.orderprice", ftypes.UINT32, nil, nil, nil, "For a buy order, represents the highest price that the order issuer is willing to pay or for a sell order, represents the lowest price at which the order issuer is willing to sell")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_price_fraction_indicator = ProtoField.new("Order Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.orderpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_quantity = ProtoField.new("Order Quantity", "tmx.mx.solamulticast.hsvf.v1.14.orderquantity", ftypes.STRING, nil, nil, nil, "Indicates the quantity of an improvement order")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_side = ProtoField.new("Order Side", "tmx.mx.solamulticast.hsvf.v1.14.orderside", ftypes.STRING, nil, nil, nil, "Indicates the side of the initial order")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_type = ProtoField.new("Order Type", "tmx.mx.solamulticast.hsvf.v1.14.ordertype", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.outstanding_bond_value = ProtoField.new("Outstanding Bond Value", "tmx.mx.solamulticast.hsvf.v1.14.outstandingbondvalue", ftypes.STRING, nil, nil, nil, "Outstanding amount")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_closing_price = ProtoField.new("Previous Closing Price", "tmx.mx.solamulticast.hsvf.v1.14.previousclosingprice", ftypes.STRING, nil, nil, nil, "Previous Settlement Price")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.outstanding_bond_value = ProtoField.new("Outstanding Bond Value", "tmx.mx.solamulticast.hsvf.v1.14.outstandingbondvalue", ftypes.UINT32, nil, nil, nil, "Outstanding amount")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_closing_price = ProtoField.new("Previous Closing Price", "tmx.mx.solamulticast.hsvf.v1.14.previousclosingprice", ftypes.UINT32, nil, nil, nil, "Previous Settlement Price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_closing_price_fraction_indicator = ProtoField.new("Previous Closing Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.previousclosingpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_order_id = ProtoField.new("Previous Order Id", "tmx.mx.solamulticast.hsvf.v1.14.previousorderid", ftypes.STRING, nil, nil, nil, "Order Id of the order modified")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement = ProtoField.new("Previous Settlement", "tmx.mx.solamulticast.hsvf.v1.14.previoussettlement", ftypes.STRING, nil, nil, nil, "Settlement Price for the previous day")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement = ProtoField.new("Previous Settlement", "tmx.mx.solamulticast.hsvf.v1.14.previoussettlement", ftypes.UINT32, nil, nil, nil, "Settlement Price for the previous day")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement_fraction_indicator = ProtoField.new("Previous Settlement Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.previoussettlementfractionindicator", ftypes.STRING, nil, nil, nil, "Fraction indicator for the previous Settlement Price")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement_price = ProtoField.new("Previous Settlement Price", "tmx.mx.solamulticast.hsvf.v1.14.previoussettlementprice", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement_price = ProtoField.new("Previous Settlement Price", "tmx.mx.solamulticast.hsvf.v1.14.previoussettlementprice", ftypes.UINT32)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement_price_fraction_indicator = ProtoField.new("Previous Settlement Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.previoussettlementpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "tmx.mx.solamulticast.hsvf.v1.14.priceindicatormarker", ftypes.STRING, nil, nil, nil, "Identifies the type of transaction")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.reason = ProtoField.new("Reason", "tmx.mx.solamulticast.hsvf.v1.14.reason", ftypes.STRING, nil, nil, nil, "Indicates the reason of the summary message")
@@ -172,10 +174,10 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.reserved = ProtoField.new("Reserved",
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.root = ProtoField.new("Root", "tmx.mx.solamulticast.hsvf.v1.14.root", ftypes.STRING, nil, nil, nil, "Option base symbol (symbol of the underlying)")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.root_symbol = ProtoField.new("Root Symbol", "tmx.mx.solamulticast.hsvf.v1.14.rootsymbol", ftypes.STRING, nil, nil, nil, "Option base symbol (symbol of the underlying)")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.root_symbol_group = ProtoField.new("Root Symbol Group", "tmx.mx.solamulticast.hsvf.v1.14.rootsymbolgroup", ftypes.STRING, nil, nil, nil, "Root of the instrument group")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.scheduled_status_change_time = ProtoField.new("Scheduled Status Change Time", "tmx.mx.solamulticast.hsvf.v1.14.scheduledstatuschangetime", ftypes.STRING, nil, nil, nil, "Time at which the status change is scheduled. HHMMSS")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.solamulticast.hsvf.v1.14.sequencenumber", ftypes.STRING, nil, nil, nil, "The sequence numbers will range from 0000000001 to 9999999999 (decimal, ASCII).")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.scheduled_status_change_time = ProtoField.new("Scheduled Status Change Time", "tmx.mx.solamulticast.hsvf.v1.14.scheduledstatuschangetime", ftypes.UINT32, nil, nil, nil, "Time at which the status change is scheduled. HHMMSS")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.solamulticast.hsvf.v1.14.sequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence numbers will range from 0000000001 to 9999999999 (decimal, ASCII).")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.series_status = ProtoField.new("Series Status", "tmx.mx.solamulticast.hsvf.v1.14.seriesstatus", ftypes.STRING, nil, nil, nil, "Series status of the trading instrument")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.solamulticast.hsvf.v1.14.settlementprice", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.solamulticast.hsvf.v1.14.settlementprice", ftypes.UINT32)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.settlement_price_fraction_indicator = ProtoField.new("Settlement Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.settlementpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.special_bulletin_contents = ProtoField.new("Special Bulletin Contents", "tmx.mx.solamulticast.hsvf.v1.14.specialbulletincontents", ftypes.STRING, nil, nil, nil, "Bulletin in textual form")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.solamulticast.hsvf.v1.14.specialtextbulletin", ftypes.STRING, nil, nil, nil, "This bulletin type will be used for bulletins relating to a specific trading instrument.")
@@ -185,38 +187,38 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strategy_instrument_leg = ProtoField.
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strategy_market_depth_level = ProtoField.new("Strategy Market Depth Level", "tmx.mx.solamulticast.hsvf.v1.14.strategymarketdepthlevel", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "tmx.mx.solamulticast.hsvf.v1.14.strategysymbol", ftypes.STRING, nil, nil, nil, "Identifies the strategy The legs are defined in message type JS Alphanumeric with \".\",\"+\",\"-\"")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strategy_type = ProtoField.new("Strategy Type", "tmx.mx.solamulticast.hsvf.v1.14.strategytype", ftypes.STRING, nil, nil, nil, "Defines the type of the strategy")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price = ProtoField.new("Strike Price", "tmx.mx.solamulticast.hsvf.v1.14.strikeprice", ftypes.STRING, nil, nil, nil, "Strike price of the option in full")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price = ProtoField.new("Strike Price", "tmx.mx.solamulticast.hsvf.v1.14.strikeprice", ftypes.UINT32, nil, nil, nil, "Strike price of the option in full")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "tmx.mx.solamulticast.hsvf.v1.14.strikepricecurrency", ftypes.STRING, nil, nil, nil, "Currency used for the option Strike Price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price_schedule_notice = ProtoField.new("Strike Price Schedule Notice", "tmx.mx.solamulticast.hsvf.v1.14.strikepriceschedulenotice", ftypes.STRING, nil, nil, nil, "Strike price of the option in full")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price_schedule_notice = ProtoField.new("Strike Price Schedule Notice", "tmx.mx.solamulticast.hsvf.v1.14.strikepriceschedulenotice", ftypes.UINT32, nil, nil, nil, "Strike price of the option in full")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol = ProtoField.new("Symbol", "tmx.mx.solamulticast.hsvf.v1.14.symbol", ftypes.STRING, nil, nil, nil, "Identifies the strategy The legs are defined in message type JS Alphanumeric with \".\",\"+\",\"-\"")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_month = ProtoField.new("Symbol Month", "tmx.mx.solamulticast.hsvf.v1.14.symbolmonth", ftypes.STRING, nil, nil, nil, "Option symbol month code")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_year = ProtoField.new("Symbol Year", "tmx.mx.solamulticast.hsvf.v1.14.symbolyear", ftypes.STRING, nil, nil, nil, "Last two digits of the option symbol year")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_year = ProtoField.new("Symbol Year", "tmx.mx.solamulticast.hsvf.v1.14.symbolyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the option symbol year")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick = ProtoField.new("Tick", "tmx.mx.solamulticast.hsvf.v1.14.tick", ftypes.STRING, nil, nil, nil, "Determined by the difference between last price and the previous different trade price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_entry = ProtoField.new("Tick Entry", "tmx.mx.solamulticast.hsvf.v1.14.tickentry", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.tickincrementfractionindicator", ftypes.STRING, nil, nil, nil, "If Tick Increment starts with TT= (Table Name available), Fraction Indicator is blank. Otherwise, defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_increment_numeric = ProtoField.new("Tick Increment Numeric", "tmx.mx.solamulticast.hsvf.v1.14.tickincrementnumeric", ftypes.STRING, nil, nil, nil, "Contains the Tick Table Short Name if available. If so, field starts with TT=. Otherwise, indicates precision with which the price of an order limit can be expressed")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_increment_numeric = ProtoField.new("Tick Increment Numeric", "tmx.mx.solamulticast.hsvf.v1.14.tickincrementnumeric", ftypes.UINT32, nil, nil, nil, "Contains the Tick Table Short Name if available. If so, field starts with TT=. Otherwise, indicates precision with which the price of an order limit can be expressed")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_increment_numeric_pair = ProtoField.new("Tick Increment Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.tickincrementnumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_increment_raw = ProtoField.new("Tick Increment Raw", "tmx.mx.solamulticast.hsvf.v1.14.tickincrementraw", ftypes.STRING, nil, nil, nil, "Contains the Tick Table Short Name if available. If so, field starts with TT=. Otherwise, indicates precision with which the price of an order limit can be expressed")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_increment_raw_pair = ProtoField.new("Tick Increment Raw Pair", "tmx.mx.solamulticast.hsvf.v1.14.tickincrementrawpair", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_price = ProtoField.new("Tick Price", "tmx.mx.solamulticast.hsvf.v1.14.tickprice", ftypes.STRING, nil, nil, nil, "Used for this instrument if the price is higher than Min Price")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_price = ProtoField.new("Tick Price", "tmx.mx.solamulticast.hsvf.v1.14.tickprice", ftypes.UINT32, nil, nil, nil, "Used for this instrument if the price is higher than Min Price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_price_fraction_indicator = ProtoField.new("Tick Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.tickpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_table_name = ProtoField.new("Tick Table Name", "tmx.mx.solamulticast.hsvf.v1.14.ticktablename", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_table_short_name = ProtoField.new("Tick Table Short Name", "tmx.mx.solamulticast.hsvf.v1.14.ticktableshortname", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_value = ProtoField.new("Tick Value", "tmx.mx.solamulticast.hsvf.v1.14.tickvalue", ftypes.STRING, nil, nil, nil, "Exchange premium multiplier for derivatives with a contract size equal to 1. All derivatives with a contract size > 1 will have a tick value defaulted to 1.")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_value = ProtoField.new("Tick Value", "tmx.mx.solamulticast.hsvf.v1.14.tickvalue", ftypes.UINT32, nil, nil, nil, "Exchange premium multiplier for derivatives with a contract size equal to 1. All derivatives with a contract size > 1 will have a tick value defaulted to 1.")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_value_fraction_indicator = ProtoField.new("Tick Value Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.tickvaluefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.time = ProtoField.new("Time", "tmx.mx.solamulticast.hsvf.v1.14.time", ftypes.STRING, nil, nil, nil, "Time at which the message is transmitted. HHMMSS")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.time = ProtoField.new("Time", "tmx.mx.solamulticast.hsvf.v1.14.time", ftypes.UINT32, nil, nil, nil, "Time at which the message is transmitted. HHMMSS")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.trade_number = ProtoField.new("Trade Number", "tmx.mx.solamulticast.hsvf.v1.14.tradenumber", ftypes.STRING, nil, nil, nil, "Unique Trade Number for this instrument")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.trade_price = ProtoField.new("Trade Price", "tmx.mx.solamulticast.hsvf.v1.14.tradeprice", ftypes.STRING, nil, nil, nil, "Price at which the transaction took place")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.trade_price = ProtoField.new("Trade Price", "tmx.mx.solamulticast.hsvf.v1.14.tradeprice", ftypes.UINT32, nil, nil, nil, "Price at which the transaction took place")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.trade_price_fraction_indicator = ProtoField.new("Trade Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.tradepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.tradepricesign", ftypes.STRING, nil, nil, nil, "For Trade Price field (sign)")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_root_symbol = ProtoField.new("Underlying Root Symbol", "tmx.mx.solamulticast.hsvf.v1.14.underlyingrootsymbol", ftypes.STRING, nil, nil, nil, "Root symbol of the underlying future")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "tmx.mx.solamulticast.hsvf.v1.14.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Symbol root for the underlying security")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_symbol_month = ProtoField.new("Underlying Symbol Month", "tmx.mx.solamulticast.hsvf.v1.14.underlyingsymbolmonth", ftypes.STRING, nil, nil, nil, "Symbol month of the underlying futures contract")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_symbol_root = ProtoField.new("Underlying Symbol Root", "tmx.mx.solamulticast.hsvf.v1.14.underlyingsymbolroot", ftypes.STRING, nil, nil, nil, "Symbol root for the underlying security")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_symbol_year = ProtoField.new("Underlying Symbol Year", "tmx.mx.solamulticast.hsvf.v1.14.underlyingsymbolyear", ftypes.STRING, nil, nil, nil, "Last 2 digits of the symbol yearof the underlying futures contract")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_symbol_year = ProtoField.new("Underlying Symbol Year", "tmx.mx.solamulticast.hsvf.v1.14.underlyingsymbolyear", ftypes.UINT8, nil, nil, nil, "Last 2 digits of the symbol yearof the underlying futures contract")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.variable_legs_strategy_code = ProtoField.new("Variable Legs Strategy Code", "tmx.mx.solamulticast.hsvf.v1.14.variablelegsstrategycode", ftypes.STRING, nil, nil, nil, "Defines strategy code of the covered variable legs")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.volume = ProtoField.new("Volume", "tmx.mx.solamulticast.hsvf.v1.14.volume", ftypes.STRING, nil, nil, nil, "Number of contracts for the trade")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.volume = ProtoField.new("Volume", "tmx.mx.solamulticast.hsvf.v1.14.volume", ftypes.UINT32, nil, nil, nil, "Number of contracts for the trade")
 
 -- Tmx Mx SolaMulticast Hsvf 1.14 Framing
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_header = ProtoField.new("Message Header", "tmx.mx.solamulticast.hsvf.v1.14.messageheader", ftypes.STRING, nil, nil, nil, "Hsvf Udp Market Data Packet Header")
@@ -321,9 +323,23 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.scaled_tick_price = ProtoField.new("S
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.scaled_tick_value = ProtoField.new("Scaled Tick Value", "tmx.mx.solamulticast.hsvf.v1.14.scaledtickvalue", ftypes.DOUBLE)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.scaled_trade_price = ProtoField.new("Scaled Trade Price", "tmx.mx.solamulticast.hsvf.v1.14.scaledtradeprice", ftypes.DOUBLE)
 
+-- Tmx Mx SolaMulticast Hsvf 1.14 Expert Info
+tmx_mx_solamulticast_hsvf_v1_14.experts = {}
+tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number = ProtoExpert.new("tmx.mx.solamulticast.hsvf.v1.14.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tmx_mx_solamulticast_hsvf_v1_14.experts = { tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Tmx Mx SolaMulticast Hsvf 1.14 Formatting
 -----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+tmx_mx_solamulticast_hsvf_v1_14.absolute_time_base = 0
 
 -- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
 tmx_mx_solamulticast_hsvf_v1_14.format_decimals = true
@@ -350,6 +366,8 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.show_headers = Pref.bool("Show Headers
 omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
+omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_tmx_mx_solamulticast_hsvf_v1_14.prefs_changed()
 
@@ -371,6 +389,9 @@ function omi_tmx_mx_solamulticast_hsvf_v1_14.prefs_changed()
   end
   if tmx_mx_solamulticast_hsvf_v1_14.format_decimals ~= omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.format_decimals then
     tmx_mx_solamulticast_hsvf_v1_14.format_decimals = omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.format_decimals
+  end
+  if tmx_mx_solamulticast_hsvf_v1_14.absolute_time_base ~= omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.absolute_time_base then
+    tmx_mx_solamulticast_hsvf_v1_14.absolute_time_base = omi_tmx_mx_solamulticast_hsvf_v1_14.prefs.absolute_time_base
   end
 end
 
@@ -509,7 +530,10 @@ tmx_mx_solamulticast_hsvf_v1_14.ask_price_futures_depth_numeric.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_futures_depth_numeric, range, value, "Ask Price Futures Depth Numeric: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Ask Price Futures Depth Numeric is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.ask_price_futures_depth_numeric.display(value, buffer, offset, packet, parent)
@@ -560,7 +584,10 @@ tmx_mx_solamulticast_hsvf_v1_14.ask_price_quote_numeric.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_quote_numeric, range, value, "Ask Price Quote Numeric: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Ask Price Quote Numeric is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.ask_price_quote_numeric.display(value, buffer, offset, packet, parent)
@@ -641,7 +668,10 @@ tmx_mx_solamulticast_hsvf_v1_14.ask_price_summary.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.ask_price_summary, range, value, "Ask Price Summary: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Ask Price Summary is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.ask_price_summary.display(value, buffer, offset, packet, parent)
@@ -707,7 +737,10 @@ tmx_mx_solamulticast_hsvf_v1_14.auction_duration.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_duration, range, value, "Auction Duration: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Auction Duration is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.auction_duration.display(value, buffer, offset, packet, parent)
@@ -723,30 +756,48 @@ tmx_mx_solamulticast_hsvf_v1_14.auction_expiry_timestamp = {}
 -- Size: Auction Expiry Timestamp
 tmx_mx_solamulticast_hsvf_v1_14.auction_expiry_timestamp.size = 20
 
--- Display: Auction Expiry Timestamp
-tmx_mx_solamulticast_hsvf_v1_14.auction_expiry_timestamp.display = function(value)
-  local digits = tostring(value)
-
-  if #digits ~= 20 or digits:find("%D") then
-    return "Auction Expiry Timestamp: "..digits
-  end
-
-  return string.format("Auction Expiry Timestamp: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 20))
-end
-
 -- Dissect: Auction Expiry Timestamp
 tmx_mx_solamulticast_hsvf_v1_14.auction_expiry_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14.auction_expiry_timestamp.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_14.auction_expiry_timestamp.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_expiry_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_expiry_timestamp
+  if tmx_mx_solamulticast_hsvf_v1_14.absolute_time_base == 1 then field = omi_tmx_mx_solamulticast_hsvf_v1_14.fields.auction_expiry_timestamp_utc end
 
-  return offset + length, value
+  -- Twenty digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second, micros
+  if #text == 20 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+    micros = tonumber(text:sub(15, 20))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Auction Expiry Timestamp: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = micros * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, text
 end
 
 -- Auction Id
@@ -886,7 +937,10 @@ tmx_mx_solamulticast_hsvf_v1_14.bid_price_quote_numeric.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_quote_numeric, range, value, "Bid Price Quote Numeric: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Bid Price Quote Numeric is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.bid_price_quote_numeric.display(value, buffer, offset, packet, parent)
@@ -967,7 +1021,10 @@ tmx_mx_solamulticast_hsvf_v1_14.bid_price_summary.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bid_price_summary, range, value, "Bid Price Summary: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Bid Price Summary is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.bid_price_summary.display(value, buffer, offset, packet, parent)
@@ -1063,7 +1120,10 @@ tmx_mx_solamulticast_hsvf_v1_14.business_date.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.business_date, range, value, "Business Date: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Business Date is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.business_date.display(value, buffer, offset, packet, parent)
@@ -1121,7 +1181,10 @@ tmx_mx_solamulticast_hsvf_v1_14.closing_price.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.closing_price, range, value, "Closing Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.closing_price.display(value, buffer, offset, packet, parent)
@@ -1252,7 +1315,10 @@ tmx_mx_solamulticast_hsvf_v1_14.continue_marker.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.continue_marker, range, value, "Continue Marker: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Continue Marker is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.continue_marker.display(value, buffer, offset, packet, parent)
@@ -1280,7 +1346,10 @@ tmx_mx_solamulticast_hsvf_v1_14.contract_size.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.contract_size, range, value, "Contract Size: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Contract Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.contract_size.display(value, buffer, offset, packet, parent)
@@ -1308,7 +1377,10 @@ tmx_mx_solamulticast_hsvf_v1_14.conversion_factor.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.conversion_factor, range, value, "Conversion Factor: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Conversion Factor is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.conversion_factor.display(value, buffer, offset, packet, parent)
@@ -1432,7 +1504,10 @@ tmx_mx_solamulticast_hsvf_v1_14.coupon.dissect = function(buffer, offset, packet
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.coupon, range, value, "Coupon: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Coupon is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.coupon.display(value, buffer, offset, packet, parent)
@@ -1646,7 +1721,10 @@ tmx_mx_solamulticast_hsvf_v1_14.expiry_date.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_date, range, value, "Expiry Date: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Expiry Date is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.expiry_date.display(value, buffer, offset, packet, parent)
@@ -1674,7 +1752,10 @@ tmx_mx_solamulticast_hsvf_v1_14.expiry_day.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_day, range, value, "Expiry Day: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Expiry Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.expiry_day.display(value, buffer, offset, packet, parent)
@@ -1821,7 +1902,10 @@ tmx_mx_solamulticast_hsvf_v1_14.expiry_year.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.expiry_year, range, value, "Expiry Year: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Expiry Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.expiry_year.display(value, buffer, offset, packet, parent)
@@ -1849,7 +1933,10 @@ tmx_mx_solamulticast_hsvf_v1_14.external_price_at_source.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.external_price_at_source, range, value, "External Price At Source: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "External Price At Source is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.external_price_at_source.display(value, buffer, offset, packet, parent)
@@ -2047,7 +2134,10 @@ tmx_mx_solamulticast_hsvf_v1_14.high_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.high_price, range, value, "High Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.high_price.display(value, buffer, offset, packet, parent)
@@ -2255,7 +2345,10 @@ tmx_mx_solamulticast_hsvf_v1_14.initial_order_price.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_price, range, value, "Initial Order Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Initial Order Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.initial_order_price.display(value, buffer, offset, packet, parent)
@@ -2379,7 +2472,10 @@ tmx_mx_solamulticast_hsvf_v1_14.initial_order_quantity.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_order_quantity, range, value, "Initial Order Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Initial Order Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.initial_order_quantity.display(value, buffer, offset, packet, parent)
@@ -2437,7 +2533,10 @@ tmx_mx_solamulticast_hsvf_v1_14.initial_quantity_assured.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.initial_quantity_assured, range, value, "Initial Quantity Assured: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Initial Quantity Assured is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.initial_quantity_assured.display(value, buffer, offset, packet, parent)
@@ -2568,7 +2667,10 @@ tmx_mx_solamulticast_hsvf_v1_14.last_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_price, range, value, "Last Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Last Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.last_price.display(value, buffer, offset, packet, parent)
@@ -2722,7 +2824,10 @@ tmx_mx_solamulticast_hsvf_v1_14.last_trading_datetime.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.last_trading_datetime, range, value, "Last Trading Datetime: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Last Trading Datetime is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.last_trading_datetime.display(value, buffer, offset, packet, parent)
@@ -2796,7 +2901,10 @@ tmx_mx_solamulticast_hsvf_v1_14.leg_price.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_price, range, value, "Leg Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Leg Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.leg_price.display(value, buffer, offset, packet, parent)
@@ -2920,7 +3028,10 @@ tmx_mx_solamulticast_hsvf_v1_14.leg_ratio_or_delta.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.leg_ratio_or_delta, range, value, "Leg Ratio Or Delta: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Leg Ratio Or Delta is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.leg_ratio_or_delta.display(value, buffer, offset, packet, parent)
@@ -3086,7 +3197,10 @@ tmx_mx_solamulticast_hsvf_v1_14.low_price.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.low_price, range, value, "Low Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.low_price.display(value, buffer, offset, packet, parent)
@@ -3309,7 +3423,10 @@ tmx_mx_solamulticast_hsvf_v1_14.maximum_threshold_price.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_threshold_price, range, value, "Maximum Threshold Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Maximum Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.maximum_threshold_price.display(value, buffer, offset, packet, parent)
@@ -3433,7 +3550,10 @@ tmx_mx_solamulticast_hsvf_v1_14.maximum_threshold_price_futures.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.maximum_threshold_price_futures, range, value, "Maximum Threshold Price Futures: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Maximum Threshold Price Futures is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.maximum_threshold_price_futures.display(value, buffer, offset, packet, parent)
@@ -3449,30 +3569,48 @@ tmx_mx_solamulticast_hsvf_v1_14.message_timestamp = {}
 -- Size: Message Timestamp
 tmx_mx_solamulticast_hsvf_v1_14.message_timestamp.size = 20
 
--- Display: Message Timestamp
-tmx_mx_solamulticast_hsvf_v1_14.message_timestamp.display = function(value)
-  local digits = tostring(value)
-
-  if #digits ~= 20 or digits:find("%D") then
-    return "Message Timestamp: "..digits
-  end
-
-  return string.format("Message Timestamp: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 20))
-end
-
 -- Dissect: Message Timestamp
 tmx_mx_solamulticast_hsvf_v1_14.message_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14.message_timestamp.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_14.message_timestamp.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_timestamp
+  if tmx_mx_solamulticast_hsvf_v1_14.absolute_time_base == 1 then field = omi_tmx_mx_solamulticast_hsvf_v1_14.fields.message_timestamp_utc end
 
-  return offset + length, value
+  -- Twenty digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second, micros
+  if #text == 20 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+    micros = tonumber(text:sub(15, 20))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Message Timestamp: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = micros * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, text
 end
 
 -- Message Type
@@ -3676,7 +3814,10 @@ tmx_mx_solamulticast_hsvf_v1_14.min_price.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.min_price, range, value, "Min Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Min Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.min_price.display(value, buffer, offset, packet, parent)
@@ -3919,7 +4060,10 @@ tmx_mx_solamulticast_hsvf_v1_14.minimum_threshold_price_futures.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_futures, range, value, "Minimum Threshold Price Futures: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Minimum Threshold Price Futures is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.minimum_threshold_price_futures.display(value, buffer, offset, packet, parent)
@@ -3947,7 +4091,10 @@ tmx_mx_solamulticast_hsvf_v1_14.minimum_threshold_price_instrument.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_instrument, range, value, "Minimum Threshold Price Instrument: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Minimum Threshold Price Instrument is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.minimum_threshold_price_instrument.display(value, buffer, offset, packet, parent)
@@ -3975,7 +4122,10 @@ tmx_mx_solamulticast_hsvf_v1_14.minimum_threshold_price_strategy.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.minimum_threshold_price_strategy, range, value, "Minimum Threshold Price Strategy: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Minimum Threshold Price Strategy is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.minimum_threshold_price_strategy.display(value, buffer, offset, packet, parent)
@@ -4003,7 +4153,10 @@ tmx_mx_solamulticast_hsvf_v1_14.net_change.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.net_change, range, value, "Net Change: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Net Change is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.net_change.display(value, buffer, offset, packet, parent)
@@ -4233,7 +4386,10 @@ tmx_mx_solamulticast_hsvf_v1_14.number_of_bonds.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_bonds, range, value, "Number Of Bonds: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Number Of Bonds is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.number_of_bonds.display(value, buffer, offset, packet, parent)
@@ -4261,7 +4417,10 @@ tmx_mx_solamulticast_hsvf_v1_14.number_of_entries.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_entries, range, value, "Number Of Entries: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Number Of Entries is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.number_of_entries.display(value, buffer, offset, packet, parent)
@@ -4289,7 +4448,10 @@ tmx_mx_solamulticast_hsvf_v1_14.number_of_legs.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_legs, range, value, "Number Of Legs: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Number Of Legs is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.number_of_legs.display(value, buffer, offset, packet, parent)
@@ -4317,7 +4479,10 @@ tmx_mx_solamulticast_hsvf_v1_14.number_of_levels.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.number_of_levels, range, value, "Number Of Levels: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Number Of Levels is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.number_of_levels.display(value, buffer, offset, packet, parent)
@@ -4345,7 +4510,10 @@ tmx_mx_solamulticast_hsvf_v1_14.open_interest.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_interest, range, value, "Open Interest: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Open Interest is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.open_interest.display(value, buffer, offset, packet, parent)
@@ -4373,7 +4541,10 @@ tmx_mx_solamulticast_hsvf_v1_14.open_interest_date.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_interest_date, range, value, "Open Interest Date: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Open Interest Date is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.open_interest_date.display(value, buffer, offset, packet, parent)
@@ -4401,7 +4572,10 @@ tmx_mx_solamulticast_hsvf_v1_14.open_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.open_price, range, value, "Open Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Open Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.open_price.display(value, buffer, offset, packet, parent)
@@ -4555,7 +4729,10 @@ tmx_mx_solamulticast_hsvf_v1_14.opening_price.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.opening_price, range, value, "Opening Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Opening Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.opening_price.display(value, buffer, offset, packet, parent)
@@ -4786,7 +4963,10 @@ tmx_mx_solamulticast_hsvf_v1_14.order_price.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.order_price, range, value, "Order Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Order Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.order_price.display(value, buffer, offset, packet, parent)
@@ -4993,7 +5173,10 @@ tmx_mx_solamulticast_hsvf_v1_14.outstanding_bond_value.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.outstanding_bond_value, range, value, "Outstanding Bond Value: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Outstanding Bond Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.outstanding_bond_value.display(value, buffer, offset, packet, parent)
@@ -5021,7 +5204,10 @@ tmx_mx_solamulticast_hsvf_v1_14.previous_closing_price.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_closing_price, range, value, "Previous Closing Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Previous Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.previous_closing_price.display(value, buffer, offset, packet, parent)
@@ -5168,7 +5354,10 @@ tmx_mx_solamulticast_hsvf_v1_14.previous_settlement.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement, range, value, "Previous Settlement: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Previous Settlement is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.previous_settlement.display(value, buffer, offset, packet, parent)
@@ -5292,7 +5481,10 @@ tmx_mx_solamulticast_hsvf_v1_14.previous_settlement_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.previous_settlement_price, range, value, "Previous Settlement Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Previous Settlement Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.previous_settlement_price.display(value, buffer, offset, packet, parent)
@@ -5716,7 +5908,10 @@ tmx_mx_solamulticast_hsvf_v1_14.scheduled_status_change_time.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.scheduled_status_change_time, range, value, "Scheduled Status Change Time: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Scheduled Status Change Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.scheduled_status_change_time.display(value, buffer, offset, packet, parent)
@@ -5744,7 +5939,10 @@ tmx_mx_solamulticast_hsvf_v1_14.sequence_number.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.sequence_number.display(value, buffer, offset, packet, parent)
@@ -5829,7 +6027,10 @@ tmx_mx_solamulticast_hsvf_v1_14.settlement_price.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.settlement_price, range, value, "Settlement Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Settlement Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.settlement_price.display(value, buffer, offset, packet, parent)
@@ -6091,7 +6292,10 @@ tmx_mx_solamulticast_hsvf_v1_14.strike_price.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price, range, value, "Strike Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Strike Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.strike_price.display(value, buffer, offset, packet, parent)
@@ -6248,7 +6452,10 @@ tmx_mx_solamulticast_hsvf_v1_14.strike_price_schedule_notice.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price_schedule_notice, range, value, "Strike Price Schedule Notice: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Strike Price Schedule Notice is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.strike_price_schedule_notice.display(value, buffer, offset, packet, parent)
@@ -6359,7 +6566,10 @@ tmx_mx_solamulticast_hsvf_v1_14.symbol_year.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_year, range, value, "Symbol Year: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Symbol Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.symbol_year.display(value, buffer, offset, packet, parent)
@@ -6513,7 +6723,10 @@ tmx_mx_solamulticast_hsvf_v1_14.tick_increment_numeric.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_increment_numeric, range, value, "Tick Increment Numeric: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Tick Increment Numeric is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.tick_increment_numeric.display(value, buffer, offset, packet, parent)
@@ -6564,7 +6777,10 @@ tmx_mx_solamulticast_hsvf_v1_14.tick_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_price, range, value, "Tick Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Tick Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.tick_price.display(value, buffer, offset, packet, parent)
@@ -6734,7 +6950,10 @@ tmx_mx_solamulticast_hsvf_v1_14.tick_value.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_value, range, value, "Tick Value: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Tick Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.tick_value.display(value, buffer, offset, packet, parent)
@@ -6858,7 +7077,10 @@ tmx_mx_solamulticast_hsvf_v1_14.time.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.time, range, value, "Time: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.time.display(value, buffer, offset, packet, parent)
@@ -6909,7 +7131,10 @@ tmx_mx_solamulticast_hsvf_v1_14.trade_price.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.trade_price, range, value, "Trade Price: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.trade_price.display(value, buffer, offset, packet, parent)
@@ -7192,7 +7417,10 @@ tmx_mx_solamulticast_hsvf_v1_14.underlying_symbol_year.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_symbol_year, range, value, "Underlying Symbol Year: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Underlying Symbol Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.underlying_symbol_year.display(value, buffer, offset, packet, parent)
@@ -7243,7 +7471,10 @@ tmx_mx_solamulticast_hsvf_v1_14.volume.dissect = function(buffer, offset, packet
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.volume, range, value, "Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v1_14.volume.display(value, buffer, offset, packet, parent)

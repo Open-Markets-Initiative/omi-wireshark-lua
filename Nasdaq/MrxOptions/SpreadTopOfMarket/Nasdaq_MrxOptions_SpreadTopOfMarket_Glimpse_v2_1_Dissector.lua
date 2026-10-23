@@ -15,7 +15,7 @@ local nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq MrxOptions SpreadTopOfMarket Glimpse 2.1 Fields
-omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.ask_cust_size = ProtoField.new("Ask Cust Size", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.askcustsize", ftypes.UINT32, nil, nil, nil, "Customer quantity on the ask side.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.ask_dntt_market_size = ProtoField.new("Ask Dntt Market Size", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.askdnttmarketsize", ftypes.UINT32, nil, nil, nil, "The aggregated DNTT (Do Not Trade Through) Market Size on Ask Size.")
@@ -54,11 +54,11 @@ omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.price = ProtoField.n
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.pro_cust_size = ProtoField.new("Pro Cust Size", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.procustsize", ftypes.UINT32, nil, nil, nil, "Customer professional quantity on the bid side.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.quotecondition", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.reserved16", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.securitysymbol", ftypes.STRING, nil, nil, nil, "Denotes the option root symbol (security symbol)")
-omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.sequencenumber", ftypes.STRING, nil, nil, nil, "Top of Market Spread Feed sequence number when the Glimpse snapshot was taken. To keep the stream current, process the Top of Market Spread Feed messages beginning with this sequence number.")
+omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.sequencenumber", ftypes.UINT64, nil, nil, nil, "Top of Market Spread Feed sequence number when the Glimpse snapshot was taken. To keep the stream current, process the Top of Market Spread Feed messages beginning with this sequence number.")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.side = ProtoField.new("Side", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.side", ftypes.STRING, nil, nil, nil, "Indicates the side of the leg")
@@ -104,6 +104,11 @@ omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.system_event_message
 -- Nasdaq MrxOptions SpreadTopOfMarket Glimpse 2.1 Generated Fields
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.leg_information_index = ProtoField.new("Leg Information Index", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.leginformationindex", ftypes.UINT16)
 omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq MrxOptions SpreadTopOfMarket Glimpse 2.1 Expert Info
+nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.experts = {}
+nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.experts.not_a_number = ProtoExpert.new("nasdaq.mrxoptions.spreadtopofmarket.glimpse.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.experts = { nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq MrxOptions SpreadTopOfMarket Glimpse 2.1 Formatting
@@ -278,7 +283,10 @@ nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.accepted_sequence_number.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1258,7 +1266,10 @@ nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.requested_sequence_number.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1355,7 +1366,10 @@ nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_mrxoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.display(value, buffer, offset, packet, parent)

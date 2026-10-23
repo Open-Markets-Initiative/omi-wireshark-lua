@@ -16,35 +16,35 @@ local cboe_bzxequities_auctionfeed_asciipitch_v1_3_8 = {}
 
 -- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Fields
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long = ProtoField.new("Auction Only Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricelong", ftypes.DOUBLE, nil, nil, nil, "Price at which the auction book would match using only Eligible Auction Orders.")
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_short = ProtoField.new("Auction Only Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypriceshort", ftypes.STRING, nil, nil, nil, "Price at which the auction book would match using only Eligible Auction Orders.")
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_short = ProtoField.new("Auction Only Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypriceshort", ftypes.UINT64, nil, nil, nil, "Price at which the auction book would match using only Eligible Auction Orders.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_type = ProtoField.new("Auction Type", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiontype", ftypes.STRING)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.buyshares", ftypes.STRING, nil, nil, nil, "Number of shares on buy side at the Reference Price. Shares matched for Cboe Market Close session.")
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.buyshares", ftypes.UINT64, nil, nil, nil, "Number of shares on buy side at the Reference Price. Shares matched for Cboe Market Close session.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_long = ProtoField.new("Indicative Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.indicativepricelong", ftypes.DOUBLE, nil, nil, nil, "Price at which the auction book and the continuous book would match.")
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_short = ProtoField.new("Indicative Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.indicativepriceshort", ftypes.STRING, nil, nil, nil, "Price at which the auction book and the continuous book would match.")
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_short = ProtoField.new("Indicative Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.indicativepriceshort", ftypes.UINT64, nil, nil, nil, "Price at which the auction book and the continuous book would match.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends this packet in response to an invalid Login Request Packet from the client.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet_type = ProtoField.new("Packet Type", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.password = ProtoField.new("Password", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.password", ftypes.STRING, nil, nil, nil, "Login password")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_long = ProtoField.new("Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.pricelong", ftypes.DOUBLE, nil, nil, nil, "Auction price. Price of the CMC match.")
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_short = ProtoField.new("Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.priceshort", ftypes.STRING, nil, nil, nil, "Auction price or CMC match price.")
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_short = ProtoField.new("Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.priceshort", ftypes.UINT64, nil, nil, nil, "Auction price or CMC match price.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_long = ProtoField.new("Reference Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.referencepricelong", ftypes.DOUBLE, nil, nil, nil, "BBO Collared auction price.")
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_short = ProtoField.new("Reference Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.referencepriceshort", ftypes.STRING, nil, nil, nil, "BBO Collared auction price.")
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_short = ProtoField.new("Reference Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.referencepriceshort", ftypes.UINT64, nil, nil, nil, "BBO Collared auction price.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.requested_session = ProtoField.new("Requested Session", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.sellshares", ftypes.STRING, nil, nil, nil, "Number of shares on sell side at the Reference Price. Shares matched for Cboe Market Close session.")
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.sellshares", ftypes.UINT64, nil, nil, nil, "Number of shares on sell side at the Reference Price. Shares matched for Cboe Market Close session.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.sequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.sequencedmessageheader", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.sequencedmessagetype", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.session = ProtoField.new("Session", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.session", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.shares = ProtoField.new("Shares", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.shares", ftypes.STRING, nil, nil, nil, "Cumulative number of shares executed during the auction or CMC matching session.")
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.shares = ProtoField.new("Shares", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.shares", ftypes.UINT64, nil, nil, nil, "Cumulative number of shares executed during the auction or CMC matching session.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.stock_symbol = ProtoField.new("Stock Symbol", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.stocksymbol", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.text = ProtoField.new("Text", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.timestamp", ftypes.STRING)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.timestamp", ftypes.UINT32)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.username = ProtoField.new("Username", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.username", ftypes.STRING, nil, nil, nil, "Session username")
@@ -58,6 +58,11 @@ omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_summary_messag
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctionupdatemessage", ftypes.STRING, nil, nil, nil, "Auction Update messages disseminate Cboe price and size information during auctions for Cboe listed securities and for CMC.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.extended_auction_summary_message = ProtoField.new("Extended Auction Summary Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.extendedauctionsummarymessage", ftypes.STRING, nil, nil, nil, "The extended version of the Auction Summary message accommodates larger prices.")
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.extended_auction_update_message = ProtoField.new("Extended Auction Update Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.extendedauctionupdatemessage", ftypes.STRING, nil, nil, nil, "The extended version of the Auction Update message accommodates larger prices.")
+
+-- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Expert Info
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts = {}
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number = ProtoExpert.new("cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts = { cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -194,6 +199,9 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.dissect =
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long, range, value, "Auction Only Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Auction Only Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -222,7 +230,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_short, range, value, "Auction Only Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Auction Only Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.display(value, buffer, offset, packet, parent)
@@ -289,7 +300,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.buy_shares, range, value, "Buy Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Buy Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.display(value, buffer, offset, packet, parent)
@@ -324,6 +338,9 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.dissect = f
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_long, range, value, "Indicative Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Indicative Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -352,7 +369,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_short, range, value, "Indicative Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Indicative Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.display(value, buffer, offset, packet, parent)
@@ -461,6 +481,9 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_long, range, value, "Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -489,7 +512,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_short, range, value, "Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.display(value, buffer, offset, packet, parent)
@@ -524,6 +550,9 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.dissect = fu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_long, range, value, "Reference Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Reference Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -552,7 +581,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_short, range, value, "Reference Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Reference Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.display(value, buffer, offset, packet, parent)
@@ -649,7 +681,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.sell_shares, range, value, "Sell Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Sell Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.display(value, buffer, offset, packet, parent)
@@ -759,7 +794,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.display(value, buffer, offset, packet, parent)
@@ -860,7 +898,10 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.timestamp.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.timestamp.display(value, buffer, offset, packet, parent)

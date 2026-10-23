@@ -16,10 +16,10 @@ local nasdaq_nsmequities_nois_itch_v2_2_2026 = {}
 
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Fields
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.crosstype", ftypes.STRING, nil, nil, nil, "Denotes the type of Nasdaq cross for which the NOII message is being generated")
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.currentreferenceprice", ftypes.BYTES, nil, nil, nil, "Indicates price at which the NOII shares are being calculated")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.currentreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Indicates price at which the NOII shares are being calculated")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.nois.itch.v2.2.2026.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes below")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nsmequities.nois.itch.v2.2.2026.imbalancedirection", ftypes.STRING, nil, nil, nil, "Indicates the market side of the imbalance")
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.nois.itch.v2.2.2026.imbalanceshares", ftypes.BYTES, nil, nil, nil, "Number of shares not paired at the Current Reference Price.")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.nois.itch.v2.2.2026.imbalanceshares", ftypes.UINT32, nil, nil, nil, "Number of shares not paired at the Current Reference Price.")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.nois.itch.v2.2.2026.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issues as assigned by Nasdaq. See Appendix for allowable values")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by Nasdaq. See Appendix for allowable values.")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.nois.itch.v2.2.2026.marketcategory", ftypes.STRING, nil, nil, nil, "Indicates Listing market or listing market tier for the issue")
@@ -27,10 +27,10 @@ omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_count = ProtoField.new
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.nearprice", ftypes.BYTES, nil, nil, nil, "A hypothetical auction-clearing price for cross orders as well as continuous orders")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.nearprice", ftypes.DOUBLE, nil, nil, nil, "A hypothetical auction-clearing price for cross orders as well as continuous orders")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.nois.itch.v2.2.2026.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.rfu = ProtoField.new("Rfu", "nasdaq.nsmequities.nois.itch.v2.2.2026.rfu", ftypes.STRING, nil, nil, nil, "Reserved for future use")
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.nois.itch.v2.2.2026.roundlotsize", ftypes.UINT64, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.nois.itch.v2.2.2026.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.nois.itch.v2.2.2026.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if Nasdaq system limits order entry for issue")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.nois.itch.v2.2.2026.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.nois.itch.v2.2.2026.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
@@ -61,7 +61,8 @@ omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_sequence_number = Prot
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Expert Info
 nasdaq_nsmequities_nois_itch_v2_2_2026.experts = {}
 nasdaq_nsmequities_nois_itch_v2_2_2026.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.nsmequities.nois.itch.v2.2.2026.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.experts = { nasdaq_nsmequities_nois_itch_v2_2_2026.experts.message_after_end_of_session }
+nasdaq_nsmequities_nois_itch_v2_2_2026.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.nois.itch.v2.2.2026.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.experts = { nasdaq_nsmequities_nois_itch_v2_2_2026.experts.message_after_end_of_session, nasdaq_nsmequities_nois_itch_v2_2_2026.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Formatting
@@ -147,6 +148,69 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Fields
@@ -167,7 +231,7 @@ nasdaq_nsmequities_nois_itch_v2_2_2026.cross_type.display = function(value)
     return "Cross Type: Close Cross (C)"
   end
   if value == "H" then
-    return "Cross Type: Ipo Halt Cross (H)"
+    return "Cross Type: Intraday Opening Cross For Ipo (H)"
   end
 
   return "Cross Type: Unknown("..value..")"
@@ -192,15 +256,30 @@ nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price = {}
 nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price.size = 10
 
 -- Display: Current Reference Price
-nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price.display = function(value)
-  return "Current Reference Price: "..value
+nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price.size):string(), 4)
+
+  if text == nil then
+    return "Current Reference Price: "..tostring(value)
+  end
+
+  return "Current Reference Price: "..text
 end
 
 -- Dissect: Current Reference Price
 nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.current_reference_price, range, value, "Current Reference Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_nois_itch_v2_2_2026.experts.not_a_number, "Current Reference Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+  value = value/10000
+
   local display = nasdaq_nsmequities_nois_itch_v2_2_2026.current_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.current_reference_price, range, value, display)
@@ -301,7 +380,15 @@ end
 nasdaq_nsmequities_nois_itch_v2_2_2026.imbalance_shares.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nois_itch_v2_2_2026.imbalance_shares.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_shares, range, value, "Imbalance Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_nois_itch_v2_2_2026.experts.not_a_number, "Imbalance Shares is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = nasdaq_nsmequities_nois_itch_v2_2_2026.imbalance_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_shares, range, value, display)
@@ -722,15 +809,30 @@ nasdaq_nsmequities_nois_itch_v2_2_2026.near_price = {}
 nasdaq_nsmequities_nois_itch_v2_2_2026.near_price.size = 10
 
 -- Display: Near Price
-nasdaq_nsmequities_nois_itch_v2_2_2026.near_price.display = function(value)
-  return "Near Price: "..value
+nasdaq_nsmequities_nois_itch_v2_2_2026.near_price.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_nois_itch_v2_2_2026.near_price.size):string(), 4)
+
+  if text == nil then
+    return "Near Price: "..tostring(value)
+  end
+
+  return "Near Price: "..text
 end
 
 -- Dissect: Near Price
 nasdaq_nsmequities_nois_itch_v2_2_2026.near_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nois_itch_v2_2_2026.near_price.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.near_price, range, value, "Near Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_nois_itch_v2_2_2026.experts.not_a_number, "Near Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+  value = value/10000
+
   local display = nasdaq_nsmequities_nois_itch_v2_2_2026.near_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.near_price, range, value, display)
@@ -799,7 +901,15 @@ end
 nasdaq_nsmequities_nois_itch_v2_2_2026.round_lot_size.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nois_itch_v2_2_2026.round_lot_size.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lot_size, range, value, "Round Lot Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_nois_itch_v2_2_2026.experts.not_a_number, "Round Lot Size is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = nasdaq_nsmequities_nois_itch_v2_2_2026.round_lot_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lot_size, range, value, display)
@@ -1027,7 +1137,7 @@ end
 nasdaq_nsmequities_nois_itch_v2_2_2026.nois_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Imbalance Shares: Integer
+  -- Imbalance Shares: Numeric
   index, imbalance_shares = nasdaq_nsmequities_nois_itch_v2_2_2026.imbalance_shares.dissect(buffer, index, packet, parent)
 
   -- Imbalance Direction: Alpha
@@ -1145,7 +1255,7 @@ nasdaq_nsmequities_nois_itch_v2_2_2026.stock_directory.fields = function(buffer,
   -- Rfu: Alpha
   index, rfu = nasdaq_nsmequities_nois_itch_v2_2_2026.rfu.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: Integer
+  -- Round Lot Size: Numeric
   index, round_lot_size = nasdaq_nsmequities_nois_itch_v2_2_2026.round_lot_size.dissect(buffer, index, packet, parent)
 
   -- Round Lots Only: Alpha

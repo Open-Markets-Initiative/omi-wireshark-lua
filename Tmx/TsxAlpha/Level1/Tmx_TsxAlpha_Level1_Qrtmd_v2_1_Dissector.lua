@@ -16,12 +16,12 @@ local tmx_tsxalpha_level1_qrtmd_v2_1 = {}
 
 -- Tmx TsxAlpha Level1 Qrtmd 2.1 Fields
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.ask_price = ProtoField.new("Ask Price", "tmx.tsxalpha.level1.qrtmd.v2.1.askprice", ftypes.DOUBLE, nil, nil, nil, "Ask price for the equity.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.ask_size = ProtoField.new("Ask Size", "tmx.tsxalpha.level1.qrtmd.v2.1.asksize", ftypes.STRING, nil, nil, nil, "Volume on the ask side.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.ask_size = ProtoField.new("Ask Size", "tmx.tsxalpha.level1.qrtmd.v2.1.asksize", ftypes.UINT32, nil, nil, nil, "Volume on the ask side.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.bid_price = ProtoField.new("Bid Price", "tmx.tsxalpha.level1.qrtmd.v2.1.bidprice", ftypes.DOUBLE, nil, nil, nil, "Bid price for the equity.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.bid_size = ProtoField.new("Bid Size", "tmx.tsxalpha.level1.qrtmd.v2.1.bidsize", ftypes.STRING, nil, nil, nil, "Volume on the bid side.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.tsxalpha.level1.qrtmd.v2.1.boardlot", ftypes.STRING, nil, nil, nil, "Board lot volume.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.bid_size = ProtoField.new("Bid Size", "tmx.tsxalpha.level1.qrtmd.v2.1.bidsize", ftypes.UINT32, nil, nil, nil, "Volume on the bid side.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.board_lot = ProtoField.new("Board Lot", "tmx.tsxalpha.level1.qrtmd.v2.1.boardlot", ftypes.UINT32, nil, nil, nil, "Board lot volume.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.bulletin_indicator = ProtoField.new("Bulletin Indicator", "tmx.tsxalpha.level1.qrtmd.v2.1.bulletinindicator", ftypes.STRING, nil, nil, nil, "Indicates the message is a bulletin.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.buyer_id = ProtoField.new("Buyer Id", "tmx.tsxalpha.level1.qrtmd.v2.1.buyerid", ftypes.STRING, nil, nil, nil, "Identifies the buying broker.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.buyer_id = ProtoField.new("Buyer Id", "tmx.tsxalpha.level1.qrtmd.v2.1.buyerid", ftypes.UINT16, nil, nil, nil, "Identifies the buying broker.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.bypass = ProtoField.new("Bypass", "tmx.tsxalpha.level1.qrtmd.v2.1.bypass", ftypes.STRING, nil, nil, nil, "An indicator for bypass crosses, which can be printed outside of the Protected NBBO and are not subject to cross interference.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.comment = ProtoField.new("Comment", "tmx.tsxalpha.level1.qrtmd.v2.1.comment", ftypes.STRING, nil, nil, nil, "Free text accompanying the state change.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.continuation_identifier = ProtoField.new("Continuation Identifier", "tmx.tsxalpha.level1.qrtmd.v2.1.continuationidentifier", ftypes.STRING, nil, nil, nil, "Provides for fragmentation of a message exceeding the maximum transmission unit")
@@ -35,34 +35,34 @@ omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.is_dark = ProtoField.new("Is Dark", "t
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.last_sale = ProtoField.new("Last Sale", "tmx.tsxalpha.level1.qrtmd.v2.1.lastsale", ftypes.DOUBLE, nil, nil, nil, "Last sale price of the symbol.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.listing_market = ProtoField.new("Listing Market", "tmx.tsxalpha.level1.qrtmd.v2.1.listingmarket", ftypes.STRING, nil, nil, nil, "The market on which a security is listed.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.market_state = ProtoField.new("Market State", "tmx.tsxalpha.level1.qrtmd.v2.1.marketstate", ftypes.STRING, nil, nil, nil, "The indication of the current market state.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.message_length = ProtoField.new("Message Length", "tmx.tsxalpha.level1.qrtmd.v2.1.messagelength", ftypes.STRING, nil, nil, nil, "Total length of header and message business content, excluding Stx and Etx")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.message_length = ProtoField.new("Message Length", "tmx.tsxalpha.level1.qrtmd.v2.1.messagelength", ftypes.UINT16, nil, nil, nil, "Total length of header and message business content, excluding Stx and Etx")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.message_text = ProtoField.new("Message Text", "tmx.tsxalpha.level1.qrtmd.v2.1.messagetext", ftypes.STRING, nil, nil, nil, "Bulletin in textual format.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.message_type = ProtoField.new("Message Type", "tmx.tsxalpha.level1.qrtmd.v2.1.messagetype", ftypes.STRING, nil, nil, nil, "Unique code assigned to each message type, specific to each market service")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.min_po_qty = ProtoField.new("Min Po Qty", "tmx.tsxalpha.level1.qrtmd.v2.1.minpoqty", ftypes.STRING, nil, nil, nil, "The minimum volume required for Post Only orders.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.min_po_qty = ProtoField.new("Min Po Qty", "tmx.tsxalpha.level1.qrtmd.v2.1.minpoqty", ftypes.UINT32, nil, nil, nil, "The minimum volume required for Post Only orders.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.opening_time = ProtoField.new("Opening Time", "tmx.tsxalpha.level1.qrtmd.v2.1.openingtime", ftypes.STRING, nil, nil, nil, "The opening time for a stock.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.opening_trade = ProtoField.new("Opening Trade", "tmx.tsxalpha.level1.qrtmd.v2.1.openingtrade", ftypes.STRING, nil, nil, nil, "An indicator as to whether the trade occurred at the opening or was the first board lot trade of the day.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.original_trade_id = ProtoField.new("Original Trade Id", "tmx.tsxalpha.level1.qrtmd.v2.1.originaltradeid", ftypes.STRING, nil, nil, nil, "Trade number.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.original_trade_id = ProtoField.new("Original Trade Id", "tmx.tsxalpha.level1.qrtmd.v2.1.originaltradeid", ftypes.UINT32, nil, nil, nil, "Trade number.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.product_type = ProtoField.new("Product Type", "tmx.tsxalpha.level1.qrtmd.v2.1.producttype", ftypes.STRING, nil, nil, nil, "The product type for a symbol.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.qrtmd_etx = ProtoField.new("Qrtmd Etx", "tmx.tsxalpha.level1.qrtmd.v2.1.qrtmdetx", ftypes.INT8, nil, nil, nil, "End of Qrtmd message")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.qrtmd_stx = ProtoField.new("Qrtmd Stx", "tmx.tsxalpha.level1.qrtmd.v2.1.qrtmdstx", ftypes.INT8, nil, nil, nil, "Start of Qrtmd message")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.retransmission_identifier = ProtoField.new("Retransmission Identifier", "tmx.tsxalpha.level1.qrtmd.v2.1.retransmissionidentifier", ftypes.STRING, nil, nil, nil, "Marks a normal transmission, and is always blank on a heartbeat")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.seller_id = ProtoField.new("Seller Id", "tmx.tsxalpha.level1.qrtmd.v2.1.sellerid", ftypes.STRING, nil, nil, nil, "Identifies the selling broker.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.tsxalpha.level1.qrtmd.v2.1.sequencenumber", ftypes.STRING, nil, nil, nil, "Assigned at service broadcast from 000000001 to 999999999, blank on a heartbeat")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.seller_id = ProtoField.new("Seller Id", "tmx.tsxalpha.level1.qrtmd.v2.1.sellerid", ftypes.UINT16, nil, nil, nil, "Identifies the selling broker.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.tsxalpha.level1.qrtmd.v2.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Assigned at service broadcast from 000000001 to 999999999, blank on a heartbeat")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.service_identifier = ProtoField.new("Service Identifier", "tmx.tsxalpha.level1.qrtmd.v2.1.serviceidentifier", ftypes.STRING, nil, nil, nil, "Service code identifying the market data service carried on the feed")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.settlement_terms = ProtoField.new("Settlement Terms", "tmx.tsxalpha.level1.qrtmd.v2.1.settlementterms", ftypes.STRING, nil, nil, nil, "Settlement terms associated with the order.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.stock_group = ProtoField.new("Stock Group", "tmx.tsxalpha.level1.qrtmd.v2.1.stockgroup", ftypes.STRING, nil, nil, nil, "An indicator of stock group.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.stock_group = ProtoField.new("Stock Group", "tmx.tsxalpha.level1.qrtmd.v2.1.stockgroup", ftypes.UINT8, nil, nil, nil, "An indicator of stock group.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.stock_state = ProtoField.new("Stock State", "tmx.tsxalpha.level1.qrtmd.v2.1.stockstate", ftypes.STRING, nil, nil, nil, "The state of the stock.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.symbol = ProtoField.new("Symbol", "tmx.tsxalpha.level1.qrtmd.v2.1.symbol", ftypes.STRING, nil, nil, nil, "Stock symbol.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.symbol_name = ProtoField.new("Symbol Name", "tmx.tsxalpha.level1.qrtmd.v2.1.symbolname", ftypes.STRING, nil, nil, nil, "The security or issue symbol's complete company name.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.test_symbol = ProtoField.new("Test Symbol", "tmx.tsxalpha.level1.qrtmd.v2.1.testsymbol", ftypes.STRING, nil, nil, nil, "Indicates the symbol is a test symbol.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.total_number_of_stock_groups = ProtoField.new("Total Number Of Stock Groups", "tmx.tsxalpha.level1.qrtmd.v2.1.totalnumberofstockgroups", ftypes.STRING, nil, nil, nil, "Total number of stock groups per trading tier and exchange ID.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.total_number_of_symbols = ProtoField.new("Total Number Of Symbols", "tmx.tsxalpha.level1.qrtmd.v2.1.totalnumberofsymbols", ftypes.STRING, nil, nil, nil, "The total number of stocks per trading tier and Exchange ID.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_id = ProtoField.new("Trade Id", "tmx.tsxalpha.level1.qrtmd.v2.1.tradeid", ftypes.STRING, nil, nil, nil, "Unique identifier per stock assigned to each trade.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.total_number_of_stock_groups = ProtoField.new("Total Number Of Stock Groups", "tmx.tsxalpha.level1.qrtmd.v2.1.totalnumberofstockgroups", ftypes.UINT16, nil, nil, nil, "Total number of stock groups per trading tier and exchange ID.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.total_number_of_symbols = ProtoField.new("Total Number Of Symbols", "tmx.tsxalpha.level1.qrtmd.v2.1.totalnumberofsymbols", ftypes.UINT32, nil, nil, nil, "The total number of stocks per trading tier and Exchange ID.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_id = ProtoField.new("Trade Id", "tmx.tsxalpha.level1.qrtmd.v2.1.tradeid", ftypes.UINT32, nil, nil, nil, "Unique identifier per stock assigned to each trade.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_price = ProtoField.new("Trade Price", "tmx.tsxalpha.level1.qrtmd.v2.1.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the transaction took place.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.tsxalpha.level1.qrtmd.v2.1.tradetimestamp", ftypes.STRING, nil, nil, nil, "Time of trade.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.tsxalpha.level1.qrtmd.v2.1.tradingsystemtimestamp", ftypes.STRING, nil, nil, nil, "The time at which the business action occurred.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trading_tier_id = ProtoField.new("Trading Tier Id", "tmx.tsxalpha.level1.qrtmd.v2.1.tradingtierid", ftypes.STRING, nil, nil, nil, "A Trading Engine identifier.")
-omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.volume = ProtoField.new("Volume", "tmx.tsxalpha.level1.qrtmd.v2.1.volume", ftypes.STRING, nil, nil, nil, "Volume of shares traded.")
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.volume = ProtoField.new("Volume", "tmx.tsxalpha.level1.qrtmd.v2.1.volume", ftypes.UINT32, nil, nil, nil, "Volume of shares traded.")
 
 -- Tmx TsxAlpha Level1 Qrtmd 2.1 Framing
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.message_header = ProtoField.new("Message Header", "tmx.tsxalpha.level1.qrtmd.v2.1.messageheader", ftypes.STRING, nil, nil, nil, "Twenty two byte ascii header carried on every Qrtmd message")
@@ -78,6 +78,11 @@ omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_cancellation_message = ProtoFiel
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "tmx.tsxalpha.level1.qrtmd.v2.1.tradecorrectionmessage", ftypes.STRING, nil, nil, nil, "Correction of a trade already disseminated.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_message = ProtoField.new("Trade Message", "tmx.tsxalpha.level1.qrtmd.v2.1.trademessage", ftypes.STRING, nil, nil, nil, "A trade in an equity on the Alpha market.")
 omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trading_tier_status_message = ProtoField.new("Trading Tier Status Message", "tmx.tsxalpha.level1.qrtmd.v2.1.tradingtierstatusmessage", ftypes.STRING, nil, nil, nil, "Statistical information on the number of symbols and stock groups for the current trading day, sent at the beginning of each trading day.")
+
+-- Tmx TsxAlpha Level1 Qrtmd 2.1 Expert Info
+tmx_tsxalpha_level1_qrtmd_v2_1.experts = {}
+tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number = ProtoExpert.new("tmx.tsxalpha.level1.qrtmd.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tmx_tsxalpha_level1_qrtmd_v2_1.experts = { tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -219,6 +224,9 @@ tmx_tsxalpha_level1_qrtmd_v2_1.ask_price.dissect = function(buffer, offset, pack
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -247,7 +255,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.ask_size.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.ask_size, range, value, "Ask Size: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Ask Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.ask_size.display(value, buffer, offset, packet, parent)
@@ -282,6 +293,9 @@ tmx_tsxalpha_level1_qrtmd_v2_1.bid_price.dissect = function(buffer, offset, pack
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -310,7 +324,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.bid_size.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.bid_size, range, value, "Bid Size: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Bid Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.bid_size.display(value, buffer, offset, packet, parent)
@@ -338,7 +355,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.board_lot.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.board_lot, range, value, "Board Lot: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Board Lot is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.board_lot.display(value, buffer, offset, packet, parent)
@@ -396,7 +416,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.buyer_id.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.buyer_id, range, value, "Buyer Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Buyer Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.buyer_id.display(value, buffer, offset, packet, parent)
@@ -658,6 +681,9 @@ tmx_tsxalpha_level1_qrtmd_v2_1.face_value.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.face_value, range, value, "Face Value: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Face Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -720,6 +746,9 @@ tmx_tsxalpha_level1_qrtmd_v2_1.last_sale.dissect = function(buffer, offset, pack
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.last_sale, range, value, "Last Sale: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Last Sale is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -820,7 +849,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.message_length.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.message_length, range, value, "Message Length: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Message Length is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.message_length.display(value, buffer, offset, packet, parent)
@@ -922,7 +954,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.min_po_qty.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.min_po_qty, range, value, "Min Po Qty: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Min Po Qty is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.min_po_qty.display(value, buffer, offset, packet, parent)
@@ -1007,7 +1042,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.original_trade_id.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.original_trade_id, range, value, "Original Trade Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Original Trade Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.original_trade_id.display(value, buffer, offset, packet, parent)
@@ -1148,7 +1186,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.seller_id.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.seller_id, range, value, "Seller Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Seller Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.seller_id.display(value, buffer, offset, packet, parent)
@@ -1176,7 +1217,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.sequence_number.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
@@ -1297,7 +1341,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.stock_group.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.stock_group, range, value, "Stock Group: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Stock Group is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.stock_group.display(value, buffer, offset, packet, parent)
@@ -1437,7 +1484,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.total_number_of_stock_groups.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.total_number_of_stock_groups, range, value, "Total Number Of Stock Groups: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Total Number Of Stock Groups is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.total_number_of_stock_groups.display(value, buffer, offset, packet, parent)
@@ -1465,7 +1515,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.total_number_of_symbols.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.total_number_of_symbols, range, value, "Total Number Of Symbols: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Total Number Of Symbols is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.total_number_of_symbols.display(value, buffer, offset, packet, parent)
@@ -1493,7 +1546,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.trade_id.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_id, range, value, "Trade Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Trade Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.trade_id.display(value, buffer, offset, packet, parent)
@@ -1528,6 +1584,9 @@ tmx_tsxalpha_level1_qrtmd_v2_1.trade_price.dissect = function(buffer, offset, pa
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trade_price, range, value, "Trade Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -1633,7 +1692,10 @@ tmx_tsxalpha_level1_qrtmd_v2_1.volume.dissect = function(buffer, offset, packet,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.volume, range, value, "Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_tsxalpha_level1_qrtmd_v2_1.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.volume.display(value, buffer, offset, packet, parent)

@@ -15,7 +15,7 @@ local sgx_titandt_depthofbook_glimpse_v1_4 = {}
 -----------------------------------------------------------------------
 
 -- Sgx TitanDt DepthOfBook Glimpse 1.4 Fields
-omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_session = ProtoField.new("Accepted Session", "sgx.titandt.depthofbook.glimpse.v1.4.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.bait_implied_order = ProtoField.new("Bait Implied Order", "sgx.titandt.depthofbook.glimpse.v1.4.baitimpliedorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000, "Bait or implied order")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.client_packet_type = ProtoField.new("Packet Type", "sgx.titandt.depthofbook.glimpse.v1.4.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the client")
@@ -51,7 +51,7 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.price_from = ProtoField.new("Pri
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.price_to = ProtoField.new("Price To", "sgx.titandt.depthofbook.glimpse.v1.4.priceto", ftypes.INT32, nil, nil, nil, "End of price range for this entry")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.quantity = ProtoField.new("Quantity", "sgx.titandt.depthofbook.glimpse.v1.4.quantity", ftypes.UINT64, nil, nil, nil, "The visible quantity of the order")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "sgx.titandt.depthofbook.glimpse.v1.4.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.requested_session = ProtoField.new("Requested Session", "sgx.titandt.depthofbook.glimpse.v1.4.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_12 = ProtoField.new("Reserved 12", "sgx.titandt.depthofbook.glimpse.v1.4.reserved12", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_4_a = ProtoField.new("Reserved 4 A", "sgx.titandt.depthofbook.glimpse.v1.4.reserved4a", ftypes.BYTES, nil, nil, nil, "Reserved")
@@ -103,6 +103,11 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.unsequenced_data_packet = ProtoF
 -- Sgx TitanDt DepthOfBook Glimpse 1.4 Generated Fields
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.timestamp = ProtoField.new("Timestamp", "sgx.titandt.depthofbook.glimpse.v1.4.timestamp", ftypes.UINT64)
+
+-- Sgx TitanDt DepthOfBook Glimpse 1.4 Expert Info
+sgx_titandt_depthofbook_glimpse_v1_4.experts = {}
+sgx_titandt_depthofbook_glimpse_v1_4.experts.not_a_number = ProtoExpert.new("sgx.titandt.depthofbook.glimpse.v1.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_sgx_titandt_depthofbook_glimpse_v1_4.experts = { sgx_titandt_depthofbook_glimpse_v1_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Sgx TitanDt DepthOfBook Glimpse 1.4 Formatting
@@ -252,7 +257,10 @@ sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(sgx_titandt_depthofbook_glimpse_v1_4.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1151,7 +1159,10 @@ sgx_titandt_depthofbook_glimpse_v1_4.requested_sequence_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(sgx_titandt_depthofbook_glimpse_v1_4.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = sgx_titandt_depthofbook_glimpse_v1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)

@@ -15,10 +15,10 @@ local nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NasdaqCanada Chixmmd Glimpse 1.0 Fields
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.board_lot_size = ProtoField.new("Board Lot Size", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.boardlotsize", ftypes.STRING, nil, nil, nil, "Board Lot Size in Shares")
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.broker = ProtoField.new("Broker", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.broker", ftypes.STRING, nil, nil, nil, "The three digit numeric TSX Broker Number or 001 for anonymous.")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.board_lot_size = ProtoField.new("Board Lot Size", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.boardlotsize", ftypes.UINT16, nil, nil, nil, "Board Lot Size in Shares")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.broker = ProtoField.new("Broker", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.broker", ftypes.UINT16, nil, nil, nil, "The three digit numeric TSX Broker Number or 001 for anonymous.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.buysellindicator", ftypes.STRING, nil, nil, nil, "B = Buy Order; S = Sell Order")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.currency = ProtoField.new("Currency", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.currency", ftypes.STRING, nil, nil, nil, "CAD = Canadian Dollars, USD = US Dollars")
@@ -26,22 +26,22 @@ omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.event_code = ProtoField.new(
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.gef_eligible = ProtoField.new("Gef Eligible", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.gefeligible", ftypes.STRING, nil, nil, nil, "Y = GEF Eligible, N = Not GEF Eligible")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.listing_market = ProtoField.new("Listing Market", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.listingmarket", ftypes.STRING, nil, nil, nil, "T = TSX, V = Venture, C = CSE, N = Neo")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.long_price = ProtoField.new("Long Price", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.longprice", ftypes.DOUBLE, nil, nil, nil, "The display price of the order. Long form price: 12 whole number places followed by 7 implied decimal digits.")
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.long_shares = ProtoField.new("Long Shares", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.longshares", ftypes.STRING, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered because part of the order may trade before being posted to the book).")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.long_shares = ProtoField.new("Long Shares", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.longshares", ftypes.UINT64, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered because part of the order may trade before being posted to the book).")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.order_reference = ProtoField.new("Order Reference", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.orderreference", ftypes.STRING, nil, nil, nil, "Day unique order reference number")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.order_reference = ProtoField.new("Order Reference", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.orderreference", ftypes.UINT32, nil, nil, nil, "Day unique order reference number")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.password = ProtoField.new("Password", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.password", ftypes.STRING, nil, nil, nil, "Login password")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.price = ProtoField.new("Price", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.price", ftypes.DOUBLE, nil, nil, nil, "The display price of the order.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.reserved1", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.shares", ftypes.STRING, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered because part of the order may trade before being posted to the book).")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.shares", ftypes.UINT32, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered because part of the order may trade before being posted to the book).")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.stock = ProtoField.new("Stock", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.stock", ftypes.STRING, nil, nil, nil, "Stock symbol")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.text = ProtoField.new("Text", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
-omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.timestamp", ftypes.UINT32, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.tradingstate", ftypes.STRING, nil, nil, nil, "H = Halted, T = Trading")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.username = ProtoField.new("Username", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.username", ftypes.STRING, nil, nil, nil, "Session username")
@@ -67,6 +67,11 @@ omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.login_accepted_packet = Prot
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends this packet in response to an invalid Login Request Packet from the client.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
+
+-- Nasdaq NasdaqCanada Chixmmd Glimpse 1.0 Expert Info
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts = {}
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number = ProtoExpert.new("nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts = { nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NasdaqCanada Chixmmd Glimpse 1.0 Formatting
@@ -243,7 +248,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.accepted_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -294,7 +302,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.board_lot_size.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.board_lot_size, range, value, "Board Lot Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Board Lot Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.board_lot_size.display(value, buffer, offset, packet, parent)
@@ -322,7 +333,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.broker.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.broker, range, value, "Broker: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Broker is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.broker.display(value, buffer, offset, packet, parent)
@@ -570,6 +584,9 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_price.dissect = function(buffer, o
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.long_price, range, value, "Long Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Long Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000000
 
@@ -598,7 +615,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_shares.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.long_shares, range, value, "Long Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Long Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_shares.display(value, buffer, offset, packet, parent)
@@ -662,7 +682,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.order_reference.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.order_reference, range, value, "Order Reference: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Order Reference is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.order_reference.display(value, buffer, offset, packet, parent)
@@ -720,6 +743,9 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.price.dissect = function(buffer, offset
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -771,7 +797,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -884,7 +913,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.shares.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.shares.display(value, buffer, offset, packet, parent)
@@ -1005,7 +1037,10 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.timestamp.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.timestamp.display(value, buffer, offset, packet, parent)

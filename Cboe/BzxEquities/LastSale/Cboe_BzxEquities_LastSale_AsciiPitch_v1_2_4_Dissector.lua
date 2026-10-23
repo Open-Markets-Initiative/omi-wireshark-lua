@@ -16,7 +16,7 @@ local cboe_bzxequities_lastsale_asciipitch_v1_2_4 = {}
 
 -- Cboe BzxEquities LastSale AsciiPitch 1.2.4 Fields
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems.")
-omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.executedshares", ftypes.STRING, nil, nil, nil, "Number of shares executed")
+omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.executedshares", ftypes.UINT32, nil, nil, nil, "Number of shares executed")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.executionid", ftypes.STRING, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends this packet in response to an invalid Login Request Packet from the client.")
@@ -24,7 +24,7 @@ omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.login_request_packet = Pr
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.packet_type = ProtoField.new("Packet Type", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.packettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.password = ProtoField.new("Password", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.password", ftypes.STRING, nil, nil, nil, "Login password")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.price_long = ProtoField.new("Price Long", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.pricelong", ftypes.DOUBLE, nil, nil, nil, "The execution price of the order")
-omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.price_short = ProtoField.new("Price Short", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.priceshort", ftypes.STRING, nil, nil, nil, "The execution price of the order")
+omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.price_short = ProtoField.new("Price Short", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.priceshort", ftypes.UINT64, nil, nil, nil, "The execution price of the order")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.requested_session = ProtoField.new("Requested Session", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
@@ -36,7 +36,7 @@ omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.session = ProtoField.new(
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.stock_symbol = ProtoField.new("Stock Symbol", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.stocksymbol", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.text = ProtoField.new("Text", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
-omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.timestamp", ftypes.STRING)
+omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.timestamp", ftypes.UINT32)
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.username = ProtoField.new("Username", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.username", ftypes.STRING, nil, nil, nil, "Session username")
@@ -49,6 +49,11 @@ omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.packet = ProtoField.new("
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.last_sale_extended_message = ProtoField.new("Last Sale Extended Message", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.lastsaleextendedmessage", ftypes.STRING, nil, nil, nil, "The extended version of the Last Sale message accommodates larger prices.")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.last_sale_message = ProtoField.new("Last Sale Message", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.lastsalemessage", ftypes.STRING, nil, nil, nil, "Last Sale messages are sent when an order on the Cboe book is executed in whole or in part.")
 omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.bzxequities.lastsale.asciipitch.v1.2.4.tradebreakmessage", ftypes.STRING, nil, nil, nil, "The Trade Break message is sent whenever an execution on Cboe is broken. Trade breaks are rare and only affect applications that rely upon Cboe execution-based data.")
+
+-- Cboe BzxEquities LastSale AsciiPitch 1.2.4 Expert Info
+cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts = {}
+cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts.not_a_number = ProtoExpert.new("cboe.bzxequities.lastsale.asciipitch.v1.2.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts = { cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -178,7 +183,10 @@ cboe_bzxequities_lastsale_asciipitch_v1_2_4.executed_shares.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.executed_shares, range, value, "Executed Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts.not_a_number, "Executed Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_lastsale_asciipitch_v1_2_4.executed_shares.display(value, buffer, offset, packet, parent)
@@ -310,6 +318,9 @@ cboe_bzxequities_lastsale_asciipitch_v1_2_4.price_long.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.price_long, range, value, "Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts.not_a_number, "Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -338,7 +349,10 @@ cboe_bzxequities_lastsale_asciipitch_v1_2_4.price_short.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.price_short, range, value, "Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts.not_a_number, "Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_lastsale_asciipitch_v1_2_4.price_short.display(value, buffer, offset, packet, parent)
@@ -587,7 +601,10 @@ cboe_bzxequities_lastsale_asciipitch_v1_2_4.timestamp.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_bzxequities_lastsale_asciipitch_v1_2_4.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(cboe_bzxequities_lastsale_asciipitch_v1_2_4.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_bzxequities_lastsale_asciipitch_v1_2_4.timestamp.display(value, buffer, offset, packet, parent)

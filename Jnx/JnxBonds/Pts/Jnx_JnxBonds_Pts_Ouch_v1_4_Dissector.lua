@@ -15,7 +15,7 @@ local jnx_jnxbonds_pts_ouch_v1_4 = {}
 -----------------------------------------------------------------------
 
 -- Jnx JnxBonds Pts Ouch 1.4 Fields
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_session = ProtoField.new("Accepted Session", "jnx.jnxbonds.pts.ouch.v1.4.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxbonds.pts.ouch.v1.4.buysellindicator", ftypes.STRING, nil, nil, nil, "Side of order")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.capacity = ProtoField.new("Capacity", "jnx.jnxbonds.pts.ouch.v1.4.capacity", ftypes.STRING, nil, nil, nil, "Capacity of firm placing order")
@@ -49,7 +49,7 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.quantity = ProtoField.new("Quantity", "jnx
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.jnxbonds.pts.ouch.v1.4.quantitypreventedfromtrading", ftypes.UINT32, nil, nil, nil, "Number of bonds that would have executed if the trade had occurred")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.jnxbonds.pts.ouch.v1.4.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jnx.jnxbonds.pts.ouch.v1.4.replacementordertoken", ftypes.UINT32, nil, nil, nil, "Must be unique per Ouch account within a trading day and increase on each subsequent transaction")
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.requested_session = ProtoField.new("Requested Session", "jnx.jnxbonds.pts.ouch.v1.4.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.jnxbonds.pts.ouch.v1.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_packet_type = ProtoField.new("Packet Type", "jnx.jnxbonds.pts.ouch.v1.4.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -93,6 +93,11 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.unsequenced_data_packet = ProtoField.new("
 
 -- Jnx JnxBonds Pts Ouch 1.4 Generated Fields
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Jnx JnxBonds Pts Ouch 1.4 Expert Info
+jnx_jnxbonds_pts_ouch_v1_4.experts = {}
+jnx_jnxbonds_pts_ouch_v1_4.experts.not_a_number = ProtoExpert.new("jnx.jnxbonds.pts.ouch.v1.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jnx_jnxbonds_pts_ouch_v1_4.experts = { jnx_jnxbonds_pts_ouch_v1_4.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Jnx JnxBonds Pts Ouch 1.4 Formatting
@@ -257,7 +262,10 @@ jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jnx_jnxbonds_pts_ouch_v1_4.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1217,7 +1225,10 @@ jnx_jnxbonds_pts_ouch_v1_4.requested_sequence_number.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jnx_jnxbonds_pts_ouch_v1_4.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jnx_jnxbonds_pts_ouch_v1_4.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jnx_jnxbonds_pts_ouch_v1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)

@@ -15,7 +15,7 @@ local nasdaq_nsmequities_totalview_itch_v4_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities TotalView Itch 4.1 Fields
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.itch.v4.1.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.itch.v4.1.attribution", ftypes.STRING, nil, nil, nil, "NASDAQ market participant identifier associated with the entered order.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.itch.v4.1.canceledshares", ftypes.UINT32, nil, nil, nil, "The number of shares being removed from the display size of the order as the result of a cancellation.")
@@ -56,7 +56,7 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.printable = ProtoField.new("Pr
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.totalview.itch.v4.1.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.totalview.itch.v4.1.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.itch.v4.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.itch.v4.1.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.totalview.itch.v4.1.reserved", ftypes.STRING, nil, nil, nil, "Reserved.")
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.itch.v4.1.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue")
@@ -124,6 +124,11 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_index = ProtoField.new
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.itch.v4.1.timestamp", ftypes.UINT64)
+
+-- Nasdaq NsmEquities TotalView Itch 4.1 Expert Info
+nasdaq_nsmequities_totalview_itch_v4_1.experts = {}
+nasdaq_nsmequities_totalview_itch_v4_1.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.totalview.itch.v4.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.experts = { nasdaq_nsmequities_totalview_itch_v4_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Itch 4.1 Formatting
@@ -300,7 +305,10 @@ nasdaq_nsmequities_totalview_itch_v4_1.accepted_sequence_number.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_itch_v4_1.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_totalview_itch_v4_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1677,7 +1685,10 @@ nasdaq_nsmequities_totalview_itch_v4_1.requested_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_itch_v4_1.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_totalview_itch_v4_1.requested_sequence_number.display(value, buffer, offset, packet, parent)

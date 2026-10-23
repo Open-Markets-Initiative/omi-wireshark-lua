@@ -15,7 +15,7 @@ local jnx_jnxequities_pts_itch_v1_7 = {}
 -----------------------------------------------------------------------
 
 -- Jnx JnxEquities Pts Itch 1.7 Fields
-omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxequities.pts.itch.v1.7.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxequities.pts.itch.v1.7.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_session = ProtoField.new("Accepted Session", "jnx.jnxequities.pts.itch.v1.7.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.attribution = ProtoField.new("Attribution", "jnx.jnxequities.pts.itch.v1.7.attribution", ftypes.STRING, nil, nil, nil, "Reserved; always blank.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.itch.v1.7.buysellindicator", ftypes.STRING, nil, nil, nil, "Side of the order.")
@@ -44,7 +44,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.price_tick_size = ProtoField.new("Price
 omi_jnx_jnxequities_pts_itch_v1_7.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.jnxequities.pts.itch.v1.7.priceticksizetableid", ftypes.UINT32, nil, nil, nil, "Price tick size table identifier.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.quantity = ProtoField.new("Quantity", "jnx.jnxequities.pts.itch.v1.7.quantity", ftypes.UINT32, nil, nil, nil, "Total number of shares added to the book.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.jnxequities.pts.itch.v1.7.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_jnx_jnxequities_pts_itch_v1_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.jnxequities.pts.itch.v1.7.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_jnx_jnxequities_pts_itch_v1_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.jnxequities.pts.itch.v1.7.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.requested_session = ProtoField.new("Requested Session", "jnx.jnxequities.pts.itch.v1.7.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.jnxequities.pts.itch.v1.7.roundlotsize", ftypes.UINT32, nil, nil, nil, "Number of shares that represent a round lot.")
 omi_jnx_jnxequities_pts_itch_v1_7.fields.seconds = ProtoField.new("Seconds", "jnx.jnxequities.pts.itch.v1.7.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight of the day that the trading session started.")
@@ -104,6 +104,11 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.message_index = ProtoField.new("Message
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jnx.jnxequities.pts.itch.v1.7.messagesequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "jnx.jnxequities.pts.itch.v1.7.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.itch.v1.7.timestamp", ftypes.UINT64)
+
+-- Jnx JnxEquities Pts Itch 1.7 Expert Info
+jnx_jnxequities_pts_itch_v1_7.experts = {}
+jnx_jnxequities_pts_itch_v1_7.experts.not_a_number = ProtoExpert.new("jnx.jnxequities.pts.itch.v1.7.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jnx_jnxequities_pts_itch_v1_7.experts = { jnx_jnxequities_pts_itch_v1_7.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Jnx JnxEquities Pts Itch 1.7 Formatting
@@ -280,7 +285,10 @@ jnx_jnxequities_pts_itch_v1_7.accepted_sequence_number.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jnx_jnxequities_pts_itch_v1_7.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jnx_jnxequities_pts_itch_v1_7.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1053,7 +1061,10 @@ jnx_jnxequities_pts_itch_v1_7.requested_sequence_number.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(jnx_jnxequities_pts_itch_v1_7.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = jnx_jnxequities_pts_itch_v1_7.requested_sequence_number.display(value, buffer, offset, packet, parent)

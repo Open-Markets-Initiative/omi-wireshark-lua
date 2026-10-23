@@ -15,7 +15,7 @@ local nasdaq_nsmequities_orders_ouch_v5_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Fields
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.orders.ouch.v5.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage = ProtoField.new("Account Query Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_optional_field = ProtoField.new("Account Query Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryoptionalfield", ftypes.UINT8, nil, nil, nil, "Appendage Id")
@@ -114,7 +114,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage = ProtoFi
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_optional_field = ProtoField.new("Replace Order Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.replaceorderoptionalfield", ftypes.UINT8, nil, nil, nil, "Appendage Id")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_appendage = ProtoField.new("Replaced Message Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessageappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_optional_field = ProtoField.new("Replaced Message Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessageoptionalfield", ftypes.UINT8, nil, nil, nil, "Appendage Id")
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.orders.ouch.v5.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.route = ProtoField.new("Route", "nasdaq.nsmequities.orders.ouch.v5.0.route", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.secondary_ord_ref_num = ProtoField.new("Secondary Ord Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.secondaryordrefnum", ftypes.UINT64, nil, nil, nil, "An alternative order reference number used when publishing the order on the Nasdaq market data feeds (identifying, for example, the displayed portion of a reserve order)")
@@ -180,6 +180,11 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_data_packet = ProtoFi
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Generated Fields
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NsmEquities Orders Ouch 5.0 Expert Info
+nasdaq_nsmequities_orders_ouch_v5_0.experts = {}
+nasdaq_nsmequities_orders_ouch_v5_0.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.orders.ouch.v5.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.experts = { nasdaq_nsmequities_orders_ouch_v5_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Orders Ouch 5.0 Formatting
@@ -344,7 +349,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2993,7 +3001,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.requested_sequence_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_orders_ouch_v5_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

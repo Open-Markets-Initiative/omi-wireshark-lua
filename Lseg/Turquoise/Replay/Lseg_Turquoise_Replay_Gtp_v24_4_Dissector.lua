@@ -63,14 +63,14 @@ omi_lseg_turquoise_replay_gtp_v24_4.fields.market_mechanism = ProtoField.new("Ma
 omi_lseg_turquoise_replay_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.turquoise.replay.gtp.v24.4.messagecount", ftypes.UINT8, nil, nil, nil, "Number of payload messages that will follow the header")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.turquoise.replay.gtp.v24.4.messagelength", ftypes.UINT16, nil, nil, nil, "Length of message including this field")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.turquoise.replay.gtp.v24.4.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.turquoise.replay.gtp.v24.4.mifidprice", ftypes.STRING, nil, nil, nil, "MiFID compliant Price field populated using executed price.")
-omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.turquoise.replay.gtp.v24.4.mifidquantity", ftypes.STRING, nil, nil, nil, "Number of units of the financial instrument. {DECIMAL-18/17}")
+omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.turquoise.replay.gtp.v24.4.mifidprice", ftypes.DOUBLE, nil, nil, nil, "MiFID compliant Price field populated using executed price.")
+omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.turquoise.replay.gtp.v24.4.mifidquantity", ftypes.DOUBLE, nil, nil, nil, "Number of units of the financial instrument. {DECIMAL-18/17}")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.turquoise.replay.gtp.v24.4.modificationindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.turquoise.replay.gtp.v24.4.negotiationindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.turquoise.replay.gtp.v24.4.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. The field will contain only spaces if Session Change Reason is \"0\" or the Session Change Reason is not present. New End Time will be in terms of the local time on the server (i.e., not UTC).")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.new_price = ProtoField.new("New Price", "lseg.turquoise.replay.gtp.v24.4.newprice", ftypes.DOUBLE, nil, nil, nil, "New price of the order.")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.new_quantity = ProtoField.new("New Quantity", "lseg.turquoise.replay.gtp.v24.4.newquantity", ftypes.DOUBLE, nil, nil, nil, "New displayed quantity of the order.")
-omi_lseg_turquoise_replay_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.turquoise.replay.gtp.v24.4.notionalamount", ftypes.STRING, nil, nil, nil, "Notional value relevant to the security.")
+omi_lseg_turquoise_replay_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.turquoise.replay.gtp.v24.4.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional value relevant to the security.")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.turquoise.replay.gtp.v24.4.notionalcurrency", ftypes.STRING, nil, nil, nil, "Major currency in which the notional amount is denominated.")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.nt_pre_trade_waiver_flag = ProtoField.new("Nt Pre Trade Waiver Flag", "lseg.turquoise.replay.gtp.v24.4.ntpretradewaiverflag", ftypes.STRING, nil, nil, nil, "NT Pre-Trade Waiver Flag")
 omi_lseg_turquoise_replay_gtp_v24_4.fields.number_of_trades = ProtoField.new("Number Of Trades", "lseg.turquoise.replay.gtp.v24.4.numberoftrades", ftypes.UINT32, nil, nil, nil, "Count of all trades for the day.")
@@ -199,6 +199,11 @@ omi_lseg_turquoise_replay_gtp_v24_4.fields.trade_summary_message = ProtoField.ne
 -- Lseg Turquoise Replay Gtp 24.4 Generated Fields
 omi_lseg_turquoise_replay_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.replay.gtp.v24.4.messageindex", ftypes.UINT16)
 
+-- Lseg Turquoise Replay Gtp 24.4 Expert Info
+lseg_turquoise_replay_gtp_v24_4.experts = {}
+lseg_turquoise_replay_gtp_v24_4.experts.not_a_number = ProtoExpert.new("lseg.turquoise.replay.gtp.v24.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_lseg_turquoise_replay_gtp_v24_4.experts = { lseg_turquoise_replay_gtp_v24_4.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -249,6 +254,53 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
 end
 
 
@@ -1682,20 +1734,30 @@ lseg_turquoise_replay_gtp_v24_4.mi_fid_price = {}
 lseg_turquoise_replay_gtp_v24_4.mi_fid_price.size = 20
 
 -- Display: Mi Fid Price
-lseg_turquoise_replay_gtp_v24_4.mi_fid_price.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_turquoise_replay_gtp_v24_4.mi_fid_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_turquoise_replay_gtp_v24_4.mi_fid_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Mi Fid Price: No Value"
   end
 
-  return "Mi Fid Price: "..value
+  return "Mi Fid Price: "..text
 end
 
 -- Dissect: Mi Fid Price
 lseg_turquoise_replay_gtp_v24_4.mi_fid_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.mi_fid_price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_price, range, value, "Mi Fid Price: Not Applicable")
+    item:add_proto_expert_info(lseg_turquoise_replay_gtp_v24_4.experts.not_a_number, "Mi Fid Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_turquoise_replay_gtp_v24_4.mi_fid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_price, range, value, display)
@@ -1710,20 +1772,30 @@ lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity = {}
 lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity.size = 20
 
 -- Display: Mi Fid Quantity
-lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Mi Fid Quantity: No Value"
   end
 
-  return "Mi Fid Quantity: "..value
+  return "Mi Fid Quantity: "..text
 end
 
 -- Dissect: Mi Fid Quantity
 lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_quantity, range, value, "Mi Fid Quantity: Not Applicable")
+    item:add_proto_expert_info(lseg_turquoise_replay_gtp_v24_4.experts.not_a_number, "Mi Fid Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_turquoise_replay_gtp_v24_4.mi_fid_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.mi_fid_quantity, range, value, display)
@@ -1917,20 +1989,30 @@ lseg_turquoise_replay_gtp_v24_4.notional_amount = {}
 lseg_turquoise_replay_gtp_v24_4.notional_amount.size = 20
 
 -- Display: Notional Amount
-lseg_turquoise_replay_gtp_v24_4.notional_amount.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_turquoise_replay_gtp_v24_4.notional_amount.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_turquoise_replay_gtp_v24_4.notional_amount.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Notional Amount: No Value"
   end
 
-  return "Notional Amount: "..value
+  return "Notional Amount: "..text
 end
 
 -- Dissect: Notional Amount
 lseg_turquoise_replay_gtp_v24_4.notional_amount.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.notional_amount.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(lseg_turquoise_replay_gtp_v24_4.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_turquoise_replay_gtp_v24_4.notional_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.notional_amount, range, value, display)

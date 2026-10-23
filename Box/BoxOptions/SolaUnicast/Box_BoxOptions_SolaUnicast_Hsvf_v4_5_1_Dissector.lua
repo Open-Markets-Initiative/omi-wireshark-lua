@@ -15,15 +15,15 @@ local box_boxoptions_solaunicast_hsvf_v4_5_1 = {}
 -----------------------------------------------------------------------
 
 -- Box BoxOptions SolaUnicast Hsvf 4.5.1 Fields
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_price = ProtoField.new("Ask Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.askprice", ftypes.STRING, nil, nil, nil, "Ask price for the option series")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_price = ProtoField.new("Ask Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.askprice", ftypes.UINT32, nil, nil, nil, "Ask price for the option series")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.askpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions.")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.askpricesign", ftypes.STRING, nil, nil, nil, "For Ask Price field")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_size = ProtoField.new("Ask Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.asksize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by the Ask Price")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_size = ProtoField.new("Ask Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.asksize", ftypes.UINT32, nil, nil, nil, "Number of option contracts represented by the Ask Price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.auction_type = ProtoField.new("Auction Type", "box.boxoptions.solaunicast.hsvf.v4.5.1.auctiontype", ftypes.STRING, nil, nil, nil, "Indicating the auction type")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_price = ProtoField.new("Bid Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.bidprice", ftypes.STRING, nil, nil, nil, "Bid price for the option series")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_price = ProtoField.new("Bid Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.bidprice", ftypes.UINT32, nil, nil, nil, "Bid price for the option series")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.bidpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.bidpricesign", ftypes.STRING, nil, nil, nil, "For Bid Price field")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_size = ProtoField.new("Bid Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.bidsize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by the Bid Price")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_size = ProtoField.new("Bid Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.bidsize", ftypes.UINT32, nil, nil, nil, "Number of option contracts represented by the Bid Price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bulletin_contents = ProtoField.new("Bulletin Contents", "box.boxoptions.solaunicast.hsvf.v4.5.1.bulletincontents", ftypes.STRING, nil, nil, nil, "Bulletin in textual format. Left justified and blank filled")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bulletin_type = ProtoField.new("Bulletin Type", "box.boxoptions.solaunicast.hsvf.v4.5.1.bulletintype", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.cmta = ProtoField.new("Cmta", "box.boxoptions.solaunicast.hsvf.v4.5.1.cmta", ftypes.STRING, nil, nil, nil, "Indicates the CMTA")
@@ -31,24 +31,24 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.complex_market_depth_level = P
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.complex_order = ProtoField.new("Complex Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.complexorder", ftypes.STRING, nil, nil, nil, "Client wants to receive messages on option instruments")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.complex_order_instrument_allow_implied = ProtoField.new("Complex Order Instrument Allow Implied", "box.boxoptions.solaunicast.hsvf.v4.5.1.complexorderinstrumentallowimplied", ftypes.STRING, nil, nil, nil, "Complex Order Instrument support of Implied Price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.complex_order_instrument_symbol = ProtoField.new("Complex Order Instrument Symbol", "box.boxoptions.solaunicast.hsvf.v4.5.1.complexorderinstrumentsymbol", ftypes.STRING, nil, nil, nil, "Complex Order Instrument symbol. The individual legs are defined in message type JS.")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.continue_marker = ProtoField.new("Continue Marker", "box.boxoptions.solaunicast.hsvf.v4.5.1.continuemarker", ftypes.STRING)
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.deletion_type = ProtoField.new("Deletion Type", "box.boxoptions.solaunicast.hsvf.v4.5.1.deletiontype", ftypes.STRING)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.continue_marker = ProtoField.new("Continue Marker", "box.boxoptions.solaunicast.hsvf.v4.5.1.continuemarker", ftypes.UINT8)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.deletion_type = ProtoField.new("Deletion Type", "box.boxoptions.solaunicast.hsvf.v4.5.1.deletiontype", ftypes.UINT8)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.delivery_month = ProtoField.new("Delivery Month", "box.boxoptions.solaunicast.hsvf.v4.5.1.deliverymonth", ftypes.STRING, nil, nil, nil, "Delivery month code of the leg of the Complex Order Instrument expiring first")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.end_of_the_exposition = ProtoField.new("End Of The Exposition", "box.boxoptions.solaunicast.hsvf.v4.5.1.endoftheexposition", ftypes.STRING, nil, nil, nil, "HHMMSSCC - '0' filled for PIP messages")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.end_of_the_exposition = ProtoField.new("End Of The Exposition", "box.boxoptions.solaunicast.hsvf.v4.5.1.endoftheexposition", ftypes.UINT32, nil, nil, nil, "HHMMSSCC - '0' filled for PIP messages")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.exchange_id = ProtoField.new("Exchange Id", "box.boxoptions.solaunicast.hsvf.v4.5.1.exchangeid", ftypes.STRING, nil, nil, nil, "Q by default")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.expiry_day = ProtoField.new("Expiry Day", "box.boxoptions.solaunicast.hsvf.v4.5.1.expiryday", ftypes.STRING, nil, nil, nil, "Expiry day of the leg of the Complex Order Instrument expiring first")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.expiry_day = ProtoField.new("Expiry Day", "box.boxoptions.solaunicast.hsvf.v4.5.1.expiryday", ftypes.UINT8, nil, nil, nil, "Expiry day of the leg of the Complex Order Instrument expiring first")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.expiry_month_code = ProtoField.new("Expiry Month Code", "box.boxoptions.solaunicast.hsvf.v4.5.1.expirymonthcode", ftypes.STRING, nil, nil, nil, "Delivery month for the contract")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.expiry_year = ProtoField.new("Expiry Year", "box.boxoptions.solaunicast.hsvf.v4.5.1.expiryyear", ftypes.STRING, nil, nil, nil, "Expiration year of the leg of the Complex Order Instrument expiring first. Format is YY.")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.expiry_year = ProtoField.new("Expiry Year", "box.boxoptions.solaunicast.hsvf.v4.5.1.expiryyear", ftypes.UINT8, nil, nil, nil, "Expiration year of the leg of the Complex Order Instrument expiring first. Format is YY.")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_1 = ProtoField.new("Filler 1", "box.boxoptions.solaunicast.hsvf.v4.5.1.filler1", ftypes.BYTES, nil, nil, nil, "Filler")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_2 = ProtoField.new("Filler 2", "box.boxoptions.solaunicast.hsvf.v4.5.1.filler2", ftypes.BYTES)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_6 = ProtoField.new("Filler 6", "box.boxoptions.solaunicast.hsvf.v4.5.1.filler6", ftypes.BYTES, nil, nil, nil, "Filler")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.firm_id = ProtoField.new("Firm Id", "box.boxoptions.solaunicast.hsvf.v4.5.1.firmid", ftypes.STRING, nil, nil, nil, "Indicates the FirmId")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.gap_control = ProtoField.new("Gap Control", "box.boxoptions.solaunicast.hsvf.v4.5.1.gapcontrol", ftypes.STRING, nil, nil, nil, "Receive GAP messages. Applicable only if 'Number of options classes requested' is greater than 000")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.gap_control = ProtoField.new("Gap Control", "box.boxoptions.solaunicast.hsvf.v4.5.1.gapcontrol", ftypes.UINT8, nil, nil, nil, "Receive GAP messages. Applicable only if 'Number of options classes requested' is greater than 000")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.group = ProtoField.new("Group", "box.boxoptions.solaunicast.hsvf.v4.5.1.group", ftypes.STRING, nil, nil, nil, "Group of the instrument")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.group_instrument = ProtoField.new("Group Instrument", "box.boxoptions.solaunicast.hsvf.v4.5.1.groupinstrument", ftypes.STRING, nil, nil, nil, "Group of the instrument")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.group_of_the_complex_order_instrument = ProtoField.new("Group Of The Complex Order Instrument", "box.boxoptions.solaunicast.hsvf.v4.5.1.groupofthecomplexorderinstrument", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.group_status = ProtoField.new("Group Status", "box.boxoptions.solaunicast.hsvf.v4.5.1.groupstatus", ftypes.STRING, nil, nil, nil, "Value is O")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price = ProtoField.new("High Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.highprice", ftypes.STRING, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price = ProtoField.new("High Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.highprice", ftypes.UINT32, nil, nil, nil, "Highest trade price of the day or current high price if sent after a cancellation")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price_fraction_indicator = ProtoField.new("High Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.highpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price_sign = ProtoField.new("High Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.highpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "box.boxoptions.solaunicast.hsvf.v4.5.1.hsvfetx", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
@@ -56,9 +56,9 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_protocol = ProtoField.new
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "box.boxoptions.solaunicast.hsvf.v4.5.1.hsvfstx", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_order_side = ProtoField.new("Improvement Order Side", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementorderside", ftypes.STRING, nil, nil, nil, "Side")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time = ProtoField.new("Improvement Phase Expiry Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementphaseexpirytime", ftypes.STRING, nil, nil, nil, "Indicates the expiry time of the Improvement Phase (value is in HHMMSSCC)")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementphasesequentialnumber", ftypes.STRING, nil, nil, nil, "Indicates the number of an Improvement Phase. Sequential number unique per Instrument and per trading day")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementprocessexpiryduration", ftypes.STRING, nil, nil, nil, "Indicates the expiry duration of the Improvement Phase (value is in SSCC)")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price = ProtoField.new("Initial Order Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderprice", ftypes.STRING, nil, nil, nil, "Indicates the price of the Initial Order")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementphasesequentialnumber", ftypes.UINT32, nil, nil, nil, "Indicates the number of an Improvement Phase. Sequential number unique per Instrument and per trading day")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementprocessexpiryduration", ftypes.UINT16, nil, nil, nil, "Indicates the expiry duration of the Improvement Phase (value is in SSCC)")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price = ProtoField.new("Initial Order Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderprice", ftypes.UINT32, nil, nil, nil, "Indicates the price of the Initial Order")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderpricefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction Indicator Code")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price_sign = ProtoField.new("Initial Order Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderquantity", ftypes.STRING, nil, nil, nil, "Indicates the quantity of the Initial Order")
@@ -68,70 +68,70 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.instrument_description = Proto
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.instrument_external_code = ProtoField.new("Instrument External Code", "box.boxoptions.solaunicast.hsvf.v4.5.1.instrumentexternalcode", ftypes.STRING, nil, nil, nil, "External identifier used by traders when entering an order")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.instrument_leg = ProtoField.new("Instrument Leg", "box.boxoptions.solaunicast.hsvf.v4.5.1.instrumentleg", ftypes.STRING, nil, nil, nil, "Instrument Leg Repeating Group")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "box.boxoptions.solaunicast.hsvf.v4.5.1.instrumentstatusmarker", ftypes.STRING, nil, nil, nil, "Indicates instrument status")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.last_price = ProtoField.new("Last Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.lastprice", ftypes.STRING, nil, nil, nil, "Closing or most recent trade price")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.last_price = ProtoField.new("Last Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.lastprice", ftypes.UINT32, nil, nil, nil, "Closing or most recent trade price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.last_price_fraction_indicator = ProtoField.new("Last Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.lastpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.last_price_sign = ProtoField.new("Last Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.lastpricesign", ftypes.STRING, nil, nil, nil, "For the Last Price field")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "box.boxoptions.solaunicast.hsvf.v4.5.1.legratio", ftypes.STRING, nil, nil, nil, "Quantity (bought or sold)")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "box.boxoptions.solaunicast.hsvf.v4.5.1.legratio", ftypes.UINT32, nil, nil, nil, "Quantity (bought or sold)")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_ratio_sign = ProtoField.new("Leg Ratio Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.legratiosign", ftypes.STRING, nil, nil, nil, "+ : Buy the leg")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "box.boxoptions.solaunicast.hsvf.v4.5.1.legsymbol", ftypes.STRING, nil, nil, nil, "Trading symbol of the leg")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.level_of_market_depth = ProtoField.new("Level Of Market Depth", "box.boxoptions.solaunicast.hsvf.v4.5.1.levelofmarketdepth", ftypes.STRING)
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order = ProtoField.new("Limit Entered For An Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.limitenteredforanorder", ftypes.STRING, nil, nil, nil, "For a buy order, represents the highest price that the order issuer is willing to pay For a sell order, represents the lowest price at which the order issuer is willing to sell")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order = ProtoField.new("Limit Entered For An Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.limitenteredforanorder", ftypes.UINT32, nil, nil, nil, "For a buy order, represents the highest price that the order issuer is willing to pay For a sell order, represents the lowest price at which the order issuer is willing to sell")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order_sign = ProtoField.new("Limit Entered For An Order Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.limitenteredforanordersign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_fraction_indicator = ProtoField.new("Limit Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.limitfractionindicator", ftypes.STRING, nil, nil, nil, "Fraction Indicator Code")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.low_price = ProtoField.new("Low Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.lowprice", ftypes.STRING, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.low_price = ProtoField.new("Low Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.lowprice", ftypes.UINT32, nil, nil, nil, "Lowest trade price of the day or current low price if sent after a cancellation")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.low_price_fraction_indicator = ProtoField.new("Low Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.lowpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.low_price_sign = ProtoField.new("Low Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.lowpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.market_depth_level = ProtoField.new("Market Depth Level", "box.boxoptions.solaunicast.hsvf.v4.5.1.marketdepthlevel", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.market_flow_indicator = ProtoField.new("Market Flow Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.marketflowindicator", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.market_summaries = ProtoField.new("Market Summaries", "box.boxoptions.solaunicast.hsvf.v4.5.1.marketsummaries", ftypes.STRING, nil, nil, nil, "Client wants to receive the market summaries and the Instrument key messages")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order = ProtoField.new("Max Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.maxnumberofcontractsperorder", ftypes.STRING, nil, nil, nil, "Maximum authorized number of contract per order")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_threshold_price = ProtoField.new("Max Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.maxthresholdprice", ftypes.STRING, nil, nil, nil, "Maximum threshold price authorized for an option contract")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order = ProtoField.new("Max Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.maxnumberofcontractsperorder", ftypes.UINT32, nil, nil, nil, "Maximum authorized number of contract per order")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_threshold_price = ProtoField.new("Max Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.maxthresholdprice", ftypes.UINT32, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_threshold_price_fraction_indicator = ProtoField.new("Max Threshold Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.maxthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_threshold_price_sign = ProtoField.new("Max Threshold Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.maxthresholdpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.maximumnumberofcontractsperorder", ftypes.STRING, nil, nil, nil, "Maximum authorized number of contract per order")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.maximumthresholdprice", ftypes.STRING, nil, nil, nil, "Maximum threshold price authorized for an option contract")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.maximumnumberofcontractsperorder", ftypes.UINT32, nil, nil, nil, "Maximum authorized number of contract per order")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.maximumthresholdprice", ftypes.UINT32, nil, nil, nil, "Maximum threshold price authorized for an option contract")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.maximumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.message_type = ProtoField.new("Message Type", "box.boxoptions.solaunicast.hsvf.v4.5.1.messagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of message being sent")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.minnumberofcontractsperorder", ftypes.STRING, nil, nil, nil, "Minimum authorized number of contract per order")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_threshold_price = ProtoField.new("Min Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.minthresholdprice", ftypes.STRING, nil, nil, nil, "Minimum threshold price authorized for an option contract")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.minnumberofcontractsperorder", ftypes.UINT32, nil, nil, nil, "Minimum authorized number of contract per order")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_threshold_price = ProtoField.new("Min Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.minthresholdprice", ftypes.UINT32, nil, nil, nil, "Minimum threshold price authorized for an option contract")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_threshold_price_fraction_indicator = ProtoField.new("Min Threshold Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.minthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_threshold_price_sign = ProtoField.new("Min Threshold Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.minthresholdpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.minimumnumberofcontractsperorder", ftypes.STRING, nil, nil, nil, "Minimum authorized number of contract per order")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order = ProtoField.new("Minimum Quantity For Improvement Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.minimumquantityforimprovementorder", ftypes.STRING, nil, nil, nil, "Enables market makers to know the minimum quantity for an Improvement Order during the Improvement Phase")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_threshold_price = ProtoField.new("Minimum Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.minimumthresholdprice", ftypes.STRING, nil, nil, nil, "Minimum threshold price authorized for an option contract")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.minimumnumberofcontractsperorder", ftypes.UINT32, nil, nil, nil, "Minimum authorized number of contract per order")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order = ProtoField.new("Minimum Quantity For Improvement Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.minimumquantityforimprovementorder", ftypes.UINT32, nil, nil, nil, "Enables market makers to know the minimum quantity for an Improvement Order during the Improvement Phase")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_threshold_price = ProtoField.new("Minimum Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.minimumthresholdprice", ftypes.UINT32, nil, nil, nil, "Minimum threshold price authorized for an option contract")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.minimumthresholdpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.net_change = ProtoField.new("Net Change", "box.boxoptions.solaunicast.hsvf.v4.5.1.netchange", ftypes.STRING, nil, nil, nil, "Net change equals last trade price minus previous close")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.net_change = ProtoField.new("Net Change", "box.boxoptions.solaunicast.hsvf.v4.5.1.netchange", ftypes.UINT32, nil, nil, nil, "Net change equals last trade price minus previous close")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.netchangefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction indicator for the net change price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.net_change_sign = ProtoField.new("Net Change Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.netchangesign", ftypes.STRING, nil, nil, nil, "For the net change field")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_ask_orders = ProtoField.new("Number Of Ask Orders", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberofaskorders", ftypes.STRING, nil, nil, nil, "Number of Ask Orders, present at a given moment, in the order book")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_bid_orders = ProtoField.new("Number Of Bid Orders", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberofbidorders", ftypes.STRING, nil, nil, nil, "Number of bid orders, present at a given moment, in the order book")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberoflegs", ftypes.STRING, nil, nil, nil, "Number of legs in the Complex Order Instrument")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_levels = ProtoField.new("Number Of Levels", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberoflevels", ftypes.STRING, nil, nil, nil, "Number of level for the trading instrument")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_option_classes_requested = ProtoField.new("Number Of Option Classes Requested", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberofoptionclassesrequested", ftypes.STRING, nil, nil, nil, "000: Client wants to receive messages on all option classes, 001 to 999: Client wants to receive messages on XXX (between 001 to 999) option classes")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_interest = ProtoField.new("Open Interest", "box.boxoptions.solaunicast.hsvf.v4.5.1.openinterest", ftypes.STRING, nil, nil, nil, "Contains the outstanding number of contracts in the series")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_price = ProtoField.new("Open Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.openprice", ftypes.STRING, nil, nil, nil, "Price of the first trade of the day")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of legs in the Complex Order Instrument")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_levels = ProtoField.new("Number Of Levels", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberoflevels", ftypes.UINT8, nil, nil, nil, "Number of level for the trading instrument")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_option_classes_requested = ProtoField.new("Number Of Option Classes Requested", "box.boxoptions.solaunicast.hsvf.v4.5.1.numberofoptionclassesrequested", ftypes.UINT16, nil, nil, nil, "000: Client wants to receive messages on all option classes, 001 to 999: Client wants to receive messages on XXX (between 001 to 999) option classes")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_interest = ProtoField.new("Open Interest", "box.boxoptions.solaunicast.hsvf.v4.5.1.openinterest", ftypes.UINT32, nil, nil, nil, "Contains the outstanding number of contracts in the series")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_price = ProtoField.new("Open Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.openprice", ftypes.UINT32, nil, nil, nil, "Price of the first trade of the day")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.openpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_price_sign = ProtoField.new("Open Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.openpricesign", ftypes.STRING, nil, nil, nil, "+ or - sign")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_classes_requested = ProtoField.new("Option Classes Requested", "box.boxoptions.solaunicast.hsvf.v4.5.1.optionclassesrequested", ftypes.STRING, nil, nil, nil, "Option classes the client asks for, none when the count is 000")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_marker = ProtoField.new("Option Marker", "box.boxoptions.solaunicast.hsvf.v4.5.1.optionmarker", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_type = ProtoField.new("Option Type", "box.boxoptions.solaunicast.hsvf.v4.5.1.optiontype", ftypes.STRING, nil, nil, nil, "Type of option")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.order_quantity = ProtoField.new("Order Quantity", "box.boxoptions.solaunicast.hsvf.v4.5.1.orderquantity", ftypes.STRING, nil, nil, nil, "Indicator Code")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.order_sequence_number = ProtoField.new("Order Sequence Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.ordersequencenumber", ftypes.STRING, nil, nil, nil, "Allocated by the Central trading engine at each valid order entry")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.order_quantity = ProtoField.new("Order Quantity", "box.boxoptions.solaunicast.hsvf.v4.5.1.orderquantity", ftypes.UINT32, nil, nil, nil, "Indicator Code")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.order_sequence_number = ProtoField.new("Order Sequence Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.ordersequencenumber", ftypes.UINT32, nil, nil, nil, "Allocated by the Central trading engine at each valid order entry")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.order_side = ProtoField.new("Order Side", "box.boxoptions.solaunicast.hsvf.v4.5.1.orderside", ftypes.STRING, nil, nil, nil, "The must be filled side")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.percentage_assured_to_initial_order = ProtoField.new("Percentage Assured To Initial Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.percentageassuredtoinitialorder", ftypes.STRING, nil, nil, nil, "Indicates the quantity of the Initial Order assured to the dealer side of the IO in case of the Initial Order price is the best limit Ex: 00040.00 stands for 40.00 %")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "box.boxoptions.solaunicast.hsvf.v4.5.1.priceindicatormarker", ftypes.STRING, nil, nil, nil, "Identifies the type of transaction")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.public_customer_ask_size = ProtoField.new("Public Customer Ask Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.publiccustomerasksize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the ask side")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.public_customer_bid_size = ProtoField.new("Public Customer Bid Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.publiccustomerbidsize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the bid side")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reference_price = ProtoField.new("Reference Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.referenceprice", ftypes.STRING, nil, nil, nil, "Reference Price of the Option")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.public_customer_ask_size = ProtoField.new("Public Customer Ask Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.publiccustomerasksize", ftypes.UINT32, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the ask side")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.public_customer_bid_size = ProtoField.new("Public Customer Bid Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.publiccustomerbidsize", ftypes.UINT32, nil, nil, nil, "Number of option contracts represented by Public Customer orders on the bid side")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reference_price = ProtoField.new("Reference Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.referenceprice", ftypes.UINT32, nil, nil, nil, "Reference Price of the Option")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reference_price_fraction_indicator = ProtoField.new("Reference Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.referencepricefractionindicator", ftypes.STRING, nil, nil, nil, "Number of decimal places or fraction positions")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.requested_size = ProtoField.new("Requested Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.requestedsize", ftypes.STRING, nil, nil, nil, "Size of the market requested")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.requested_size = ProtoField.new("Requested Size", "box.boxoptions.solaunicast.hsvf.v4.5.1.requestedsize", ftypes.UINT32, nil, nil, nil, "Size of the market requested")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reserved = ProtoField.new("Reserved", "box.boxoptions.solaunicast.hsvf.v4.5.1.reserved", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reset_sequence = ProtoField.new("Reset Sequence", "box.boxoptions.solaunicast.hsvf.v4.5.1.resetsequence", ftypes.STRING, nil, nil, nil, "Indicates the last message received.")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reset_sequence = ProtoField.new("Reset Sequence", "box.boxoptions.solaunicast.hsvf.v4.5.1.resetsequence", ftypes.UINT64, nil, nil, nil, "Indicates the last message received.")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.root_symbol = ProtoField.new("Root Symbol", "box.boxoptions.solaunicast.hsvf.v4.5.1.rootsymbol", ftypes.STRING, nil, nil, nil, "Root of the instrument group")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.scheduledtime", ftypes.STRING, nil, nil, nil, "Opening time of the instrument group (HHMMSS)")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumber", ftypes.STRING, nil, nil, nil, "Sequence numbers will range from ascii decimal 000000001 to 999999999")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.STRING, nil, nil, nil, "Sequence numbers skipped.")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikeprice", ftypes.STRING, nil, nil, nil, "Strike Price of the option in full")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.scheduledtime", ftypes.UINT32, nil, nil, nil, "Opening time of the instrument group (HHMMSS)")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence numbers will range from ascii decimal 000000001 to 999999999")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.UINT32, nil, nil, nil, "Sequence numbers skipped.")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikeprice", ftypes.UINT32, nil, nil, nil, "Strike Price of the option in full")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikepricecurrency", ftypes.STRING, nil, nil, nil, "Currency used for the Option Strike Price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines the number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.system_default = ProtoField.new("System Default", "box.boxoptions.solaunicast.hsvf.v4.5.1.systemdefault", ftypes.STRING, nil, nil, nil, "Y")
@@ -139,12 +139,12 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.system_value = ProtoField.new(
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick = ProtoField.new("Tick", "box.boxoptions.solaunicast.hsvf.v4.5.1.tick", ftypes.STRING, nil, nil, nil, "Determined by the difference between last price and the previous different trade price")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment = ProtoField.new("Tick Increment", "box.boxoptions.solaunicast.hsvf.v4.5.1.tickincrement", ftypes.STRING, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.tickincrementfractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.time = ProtoField.new("Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.time", ftypes.STRING, nil, nil, nil, "Time at which the message is transmitted")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.timestamp = ProtoField.new("Timestamp", "box.boxoptions.solaunicast.hsvf.v4.5.1.timestamp", ftypes.STRING, nil, nil, nil, "Time of transaction:HHMMSS")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trade_price = ProtoField.new("Trade Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.tradeprice", ftypes.STRING, nil, nil, nil, "Price at which the transaction took place")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.time = ProtoField.new("Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.time", ftypes.UINT32, nil, nil, nil, "Time at which the message is transmitted")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.timestamp = ProtoField.new("Timestamp", "box.boxoptions.solaunicast.hsvf.v4.5.1.timestamp", ftypes.UINT32, nil, nil, nil, "Time of transaction:HHMMSS")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trade_price = ProtoField.new("Trade Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.tradeprice", ftypes.UINT32, nil, nil, nil, "Price at which the transaction took place")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trade_price_fraction_indicator = ProtoField.new("Trade Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.tradepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.tradepricesign", ftypes.STRING, nil, nil, nil, "For Trade Price field (sign)")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trading_engine_timestamp = ProtoField.new("Trading Engine Timestamp", "box.boxoptions.solaunicast.hsvf.v4.5.1.tradingenginetimestamp", ftypes.STRING, nil, nil, nil, "Time stamp generated by the SOLA Trading Engine (HHMMSSmmm)")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trading_engine_timestamp = ProtoField.new("Trading Engine Timestamp", "box.boxoptions.solaunicast.hsvf.v4.5.1.tradingenginetimestamp", ftypes.UINT32, nil, nil, nil, "Time stamp generated by the SOLA Trading Engine (HHMMSSmmm)")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.type_of_clearing_account = ProtoField.new("Type Of Clearing Account", "box.boxoptions.solaunicast.hsvf.v4.5.1.typeofclearingaccount", ftypes.STRING, nil, nil, nil, "Indicates the account type for which an order was entered using the clearing house member's account typology.")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.type_of_instrument = ProtoField.new("Type Of Instrument", "box.boxoptions.solaunicast.hsvf.v4.5.1.typeofinstrument", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.type_of_market = ProtoField.new("Type Of Market", "box.boxoptions.solaunicast.hsvf.v4.5.1.typeofmarket", ftypes.STRING)
@@ -154,7 +154,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.type_of_order = ProtoField.new
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.type_of_underlying = ProtoField.new("Type Of Underlying", "box.boxoptions.solaunicast.hsvf.v4.5.1.typeofunderlying", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "box.boxoptions.solaunicast.hsvf.v4.5.1.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Symbol root for the underlying security")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.underlying_symbol_root = ProtoField.new("Underlying Symbol Root", "box.boxoptions.solaunicast.hsvf.v4.5.1.underlyingsymbolroot", ftypes.STRING, nil, nil, nil, "Symbol root for the underlying security")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.volume = ProtoField.new("Volume", "box.boxoptions.solaunicast.hsvf.v4.5.1.volume", ftypes.STRING, nil, nil, nil, "Number of contracts for the trade")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.volume = ProtoField.new("Volume", "box.boxoptions.solaunicast.hsvf.v4.5.1.volume", ftypes.UINT32, nil, nil, nil, "Number of contracts for the trade")
 
 -- Box BoxOptions SolaUnicast Hsvf 4.5.1 Framing
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.message_header = ProtoField.new("Message Header", "box.boxoptions.solaunicast.hsvf.v4.5.1.messageheader", ftypes.STRING, nil, nil, nil, "Hsvf Udp Market Data Packet Header")
@@ -215,6 +215,11 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_reference_price = Proto
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledstrikeprice", ftypes.DOUBLE)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_tick_increment = ProtoField.new("Scaled Tick Increment", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledtickincrement", ftypes.DOUBLE)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_trade_price = ProtoField.new("Scaled Trade Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledtradeprice", ftypes.DOUBLE)
+
+-- Box BoxOptions SolaUnicast Hsvf 4.5.1 Expert Info
+box_boxoptions_solaunicast_hsvf_v4_5_1.experts = {}
+box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number = ProtoExpert.new("box.boxoptions.solaunicast.hsvf.v4.5.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.experts = { box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Box BoxOptions SolaUnicast Hsvf 4.5.1 Formatting
@@ -308,7 +313,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.display(value, buffer, offset, packet, parent)
@@ -515,7 +523,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.display(value, buffer, offset, packet, parent)
@@ -841,7 +852,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.continue_marker.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.continue_marker, range, value, "Continue Marker: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Continue Marker is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.continue_marker.display(value, buffer, offset, packet, parent)
@@ -879,7 +893,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.deletion_type.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.deletion_type, range, value, "Deletion Type: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Deletion Type is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.deletion_type.display(value, buffer, offset, packet, parent)
@@ -964,7 +981,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.end_of_the_exposition, range, value, "End Of The Exposition: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "End Of The Exposition is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.display(value, buffer, offset, packet, parent)
@@ -1015,7 +1035,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.expiry_day.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.expiry_day, range, value, "Expiry Day: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Expiry Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.expiry_day.display(value, buffer, offset, packet, parent)
@@ -1100,7 +1123,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.expiry_year.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.expiry_year, range, value, "Expiry Year: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Expiry Year is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.expiry_year.display(value, buffer, offset, packet, parent)
@@ -1227,7 +1253,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.gap_control.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.gap_control, range, value, "Gap Control: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Gap Control is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.gap_control.display(value, buffer, offset, packet, parent)
@@ -1372,7 +1401,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.high_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price, range, value, "High Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "High Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price.display(value, buffer, offset, packet, parent)
@@ -1638,7 +1670,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_sequential_number.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number, range, value, "Improvement Phase Sequential Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Improvement Phase Sequential Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_sequential_number.display(value, buffer, offset, packet, parent)
@@ -1666,7 +1701,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration, range, value, "Improvement Process Expiry Duration: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Improvement Process Expiry Duration is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.display(value, buffer, offset, packet, parent)
@@ -1694,7 +1732,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price, range, value, "Initial Order Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Initial Order Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price.display(value, buffer, offset, packet, parent)
@@ -1983,7 +2024,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.last_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.last_price, range, value, "Last Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Last Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price.display(value, buffer, offset, packet, parent)
@@ -2109,7 +2153,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.leg_ratio.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_ratio, range, value, "Leg Ratio: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Leg Ratio is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.leg_ratio.display(value, buffer, offset, packet, parent)
@@ -2238,7 +2285,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order, range, value, "Limit Entered For An Order: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Limit Entered For An Order is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.display(value, buffer, offset, packet, parent)
@@ -2371,7 +2421,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.low_price.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.low_price, range, value, "Low Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Low Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price.display(value, buffer, offset, packet, parent)
@@ -2534,7 +2587,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.max_number_of_contracts_per_order.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order, range, value, "Max Number Of Contracts Per Order: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Max Number Of Contracts Per Order is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.max_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -2562,7 +2618,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_threshold_price, range, value, "Max Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Max Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price.display(value, buffer, offset, packet, parent)
@@ -2695,7 +2754,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_number_of_contracts_per_order.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order, range, value, "Maximum Number Of Contracts Per Order: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Maximum Number Of Contracts Per Order is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -2723,7 +2785,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_threshold_price, range, value, "Maximum Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Maximum Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price.display(value, buffer, offset, packet, parent)
@@ -2943,7 +3008,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.min_number_of_contracts_per_order.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order, range, value, "Min Number Of Contracts Per Order: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Min Number Of Contracts Per Order is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.min_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -2971,7 +3039,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_threshold_price, range, value, "Min Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Min Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price.display(value, buffer, offset, packet, parent)
@@ -3104,7 +3175,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_number_of_contracts_per_order.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order, range, value, "Minimum Number Of Contracts Per Order: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Minimum Number Of Contracts Per Order is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -3132,7 +3206,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order, range, value, "Minimum Quantity For Improvement Order: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Minimum Quantity For Improvement Order is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_quantity_for_improvement_order.display(value, buffer, offset, packet, parent)
@@ -3160,7 +3237,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_threshold_price, range, value, "Minimum Threshold Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Minimum Threshold Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price.display(value, buffer, offset, packet, parent)
@@ -3263,7 +3343,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.net_change, range, value, "Net Change: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Net Change is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.display(value, buffer, offset, packet, parent)
@@ -3472,7 +3555,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_legs.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_legs, range, value, "Number Of Legs: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Number Of Legs is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_legs.display(value, buffer, offset, packet, parent)
@@ -3500,7 +3586,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_levels.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_levels, range, value, "Number Of Levels: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Number Of Levels is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_levels.display(value, buffer, offset, packet, parent)
@@ -3528,7 +3617,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_option_classes_requested.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.number_of_option_classes_requested, range, value, "Number Of Option Classes Requested: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Number Of Option Classes Requested is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_option_classes_requested.display(value, buffer, offset, packet, parent)
@@ -3594,7 +3686,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.open_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_price, range, value, "Open Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Open Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price.display(value, buffer, offset, packet, parent)
@@ -3757,7 +3852,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.order_quantity.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.order_quantity, range, value, "Order Quantity: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Order Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.order_quantity.display(value, buffer, offset, packet, parent)
@@ -3785,7 +3883,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.order_sequence_number.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.order_sequence_number, range, value, "Order Sequence Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Order Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.order_sequence_number.display(value, buffer, offset, packet, parent)
@@ -3999,7 +4100,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reference_price, range, value, "Reference Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Reference Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price.display(value, buffer, offset, packet, parent)
@@ -4163,7 +4267,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.reset_sequence.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reset_sequence, range, value, "Reset Sequence: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Reset Sequence is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.reset_sequence.display(value, buffer, offset, packet, parent)
@@ -4214,7 +4321,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scheduled_time.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scheduled_time, range, value, "Scheduled Time: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Scheduled Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.scheduled_time.display(value, buffer, offset, packet, parent)
@@ -4242,7 +4352,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.sequence_number.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.sequence_number.display(value, buffer, offset, packet, parent)
@@ -4270,7 +4383,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.sequence_numbers_skipped.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_numbers_skipped, range, value, "Sequence Numbers Skipped: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Sequence Numbers Skipped is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.sequence_numbers_skipped.display(value, buffer, offset, packet, parent)
@@ -4298,7 +4414,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price, range, value, "Strike Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Strike Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price.display(value, buffer, offset, packet, parent)
@@ -4608,7 +4727,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.time.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.time, range, value, "Time: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.time.display(value, buffer, offset, packet, parent)
@@ -4636,7 +4758,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.timestamp.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.timestamp.display(value, buffer, offset, packet, parent)
@@ -4664,7 +4789,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trade_price, range, value, "Trade Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.display(value, buffer, offset, packet, parent)
@@ -4790,7 +4918,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.trading_engine_timestamp.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trading_engine_timestamp, range, value, "Trading Engine Timestamp: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Trading Engine Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.trading_engine_timestamp.display(value, buffer, offset, packet, parent)

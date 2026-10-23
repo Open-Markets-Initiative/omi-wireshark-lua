@@ -18,12 +18,12 @@ local cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16 = {}
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.auction_only_price_long = ProtoField.new("Auction Only Price Long", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.auctiononlypricelong", ftypes.DOUBLE, nil, nil, nil, "Price at which the auction book would match using only Eligible Auction Orders.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.auction_only_price_short = ProtoField.new("Auction Only Price Short", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.auctiononlypriceshort", ftypes.DOUBLE, nil, nil, nil, "Price at which the auction book would match using only Eligible Auction Orders.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.auction_type = ProtoField.new("Auction Type", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.auctiontype", ftypes.STRING)
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.buyshares", ftypes.STRING, nil, nil, nil, "Number of shares on buy side at the Reference Price. Shares matched for Cboe Market Close.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.canceled_shares = ProtoField.new("Canceled Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.canceledshares", ftypes.STRING, nil, nil, nil, "Number of shares canceled")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.buyshares", ftypes.UINT64, nil, nil, nil, "Number of shares on buy side at the Reference Price. Shares matched for Cboe Market Close.")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.canceled_shares = ProtoField.new("Canceled Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.canceledshares", ftypes.UINT32, nil, nil, nil, "Number of shares canceled")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.customerindicator", ftypes.STRING, nil, nil, nil, "(EDGX Only), space filled on other Cboe Equities Exchanges.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.display = ProtoField.new("Display", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.display", ftypes.STRING, nil, nil, nil, "Y = The order is aggregated in the Cboe SIP quote.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.executedshares", ftypes.STRING, nil, nil, nil, "Number of shares executed")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.executed_shares = ProtoField.new("Executed Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.executedshares", ftypes.UINT32, nil, nil, nil, "Number of shares executed")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.execution_id = ProtoField.new("Execution Id", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.executionid", ftypes.STRING, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution ID is also referenced in the Trade Break message.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.halt_status = ProtoField.new("Halt Status", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.haltstatus", ftypes.STRING, nil, nil, nil, "Trading Status")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.indicative_price_long = ProtoField.new("Indicative Price Long", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.indicativepricelong", ftypes.DOUBLE, nil, nil, nil, "Price at which the auction book and the continuous book would match.")
@@ -31,7 +31,7 @@ omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.indicative_price
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends this packet in response to an invalid Login Request Packet from the client.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.midnightreference", ftypes.STRING, nil, nil, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.midnightreference", ftypes.UINT64, nil, nil, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.order_id = ProtoField.new("Order Id", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.orderid", ftypes.STRING, nil, nil, nil, "Day-specific identifier assigned to this order")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.packet_type = ProtoField.new("Packet Type", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.packettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.participant_id = ProtoField.new("Participant Id", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.participantid", ftypes.STRING, nil, nil, nil, "Optionally specified. If specified, MPID or 'RTAL' for retail specified orders (equities) of firm attributed to this quote. Space filled otherwise.")
@@ -40,7 +40,7 @@ omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.price_long = Pro
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.price_short = ProtoField.new("Price Short", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.priceshort", ftypes.DOUBLE, nil, nil, nil, "The limit order price")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reference_price_long = ProtoField.new("Reference Price Long", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.referencepricelong", ftypes.DOUBLE, nil, nil, nil, "BBO Collared auction price.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reference_price_short = ProtoField.new("Reference Price Short", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.referencepriceshort", ftypes.DOUBLE, nil, nil, nil, "BBO Collared auction price.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.regshoaction", ftypes.STRING)
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.regshoaction", ftypes.UINT8)
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.requested_session = ProtoField.new("Requested Session", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
@@ -48,22 +48,22 @@ omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reserved = Proto
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.reserved1", ftypes.STRING, nil, nil, nil, "Reserved")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.reserved2", ftypes.STRING, nil, nil, nil, "Reserved")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.retailpriceimprovement", ftypes.STRING)
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sellshares", ftypes.STRING, nil, nil, nil, "Number of shares on sell side at the Reference Price. Shares matched for Cboe Market Close.")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sellshares", ftypes.UINT64, nil, nil, nil, "Number of shares on sell side at the Reference Price. Shares matched for Cboe Market Close.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sequencedmessageheader", ftypes.STRING)
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sequencedmessagetype", ftypes.STRING)
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.session = ProtoField.new("Session", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.session", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.shares_long = ProtoField.new("Shares Long", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.shareslong", ftypes.STRING, nil, nil, nil, "Cumulative number of shares executed during the auction. Shares executed in the CMC match.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.shares_short = ProtoField.new("Shares Short", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sharesshort", ftypes.STRING, nil, nil, nil, "Number of shares being added to the book (may be less than the number of shares entered).")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.shares_long = ProtoField.new("Shares Long", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.shareslong", ftypes.UINT64, nil, nil, nil, "Cumulative number of shares executed during the auction. Shares executed in the CMC match.")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.shares_short = ProtoField.new("Shares Short", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sharesshort", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book (may be less than the number of shares entered).")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.sideindicator", ftypes.STRING)
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.stock_symbol_long = ProtoField.new("Stock Symbol Long", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.stocksymbollong", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.stock_symbol_short = ProtoField.new("Stock Symbol Short", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.stocksymbolshort", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.text = ProtoField.new("Text", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.time = ProtoField.new("Time", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.time", ftypes.STRING, nil, nil, nil, "Number of whole seconds elapsed since the start of the current Eastern Time calendar day, derived by converting the current Eastern wall clock time (HH:MM:SS) to seconds.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.timestamp", ftypes.STRING)
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_date = ProtoField.new("Trade Date", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.tradedate", ftypes.STRING, nil, nil, nil, "Current Trade Date as represented by YYYYMMDD")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.time = ProtoField.new("Time", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.time", ftypes.UINT64, nil, nil, nil, "Number of whole seconds elapsed since the start of the current Eastern Time calendar day, derived by converting the current Eastern wall clock time (HH:MM:SS) to seconds.")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.timestamp", ftypes.INT32)
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_date = ProtoField.new("Trade Date", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.tradedate", ftypes.UINT32, nil, nil, nil, "Current Trade Date as represented by YYYYMMDD")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.username = ProtoField.new("Username", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.username", ftypes.STRING, nil, nil, nil, "Session username")
@@ -90,6 +90,11 @@ omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_extended_m
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_long_message = ProtoField.new("Trade Long Message", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.tradelongmessage", ftypes.STRING, nil, nil, nil, "The long version of the Trade message accommodates larger symbol sizes possible through the ISRA plan.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_short_message = ProtoField.new("Trade Short Message", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.tradeshortmessage", ftypes.STRING, nil, nil, nil, "The Trade message provides information about executions of non-displayed orders or shares on the Cboe book and routed orders.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status message is used to indicate the current trading status of a security.")
+
+-- Cboe EdgxEquities TcpDepthOfBook AsciiPitch 1.15.16 Expert Info
+cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts = {}
+cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number = ProtoExpert.new("cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts = { cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -226,6 +231,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.auction_only_price_long.dis
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.auction_only_price_long, range, value, "Auction Only Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Auction Only Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -261,6 +269,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.auction_only_price_short.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.auction_only_price_short, range, value, "Auction Only Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Auction Only Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -331,7 +342,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.buy_shares.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.buy_shares, range, value, "Buy Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Buy Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.buy_shares.display(value, buffer, offset, packet, parent)
@@ -359,7 +373,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.canceled_shares.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.canceled_shares, range, value, "Canceled Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Canceled Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.canceled_shares.display(value, buffer, offset, packet, parent)
@@ -437,7 +454,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.executed_shares.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.executed_shares, range, value, "Executed Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Executed Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.executed_shares.display(value, buffer, offset, packet, parent)
@@ -534,6 +554,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.indicative_price_long.disse
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.indicative_price_long, range, value, "Indicative Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Indicative Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -569,6 +592,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.indicative_price_short.diss
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.indicative_price_short, range, value, "Indicative Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Indicative Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -597,7 +623,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.midnight_reference.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference, range, value, "Midnight Reference: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Midnight Reference is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.midnight_reference.display(value, buffer, offset, packet, parent)
@@ -752,6 +781,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.price_long.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.price_long, range, value, "Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -787,6 +819,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.price_short.dissect = funct
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.price_short, range, value, "Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -822,6 +857,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.reference_price_long.dissec
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reference_price_long, range, value, "Reference Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Reference Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -857,6 +895,9 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.reference_price_short.disse
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reference_price_short, range, value, "Reference Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Reference Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -892,7 +933,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.reg_sho_action.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.reg_sho_action, range, value, "Reg Sho Action: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Reg Sho Action is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.reg_sho_action.display(value, buffer, offset, packet, parent)
@@ -1094,7 +1138,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.sell_shares.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.sell_shares, range, value, "Sell Shares: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Sell Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.sell_shares.display(value, buffer, offset, packet, parent)
@@ -1243,7 +1290,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.shares_long.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.shares_long, range, value, "Shares Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Shares Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.shares_long.display(value, buffer, offset, packet, parent)
@@ -1271,7 +1321,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.shares_short.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.shares_short, range, value, "Shares Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Shares Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.shares_short.display(value, buffer, offset, packet, parent)
@@ -1425,7 +1478,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.time.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.time, range, value, "Time: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.time.display(value, buffer, offset, packet, parent)
@@ -1453,7 +1509,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp.display(value, buffer, offset, packet, parent)
@@ -1481,7 +1540,10 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.trade_date.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_date, range, value, "Trade Date: Not Applicable")
+    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Trade Date is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.trade_date.display(value, buffer, offset, packet, parent)

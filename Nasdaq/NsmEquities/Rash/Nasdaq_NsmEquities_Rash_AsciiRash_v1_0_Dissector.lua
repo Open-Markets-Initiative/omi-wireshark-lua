@@ -15,7 +15,7 @@ local nasdaq_nsmequities_rash_asciirash_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Rash AsciiRash 1.0 Fields
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.rash.asciirash.v1.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.rash.asciirash.v1.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.rash.asciirash.v1.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.nsmequities.rash.asciirash.v1.0.brokentradereason", ftypes.STRING, nil, nil, nil, "The reason the trade was broken. See Broken Trade Reasons.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "nasdaq.nsmequities.rash.asciirash.v1.0.cancelreason", ftypes.STRING, nil, nil, nil, "The reason the order was reduced or canceled. See Cancel Order Reasons.")
@@ -37,10 +37,10 @@ omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.liquidity = ProtoField.new("Li
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.rash.asciirash.v1.0.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.rash.asciirash.v1.0.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends this packet in response to an invalid Login Request Packet from the client.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.rash.asciirash.v1.0.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.rash.asciirash.v1.0.matchnumber", ftypes.STRING, nil, nil, nil, "Assigned to each match executed. Each match consists of one buy and one sell; the matching buy and sell executions share the same match number.")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.max_floor = ProtoField.new("Max Floor", "nasdaq.nsmequities.rash.asciirash.v1.0.maxfloor", ftypes.STRING, nil, nil, nil, "Shares to display. If zero this field will default to the order quantity. Use the display field to specify a hidden order.")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.min_qty = ProtoField.new("Min Qty", "nasdaq.nsmequities.rash.asciirash.v1.0.minqty", ftypes.STRING, nil, nil, nil, "Minimum fill amount allowed.")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.rash.asciirash.v1.0.orderreferencenumber", ftypes.STRING, nil, nil, nil, "The day-unique Order Reference Number assigned by the system to this order.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.rash.asciirash.v1.0.matchnumber", ftypes.UINT32, nil, nil, nil, "Assigned to each match executed. Each match consists of one buy and one sell; the matching buy and sell executions share the same match number.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.max_floor = ProtoField.new("Max Floor", "nasdaq.nsmequities.rash.asciirash.v1.0.maxfloor", ftypes.UINT32, nil, nil, nil, "Shares to display. If zero this field will default to the order quantity. Use the display field to specify a hidden order.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.min_qty = ProtoField.new("Min Qty", "nasdaq.nsmequities.rash.asciirash.v1.0.minqty", ftypes.UINT32, nil, nil, nil, "Minimum fill amount allowed.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.rash.asciirash.v1.0.orderreferencenumber", ftypes.UINT32, nil, nil, nil, "The day-unique Order Reference Number assigned by the system to this order.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.order_token = ProtoField.new("Order Token", "nasdaq.nsmequities.rash.asciirash.v1.0.ordertoken", ftypes.STRING, nil, nil, nil, "The order Token field as entered.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.order_token_client_order_id = ProtoField.new("Order Token Client Order Id", "nasdaq.nsmequities.rash.asciirash.v1.0.ordertokenclientorderid", ftypes.STRING, nil, nil, nil, "Token must be day unique for each RASH port account.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.rash.asciirash.v1.0.password", ftypes.STRING, nil, nil, nil, "Login password")
@@ -48,26 +48,26 @@ omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.peg_difference = ProtoField.ne
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.peg_difference_sign = ProtoField.new("Peg Difference Sign", "nasdaq.nsmequities.rash.asciirash.v1.0.pegdifferencesign", ftypes.STRING, nil, nil, nil, "+ or -. If peg type is set to N, specify +.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.peg_type = ProtoField.new("Peg Type", "nasdaq.nsmequities.rash.asciirash.v1.0.pegtype", ftypes.STRING, nil, nil, nil, "Peg type.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.rash.asciirash.v1.0.price", ftypes.DOUBLE, nil, nil, nil, "Price, 6 whole and 4 implied decimal digits.")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.random_reserve = ProtoField.new("Random Reserve", "nasdaq.nsmequities.rash.asciirash.v1.0.randomreserve", ftypes.STRING, nil, nil, nil, "Shares to do random reserve with.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.random_reserve = ProtoField.new("Random Reserve", "nasdaq.nsmequities.rash.asciirash.v1.0.randomreserve", ftypes.UINT32, nil, nil, nil, "Shares to do random reserve with.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.reactive_trade_now = ProtoField.new("Reactive Trade Now", "nasdaq.nsmequities.rash.asciirash.v1.0.reactivetradenow", ftypes.STRING, nil, nil, nil, "Indicates if the order is a reactive trade now order (optional field).")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.nsmequities.rash.asciirash.v1.0.referenceprice", ftypes.DOUBLE, nil, nil, nil, "The reference price associated with the execution.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.reference_price_type = ProtoField.new("Reference Price Type", "nasdaq.nsmequities.rash.asciirash.v1.0.referencepricetype", ftypes.STRING, nil, nil, nil, "Reference price type.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.reject_reason = ProtoField.new("Reject Reason", "nasdaq.nsmequities.rash.asciirash.v1.0.rejectreason", ftypes.STRING, nil, nil, nil, "See Rejected Order Reasons.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.rash.asciirash.v1.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.rash.asciirash.v1.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.rash.asciirash.v1.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.rash.asciirash.v1.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.route_dest_exec_broker = ProtoField.new("Route Dest Exec Broker", "nasdaq.nsmequities.rash.asciirash.v1.0.routedestexecbroker", ftypes.STRING, nil, nil, nil, "Target ID: a routing strategy or a directed order destination code.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.rash.asciirash.v1.0.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.rash.asciirash.v1.0.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Code identifying the RASH outbound message type")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.rash.asciirash.v1.0.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.rash.asciirash.v1.0.shares", ftypes.STRING, nil, nil, nil, "Specify zero to cancel the order; otherwise the new intended order size.")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.shares_order_qty = ProtoField.new("Shares Order Qty", "nasdaq.nsmequities.rash.asciirash.v1.0.sharesorderqty", ftypes.STRING, nil, nil, nil, "Total number of shares entered. Must be greater than zero.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.rash.asciirash.v1.0.shares", ftypes.UINT32, nil, nil, nil, "Specify zero to cancel the order; otherwise the new intended order size.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.shares_order_qty = ProtoField.new("Shares Order Qty", "nasdaq.nsmequities.rash.asciirash.v1.0.sharesorderqty", ftypes.UINT32, nil, nil, nil, "Total number of shares entered. Must be greater than zero.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.rash.asciirash.v1.0.side", ftypes.STRING, nil, nil, nil, "B/S/T/E: Buy, Sell, Short, Short Exempt. For sell short and sell short exempt, the subscriber affirms the ability to borrow securities in good deliverable form for delivery within three business days.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.rash.asciirash.v1.0.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.stock_symbol = ProtoField.new("Stock Symbol", "nasdaq.nsmequities.rash.asciirash.v1.0.stocksymbol", ftypes.STRING, nil, nil, nil, "Stock symbol.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.rash.asciirash.v1.0.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.rash.asciirash.v1.0.timeinforce", ftypes.STRING, nil, nil, nil, "The number of seconds that this order should live before being automatically canceled; special values (0 = Immediate or Cancel, 99998 = Market Day, 99999 = system day and the others the document lists) are listed in section 2.1.1.")
-omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.rash.asciirash.v1.0.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern, 8 ascii digits right justified and zero filled")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.rash.asciirash.v1.0.timeinforce", ftypes.UINT32, nil, nil, nil, "The number of seconds that this order should live before being automatically canceled; special values (0 = Immediate or Cancel, 99998 = Market Day, 99999 = system day and the others the document lists) are listed in section 2.1.1.")
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.rash.asciirash.v1.0.timestamp", ftypes.UINT32, nil, nil, nil, "Milliseconds past midnight Eastern, 8 ascii digits right justified and zero filled")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.trade_correction_reason = ProtoField.new("Trade Correction Reason", "nasdaq.nsmequities.rash.asciirash.v1.0.tradecorrectionreason", ftypes.STRING, nil, nil, nil, "Trade correction reason.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.rash.asciirash.v1.0.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.rash.asciirash.v1.0.unsequencedmessagetype", ftypes.STRING, nil, nil, nil, "Code identifying the RASH inbound message type")
@@ -95,6 +95,11 @@ omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.executed_with_reference_price_
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.rejected_order_message = ProtoField.new("Rejected Order Message", "nasdaq.nsmequities.rash.asciirash.v1.0.rejectedordermessage", ftypes.STRING, nil, nil, nil, "A Rejected Order Message may be sent in response to an Enter Order Message if the order cannot be accepted at this time. The Token of a rejected order cannot be re-used.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.rash.asciirash.v1.0.systemeventmessage", ftypes.STRING, nil, nil, nil, "System Event Messages signal events that affect the entire system.")
 omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.rash.asciirash.v1.0.tradecorrectionmessage", ftypes.STRING, nil, nil, nil, "A Trade Correction Message informs you that there has been a change to an execution.")
+
+-- Nasdaq NsmEquities Rash AsciiRash 1.0 Expert Info
+nasdaq_nsmequities_rash_asciirash_v1_0.experts = {}
+nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.rash.asciirash.v1.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_rash_asciirash_v1_0.experts = { nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Rash AsciiRash 1.0 Formatting
@@ -266,7 +271,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.accepted_sequence_number.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -589,6 +597,9 @@ nasdaq_nsmequities_rash_asciirash_v1_0.discretion_peg_difference.dissect = funct
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.discretion_peg_difference, range, value, "Discretion Peg Difference: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Discretion Peg Difference is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -693,6 +704,9 @@ nasdaq_nsmequities_rash_asciirash_v1_0.discretion_price.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.discretion_price, range, value, "Discretion Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Discretion Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1017,7 +1031,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.match_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.match_number, range, value, "Match Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.match_number.display(value, buffer, offset, packet, parent)
@@ -1045,7 +1062,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.max_floor.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.max_floor, range, value, "Max Floor: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Max Floor is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.max_floor.display(value, buffer, offset, packet, parent)
@@ -1073,7 +1093,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.min_qty.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.min_qty, range, value, "Min Qty: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Min Qty is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.min_qty.display(value, buffer, offset, packet, parent)
@@ -1101,7 +1124,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.order_reference_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.order_reference_number, range, value, "Order Reference Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Order Reference Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.order_reference_number.display(value, buffer, offset, packet, parent)
@@ -1205,6 +1231,9 @@ nasdaq_nsmequities_rash_asciirash_v1_0.peg_difference.dissect = function(buffer,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.peg_difference, range, value, "Peg Difference: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Peg Difference is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1312,6 +1341,9 @@ nasdaq_nsmequities_rash_asciirash_v1_0.price.dissect = function(buffer, offset, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1340,7 +1372,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.random_reserve.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.random_reserve, range, value, "Random Reserve: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Random Reserve is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.random_reserve.display(value, buffer, offset, packet, parent)
@@ -1405,6 +1440,9 @@ nasdaq_nsmequities_rash_asciirash_v1_0.reference_price.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.reference_price, range, value, "Reference Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Reference Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1651,7 +1689,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.requested_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1939,7 +1980,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.shares.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.shares.display(value, buffer, offset, packet, parent)
@@ -1967,7 +2011,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.shares_order_qty.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.shares_order_qty, range, value, "Shares Order Qty: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Shares Order Qty is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.shares_order_qty.display(value, buffer, offset, packet, parent)
@@ -2104,7 +2151,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.time_in_force.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.time_in_force, range, value, "Time In Force: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Time In Force is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.time_in_force.display(value, buffer, offset, packet, parent)
@@ -2156,7 +2206,10 @@ nasdaq_nsmequities_rash_asciirash_v1_0.timestamp.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_0.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_rash_asciirash_v1_0.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_0.timestamp.display(value, buffer, offset, packet, parent)

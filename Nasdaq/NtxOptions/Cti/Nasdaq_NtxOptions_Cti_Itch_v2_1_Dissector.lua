@@ -15,7 +15,7 @@ local nasdaq_ntxoptions_cti_itch_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NtxOptions Cti Itch 2.1 Fields
-omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.cti.itch.v2.1.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.cti.itch.v2.1.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.ntxoptions.cti.itch.v2.1.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.account = ProtoField.new("Account", "nasdaq.ntxoptions.cti.itch.v2.1.account", ftypes.STRING, nil, nil, nil, "Account as specified in the order (FIX tag 1 Account)")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.ntxoptions.cti.itch.v2.1.auctionid", ftypes.UINT32, nil, nil, nil, "Auction id for trades resulting from an auction (e.g. Complex Order Live Auction (Exposure/COLA), PIXL/PRISM/PIM Auction) or 0 if none")
@@ -93,7 +93,7 @@ omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.ref_correction_number = ProtoField.ne
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.ref_match_id = ProtoField.new("Ref Match Id", "nasdaq.ntxoptions.cti.itch.v2.1.refmatchid", ftypes.UINT32, nil, nil, nil, "For corrected trades, Execution Id of the prior trade")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.ref_trade_id = ProtoField.new("Ref Trade Id", "nasdaq.ntxoptions.cti.itch.v2.1.reftradeid", ftypes.UINT32, nil, nil, nil, "For corrected trades, trade id of prior trade. 0 if never corrected.")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.ntxoptions.cti.itch.v2.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.ntxoptions.cti.itch.v2.1.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.ntxoptions.cti.itch.v2.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.ntxoptions.cti.itch.v2.1.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.reserved_6 = ProtoField.new("Reserved 6", "nasdaq.ntxoptions.cti.itch.v2.1.reserved6", ftypes.BYTES, nil, nil, nil, "Reserved for future extension")
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.reserved_8 = ProtoField.new("Reserved 8", "nasdaq.ntxoptions.cti.itch.v2.1.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future extension")
@@ -161,6 +161,11 @@ omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.unsequenced_data_packet = ProtoField.
 
 -- Nasdaq NtxOptions Cti Itch 2.1 Generated Fields
 omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.ntxoptions.cti.itch.v2.1.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NtxOptions Cti Itch 2.1 Expert Info
+nasdaq_ntxoptions_cti_itch_v2_1.experts = {}
+nasdaq_ntxoptions_cti_itch_v2_1.experts.not_a_number = ProtoExpert.new("nasdaq.ntxoptions.cti.itch.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_ntxoptions_cti_itch_v2_1.experts = { nasdaq_ntxoptions_cti_itch_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NtxOptions Cti Itch 2.1 Formatting
@@ -303,7 +308,10 @@ nasdaq_ntxoptions_cti_itch_v2_1.accepted_sequence_number.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_ntxoptions_cti_itch_v2_1.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_ntxoptions_cti_itch_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2186,7 +2194,10 @@ nasdaq_ntxoptions_cti_itch_v2_1.requested_sequence_number.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_ntxoptions_cti_itch_v2_1.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_ntxoptions_cti_itch_v2_1.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_ntxoptions_cti_itch_v2_1.requested_sequence_number.display(value, buffer, offset, packet, parent)

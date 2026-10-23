@@ -19,12 +19,12 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action = ProtoField.new("Action", "f
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action_datetime = ProtoField.new("Action Datetime", "finra.finraotc.bbds.dfi.v2018.1a.actiondatetime", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative_message = ProtoField.new("Administrative Message", "finra.finraotc.bbds.dfi.v2018.1a.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages Header")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.finraotc.bbds.dfi.v2018.1a.administrativemessagetype", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price = ProtoField.new("Ask Price", "finra.finraotc.bbds.dfi.v2018.1a.askprice", ftypes.STRING, nil, nil, nil, "The Ask price is the price at which the quoting participant is willing to sell (offer) the security for at any given time")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price = ProtoField.new("Ask Price", "finra.finraotc.bbds.dfi.v2018.1a.askprice", ftypes.UINT64, nil, nil, nil, "The Ask price is the price at which the quoting participant is willing to sell (offer) the security for at any given time")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price_denominator = ProtoField.new("Ask Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.askpricedenominator", ftypes.STRING, nil, nil, nil, "The Ask Price Denominator denotes the whole dollar and decimal digit composition of the Ask Price field")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_size = ProtoField.new("Ask Size", "finra.finraotc.bbds.dfi.v2018.1a.asksize", ftypes.STRING, nil, nil, nil, "The Ask Size represents the amount of shares available at the quoting participant’s Ask Price in the given security")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price = ProtoField.new("Bid Price", "finra.finraotc.bbds.dfi.v2018.1a.bidprice", ftypes.STRING, nil, nil, nil, "The Bid Price is the price at which the OTCBB quoting participant is willing to buy the security for at a given time")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_size = ProtoField.new("Ask Size", "finra.finraotc.bbds.dfi.v2018.1a.asksize", ftypes.UINT32, nil, nil, nil, "The Ask Size represents the amount of shares available at the quoting participant’s Ask Price in the given security")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price = ProtoField.new("Bid Price", "finra.finraotc.bbds.dfi.v2018.1a.bidprice", ftypes.UINT64, nil, nil, nil, "The Bid Price is the price at which the OTCBB quoting participant is willing to buy the security for at a given time")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price_denominator = ProtoField.new("Bid Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.bidpricedenominator", ftypes.STRING, nil, nil, nil, "The Bid Price Denominator denotes the whole dollar and decimal digit composition of the Ask Price field")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "finra.finraotc.bbds.dfi.v2018.1a.bidsize", ftypes.STRING, nil, nil, nil, "The Bid Size represents the amount of shares available at the quoting participant’s Bid Price in the given security")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "finra.finraotc.bbds.dfi.v2018.1a.bidsize", ftypes.UINT32, nil, nil, nil, "The Bid Size represents the amount of shares available at the quoting participant’s Bid Price in the given security")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.block_soh = ProtoField.new("Block Soh", "finra.finraotc.bbds.dfi.v2018.1a.blocksoh", ftypes.UINT8, nil, nil, nil, "start of messages")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message = ProtoField.new("Control Message", "finra.finraotc.bbds.dfi.v2018.1a.controlmessage", ftypes.STRING, nil, nil, nil, "Control Messages Header")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message_type = ProtoField.new("Control Message Type", "finra.finraotc.bbds.dfi.v2018.1a.controlmessagetype", ftypes.STRING)
@@ -33,13 +33,13 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.datetime = ProtoField.new("Datetime"
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.day = ProtoField.new("Day", "finra.finraotc.bbds.dfi.v2018.1a.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.hour = ProtoField.new("Hour", "finra.finraotc.bbds.dfi.v2018.1a.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_appendage = ProtoField.new("Inside Appendage", "finra.finraotc.bbds.dfi.v2018.1a.insideappendage", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator = ProtoField.new("Inside Appendage Indicator", "finra.finraotc.bbds.dfi.v2018.1a.insideappendageindicator", ftypes.STRING, nil, nil, nil, "The Inside Appendage Indicator field indicates how the Inside quote for the OTCBB issue is impacted by the current Market Participant update")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_price = ProtoField.new("Inside Ask Price", "finra.finraotc.bbds.dfi.v2018.1a.insideaskprice", ftypes.STRING, nil, nil, nil, "The Inside Ask Price indicates the best ask price available in the OTCBB system for the issue")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator = ProtoField.new("Inside Appendage Indicator", "finra.finraotc.bbds.dfi.v2018.1a.insideappendageindicator", ftypes.UINT8, nil, nil, nil, "The Inside Appendage Indicator field indicates how the Inside quote for the OTCBB issue is impacted by the current Market Participant update")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_price = ProtoField.new("Inside Ask Price", "finra.finraotc.bbds.dfi.v2018.1a.insideaskprice", ftypes.UINT64, nil, nil, nil, "The Inside Ask Price indicates the best ask price available in the OTCBB system for the issue")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_price_denominator = ProtoField.new("Inside Ask Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.insideaskpricedenominator", ftypes.STRING, nil, nil, nil, "The Inside Ask Price Denominator field denotes the whole dollar and decimal digit composition of the Inside Ask Price field")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_size = ProtoField.new("Inside Ask Size", "finra.finraotc.bbds.dfi.v2018.1a.insideasksize", ftypes.STRING, nil, nil, nil, "This Inside Ask Size field indicates the largest size (in round lots) quoted by an OTCBB market participant at the Inside Price in the issue.")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_price = ProtoField.new("Inside Bid Price", "finra.finraotc.bbds.dfi.v2018.1a.insidebidprice", ftypes.STRING, nil, nil, nil, "The Inside Bid Price indicates the best (highest) bid price available in the OTCBB system for the issue")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_size = ProtoField.new("Inside Ask Size", "finra.finraotc.bbds.dfi.v2018.1a.insideasksize", ftypes.UINT64, nil, nil, nil, "This Inside Ask Size field indicates the largest size (in round lots) quoted by an OTCBB market participant at the Inside Price in the issue.")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_price = ProtoField.new("Inside Bid Price", "finra.finraotc.bbds.dfi.v2018.1a.insidebidprice", ftypes.UINT64, nil, nil, nil, "The Inside Bid Price indicates the best (highest) bid price available in the OTCBB system for the issue")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_price_denominator = ProtoField.new("Inside Bid Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.insidebidpricedenominator", ftypes.STRING, nil, nil, nil, "The Inside Bid Price Denominator field denotes the whole dollar and decimal digit composition of the Inside Ask Price field")
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_size = ProtoField.new("Inside Bid Size", "finra.finraotc.bbds.dfi.v2018.1a.insidebidsize", ftypes.STRING, nil, nil, nil, "This Inside Bid Size field indicates the largest size (in round lots) quoted by an OTCBB market participant at the Inside Price in the issue.")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_size = ProtoField.new("Inside Bid Size", "finra.finraotc.bbds.dfi.v2018.1a.insidebidsize", ftypes.UINT64, nil, nil, nil, "This Inside Bid Size field indicates the largest size (in round lots) quoted by an OTCBB market participant at the Inside Price in the issue.")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_quote_condition = ProtoField.new("Inside Quote Condition", "finra.finraotc.bbds.dfi.v2018.1a.insidequotecondition", ftypes.STRING, nil, nil, nil, "This Function field denotes if the original trade report is being cancelled or was reported in error")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.finraotc.bbds.dfi.v2018.1a.marketcenteroriginatorid", ftypes.STRING, nil, nil, nil, "This field indicates the market center or system that originated the message that follows")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_participant_identifier = ProtoField.new("Market Participant Identifier", "finra.finraotc.bbds.dfi.v2018.1a.marketparticipantidentifier", ftypes.STRING, nil, nil, nil, "The Market Participant Identifier (MPID) field indicates the identifier assigned by FINRA to the OTCBB Market Participant that is responsible for generating a quotation message")
@@ -49,7 +49,7 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_participant_status = ProtoFie
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_category = ProtoField.new("Message Category", "finra.finraotc.bbds.dfi.v2018.1a.messagecategory", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_header = ProtoField.new("Message Header", "finra.finraotc.bbds.dfi.v2018.1a.messageheader", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_separator = ProtoField.new("Message Separator", "finra.finraotc.bbds.dfi.v2018.1a.messageseparator", ftypes.UINT8)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "finra.finraotc.bbds.dfi.v2018.1a.messagesequencenumber", ftypes.STRING, nil, nil, nil, "Message Sequence Number, at the beginning of each operational cycle, this number will be set to 00000000 of each data channel")
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "finra.finraotc.bbds.dfi.v2018.1a.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Message Sequence Number, at the beginning of each operational cycle, this number will be set to 00000000 of each data channel")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.minute = ProtoField.new("Minute", "finra.finraotc.bbds.dfi.v2018.1a.minute", ftypes.STRING, nil, nil, nil, "The minute of the hour the transaction occurred.")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.finraotc.bbds.dfi.v2018.1a.month", ftypes.STRING, nil, nil, nil, "The month the transaction occurred")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_symbol = ProtoField.new("Otcbb Symbol", "finra.finraotc.bbds.dfi.v2018.1a.otcbbsymbol", ftypes.STRING, nil, nil, nil, "This alphanumeric field indicates the issue symbol for the OTCBB security being quoted")
@@ -84,6 +84,11 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_session_open_message = ProtoF
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "finra.finraotc.bbds.dfi.v2018.1a.sequencenumberresetmessage", ftypes.STRING, nil, nil, nil, "The Sequence Number Reset Message forces the resetting of the Sequence Number. The Sequence Number will either be reset to zero or to a number greater than the last number previously transmitted")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "finra.finraotc.bbds.dfi.v2018.1a.startofdaymessage", ftypes.STRING, nil, nil, nil, "The Start of Day control message signifies the beginning of each operational cycle for TDDS processing")
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.trading_action_message = ProtoField.new("Trading Action Message", "finra.finraotc.bbds.dfi.v2018.1a.tradingactionmessage", ftypes.STRING, nil, nil, nil, "FINRA will disseminate this message to inform customers of trading actions, such as halts or trading resumptions which affect individual OTCBB or Other OTC securities")
+
+-- Finra FinraOtc Bbds Dfi 2018.1A Expert Info
+finra_finraotc_bbds_dfi_v2018_1a.experts = {}
+finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number = ProtoExpert.new("finra.finraotc.bbds.dfi.v2018.1a.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_finra_finraotc_bbds_dfi_v2018_1a.experts = { finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -218,7 +223,10 @@ finra_finraotc_bbds_dfi_v2018_1a.ask_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.ask_price.display(value, buffer, offset, packet, parent)
@@ -269,7 +277,10 @@ finra_finraotc_bbds_dfi_v2018_1a.ask_size.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_size, range, value, "Ask Size: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Ask Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.ask_size.display(value, buffer, offset, packet, parent)
@@ -297,7 +308,10 @@ finra_finraotc_bbds_dfi_v2018_1a.bid_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.bid_price.display(value, buffer, offset, packet, parent)
@@ -348,7 +362,10 @@ finra_finraotc_bbds_dfi_v2018_1a.bid_size.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_size, range, value, "Bid Size: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Bid Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.bid_size.display(value, buffer, offset, packet, parent)
@@ -533,7 +550,10 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_appendage_indicator, range, value, "Inside Appendage Indicator: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Appendage Indicator is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.display(value, buffer, offset, packet, parent)
@@ -561,7 +581,10 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, "Inside Ask Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.display(value, buffer, offset, packet, parent)
@@ -612,7 +635,10 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, "Inside Ask Size: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Ask Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.display(value, buffer, offset, packet, parent)
@@ -640,7 +666,10 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, "Inside Bid Price: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.display(value, buffer, offset, packet, parent)
@@ -691,7 +720,10 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, "Inside Bid Size: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Inside Bid Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.display(value, buffer, offset, packet, parent)
@@ -962,7 +994,10 @@ finra_finraotc_bbds_dfi_v2018_1a.message_sequence_number.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message_sequence_number, range, value, "Message Sequence Number: Not Applicable")
+    item:add_proto_expert_info(finra_finraotc_bbds_dfi_v2018_1a.experts.not_a_number, "Message Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.message_sequence_number.display(value, buffer, offset, packet, parent)

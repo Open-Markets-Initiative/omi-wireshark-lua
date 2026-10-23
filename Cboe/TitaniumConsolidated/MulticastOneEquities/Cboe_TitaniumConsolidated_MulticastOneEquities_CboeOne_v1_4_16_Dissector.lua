@@ -1,0 +1,2793 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Protocol
+local omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16 = Proto("Omi.Cboe.TitaniumConsolidated.MulticastOneEquities.CboeOne.v1.4.16", "Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16")
+
+-- Protocol table
+local cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Fields
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_block = ProtoField.new("Adap Block", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.adapblock", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_block_size = ProtoField.new("Adap Block Size", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.adapblocksize", ftypes.UINT8, nil, nil, nil, "Size of each ADAP Block message")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_blocks = ProtoField.new("Adap Blocks", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.adapblocks", ftypes.UINT8, nil, nil, nil, "Number of ADAP Block message to follow")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_complete = ProtoField.new("Adap Complete", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.adapcomplete", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_flags = ProtoField.new("Adap Flags", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.adapflags", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.cboe_cumulative_executed_volume = ProtoField.new("Cboe Cumulative Executed Volume", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.cboecumulativeexecutedvolume", ftypes.UINT64, nil, nil, nil, "Cumulative number of shares traded today across all applicable Cboe books.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.clear_adap = ProtoField.new("Clear Adap", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.clearadap", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.closing_price = ProtoField.new("Closing Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.closingprice", ftypes.DOUBLE, nil, nil, nil, "Closing Price.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_ask_price = ProtoField.new("Consolidated Best Ask Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.consolidatedbestaskprice", ftypes.DOUBLE, nil, nil, nil, "Cboe Consolidated best ask price.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_ask_quantity = ProtoField.new("Consolidated Best Ask Quantity", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.consolidatedbestaskquantity", ftypes.UINT64, nil, nil, nil, "Cboe Consolidated number of sell-side shares available for this symbol.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_bid_price = ProtoField.new("Consolidated Best Bid Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.consolidatedbestbidprice", ftypes.DOUBLE, nil, nil, nil, "Cboe Consolidated best bid price.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_bid_quantity = ProtoField.new("Consolidated Best Bid Quantity", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.consolidatedbestbidquantity", ftypes.UINT64, nil, nil, nil, "Cboe Consolidated number of buy-side shares available for this symbol.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_quote_price = ProtoField.new("Consolidated Best Quote Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.consolidatedbestquoteprice", ftypes.DOUBLE, nil, nil, nil, "Cboe Consolidated best price.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_quote_quantity = ProtoField.new("Consolidated Quote Quantity", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.consolidatedquotequantity", ftypes.UINT64, nil, nil, nil, "Cboe Consolidated number of shares available for this symbol.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.data_source = ProtoField.new("Data Source", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.datasource", ftypes.STRING, nil, nil, nil, "C=CTA U=UTP")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.first_regular_hours_trade_price = ProtoField.new("First Regular Hours Trade Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.firstregularhourstradeprice", ftypes.DOUBLE, nil, nil, nil, "Represents the first eligible regular-hours SIP trade. Uses the applicable CTA or UTP market-center designation. Coexists with all existing Opening Price messages. Excludes trades with SIP sale condition C, B, H, I, M, N, Q, R, T, U, V, 7, or 8.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_symbol_summary_flags = ProtoField.new("Fractional Symbol Summary Flags", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.fractionalsymbolsummaryflags", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_break_flags = ProtoField.new("Fractional Trade Break Flags", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.fractionaltradebreakflags", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_flags = ProtoField.new("Fractional Trade Flags", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.fractionaltradeflags", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.high_price = ProtoField.new("High Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest trade price of the day.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_price = ProtoField.new("Last Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastprice", ftypes.DOUBLE, nil, nil, nil, "Last trade price.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastquantity", ftypes.UINT64, nil, nil, nil, "Last trade quantity.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lastupdatetimestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.length = ProtoField.new("Length", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.longupdateadapblock", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.low_price = ProtoField.new("Low Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.lowprice", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price of the day.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.market_center = ProtoField.new("Market Center", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.marketcenter", ftypes.STRING, nil, nil, nil, "* = All Cboe Markets for this feed Y=BYX Z=BZX A=EDGA X=EDGX")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.market_center_execution_id = ProtoField.new("Market Center Execution Id", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.marketcenterexecutionid", ftypes.UINT64, nil, nil, nil, "Market center specific execution identifier of this Execution. Execution ID is also referenced in the Trade Break message.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.market_status = ProtoField.new("Market Status", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.marketstatus", ftypes.STRING, nil, nil, nil, "N=Normal E=Excluded from Symbol Summary and ADAP updates I=Incomplete")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_count = ProtoField.new("Message Count", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.national_cumulative_volume = ProtoField.new("National Cumulative Volume", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.nationalcumulativevolume", ftypes.DOUBLE, nil, nil, nil, "Cumulative number of shares traded today as reported to the CTA and UTP SIPs.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.national_volume_status = ProtoField.new("National Volume Status", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.nationalvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.opencloseindicator", ftypes.STRING, nil, nil, nil, "O=Price is the Opening price C=Price is the Closing price F=First Regular Hours Trade (effective 11/30/26)")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.opening_price = ProtoField.new("Opening Price", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.openingprice", ftypes.DOUBLE, nil, nil, nil, "Opening Price. 0 if the system has not received an opening price for the security.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.price_long = ProtoField.new("Price Long", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.pricelong", ftypes.DOUBLE, nil, nil, nil, "Opening/Closing Price.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.price_short = ProtoField.new("Price Short", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.priceshort", ftypes.DOUBLE, nil, nil, nil, "Price level to add/update for Market Center's ADAP book.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.quantitylong", ftypes.UINT64, nil, nil, nil, "Quantity of shares at this price level in the Market Center's ADAP book. A value of zero implies deletion of this ADAP level.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.quantityshort", ftypes.UINT32, nil, nil, nil, "Quantity of shares at this price level in the Market Center's ADAP book. A value of zero implies deletion of this ADAP level.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.regshoaction", ftypes.STRING, nil, nil, nil, "0=No price test in effect 1=Reg SHO price test restriction in effect")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.reserved1", ftypes.UINT8, nil, nil, nil, "Reserved")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.retailpriceimprovement", ftypes.STRING, nil, nil, nil, "B=Buy Side RPI S=Sell Side RPI A=Buy & Sell RPI N=No RPI")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.sequence = ProtoField.new("Sequence", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.session_indicator = ProtoField.new("Session Indicator", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.sessionindicator", ftypes.STRING, nil, nil, nil, "R=Regular trading session P=Pre- or post-market session")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.short_long_blocks = ProtoField.new("Short Long Blocks", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.shortlongblocks", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.short_update_adap_block = ProtoField.new("Short Update Adap Block", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.shortupdateadapblock", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.side = ProtoField.new("Side", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.side", ftypes.STRING, nil, nil, nil, "B=Buy Side S=Sell Side")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.sideindicator", ftypes.STRING, nil, nil, nil, "B=Buy Side S=Sell Side")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.sip_volume_status = ProtoField.new("Sip Volume Status", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.sipvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.symbol = ProtoField.new("Symbol", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.symbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.tradingstatus", ftypes.STRING, nil, nil, nil, "A=Accepting Orders for Queuing H=Halted Q=Quote-Only S=Exchange Specific Suspension T=Trading")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_5 = ProtoField.new("Unused 5", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_7 = ProtoField.new("Unused 7", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
+
+-- Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Framing
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message = ProtoField.new("Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.message", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.messageheader", ftypes.STRING)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.packet", ftypes.STRING, nil, nil, nil, "Pitch Udp Packet")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.packetheader", ftypes.STRING)
+
+-- Cboe TitaniumConsolidated MulticastOneEquities 1.4.16 Application Messages
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_message = ProtoField.new("Adap Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.adapmessage", ftypes.STRING, nil, nil, nil, "Each ADAP message delivers one or more updates for a Symbol's ADAP book. Each ADAP message contains one or more ADAP Block messages.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.best_quote_update_message = ProtoField.new("Best Quote Update Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.bestquoteupdatemessage", ftypes.STRING, nil, nil, nil, "The Best Quote Update message is used to update one side of the Cboe consolidated quote information for a symbol.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.cboe_market_status_message = ProtoField.new("Cboe Market Status Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.cboemarketstatusmessage", ftypes.STRING, nil, nil, nil, "The Cboe Market Status message is disseminated to reflect a change in the status of a market.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.clear_quote_message = ProtoField.new("Clear Quote Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.clearquotemessage", ftypes.STRING, nil, nil, nil, "The Clear Quote message instructs feed recipients to clear all quotes and Summary and/or ADAP information for the specified symbol on the specified market(s).")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_end_of_day_summary_message = ProtoField.new("Fractional End Of Day Summary Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.fractionalendofdaysummarymessage", ftypes.STRING, nil, nil, nil, "The Fractional End of Day Summary message is used to give a consolidated, high-level overview of a security for the day.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_symbol_summary_message = ProtoField.new("Fractional Symbol Summary Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.fractionalsymbolsummarymessage", ftypes.STRING, nil, nil, nil, "The Fractional Symbol Summary message delivers the Cboe consolidated best bid/offer and total executed volume across all applicable Cboe One US Exchanges.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_break_message = ProtoField.new("Fractional Trade Break Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.fractionaltradebreakmessage", ftypes.STRING, nil, nil, nil, "The Fractional Trade Break message is sent whenever an execution on a Cboe exchange is broken.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_message = ProtoField.new("Fractional Trade Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.fractionaltrademessage", ftypes.STRING, nil, nil, nil, "Fractional Trade messages are sent when an order is executed in whole or in part on a Cboe exchange.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.opening_closing_price_message = ProtoField.new("Opening Closing Price Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.openingclosingpricemessage", ftypes.STRING, nil, nil, nil, "The Opening/Closing Price message is used to indicate the Opening or Closing price of a security on any of the Cboe markets and the primary listing market.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.rpi_message = ProtoField.new("Rpi Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.rpimessage", ftypes.STRING, nil, nil, nil, "The Retail Price Improvement (RPI) message is a retail liquidity indicator that includes symbol and side, but not price and size.")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status message is used to indicate the current trading status of a security on a Cboe exchange.")
+
+-- Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Generated Fields
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_block_index = ProtoField.new("Adap Block Index", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.adapblockindex", ftypes.UINT16)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.messageindex", ftypes.UINT16)
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.titaniumconsolidated.multicastoneequities.cboeone.v1.4.16.messagesequencenumber", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Element Dissection Options
+show.repeating_groups = true
+show.structs = true
+show.application_messages = true
+show.headers = true
+show.indexes = true
+show.sequences = true
+
+-- Register Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Show Options
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+
+-- Handle changed preferences
+function omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_application_messages then
+    show.application_messages = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_headers then
+    show.headers = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_repeating_groups
+  end
+  if show.structs ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_structs then
+    show.structs = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_indexes then
+    show.indexes = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_sequences then
+    show.sequences = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.prefs.show_sequences
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
+-- Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 Fields
+-----------------------------------------------------------------------
+
+-- Adap Block Size
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size = {}
+
+-- Size: Adap Block Size
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size.size = 1
+
+-- Display: Adap Block Size
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size.display = function(value)
+  return "Adap Block Size: "..value
+end
+
+-- Dissect: Adap Block Size
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_block_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Adap Blocks
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks = {}
+
+-- Size: Adap Blocks
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks.size = 1
+
+-- Display: Adap Blocks
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks.display = function(value)
+  return "Adap Blocks: "..value
+end
+
+-- Dissect: Adap Blocks
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_blocks, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cboe Cumulative Executed Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume = {}
+
+-- Size: Cboe Cumulative Executed Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.size = 8
+
+-- Display: Cboe Cumulative Executed Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.display = function(value)
+  return "Cboe Cumulative Executed Volume: "..value
+end
+
+-- Dissect: Cboe Cumulative Executed Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.cboe_cumulative_executed_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price = {}
+
+-- Size: Closing Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.size = 8
+
+-- Display: Closing Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.display = function(value)
+  return "Closing Price: "..value
+end
+
+-- Translate: Closing Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Closing Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.closing_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Best Ask Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price = {}
+
+-- Size: Consolidated Best Ask Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.size = 8
+
+-- Display: Consolidated Best Ask Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.display = function(value)
+  return "Consolidated Best Ask Price: "..value
+end
+
+-- Translate: Consolidated Best Ask Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Consolidated Best Ask Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Best Ask Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity = {}
+
+-- Size: Consolidated Best Ask Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity.size = 8
+
+-- Display: Consolidated Best Ask Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity.display = function(value)
+  return "Consolidated Best Ask Quantity: "..value
+end
+
+-- Dissect: Consolidated Best Ask Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_ask_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Best Bid Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price = {}
+
+-- Size: Consolidated Best Bid Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.size = 8
+
+-- Display: Consolidated Best Bid Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.display = function(value)
+  return "Consolidated Best Bid Price: "..value
+end
+
+-- Translate: Consolidated Best Bid Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Consolidated Best Bid Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Best Bid Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity = {}
+
+-- Size: Consolidated Best Bid Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity.size = 8
+
+-- Display: Consolidated Best Bid Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity.display = function(value)
+  return "Consolidated Best Bid Quantity: "..value
+end
+
+-- Dissect: Consolidated Best Bid Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_bid_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Best Quote Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price = {}
+
+-- Size: Consolidated Best Quote Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.size = 8
+
+-- Display: Consolidated Best Quote Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.display = function(value)
+  return "Consolidated Best Quote Price: "..value
+end
+
+-- Translate: Consolidated Best Quote Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Consolidated Best Quote Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_best_quote_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Quote Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity = {}
+
+-- Size: Consolidated Quote Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity.size = 8
+
+-- Display: Consolidated Quote Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity.display = function(value)
+  return "Consolidated Quote Quantity: "..value
+end
+
+-- Dissect: Consolidated Quote Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.consolidated_quote_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Data Source
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source = {}
+
+-- Size: Data Source
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.size = 1
+
+-- Display: Data Source
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.display = function(value)
+  if value == "C" then
+    return "Data Source: Cta (C)"
+  end
+  if value == "U" then
+    return "Data Source: Utp (U)"
+  end
+
+  return "Data Source: Unknown("..value..")"
+end
+
+-- Dissect: Data Source
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.data_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Regular Hours Trade Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price = {}
+
+-- Size: First Regular Hours Trade Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.size = 8
+
+-- Display: First Regular Hours Trade Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.display = function(value)
+  return "First Regular Hours Trade Price: "..value
+end
+
+-- Translate: First Regular Hours Trade Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: First Regular Hours Trade Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.first_regular_hours_trade_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price = {}
+
+-- Size: High Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.size = 8
+
+-- Display: High Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.display = function(value)
+  return "High Price: "..value
+end
+
+-- Translate: High Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: High Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price = {}
+
+-- Size: Last Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.size = 8
+
+-- Display: Last Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.display = function(value)
+  return "Last Price: "..value
+end
+
+-- Translate: Last Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Last Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity = {}
+
+-- Size: Last Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity.size = 8
+
+-- Display: Last Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity.display = function(value)
+  return "Last Quantity: "..value
+end
+
+-- Dissect: Last Quantity
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Update Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp = {}
+
+-- Size: Last Update Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size = 8
+
+-- Display: Last Update Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Last Update Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Last Update Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_update_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length = {}
+
+-- Size: Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length.size = 2
+
+-- Display: Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price = {}
+
+-- Size: Low Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.size = 8
+
+-- Display: Low Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.display = function(value)
+  return "Low Price: "..value
+end
+
+-- Translate: Low Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Low Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Center
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center = {}
+
+-- Size: Market Center
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size = 1
+
+-- Display: Market Center
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.display = function(value)
+  if value == "*" then
+    return "Market Center: All Cboe Markets (*)"
+  end
+  if value == "Y" then
+    return "Market Center: Byx (Y)"
+  end
+  if value == "Z" then
+    return "Market Center: Bzx (Z)"
+  end
+  if value == "A" then
+    return "Market Center: Edga (A)"
+  end
+  if value == "X" then
+    return "Market Center: Edgx (X)"
+  end
+  if value == "C" then
+    return "Market Center: Cta (C)"
+  end
+  if value == "U" then
+    return "Market Center: Utp (U)"
+  end
+
+  return "Market Center: Unknown("..value..")"
+end
+
+-- Dissect: Market Center
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.market_center, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Center Execution Id
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id = {}
+
+-- Size: Market Center Execution Id
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.size = 8
+
+-- Display: Market Center Execution Id
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.display = function(value)
+  return "Market Center Execution Id: "..value
+end
+
+-- Dissect: Market Center Execution Id
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.market_center_execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status = {}
+
+-- Size: Market Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.size = 1
+
+-- Display: Market Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.display = function(value)
+  if value == "N" then
+    return "Market Status: Normal (N)"
+  end
+  if value == "E" then
+    return "Market Status: Excluded From Symbol Summary And Adap Updates (E)"
+  end
+  if value == "I" then
+    return "Market Status: Incomplete (I)"
+  end
+
+  return "Market Status: Unknown("..value..")"
+end
+
+-- Dissect: Market Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.market_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count = {}
+
+-- Size: Message Count
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count.size = 1
+
+-- Display: Message Count
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length = {}
+
+-- Size: Message Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length.size = 1
+
+-- Display: Message Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type = {}
+
+-- Size: Message Type
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.size = 1
+
+-- Display: Message Type
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.display = function(value)
+  if value == 0xA2 then
+    return "Message Type: Clear Quote Message (0xA2)"
+  end
+  if value == 0xE7 then
+    return "Message Type: Fractional Symbol Summary Message (0xE7)"
+  end
+  if value == 0xA5 then
+    return "Message Type: Best Quote Update Message (0xA5)"
+  end
+  if value == 0xA6 then
+    return "Message Type: Cboe Market Status Message (0xA6)"
+  end
+  if value == 0xA7 then
+    return "Message Type: Adap Message (0xA7)"
+  end
+  if value == 0xA8 then
+    return "Message Type: Rpi Message (0xA8)"
+  end
+  if value == 0xE8 then
+    return "Message Type: Fractional Trade Message (0xE8)"
+  end
+  if value == 0xE9 then
+    return "Message Type: Fractional Trade Break Message (0xE9)"
+  end
+  if value == 0xAB then
+    return "Message Type: Trading Status Message (0xAB)"
+  end
+  if value == 0xB0 then
+    return "Message Type: Opening Closing Price Message (0xB0)"
+  end
+  if value == 0xEA then
+    return "Message Type: Fractional End Of Day Summary Message (0xEA)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+end
+
+-- Dissect: Message Type
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- National Cumulative Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume = {}
+
+-- Size: National Cumulative Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.size = 8
+
+-- Display: National Cumulative Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.display = function(value)
+  return "National Cumulative Volume: "..value
+end
+
+-- Translate: National Cumulative Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: National Cumulative Volume
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.national_cumulative_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator = {}
+
+-- Size: Open Close Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.size = 1
+
+-- Display: Open Close Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.display = function(value)
+  if value == "O" then
+    return "Open Close Indicator: Opening Price (O)"
+  end
+  if value == "C" then
+    return "Open Close Indicator: Closing Price (C)"
+  end
+  if value == "F" then
+    return "Open Close Indicator: First Regular Hours Trade (F)"
+  end
+
+  return "Open Close Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Open Close Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.open_close_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price = {}
+
+-- Size: Opening Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.size = 8
+
+-- Display: Opening Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.display = function(value)
+  return "Opening Price: "..value
+end
+
+-- Translate: Opening Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Opening Price
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.opening_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long = {}
+
+-- Size: Price Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.size = 8
+
+-- Display: Price Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.display = function(value)
+  return "Price Long: "..value
+end
+
+-- Translate: Price Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short = {}
+
+-- Size: Price Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.size = 4
+
+-- Display: Price Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.display = function(value)
+  return "Price Short: "..value
+end
+
+-- Translate: Price Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.translate(raw)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long = {}
+
+-- Size: Quantity Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long.size = 8
+
+-- Display: Quantity Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long.display = function(value)
+  return "Quantity Long: "..value
+end
+
+-- Dissect: Quantity Long
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short.size = 4
+
+-- Display: Quantity Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reg Sho Action
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action = {}
+
+-- Size: Reg Sho Action
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.size = 1
+
+-- Display: Reg Sho Action
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.display = function(value)
+  if value == "0" then
+    return "Reg Sho Action: No Price Test In Effect (0)"
+  end
+  if value == "1" then
+    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
+  end
+
+  return "Reg Sho Action: Unknown("..value..")"
+end
+
+-- Dissect: Reg Sho Action
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1 = {}
+
+-- Size: Reserved 1
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1.size = 1
+
+-- Display: Reserved 1
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retail Price Improvement
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement = {}
+
+-- Size: Retail Price Improvement
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.size = 1
+
+-- Display: Retail Price Improvement
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.display = function(value)
+  if value == "B" then
+    return "Retail Price Improvement: Buy Side Rpi (B)"
+  end
+  if value == "S" then
+    return "Retail Price Improvement: Sell Side Rpi (S)"
+  end
+  if value == "A" then
+    return "Retail Price Improvement: Buy And Sell Rpi (A)"
+  end
+  if value == "N" then
+    return "Retail Price Improvement: No Rpi (N)"
+  end
+
+  return "Retail Price Improvement: Unknown("..value..")"
+end
+
+-- Dissect: Retail Price Improvement
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.retail_price_improvement, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence = {}
+
+-- Size: Sequence
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence.size = 4
+
+-- Display: Sequence
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator = {}
+
+-- Size: Session Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.size = 1
+
+-- Display: Session Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.display = function(value)
+  if value == "R" then
+    return "Session Indicator: Regular Trading Session (R)"
+  end
+  if value == "P" then
+    return "Session Indicator: Pre Or Postmarket Session (P)"
+  end
+
+  return "Session Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Session Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.session_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side = {}
+
+-- Size: Side
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.size = 1
+
+-- Display: Side
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy Side (B)"
+  end
+  if value == "S" then
+    return "Side: Sell Side (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator = {}
+
+-- Size: Side Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.size = 1
+
+-- Display: Side Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.display = function(value)
+  if value == "B" then
+    return "Side Indicator: Buy Side (B)"
+  end
+  if value == "S" then
+    return "Side Indicator: Sell Side (S)"
+  end
+
+  return "Side Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Side Indicator
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.side_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol = {}
+
+-- Size: Symbol
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size = 8
+
+-- Display: Symbol
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp = {}
+
+-- Size: Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size = 8
+
+-- Display: Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Timestamp
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status = {}
+
+-- Size: Trading Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.size = 1
+
+-- Display: Trading Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.display = function(value)
+  if value == "A" then
+    return "Trading Status: Accepting Orders For Queuing (A)"
+  end
+  if value == "H" then
+    return "Trading Status: Halted (H)"
+  end
+  if value == "Q" then
+    return "Trading Status: Quote Only (Q)"
+  end
+  if value == "S" then
+    return "Trading Status: Exchange Specific Suspension (S)"
+  end
+  if value == "T" then
+    return "Trading Status: Trading (T)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transaction Time
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time = {}
+
+-- Size: Transaction Time
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.size = 8
+
+-- Display: Transaction Time
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Transaction Time
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.transaction_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit = {}
+
+-- Size: Unit
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit.size = 1
+
+-- Display: Unit
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit.display = function(value)
+  return "Unit: "..value
+end
+
+-- Dissect: Unit
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unit, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16
+-----------------------------------------------------------------------
+
+-- Fractional End Of Day Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message = {}
+
+-- Size: Fractional End Of Day Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.size
+
+-- Display: Fractional End Of Day Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Fractional End Of Day Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Binary
+  index, timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Data Source: Alphanumeric
+  index, data_source = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.dissect(buffer, index, packet, parent)
+
+  -- Opening Price: Binary 8.4 Price
+  index, opening_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_price.dissect(buffer, index, packet, parent)
+
+  -- Closing Price: Binary 8.4 Price
+  index, closing_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.closing_price.dissect(buffer, index, packet, parent)
+
+  -- High Price: Binary 8.4 Price
+  index, high_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.high_price.dissect(buffer, index, packet, parent)
+
+  -- Low Price: Binary 8.4 Price
+  index, low_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.low_price.dissect(buffer, index, packet, parent)
+
+  -- National Cumulative Volume: Binary 12.6
+  index, national_cumulative_volume = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.dissect(buffer, index, packet, parent)
+
+  -- First Regular Hours Trade Price: Binary 8.4 Price
+  index, first_regular_hours_trade_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.first_regular_hours_trade_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional End Of Day Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_end_of_day_summary_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Opening Closing Price Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message = {}
+
+-- Size: Opening Closing Price Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.size
+
+-- Display: Opening Closing Price Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Opening Closing Price Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Binary
+  index, timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Open Close Indicator: Alphanumeric
+  index, open_close_indicator = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.dissect(buffer, index, packet, parent)
+
+  -- Price Long: Binary 8.4 Price
+  index, price_long = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Opening Closing Price Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.opening_closing_price_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trading Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message = {}
+
+-- Size: Trading Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.size
+
+-- Display: Trading Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Binary
+  index, timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Alphanumeric
+  index, trading_status = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Reg Sho Action: Alphanumeric
+  index, reg_sho_action = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Fractional Trade Break Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags = {}
+
+-- Size: Fractional Trade Break Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.size = 1
+
+-- Display: Fractional Trade Break Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Sip Volume Status flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Sip Volume Status"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Fractional Trade Break Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.bits = function(range, value, packet, parent)
+
+  -- Sip Volume Status: 1 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.sip_volume_status, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_7, range, value)
+end
+
+-- Dissect: Fractional Trade Break Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_break_flags, range, display)
+
+  if show.structs then
+    cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Fractional Trade Break Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message = {}
+
+-- Size: Fractional Trade Break Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.size
+
+-- Display: Fractional Trade Break Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Fractional Trade Break Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Transaction Time: Binary
+  index, transaction_time = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Market Center Execution Id: Binary
+  index, market_center_execution_id = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.dissect(buffer, index, packet, parent)
+
+  -- Cboe Cumulative Executed Volume: Binary
+  index, cboe_cumulative_executed_volume = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
+
+  -- National Cumulative Volume: Binary 12.6
+  index, national_cumulative_volume = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.dissect(buffer, index, packet, parent)
+
+  -- Fractional Trade Break Flags: Struct of 2 fields
+  index, fractional_trade_break_flags = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional Trade Break Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_break_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Fractional Trade Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags = {}
+
+-- Size: Fractional Trade Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.size = 1
+
+-- Display: Fractional Trade Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is National Volume Status flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "National Volume Status"
+  end
+  -- Is Last Sale Eligible flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Last Sale Eligible"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Fractional Trade Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.bits = function(range, value, packet, parent)
+
+  -- National Volume Status: 1 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.national_volume_status, range, value)
+
+  -- Last Sale Eligible: 1 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.last_sale_eligible, range, value)
+
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_6, range, value)
+end
+
+-- Dissect: Fractional Trade Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_flags, range, display)
+
+  if show.structs then
+    cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Fractional Trade Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message = {}
+
+-- Size: Fractional Trade Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.size
+
+-- Display: Fractional Trade Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Fractional Trade Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Transaction Time: Binary
+  index, transaction_time = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.transaction_time.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Market Center Execution Id: Binary
+  index, market_center_execution_id = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center_execution_id.dissect(buffer, index, packet, parent)
+
+  -- Last Price: Binary 8.4 Price
+  index, last_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_price.dissect(buffer, index, packet, parent)
+
+  -- Last Quantity: Binary
+  index, last_quantity = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_quantity.dissect(buffer, index, packet, parent)
+
+  -- Cboe Cumulative Executed Volume: Binary
+  index, cboe_cumulative_executed_volume = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
+
+  -- National Cumulative Volume: Binary 12.6
+  index, national_cumulative_volume = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.dissect(buffer, index, packet, parent)
+
+  -- Fractional Trade Flags: Struct of 3 fields
+  index, fractional_trade_flags = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional Trade Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_trade_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Rpi Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message = {}
+
+-- Size: Rpi Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.size
+
+-- Display: Rpi Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rpi Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Binary
+  index, timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Retail Price Improvement: Alphanumeric
+  index, retail_price_improvement = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rpi Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.rpi_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Long Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block = {}
+
+-- Size: Long Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long.size
+
+-- Display: Long Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Side: Alphanumeric
+  index, side = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.dissect(buffer, index, packet, parent)
+
+  -- Price Long: Binary 8.4 Price
+  index, price_long = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_long.dissect(buffer, index, packet, parent)
+
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_long.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Long Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.long_update_adap_block, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Short Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block = {}
+
+-- Size: Short Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short.size
+
+-- Display: Short Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Short Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Side: Alphanumeric
+  index, side = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.dissect(buffer, index, packet, parent)
+
+  -- Price Short: Binary 4.4 Price
+  index, price_short = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.price_short.dissect(buffer, index, packet, parent)
+
+  -- Quantity Short: Binary
+  index, quantity_short = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.quantity_short.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Short Update Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.short_update_adap_block, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Adap Update
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update = {}
+
+-- Dissect: Adap Update
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update.dissect = function(buffer, offset, packet, parent, adap_block_size)
+  -- Dissect Short Update Adap Block
+  if adap_block_size == 10 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Long Update Adap Block
+  if adap_block_size == 18 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block = {}
+
+-- Calculate size of: Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Adap Update field
+  local adap_update_offset = offset + index
+  local adap_update_type = buffer(adap_update_offset - 1, 1):le_uint()
+  index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update.size(buffer, adap_update_offset, adap_update_type)
+
+  return index
+end
+
+-- Display: Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.fields = function(buffer, offset, packet, parent, adap_block_index)
+  local index = offset
+
+  -- Implicit Adap Block Index
+  if adap_block_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_block_index, adap_block_index)
+    iteration:set_generated()
+  end
+
+  -- Dependency element: Adap Block Size
+  local adap_block_size = buffer(offset - 1, 1):le_uint()
+
+  -- Adap Update: Runtime Type with 2 branches
+  index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update.dissect(buffer, index, packet, parent, adap_block_size)
+
+  return index
+end
+
+-- Dissect: Adap Block
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.dissect = function(buffer, offset, packet, parent, adap_block_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_block, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.fields(buffer, offset, packet, parent, adap_block_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.fields(buffer, offset, packet, parent, adap_block_index)
+  end
+end
+
+-- Adap Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags = {}
+
+-- Size: Adap Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.size = 1
+
+-- Display: Adap Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Clear Adap flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Clear Adap"
+  end
+  -- Is Adap Complete flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Adap Complete"
+  end
+  -- Is Short Long Blocks flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Short Long Blocks"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Adap Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.bits = function(range, value, packet, parent)
+
+  -- Clear Adap: 1 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.clear_adap, range, value)
+
+  -- Adap Complete: 1 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_complete, range, value)
+
+  -- Short Long Blocks: 1 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.short_long_blocks, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_5, range, value)
+end
+
+-- Dissect: Adap Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_flags, range, display)
+
+  if show.structs then
+    cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Adap Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message = {}
+
+-- Calculate size of: Adap Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size
+
+  index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size
+
+  index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.size
+
+  index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1.size
+
+  index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks.size
+
+  index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size.size
+
+  -- Calculate field size from count
+  local adap_block_count = buffer(offset + index - 2, 1):le_uint()
+  for i = 1, adap_block_count do
+    index = index + cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.size(buffer, offset + index)
+  end
+  return index
+end
+
+-- Display: Adap Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Adap Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Update Timestamp: Binary
+  index, last_update_timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Adap Flags: Struct of 4 fields
+  index, adap_flags = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_flags.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: Binary
+  index, reserved_1 = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Adap Blocks: Binary
+  index, adap_blocks = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_blocks.dissect(buffer, index, packet, parent)
+
+  -- Adap Block Size: Binary
+  index, adap_block_size = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block_size.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Adap Block
+  for adap_block_index = 1, adap_blocks do
+    index, adap_block = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_block.dissect(buffer, index, packet, parent, adap_block_index)
+  end
+
+  return index
+end
+
+-- Dissect: Adap Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.adap_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cboe Market Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message = {}
+
+-- Size: Cboe Market Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.size
+
+-- Display: Cboe Market Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cboe Market Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Binary
+  index, timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  -- Market Status: Alphanumeric
+  index, market_status = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.dissect(buffer, index, packet, parent)
+
+  -- Session Indicator: Alphanumeric
+  index, session_indicator = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Cboe Market Status Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.cboe_market_status_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Best Quote Update Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message = {}
+
+-- Size: Best Quote Update Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity.size
+
+-- Display: Best Quote Update Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Best Quote Update Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Update Timestamp: Binary
+  index, last_update_timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: Alphanumeric
+  index, side_indicator = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Best Quote Price: Binary 8.4 Price
+  index, consolidated_best_quote_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_quote_price.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Quote Quantity: Binary
+  index, consolidated_quote_quantity = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_quote_quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Best Quote Update Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.best_quote_update_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Fractional Symbol Summary Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags = {}
+
+-- Size: Fractional Symbol Summary Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.size = 1
+
+-- Display: Fractional Symbol Summary Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is National Volume Status flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "National Volume Status"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Fractional Symbol Summary Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.bits = function(range, value, packet, parent)
+
+  -- National Volume Status: 1 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.national_volume_status, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.unused_7, range, value)
+end
+
+-- Dissect: Fractional Symbol Summary Flags
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_symbol_summary_flags, range, display)
+
+  if show.structs then
+    cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Fractional Symbol Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message = {}
+
+-- Size: Fractional Symbol Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.size
+
+-- Display: Fractional Symbol Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Fractional Symbol Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Update Timestamp: Binary
+  index, last_update_timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Cboe Cumulative Executed Volume: Binary
+  index, cboe_cumulative_executed_volume = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Best Bid Price: Binary 8.4 Price
+  index, consolidated_best_bid_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_price.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Best Bid Quantity: Binary
+  index, consolidated_best_bid_quantity = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_bid_quantity.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Best Ask Price: Binary 8.4 Price
+  index, consolidated_best_ask_price = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_price.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Best Ask Quantity: Binary
+  index, consolidated_best_ask_quantity = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.consolidated_best_ask_quantity.dissect(buffer, index, packet, parent)
+
+  -- National Cumulative Volume: Binary 12.6
+  index, national_cumulative_volume = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.national_cumulative_volume.dissect(buffer, index, packet, parent)
+
+  -- Fractional Symbol Summary Flags: Struct of 2 fields
+  index, fractional_symbol_summary_flags = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Fractional Symbol Summary Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.fractional_symbol_summary_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Clear Quote Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message = {}
+
+-- Size: Clear Quote Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size
+
+-- Display: Clear Quote Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Clear Quote Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Update Timestamp: Binary
+  index, last_update_timestamp = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.last_update_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Alphanumeric
+  index, symbol = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.symbol.dissect(buffer, index, packet, parent)
+
+  -- Market Center: Alphanumeric
+  index, market_center = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Clear Quote Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.clear_quote_message, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.payload = {}
+
+-- Dissect: Payload
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Clear Quote Message
+  if message_type == 0xA2 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Symbol Summary Message
+  if message_type == 0xE7 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Best Quote Update Message
+  if message_type == 0xA5 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cboe Market Status Message
+  if message_type == 0xA6 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Adap Message
+  if message_type == 0xA7 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Rpi Message
+  if message_type == 0xA8 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Trade Message
+  if message_type == 0xE8 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Trade Break Message
+  if message_type == 0xE9 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0xAB then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Opening Closing Price Message
+  if message_type == 0xB0 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional End Of Day Summary Message
+  if message_type == 0xEA then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header = {}
+
+-- Size: Message Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.size
+
+-- Display: Message Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 1 Byte Unsigned Fixed Width Integer
+  index, message_length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, message_type = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_header, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message = {}
+
+-- Read runtime size of: Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 1):le_uint()
+
+  return message_length
+end
+
+-- Display: Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message_sequence_number, UInt64.new(cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):le_uint()
+
+  -- Payload: Runtime Type with 11 branches
+  index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.size(buffer, offset)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.message, buffer(offset, 0))
+    local current = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Heartbeat
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.messages = {}
+
+-- Dissect: Messages
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.messages.dissect = function(buffer, offset, packet, parent, message_count)
+  -- Dissect Heartbeat
+  if message_count == 0 then
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Repeating: Message
+  for message_index = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 1):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+end
+
+-- Packet Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header = {}
+
+-- Size: Packet Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.size =
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit.size + 
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence.size
+
+-- Display: Packet Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.length.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_count.dissect(buffer, index, packet, parent)
+
+  -- Unit: 1 Byte Unsigned Fixed Width Integer
+  index, unit = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.unit.dissect(buffer, index, packet, parent)
+
+  -- Sequence: 4 Byte Unsigned Fixed Width Integer
+  index, sequence = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_sequence = sequence
+
+  return index
+end
+
+-- Dissect: Packet Header
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fields.packet_header, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet = {}
+
+-- Verify required size of Udp packet
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.size
+end
+
+-- Dissect Packet
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 4 fields
+  index, packet_header = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
+
+  -- Messages: Runtime Type with 2 branches
+  index = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.messages.dissect(buffer, index, packet, parent, message_count)
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.init()
+end
+
+-- Dissector for Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16
+function omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16, buffer(), omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.description, "("..buffer:len().." Bytes)")
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 (Udp)
+local function omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16
+  omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16
+omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16:register_heuristic("udp", omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16_udp_heuristic)
+
+-- Register Cboe TitaniumConsolidated MulticastOneEquities CboeOne 1.4.16 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Chicago Board Options Exchange
+--   Version: 1.4.16
+--   Date: Friday, October 2, 2026
+--   Specification: technical-specifications-cboe-titanium-cboe-one-equities-feed-specification.pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

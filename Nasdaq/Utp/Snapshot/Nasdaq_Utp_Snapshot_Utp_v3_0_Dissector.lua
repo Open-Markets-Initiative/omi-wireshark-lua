@@ -15,7 +15,7 @@ local nasdaq_utp_snapshot_utp_v3_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Utp Snapshot Utp 3.0 Fields
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "Next sequenced message number the SIP will deliver, space-padded")
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "Next sequenced message number the SIP will deliver, space-padded")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.snapshot.utp.v3.0.acceptedsession", ftypes.STRING, nil, nil, nil, "Session ID accepted by the SIP for this client, left padded with spaces")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v3.0.actiontime", ftypes.UINT64, nil, nil, nil, "Timestamp of when the action occurred")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_market_participant_identifier = ProtoField.new("Adf Market Participant Identifier", "nasdaq.utp.snapshot.utp.v3.0.adfmarketparticipantidentifier", ftypes.STRING)
@@ -96,7 +96,7 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.quote_message_type = ProtoField.new("Quo
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.reason_for_the_trading_action = ProtoField.new("Reason For The Trading Action", "nasdaq.utp.snapshot.utp.v3.0.reasonforthetradingaction", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.utp.snapshot.utp.v3.0.regshoaction", ftypes.STRING, nil, nil, nil, "Reg SHO Action (SEC Rule 201)")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.utp.snapshot.utp.v3.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "One-byte code indicating why the login was rejected")
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "The first sequenced message number the client wishes to receive. For Snap-Shot, must be 1 to receive a full spin.")
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "The first sequenced message number the client wishes to receive. For Snap-Shot, must be 1 to receive a full spin.")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.utp.snapshot.utp.v3.0.requestedsession", ftypes.STRING, nil, nil, nil, "The requested session ID, space-padded; spaces request the currently active session")
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "nasdaq.utp.snapshot.utp.v3.0.retailinterestindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.utp.snapshot.utp.v3.0.roundlotsize", ftypes.UINT16, nil, nil, nil, "Round Lot Size (00001 to 99999)")
@@ -155,6 +155,11 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_heartbeat_packet = ProtoField.new
 
 -- Nasdaq Utp Snapshot Utp 3.0 Generated Fields
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.utp_adf_mpid_odd_lot_attachment_index = ProtoField.new("Utp Adf Mpid Odd Lot Attachment Index", "nasdaq.utp.snapshot.utp.v3.0.utpadfmpidoddlotattachmentindex", ftypes.UINT16)
+
+-- Nasdaq Utp Snapshot Utp 3.0 Expert Info
+nasdaq_utp_snapshot_utp_v3_0.experts = {}
+nasdaq_utp_snapshot_utp_v3_0.experts.not_a_number = ProtoExpert.new("nasdaq.utp.snapshot.utp.v3.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_utp_snapshot_utp_v3_0.experts = { nasdaq_utp_snapshot_utp_v3_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq Utp Snapshot Utp 3.0 Formatting
@@ -267,7 +272,10 @@ nasdaq_utp_snapshot_utp_v3_0.accepted_sequence_number.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_utp_snapshot_utp_v3_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_utp_snapshot_utp_v3_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2735,7 +2743,10 @@ nasdaq_utp_snapshot_utp_v3_0.requested_sequence_number.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_utp_snapshot_utp_v3_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_utp_snapshot_utp_v3_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

@@ -15,7 +15,7 @@ local nasdaq_phlxoptions_orders_itch_v1_92 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions Orders Itch 1.92 Fields
-omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.phlxoptions.orders.itch.v1.92.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.phlxoptions.orders.itch.v1.92.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.phlxoptions.orders.itch.v1.92.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.action = ProtoField.new("Action", "nasdaq.phlxoptions.orders.itch.v1.92.action", ftypes.STRING, nil, nil, nil, "Defines the state of the strategy")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.all_or_none = ProtoField.new("All Or None", "nasdaq.phlxoptions.orders.itch.v1.92.allornone", ftypes.STRING, nil, nil, nil, "Indicates if order is All or None Order:")
@@ -62,7 +62,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.password = ProtoField.new("Passw
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlxoptions.orders.itch.v1.92.phlxtradable", ftypes.STRING, nil, nil, nil, "Denotes whether or not this option is tradable at the PHLX exchange.")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.orders.itch.v1.92.price", ftypes.DOUBLE, nil, nil, nil, "Price at which auction is started. For PIXL auctions, price is zero. The price at which an exposed order is available for execution.")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.phlxoptions.orders.itch.v1.92.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.orders.itch.v1.92.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.orders.itch.v1.92.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.phlxoptions.orders.itch.v1.92.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.phlxoptions.orders.itch.v1.92.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlxoptions.orders.itch.v1.92.seconds", ftypes.UINT32, nil, nil, nil, "Seconds portion of the timestamp")
@@ -134,7 +134,8 @@ omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.sequenced_data_packet_sequence_n
 -- Nasdaq PhlxOptions Orders Itch 1.92 Expert Info
 nasdaq_phlxoptions_orders_itch_v1_92.experts = {}
 nasdaq_phlxoptions_orders_itch_v1_92.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.phlxoptions.orders.itch.v1.92.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
-omi_nasdaq_phlxoptions_orders_itch_v1_92.experts = { nasdaq_phlxoptions_orders_itch_v1_92.experts.message_after_end_of_session }
+nasdaq_phlxoptions_orders_itch_v1_92.experts.not_a_number = ProtoExpert.new("nasdaq.phlxoptions.orders.itch.v1.92.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_phlxoptions_orders_itch_v1_92.experts = { nasdaq_phlxoptions_orders_itch_v1_92.experts.message_after_end_of_session, nasdaq_phlxoptions_orders_itch_v1_92.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq PhlxOptions Orders Itch 1.92 Formatting
@@ -309,7 +310,10 @@ nasdaq_phlxoptions_orders_itch_v1_92.accepted_sequence_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_phlxoptions_orders_itch_v1_92.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_phlxoptions_orders_itch_v1_92.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1522,7 +1526,10 @@ nasdaq_phlxoptions_orders_itch_v1_92.requested_sequence_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_phlxoptions_orders_itch_v1_92.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_phlxoptions_orders_itch_v1_92.requested_sequence_number.display(value, buffer, offset, packet, parent)

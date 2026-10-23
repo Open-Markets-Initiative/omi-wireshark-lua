@@ -35440,7 +35440,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v10_1)
 --   Organization: Eurex Exchange
 --   Version: 10.1
 --   Date: Wednesday, June 22, 2022
---   Specification: T7_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_v.10.1-D0003
+--   Specification: T7_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_v.10.1-D0003.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

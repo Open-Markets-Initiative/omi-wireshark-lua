@@ -4516,7 +4516,7 @@ udp_table:add_for_decode_as(omi_eurex_t7_eobi_fbe_v6_1)
 --   Organization: Eurex Exchange
 --   Version: 6.1
 --   Date: Tuesday, March 20, 2018
---   Specification: T7-Enhanced-Order-Book-Interface---Manual.6.1pdf.pdf
+--   Specification: T7-Enhanced-Order-Book-Interface---Manual.6.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

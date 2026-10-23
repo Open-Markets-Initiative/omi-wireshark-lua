@@ -16,15 +16,15 @@ local tmx_tsx_level1_qrtmd_v2_8 = {}
 
 -- Tmx Tsx Level1 Qrtmd 2.8 Fields
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.ask_price = ProtoField.new("Ask Price", "tmx.tsx.level1.qrtmd.v2.8.askprice", ftypes.DOUBLE, nil, nil, nil, "Ask price for the equity.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.ask_size = ProtoField.new("Ask Size", "tmx.tsx.level1.qrtmd.v2.8.asksize", ftypes.STRING, nil, nil, nil, "Volume on the ask side.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.ask_size = ProtoField.new("Ask Size", "tmx.tsx.level1.qrtmd.v2.8.asksize", ftypes.UINT32, nil, nil, nil, "Volume on the ask side.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.bid_price = ProtoField.new("Bid Price", "tmx.tsx.level1.qrtmd.v2.8.bidprice", ftypes.DOUBLE, nil, nil, nil, "Bid price for the equity.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.bid_size = ProtoField.new("Bid Size", "tmx.tsx.level1.qrtmd.v2.8.bidsize", ftypes.STRING, nil, nil, nil, "Volume on the bid side.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.board_lot = ProtoField.new("Board Lot", "tmx.tsx.level1.qrtmd.v2.8.boardlot", ftypes.STRING, nil, nil, nil, "Board lot volume.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.bid_size = ProtoField.new("Bid Size", "tmx.tsx.level1.qrtmd.v2.8.bidsize", ftypes.UINT32, nil, nil, nil, "Volume on the bid side.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.board_lot = ProtoField.new("Board Lot", "tmx.tsx.level1.qrtmd.v2.8.boardlot", ftypes.UINT32, nil, nil, nil, "Board lot volume.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.bulletin_indicator = ProtoField.new("Bulletin Indicator", "tmx.tsx.level1.qrtmd.v2.8.bulletinindicator", ftypes.STRING, nil, nil, nil, "Indicates the message is a bulletin.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.business_date = ProtoField.new("Business Date", "tmx.tsx.level1.qrtmd.v2.8.businessdate", ftypes.STRING, nil, nil, nil, "Business Date.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.buy_maximum_quantity = ProtoField.new("Buy Maximum Quantity", "tmx.tsx.level1.qrtmd.v2.8.buymaximumquantity", ftypes.STRING, nil, nil, nil, "The maximum quantity of a mutual fund allowed to buy.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.buy_minimum_quantity = ProtoField.new("Buy Minimum Quantity", "tmx.tsx.level1.qrtmd.v2.8.buyminimumquantity", ftypes.STRING, nil, nil, nil, "The minimum quantity of a mutual fund required to buy.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.buyer_id = ProtoField.new("Buyer Id", "tmx.tsx.level1.qrtmd.v2.8.buyerid", ftypes.STRING, nil, nil, nil, "Identifies the buying broker.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.buy_maximum_quantity = ProtoField.new("Buy Maximum Quantity", "tmx.tsx.level1.qrtmd.v2.8.buymaximumquantity", ftypes.UINT32, nil, nil, nil, "The maximum quantity of a mutual fund allowed to buy.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.buy_minimum_quantity = ProtoField.new("Buy Minimum Quantity", "tmx.tsx.level1.qrtmd.v2.8.buyminimumquantity", ftypes.UINT32, nil, nil, nil, "The minimum quantity of a mutual fund required to buy.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.buyer_id = ProtoField.new("Buyer Id", "tmx.tsx.level1.qrtmd.v2.8.buyerid", ftypes.UINT16, nil, nil, nil, "Identifies the buying broker.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.bypass = ProtoField.new("Bypass", "tmx.tsx.level1.qrtmd.v2.8.bypass", ftypes.STRING, nil, nil, nil, "An indicator for bypass crosses, which can be printed outside of the Protected NBBO and are not subject to cross interference.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.ccp = ProtoField.new("Ccp", "tmx.tsx.level1.qrtmd.v2.8.ccp", ftypes.DOUBLE, nil, nil, nil, "The price at which the maximum amount of stock will trade.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.comment = ProtoField.new("Comment", "tmx.tsx.level1.qrtmd.v2.8.comment", ftypes.STRING, nil, nil, nil, "Free text accompanying the state change.")
@@ -39,7 +39,7 @@ omi_tmx_tsx_level1_qrtmd_v2_8.fields.face_value = ProtoField.new("Face Value", "
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.far_indicative_closing_price = ProtoField.new("Far Indicative Closing Price", "tmx.tsx.level1.qrtmd.v2.8.farindicativeclosingprice", ftypes.DOUBLE, nil, nil, nil, "The calculated closing price that will maximize the number of shares matched based on closing interest only.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.imbalance_reference_price = ProtoField.new("Imbalance Reference Price", "tmx.tsx.level1.qrtmd.v2.8.imbalancereferenceprice", ftypes.DOUBLE, nil, nil, nil, "The price that decides if a given limit-priced Market on Close order can contribute to the MOC Imbalance.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.imbalance_side = ProtoField.new("Imbalance Side", "tmx.tsx.level1.qrtmd.v2.8.imbalanceside", ftypes.STRING, nil, nil, nil, "Marker to indicate which side has a Volume Imbalance for Market On Close.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "tmx.tsx.level1.qrtmd.v2.8.imbalancevolume", ftypes.STRING, nil, nil, nil, "Identifies the volume of shares of the Imbalance side of Market on Close.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "tmx.tsx.level1.qrtmd.v2.8.imbalancevolume", ftypes.UINT32, nil, nil, nil, "Identifies the volume of shares of the Imbalance side of Market on Close.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.indicative_price = ProtoField.new("Indicative Price", "tmx.tsx.level1.qrtmd.v2.8.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Represents the Indicative Closing Price when the Price Marker is C.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.is_conditional = ProtoField.new("Is Conditional", "tmx.tsx.level1.qrtmd.v2.8.isconditional", ftypes.STRING, nil, nil, nil, "Indicates a firm-up conditional to firm-up conditional execution.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.is_dark = ProtoField.new("Is Dark", "tmx.tsx.level1.qrtmd.v2.8.isdark", ftypes.STRING, nil, nil, nil, "Indicates the passive side of the trade is dark.")
@@ -47,9 +47,9 @@ omi_tmx_tsx_level1_qrtmd_v2_8.fields.is_mid_only = ProtoField.new("Is Mid Only",
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.last_sale = ProtoField.new("Last Sale", "tmx.tsx.level1.qrtmd.v2.8.lastsale", ftypes.DOUBLE, nil, nil, nil, "Last sale price of the symbol.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.listing_market = ProtoField.new("Listing Market", "tmx.tsx.level1.qrtmd.v2.8.listingmarket", ftypes.STRING, nil, nil, nil, "The market on which a security is listed.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.market_order_imbalance_side = ProtoField.new("Market Order Imbalance Side", "tmx.tsx.level1.qrtmd.v2.8.marketorderimbalanceside", ftypes.STRING, nil, nil, nil, "Side of the Market Order Imbalance Volume.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.market_order_imbalance_volume = ProtoField.new("Market Order Imbalance Volume", "tmx.tsx.level1.qrtmd.v2.8.marketorderimbalancevolume", ftypes.STRING, nil, nil, nil, "Indicates the share imbalance when only MOC orders are considered.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.market_order_imbalance_volume = ProtoField.new("Market Order Imbalance Volume", "tmx.tsx.level1.qrtmd.v2.8.marketorderimbalancevolume", ftypes.UINT32, nil, nil, nil, "Indicates the share imbalance when only MOC orders are considered.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.market_state = ProtoField.new("Market State", "tmx.tsx.level1.qrtmd.v2.8.marketstate", ftypes.STRING, nil, nil, nil, "The indication of the current market state.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.message_length = ProtoField.new("Message Length", "tmx.tsx.level1.qrtmd.v2.8.messagelength", ftypes.STRING, nil, nil, nil, "Total length of header and message business content, excluding Stx and Etx")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.message_length = ProtoField.new("Message Length", "tmx.tsx.level1.qrtmd.v2.8.messagelength", ftypes.UINT16, nil, nil, nil, "Total length of header and message business content, excluding Stx and Etx")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.message_text = ProtoField.new("Message Text", "tmx.tsx.level1.qrtmd.v2.8.messagetext", ftypes.STRING, nil, nil, nil, "Bulletin in textual format.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.message_type = ProtoField.new("Message Type", "tmx.tsx.level1.qrtmd.v2.8.messagetype", ftypes.STRING, nil, nil, nil, "Unique code assigned to each message type, specific to each market service")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.moc = ProtoField.new("Moc", "tmx.tsx.level1.qrtmd.v2.8.moc", ftypes.STRING, nil, nil, nil, "Marks a Market On Close trade.")
@@ -57,29 +57,29 @@ omi_tmx_tsx_level1_qrtmd_v2_8.fields.moc_eligible = ProtoField.new("Moc Eligible
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.near_indicative_closing_price = ProtoField.new("Near Indicative Closing Price", "tmx.tsx.level1.qrtmd.v2.8.nearindicativeclosingprice", ftypes.DOUBLE, nil, nil, nil, "The calculated closing price that will maximize the number of shares matched based on the on-close orders and visible continuous market orders.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.opening_time = ProtoField.new("Opening Time", "tmx.tsx.level1.qrtmd.v2.8.openingtime", ftypes.STRING, nil, nil, nil, "The opening time for a stock.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.opening_trade = ProtoField.new("Opening Trade", "tmx.tsx.level1.qrtmd.v2.8.openingtrade", ftypes.STRING, nil, nil, nil, "An indicator as to whether the trade occurred at the opening or was the first board lot trade of the day.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.original_trade_id = ProtoField.new("Original Trade Id", "tmx.tsx.level1.qrtmd.v2.8.originaltradeid", ftypes.STRING, nil, nil, nil, "Trade number.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.paired_volume = ProtoField.new("Paired Volume", "tmx.tsx.level1.qrtmd.v2.8.pairedvolume", ftypes.STRING, nil, nil, nil, "The number of MOC and LOC shares that can be matched at the reference price.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.original_trade_id = ProtoField.new("Original Trade Id", "tmx.tsx.level1.qrtmd.v2.8.originaltradeid", ftypes.UINT32, nil, nil, nil, "Trade number.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.paired_volume = ProtoField.new("Paired Volume", "tmx.tsx.level1.qrtmd.v2.8.pairedvolume", ftypes.UINT32, nil, nil, nil, "The number of MOC and LOC shares that can be matched at the reference price.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.price_marker = ProtoField.new("Price Marker", "tmx.tsx.level1.qrtmd.v2.8.pricemarker", ftypes.STRING, nil, nil, nil, "Identifies the price type.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.price_variation = ProtoField.new("Price Variation", "tmx.tsx.level1.qrtmd.v2.8.pricevariation", ftypes.DOUBLE, nil, nil, nil, "The absolute value of the percentage of deviation of the Near Indicative Closing Price from the Reference Price.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.product_type = ProtoField.new("Product Type", "tmx.tsx.level1.qrtmd.v2.8.producttype", ftypes.STRING, nil, nil, nil, "The product type for a symbol.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.qrtmd_etx = ProtoField.new("Qrtmd Etx", "tmx.tsx.level1.qrtmd.v2.8.qrtmdetx", ftypes.INT8, nil, nil, nil, "End of Qrtmd message")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.qrtmd_stx = ProtoField.new("Qrtmd Stx", "tmx.tsx.level1.qrtmd.v2.8.qrtmdstx", ftypes.INT8, nil, nil, nil, "Start of Qrtmd message")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.retransmission_identifier = ProtoField.new("Retransmission Identifier", "tmx.tsx.level1.qrtmd.v2.8.retransmissionidentifier", ftypes.STRING, nil, nil, nil, "Marks a normal transmission, and is always blank on a heartbeat")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.sell_maximum_quantity = ProtoField.new("Sell Maximum Quantity", "tmx.tsx.level1.qrtmd.v2.8.sellmaximumquantity", ftypes.STRING, nil, nil, nil, "The maximum quantity of a mutual fund allowed to sell.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.sell_minimum_quantity = ProtoField.new("Sell Minimum Quantity", "tmx.tsx.level1.qrtmd.v2.8.sellminimumquantity", ftypes.STRING, nil, nil, nil, "The minimum quantity of a mutual fund required to sell.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.seller_id = ProtoField.new("Seller Id", "tmx.tsx.level1.qrtmd.v2.8.sellerid", ftypes.STRING, nil, nil, nil, "Identifies the selling broker.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.tsx.level1.qrtmd.v2.8.sequencenumber", ftypes.STRING, nil, nil, nil, "Assigned at service broadcast from 000000001 to 999999999, blank on a heartbeat")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.sell_maximum_quantity = ProtoField.new("Sell Maximum Quantity", "tmx.tsx.level1.qrtmd.v2.8.sellmaximumquantity", ftypes.UINT32, nil, nil, nil, "The maximum quantity of a mutual fund allowed to sell.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.sell_minimum_quantity = ProtoField.new("Sell Minimum Quantity", "tmx.tsx.level1.qrtmd.v2.8.sellminimumquantity", ftypes.UINT32, nil, nil, nil, "The minimum quantity of a mutual fund required to sell.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.seller_id = ProtoField.new("Seller Id", "tmx.tsx.level1.qrtmd.v2.8.sellerid", ftypes.UINT16, nil, nil, nil, "Identifies the selling broker.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.tsx.level1.qrtmd.v2.8.sequencenumber", ftypes.UINT32, nil, nil, nil, "Assigned at service broadcast from 000000001 to 999999999, blank on a heartbeat")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.service_identifier = ProtoField.new("Service Identifier", "tmx.tsx.level1.qrtmd.v2.8.serviceidentifier", ftypes.STRING, nil, nil, nil, "Service code identifying the market data service carried on the feed")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.settlement_terms = ProtoField.new("Settlement Terms", "tmx.tsx.level1.qrtmd.v2.8.settlementterms", ftypes.STRING, nil, nil, nil, "Settlement terms associated with the order.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.stock_group = ProtoField.new("Stock Group", "tmx.tsx.level1.qrtmd.v2.8.stockgroup", ftypes.STRING, nil, nil, nil, "An indicator of stock group.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.stock_group = ProtoField.new("Stock Group", "tmx.tsx.level1.qrtmd.v2.8.stockgroup", ftypes.UINT8, nil, nil, nil, "An indicator of stock group.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.stock_state = ProtoField.new("Stock State", "tmx.tsx.level1.qrtmd.v2.8.stockstate", ftypes.STRING, nil, nil, nil, "The state of the stock.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.symbol = ProtoField.new("Symbol", "tmx.tsx.level1.qrtmd.v2.8.symbol", ftypes.STRING, nil, nil, nil, "Stock symbol.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.symbol_name = ProtoField.new("Symbol Name", "tmx.tsx.level1.qrtmd.v2.8.symbolname", ftypes.STRING, nil, nil, nil, "The security or issue symbol's complete company name.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.test_symbol = ProtoField.new("Test Symbol", "tmx.tsx.level1.qrtmd.v2.8.testsymbol", ftypes.STRING, nil, nil, nil, "Indicates the symbol is a test symbol.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.total_number_of_stock_groups = ProtoField.new("Total Number Of Stock Groups", "tmx.tsx.level1.qrtmd.v2.8.totalnumberofstockgroups", ftypes.STRING, nil, nil, nil, "Total number of stock groups per trading tier and exchange ID.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.total_number_of_symbols = ProtoField.new("Total Number Of Symbols", "tmx.tsx.level1.qrtmd.v2.8.totalnumberofsymbols", ftypes.STRING, nil, nil, nil, "The total number of stocks per trading tier and Exchange ID.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.total_number_of_stock_groups = ProtoField.new("Total Number Of Stock Groups", "tmx.tsx.level1.qrtmd.v2.8.totalnumberofstockgroups", ftypes.UINT16, nil, nil, nil, "Total number of stock groups per trading tier and exchange ID.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.total_number_of_symbols = ProtoField.new("Total Number Of Symbols", "tmx.tsx.level1.qrtmd.v2.8.totalnumberofsymbols", ftypes.UINT32, nil, nil, nil, "The total number of stocks per trading tier and Exchange ID.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_date = ProtoField.new("Trade Date", "tmx.tsx.level1.qrtmd.v2.8.tradedate", ftypes.STRING, nil, nil, nil, "Effective date of the trade, filled in only when it differs from the current date.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_id = ProtoField.new("Trade Id", "tmx.tsx.level1.qrtmd.v2.8.tradeid", ftypes.STRING, nil, nil, nil, "Unique identifier per stock assigned to each trade.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_id = ProtoField.new("Trade Id", "tmx.tsx.level1.qrtmd.v2.8.tradeid", ftypes.UINT32, nil, nil, nil, "Unique identifier per stock assigned to each trade.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_price = ProtoField.new("Trade Price", "tmx.tsx.level1.qrtmd.v2.8.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the transaction took place.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.tsx.level1.qrtmd.v2.8.tradetimestamp", ftypes.STRING, nil, nil, nil, "Time of trade.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.tsx.level1.qrtmd.v2.8.tradingsystemtimestamp", ftypes.STRING, nil, nil, nil, "The time at which the business action occurred.")
@@ -87,7 +87,7 @@ omi_tmx_tsx_level1_qrtmd_v2_8.fields.trading_tier_id = ProtoField.new("Trading T
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.tsx_tsxv_closing_price = ProtoField.new("Tsx Tsxv Closing Price", "tmx.tsx.level1.qrtmd.v2.8.tsxtsxvclosingprice", ftypes.DOUBLE, nil, nil, nil, "For non ETF securities the Last Sales Price of the current trading day is the closing price.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.tsx_tsxv_last_ask = ProtoField.new("Tsx Tsxv Last Ask", "tmx.tsx.level1.qrtmd.v2.8.tsxtsxvlastask", ftypes.DOUBLE, nil, nil, nil, "The time weighted average price of the best offers during the last ten minutes of the trading session.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.tsx_tsxv_last_bid = ProtoField.new("Tsx Tsxv Last Bid", "tmx.tsx.level1.qrtmd.v2.8.tsxtsxvlastbid", ftypes.DOUBLE, nil, nil, nil, "The time weighted average price of the best bids during the last ten minutes of the trading session.")
-omi_tmx_tsx_level1_qrtmd_v2_8.fields.volume = ProtoField.new("Volume", "tmx.tsx.level1.qrtmd.v2.8.volume", ftypes.STRING, nil, nil, nil, "Volume of shares traded.")
+omi_tmx_tsx_level1_qrtmd_v2_8.fields.volume = ProtoField.new("Volume", "tmx.tsx.level1.qrtmd.v2.8.volume", ftypes.UINT32, nil, nil, nil, "Volume of shares traded.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.vwap = ProtoField.new("Vwap", "tmx.tsx.level1.qrtmd.v2.8.vwap", ftypes.DOUBLE, nil, nil, nil, "Volume-weighted average price based on trades.")
 
 -- Tmx Tsx Level1 Qrtmd 2.8 Framing
@@ -109,6 +109,11 @@ omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_correction_message = ProtoField.new("
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_message = ProtoField.new("Trade Message", "tmx.tsx.level1.qrtmd.v2.8.trademessage", ftypes.STRING, nil, nil, nil, "A trade in an equity on the Tsx or Tsx Venture market.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.trading_tier_status_message = ProtoField.new("Trading Tier Status Message", "tmx.tsx.level1.qrtmd.v2.8.tradingtierstatusmessage", ftypes.STRING, nil, nil, nil, "Statistical information on the number of symbols and stock groups for the current trading day, sent at the beginning of each trading day.")
 omi_tmx_tsx_level1_qrtmd_v2_8.fields.tsx_tsxv_closing_price_message = ProtoField.new("Tsx Tsxv Closing Price Message", "tmx.tsx.level1.qrtmd.v2.8.tsxtsxvclosingpricemessage", ftypes.STRING, nil, nil, nil, "Closing price of the trading day with the last bid and ask behind it.")
+
+-- Tmx Tsx Level1 Qrtmd 2.8 Expert Info
+tmx_tsx_level1_qrtmd_v2_8.experts = {}
+tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number = ProtoExpert.new("tmx.tsx.level1.qrtmd.v2.8.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tmx_tsx_level1_qrtmd_v2_8.experts = { tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -250,6 +255,9 @@ tmx_tsx_level1_qrtmd_v2_8.ask_price.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -278,7 +286,10 @@ tmx_tsx_level1_qrtmd_v2_8.ask_size.dissect = function(buffer, offset, packet, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.ask_size, range, value, "Ask Size: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Ask Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.ask_size.display(value, buffer, offset, packet, parent)
@@ -313,6 +324,9 @@ tmx_tsx_level1_qrtmd_v2_8.bid_price.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -341,7 +355,10 @@ tmx_tsx_level1_qrtmd_v2_8.bid_size.dissect = function(buffer, offset, packet, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.bid_size, range, value, "Bid Size: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Bid Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.bid_size.display(value, buffer, offset, packet, parent)
@@ -369,7 +386,10 @@ tmx_tsx_level1_qrtmd_v2_8.board_lot.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.board_lot, range, value, "Board Lot: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Board Lot is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.board_lot.display(value, buffer, offset, packet, parent)
@@ -454,7 +474,10 @@ tmx_tsx_level1_qrtmd_v2_8.buy_maximum_quantity.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.buy_maximum_quantity, range, value, "Buy Maximum Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Buy Maximum Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.buy_maximum_quantity.display(value, buffer, offset, packet, parent)
@@ -482,7 +505,10 @@ tmx_tsx_level1_qrtmd_v2_8.buy_minimum_quantity.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.buy_minimum_quantity, range, value, "Buy Minimum Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Buy Minimum Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.buy_minimum_quantity.display(value, buffer, offset, packet, parent)
@@ -510,7 +536,10 @@ tmx_tsx_level1_qrtmd_v2_8.buyer_id.dissect = function(buffer, offset, packet, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.buyer_id, range, value, "Buyer Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Buyer Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.buyer_id.display(value, buffer, offset, packet, parent)
@@ -575,6 +604,9 @@ tmx_tsx_level1_qrtmd_v2_8.ccp.dissect = function(buffer, offset, packet, parent)
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.ccp, range, value, "Ccp: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Ccp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -660,6 +692,9 @@ tmx_tsx_level1_qrtmd_v2_8.cop.dissect = function(buffer, offset, packet, parent)
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.cop, range, value, "Cop: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Cop is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -845,6 +880,9 @@ tmx_tsx_level1_qrtmd_v2_8.face_value.dissect = function(buffer, offset, packet, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.face_value, range, value, "Face Value: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Face Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -880,6 +918,9 @@ tmx_tsx_level1_qrtmd_v2_8.far_indicative_closing_price.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.far_indicative_closing_price, range, value, "Far Indicative Closing Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Far Indicative Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -915,6 +956,9 @@ tmx_tsx_level1_qrtmd_v2_8.imbalance_reference_price.dissect = function(buffer, o
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.imbalance_reference_price, range, value, "Imbalance Reference Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Imbalance Reference Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -976,7 +1020,10 @@ tmx_tsx_level1_qrtmd_v2_8.imbalance_volume.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.imbalance_volume, range, value, "Imbalance Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Imbalance Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.imbalance_volume.display(value, buffer, offset, packet, parent)
@@ -1011,6 +1058,9 @@ tmx_tsx_level1_qrtmd_v2_8.indicative_price.dissect = function(buffer, offset, pa
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.indicative_price, range, value, "Indicative Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Indicative Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -1136,6 +1186,9 @@ tmx_tsx_level1_qrtmd_v2_8.last_sale.dissect = function(buffer, offset, packet, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.last_sale, range, value, "Last Sale: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Last Sale is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -1242,7 +1295,10 @@ tmx_tsx_level1_qrtmd_v2_8.market_order_imbalance_volume.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.market_order_imbalance_volume, range, value, "Market Order Imbalance Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Market Order Imbalance Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.market_order_imbalance_volume.display(value, buffer, offset, packet, parent)
@@ -1348,7 +1404,10 @@ tmx_tsx_level1_qrtmd_v2_8.message_length.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.message_length, range, value, "Message Length: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Message Length is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.message_length.display(value, buffer, offset, packet, parent)
@@ -1532,6 +1591,9 @@ tmx_tsx_level1_qrtmd_v2_8.near_indicative_closing_price.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.near_indicative_closing_price, range, value, "Near Indicative Closing Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Near Indicative Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -1617,7 +1679,10 @@ tmx_tsx_level1_qrtmd_v2_8.original_trade_id.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.original_trade_id, range, value, "Original Trade Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Original Trade Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.original_trade_id.display(value, buffer, offset, packet, parent)
@@ -1645,7 +1710,10 @@ tmx_tsx_level1_qrtmd_v2_8.paired_volume.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.paired_volume, range, value, "Paired Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Paired Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.paired_volume.display(value, buffer, offset, packet, parent)
@@ -1710,6 +1778,9 @@ tmx_tsx_level1_qrtmd_v2_8.price_variation.dissect = function(buffer, offset, pac
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.price_variation, range, value, "Price Variation: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Price Variation is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -1857,7 +1928,10 @@ tmx_tsx_level1_qrtmd_v2_8.sell_maximum_quantity.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.sell_maximum_quantity, range, value, "Sell Maximum Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Sell Maximum Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.sell_maximum_quantity.display(value, buffer, offset, packet, parent)
@@ -1885,7 +1959,10 @@ tmx_tsx_level1_qrtmd_v2_8.sell_minimum_quantity.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.sell_minimum_quantity, range, value, "Sell Minimum Quantity: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Sell Minimum Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.sell_minimum_quantity.display(value, buffer, offset, packet, parent)
@@ -1913,7 +1990,10 @@ tmx_tsx_level1_qrtmd_v2_8.seller_id.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.seller_id, range, value, "Seller Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Seller Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.seller_id.display(value, buffer, offset, packet, parent)
@@ -1941,7 +2021,10 @@ tmx_tsx_level1_qrtmd_v2_8.sequence_number.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.sequence_number.display(value, buffer, offset, packet, parent)
@@ -2062,7 +2145,10 @@ tmx_tsx_level1_qrtmd_v2_8.stock_group.dissect = function(buffer, offset, packet,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.stock_group, range, value, "Stock Group: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Stock Group is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.stock_group.display(value, buffer, offset, packet, parent)
@@ -2214,7 +2300,10 @@ tmx_tsx_level1_qrtmd_v2_8.total_number_of_stock_groups.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.total_number_of_stock_groups, range, value, "Total Number Of Stock Groups: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Total Number Of Stock Groups is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.total_number_of_stock_groups.display(value, buffer, offset, packet, parent)
@@ -2242,7 +2331,10 @@ tmx_tsx_level1_qrtmd_v2_8.total_number_of_symbols.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.total_number_of_symbols, range, value, "Total Number Of Symbols: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Total Number Of Symbols is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.total_number_of_symbols.display(value, buffer, offset, packet, parent)
@@ -2297,7 +2389,10 @@ tmx_tsx_level1_qrtmd_v2_8.trade_id.dissect = function(buffer, offset, packet, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_id, range, value, "Trade Id: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Trade Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.trade_id.display(value, buffer, offset, packet, parent)
@@ -2332,6 +2427,9 @@ tmx_tsx_level1_qrtmd_v2_8.trade_price.dissect = function(buffer, offset, packet,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.trade_price, range, value, "Trade Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -2444,6 +2542,9 @@ tmx_tsx_level1_qrtmd_v2_8.tsx_tsxv_closing_price.dissect = function(buffer, offs
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.tsx_tsxv_closing_price, range, value, "Tsx Tsxv Closing Price: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Tsx Tsxv Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 
@@ -2479,6 +2580,9 @@ tmx_tsx_level1_qrtmd_v2_8.tsx_tsxv_last_ask.dissect = function(buffer, offset, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.tsx_tsxv_last_ask, range, value, "Tsx Tsxv Last Ask: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Tsx Tsxv Last Ask is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -2514,6 +2618,9 @@ tmx_tsx_level1_qrtmd_v2_8.tsx_tsxv_last_bid.dissect = function(buffer, offset, p
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.tsx_tsxv_last_bid, range, value, "Tsx Tsxv Last Bid: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Tsx Tsxv Last Bid is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -2542,7 +2649,10 @@ tmx_tsx_level1_qrtmd_v2_8.volume.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.volume, range, value, "Volume: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_tsx_level1_qrtmd_v2_8.volume.display(value, buffer, offset, packet, parent)
@@ -2577,6 +2687,9 @@ tmx_tsx_level1_qrtmd_v2_8.vwap.dissect = function(buffer, offset, packet, parent
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_tmx_tsx_level1_qrtmd_v2_8.fields.vwap, range, value, "Vwap: Not Applicable")
+    item:add_proto_expert_info(tmx_tsx_level1_qrtmd_v2_8.experts.not_a_number, "Vwap is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100000
 

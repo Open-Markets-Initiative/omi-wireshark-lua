@@ -21,7 +21,7 @@ omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.co
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_special_sale_condition = ProtoField.new("Corrected Special Sale Condition", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.correctedspecialsalecondition", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 4, used for special sale condition codes")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_trade_control_number = ProtoField.new("Corrected Trade Control Number", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.correctedtradecontrolnumber", ftypes.STRING, nil, nil, nil, "Indicates the NASDAQ internal control number associated with the adjusted trade transaction.")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.correctedtradeprice", ftypes.DOUBLE, nil, nil, nil, "Indicates the price for the corrected trade transaction. Price format is $$$$$$dddd.")
-omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_trade_size = ProtoField.new("Corrected Trade Size", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.correctedtradesize", ftypes.STRING, nil, nil, nil, "Indicates the number of shares for the corrected trade transaction.")
+omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_trade_size = ProtoField.new("Corrected Trade Size", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.correctedtradesize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares for the corrected trade transaction.")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_trade_through_exemption = ProtoField.new("Corrected Trade Through Exemption", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.correctedtradethroughexemption", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 2, used for SEC Regulation NMS Trade Through Exemption Codes")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.eventcode", ftypes.STRING, nil, nil, nil, "Denotes the NLS type of system event for which the message is being generated.")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.extended_hours_or_sold_code = ProtoField.new("Extended Hours Or Sold Code", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.extendedhoursorsoldcode", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 3, used for Extended Hours or Sold Codes")
@@ -37,7 +37,7 @@ omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.or
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_special_sale_condition = ProtoField.new("Original Special Sale Condition", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.originalspecialsalecondition", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 4, used for special sale condition codes")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_trade_control_number = ProtoField.new("Original Trade Control Number", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.originaltradecontrolnumber", ftypes.STRING, nil, nil, nil, "Indicates the NASDAQ internal control number associated with the given trade transaction.")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.originaltradeprice", ftypes.DOUBLE, nil, nil, nil, "Reported price for the transaction. Price format is $$$$$$dddd.")
-omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_trade_size = ProtoField.new("Original Trade Size", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.originaltradesize", ftypes.STRING, nil, nil, nil, "Reported number of shares for transaction.")
+omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_trade_size = ProtoField.new("Original Trade Size", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.originaltradesize", ftypes.UINT32, nil, nil, nil, "Reported number of shares for transaction.")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_trade_through_exemption = ProtoField.new("Original Trade Through Exemption", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.originaltradethroughexemption", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 2, used for SEC Regulation NMS Trade Through Exemption Codes")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.sale_condition_modifier = ProtoField.new("Sale Condition Modifier", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.saleconditionmodifier", ftypes.STRING)
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.security_class = ProtoField.new("Security Class", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.securityclass", ftypes.STRING, nil, nil, nil, "Indicates the primary listing market for the issue.")
@@ -45,10 +45,10 @@ omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.se
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.settlement_type = ProtoField.new("Settlement Type", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.settlementtype", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 1, used for Settlement Type information")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.special_sale_condition = ProtoField.new("Special Sale Condition", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.specialsalecondition", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 4, used for special sale condition codes")
-omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
+omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.timestamp", ftypes.UINT32, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.trade_control_number = ProtoField.new("Trade Control Number", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.tradecontrolnumber", ftypes.STRING, nil, nil, nil, "Indicates the NASDAQ internal control number associated with the given trade transaction.")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the report price on the trade transaction. Price format is $$$$$$dddd.")
-omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.tradesize", ftypes.STRING, nil, nil, nil, "Indicates the reported number of shares on the trade transaction.")
+omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.tradesize", ftypes.UINT32, nil, nil, nil, "Indicates the reported number of shares on the trade transaction.")
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.trade_through_exemption = ProtoField.new("Trade Through Exemption", "nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.tradethroughexemption", ftypes.STRING, nil, nil, nil, "Sale Condition Modifier Level 2, used for SEC Regulation NMS Trade Through Exemption Codes")
 
 -- Nasdaq NsmEquities LastSaleTrfTradesFilterView AsciiItch 1.0.2010 Framing
@@ -74,7 +74,8 @@ omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.me
 -- Nasdaq NsmEquities LastSaleTrfTradesFilterView AsciiItch 1.0.2010 Expert Info
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts = {}
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
-omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts = { nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.message_after_end_of_session }
+nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.lastsaletrftradesfilterview.asciiitch.v1.0.2010.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts = { nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.message_after_end_of_session, nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities LastSaleTrfTradesFilterView AsciiItch 1.0.2010 Formatting
@@ -411,6 +412,9 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.corrected_tra
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_trade_price, range, value, "Corrected Trade Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number, "Corrected Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -439,7 +443,10 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.corrected_tra
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.corrected_trade_size, range, value, "Corrected Trade Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number, "Corrected Trade Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.corrected_trade_size.display(value, buffer, offset, packet, parent)
@@ -878,6 +885,9 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.original_trad
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_trade_price, range, value, "Original Trade Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number, "Original Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -906,7 +916,10 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.original_trad
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.original_trade_size, range, value, "Original Trade Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number, "Original Trade Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.original_trade_size.display(value, buffer, offset, packet, parent)
@@ -1178,7 +1191,10 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.timestamp.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.timestamp.display(value, buffer, offset, packet, parent)
@@ -1236,6 +1252,9 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.trade_price.d
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.trade_price, range, value, "Trade Price: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number, "Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1264,7 +1283,10 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.trade_size.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.fields.trade_size, range, value, "Trade Size: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.experts.not_a_number, "Trade Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.trade_size.display(value, buffer, offset, packet, parent)

@@ -15,7 +15,7 @@ local nasdaq_iseoptions_depthofmarket_itch_v2_1_2026 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq IseOptions DepthOfMarket Itch 2.1.2026 Fields
-omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.askpricelong", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the new quote.")
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.askpriceshort", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the new quote.")
@@ -65,7 +65,7 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.price_long = ProtoFiel
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.price_short = ProtoField.new("Price Short", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.priceshort", ftypes.DOUBLE, nil, nil, nil, "The display price of the new order being added to the book.")
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.printable = ProtoField.new("Printable", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.printable", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.reserved16", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.reserved_4 = ProtoField.new("Reserved 4", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
@@ -141,6 +141,11 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.unsequenced_data_packe
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.messageindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq IseOptions DepthOfMarket Itch 2.1.2026 Expert Info
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.experts = {}
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.experts.not_a_number = ProtoExpert.new("nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.experts = { nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq IseOptions DepthOfMarket Itch 2.1.2026 Formatting
@@ -310,7 +315,10 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.accepted_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1744,7 +1752,10 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.requested_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.requested_sequence_number.display(value, buffer, offset, packet, parent)

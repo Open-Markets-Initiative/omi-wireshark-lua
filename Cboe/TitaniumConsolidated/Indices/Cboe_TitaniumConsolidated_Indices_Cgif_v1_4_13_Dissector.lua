@@ -1835,7 +1835,7 @@ udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4.13
 --   Date: Friday, May 16, 2025
---   Specification: Cboe Titanium Cboe Global Indices Feed Specification _ Cboe.pdf
+--   Specification: Cboe Titanium Cboe Global Indices Feed Specification _ Cboe (2026-05-19).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

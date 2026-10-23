@@ -15,7 +15,7 @@ local tradelogiq_omegaats_snapshotrecovery_itch_v1_09 = {}
 -----------------------------------------------------------------------
 
 -- Tradelogiq OmegaAts SnapshotRecovery Itch 1.09 Fields
-omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number of the next Sequenced Message to be sent. Left padded with spaces")
+omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number of the next Sequenced Message to be sent. Left padded with spaces")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.accepted_session = ProtoField.new("Accepted Session", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.acceptedsession", ftypes.STRING, nil, nil, nil, "Session ID of the session that is now logged into. Left padded with spaces")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.board_lot_size = ProtoField.new("Board Lot Size", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.boardlotsize", ftypes.UINT32, nil, nil, nil, "Indicates a board lot size")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.buysellindicator", ftypes.STRING, nil, nil, nil, "Side of order")
@@ -36,7 +36,7 @@ omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.password = ProtoField
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.price = ProtoField.new("Price", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.price", ftypes.DOUBLE, nil, nil, nil, "The display price of the new order.")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.reason = ProtoField.new("Reason", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.reason", ftypes.STRING, nil, nil, nil, "Reason the security is halted. Note: Field may be blank")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Why the login was rejected")
-omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number the client wants to receive upon connection or 0 to start receiving the most recently generated message")
+omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number the client wants to receive upon connection or 0 to start receiving the most recently generated message")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.requested_session = ProtoField.new("Requested Session", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies session to log onto. All blanks to log onto the currently active session")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.reserved_2 = ProtoField.new("Reserved 2", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.reserved_3 = ProtoField.new("Reserved 3", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved")
@@ -79,6 +79,11 @@ omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.unsequenced_data_pack
 
 -- Tradelogiq OmegaAts SnapshotRecovery Itch 1.09 Generated Fields
 omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "tradelogiq.omegaats.snapshotrecovery.itch.v1.09.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Tradelogiq OmegaAts SnapshotRecovery Itch 1.09 Expert Info
+tradelogiq_omegaats_snapshotrecovery_itch_v1_09.experts = {}
+tradelogiq_omegaats_snapshotrecovery_itch_v1_09.experts.not_a_number = ProtoExpert.new("tradelogiq.omegaats.snapshotrecovery.itch.v1.09.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.experts = { tradelogiq_omegaats_snapshotrecovery_itch_v1_09.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Tradelogiq OmegaAts SnapshotRecovery Itch 1.09 Formatting
@@ -243,7 +248,10 @@ tradelogiq_omegaats_snapshotrecovery_itch_v1_09.accepted_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tradelogiq_omegaats_snapshotrecovery_itch_v1_09.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tradelogiq_omegaats_snapshotrecovery_itch_v1_09.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -868,7 +876,10 @@ tradelogiq_omegaats_snapshotrecovery_itch_v1_09.requested_sequence_number.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tradelogiq_omegaats_snapshotrecovery_itch_v1_09.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tradelogiq_omegaats_snapshotrecovery_itch_v1_09.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tradelogiq_omegaats_snapshotrecovery_itch_v1_09.requested_sequence_number.display(value, buffer, offset, packet, parent)

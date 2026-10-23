@@ -15,14 +15,14 @@ local koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.020 Fields
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.adesignatednumberforanissue", ftypes.STRING, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.adesignatednumberforanissue", ftypes.UINT32, nil, nil, nil, "A designated number for each issue on a daily basis - Market(Information Product) : KOSPI(Securities A, Securities C), KOSDAQ(Securities B), KONEX(Securities B), Derivatives(DRV A), Spot Gold(Commodit.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_ask_trading_value = ProtoField.new("Accumulated Ask Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedasktradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated Ask Trading Value.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_ask_trading_volume = ProtoField.new("Accumulated Ask Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedasktradingvolume", ftypes.STRING, nil, nil, nil, "Accumulated Ask Trading Volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_ask_trading_volume = ProtoField.new("Accumulated Ask Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedasktradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Ask Trading Volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_bid_trading_value = ProtoField.new("Accumulated Bid Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedbidtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated Bid Trading Volume.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_bid_trading_volume = ProtoField.new("Accumulated Bid Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedbidtradingvolume", ftypes.STRING, nil, nil, nil, "Accumulated Bid Trading Volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_bid_trading_volume = ProtoField.new("Accumulated Bid Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedbidtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Bid Trading Volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_cash = ProtoField.new("Accumulated Cash", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedcash", ftypes.DOUBLE, nil, nil, nil, "Accumulated cash position (26 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedtradingvalue", ftypes.STRING, nil, nil, nil, "Accumulated trading value of the index constituents (12 ASCII digits). Unit: Million KRW.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedtradingvolume", ftypes.STRING, nil, nil, nil, "Accumulated trading volume of the index constituents (12 ASCII digits). Unit: 1,000 shares.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedtradingvalue", ftypes.UINT64, nil, nil, nil, "Accumulated trading value of the index constituents (12 ASCII digits). Unit: Million KRW.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.accumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated trading volume of the index constituents (12 ASCII digits). Unit: 1,000 shares.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.ask_treasury_stock_declaration_id = ProtoField.new("Ask Treasury Stock Declaration Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.asktreasurystockdeclarationid", ftypes.STRING, nil, nil, nil, "Ask_Treasury Stock Declaration ID 0: N/A N: Treasury Stock_direct_general S: Treasury Stock_direct_stock options 1 - 99999 Treasury Stock_Trust(report sequence number).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_convexity = ProtoField.new("Average Convexity", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.averageconvexity", ftypes.DOUBLE, nil, nil, nil, "Average convexity across the index constituents (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_coupon_price = ProtoField.new("Average Coupon Price", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.averagecouponprice", ftypes.DOUBLE, nil, nil, nil, "Average coupon price (16 ASCII digits with 6 implied decimal places).")
@@ -41,7 +41,7 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.bid
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.bond_index_id = ProtoField.new("Bond Index Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.bondindexid", ftypes.STRING, nil, nil, nil, "Bond index identifier. Examples: BGG01T (KTB Index), BGG03T (KTB 10Y Index).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.business_date = ProtoField.new("Business Date", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.businessdate", ftypes.STRING, nil, nil, nil, "Business date for the index calculation in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.buyin_type_code = ProtoField.new("Buyin Type Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.buyintypecode", ftypes.STRING, nil, nil, nil, "Buy-in Type Code 1: Regular Buy-in 2: Same day Buy-in.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.buyin_volume = ProtoField.new("Buyin Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.buyinvolume", ftypes.STRING, nil, nil, nil, "Buy-in Volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.buyin_volume = ProtoField.new("Buyin Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.buyinvolume", ftypes.UINT64, nil, nil, nil, "Buy-in Volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.calculatingdate", ftypes.STRING, nil, nil, nil, "Calculation date in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.calculating_time = ProtoField.new("Calculating Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.calculatingtime", ftypes.STRING, nil, nil, nil, "Calculation time in HHMMSS plus two trailing spaces.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.calculation_time = ProtoField.new("Calculation Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.calculationtime", ftypes.STRING, nil, nil, nil, "Calculation Time (HHMMSS).")
@@ -55,7 +55,7 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.cle
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.cleanpriceindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted clean price index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.convexity = ProtoField.new("Convexity", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.convexity", ftypes.DOUBLE, nil, nil, nil, "Bond index average convexity (7 ASCII digits with 3 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.covered_short_selling_trading_value = ProtoField.new("Covered Short Selling Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.coveredshortsellingtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Covered Short Selling_Trading Value.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.covered_short_selling_trading_volume = ProtoField.new("Covered Short Selling Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.coveredshortsellingtradingvolume", ftypes.STRING, nil, nil, nil, "Covered Short Selling_Trading Volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.covered_short_selling_trading_volume = ProtoField.new("Covered Short Selling Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.coveredshortsellingtradingvolume", ftypes.UINT64, nil, nil, nil, "Covered Short Selling_Trading Volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.currency_code = ProtoField.new("Currency Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.currencycode", ftypes.STRING, nil, nil, nil, "ISO 4217 currency code of the index value.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.current_time = ProtoField.new("Current Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.currenttime", ftypes.STRING, nil, nil, nil, "Current time in HHMM format, transmitted at one-minute intervals.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.duration = ProtoField.new("Duration", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.duration", ftypes.DOUBLE, nil, nil, nil, "Bond index average duration (7 ASCII digits with 3 implied decimal places).")
@@ -69,18 +69,18 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.ind
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_change_sign_against_the_previous_day = ProtoField.new("Index Change Sign Against The Previous Day", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.indexchangesignagainstthepreviousday", ftypes.STRING, nil, nil, nil, "Sign of the index change against the previous day. '+' ascended, ' ' unchanged, '-' declined.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_constituent = ProtoField.new("Index Constituent", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.indexconstituent", ftypes.STRING, nil, nil, nil, "Flag identifying whether the security is included in the index. '0' securities are included in the ETF but not in the Index; '1' securities are included in the Index.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_id = ProtoField.new("Index Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.indexid", ftypes.STRING, nil, nil, nil, "Index ID comprising of 6 digits.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_market_capitalization = ProtoField.new("Index Market Capitalization", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.indexmarketcapitalization", ftypes.STRING, nil, nil, nil, "Total market capitalization of the index constituents (20 ASCII digits). Unit: KRW.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_number_of_securities = ProtoField.new("Index Number Of Securities", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.indexnumberofsecurities", ftypes.STRING, nil, nil, nil, "Number of constituent securities included in the index (8 ASCII digits).")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_market_capitalization = ProtoField.new("Index Market Capitalization", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.indexmarketcapitalization", ftypes.UINT64, nil, nil, nil, "Total market capitalization of the index constituents (20 ASCII digits). Unit: KRW.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_number_of_securities = ProtoField.new("Index Number Of Securities", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.indexnumberofsecurities", ftypes.UINT32, nil, nil, nil, "Number of constituent securities included in the index (8 ASCII digits).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.investor_code = ProtoField.new("Investor Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.investorcode", ftypes.STRING, nil, nil, nil, "Investor Code 1000: Financial Investors 2000: Insurance Company 3000: Asset Management Company and Investment Trust Company 3100: Private Equity Fund 4000: Banks 5000: Other Financial Institutions 600.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.isin_code = ProtoField.new("Isin Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.isincode", ftypes.STRING, nil, nil, nil, "ISIN Code.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.issuedamount", ftypes.STRING, nil, nil, nil, "Total issued amount across constituents (20 ASCII digits). Unit: KRW.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.issuedamount", ftypes.UINT64, nil, nil, nil, "Total issued amount across constituents (20 ASCII digits). Unit: KRW.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.issuedamountweight", ftypes.DOUBLE, nil, nil, nil, "Weighted issued amount (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.marketcapitalizationweight", ftypes.DOUBLE, nil, nil, nil, "Weighted market capitalization (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_krx = ProtoField.new("Market Price Index Krx", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.marketpriceindexkrx", ftypes.DOUBLE, nil, nil, nil, "Market price index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.marketpriceindexktb", ftypes.DOUBLE, nil, nil, nil, "Market price index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.marketpriceindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted market price index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.maturitycode", ftypes.STRING, nil, nil, nil, "Bond Prime Index Maturity Code. JA000 maturity identifier; check the TR-CODE for the specific maturity bucket.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.messagesequencenumber", ftypes.STRING, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information Ca.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information Ca.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.reinvest_call_cash = ProtoField.new("Reinvest Call Cash", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.reinvestcallcash", ftypes.DOUBLE, nil, nil, nil, "Reinvested call cash during the calculation period (26 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.securitygroupid", ftypes.STRING, nil, nil, nil, "Security Group ID (Equities, Investment firms, ETF, ELW, Futures, Options etc.).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.session_id = ProtoField.new("Session Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.sessionid", ftypes.STRING, nil, nil, nil, "A Session is a subordinate concept of a Board and each session follows different trading methods and rules.")
@@ -89,13 +89,13 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.tot
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.totalprofitindex", ftypes.DOUBLE, nil, nil, nil, "Total profit index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.trcode", ftypes.STRING, nil, nil, nil, "Five-character ASCII TR-CODE identifying the disseminated market data record. Formed by concatenating a 2-character Data Category (message family, e.g. \"IA\" Krx Index, \"B6\" Quote, \"C4\" Negotiated Trade, \"A7\" Market Operation TS) with a 3-character Information Category (market/product variant, typically 2-digit information code plus 1-character market code, e.g. \"01S\" = Equities/KOSPI, \"01F\" = Derivatives, \"000\" = All Market).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.tradingprice", ftypes.DOUBLE, nil, nil, nil, "The price at which a security is currently selling in the market.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.tradingvolume", ftypes.STRING, nil, nil, nil, "Trading volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.tradingvolume", ftypes.UINT64, nil, nil, nil, "Trading volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.transmission_date = ProtoField.new("Transmission Date", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.transmissiondate", ftypes.STRING, nil, nil, nil, "Transmission Date.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.transmission_time = ProtoField.new("Transmission Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.transmissiontime", ftypes.STRING, nil, nil, nil, "Transmission time in HHMMSSMM format (8 ASCII digits).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_applied_covered_short_selling_trading_value = ProtoField.new("Uptick Rule Applied Covered Short Selling Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.uptickruleappliedcoveredshortsellingtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Uptick Rule Applied Covered Short Selling Trading Value.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_applied_covered_short_selling_trading_volume = ProtoField.new("Uptick Rule Applied Covered Short Selling Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.uptickruleappliedcoveredshortsellingtradingvolume", ftypes.STRING, nil, nil, nil, "Uptick Rule Applied Covered Short Selling Trading Volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_applied_covered_short_selling_trading_volume = ProtoField.new("Uptick Rule Applied Covered Short Selling Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.uptickruleappliedcoveredshortsellingtradingvolume", ftypes.UINT64, nil, nil, nil, "Uptick Rule Applied Covered Short Selling Trading Volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_unapplied_covered_short_selling_trading_value = ProtoField.new("Uptick Rule Unapplied Covered Short Selling Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.uptickruleunappliedcoveredshortsellingtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Uptick Rule Unapplied Covered Short Selling Trading Value.")
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_unapplied_covered_short_selling_trading_volume = ProtoField.new("Uptick Rule Unapplied Covered Short Selling Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.uptickruleunappliedcoveredshortsellingtradingvolume", ftypes.STRING, nil, nil, nil, "Uptick Rule Unapplied Covered Short Selling Trading Volume.")
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_unapplied_covered_short_selling_trading_volume = ProtoField.new("Uptick Rule Unapplied Covered Short Selling Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.uptickruleunappliedcoveredshortsellingtradingvolume", ftypes.UINT64, nil, nil, nil, "Uptick Rule Unapplied Covered Short Selling Trading Volume.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE, nil, nil, nil, "Integrity-index weight for the call re-investment index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE, nil, nil, nil, "Integrity-index weight for the clean index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.weight_of_sum_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Sum Index Value For Integrity Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.weightofsumindexvalueforintegrityindexweight", ftypes.DOUBLE, nil, nil, nil, "Integrity-index weight for the sum index value (16 ASCII digits with 6 implied decimal places).")
@@ -122,6 +122,11 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.sec
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.securities_investor_activities_per_issue_eod_message = ProtoField.new("Securities Investor Activities Per Issue Eod Message", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.securitiesinvestoractivitiesperissueeodmessage", ftypes.STRING, nil, nil, nil, "Investor Activities per Issue EOD. Aggregated bid/ask volumes and values per investor category and ISIN at end-of-day.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.securities_short_selling_message = ProtoField.new("Securities Short Selling Message", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.securitiesshortsellingmessage", ftypes.STRING, nil, nil, nil, "Short Selling activity per issue.")
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.securities_treasury_stocks_traded_message = ProtoField.new("Securities Treasury Stocks Traded Message", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.securitiestreasurystockstradedmessage", ftypes.STRING, nil, nil, nil, "Treasury Stocks Traded Information. Real-time treasury-stock trade dissemination per issue.")
+
+-- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.020 Expert Info
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts = {}
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number = ProtoExpert.new("koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts = { koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.020 Formatting
@@ -243,7 +248,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.a_designated_n
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.a_designated_number_for_an_issue, range, value, "A Designated Number For An Issue: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "A Designated Number For An Issue is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.a_designated_number_for_an_issue.display(value, buffer, offset, packet, parent)
@@ -286,6 +294,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_as
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_ask_trading_value, range, value, "Accumulated Ask Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Ask Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_ask_trading_value.display(value, buffer, offset, packet, parent)
@@ -313,7 +324,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_as
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_ask_trading_volume, range, value, "Accumulated Ask Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Ask Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_ask_trading_volume.display(value, buffer, offset, packet, parent)
@@ -356,6 +370,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_bi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_bid_trading_value, range, value, "Accumulated Bid Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Bid Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_bid_trading_value.display(value, buffer, offset, packet, parent)
@@ -383,7 +400,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_bi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_bid_trading_volume, range, value, "Accumulated Bid Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Bid Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_bid_trading_volume.display(value, buffer, offset, packet, parent)
@@ -426,6 +446,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_ca
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_cash, range, value, "Accumulated Cash: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Cash is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_cash.display(value, buffer, offset, packet, parent)
@@ -453,7 +476,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_tr
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_value, range, value, "Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -481,7 +507,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_tr
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.accumulated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -547,6 +576,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_convex
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_convexity, range, value, "Average Convexity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Convexity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_convexity.display(value, buffer, offset, packet, parent)
@@ -589,6 +621,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_coupon
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_coupon_price, range, value, "Average Coupon Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Coupon Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_coupon_price.display(value, buffer, offset, packet, parent)
@@ -631,6 +666,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_curren
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_current_yield, range, value, "Average Current Yield: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Current Yield is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_current_yield.display(value, buffer, offset, packet, parent)
@@ -673,6 +711,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_durati
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_duration, range, value, "Average Duration: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Duration is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_duration.display(value, buffer, offset, packet, parent)
@@ -715,6 +756,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_forwar
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_forward_ytm, range, value, "Average Forward Ytm: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Forward Ytm is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_forward_ytm.display(value, buffer, offset, packet, parent)
@@ -757,6 +801,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_remain
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_remaining_maturity_price, range, value, "Average Remaining Maturity Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Remaining Maturity Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_remaining_maturity_price.display(value, buffer, offset, packet, parent)
@@ -799,6 +846,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_spread
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_spread, range, value, "Average Spread: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Spread is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_spread.display(value, buffer, offset, packet, parent)
@@ -874,6 +924,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_yld.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_yld, range, value, "Average Yld: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Yld is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_yld.display(value, buffer, offset, packet, parent)
@@ -916,6 +969,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_ytm.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.average_ytm, range, value, "Average Ytm: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Average Ytm is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.average_ytm.display(value, buffer, offset, packet, parent)
@@ -1012,6 +1068,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.basis_price.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.basis_price, range, value, "Basis Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Basis Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.basis_price.display(value, buffer, offset, packet, parent)
@@ -1135,7 +1194,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.buyin_volume.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.buyin_volume, range, value, "Buyin Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Buyin Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.buyin_volume.display(value, buffer, offset, packet, parent)
@@ -1259,6 +1321,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.call_re_invest
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.call_re_investment_index_weight, range, value, "Call Re Investment Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Call Re Investment Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.call_re_investment_index_weight.display(value, buffer, offset, packet, parent)
@@ -1301,6 +1366,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.call_reinvestm
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.call_reinvestment_index_krx, range, value, "Call Re-Investment Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Call Re-Investment Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.call_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
@@ -1343,6 +1411,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.call_reinvestm
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.call_reinvestment_index_ktb, range, value, "Call Re-Investment Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Call Re-Investment Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.call_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)
@@ -1385,6 +1456,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.cash_inflow.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.cash_inflow, range, value, "Cash Inflow: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Cash Inflow is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.cash_inflow.display(value, buffer, offset, packet, parent)
@@ -1427,6 +1501,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price.di
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.clean_price, range, value, "Clean Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Clean Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price.display(value, buffer, offset, packet, parent)
@@ -1469,6 +1546,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price_in
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.clean_price_index_krx, range, value, "Clean Price Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Clean Price Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price_index_krx.display(value, buffer, offset, packet, parent)
@@ -1511,6 +1591,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price_in
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.clean_price_index_ktb, range, value, "Clean Price Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Clean Price Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price_index_ktb.display(value, buffer, offset, packet, parent)
@@ -1553,6 +1636,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price_in
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.clean_price_index_weight, range, value, "Clean Price Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Clean Price Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.clean_price_index_weight.display(value, buffer, offset, packet, parent)
@@ -1595,6 +1681,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.convexity.diss
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.convexity, range, value, "Convexity: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Convexity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.convexity.display(value, buffer, offset, packet, parent)
@@ -1637,6 +1726,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.covered_short_
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.covered_short_selling_trading_value, range, value, "Covered Short Selling Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Covered Short Selling Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
@@ -1664,7 +1756,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.covered_short_
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.covered_short_selling_trading_volume, range, value, "Covered Short Selling Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Covered Short Selling Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.covered_short_selling_trading_volume.display(value, buffer, offset, packet, parent)
@@ -1789,6 +1884,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.duration.disse
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.duration, range, value, "Duration: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Duration is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.duration.display(value, buffer, offset, packet, parent)
@@ -1904,6 +2002,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.futures_basis_
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.futures_basis_price, range, value, "Futures Basis Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Futures Basis Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.futures_basis_price.display(value, buffer, offset, packet, parent)
@@ -1969,6 +2070,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index.dissect 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index, range, value, "Index: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Index is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index.display(value, buffer, offset, packet, parent)
@@ -2011,6 +2115,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index_change_a
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_change_against_the_previous_day, range, value, "Index Change Against The Previous Day: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Index Change Against The Previous Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index_change_against_the_previous_day.display(value, buffer, offset, packet, parent)
@@ -2124,7 +2231,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index_market_c
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_market_capitalization, range, value, "Index Market Capitalization: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Index Market Capitalization is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index_market_capitalization.display(value, buffer, offset, packet, parent)
@@ -2152,7 +2262,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index_number_o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.index_number_of_securities, range, value, "Index Number Of Securities: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Index Number Of Securities is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.index_number_of_securities.display(value, buffer, offset, packet, parent)
@@ -2226,7 +2339,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.issued_amount.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.issued_amount, range, value, "Issued Amount: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Issued Amount is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.issued_amount.display(value, buffer, offset, packet, parent)
@@ -2269,6 +2385,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.issued_amount_
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.issued_amount_weight, range, value, "Issued Amount Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Issued Amount Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.issued_amount_weight.display(value, buffer, offset, packet, parent)
@@ -2311,6 +2430,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_capital
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_capitalization_weight, range, value, "Market Capitalization Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Market Capitalization Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_capitalization_weight.display(value, buffer, offset, packet, parent)
@@ -2353,6 +2475,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_price_i
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_krx, range, value, "Market Price Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Market Price Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_price_index_krx.display(value, buffer, offset, packet, parent)
@@ -2395,6 +2520,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_price_i
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_ktb, range, value, "Market Price Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Market Price Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_price_index_ktb.display(value, buffer, offset, packet, parent)
@@ -2437,6 +2565,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_price_i
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_weight, range, value, "Market Price Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Market Price Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.market_price_index_weight.display(value, buffer, offset, packet, parent)
@@ -2530,6 +2661,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.reinvest_call_
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.reinvest_call_cash, range, value, "Reinvest Call Cash: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Reinvest Call Cash is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.reinvest_call_cash.display(value, buffer, offset, packet, parent)
@@ -2618,6 +2752,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_earnings
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_earnings_index, range, value, "Total Earnings Index: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Total Earnings Index is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_earnings_index.display(value, buffer, offset, packet, parent)
@@ -2660,6 +2797,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_earnings
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_earnings_index_weight, range, value, "Total Earnings Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Total Earnings Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_earnings_index_weight.display(value, buffer, offset, packet, parent)
@@ -2702,6 +2842,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_profit_i
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_profit_index, range, value, "Total Profit Index: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Total Profit Index is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_profit_index.display(value, buffer, offset, packet, parent)
@@ -2875,6 +3018,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.trading_price.
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_price, range, value, "Trading Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Trading Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.trading_price.display(value, buffer, offset, packet, parent)
@@ -2902,7 +3048,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.trading_volume
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.trading_volume.display(value, buffer, offset, packet, parent)
@@ -2995,6 +3144,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_ap
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_applied_covered_short_selling_trading_value, range, value, "Uptick Rule Applied Covered Short Selling Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Uptick Rule Applied Covered Short Selling Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_applied_covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
@@ -3022,7 +3174,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_ap
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_applied_covered_short_selling_trading_volume, range, value, "Uptick Rule Applied Covered Short Selling Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Uptick Rule Applied Covered Short Selling Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_applied_covered_short_selling_trading_volume.display(value, buffer, offset, packet, parent)
@@ -3065,6 +3220,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_un
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_unapplied_covered_short_selling_trading_value, range, value, "Uptick Rule Unapplied Covered Short Selling Trading Value: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Uptick Rule Unapplied Covered Short Selling Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_unapplied_covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
@@ -3092,7 +3250,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_un
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.uptick_rule_unapplied_covered_short_selling_trading_volume, range, value, "Uptick Rule Unapplied Covered Short Selling Trading Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Uptick Rule Unapplied Covered Short Selling Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.uptick_rule_unapplied_covered_short_selling_trading_volume.display(value, buffer, offset, packet, parent)
@@ -3135,6 +3296,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_call
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight, range, value, "Weight Of Call Re Investment Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Weight Of Call Re Investment Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_call_re_investment_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -3177,6 +3341,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_clea
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.weight_of_clean_index_value_for_integrity_index_weight, range, value, "Weight Of Clean Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Weight Of Clean Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_clean_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -3219,6 +3386,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_sum_
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.weight_of_sum_index_value_for_integrity_index_weight, range, value, "Weight Of Sum Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Weight Of Sum Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_sum_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -3261,6 +3431,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_zero
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight, range, value, "Weight Of Zero Re Investment Index Value For Integrity Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Weight Of Zero Re Investment Index Value For Integrity Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -3303,6 +3476,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.zero_re_invest
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.zero_re_investment_index_weight, range, value, "Zero Re Investment Index Weight: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Zero Re Investment Index Weight is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.zero_re_investment_index_weight.display(value, buffer, offset, packet, parent)
@@ -3345,6 +3521,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.zero_reinvestm
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.zero_reinvestment_index_krx, range, value, "Zero Re-Investment Index Krx: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Zero Re-Investment Index Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.zero_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
@@ -3387,6 +3566,9 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.zero_reinvestm
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.zero_reinvestment_index_ktb, range, value, "Zero Re-Investment Index Ktb: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.experts.not_a_number, "Zero Re-Investment Index Ktb is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.zero_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)

@@ -177,6 +177,11 @@ omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.top_rank_by_net_change_rat
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.top_rank_by_trading_volume_index = ProtoField.new("Top Rank By Trading Volume Index", "jpx.tseequities.indexstatistics.flex.v19.5.toprankbytradingvolumeindex", ftypes.UINT16)
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.top_rank_by_turnover_index = ProtoField.new("Top Rank By Turnover Index", "jpx.tseequities.indexstatistics.flex.v19.5.toprankbyturnoverindex", ftypes.UINT16)
 
+-- Jpx TseEquities IndexStatistics Flex 19.5 Expert Info
+jpx_tseequities_indexstatistics_flex_v19_5.experts = {}
+jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number = ProtoExpert.new("jpx.tseequities.indexstatistics.flex.v19.5.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jpx_tseequities_indexstatistics_flex_v19_5.experts = { jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -623,6 +628,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.dissect = function
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price_c_14, range, value, "Current Price C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Current Price C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -658,6 +666,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.dayonday_comparison_c_14.dissect = fu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.dayonday_comparison_c_14, range, value, "Dayonday Comparison C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Dayonday Comparison C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -693,6 +704,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.dayonday_comparison_c_8.dissect = fun
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.dayonday_comparison_c_8, range, value, "Dayonday Comparison C 8: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Dayonday Comparison C 8 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -728,6 +742,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.dissect = fu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average_c_8, range, value, "Direct Yield Average C 8: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Direct Yield Average C 8 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -763,6 +780,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.dissect = func
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average_c_8, range, value, "Divergence Average C 8: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Divergence Average C 8 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -1315,6 +1335,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.index_value.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.index_value, range, value, "Index Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Index Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1722,6 +1745,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.net_change.dissect = function(buffer,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.net_change, range, value, "Net Change: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Net Change is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1787,6 +1813,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.net_change_rate.dissect = function(bu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.net_change_rate, range, value, "Net Change Rate: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Net Change Rate is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -1997,6 +2026,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average_c_14, range, value, "Parity Average C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Parity Average C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -2078,6 +2110,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.ratio.dissect = function(buffer, offs
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.ratio, range, value, "Ratio: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Ratio is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -2436,6 +2471,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average_c_14, range, value, "Simple Average C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Average C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -2471,6 +2509,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.disse
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average_c_14, range, value, "Simple Stock Price Average C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Stock Price Average C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -2506,6 +2547,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield_c_8, range, value, "Simple Yield C 8: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Yield C 8 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -3075,6 +3119,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.dissect = fun
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value_c_14, range, value, "Total Market Value C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Total Market Value C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -3255,6 +3302,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market_c_14, range, value, "Vwap By Market C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Vwap By Market C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -3290,6 +3340,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.dis
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average_c_14, range, value, "Weighted Stock Price Average C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Weighted Stock Price Average C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -3325,6 +3378,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.dissect = function
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield_c_8, range, value, "Weighted Yield C 8: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Weighted Yield C 8 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 

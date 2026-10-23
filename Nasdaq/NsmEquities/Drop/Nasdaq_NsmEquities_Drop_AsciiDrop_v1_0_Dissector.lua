@@ -24,14 +24,14 @@ omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.cr = ProtoField.new("Cr", "nas
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.firm = ProtoField.new("Firm", "nasdaq.nsmequities.drop.asciidrop.v1.0.firm", ftypes.STRING, nil, nil, nil, "The order entry firm.")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.lf = ProtoField.new("Lf", "nasdaq.nsmequities.drop.asciidrop.v1.0.lf", ftypes.INT8, nil, nil, nil, "Line feed ending the line")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.liquidity_code = ProtoField.new("Liquidity Code", "nasdaq.nsmequities.drop.asciidrop.v1.0.liquiditycode", ftypes.STRING, nil, nil, nil, "For execution messages, the liquidity code value.")
-omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.drop.asciidrop.v1.0.matchnumber", ftypes.STRING, nil, nil, nil, "The match number assigned by Nasdaq to this trade. Each match consists of an execution between a buy order and a sell order.")
+omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.drop.asciidrop.v1.0.matchnumber", ftypes.UINT32, nil, nil, nil, "The match number assigned by Nasdaq to this trade. Each match consists of an execution between a buy order and a sell order.")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.drop.asciidrop.v1.0.messagetype", ftypes.STRING, nil, nil, nil, "The event the line reports")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.drop.asciidrop.v1.0.price", ftypes.STRING, nil, nil, nil, "For a new order accepted, the limit price of the order; for an execution, the execution price; for a cancel, the limit price of the open order.")
-omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.reference = ProtoField.new("Reference", "nasdaq.nsmequities.drop.asciidrop.v1.0.reference", ftypes.STRING, nil, nil, nil, "The order unique reference number assigned by Nasdaq to this order.")
-omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.drop.asciidrop.v1.0.shares", ftypes.STRING, nil, nil, nil, "For a new order accept, the total number of shares entered; for a cancel, the incremental number of shares canceled; for an execution, the incremental number of shares executed in this trade; for a broken execution, the number of shares in the previously transmitted execution.")
+omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.reference = ProtoField.new("Reference", "nasdaq.nsmequities.drop.asciidrop.v1.0.reference", ftypes.UINT32, nil, nil, nil, "The order unique reference number assigned by Nasdaq to this order.")
+omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.drop.asciidrop.v1.0.shares", ftypes.UINT32, nil, nil, nil, "For a new order accept, the total number of shares entered; for a cancel, the incremental number of shares canceled; for an execution, the incremental number of shares executed in this trade; for a broken execution, the number of shares in the previously transmitted execution.")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.source = ProtoField.new("Source", "nasdaq.nsmequities.drop.asciidrop.v1.0.source", ftypes.STRING, nil, nil, nil, "The source of the order. Typically the account of the OUCH port used to enter the order, but can also have the special value \"$PHON \" for orders received via the phone desk.")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.drop.asciidrop.v1.0.stock", ftypes.STRING, nil, nil, nil, "The stock symbol.")
-omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.drop.asciidrop.v1.0.timeinforce", ftypes.STRING, nil, nil, nil, "On messages other than executions and breaks the Match field carries the order's Time in Force (TIF).")
+omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.drop.asciidrop.v1.0.timeinforce", ftypes.UINT32, nil, nil, nil, "On messages other than executions and breaks the Match field carries the order's Time in Force (TIF).")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.time_stamp = ProtoField.new("Time Stamp", "nasdaq.nsmequities.drop.asciidrop.v1.0.timestamp", ftypes.STRING, nil, nil, nil, "The time the event occurred, seconds past midnight Eastern with a written decimal point and three decimals (milliseconds)")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.token = ProtoField.new("Token", "nasdaq.nsmequities.drop.asciidrop.v1.0.token", ftypes.STRING, nil, nil, nil, "The free form Token field as specified by the order entry firm when the order was entered.")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.user = ProtoField.new("User", "nasdaq.nsmequities.drop.asciidrop.v1.0.user", ftypes.STRING, nil, nil, nil, "The free form User field as specified by the order entry firm when the order was entered.")
@@ -46,6 +46,11 @@ omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.existing_order_canceled_messag
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.existing_order_executed_message = ProtoField.new("Existing Order Executed Message", "nasdaq.nsmequities.drop.asciidrop.v1.0.existingorderexecutedmessage", ftypes.STRING, nil, nil, nil, "Existing order executed.")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.new_order_accepted_message = ProtoField.new("New Order Accepted Message", "nasdaq.nsmequities.drop.asciidrop.v1.0.neworderacceptedmessage", ftypes.STRING, nil, nil, nil, "New order accepted.")
 omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.previous_execution_broken_message = ProtoField.new("Previous Execution Broken Message", "nasdaq.nsmequities.drop.asciidrop.v1.0.previousexecutionbrokenmessage", ftypes.STRING, nil, nil, nil, "Previous execution broken.")
+
+-- Nasdaq NsmEquities Drop AsciiDrop 1.0 Expert Info
+nasdaq_nsmequities_drop_asciidrop_v1_0.experts = {}
+nasdaq_nsmequities_drop_asciidrop_v1_0.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.drop.asciidrop.v1.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_drop_asciidrop_v1_0.experts = { nasdaq_nsmequities_drop_asciidrop_v1_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -507,7 +512,10 @@ nasdaq_nsmequities_drop_asciidrop_v1_0.match_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.match_number, range, value, "Match Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v1_0.experts.not_a_number, "Match Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v1_0.match_number.display(value, buffer, offset, packet, parent)
@@ -594,7 +602,10 @@ nasdaq_nsmequities_drop_asciidrop_v1_0.reference.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.reference, range, value, "Reference: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v1_0.experts.not_a_number, "Reference is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v1_0.reference.display(value, buffer, offset, packet, parent)
@@ -622,7 +633,10 @@ nasdaq_nsmequities_drop_asciidrop_v1_0.shares.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v1_0.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v1_0.shares.display(value, buffer, offset, packet, parent)
@@ -696,7 +710,10 @@ nasdaq_nsmequities_drop_asciidrop_v1_0.time_in_force.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_drop_asciidrop_v1_0.fields.time_in_force, range, value, "Time In Force: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_drop_asciidrop_v1_0.experts.not_a_number, "Time In Force is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v1_0.time_in_force.display(value, buffer, offset, packet, parent)

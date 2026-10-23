@@ -15,7 +15,7 @@ local nasdaq_utp_input_utp_v4_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Utp Input Utp 4.0 Fields
-omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.input.utp.v4.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next sequenced message to be sent, left padded with spaces")
+omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.input.utp.v4.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next sequenced message to be sent, left padded with spaces")
 omi_nasdaq_utp_input_utp_v4_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.input.utp.v4.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into, left padded with spaces")
 omi_nasdaq_utp_input_utp_v4_0.fields.action = ProtoField.new("Action", "nasdaq.utp.input.utp.v4.0.action", ftypes.STRING, nil, nil, nil, "Trading Action Code (H/Q/T/P)")
 omi_nasdaq_utp_input_utp_v4_0.fields.action_sequence = ProtoField.new("Action Sequence", "nasdaq.utp.input.utp.v4.0.actionsequence", ftypes.UINT32, nil, nil, nil, "Trading Action Sequence Number — per-symbol sequence")
@@ -96,7 +96,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.price = ProtoField.new("Price", "nasdaq.utp
 omi_nasdaq_utp_input_utp_v4_0.fields.reason = ProtoField.new("Reason", "nasdaq.utp.input.utp.v4.0.reason", ftypes.STRING, nil, nil, nil, "Reason for the Trading Action")
 omi_nasdaq_utp_input_utp_v4_0.fields.reject_code = ProtoField.new("Reject Code", "nasdaq.utp.input.utp.v4.0.rejectcode", ftypes.UINT16, nil, nil, nil, "Error Code for the First Diagnosed Error")
 omi_nasdaq_utp_input_utp_v4_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.utp.input.utp.v4.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "One-byte code indicating why the login was rejected")
-omi_nasdaq_utp_input_utp_v4_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.utp.input.utp.v4.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "The next sequence number in ASCII the client wants to receive, or 0 for the most recently generated message")
+omi_nasdaq_utp_input_utp_v4_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.utp.input.utp.v4.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "The next sequence number in ASCII the client wants to receive, or 0 for the most recently generated message")
 omi_nasdaq_utp_input_utp_v4_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.utp.input.utp.v4.0.requestedsession", ftypes.STRING, nil, nil, nil, "The requested session ID, or all spaces to log into the currently active session")
 omi_nasdaq_utp_input_utp_v4_0.fields.return_administrative_messages_message = ProtoField.new("Return Administrative Messages Message", "nasdaq.utp.input.utp.v4.0.returnadministrativemessagesmessage", ftypes.STRING, nil, nil, nil, "Return Administrative Messages Sip→ Participant Message Category A Lowercase")
 omi_nasdaq_utp_input_utp_v4_0.fields.return_administrative_messages_message_type = ProtoField.new("Return Administrative Messages Message Type", "nasdaq.utp.input.utp.v4.0.returnadministrativemessagesmessagetype", ftypes.STRING)
@@ -197,6 +197,11 @@ omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_short_form_attachment_index = P
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_adf_form_attachment_index = ProtoField.new("Odd Lot Bid Adf Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotbidadfformattachmentindex", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_long_form_attachment_index = ProtoField.new("Odd Lot Bid Long Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotbidlongformattachmentindex", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_short_form_attachment_index = ProtoField.new("Odd Lot Bid Short Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotbidshortformattachmentindex", ftypes.UINT16)
+
+-- Nasdaq Utp Input Utp 4.0 Expert Info
+nasdaq_utp_input_utp_v4_0.experts = {}
+nasdaq_utp_input_utp_v4_0.experts.not_a_number = ProtoExpert.new("nasdaq.utp.input.utp.v4.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_utp_input_utp_v4_0.experts = { nasdaq_utp_input_utp_v4_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq Utp Input Utp 4.0 Formatting
@@ -309,7 +314,10 @@ nasdaq_utp_input_utp_v4_0.accepted_sequence_number.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_utp_input_utp_v4_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_utp_input_utp_v4_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2354,7 +2362,10 @@ nasdaq_utp_input_utp_v4_0.requested_sequence_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_utp_input_utp_v4_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_utp_input_utp_v4_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -8152,7 +8163,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_utp_input_utp_v4_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.0
 --   Date: Monday, June 1, 2026
---   Specification: UtpBinaryInputSpec.pdf
+--   Specification: UtpBinaryInputSpec-v4.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

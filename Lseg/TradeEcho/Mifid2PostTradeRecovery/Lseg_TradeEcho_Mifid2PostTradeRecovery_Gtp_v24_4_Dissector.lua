@@ -71,15 +71,15 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.market_mechanism = P
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message_count = ProtoField.new("Message Count", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.messagecount", ftypes.UINT8, nil, nil, nil, "Number of payload messages that will follow the header")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message_length = ProtoField.new("Message Length", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.messagelength", ftypes.UINT16, nil, nil, nil, "Length of message including this field")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message_type = ProtoField.new("Message Type", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.mifidprice", ftypes.STRING, nil, nil, nil, "MiFID compliant Price field populated using either Price or Yield. Will be set to default value (20 spaces) if there is a pending price (PNDG)")
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.mifidquantity", ftypes.STRING, nil, nil, nil, "Number of units of the financial instrument. {DECIMAL-18/17}")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_price = ProtoField.new("Mi Fid Price", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.mifidprice", ftypes.DOUBLE, nil, nil, nil, "MiFID compliant Price field populated using either Price or Yield. Will be set to default value (20 spaces) if there is a pending price (PNDG)")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_quantity = ProtoField.new("Mi Fid Quantity", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.mifidquantity", ftypes.DOUBLE, nil, nil, nil, "Number of units of the financial instrument. {DECIMAL-18/17}")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_trading_date_and_time = ProtoField.new("Mi Fid Trading Date And Time", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.mifidtradingdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was executed/ agreed upon.")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.modificationindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.negotiationindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.new_end_time = ProtoField.new("New End Time", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.newendtime", ftypes.STRING, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.non_price_contribution_to_discovery = ProtoField.new("Non Price Contribution To Discovery", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.nonpricecontributiontodiscovery", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.non_price_forming_transactions_flag = ProtoField.new("Non Price Forming Transactions Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.nonpriceformingtransactionsflag", ftypes.STRING)
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.notionalamount", ftypes.STRING, nil, nil, nil, "Notional value relevant to the security")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional value relevant to the security")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.notionalcurrency", ftypes.STRING, nil, nil, nil, "Major currency in which the notional amount is denominated")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.nt_large_in_scale_flag = ProtoField.new("Nt Large In Scale Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.ntlargeinscaleflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.nt_liquidity_flag = ProtoField.new("Nt Liquidity Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.ntliquidityflag", ftypes.STRING)
@@ -104,7 +104,7 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.price_notation = Pro
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.pt_deferral_reason_flag = ProtoField.new("Pt Deferral Reason Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.ptdeferralreasonflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.pt_illiquid_flag = ProtoField.new("Pt Illiquid Flag", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.ptilliquidflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.publicationdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was published")
-omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.quantityinmeasurementunit", ftypes.STRING, nil, nil, nil, "The Quantity in Measurement Unit.")
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.quantityinmeasurementunit", ftypes.DOUBLE, nil, nil, nil, "The Quantity in Measurement Unit.")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.recovery_status = ProtoField.new("Recovery Status", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.recoverystatus", ftypes.STRING, nil, nil, nil, "Status of the recovery request.")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.recovery_type = ProtoField.new("Recovery Type", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.recoverytype", ftypes.UINT8, nil, nil, nil, "The type of messages to be replayed.")
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.referencepriceindicator", ftypes.STRING)
@@ -185,6 +185,11 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.system_event_message
 -- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Generated Fields
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.messageindex", ftypes.UINT16)
 
+-- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Expert Info
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts = {}
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number = ProtoExpert.new("lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts = { lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -235,6 +240,53 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
 end
 
 
@@ -1917,20 +1969,30 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price.size = 20
 
 -- Display: Mi Fid Price
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Mi Fid Price: No Value"
   end
 
-  return "Mi Fid Price: "..value
+  return "Mi Fid Price: "..text
 end
 
 -- Dissect: Mi Fid Price
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_price, range, value, "Mi Fid Price: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number, "Mi Fid Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_price, range, value, display)
@@ -1945,20 +2007,30 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity.size = 20
 
 -- Display: Mi Fid Quantity
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Mi Fid Quantity: No Value"
   end
 
-  return "Mi Fid Quantity: "..value
+  return "Mi Fid Quantity: "..text
 end
 
 -- Dissect: Mi Fid Quantity
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_quantity, range, value, "Mi Fid Quantity: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number, "Mi Fid Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mi_fid_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.mi_fid_quantity, range, value, display)
@@ -2190,20 +2262,30 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount.size = 20
 
 -- Display: Notional Amount
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Notional Amount: No Value"
   end
 
-  return "Notional Amount: "..value
+  return "Notional Amount: "..text
 end
 
 -- Dissect: Notional Amount
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.notional_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.notional_amount, range, value, display)
@@ -2897,20 +2979,30 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit = 
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit.size = 20
 
 -- Display: Quantity In Measurement Unit
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit.display = function(value)
-  -- Check if field has value
-  if value == nil or value:match("^%s*$") ~= nil then
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
     return "Quantity In Measurement Unit: No Value"
   end
 
-  return "Quantity In Measurement Unit: "..value
+  return "Quantity In Measurement Unit: "..text
 end
 
 -- Dissect: Quantity In Measurement Unit
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.quantity_in_measurement_unit, range, value, "Quantity In Measurement Unit: Not Applicable")
+    item:add_proto_expert_info(lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.experts.not_a_number, "Quantity In Measurement Unit is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.quantity_in_measurement_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.quantity_in_measurement_unit, range, value, display)

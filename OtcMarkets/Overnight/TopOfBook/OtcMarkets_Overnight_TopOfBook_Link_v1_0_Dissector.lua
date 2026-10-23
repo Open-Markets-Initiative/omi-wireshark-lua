@@ -2124,7 +2124,7 @@ udp_table:add_for_decode_as(omi_otcmarkets_overnight_topofbook_link_v1_0)
 --   Organization: OTC Markets Group
 --   Version: 1.0
 --   Date: Wednesday, April 1, 2026
---   Specification: OTC Link Overnight OTC Multicast Data Feeds Technical Specification.pdf
+--   Specification: OTC Link Overnight OTC Multicast Data Feeds Technical Specification v1.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

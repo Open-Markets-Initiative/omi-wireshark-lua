@@ -15,7 +15,7 @@ local nsxaustralia_nets_marketdatafeed_itch_v4_2_55 = {}
 -----------------------------------------------------------------------
 
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Fields
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_session = ProtoField.new("Accepted Session", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.aggressor_firm_id = ProtoField.new("Aggressor Firm Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.aggressorfirmid", ftypes.UINT32, nil, nil, nil, "The unique firm identifier for the aggressor order. Value of 0 indicates no applicable firm.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.asset_type = ProtoField.new("Asset Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.assettype", ftypes.STRING, nil, nil, nil, "Asset type code. Blank if not applicable.")
@@ -71,7 +71,7 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.reference_alpha_12 = Pr
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.reference_null_terminated_char_256 = ProtoField.new("Reference Null Terminated Char 256", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.referencenullterminatedchar256", ftypes.STRING, nil, nil, nil, "Reference text for the news item (e.g. a URL, file pathname). Null-terminated string, maximum 256 characters.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.remarks = ProtoField.new("Remarks", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.remarks", ftypes.STRING, nil, nil, nil, "Security board remarks for conditional markets.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_session = ProtoField.new("Requested Session", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time = ProtoField.new("Scheduled Time", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.scheduledtime", ftypes.UINT64, nil, nil, nil, "Event trigger time in nanoseconds since Epoch (UTC).")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.security_code = ProtoField.new("Security Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.securitycode", ftypes.STRING, nil, nil, nil, "Unique text identifier for the security.")
@@ -138,6 +138,11 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.unsequenced_data_packet
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Generated Fields
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.composite_timestamp = ProtoField.new("Composite Timestamp", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.compositetimestamp", ftypes.UINT64)
+
+-- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Expert Info
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = {}
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number = ProtoExpert.new("nsxaustralia.nets.marketdatafeed.itch.v4.2.55.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = { nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Formatting
@@ -287,7 +292,10 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1782,7 +1790,10 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.requested_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.requested_sequence_number.display(value, buffer, offset, packet, parent)

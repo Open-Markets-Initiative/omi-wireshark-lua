@@ -15,7 +15,7 @@ local odx_odxsecuritytoken_pts_itch_v1_2 = {}
 -----------------------------------------------------------------------
 
 -- Odx OdxSecurityToken Pts Itch 1.2 Fields
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "odx.odxsecuritytoken.pts.itch.v1.2.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "odx.odxsecuritytoken.pts.itch.v1.2.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_session = ProtoField.new("Accepted Session", "odx.odxsecuritytoken.pts.itch.v1.2.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.attention_flag = ProtoField.new("Attention Flag", "odx.odxsecuritytoken.pts.itch.v1.2.attentionflag", ftypes.STRING, nil, nil, nil, "Security under supervision.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxsecuritytoken.pts.itch.v1.2.buysellindicator", ftypes.STRING, nil, nil, nil, "Side of the order. Ignore if reference price message.")
@@ -43,7 +43,7 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.price_tick_size = ProtoField.new("
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "odx.odxsecuritytoken.pts.itch.v1.2.priceticksizetableid", ftypes.UINT32, nil, nil, nil, "Price tick size table identifier.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.quantity = ProtoField.new("Quantity", "odx.odxsecuritytoken.pts.itch.v1.2.quantity", ftypes.UINT32, nil, nil, nil, "Total number of shares added to the book. Ignore if reference price message.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "odx.odxsecuritytoken.pts.itch.v1.2.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "odx.odxsecuritytoken.pts.itch.v1.2.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "odx.odxsecuritytoken.pts.itch.v1.2.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.requested_session = ProtoField.new("Requested Session", "odx.odxsecuritytoken.pts.itch.v1.2.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.restriction_of_market_order = ProtoField.new("Restriction Of Market Order", "odx.odxsecuritytoken.pts.itch.v1.2.restrictionofmarketorder", ftypes.STRING, nil, nil, nil, "Restriction of Market Order.")
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "odx.odxsecuritytoken.pts.itch.v1.2.roundlotsize", ftypes.UINT32, nil, nil, nil, "Number of shares that represent a round lot.")
@@ -96,6 +96,11 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.trading_state_message = ProtoField
 -- Odx OdxSecurityToken Pts Itch 1.2 Generated Fields
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "odx.odxsecuritytoken.pts.itch.v1.2.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "odx.odxsecuritytoken.pts.itch.v1.2.timestamp", ftypes.UINT64)
+
+-- Odx OdxSecurityToken Pts Itch 1.2 Expert Info
+odx_odxsecuritytoken_pts_itch_v1_2.experts = {}
+odx_odxsecuritytoken_pts_itch_v1_2.experts.not_a_number = ProtoExpert.new("odx.odxsecuritytoken.pts.itch.v1.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.experts = { odx_odxsecuritytoken_pts_itch_v1_2.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Odx OdxSecurityToken Pts Itch 1.2 Formatting
@@ -267,7 +272,10 @@ odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(odx_odxsecuritytoken_pts_itch_v1_2.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1003,7 +1011,10 @@ odx_odxsecuritytoken_pts_itch_v1_2.requested_sequence_number.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(odx_odxsecuritytoken_pts_itch_v1_2.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = odx_odxsecuritytoken_pts_itch_v1_2.requested_sequence_number.display(value, buffer, offset, packet, parent)

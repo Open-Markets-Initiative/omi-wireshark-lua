@@ -18,53 +18,53 @@ local box_boxoptions_solatradereporting_atr_v4_5 = {}
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.account_type = ProtoField.new("Account Type", "box.boxoptions.solatradereporting.atr.v4.5.accounttype", ftypes.STRING, nil, nil, nil, "Account type of the Executing Broker of the trade 6: Public Customer 7: Broker Dealer 8: Market Maker T: Professional Customer V: Floor Broker Customer W: Broker Dealer cleared as Customer X: Away Market Maker Y: Floor Broker Dealer Z: Floor Market Maker FLEX Symbology: Symbol is prefixed by one of the following: ‘1’ (American FLEX Option, Physical-Settled) ‘2’ (European FLEX Option, Physical-Settled) ‘3’ (American FLEX Option, Cash-Settled) ‘4’ (European FLEX Option, Cash-Settled)")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.acknowledgement_sequence_number = ProtoField.new("Acknowledgement Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.acknowledgementsequencenumber", ftypes.STRING, nil, nil, nil, "Original outbound number of the message being acknowledged, right justified and zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.additional_client_memo = ProtoField.new("Additional Client Memo", "box.boxoptions.solatradereporting.atr.v4.5.additionalclientmemo", ftypes.STRING, nil, nil, nil, "Left justified, right blank filled Free text field")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.additional_firm = ProtoField.new("Additional Firm", "box.boxoptions.solatradereporting.atr.v4.5.additionalfirm", ftypes.STRING, nil, nil, nil, "Contains the numeric portion of the BOX Participant ID (FirmID) to which this message is to be drop-copied In the [0001,9999] range Right justified, zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.additional_firm = ProtoField.new("Additional Firm", "box.boxoptions.solatradereporting.atr.v4.5.additionalfirm", ftypes.UINT16, nil, nil, nil, "Contains the numeric portion of the BOX Participant ID (FirmID) to which this message is to be drop-copied In the [0001,9999] range Right justified, zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_account_number = ProtoField.new("Client Account Number", "box.boxoptions.solatradereporting.atr.v4.5.clientaccountnumber", ftypes.STRING, nil, nil, nil, "Left justified, right blank filled Used with Client Order ID and Client Memo for Order Identification")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_memo = ProtoField.new("Client Memo", "box.boxoptions.solatradereporting.atr.v4.5.clientmemo", ftypes.STRING, nil, nil, nil, "Left justified, right blank filled Used with Client Account Number and Client Order ID for Order Identification")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_order_id = ProtoField.new("Client Order Id", "box.boxoptions.solatradereporting.atr.v4.5.clientorderid", ftypes.STRING, nil, nil, nil, "Left justified, right blank filled Used with Client Account Number and Client Memo for Order Identification")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.cmta_broker = ProtoField.new("Cmta Broker", "box.boxoptions.solatradereporting.atr.v4.5.cmtabroker", ftypes.STRING, nil, nil, nil, "Contains the numeric portion of the Firm ID who will receive the trade in a CMTA")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.cmta_broker = ProtoField.new("Cmta Broker", "box.boxoptions.solatradereporting.atr.v4.5.cmtabroker", ftypes.UINT16, nil, nil, nil, "Contains the numeric portion of the Firm ID who will receive the trade in a CMTA")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.control_byte = ProtoField.new("Control Byte", "box.boxoptions.solatradereporting.atr.v4.5.controlbyte", ftypes.STRING, nil, nil, nil, "Unused, always blank")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.destination = ProtoField.new("Destination", "box.boxoptions.solatradereporting.atr.v4.5.destination", ftypes.STRING, nil, nil, nil, "Contains the mnemonic of the message destination, Box for Box or the firm's clearing number")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.end_of_text = ProtoField.new("End Of Text", "box.boxoptions.solatradereporting.atr.v4.5.endoftext", ftypes.INT8, nil, nil, nil, "End of text, an ascii character of 0x03, closing every Atr message")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.error_code = ProtoField.new("Error Code", "box.boxoptions.solatradereporting.atr.v4.5.errorcode", ftypes.STRING, nil, nil, nil, "Refer to Error Codes below.")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.error_code = ProtoField.new("Error Code", "box.boxoptions.solatradereporting.atr.v4.5.errorcode", ftypes.UINT16, nil, nil, nil, "Refer to Error Codes below.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.error_text = ProtoField.new("Error Text", "box.boxoptions.solatradereporting.atr.v4.5.errortext", ftypes.STRING, nil, nil, nil, "Contains the error description.")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.executing_broker = ProtoField.new("Executing Broker", "box.boxoptions.solatradereporting.atr.v4.5.executingbroker", ftypes.STRING, nil, nil, nil, "Contains the numeric portion of the BOX Participant ID executing the trade In the [0001,9999] range Right justified, zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.executing_broker = ProtoField.new("Executing Broker", "box.boxoptions.solatradereporting.atr.v4.5.executingbroker", ftypes.UINT16, nil, nil, nil, "Contains the numeric portion of the BOX Participant ID executing the trade In the [0001,9999] range Right justified, zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.expiration_date = ProtoField.new("Expiration Date", "box.boxoptions.solatradereporting.atr.v4.5.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the instrument YYMMDD")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.give_up_destination = ProtoField.new("Give Up Destination", "box.boxoptions.solatradereporting.atr.v4.5.giveupdestination", ftypes.STRING, nil, nil, nil, "Firm ID to which the trade is given up, as per the same field defined in the Give-Up Agreement.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.give_up_firm = ProtoField.new("Give Up Firm", "box.boxoptions.solatradereporting.atr.v4.5.giveupfirm", ftypes.STRING, nil, nil, nil, "Contains the Give-Up Firm Applies only for Message Type 52 (New Give-Up) or Message Type 53 (Modify Give-Up), otherwise leave blank. The guide states no data type for this field; read as alphabetic, as every other firm field of this width is.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.give_up_source = ProtoField.new("Give Up Source", "box.boxoptions.solatradereporting.atr.v4.5.giveupsource", ftypes.STRING, nil, nil, nil, "Firm ID that is giving up the trade, as per the same field defined in the Give-Up Agreement.")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.initial_sequence_number = ProtoField.new("Initial Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.initialsequencenumber", ftypes.STRING, nil, nil, nil, "The ATR Server will begin at this specific sequence number In the [1,99999999] range Right justified, zero padded")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.last_user_sequence_number = ProtoField.new("Last User Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.lastusersequencenumber", ftypes.STRING, nil, nil, nil, "This will be the last user sequence number which was sent by the Participant to the ATR Server.")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.initial_sequence_number = ProtoField.new("Initial Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.initialsequencenumber", ftypes.UINT32, nil, nil, nil, "The ATR Server will begin at this specific sequence number In the [1,99999999] range Right justified, zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.last_user_sequence_number = ProtoField.new("Last User Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.lastusersequencenumber", ftypes.UINT32, nil, nil, nil, "This will be the last user sequence number which was sent by the Participant to the ATR Server.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.liquidity_status = ProtoField.new("Liquidity Status", "box.boxoptions.solatradereporting.atr.v4.5.liquiditystatus", ftypes.STRING, nil, nil, nil, "Possible values: ? : Unknown ’ ’: None M: Maker T: Taker")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.member_number = ProtoField.new("Member Number", "box.boxoptions.solatradereporting.atr.v4.5.membernumber", ftypes.STRING, nil, nil, nil, "In the [0001,9999] range Right justified, zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.member_number = ProtoField.new("Member Number", "box.boxoptions.solatradereporting.atr.v4.5.membernumber", ftypes.UINT16, nil, nil, nil, "In the [0001,9999] range Right justified, zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.message_flag = ProtoField.new("Message Flag", "box.boxoptions.solatradereporting.atr.v4.5.messageflag", ftypes.STRING, nil, nil, nil, "Whether the message is a retransmission or a duplicate, blank for a normal message")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.message_type = ProtoField.new("Message Type", "box.boxoptions.solatradereporting.atr.v4.5.messagetype", ftypes.STRING, nil, nil, nil, "The two digits naming which message follows the header")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.open_close = ProtoField.new("Open Close", "box.boxoptions.solatradereporting.atr.v4.5.openclose", ftypes.STRING, nil, nil, nil, "Position of the trade O: Open C: Close")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.opposite_account_type = ProtoField.new("Opposite Account Type", "box.boxoptions.solatradereporting.atr.v4.5.oppositeaccounttype", ftypes.STRING, nil, nil, nil, "Account type of the opposite Executing Broker of the trade 6: Public Customer 7: Broker Dealer 8: Market Maker T: Professional Customer V: Floor Broker Customer W: Broker Dealer cleared as Customer X: Away Market Maker Y: Floor Broker Dealer Z: Floor Market Maker")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.opposite_executing_broker = ProtoField.new("Opposite Executing Broker", "box.boxoptions.solatradereporting.atr.v4.5.oppositeexecutingbroker", ftypes.STRING, nil, nil, nil, "Populated with the Counterpart Executing Firm ID when the message is sent to the Executing Broker Otherwise will be filled with ‘0000’.")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.opposite_executing_broker = ProtoField.new("Opposite Executing Broker", "box.boxoptions.solatradereporting.atr.v4.5.oppositeexecutingbroker", ftypes.UINT16, nil, nil, nil, "Populated with the Counterpart Executing Firm ID when the message is sent to the Executing Broker Otherwise will be filled with ‘0000’.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.option_type = ProtoField.new("Option Type", "box.boxoptions.solatradereporting.atr.v4.5.optiontype", ftypes.STRING, nil, nil, nil, "C: Call P: Put Blank: If not an option")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.parent_transaction_id = ProtoField.new("Parent Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.parenttransactionid", ftypes.STRING, nil, nil, nil, "This field will be empty for Trade(30) and TradeCancel (31) Otherwise, it identifies the Parent Transaction Id of of the Trade For example: For an Allocation, the Unique Transaction Id is for the Allocation message, and the Parent Transaction Id refers to its parent Trade under which the Allocation was created")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.parent_transaction_id = ProtoField.new("Parent Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.parenttransactionid", ftypes.UINT64, nil, nil, nil, "This field will be empty for Trade(30) and TradeCancel (31) Otherwise, it identifies the Parent Transaction Id of of the Trade For example: For an Allocation, the Unique Transaction Id is for the Allocation message, and the Parent Transaction Id refers to its parent Trade under which the Allocation was created")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.participant_session_name = ProtoField.new("Participant Session Name", "box.boxoptions.solatradereporting.atr.v4.5.participantsessionname", ftypes.STRING, nil, nil, nil, "Session Name of the Participant who executed the trade Filled for Regular (Trade, Trade Cancel, Allocation and Allocation Cancel) Empty for AsOf (Trade, Trade Cancel, Allocation and Allocation Cancel) when TradeType is ‘A’ (AsOf)")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.password_md_5_encryption = ProtoField.new("Password Md 5 Encryption", "box.boxoptions.solatradereporting.atr.v4.5.passwordmd5encryption", ftypes.STRING, nil, nil, nil, "Used when establishing an ATR Logical connection See Section 7 for details on how to encode password. (Please contact BOX MOC for details about new password procedure or password reset)")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.price = ProtoField.new("Price", "box.boxoptions.solatradereporting.atr.v4.5.price", ftypes.DOUBLE, nil, nil, nil, "Transaction price Right justified, Zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.protocol_version = ProtoField.new("Protocol Version", "box.boxoptions.solatradereporting.atr.v4.5.protocolversion", ftypes.STRING, nil, nil, nil, "Protocol versions supported: A2, A3")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_message_type = ProtoField.new("Reference Message Type", "box.boxoptions.solatradereporting.atr.v4.5.referencemessagetype", ftypes.STRING, nil, nil, nil, "Message Type of the message which caused the error.")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_message_type = ProtoField.new("Reference Message Type", "box.boxoptions.solatradereporting.atr.v4.5.referencemessagetype", ftypes.UINT8, nil, nil, nil, "Message Type of the message which caused the error.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_trade_number = ProtoField.new("Reference Trade Number", "box.boxoptions.solatradereporting.atr.v4.5.referencetradenumber", ftypes.STRING, nil, nil, nil, "Identification of the Trade received from the Message Type 30 - Trade This refers to the Trade Number under which a New Allocation (or Give-Up) is to be created or under which an existing Allocation (or Give-Up) is to be modified.")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_transaction_id = ProtoField.new("Reference Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.referencetransactionid", ftypes.STRING, nil, nil, nil, "For Message Type 42 – New Allocation Identifies the Unique Transaction ID of the parent Trade under which the Allocation is to be created. For Message Type 43 – Modify Allocation Identifies the Unique Transaction ID of the original Allocation which is to be modified. For Message Type 52 – New Give-Up Identifies the Unique Transaction ID of the parent Trade under which the Give-Up is to be created. For Message Type 53 – Modify Give-Up Identifies the Unique Transaction ID of the original Give- Up which is to be modified.")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.sequencenumber", ftypes.STRING, nil, nil, nil, "If the sequence number is higher than any message number known to the ATR Server, the Participant will receive the next message from the last sequence number which was sent by the ATR Server. In the [1,99999999] range, right justified, zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_transaction_id = ProtoField.new("Reference Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.referencetransactionid", ftypes.UINT64, nil, nil, nil, "For Message Type 42 – New Allocation Identifies the Unique Transaction ID of the parent Trade under which the Allocation is to be created. For Message Type 43 – Modify Allocation Identifies the Unique Transaction ID of the original Allocation which is to be modified. For Message Type 52 – New Give-Up Identifies the Unique Transaction ID of the parent Trade under which the Give-Up is to be created. For Message Type 53 – Modify Give-Up Identifies the Unique Transaction ID of the original Give- Up which is to be modified.")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solatradereporting.atr.v4.5.sequencenumber", ftypes.UINT32, nil, nil, nil, "If the sequence number is higher than any message number known to the ATR Server, the Participant will receive the next message from the last sequence number which was sent by the ATR Server. In the [1,99999999] range, right justified, zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.source = ProtoField.new("Source", "box.boxoptions.solatradereporting.atr.v4.5.source", ftypes.STRING, nil, nil, nil, "Contains the mnemonic of the message source")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solatradereporting.atr.v4.5.strikeprice", ftypes.STRING, nil, nil, nil, "Option Strike Price The format is defined by the new field ‘Strike Price Fraction Indicator’. Filled with zero when the instrument is not an option Right justified, Zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solatradereporting.atr.v4.5.strikeprice", ftypes.UINT32, nil, nil, nil, "Option Strike Price The format is defined by the new field ‘Strike Price Fraction Indicator’. Filled with zero when the instrument is not an option Right justified, Zero padded")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.boxoptions.solatradereporting.atr.v4.5.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Define the number of decimal places or fraction positions")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.subtrader_id = ProtoField.new("Subtrader Id", "box.boxoptions.solatradereporting.atr.v4.5.subtraderid", ftypes.STRING, nil, nil, nil, "For Allocation (40) and Allocation Cancel (41) messages, the 'Sub-trader ID' field contains the Market Maker OCC sub-account. For Trade (30) and Trade Cancel (31) messages, the ‘Sub-trader ID’ field contains the last 2 digits of the Trader ID.")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.symbol = ProtoField.new("Symbol", "box.boxoptions.solatradereporting.atr.v4.5.symbol", ftypes.STRING, nil, nil, nil, "Instrument symbol Left justified, Blank padded")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time = ProtoField.new("Time", "box.boxoptions.solatradereporting.atr.v4.5.time", ftypes.STRING, nil, nil, nil, "Time at which the Client Signon is sent (HHMMSS)")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time = ProtoField.new("Time", "box.boxoptions.solatradereporting.atr.v4.5.time", ftypes.UINT32, nil, nil, nil, "Time at which the Client Signon is sent (HHMMSS)")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.timestamp = ProtoField.new("Timestamp", "box.boxoptions.solatradereporting.atr.v4.5.timestamp", ftypes.STRING, nil, nil, nil, "Time at which the trade occurred (Eastern Time) HHMMSS")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.trade_number = ProtoField.new("Trade Number", "box.boxoptions.solatradereporting.atr.v4.5.tradenumber", ftypes.STRING, nil, nil, nil, "Standard TradeId consisting of: Side field: only the first letter of the verb, i.e., \"B\" for Buy and \"S\" for Sell InstrumentId and GroupId field TradeId field")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.trade_type = ProtoField.new("Trade Type", "box.boxoptions.solatradereporting.atr.v4.5.tradetype", ftypes.STRING, nil, nil, nil, "Possible values: N: Normal – A regular trade O: CrossedOrders – A trade with the same Firm ID on both sides T: TraderCrossedOrders – A trade with the same Trader ID on both sides M: TPR Trade – A trade done by a Third Party Router P: PIP – A trade done at the end of a PIP auction F: FirmDo – A trade resulting from a Directed Order A: AsOf – A trade entered by the BOX MOC to correct a trade executed on a previous day E: Late – A trade entered by the BOX MOC to correct a trade executed on the same day S: Solicitation – A trade done as part of a Solicitation auction I: Facilitation – A trade done as part of a Facilitation auction R: FloorTrade C: Customer Cross Orders or Qualified Contingent Cross Orders")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.transaction_type = ProtoField.new("Transaction Type", "box.boxoptions.solatradereporting.atr.v4.5.transactiontype", ftypes.STRING, nil, nil, nil, "Side of the trader in the present trade B: Buy S: Sell")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.unique_transaction_id = ProtoField.new("Unique Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.uniquetransactionid", ftypes.STRING, nil, nil, nil, "Unique Identification for this message. Applies to: Trade (30) Trade Cancel (31) Allocation (40) Allocation Cancel (41)")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.unique_transaction_id = ProtoField.new("Unique Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.uniquetransactionid", ftypes.UINT64, nil, nil, nil, "Unique Identification for this message. Applies to: Trade (30) Trade Cancel (31) Allocation (40) Allocation Cancel (41)")
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.username = ProtoField.new("Username", "box.boxoptions.solatradereporting.atr.v4.5.username", ftypes.STRING, nil, nil, nil, "Identifies the User for a connection. The Username must be configured by BOX MOC (Please contact BOX MOC for details)")
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.volume = ProtoField.new("Volume", "box.boxoptions.solatradereporting.atr.v4.5.volume", ftypes.STRING, nil, nil, nil, "Volume of the trade Right justified, Zero padded")
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.volume = ProtoField.new("Volume", "box.boxoptions.solatradereporting.atr.v4.5.volume", ftypes.UINT32, nil, nil, nil, "Volume of the trade Right justified, Zero padded")
 
 -- Box BoxOptions SolaTradeReporting Atr 4.5 Framing
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_frame = ProtoField.new("Client Frame", "box.boxoptions.solatradereporting.atr.v4.5.clientframe", ftypes.STRING, nil, nil, nil, "One Atr message sent by the participant, opened by the header and closed by an end of text")
@@ -100,6 +100,11 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.trade_cancel = ProtoField.
 
 -- Box BoxOptions SolaTradeReporting Atr 4.5 Generated Fields
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "box.boxoptions.solatradereporting.atr.v4.5.scaledstrikeprice", ftypes.DOUBLE)
+
+-- Box BoxOptions SolaTradeReporting Atr 4.5 Expert Info
+box_boxoptions_solatradereporting_atr_v4_5.experts = {}
+box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number = ProtoExpert.new("box.boxoptions.solatradereporting.atr.v4.5.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_box_boxoptions_solatradereporting_atr_v4_5.experts = { box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Box BoxOptions SolaTradeReporting Atr 4.5 Formatting
@@ -353,7 +358,10 @@ box_boxoptions_solatradereporting_atr_v4_5.additional_firm.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.additional_firm, range, value, "Additional Firm: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Additional Firm is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.additional_firm.display(value, buffer, offset, packet, parent)
@@ -450,7 +458,10 @@ box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.cmta_broker, range, value, "Cmta Broker: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Cmta Broker is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.display(value, buffer, offset, packet, parent)
@@ -551,7 +562,10 @@ box_boxoptions_solatradereporting_atr_v4_5.error_code.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.error_code, range, value, "Error Code: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Error Code is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.error_code.display(value, buffer, offset, packet, parent)
@@ -602,7 +616,10 @@ box_boxoptions_solatradereporting_atr_v4_5.executing_broker.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.executing_broker, range, value, "Executing Broker: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Executing Broker is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.executing_broker.display(value, buffer, offset, packet, parent)
@@ -722,7 +739,10 @@ box_boxoptions_solatradereporting_atr_v4_5.initial_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.initial_sequence_number, range, value, "Initial Sequence Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Initial Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.initial_sequence_number.display(value, buffer, offset, packet, parent)
@@ -750,7 +770,10 @@ box_boxoptions_solatradereporting_atr_v4_5.last_user_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.last_user_sequence_number, range, value, "Last User Sequence Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Last User Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.last_user_sequence_number.display(value, buffer, offset, packet, parent)
@@ -808,7 +831,10 @@ box_boxoptions_solatradereporting_atr_v4_5.member_number.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.member_number, range, value, "Member Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Member Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.member_number.display(value, buffer, offset, packet, parent)
@@ -1040,7 +1066,10 @@ box_boxoptions_solatradereporting_atr_v4_5.opposite_executing_broker.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.opposite_executing_broker, range, value, "Opposite Executing Broker: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Opposite Executing Broker is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.opposite_executing_broker.display(value, buffer, offset, packet, parent)
@@ -1098,7 +1127,10 @@ box_boxoptions_solatradereporting_atr_v4_5.parent_transaction_id.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.parent_transaction_id, range, value, "Parent Transaction Id: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Parent Transaction Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.parent_transaction_id.display(value, buffer, offset, packet, parent)
@@ -1179,6 +1211,9 @@ box_boxoptions_solatradereporting_atr_v4_5.price.dissect = function(buffer, offs
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1230,7 +1265,10 @@ box_boxoptions_solatradereporting_atr_v4_5.reference_message_type.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_message_type, range, value, "Reference Message Type: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Reference Message Type is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.reference_message_type.display(value, buffer, offset, packet, parent)
@@ -1281,7 +1319,10 @@ box_boxoptions_solatradereporting_atr_v4_5.reference_transaction_id.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_transaction_id, range, value, "Reference Transaction Id: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Reference Transaction Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.reference_transaction_id.display(value, buffer, offset, packet, parent)
@@ -1309,7 +1350,10 @@ box_boxoptions_solatradereporting_atr_v4_5.sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.sequence_number.display(value, buffer, offset, packet, parent)
@@ -1360,7 +1404,10 @@ box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price, range, value, "Strike Price: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Strike Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.strike_price.display(value, buffer, offset, packet, parent)
@@ -1509,7 +1556,10 @@ box_boxoptions_solatradereporting_atr_v4_5.time.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time, range, value, "Time: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.time.display(value, buffer, offset, packet, parent)
@@ -1670,7 +1720,10 @@ box_boxoptions_solatradereporting_atr_v4_5.unique_transaction_id.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.unique_transaction_id, range, value, "Unique Transaction Id: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Unique Transaction Id is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.unique_transaction_id.display(value, buffer, offset, packet, parent)
@@ -1721,7 +1774,10 @@ box_boxoptions_solatradereporting_atr_v4_5.volume.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.volume, range, value, "Volume: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.volume.display(value, buffer, offset, packet, parent)

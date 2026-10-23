@@ -15,7 +15,7 @@ local nasdaq_psxequities_totalview_glimpse_v5_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities TotalView Glimpse 5.0 Fields
-omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.psxequities.totalview.glimpse.v5.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.psxequities.totalview.glimpse.v5.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.psxequities.totalview.glimpse.v5.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.psxequities.totalview.glimpse.v5.0.attribution", ftypes.STRING, nil, nil, nil, "PSX market participant identifier associated with the entered order.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psxequities.totalview.glimpse.v5.0.authenticity", ftypes.STRING, nil, nil, nil, "Denotes if an issue or quoting participant record is set-up in NASDAQ systems in a live/production, test, or demo state. Please note that firms should only show live issues and quoting participants on public quotation displays.")
@@ -30,7 +30,7 @@ omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.inverse_indicator = ProtoFi
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.psxequities.totalview.glimpse.v5.0.ipoflag", ftypes.STRING, nil, nil, nil, "Indicates if the NASDAQ security is set up for IPO release. This field is intended to help NASDAQ market participant firms comply with FINRA Rule 5131(b).")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psxequities.totalview.glimpse.v5.0.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issue as assigned by NASDAQ. See Appendix for allowable values.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psxequities.totalview.glimpse.v5.0.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by NASDAQ. See Appendix for allowable values.")
-omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.itch_sequence_number = ProtoField.new("Itch Sequence Number", "nasdaq.psxequities.totalview.glimpse.v5.0.itchsequencenumber", ftypes.STRING, nil, nil, nil, "PSX TotalView-ITCH 5.0 sequence number when the PSX GLIMPSE 5.0 snapshot was taken. Note: While PSX TotalView-ITCH 5.0 is a binary data feed, the SoupBINTCP protocol uses ASCII characters for the sequence number in the logon request message format.")
+omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.itch_sequence_number = ProtoField.new("Itch Sequence Number", "nasdaq.psxequities.totalview.glimpse.v5.0.itchsequencenumber", ftypes.UINT64, nil, nil, nil, "PSX TotalView-ITCH 5.0 sequence number when the PSX GLIMPSE 5.0 snapshot was taken. Note: While PSX TotalView-ITCH 5.0 is a binary data feed, the SoupBINTCP protocol uses ASCII characters for the sequence number in the logon request message format.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psxequities.totalview.glimpse.v5.0.luldreferencepricetier", ftypes.STRING, nil, nil, nil, "Indicates which Limit Up / Limit Down price band calculation parameter is to be used for the instrument. Refer to LULD Rule for details.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.totalview.glimpse.v5.0.marketcategory", ftypes.STRING, nil, nil, nil, "Indicates Listing market or listing market tier for the issue")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.psxequities.totalview.glimpse.v5.0.orderreferencenumber", ftypes.UINT64, nil, nil, nil, "The unique reference number assigned to the new order at the time of receipt.")
@@ -40,7 +40,7 @@ omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.price = ProtoField.new("Pri
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.totalview.glimpse.v5.0.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.totalview.glimpse.v5.0.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.psxequities.totalview.glimpse.v5.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.totalview.glimpse.v5.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.totalview.glimpse.v5.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.psxequities.totalview.glimpse.v5.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.psxequities.totalview.glimpse.v5.0.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved.")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.totalview.glimpse.v5.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue")
@@ -89,6 +89,11 @@ omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.unsequenced_data_packet = P
 
 -- Nasdaq PsxEquities TotalView Glimpse 5.0 Generated Fields
 omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.psxequities.totalview.glimpse.v5.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq PsxEquities TotalView Glimpse 5.0 Expert Info
+nasdaq_psxequities_totalview_glimpse_v5_0.experts = {}
+nasdaq_psxequities_totalview_glimpse_v5_0.experts.not_a_number = ProtoExpert.new("nasdaq.psxequities.totalview.glimpse.v5.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_psxequities_totalview_glimpse_v5_0.experts = { nasdaq_psxequities_totalview_glimpse_v5_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities TotalView Glimpse 5.0 Formatting
@@ -253,7 +258,10 @@ nasdaq_psxequities_totalview_glimpse_v5_0.accepted_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v5_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v5_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -709,7 +717,10 @@ nasdaq_psxequities_totalview_glimpse_v5_0.itch_sequence_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.itch_sequence_number, range, value, "Itch Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v5_0.experts.not_a_number, "Itch Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v5_0.itch_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1002,7 +1013,10 @@ nasdaq_psxequities_totalview_glimpse_v5_0.requested_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v5_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_psxequities_totalview_glimpse_v5_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v5_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

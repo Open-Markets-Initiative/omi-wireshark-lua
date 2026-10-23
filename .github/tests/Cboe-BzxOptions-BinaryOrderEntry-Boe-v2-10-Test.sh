@@ -54,17 +54,6 @@ grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.clordid" Cboe.BzxOptions.Binary
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.origclordid" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.ModifyOrderMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofmodifyorderbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.ModifyOrderMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/NewOrderMessage.pcap" \
-  -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
-  -T json \
-  > Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json 2> Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json.stderr \
-  || { echo "--- tshark FAILED (NewOrderMessage) ---"; cat Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json.stderr; exit 1; }
-
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.clordid" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.side" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofneworderbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
-runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/OrderAcknowledgmentMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
   -T json \

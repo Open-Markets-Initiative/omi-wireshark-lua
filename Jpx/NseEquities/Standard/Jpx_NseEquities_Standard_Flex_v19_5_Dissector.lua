@@ -126,6 +126,11 @@ omi_jpx_nseequities_standard_flex_v19_5.fields.update_no_message = ProtoField.ne
 omi_jpx_nseequities_standard_flex_v19_5.fields.vwap_message = ProtoField.new("Vwap Message", "jpx.nseequities.standard.flex.v19.5.vwapmessage", ftypes.STRING, nil, nil, nil, "In this tag, by-issue Volume Weighted Stock Price average (VWAP) Information is set. This tag appears as part of realtime data.")
 omi_jpx_nseequities_standard_flex_v19_5.fields.yield_message = ProtoField.new("Yield Message", "jpx.nseequities.standard.flex.v19.5.yieldmessage", ftypes.STRING, nil, nil, nil, "In this tag, Direct and Final Yield Information for CB is set. This tag appears as part of realtime data.")
 
+-- Jpx NseEquities Standard Flex 19.5 Expert Info
+jpx_nseequities_standard_flex_v19_5.experts = {}
+jpx_nseequities_standard_flex_v19_5.experts.not_a_number = ProtoExpert.new("jpx.nseequities.standard.flex.v19.5.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jpx_nseequities_standard_flex_v19_5.experts = { jpx_nseequities_standard_flex_v19_5.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -266,6 +271,9 @@ jpx_nseequities_standard_flex_v19_5.all_day_vwap_c_14.dissect = function(buffer,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.all_day_vwap_c_14, range, value, "All Day Vwap C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_nseequities_standard_flex_v19_5.experts.not_a_number, "All Day Vwap C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -559,6 +567,9 @@ jpx_nseequities_standard_flex_v19_5.current_session_vwap_c_14.dissect = function
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.current_session_vwap_c_14, range, value, "Current Session Vwap C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_nseequities_standard_flex_v19_5.experts.not_a_number, "Current Session Vwap C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -594,6 +605,9 @@ jpx_nseequities_standard_flex_v19_5.direct_yield_c_8.dissect = function(buffer, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.direct_yield_c_8, range, value, "Direct Yield C 8: Not Applicable")
+    item:add_proto_expert_info(jpx_nseequities_standard_flex_v19_5.experts.not_a_number, "Direct Yield C 8 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -671,6 +685,9 @@ jpx_nseequities_standard_flex_v19_5.final_yield_c_8.dissect = function(buffer, o
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.final_yield_c_8, range, value, "Final Yield C 8: Not Applicable")
+    item:add_proto_expert_info(jpx_nseequities_standard_flex_v19_5.experts.not_a_number, "Final Yield C 8 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000
 
@@ -1078,6 +1095,9 @@ jpx_nseequities_standard_flex_v19_5.parity_estimated_price_c_14.dissect = functi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.parity_estimated_price_c_14, range, value, "Parity Estimated Price C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_nseequities_standard_flex_v19_5.experts.not_a_number, "Parity Estimated Price C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1113,6 +1133,9 @@ jpx_nseequities_standard_flex_v19_5.price_c_14.dissect = function(buffer, offset
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_nseequities_standard_flex_v19_5.fields.price_c_14, range, value, "Price C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_nseequities_standard_flex_v19_5.experts.not_a_number, "Price C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 

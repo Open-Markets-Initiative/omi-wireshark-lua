@@ -15,7 +15,7 @@ local biva_bivaequities_totalview_glimpse_v1_12 = {}
 -----------------------------------------------------------------------
 
 -- Biva BivaEquities TotalView Glimpse 1.12 Fields
-omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_session = ProtoField.new("Accepted Session", "biva.bivaequities.totalview.glimpse.v1.12.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.best_bid = ProtoField.new("Best Bid", "biva.bivaequities.totalview.glimpse.v1.12.bestbid", ftypes.UINT32, nil, nil, nil, "The current best buy price")
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.best_offer = ProtoField.new("Best Offer", "biva.bivaequities.totalview.glimpse.v1.12.bestoffer", ftypes.UINT32, nil, nil, nil, "The current best sell price")
@@ -55,7 +55,7 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.quotation_basis = ProtoFiel
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.reference_price = ProtoField.new("Reference Price", "biva.bivaequities.totalview.glimpse.v1.12.referenceprice", ftypes.UINT32, nil, nil, nil, "The reference price, 0x7FFFFFFF when unavailable")
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.reference_price_reason = ProtoField.new("Reference Price Reason", "biva.bivaequities.totalview.glimpse.v1.12.referencepricereason", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "biva.bivaequities.totalview.glimpse.v1.12.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_biva_bivaequities_totalview_glimpse_v1_12.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.requested_session = ProtoField.new("Requested Session", "biva.bivaequities.totalview.glimpse.v1.12.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sec_code = ProtoField.new("Sec Code", "biva.bivaequities.totalview.glimpse.v1.12.seccode", ftypes.STRING, nil, nil, nil, "Security code")
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.second = ProtoField.new("Second", "biva.bivaequities.totalview.glimpse.v1.12.second", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight of the first day of the system cycle")
@@ -108,6 +108,11 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.unsequenced_data_packet = P
 -- Biva BivaEquities TotalView Glimpse 1.12 Generated Fields
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.timestamp = ProtoField.new("Timestamp", "biva.bivaequities.totalview.glimpse.v1.12.timestamp", ftypes.UINT64)
+
+-- Biva BivaEquities TotalView Glimpse 1.12 Expert Info
+biva_bivaequities_totalview_glimpse_v1_12.experts = {}
+biva_bivaequities_totalview_glimpse_v1_12.experts.not_a_number = ProtoExpert.new("biva.bivaequities.totalview.glimpse.v1.12.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_biva_bivaequities_totalview_glimpse_v1_12.experts = { biva_bivaequities_totalview_glimpse_v1_12.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Biva BivaEquities TotalView Glimpse 1.12 Formatting
@@ -279,7 +284,10 @@ biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(biva_bivaequities_totalview_glimpse_v1_12.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1292,7 +1300,10 @@ biva_bivaequities_totalview_glimpse_v1_12.requested_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(biva_bivaequities_totalview_glimpse_v1_12.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = biva_bivaequities_totalview_glimpse_v1_12.requested_sequence_number.display(value, buffer, offset, packet, parent)

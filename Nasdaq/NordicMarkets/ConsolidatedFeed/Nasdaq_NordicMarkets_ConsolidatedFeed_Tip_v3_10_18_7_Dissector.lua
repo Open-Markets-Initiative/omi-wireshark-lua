@@ -15,14 +15,14 @@ local nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NordicMarkets ConsolidatedFeed Tip 3.10.18.7 Fields
-omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the client")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.debugtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.password = ProtoField.new("Password", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.password", ftypes.STRING, nil, nil, nil, "Login password")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sequenced_message = ProtoField.new("Sequenced Message", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.sequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw sequenced message bytes")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
@@ -53,6 +53,11 @@ omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.unsequenced_data
 
 -- Nasdaq NordicMarkets ConsolidatedFeed Tip 3.10.18.7 Generated Fields
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NordicMarkets ConsolidatedFeed Tip 3.10.18.7 Expert Info
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts = {}
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts.not_a_number = ProtoExpert.new("nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.18.7.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts = { nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Tip Fields
@@ -25615,7 +25620,10 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accepted_sequence_number.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -25800,7 +25808,10 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.requested_sequence_number.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.requested_sequence_number.display(value, buffer, offset, packet, parent)

@@ -15,74 +15,74 @@ local nextrade_nextrade_etp3level_nxtascii_v2_12 = {}
 -----------------------------------------------------------------------
 
 -- Nextrade Nextrade Etp3Level NxtAscii 2.12 Fields
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_base_price_to_trigger_dynamic_vi = ProtoField.new("A Base Price To Trigger Dynamic Vi", "nextrade.nextrade.etp3level.nxtascii.v2.12.abasepricetotriggerdynamicvi", ftypes.STRING, nil, nil, nil, "A Base Price to trigger dynamic VI.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_base_price_to_trigger_static_vi = ProtoField.new("A Base Price To Trigger Static Vi", "nextrade.nextrade.etp3level.nxtascii.v2.12.abasepricetotriggerstaticvi", ftypes.STRING, nil, nil, nil, "A Base Price to trigger Static VI - if there is no previous single-price (call auction) execution price, base price is set.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_designated_number_for_an_issue_from_krx = ProtoField.new("A Designated Number For An Issue From Krx", "nextrade.nextrade.etp3level.nxtascii.v2.12.adesignatednumberforanissuefromkrx", ftypes.STRING, nil, nil, nil, "A designated number for each issue on a daily basis from KRX.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "nextrade.nextrade.etp3level.nxtascii.v2.12.apricechangeagainstthepreviousday", ftypes.STRING, nil, nil, nil, "A Price change against the previous day.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_base_price_to_trigger_dynamic_vi = ProtoField.new("A Base Price To Trigger Dynamic Vi", "nextrade.nextrade.etp3level.nxtascii.v2.12.abasepricetotriggerdynamicvi", ftypes.UINT64, nil, nil, nil, "A Base Price to trigger dynamic VI.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_base_price_to_trigger_static_vi = ProtoField.new("A Base Price To Trigger Static Vi", "nextrade.nextrade.etp3level.nxtascii.v2.12.abasepricetotriggerstaticvi", ftypes.UINT64, nil, nil, nil, "A Base Price to trigger Static VI - if there is no previous single-price (call auction) execution price, base price is set.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_designated_number_for_an_issue_from_krx = ProtoField.new("A Designated Number For An Issue From Krx", "nextrade.nextrade.etp3level.nxtascii.v2.12.adesignatednumberforanissuefromkrx", ftypes.UINT32, nil, nil, nil, "A designated number for each issue on a daily basis from KRX.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "nextrade.nextrade.etp3level.nxtascii.v2.12.apricechangeagainstthepreviousday", ftypes.UINT64, nil, nil, nil, "A Price change against the previous day.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "nextrade.nextrade.etp3level.nxtascii.v2.12.accumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.accumulatedtradingvolume", ftypes.STRING, nil, nil, nil, "Accumulated Trading Volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel1price", ftypes.STRING, nil, nil, nil, "The best ask.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel1volume", ftypes.STRING, nil, nil, nil, "The best ask volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel2price", ftypes.STRING, nil, nil, nil, "The second highest ask price.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel2volume", ftypes.STRING, nil, nil, nil, "The second highest ask volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel3price", ftypes.STRING, nil, nil, nil, "The third highest ask price.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel3volume", ftypes.STRING, nil, nil, nil, "The third highest ask volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel1price", ftypes.STRING, nil, nil, nil, "The best bid.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel1volume", ftypes.STRING, nil, nil, nil, "The best bid volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel2price", ftypes.STRING, nil, nil, nil, "The second lowest bid price.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel2volume", ftypes.STRING, nil, nil, nil, "The second lowest bid volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel3price", ftypes.STRING, nil, nil, nil, "The third lowest bid price.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel3volume", ftypes.STRING, nil, nil, nil, "The third lowest bid volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.boardeventgroupcode", ftypes.STRING, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (not a unit trading issue) 8: Uni.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.accumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Trading Volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel1price", ftypes.UINT64, nil, nil, nil, "The best ask.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel1volume", ftypes.UINT64, nil, nil, nil, "The best ask volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel2price", ftypes.UINT64, nil, nil, nil, "The second highest ask price.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel2volume", ftypes.UINT64, nil, nil, nil, "The second highest ask volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel3price", ftypes.UINT64, nil, nil, nil, "The third highest ask price.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.asklevel3volume", ftypes.UINT64, nil, nil, nil, "The third highest ask volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel1price", ftypes.UINT64, nil, nil, nil, "The best bid.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel1volume", ftypes.UINT64, nil, nil, nil, "The best bid volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel2price", ftypes.UINT64, nil, nil, nil, "The second lowest bid price.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel2volume", ftypes.UINT64, nil, nil, nil, "The second lowest bid volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel3price", ftypes.UINT64, nil, nil, nil, "The third lowest bid price.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.bidlevel3volume", ftypes.UINT64, nil, nil, nil, "The third lowest bid volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.boardeventgroupcode", ftypes.UINT32, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (not a unit trading issue) 8: Uni.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.board_event_id = ProtoField.new("Board Event Id", "nextrade.nextrade.etp3level.nxtascii.v2.12.boardeventid", ftypes.STRING, nil, nil, nil, "An ID indicates an event that occurs on a Board in a designated time.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.board_id = ProtoField.new("Board Id", "nextrade.nextrade.etp3level.nxtascii.v2.12.boardid", ftypes.STRING, nil, nil, nil, "The Board ID refers to each Board in which an issue is traded under different trading schedules and rules. Individual issue can be traded on more than two Boards under each Board's schedule and with d.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price = ProtoField.new("Closing Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingprice", ftypes.STRING, nil, nil, nil, "Closing price on the day's regular session. However, for G3 board, the closing price of KRX is set.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpricebasepriceofbuyin", ftypes.STRING, nil, nil, nil, "Closing Price_Base Price of Buy-In.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpricelowerlimitofbuyin", ftypes.STRING, nil, nil, nil, "Closing Price_Lower Limit of Buy-In.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price = ProtoField.new("Closing Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingprice", ftypes.UINT64, nil, nil, nil, "Closing price on the day's regular session. However, for G3 board, the closing price of KRX is set.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpricebasepriceofbuyin", ftypes.UINT64, nil, nil, nil, "Closing Price_Base Price of Buy-In.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpricelowerlimitofbuyin", ftypes.UINT64, nil, nil, nil, "Closing Price_Lower Limit of Buy-In.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpricetypecode", ftypes.STRING, nil, nil, nil, "1: Closing price 3: No Trades Closing price type code of NXT is set on each board.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpriceupperlimitofbuyin", ftypes.STRING, nil, nil, nil, "Closing Price_Upper Limit of Buy-In.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_weighted_stock_price_average = ProtoField.new("Closing Price Weighted Stock Price Average", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpriceweightedstockpriceaverage", ftypes.STRING, nil, nil, nil, "Weighted Average is calculated by adding up an issue's aggregated market value, which is part of a certain index or markets, and dividing it with the total shares listed. - Weighted Stock Price Averag.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpriceupperlimitofbuyin", ftypes.UINT64, nil, nil, nil, "Closing Price_Upper Limit of Buy-In.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_weighted_stock_price_average = ProtoField.new("Closing Price Weighted Stock Price Average", "nextrade.nextrade.etp3level.nxtascii.v2.12.closingpriceweightedstockpriceaverage", ftypes.UINT64, nil, nil, nil, "Weighted Average is calculated by adding up an issue's aggregated market value, which is part of a certain index or markets, and dividing it with the total shares listed. - Weighted Stock Price Averag.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.current_time_1_minute_interval = ProtoField.new("Current Time 1 Minute Interval", "nextrade.nextrade.etp3level.nxtascii.v2.12.currenttime1minuteinterval", ftypes.STRING, nil, nil, nil, "Current Time (1-minute interval).")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.disparate_ratio_to_trigger_dynamic_vi = ProtoField.new("Disparate Ratio To Trigger Dynamic Vi", "nextrade.nextrade.etp3level.nxtascii.v2.12.disparateratiototriggerdynamicvi", ftypes.DOUBLE, nil, nil, nil, "A disparate ratio of a previously traded price to an expected price to trigger dynamic VI.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.disparate_ratio_to_trigger_static_vi = ProtoField.new("Disparate Ratio To Trigger Static Vi", "nextrade.nextrade.etp3level.nxtascii.v2.12.disparateratiototriggerstaticvi", ftypes.DOUBLE, nil, nil, nil, "A disparate ratio of a base price to an expected price to trigger static VI.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.end_keyword = ProtoField.new("End Keyword", "nextrade.nextrade.etp3level.nxtascii.v2.12.endkeyword", ftypes.STRING, nil, nil, nil, "A keyword indicating the end of a message. (%HFF) * Data type is Int for Binary.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.estimated_trading_price = ProtoField.new("Estimated Trading Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.estimatedtradingprice", ftypes.STRING, nil, nil, nil, "An estimated trading price before the single price trade session.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.estimated_trading_volume = ProtoField.new("Estimated Trading Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.estimatedtradingvolume", ftypes.STRING, nil, nil, nil, "An estimated trading volume before the single price trade session.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.estimated_trading_price = ProtoField.new("Estimated Trading Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.estimatedtradingprice", ftypes.UINT64, nil, nil, nil, "An estimated trading price before the single price trade session.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.estimated_trading_volume = ProtoField.new("Estimated Trading Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.estimatedtradingvolume", ftypes.UINT64, nil, nil, nil, "An estimated trading volume before the single price trade session.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.final_ask_bid_type_code = ProtoField.new("Final Ask Bid Type Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.finalaskbidtypecode", ftypes.STRING, nil, nil, nil, "Ask/Bid Type Code space: order filled with single price. 0: N/A 1: ASK 2: BID.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.isin_code = ProtoField.new("Isin Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.isincode", ftypes.STRING, nil, nil, nil, "ISIN Code.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lower_limit_price_on_the_single_price_trade_in_the_off_hours_session = ProtoField.new("Lower Limit Price On The Single Price Trade In The Off Hours Session", "nextrade.nextrade.etp3level.nxtascii.v2.12.lowerlimitpriceonthesinglepricetradeintheoffhourssession", ftypes.STRING, nil, nil, nil, "Lower Limit Price on the Single Price in the Off-Hours Session.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_1_volume = ProtoField.new("Lp Ask Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpasklevel1volume", ftypes.STRING, nil, nil, nil, "LP_The best ask volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_2_volume = ProtoField.new("Lp Ask Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpasklevel2volume", ftypes.STRING, nil, nil, nil, "LP_The second highest ask volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_3_volume = ProtoField.new("Lp Ask Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpasklevel3volume", ftypes.STRING, nil, nil, nil, "LP_The third highest ask volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_1_volume = ProtoField.new("Lp Bid Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpbidlevel1volume", ftypes.STRING, nil, nil, nil, "LP_The best bid volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_2_volume = ProtoField.new("Lp Bid Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpbidlevel2volume", ftypes.STRING, nil, nil, nil, "LP_The second lowest bid volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_3_volume = ProtoField.new("Lp Bid Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpbidlevel3volume", ftypes.STRING, nil, nil, nil, "LP_The third lowest bid volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_holding_quantity = ProtoField.new("Lp Holding Quantity", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpholdingquantity", ftypes.STRING, nil, nil, nil, "LP holding quantity per each account.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nextrade.nextrade.etp3level.nxtascii.v2.12.messagesequencenumber", ftypes.STRING, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information Ca.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.mid_price = ProtoField.new("Mid Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.midprice", ftypes.STRING, nil, nil, nil, "Average price of NXT BBO with midpoint quote effectiveness(truncation of decimal places).")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.opening_price = ProtoField.new("Opening Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.openingprice", ftypes.STRING, nil, nil, nil, "The first price that a security traded upon the opening of the regular session.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lower_limit_price_on_the_single_price_trade_in_the_off_hours_session = ProtoField.new("Lower Limit Price On The Single Price Trade In The Off Hours Session", "nextrade.nextrade.etp3level.nxtascii.v2.12.lowerlimitpriceonthesinglepricetradeintheoffhourssession", ftypes.UINT64, nil, nil, nil, "Lower Limit Price on the Single Price in the Off-Hours Session.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_1_volume = ProtoField.new("Lp Ask Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpasklevel1volume", ftypes.UINT64, nil, nil, nil, "LP_The best ask volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_2_volume = ProtoField.new("Lp Ask Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpasklevel2volume", ftypes.UINT64, nil, nil, nil, "LP_The second highest ask volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_3_volume = ProtoField.new("Lp Ask Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpasklevel3volume", ftypes.UINT64, nil, nil, nil, "LP_The third highest ask volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_1_volume = ProtoField.new("Lp Bid Level 1 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpbidlevel1volume", ftypes.UINT64, nil, nil, nil, "LP_The best bid volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_2_volume = ProtoField.new("Lp Bid Level 2 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpbidlevel2volume", ftypes.UINT64, nil, nil, nil, "LP_The second lowest bid volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_3_volume = ProtoField.new("Lp Bid Level 3 Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpbidlevel3volume", ftypes.UINT64, nil, nil, nil, "LP_The third lowest bid volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_holding_quantity = ProtoField.new("Lp Holding Quantity", "nextrade.nextrade.etp3level.nxtascii.v2.12.lpholdingquantity", ftypes.UINT64, nil, nil, nil, "LP holding quantity per each account.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nextrade.nextrade.etp3level.nxtascii.v2.12.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "A message sequence number given by Market data team - Market data: seq number is given by instruments and boards (※ only for high-bandwidth service) - Batch Data: seq number is given by Information Ca.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.mid_price = ProtoField.new("Mid Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.midprice", ftypes.UINT64, nil, nil, nil, "Average price of NXT BBO with midpoint quote effectiveness(truncation of decimal places).")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.opening_price = ProtoField.new("Opening Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.openingprice", ftypes.UINT64, nil, nil, nil, "The first price that a security traded upon the opening of the regular session.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.price_change_against_previous_day = ProtoField.new("Price Change Against Previous Day", "nextrade.nextrade.etp3level.nxtascii.v2.12.pricechangeagainstpreviousday", ftypes.STRING, nil, nil, nil, "0: Initial value 1:high limit 2:ascended 3:unchanged 4:low limit 5:declined.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.processing_time_of_trading_system = ProtoField.new("Processing Time Of Trading System", "nextrade.nextrade.etp3level.nxtascii.v2.12.processingtimeoftradingsystem", ftypes.STRING, nil, nil, nil, "HHMMSSuuuuuu.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.session_id = ProtoField.new("Session Id", "nextrade.nextrade.etp3level.nxtascii.v2.12.sessionid", ftypes.STRING, nil, nil, nil, "A Session is a subordinate concept of a Board and each session follows different trading methods and rules.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.start_time_of_a_board_event = ProtoField.new("Start Time Of A Board Event", "nextrade.nextrade.etp3level.nxtascii.v2.12.starttimeofaboardevent", ftypes.STRING, nil, nil, nil, "The time when a Board Event occurs.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.the_best_ask = ProtoField.new("The Best Ask", "nextrade.nextrade.etp3level.nxtascii.v2.12.thebestask", ftypes.STRING, nil, nil, nil, "The lowest price among the ask quotes.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.the_best_bid = ProtoField.new("The Best Bid", "nextrade.nextrade.etp3level.nxtascii.v2.12.thebestbid", ftypes.STRING, nil, nil, nil, "The highest price among the bid quotes.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.the_best_ask = ProtoField.new("The Best Ask", "nextrade.nextrade.etp3level.nxtascii.v2.12.thebestask", ftypes.UINT64, nil, nil, nil, "The lowest price among the ask quotes.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.the_best_bid = ProtoField.new("The Best Bid", "nextrade.nextrade.etp3level.nxtascii.v2.12.thebestbid", ftypes.UINT64, nil, nil, nil, "The highest price among the bid quotes.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.the_time_ending_vi = ProtoField.new("The Time Ending Vi", "nextrade.nextrade.etp3level.nxtascii.v2.12.thetimeendingvi", ftypes.STRING, nil, nil, nil, "The time ending VI.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.todays_high = ProtoField.new("Todays High", "nextrade.nextrade.etp3level.nxtascii.v2.12.todayshigh", ftypes.STRING, nil, nil, nil, "The highest price during the course of a trading day.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.todays_low = ProtoField.new("Todays Low", "nextrade.nextrade.etp3level.nxtascii.v2.12.todayslow", ftypes.STRING, nil, nil, nil, "The lowest price during the course of a trading day.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_ask_volume = ProtoField.new("Total Ask Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalaskvolume", ftypes.STRING, nil, nil, nil, "Total ask volume on Closing Price Trading.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_ask_volume_level_10 = ProtoField.new("Total Ask Volume Level 10", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalaskvolumelevel10", ftypes.STRING, nil, nil, nil, "Total ask volume(Level 10).")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_bid_volume = ProtoField.new("Total Bid Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalbidvolume", ftypes.STRING, nil, nil, nil, "Total bid volume on Closing Price Trading.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_bid_volume_level_10 = ProtoField.new("Total Bid Volume Level 10", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalbidvolumelevel10", ftypes.STRING, nil, nil, nil, "Total bid volume(Level 10).")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_mid_price_ask_volume_total_ask_volume_on_mid_price = ProtoField.new("Total Mid Price Ask Volume Total Ask Volume On Mid Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalmidpriceaskvolumetotalaskvolumeonmidprice", ftypes.STRING, nil, nil, nil, "Total quantity of ask midpoint quotes.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_mid_price_bid_volume_total_bid_volume_on_mid_price = ProtoField.new("Total Mid Price Bid Volume Total Bid Volume On Mid Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalmidpricebidvolumetotalbidvolumeonmidprice", ftypes.STRING, nil, nil, nil, "Total quantity of bid midpoint quotes.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.todays_high = ProtoField.new("Todays High", "nextrade.nextrade.etp3level.nxtascii.v2.12.todayshigh", ftypes.UINT64, nil, nil, nil, "The highest price during the course of a trading day.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.todays_low = ProtoField.new("Todays Low", "nextrade.nextrade.etp3level.nxtascii.v2.12.todayslow", ftypes.UINT64, nil, nil, nil, "The lowest price during the course of a trading day.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_ask_volume = ProtoField.new("Total Ask Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalaskvolume", ftypes.UINT64, nil, nil, nil, "Total ask volume on Closing Price Trading.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_ask_volume_level_10 = ProtoField.new("Total Ask Volume Level 10", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalaskvolumelevel10", ftypes.UINT64, nil, nil, nil, "Total ask volume(Level 10).")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_bid_volume = ProtoField.new("Total Bid Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalbidvolume", ftypes.UINT64, nil, nil, nil, "Total bid volume on Closing Price Trading.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_bid_volume_level_10 = ProtoField.new("Total Bid Volume Level 10", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalbidvolumelevel10", ftypes.UINT64, nil, nil, nil, "Total bid volume(Level 10).")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_mid_price_ask_volume_total_ask_volume_on_mid_price = ProtoField.new("Total Mid Price Ask Volume Total Ask Volume On Mid Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalmidpriceaskvolumetotalaskvolumeonmidprice", ftypes.UINT64, nil, nil, nil, "Total quantity of ask midpoint quotes.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_mid_price_bid_volume_total_bid_volume_on_mid_price = ProtoField.new("Total Mid Price Bid Volume Total Bid Volume On Mid Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.totalmidpricebidvolumetotalbidvolumeonmidprice", ftypes.UINT64, nil, nil, nil, "Total quantity of bid midpoint quotes.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.tr_code = ProtoField.new("TR Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.trcode", ftypes.STRING, nil, nil, nil, "Five-character Ascii TR-CODE identifying the disseminated market data record. Formed by concatenating a 2-character Data Category naming the message family (e.g. \"B6\" Quote, \"A3\" Order Filled, \"G7\" Order Filled plus Quote, \"A7\" Market Operation TS, \"A0\" Equities Batch) with a 3-character Information Category naming the market or product variant, typically a 2-digit information code plus a 1-character market code (e.g. \"51S\" = KOSPI stock, \"51Q\" = KOSDAQ stock, \"53S\" = exchange traded product).")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.trading_halt_reason_code = ProtoField.new("Trading Halt Reason Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.tradinghaltreasoncode", ftypes.STRING, nil, nil, nil, "Trading Halt Reason Code X01: Market Administrative from NXT X99: Request from KRX 1XX~301: KOSPI 6XX: KOSDAQ.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.trading_price = ProtoField.new("Trading Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.tradingprice", ftypes.STRING, nil, nil, nil, "The price at which a security is traded between ask and bid quotes.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.trading_volume = ProtoField.new("Trading Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.tradingvolume", ftypes.STRING, nil, nil, nil, "Trading volume.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.upper_limit_price_on_the_single_price_trade_in_the_off_hours_session = ProtoField.new("Upper Limit Price On The Single Price Trade In The Off Hours Session", "nextrade.nextrade.etp3level.nxtascii.v2.12.upperlimitpriceonthesinglepricetradeintheoffhourssession", ftypes.STRING, nil, nil, nil, "Upper Limit Price on the Single Price Trade in the Off-Hours Session.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.trading_price = ProtoField.new("Trading Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.tradingprice", ftypes.UINT64, nil, nil, nil, "The price at which a security is traded between ask and bid quotes.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.trading_volume = ProtoField.new("Trading Volume", "nextrade.nextrade.etp3level.nxtascii.v2.12.tradingvolume", ftypes.UINT64, nil, nil, nil, "Trading volume.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.upper_limit_price_on_the_single_price_trade_in_the_off_hours_session = ProtoField.new("Upper Limit Price On The Single Price Trade In The Off Hours Session", "nextrade.nextrade.etp3level.nxtascii.v2.12.upperlimitpriceonthesinglepricetradeintheoffhourssession", ftypes.UINT64, nil, nil, nil, "Upper Limit Price on the Single Price Trade in the Off-Hours Session.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.vi_status_code = ProtoField.new("Vi Status Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.vistatuscode", ftypes.STRING, nil, nil, nil, "A code to show triggering or removal of VI 1: VI triggered 2: VI removed.")
-omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.vi_triggering_price = ProtoField.new("Vi Triggering Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.vitriggeringprice", ftypes.STRING, nil, nil, nil, "A price to trigger VI.")
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.vi_triggering_price = ProtoField.new("Vi Triggering Price", "nextrade.nextrade.etp3level.nxtascii.v2.12.vitriggeringprice", ftypes.UINT64, nil, nil, nil, "A price to trigger VI.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.vi_type_code = ProtoField.new("Vi Type Code", "nextrade.nextrade.etp3level.nxtascii.v2.12.vitypecode", ftypes.STRING, nil, nil, nil, "A code to distinguish static VI or dynamic VI 1: Static VI 2: Dynamic VI 3: Static/Dynamic VI 4. Extended VI.")
 
 -- Nextrade Nextrade Etp3Level NxtAscii 2.12 Framing
@@ -98,6 +98,11 @@ omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.securities_order_filled_me
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.securities_order_filled_plus_quote_mm_lp_quotes_included_3_level_message = ProtoField.new("Securities Order Filled Plus Quote Mm Lp Quotes Included 3 Level Message", "nextrade.nextrade.etp3level.nxtascii.v2.12.securitiesorderfilledplusquotemmlpquotesincluded3levelmessage", ftypes.STRING, nil, nil, nil, "Order Filled data with Best Order on NXT trading items - MM/LP Quotes Included * 3 Level Best Order on Ask/Bid.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.securities_quote_mm_lp_quotes_included_3_level_message = ProtoField.new("Securities Quote Mm Lp Quotes Included 3 Level Message", "nextrade.nextrade.etp3level.nxtascii.v2.12.securitiesquotemmlpquotesincluded3levelmessage", ftypes.STRING, nil, nil, nil, "Securities_Quote (MM/LP Quotes Included, 3 Level) Best Order Data on NXT Trading Items provided - MM/LP Quotes Included * 3 Level Best Order on Ask/Bid.")
 omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.triggering_removing_vi_message = ProtoField.new("Triggering Removing Vi Message", "nextrade.nextrade.etp3level.nxtascii.v2.12.triggeringremovingvimessage", ftypes.STRING, nil, nil, nil, "Triggering/removing VI (Volatility Interruption).")
+
+-- Nextrade Nextrade Etp3Level NxtAscii 2.12 Expert Info
+nextrade_nextrade_etp3level_nxtascii_v2_12.experts = {}
+nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number = ProtoExpert.new("nextrade.nextrade.etp3level.nxtascii.v2.12.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nextrade_nextrade_etp3level_nxtascii_v2_12.experts = { nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nextrade Nextrade Etp3Level NxtAscii 2.12 Formatting
@@ -219,7 +224,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.a_base_price_to_trigger_dynamic_vi.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_base_price_to_trigger_dynamic_vi, range, value, "A Base Price To Trigger Dynamic Vi: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "A Base Price To Trigger Dynamic Vi is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.a_base_price_to_trigger_dynamic_vi.display(value, buffer, offset, packet, parent)
@@ -247,7 +255,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.a_base_price_to_trigger_static_vi.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_base_price_to_trigger_static_vi, range, value, "A Base Price To Trigger Static Vi: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "A Base Price To Trigger Static Vi is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.a_base_price_to_trigger_static_vi.display(value, buffer, offset, packet, parent)
@@ -275,7 +286,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.a_designated_number_for_an_issue_from
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_designated_number_for_an_issue_from_krx, range, value, "A Designated Number For An Issue From Krx: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "A Designated Number For An Issue From Krx is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.a_designated_number_for_an_issue_from_krx.display(value, buffer, offset, packet, parent)
@@ -303,7 +317,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.a_price_change_against_the_previous_d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.a_price_change_against_the_previous_day, range, value, "A Price Change Against The Previous Day: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "A Price Change Against The Previous Day is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.a_price_change_against_the_previous_day.display(value, buffer, offset, packet, parent)
@@ -346,6 +363,9 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.accumulated_trading_value.dissect = f
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.accumulated_trading_value, range, value, "Accumulated Trading Value: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Accumulated Trading Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -373,7 +393,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.accumulated_trading_volume.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.accumulated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -401,7 +424,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_1_price.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_1_price, range, value, "Ask Level 1 Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Ask Level 1 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_1_price.display(value, buffer, offset, packet, parent)
@@ -429,7 +455,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_1_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_1_volume, range, value, "Ask Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Ask Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -457,7 +486,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_2_price.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_2_price, range, value, "Ask Level 2 Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Ask Level 2 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_2_price.display(value, buffer, offset, packet, parent)
@@ -485,7 +517,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_2_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_2_volume, range, value, "Ask Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Ask Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -513,7 +548,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_3_price.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_3_price, range, value, "Ask Level 3 Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Ask Level 3 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_3_price.display(value, buffer, offset, packet, parent)
@@ -541,7 +579,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_3_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.ask_level_3_volume, range, value, "Ask Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Ask Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.ask_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -569,7 +610,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_1_price.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_1_price, range, value, "Bid Level 1 Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Bid Level 1 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_1_price.display(value, buffer, offset, packet, parent)
@@ -597,7 +641,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_1_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_1_volume, range, value, "Bid Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Bid Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -625,7 +672,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_2_price.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_2_price, range, value, "Bid Level 2 Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Bid Level 2 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_2_price.display(value, buffer, offset, packet, parent)
@@ -653,7 +703,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_2_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_2_volume, range, value, "Bid Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Bid Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -681,7 +734,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_3_price.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_3_price, range, value, "Bid Level 3 Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Bid Level 3 Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_3_price.display(value, buffer, offset, packet, parent)
@@ -709,7 +765,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_3_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.bid_level_3_volume, range, value, "Bid Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Bid Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.bid_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -737,7 +796,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.board_event_group_code.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.board_event_group_code, range, value, "Board Event Group Code: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Board Event Group Code is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.board_event_group_code.display(value, buffer, offset, packet, parent)
@@ -811,7 +873,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price, range, value, "Closing Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price.display(value, buffer, offset, packet, parent)
@@ -839,7 +904,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_base_price_of_buy_in.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_base_price_of_buy_in, range, value, "Closing Price Base Price Of Buy In: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Closing Price Base Price Of Buy In is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_base_price_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -867,7 +935,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_lower_limit_of_buy_in.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_lower_limit_of_buy_in, range, value, "Closing Price Lower Limit Of Buy In: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Closing Price Lower Limit Of Buy In is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_lower_limit_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -918,7 +989,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_upper_limit_of_buy_in.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_upper_limit_of_buy_in, range, value, "Closing Price Upper Limit Of Buy In: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Closing Price Upper Limit Of Buy In is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_upper_limit_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -946,7 +1020,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_weighted_stock_price_av
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.closing_price_weighted_stock_price_average, range, value, "Closing Price Weighted Stock Price Average: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Closing Price Weighted Stock Price Average is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.closing_price_weighted_stock_price_average.display(value, buffer, offset, packet, parent)
@@ -1012,6 +1089,9 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.disparate_ratio_to_trigger_dynamic_vi, range, value, "Disparate Ratio To Trigger Dynamic Vi: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Disparate Ratio To Trigger Dynamic Vi is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.display(value, buffer, offset, packet, parent)
@@ -1054,6 +1134,9 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.disparate_ratio_to_trigger_static_vi, range, value, "Disparate Ratio To Trigger Static Vi: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Disparate Ratio To Trigger Static Vi is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.display(value, buffer, offset, packet, parent)
@@ -1104,7 +1187,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.estimated_trading_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.estimated_trading_price, range, value, "Estimated Trading Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Estimated Trading Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.estimated_trading_price.display(value, buffer, offset, packet, parent)
@@ -1132,7 +1218,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.estimated_trading_volume.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.estimated_trading_volume, range, value, "Estimated Trading Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Estimated Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.estimated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -1206,7 +1295,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lower_limit_price_on_the_single_price
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lower_limit_price_on_the_single_price_trade_in_the_off_hours_session, range, value, "Lower Limit Price On The Single Price Trade In The Off Hours Session: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lower Limit Price On The Single Price Trade In The Off Hours Session is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lower_limit_price_on_the_single_price_trade_in_the_off_hours_session.display(value, buffer, offset, packet, parent)
@@ -1234,7 +1326,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lp_ask_level_1_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_1_volume, range, value, "Lp Ask Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lp Ask Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lp_ask_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -1262,7 +1357,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lp_ask_level_2_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_2_volume, range, value, "Lp Ask Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lp Ask Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lp_ask_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -1290,7 +1388,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lp_ask_level_3_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_ask_level_3_volume, range, value, "Lp Ask Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lp Ask Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lp_ask_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -1318,7 +1419,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lp_bid_level_1_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_1_volume, range, value, "Lp Bid Level 1 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lp Bid Level 1 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lp_bid_level_1_volume.display(value, buffer, offset, packet, parent)
@@ -1346,7 +1450,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lp_bid_level_2_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_2_volume, range, value, "Lp Bid Level 2 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lp Bid Level 2 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lp_bid_level_2_volume.display(value, buffer, offset, packet, parent)
@@ -1374,7 +1481,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lp_bid_level_3_volume.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_bid_level_3_volume, range, value, "Lp Bid Level 3 Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lp Bid Level 3 Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lp_bid_level_3_volume.display(value, buffer, offset, packet, parent)
@@ -1402,7 +1512,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.lp_holding_quantity.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.lp_holding_quantity, range, value, "Lp Holding Quantity: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Lp Holding Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.lp_holding_quantity.display(value, buffer, offset, packet, parent)
@@ -1430,7 +1543,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.message_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.message_sequence_number, range, value, "Message Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Message Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.message_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1458,7 +1574,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.mid_price.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.mid_price, range, value, "Mid Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Mid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.mid_price.display(value, buffer, offset, packet, parent)
@@ -1486,7 +1605,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.opening_price.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.opening_price, range, value, "Opening Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Opening Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.opening_price.display(value, buffer, offset, packet, parent)
@@ -1610,7 +1732,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.the_best_ask.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.the_best_ask, range, value, "The Best Ask: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "The Best Ask is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.the_best_ask.display(value, buffer, offset, packet, parent)
@@ -1638,7 +1763,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.the_best_bid.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.the_best_bid, range, value, "The Best Bid: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "The Best Bid is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.the_best_bid.display(value, buffer, offset, packet, parent)
@@ -1689,7 +1817,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.todays_high.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.todays_high, range, value, "Todays High: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Todays High is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.todays_high.display(value, buffer, offset, packet, parent)
@@ -1717,7 +1848,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.todays_low.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.todays_low, range, value, "Todays Low: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Todays Low is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.todays_low.display(value, buffer, offset, packet, parent)
@@ -1745,7 +1879,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.total_ask_volume.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_ask_volume, range, value, "Total Ask Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Total Ask Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.total_ask_volume.display(value, buffer, offset, packet, parent)
@@ -1773,7 +1910,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.total_ask_volume_level_10.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_ask_volume_level_10, range, value, "Total Ask Volume Level 10: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Total Ask Volume Level 10 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.total_ask_volume_level_10.display(value, buffer, offset, packet, parent)
@@ -1801,7 +1941,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.total_bid_volume.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_bid_volume, range, value, "Total Bid Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Total Bid Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.total_bid_volume.display(value, buffer, offset, packet, parent)
@@ -1829,7 +1972,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.total_bid_volume_level_10.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_bid_volume_level_10, range, value, "Total Bid Volume Level 10: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Total Bid Volume Level 10 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.total_bid_volume_level_10.display(value, buffer, offset, packet, parent)
@@ -1857,7 +2003,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.total_mid_price_ask_volume_total_ask_
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_mid_price_ask_volume_total_ask_volume_on_mid_price, range, value, "Total Mid Price Ask Volume Total Ask Volume On Mid Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Total Mid Price Ask Volume Total Ask Volume On Mid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.total_mid_price_ask_volume_total_ask_volume_on_mid_price.display(value, buffer, offset, packet, parent)
@@ -1885,7 +2034,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.total_mid_price_bid_volume_total_bid_
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.total_mid_price_bid_volume_total_bid_volume_on_mid_price, range, value, "Total Mid Price Bid Volume Total Bid Volume On Mid Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Total Mid Price Bid Volume Total Bid Volume On Mid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.total_mid_price_bid_volume_total_bid_volume_on_mid_price.display(value, buffer, offset, packet, parent)
@@ -1987,7 +2139,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.trading_price.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.trading_price, range, value, "Trading Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Trading Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.trading_price.display(value, buffer, offset, packet, parent)
@@ -2015,7 +2170,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.trading_volume.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.trading_volume.display(value, buffer, offset, packet, parent)
@@ -2043,7 +2201,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.upper_limit_price_on_the_single_price
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.upper_limit_price_on_the_single_price_trade_in_the_off_hours_session, range, value, "Upper Limit Price On The Single Price Trade In The Off Hours Session: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Upper Limit Price On The Single Price Trade In The Off Hours Session is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.upper_limit_price_on_the_single_price_trade_in_the_off_hours_session.display(value, buffer, offset, packet, parent)
@@ -2094,7 +2255,10 @@ nextrade_nextrade_etp3level_nxtascii_v2_12.vi_triggering_price.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nextrade_nextrade_etp3level_nxtascii_v2_12.fields.vi_triggering_price, range, value, "Vi Triggering Price: Not Applicable")
+    item:add_proto_expert_info(nextrade_nextrade_etp3level_nxtascii_v2_12.experts.not_a_number, "Vi Triggering Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nextrade_nextrade_etp3level_nxtascii_v2_12.vi_triggering_price.display(value, buffer, offset, packet, parent)

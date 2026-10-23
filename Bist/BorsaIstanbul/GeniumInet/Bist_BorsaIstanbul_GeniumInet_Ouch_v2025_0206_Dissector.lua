@@ -15,7 +15,7 @@ local bist_borsaistanbul_geniuminet_ouch_v2025_0206 = {}
 -----------------------------------------------------------------------
 
 -- Bist BorsaIstanbul GeniumInet Ouch 2025.0206 Fields
-omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.accepted_session = ProtoField.new("Accepted Session", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.bid_price = ProtoField.new("Bid Price", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.bidprice", ftypes.DOUBLE, nil, nil, nil, "Bid price. Number of decimals and allowed tick steps are given by the Order book Directory message in ITCH")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.bid_size = ProtoField.new("Bid Size", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.bidsize", ftypes.UINT64, nil, nil, nil, "Bid quantity")
@@ -53,7 +53,7 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.reject_code = ProtoFiel
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.replace_open_close = ProtoField.new("Replace Open Close", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.replaceopenclose", ftypes.UINT8, nil, nil, nil, "Position update for the account")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.replacementordertoken", ftypes.STRING, nil, nil, nil, "Client-generated replacement order identifier. Must not be a token previously used in Enter Order or Replace Order transactions")
-omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.requested_session = ProtoField.new("Requested Session", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.reserved_numeric_unsigned_16 = ProtoField.new("Reserved Numeric Unsigned 16", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.reservednumericunsigned16", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.reserved_numeric_unsigned_2 = ProtoField.new("Reserved Numeric Unsigned 2", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.reservednumericunsigned2", ftypes.UINT16, nil, nil, nil, "Reserved for future use")
@@ -107,6 +107,11 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.unsequenced_data_packet
 -- Bist BorsaIstanbul GeniumInet Ouch 2025.0206 Generated Fields
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.quote_set_index = ProtoField.new("Quote Set Index", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.quotesetindex", ftypes.UINT16)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Bist BorsaIstanbul GeniumInet Ouch 2025.0206 Expert Info
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts = {}
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts.not_a_number = ProtoExpert.new("bist.borsaistanbul.geniuminet.ouch.v2025.0206.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts = { bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Bist BorsaIstanbul GeniumInet Ouch 2025.0206 Formatting
@@ -259,7 +264,10 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.accepted_sequence_number.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1404,7 +1412,10 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.requested_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(bist_borsaistanbul_geniuminet_ouch_v2025_0206.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.requested_sequence_number.display(value, buffer, offset, packet, parent)

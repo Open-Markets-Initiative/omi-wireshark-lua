@@ -77,6 +77,11 @@ omi_jpx_tseequities_tostnet_flex_v19_5.fields.control_message = ProtoField.new("
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.tostnet_byissue_information_message = ProtoField.new("ToSTNeT By-Issue Information Message", "jpx.tseequities.tostnet.flex.v19.5.tostnetbyissueinformationmessage", ftypes.STRING, nil, nil, nil, "In this tag, information concerning trade and trading halt for an issue (single-issue transaction, basket transaction, or closing price transaction) on the ToSTNeT is set. This data appears as part of realtime data.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.tostnet_market_information_message = ProtoField.new("ToSTNeT Market Information Message", "jpx.tseequities.tostnet.flex.v19.5.tostnetmarketinformationmessage", ftypes.STRING, nil, nil, nil, "In this tag, state information on the ToSTNeT will be set. This data appears as part of realtime data.")
 
+-- Jpx TseEquities ToSTNeT Flex 19.5 Expert Info
+jpx_tseequities_tostnet_flex_v19_5.experts = {}
+jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number = ProtoExpert.new("jpx.tseequities.tostnet.flex.v19.5.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_jpx_tseequities_tostnet_flex_v19_5.experts = { jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -748,6 +753,9 @@ jpx_tseequities_tostnet_flex_v19_5.price_c_14.dissect = function(buffer, offset,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_c_14, range, value, "Price C 14: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number, "Price C 14 is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 

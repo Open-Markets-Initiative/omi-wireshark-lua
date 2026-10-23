@@ -15,7 +15,7 @@ local nasdaq_nsmequities_orders_ouch_v4_2_2018 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Orders Ouch 4.2.2018 Fields
-omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.2018.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.2018.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.orders.ouch.v4.2.2018.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.nsmequities.orders.ouch.v4.2.2018.bboweightindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.nsmequities.orders.ouch.v4.2.2018.brokentradereason", ftypes.STRING, nil, nil, nil, "The reason the trade was broken. See currently supported Broken Trade Reasons table below. Clients should anticipate additions to this list and thus support all capital letters of the English alphabet.")
@@ -51,7 +51,7 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.reference_price_type = Proto
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.orders.ouch.v4.2.2018.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.rejected_order_reason = ProtoField.new("Rejected Order Reason", "nasdaq.nsmequities.orders.ouch.v4.2.2018.rejectedorderreason", ftypes.STRING, nil, nil, nil, "The reason the order was rejected. See currently supported Rejected Order Reasons below. Clients should anticipate additions to this list and thus support all capital letters of the English alphabet.")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.2018.replacementordertoken", ftypes.STRING, nil, nil, nil, "The Replacement Order Token field as entered")
-omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.2018.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.2018.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.orders.ouch.v4.2.2018.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.2018.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v4.2.2018.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -106,6 +106,11 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.unsequenced_data_packet = Pr
 
 -- Nasdaq NsmEquities Orders Ouch 4.2.2018 Generated Fields
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nsmequities.orders.ouch.v4.2.2018.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NsmEquities Orders Ouch 4.2.2018 Expert Info
+nasdaq_nsmequities_orders_ouch_v4_2_2018.experts = {}
+nasdaq_nsmequities_orders_ouch_v4_2_2018.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.orders.ouch.v4.2.2018.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.experts = { nasdaq_nsmequities_orders_ouch_v4_2_2018.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Orders Ouch 4.2.2018 Formatting
@@ -248,7 +253,10 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.accepted_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v4_2_2018.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_orders_ouch_v4_2_2018.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1421,7 +1429,10 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.requested_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2_2018.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v4_2_2018.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nsmequities_orders_ouch_v4_2_2018.requested_sequence_number.display(value, buffer, offset, packet, parent)

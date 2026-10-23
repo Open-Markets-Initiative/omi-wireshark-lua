@@ -15,8 +15,8 @@ local tmx_mx_solamulticast_hsvf_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Tmx Mx SolaMulticast Hsvf 2.1 Fields
-omi_tmx_mx_solamulticast_hsvf_v2_1.fields.end_ = ProtoField.new("End", "tmx.mx.solamulticast.hsvf.v2.1.end", ftypes.STRING, nil, nil, nil, "Ending message number")
-omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_code = ProtoField.new("Error Code", "tmx.mx.solamulticast.hsvf.v2.1.errorcode", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v2_1.fields.end_ = ProtoField.new("End", "tmx.mx.solamulticast.hsvf.v2.1.end", ftypes.UINT32, nil, nil, nil, "Ending message number")
+omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_code = ProtoField.new("Error Code", "tmx.mx.solamulticast.hsvf.v2.1.errorcode", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_msg = ProtoField.new("Error Msg", "tmx.mx.solamulticast.hsvf.v2.1.errormsg", ftypes.STRING, nil, nil, nil, "Error Message")
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "tmx.mx.solamulticast.hsvf.v2.1.hsvfetx", ftypes.INT8, nil, nil, nil, "End of Hsvf message")
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "tmx.mx.solamulticast.hsvf.v2.1.hsvfstx", ftypes.INT8, nil, nil, nil, "Start of Hsvf message")
@@ -24,9 +24,9 @@ omi_tmx_mx_solamulticast_hsvf_v2_1.fields.line = ProtoField.new("Line", "tmx.mx.
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.message_type = ProtoField.new("Message Type", "tmx.mx.solamulticast.hsvf.v2.1.messagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of message being sent")
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.protocol = ProtoField.new("Protocol", "tmx.mx.solamulticast.hsvf.v2.1.protocol", ftypes.STRING, nil, nil, nil, "Value(s) supported: D4, D5")
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.pwd = ProtoField.new("Pwd", "tmx.mx.solamulticast.hsvf.v2.1.pwd", ftypes.STRING, nil, nil, nil, "Participant password")
-omi_tmx_mx_solamulticast_hsvf_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.solamulticast.hsvf.v2.1.sequencenumber", ftypes.STRING, nil, nil, nil, "Sequence numbers will range from ascii decimal 000000001 to 999999999")
-omi_tmx_mx_solamulticast_hsvf_v2_1.fields.start = ProtoField.new("Start", "tmx.mx.solamulticast.hsvf.v2.1.start", ftypes.STRING, nil, nil, nil, "Starting message number")
-omi_tmx_mx_solamulticast_hsvf_v2_1.fields.timestamp = ProtoField.new("Timestamp", "tmx.mx.solamulticast.hsvf.v2.1.timestamp", ftypes.STRING, nil, nil, nil, "Time submitted")
+omi_tmx_mx_solamulticast_hsvf_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.solamulticast.hsvf.v2.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence numbers will range from ascii decimal 000000001 to 999999999")
+omi_tmx_mx_solamulticast_hsvf_v2_1.fields.start = ProtoField.new("Start", "tmx.mx.solamulticast.hsvf.v2.1.start", ftypes.UINT32, nil, nil, nil, "Starting message number")
+omi_tmx_mx_solamulticast_hsvf_v2_1.fields.timestamp = ProtoField.new("Timestamp", "tmx.mx.solamulticast.hsvf.v2.1.timestamp", ftypes.UINT32, nil, nil, nil, "Time submitted")
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.user = ProtoField.new("User", "tmx.mx.solamulticast.hsvf.v2.1.user", ftypes.STRING, nil, nil, nil, "Participant logging in")
 
 -- Tmx Mx SolaMulticast Hsvf 2.1 Framing
@@ -37,6 +37,11 @@ omi_tmx_mx_solamulticast_hsvf_v2_1.fields.packet = ProtoField.new("Packet", "tmx
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_message = ProtoField.new("Error Message", "tmx.mx.solamulticast.hsvf.v2.1.errormessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.login_message = ProtoField.new("Login Message", "tmx.mx.solamulticast.hsvf.v2.1.loginmessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "tmx.mx.solamulticast.hsvf.v2.1.retransmissionrequestmessage", ftypes.STRING)
+
+-- Tmx Mx SolaMulticast Hsvf 2.1 Expert Info
+tmx_mx_solamulticast_hsvf_v2_1.experts = {}
+tmx_mx_solamulticast_hsvf_v2_1.experts.not_a_number = ProtoExpert.new("tmx.mx.solamulticast.hsvf.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_tmx_mx_solamulticast_hsvf_v2_1.experts = { tmx_mx_solamulticast_hsvf_v2_1.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -108,7 +113,10 @@ tmx_mx_solamulticast_hsvf_v2_1.end_.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.end_, range, value, "End: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v2_1.experts.not_a_number, "End is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.end_.display(value, buffer, offset, packet, parent)
@@ -136,7 +144,10 @@ tmx_mx_solamulticast_hsvf_v2_1.error_code.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_code, range, value, "Error Code: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v2_1.experts.not_a_number, "Error Code is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.error_code.display(value, buffer, offset, packet, parent)
@@ -343,7 +354,10 @@ tmx_mx_solamulticast_hsvf_v2_1.sequence_number.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.sequence_number, range, value, "Sequence Number: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v2_1.experts.not_a_number, "Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
@@ -371,7 +385,10 @@ tmx_mx_solamulticast_hsvf_v2_1.start.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.start, range, value, "Start: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v2_1.experts.not_a_number, "Start is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.start.display(value, buffer, offset, packet, parent)
@@ -399,7 +416,10 @@ tmx_mx_solamulticast_hsvf_v2_1.timestamp.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v2_1.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.timestamp.display(value, buffer, offset, packet, parent)

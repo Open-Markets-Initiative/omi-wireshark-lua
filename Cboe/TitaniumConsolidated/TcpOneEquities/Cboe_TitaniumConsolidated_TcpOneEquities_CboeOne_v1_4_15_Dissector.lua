@@ -17,19 +17,19 @@ local cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15 = {}
 -- Cboe TitaniumConsolidated TcpOneEquities CboeOne 1.4.15 Fields
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.adap_block = ProtoField.new("Adap Block", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.adapblock", ftypes.STRING)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.adap_block_size = ProtoField.new("Adap Block Size", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.adapblocksize", ftypes.UINT8, nil, nil, nil, "Size of each ADAP Block message")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.adap_blocks = ProtoField.new("Adap Blocks", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.adapblocks", ftypes.UINT8, nil, nil, nil, "Number of ADAP Block messages to follow")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.adap_blocks = ProtoField.new("Adap Blocks", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.adapblocks", ftypes.UINT8, nil, nil, nil, "Number of ADAP Block message to follow")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.adap_complete = ProtoField.new("Adap Complete", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.adapcomplete", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.adap_flags = ProtoField.new("Adap Flags", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.adapflags", ftypes.STRING)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.cboe_cumulative_executed_volume = ProtoField.new("Cboe Cumulative Executed Volume", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.cboecumulativeexecutedvolume", ftypes.UINT64, nil, nil, nil, "Cumulative number of shares traded today across all applicable Cboe books.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.clear_adap = ProtoField.new("Clear Adap", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.clearadap", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.closing_price = ProtoField.new("Closing Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.closingprice", ftypes.DOUBLE, nil, nil, nil, "Closing Price.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_ask_price = ProtoField.new("Consolidated Best Ask Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestaskprice", ftypes.DOUBLE, nil, nil, nil, "Titanium Equities best ask price.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_ask_quantity = ProtoField.new("Consolidated Best Ask Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestaskquantity", ftypes.UINT64, nil, nil, nil, "Titanium Equities number of sell-side shares available for this symbol.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_bid_price = ProtoField.new("Consolidated Best Bid Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestbidprice", ftypes.DOUBLE, nil, nil, nil, "Titanium Equities best bid price.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_bid_quantity = ProtoField.new("Consolidated Best Bid Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestbidquantity", ftypes.UINT64, nil, nil, nil, "Titanium Equities number of buy-side shares available for this symbol.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_quote_price = ProtoField.new("Consolidated Best Quote Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestquoteprice", ftypes.DOUBLE, nil, nil, nil, "Titanium Equities best price.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_quote_quantity = ProtoField.new("Consolidated Quote Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedquotequantity", ftypes.UINT64, nil, nil, nil, "Titanium Equities number of shares available for this symbol.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.data_source = ProtoField.new("Data Source", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.datasource", ftypes.STRING, nil, nil, nil, "Data source indicator")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_ask_price = ProtoField.new("Consolidated Best Ask Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestaskprice", ftypes.DOUBLE, nil, nil, nil, "Cboe Consolidated best ask price.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_ask_quantity = ProtoField.new("Consolidated Best Ask Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestaskquantity", ftypes.UINT64, nil, nil, nil, "Cboe Consolidated number of sell-side shares available for this symbol.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_bid_price = ProtoField.new("Consolidated Best Bid Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestbidprice", ftypes.DOUBLE, nil, nil, nil, "Cboe Consolidated best bid price.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_bid_quantity = ProtoField.new("Consolidated Best Bid Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestbidquantity", ftypes.UINT64, nil, nil, nil, "Cboe Consolidated number of buy-side shares available for this symbol.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_best_quote_price = ProtoField.new("Consolidated Best Quote Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedbestquoteprice", ftypes.DOUBLE, nil, nil, nil, "Cboe Consolidated best price.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.consolidated_quote_quantity = ProtoField.new("Consolidated Quote Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.consolidatedquotequantity", ftypes.UINT64, nil, nil, nil, "Cboe Consolidated number of shares available for this symbol.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.data_source = ProtoField.new("Data Source", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.datasource", ftypes.STRING, nil, nil, nil, "C=CTA U=UTP")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.filler = ProtoField.new("Filler", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.filler", ftypes.STRING, nil, nil, nil, "(space filled)")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.fractional_symbol_summary_flags = ProtoField.new("Fractional Symbol Summary Flags", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.fractionalsymbolsummaryflags", ftypes.STRING)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.fractional_trade_break_flags = ProtoField.new("Fractional Trade Break Flags", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.fractionaltradebreakflags", ftypes.STRING)
@@ -38,42 +38,42 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.high_price =
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_price = ProtoField.new("Last Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastprice", ftypes.DOUBLE, nil, nil, nil, "Last trade price.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastquantity", ftypes.UINT64, nil, nil, nil, "Last trade quantity.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastupdatetimestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastupdatetimestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.length = ProtoField.new("Length", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.longupdateadapblock", ftypes.STRING)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.low_price = ProtoField.new("Low Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lowprice", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price of the day.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.market_center = ProtoField.new("Market Center", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.marketcenter", ftypes.STRING, nil, nil, nil, "All Cboe Markets for this feed")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.market_center = ProtoField.new("Market Center", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.marketcenter", ftypes.STRING, nil, nil, nil, "* = All Cboe Markets for this feed Y=BYX Z=BZX A=EDGA X=EDGX")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.market_center_execution_id = ProtoField.new("Market Center Execution Id", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.marketcenterexecutionid", ftypes.UINT64, nil, nil, nil, "Market center specific execution identifier of this Execution. Execution ID is also referenced in the Trade Break message.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.market_status = ProtoField.new("Market Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.marketstatus", ftypes.STRING, nil, nil, nil, "Market status indicator")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.market_status = ProtoField.new("Market Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.marketstatus", ftypes.STRING, nil, nil, nil, "N=Normal E=Excluded from Symbol Summary and ADAP updates I=Incomplete")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.message_count = ProtoField.new("Message Count", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.national_cumulative_volume = ProtoField.new("National Cumulative Volume", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.nationalcumulativevolume", ftypes.DOUBLE, nil, nil, nil, "In the US, cumulative number of shares traded today as reported to the CTA and UTP SIPs.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.national_cumulative_volume = ProtoField.new("National Cumulative Volume", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.nationalcumulativevolume", ftypes.DOUBLE, nil, nil, nil, "Cumulative number of shares traded today as reported to the CTA and UTP SIPs.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.national_volume_status = ProtoField.new("National Volume Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.nationalvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.next_sequence = ProtoField.new("Next Sequence", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.nextsequence", ftypes.UINT32, nil, nil, nil, "Sequence number of the next sequenced message expected by the user.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.opencloseindicator", ftypes.STRING, nil, nil, nil, "Open/Close indicator")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.opencloseindicator", ftypes.STRING, nil, nil, nil, "O=Price is the Opening price C=Price is the Closing price")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.opening_price = ProtoField.new("Opening Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.openingprice", ftypes.DOUBLE, nil, nil, nil, "Opening Price. 0 if the system has not received an opening price for the security.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.password = ProtoField.new("Password", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.password", ftypes.STRING, nil, nil, nil, "Password supplied by Cboe")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.price_long = ProtoField.new("Price Long", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.pricelong", ftypes.DOUBLE, nil, nil, nil, "Opening/Closing Price.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.price_short = ProtoField.new("Price Short", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.priceshort", ftypes.DOUBLE, nil, nil, nil, "Price level to add/update for Market Center's ADAP book.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.quantitylong", ftypes.UINT64, nil, nil, nil, "Quantity of shares at this price level in the Market Center's ADAP book. A value of zero implies deletion of this ADAP level.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.quantityshort", ftypes.UINT32, nil, nil, nil, "Quantity of shares at this price level in the Market Center's ADAP book. A value of zero implies deletion of this ADAP level.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.regshoaction", ftypes.STRING, nil, nil, nil, "Reg SHO Action indicator")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.regshoaction", ftypes.STRING, nil, nil, nil, "0=No price test in effect 1=Reg SHO price test restriction in effect")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.reserved1", ftypes.UINT8, nil, nil, nil, "Reserved")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.retailpriceimprovement", ftypes.STRING, nil, nil, nil, "Retail Price Improvement indicator")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.retailpriceimprovement", ftypes.STRING, nil, nil, nil, "B=Buy Side RPI S=Sell Side RPI A=Buy & Sell RPI N=No RPI")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.sequence = ProtoField.new("Sequence", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sequence", ftypes.UINT32, nil, nil, nil, "Sequence number that reflects that last update on the feed.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.session_indicator = ProtoField.new("Session Indicator", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sessionindicator", ftypes.STRING)
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.session_indicator = ProtoField.new("Session Indicator", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sessionindicator", ftypes.STRING, nil, nil, nil, "R=Regular trading session P=Pre- or post-market session")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sessionsubid", ftypes.STRING, nil, nil, nil, "SessionSubId supplied by Cboe.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.short_long_blocks = ProtoField.new("Short Long Blocks", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.shortlongblocks", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.short_update_adap_block = ProtoField.new("Short Update Adap Block", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.shortupdateadapblock", ftypes.STRING)
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.side = ProtoField.new("Side", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.side", ftypes.STRING, nil, nil, nil, "Side indicator")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sideindicator", ftypes.STRING, nil, nil, nil, "Side of the quote update")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.side = ProtoField.new("Side", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.side", ftypes.STRING, nil, nil, nil, "B=Buy Side S=Sell Side")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sideindicator", ftypes.STRING, nil, nil, nil, "B=Buy Side S=Sell Side")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.sip_volume_status = ProtoField.new("Sip Volume Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sipvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.status = ProtoField.new("Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.status", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.symbol = ProtoField.new("Symbol", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.symbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status indicator")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.timestamp", ftypes.UINT64, nil, nil, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.tradingstatus", ftypes.STRING, nil, nil, nil, "A=Accepting Orders for Queuing H=Halted Q=Quote-Only S=Exchange Specific Suspension T=Trading")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.transactiontime", ftypes.UINT64, nil, nil, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.unused_5 = ProtoField.new("Unused 5", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
@@ -93,13 +93,13 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.cboe_market_
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.cboe_one_login_message = ProtoField.new("Cboe One Login Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.cboeoneloginmessage", ftypes.STRING, nil, nil, nil, "The Cboe One Login message is the first message sent to the server by a user's process after its connection to the server is established.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.clear_quote_message = ProtoField.new("Clear Quote Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.clearquotemessage", ftypes.STRING, nil, nil, nil, "The Clear Quote message instructs feed recipients to clear all quotes and Summary and/or ADAP information for the specified symbol on the specified market(s).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.fractional_end_of_day_summary_message = ProtoField.new("Fractional End Of Day Summary Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.fractionalendofdaysummarymessage", ftypes.STRING, nil, nil, nil, "The Fractional End of Day Summary message is used to give a consolidated, high-level overview of a security for the day.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.fractional_symbol_summary_message = ProtoField.new("Fractional Symbol Summary Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.fractionalsymbolsummarymessage", ftypes.STRING, nil, nil, nil, "The Fractional Symbol Summary message delivers the Cboe consolidated best bid/offer and total executed volume across all applicable Cboe One US and Cboe One Canada books.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.fractional_symbol_summary_message = ProtoField.new("Fractional Symbol Summary Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.fractionalsymbolsummarymessage", ftypes.STRING, nil, nil, nil, "The Fractional Symbol Summary message delivers the Cboe consolidated best bid/offer and total executed volume across all applicable Cboe One US Exchanges.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.fractional_trade_break_message = ProtoField.new("Fractional Trade Break Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.fractionaltradebreakmessage", ftypes.STRING, nil, nil, nil, "The Fractional Trade Break message is sent whenever an execution on a Cboe exchange is broken.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.fractional_trade_message = ProtoField.new("Fractional Trade Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.fractionaltrademessage", ftypes.STRING, nil, nil, nil, "Fractional Trade messages are sent when an order is executed in whole or in part on a Cboe exchange.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.loginresponsemessage", ftypes.STRING, nil, nil, nil, "The Login Response message is sent by the server to a user's process in response to a Login message.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.opening_closing_price_message = ProtoField.new("Opening Closing Price Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.openingclosingpricemessage", ftypes.STRING, nil, nil, nil, "The Opening/Closing Price message is used to indicate the Opening or Closing price of a security on any of the Cboe markets and the primary listing market.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.replaycompletemessage", ftypes.STRING, nil, nil, nil, "The Replay Complete message is sent to indicate that messages related to refreshing the state of the Cboe books have been delivered.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.rpi_message = ProtoField.new("Rpi Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.rpimessage", ftypes.STRING, nil, nil, nil, "The Retail Price Improvement (RPI) message is a retail liquidity indicator that includes symbol and side, but not price and size. US Only.")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.rpi_message = ProtoField.new("Rpi Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.rpimessage", ftypes.STRING, nil, nil, nil, "The Retail Price Improvement (RPI) message is a retail liquidity indicator that includes symbol and side, but not price and size.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status message is used to indicate the current trading status of a security on a Cboe exchange.")
 
 -- Cboe TitaniumConsolidated TcpOneEquities CboeOne 1.4.15 Generated Fields
@@ -436,12 +436,6 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.data_source.display = f
   if value == "U" then
     return "Data Source: Utp (U)"
   end
-  if value == "i" then
-    return "Data Source: Indicative Value (i)"
-  end
-  if value == "c" then
-    return "Data Source: Calculated Value From Tmx Ip (c)"
-  end
 
   return "Data Source: Unknown("..value..")"
 end
@@ -663,6 +657,12 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.market_center.display =
   end
   if value == "X" then
     return "Market Center: Edgx (X)"
+  end
+  if value == "C" then
+    return "Market Center: Cta (C)"
+  end
+  if value == "U" then
+    return "Market Center: Utp (U)"
   end
 
   return "Market Center: Unknown("..value..")"
@@ -1259,7 +1259,14 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.side.size = 1
 
 -- Display: Side
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.side.display = function(value)
-  return "Side: "..value
+  if value == "B" then
+    return "Side: Buy Side (B)"
+  end
+  if value == "S" then
+    return "Side: Sell Side (S)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1312,7 +1319,23 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.status.size = 1
 
 -- Display: Status
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.status.display = function(value)
-  return "Status: "..value
+  if value == "A" then
+    return "Status: Login Accepted (A)"
+  end
+  if value == "N" then
+    return "Status: Not Authorized Invalid Username Password (N)"
+  end
+  if value == "B" then
+    return "Status: Session In Use (B)"
+  end
+  if value == "S" then
+    return "Status: Invalid Session (S)"
+  end
+  if value == "Q" then
+    return "Status: Next Sequence Is Ahead Of Sequence (Q)"
+  end
+
+  return "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -1388,20 +1411,8 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.trading_status.display 
   if value == "A" then
     return "Trading Status: Accepting Orders For Queuing (A)"
   end
-  if value == "F" then
-    return "Trading Status: Halted Full (F)"
-  end
   if value == "H" then
     return "Trading Status: Halted (H)"
-  end
-  if value == "M" then
-    return "Trading Status: Delayed Closing (M)"
-  end
-  if value == "O" then
-    return "Trading Status: Preclose (O)"
-  end
-  if value == "P" then
-    return "Trading Status: Postclose (P)"
   end
   if value == "Q" then
     return "Trading Status: Quote Only (Q)"
@@ -1411,9 +1422,6 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.trading_status.display 
   end
   if value == "T" then
     return "Trading Status: Trading (T)"
-  end
-  if value == "X" then
-    return "Trading Status: Extended Trading (X)"
   end
 
   return "Trading Status: Unknown("..value..")"
@@ -3055,7 +3063,7 @@ tcp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_tcponeequities_cboeone
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4.15
 --   Date: Tuesday, June 30, 2026
---   Specification: technical-specifications-cboe-titanium-cboe-one-equities-feed-specification.pdf
+--   Specification: technical-specifications-cboe-titanium-cboe-one-equities-feed-specification (2026-10-14).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

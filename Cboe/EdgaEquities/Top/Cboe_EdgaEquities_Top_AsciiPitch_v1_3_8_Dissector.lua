@@ -18,38 +18,38 @@ local cboe_edgaequities_top_asciipitch_v1_3_8 = {}
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_price_extended = ProtoField.new("Ask Price Extended", "cboe.edgaequities.top.asciipitch.v1.3.8.askpriceextended", ftypes.DOUBLE, nil, nil, nil, "Ask price; 0 if no offers")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.edgaequities.top.asciipitch.v1.3.8.askpricelong", ftypes.DOUBLE, nil, nil, nil, "Ask price; 0 if no offers")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.edgaequities.top.asciipitch.v1.3.8.askpriceshort", ftypes.DOUBLE, nil, nil, nil, "Ask price; 0 if no offers")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.edgaequities.top.asciipitch.v1.3.8.askquantitylong", ftypes.STRING, nil, nil, nil, "Ask quantity; 0 if no offers")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.edgaequities.top.asciipitch.v1.3.8.askquantityshort", ftypes.STRING, nil, nil, nil, "Ask size; 0 if no offers")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.edgaequities.top.asciipitch.v1.3.8.askquantitylong", ftypes.UINT32, nil, nil, nil, "Ask quantity; 0 if no offers")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.edgaequities.top.asciipitch.v1.3.8.askquantityshort", ftypes.UINT32, nil, nil, nil, "Ask size; 0 if no offers")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_price_extended = ProtoField.new("Bid Price Extended", "cboe.edgaequities.top.asciipitch.v1.3.8.bidpriceextended", ftypes.DOUBLE, nil, nil, nil, "Bid price; 0 if no bids")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.edgaequities.top.asciipitch.v1.3.8.bidpricelong", ftypes.DOUBLE, nil, nil, nil, "Bid price; 0 if no bids")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_price_short = ProtoField.new("Bid Price Short", "cboe.edgaequities.top.asciipitch.v1.3.8.bidpriceshort", ftypes.DOUBLE, nil, nil, nil, "Bid price; 0 if no bids")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.edgaequities.top.asciipitch.v1.3.8.bidquantitylong", ftypes.STRING, nil, nil, nil, "Bid quantity; 0 if no bids")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.edgaequities.top.asciipitch.v1.3.8.bidquantityshort", ftypes.STRING, nil, nil, nil, "Bid size; 0 if no bids")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.cumulative_volume_long = ProtoField.new("Cumulative Volume Long", "cboe.edgaequities.top.asciipitch.v1.3.8.cumulativevolumelong", ftypes.STRING, nil, nil, nil, "Cumulative volume executed today; 0 if no trades")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.cumulative_volume_short = ProtoField.new("Cumulative Volume Short", "cboe.edgaequities.top.asciipitch.v1.3.8.cumulativevolumeshort", ftypes.STRING, nil, nil, nil, "Cumulative number of shares traded today")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.edgaequities.top.asciipitch.v1.3.8.bidquantitylong", ftypes.UINT32, nil, nil, nil, "Bid quantity; 0 if no bids")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.edgaequities.top.asciipitch.v1.3.8.bidquantityshort", ftypes.UINT32, nil, nil, nil, "Bid size; 0 if no bids")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.cumulative_volume_long = ProtoField.new("Cumulative Volume Long", "cboe.edgaequities.top.asciipitch.v1.3.8.cumulativevolumelong", ftypes.UINT32, nil, nil, nil, "Cumulative volume executed today; 0 if no trades")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.cumulative_volume_short = ProtoField.new("Cumulative Volume Short", "cboe.edgaequities.top.asciipitch.v1.3.8.cumulativevolumeshort", ftypes.UINT32, nil, nil, nil, "Cumulative number of shares traded today")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.halt_status = ProtoField.new("Halt Status", "cboe.edgaequities.top.asciipitch.v1.3.8.haltstatus", ftypes.STRING)
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_price_extended = ProtoField.new("Last Price Extended", "cboe.edgaequities.top.asciipitch.v1.3.8.lastpriceextended", ftypes.DOUBLE, nil, nil, nil, "Last trade price")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_price_long = ProtoField.new("Last Price Long", "cboe.edgaequities.top.asciipitch.v1.3.8.lastpricelong", ftypes.DOUBLE, nil, nil, nil, "Last trade price")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_price_short = ProtoField.new("Last Price Short", "cboe.edgaequities.top.asciipitch.v1.3.8.lastpriceshort", ftypes.DOUBLE, nil, nil, nil, "Last trade price")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_quantity_long = ProtoField.new("Last Quantity Long", "cboe.edgaequities.top.asciipitch.v1.3.8.lastquantitylong", ftypes.STRING, nil, nil, nil, "Last trade quantity")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_quantity_short = ProtoField.new("Last Quantity Short", "cboe.edgaequities.top.asciipitch.v1.3.8.lastquantityshort", ftypes.STRING, nil, nil, nil, "Last trade quantity")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_quantity_long = ProtoField.new("Last Quantity Long", "cboe.edgaequities.top.asciipitch.v1.3.8.lastquantitylong", ftypes.UINT32, nil, nil, nil, "Last trade quantity")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_quantity_short = ProtoField.new("Last Quantity Short", "cboe.edgaequities.top.asciipitch.v1.3.8.lastquantityshort", ftypes.UINT32, nil, nil, nil, "Last trade quantity")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_price_long = ProtoField.new("Last Trade Price Long", "cboe.edgaequities.top.asciipitch.v1.3.8.lasttradepricelong", ftypes.DOUBLE, nil, nil, nil, "Last trade price; 0 if no trades")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_price_short = ProtoField.new("Last Trade Price Short", "cboe.edgaequities.top.asciipitch.v1.3.8.lasttradepriceshort", ftypes.DOUBLE, nil, nil, nil, "Last trade price; 0 if no trades")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_size = ProtoField.new("Last Trade Size", "cboe.edgaequities.top.asciipitch.v1.3.8.lasttradesize", ftypes.STRING, nil, nil, nil, "Last trade size; 0 if no trades")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.edgaequities.top.asciipitch.v1.3.8.lasttradetime", ftypes.STRING, nil, nil, nil, "Time of last trade; milliseconds since midnight, Eastern time")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_size = ProtoField.new("Last Trade Size", "cboe.edgaequities.top.asciipitch.v1.3.8.lasttradesize", ftypes.UINT32, nil, nil, nil, "Last trade size; 0 if no trades")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.edgaequities.top.asciipitch.v1.3.8.lasttradetime", ftypes.UINT32, nil, nil, nil, "Time of last trade; milliseconds since midnight, Eastern time")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.message_type = ProtoField.new("Message Type", "cboe.edgaequities.top.asciipitch.v1.3.8.messagetype", ftypes.STRING, nil, nil, nil, "Single ASCII byte identifying this packet type")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.edgaequities.top.asciipitch.v1.3.8.milliseconds", ftypes.STRING, nil, nil, nil, "Number of milliseconds since last Second message")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.edgaequities.top.asciipitch.v1.3.8.milliseconds", ftypes.UINT16, nil, nil, nil, "Number of milliseconds since last Second message")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.password = ProtoField.new("Password", "cboe.edgaequities.top.asciipitch.v1.3.8.password", ftypes.STRING, nil, nil, nil, "Password, assigned by Cboe")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.reg_sho_action = ProtoField.new("Reg SHO Action", "cboe.edgaequities.top.asciipitch.v1.3.8.regshoaction", ftypes.STRING)
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.reject_reason = ProtoField.new("Reject Reason", "cboe.edgaequities.top.asciipitch.v1.3.8.rejectreason", ftypes.STRING, nil, nil, nil, "\"A\" = Authentication or authorization problem (currently the only reason sent)")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgaequities.top.asciipitch.v1.3.8.reserved1", ftypes.STRING, nil, nil, nil, "Reserved")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.edgaequities.top.asciipitch.v1.3.8.reserved2", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.seconds = ProtoField.new("Seconds", "cboe.edgaequities.top.asciipitch.v1.3.8.seconds", ftypes.STRING, nil, nil, nil, "Number of seconds since midnight; e.g,. 32400 = 9:00am")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.seconds = ProtoField.new("Seconds", "cboe.edgaequities.top.asciipitch.v1.3.8.seconds", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight; e.g,. 32400 = 9:00am")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.spin_flag = ProtoField.new("Spin Flag", "cboe.edgaequities.top.asciipitch.v1.3.8.spinflag", ftypes.STRING, nil, nil, nil, "If \"Y\", spin current top of book")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.edgaequities.top.asciipitch.v1.3.8.symbolextended", ftypes.STRING, nil, nil, nil, "Symbol")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.edgaequities.top.asciipitch.v1.3.8.symbollong", ftypes.STRING, nil, nil, nil, "Symbol")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.edgaequities.top.asciipitch.v1.3.8.symbolshort", ftypes.STRING, nil, nil, nil, "Symbol")
-omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgaequities.top.asciipitch.v1.3.8.timestamp", ftypes.STRING, nil, nil, nil, "Time of top of book update; milliseconds since midnight, Eastern time")
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgaequities.top.asciipitch.v1.3.8.timestamp", ftypes.UINT32, nil, nil, nil, "Time of top of book update; milliseconds since midnight, Eastern time")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.top_lf = ProtoField.new("Top Lf", "cboe.edgaequities.top.asciipitch.v1.3.8.toplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character (0x0A)")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.username = ProtoField.new("Username", "cboe.edgaequities.top.asciipitch.v1.3.8.username", ftypes.STRING, nil, nil, nil, "Username, assigned by Cboe")
 
@@ -85,6 +85,11 @@ omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.short_trade_message = ProtoFi
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.short_two_sided_update_message = ProtoField.new("Short Two Sided Update Message", "cboe.edgaequities.top.asciipitch.v1.3.8.shorttwosidedupdatemessage", ftypes.STRING, nil, nil, nil, "Short Two-Sided Update Message")
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.spin_done_message = ProtoField.new("Spin Done Message", "cboe.edgaequities.top.asciipitch.v1.3.8.spindonemessage", ftypes.BYTES)
 omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.edgaequities.top.asciipitch.v1.3.8.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status Message is used to indicate the current trading status of a security.")
+
+-- Cboe EdgaEquities Top AsciiPitch 1.3.8 Expert Info
+cboe_edgaequities_top_asciipitch_v1_3_8.experts = {}
+cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number = ProtoExpert.new("cboe.edgaequities.top.asciipitch.v1.3.8.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_cboe_edgaequities_top_asciipitch_v1_3_8.experts = { cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -221,6 +226,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.ask_price_extended.dissect = function(bu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_price_extended, range, value, "Ask Price Extended: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Ask Price Extended is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -256,6 +264,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.ask_price_long.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_price_long, range, value, "Ask Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Ask Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -291,6 +302,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.ask_price_short.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_price_short, range, value, "Ask Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Ask Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -319,7 +333,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.ask_quantity_long.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_quantity_long, range, value, "Ask Quantity Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Ask Quantity Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.ask_quantity_long.display(value, buffer, offset, packet, parent)
@@ -347,7 +364,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.ask_quantity_short.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.ask_quantity_short, range, value, "Ask Quantity Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Ask Quantity Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.ask_quantity_short.display(value, buffer, offset, packet, parent)
@@ -382,6 +402,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.bid_price_extended.dissect = function(bu
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_price_extended, range, value, "Bid Price Extended: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Bid Price Extended is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -417,6 +440,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.bid_price_long.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_price_long, range, value, "Bid Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Bid Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -452,6 +478,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.bid_price_short.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_price_short, range, value, "Bid Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Bid Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -480,7 +509,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.bid_quantity_long.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_quantity_long, range, value, "Bid Quantity Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Bid Quantity Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.bid_quantity_long.display(value, buffer, offset, packet, parent)
@@ -508,7 +540,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.bid_quantity_short.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.bid_quantity_short, range, value, "Bid Quantity Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Bid Quantity Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.bid_quantity_short.display(value, buffer, offset, packet, parent)
@@ -536,7 +571,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.cumulative_volume_long.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.cumulative_volume_long, range, value, "Cumulative Volume Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Cumulative Volume Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.cumulative_volume_long.display(value, buffer, offset, packet, parent)
@@ -564,7 +602,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.cumulative_volume_short.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.cumulative_volume_short, range, value, "Cumulative Volume Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Cumulative Volume Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.cumulative_volume_short.display(value, buffer, offset, packet, parent)
@@ -622,6 +663,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_price_extended.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_price_extended, range, value, "Last Price Extended: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Price Extended is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -657,6 +701,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_price_long.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_price_long, range, value, "Last Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -692,6 +739,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_price_short.dissect = function(buff
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_price_short, range, value, "Last Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -720,7 +770,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_quantity_long.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_quantity_long, range, value, "Last Quantity Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Quantity Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.last_quantity_long.display(value, buffer, offset, packet, parent)
@@ -748,7 +801,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_quantity_short.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_quantity_short, range, value, "Last Quantity Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Quantity Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.last_quantity_short.display(value, buffer, offset, packet, parent)
@@ -783,6 +839,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_trade_price_long.dissect = function
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_price_long, range, value, "Last Trade Price Long: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Trade Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -818,6 +877,9 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_trade_price_short.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_price_short, range, value, "Last Trade Price Short: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Trade Price Short is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -846,7 +908,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_trade_size.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_size, range, value, "Last Trade Size: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Trade Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.last_trade_size.display(value, buffer, offset, packet, parent)
@@ -874,7 +939,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.last_trade_time.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.last_trade_time, range, value, "Last Trade Time: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Last Trade Time is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.last_trade_time.display(value, buffer, offset, packet, parent)
@@ -1007,7 +1075,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.milliseconds.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.milliseconds, range, value, "Milliseconds: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Milliseconds is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.milliseconds.display(value, buffer, offset, packet, parent)
@@ -1157,7 +1228,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.seconds.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.seconds, range, value, "Seconds: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Seconds is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.seconds.display(value, buffer, offset, packet, parent)
@@ -1277,7 +1351,10 @@ cboe_edgaequities_top_asciipitch_v1_3_8.timestamp.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_cboe_edgaequities_top_asciipitch_v1_3_8.fields.timestamp, range, value, "Timestamp: Not Applicable")
+    item:add_proto_expert_info(cboe_edgaequities_top_asciipitch_v1_3_8.experts.not_a_number, "Timestamp is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_8.timestamp.display(value, buffer, offset, packet, parent)

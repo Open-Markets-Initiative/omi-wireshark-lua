@@ -5553,7 +5553,7 @@ function omi_siac_cqs_input_cta_v2_9_b.dissector(buffer, packet, parent)
     local remaining = length - index
 
     -- The message length lives in the header: wait for the header before reading it
-    if remaining < siac_cqs_input_cta_v2_9_b.block_header.size then
+    if remaining < 2 + siac_cqs_input_cta_v2_9_b.block_header.size then
       packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length

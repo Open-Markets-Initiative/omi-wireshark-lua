@@ -22,7 +22,7 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.feed_identifier =
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.info = ProtoField.new("Info", "imperative.intelligentcross.depthofbook.aspen.v1.11.info", ftypes.STRING, nil, nil, nil, "optional text")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.length = ProtoField.new("Length", "imperative.intelligentcross.depthofbook.aspen.v1.11.length", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.listing_market = ProtoField.new("Listing Market", "imperative.intelligentcross.depthofbook.aspen.v1.11.listingmarket", ftypes.STRING, nil, nil, nil, "Code identifying the primary listing market")
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "imperative.intelligentcross.depthofbook.aspen.v1.11.marketdayidentifier", ftypes.STRING, nil, nil, nil, "Unique identifier for trading day")
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "imperative.intelligentcross.depthofbook.aspen.v1.11.marketdayidentifier", ftypes.UINT32, nil, nil, nil, "Unique identifier for trading day")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_type = ProtoField.new("Message Type", "imperative.intelligentcross.depthofbook.aspen.v1.11.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying message type")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.order_id = ProtoField.new("Order Id", "imperative.intelligentcross.depthofbook.aspen.v1.11.orderid", ftypes.UINT64, nil, nil, nil, "Market Issued Unique Order ID")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.price = ProtoField.new("Price", "imperative.intelligentcross.depthofbook.aspen.v1.11.price", ftypes.DOUBLE, nil, nil, nil, "Price -6 implied decimals")
@@ -60,6 +60,11 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.trade_message = P
 
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Generated Fields
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_index = ProtoField.new("Message Index", "imperative.intelligentcross.depthofbook.aspen.v1.11.messageindex", ftypes.UINT16)
+
+-- Imperative IntelligentCross DepthOfBook Aspen 1.11 Expert Info
+imperative_intelligentcross_depthofbook_aspen_v1_11.experts = {}
+imperative_intelligentcross_depthofbook_aspen_v1_11.experts.not_a_number = ProtoExpert.new("imperative.intelligentcross.depthofbook.aspen.v1.11.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.experts = { imperative_intelligentcross_depthofbook_aspen_v1_11.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -332,7 +337,10 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.market_day_identifier.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.market_day_identifier, range, value, "Market Day Identifier: Not Applicable")
+    item:add_proto_expert_info(imperative_intelligentcross_depthofbook_aspen_v1_11.experts.not_a_number, "Market Day Identifier is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = imperative_intelligentcross_depthofbook_aspen_v1_11.market_day_identifier.display(value, buffer, offset, packet, parent)

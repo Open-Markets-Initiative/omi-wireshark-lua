@@ -16,18 +16,18 @@ local athex_athexderivatives_realtime_ids_v5_2 = {}
 
 -- Athex AthexDerivatives RealTime Ids 5.2 Fields
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.accrued_interest = ProtoField.new("Accrued Interest", "athex.athexderivatives.realtime.ids.v5.2.accruedinterest", ftypes.DOUBLE, nil, nil, nil, "For bonds")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.ask_orders = ProtoField.new("Ask Orders", "athex.athexderivatives.realtime.ids.v5.2.askorders", ftypes.STRING, nil, nil, nil, "The number of orders composing the current ask level")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.ask_orders = ProtoField.new("Ask Orders", "athex.athexderivatives.realtime.ids.v5.2.askorders", ftypes.UINT32, nil, nil, nil, "The number of orders composing the current ask level")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.ask_price = ProtoField.new("Ask Price", "athex.athexderivatives.realtime.ids.v5.2.askprice", ftypes.DOUBLE, nil, nil, nil, "The best Ask price")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.ask_size = ProtoField.new("Ask Size", "athex.athexderivatives.realtime.ids.v5.2.asksize", ftypes.DOUBLE, nil, nil, nil, "The best Ask volume")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.bid_orders = ProtoField.new("Bid Orders", "athex.athexderivatives.realtime.ids.v5.2.bidorders", ftypes.STRING, nil, nil, nil, "The number of orders composing the current bid level")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.bid_orders = ProtoField.new("Bid Orders", "athex.athexderivatives.realtime.ids.v5.2.bidorders", ftypes.UINT32, nil, nil, nil, "The number of orders composing the current bid level")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.bid_price = ProtoField.new("Bid Price", "athex.athexderivatives.realtime.ids.v5.2.bidprice", ftypes.DOUBLE, nil, nil, nil, "The best Bid price")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.bid_size = ProtoField.new("Bid Size", "athex.athexderivatives.realtime.ids.v5.2.bidsize", ftypes.DOUBLE, nil, nil, nil, "The best Bid volume")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.board_id = ProtoField.new("Board Id", "athex.athexderivatives.realtime.ids.v5.2.boardid", ftypes.STRING, nil, nil, nil, "The trading board under which the instrument is being traded")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_algo_flag = ProtoField.new("Buy Algo Flag", "athex.athexderivatives.realtime.ids.v5.2.buyalgoflag", ftypes.STRING, nil, nil, nil, "Algorithmic transaction flag of the buy side. Y is flag on and any other value is flag off")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_order_date = ProtoField.new("Buy Order Date", "athex.athexderivatives.realtime.ids.v5.2.buyorderdate", ftypes.STRING, nil, nil, nil, "The date the buy side order was entered into the trading system")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_order_number = ProtoField.new("Buy Order Number", "athex.athexderivatives.realtime.ids.v5.2.buyordernumber", ftypes.STRING, nil, nil, nil, "The sequence number of the buy side order being matched")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_order_number = ProtoField.new("Buy Order Number", "athex.athexderivatives.realtime.ids.v5.2.buyordernumber", ftypes.UINT32, nil, nil, nil, "The sequence number of the buy side order being matched")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_order_type = ProtoField.new("Buy Order Type", "athex.athexderivatives.realtime.ids.v5.2.buyordertype", ftypes.STRING, nil, nil, nil, "The type of the buy side order")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_waiver_indicator = ProtoField.new("Buy Waiver Indicator", "athex.athexderivatives.realtime.ids.v5.2.buywaiverindicator", ftypes.STRING, nil, nil, nil, "Bitwise field that defines the waivers: bit 1 RFPT reference price, bit 2 NLIQ negotiated liquid, bit 3 OILQ negotiated illiquid, bit 4 PRIC negotiated conditions, bit 5 SIZE above specified size, bit 6 ILQD illiquid instrument")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_waiver_indicator = ProtoField.new("Buy Waiver Indicator", "athex.athexderivatives.realtime.ids.v5.2.buywaiverindicator", ftypes.STRING, nil, nil, nil, "Waiver flags for the buy side, a bit mask spelled as four numeric characters")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.cancelled_trade_price = ProtoField.new("Cancelled Trade Price", "athex.athexderivatives.realtime.ids.v5.2.cancelledtradeprice", ftypes.DOUBLE, nil, nil, nil, "The price of the cancelled trade")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.cancelled_volume = ProtoField.new("Cancelled Volume", "athex.athexderivatives.realtime.ids.v5.2.cancelledvolume", ftypes.DOUBLE, nil, nil, nil, "The volume of the cancelled trade")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.ceiling_price = ProtoField.new("Ceiling Price", "athex.athexderivatives.realtime.ids.v5.2.ceilingprice", ftypes.DOUBLE, nil, nil, nil, "The Instrument's ceiling price")
@@ -41,6 +41,7 @@ omi_athex_athexderivatives_realtime_ids_v5_2.fields.floor_price = ProtoField.new
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.free_text = ProtoField.new("Free Text", "athex.athexderivatives.realtime.ids.v5.2.freetext", ftypes.STRING, nil, nil, nil, "The actual message, of any size between one and four hundred characters, written in English")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.halt_suspend_reason = ProtoField.new("Halt Suspend Reason", "athex.athexderivatives.realtime.ids.v5.2.haltsuspendreason", ftypes.STRING, nil, nil, nil, "The Reason for Halting or Suspending the Instrument")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.high = ProtoField.new("High", "athex.athexderivatives.realtime.ids.v5.2.high", ftypes.DOUBLE, nil, nil, nil, "The highest price with which the given Instrument was traded, during the trading day")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.ilqd = ProtoField.new("Ilqd", "athex.athexderivatives.realtime.ids.v5.2.ilqd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000020, "Illiquid instrument waiver")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.index_price = ProtoField.new("Index Price", "athex.athexderivatives.realtime.ids.v5.2.indexprice", ftypes.DOUBLE, nil, nil, nil, "The calculated value of the Index")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.instrument_status = ProtoField.new("Instrument Status", "athex.athexderivatives.realtime.ids.v5.2.instrumentstatus", ftypes.STRING, nil, nil, nil, "The Instrument's status")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.last = ProtoField.new("Last", "athex.athexderivatives.realtime.ids.v5.2.last", ftypes.DOUBLE, nil, nil, nil, "The last price with which the given Instrument was traded, during the trading day")
@@ -52,45 +53,52 @@ omi_athex_athexderivatives_realtime_ids_v5_2.fields.market_id = ProtoField.new("
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.market_status = ProtoField.new("Market Status", "athex.athexderivatives.realtime.ids.v5.2.marketstatus", ftypes.STRING, nil, nil, nil, "The Market status")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.matched_volume = ProtoField.new("Matched Volume", "athex.athexderivatives.realtime.ids.v5.2.matchedvolume", ftypes.DOUBLE, nil, nil, nil, "The portion of the order's Volume that has been matched thus far")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.message_category = ProtoField.new("Message Category", "athex.athexderivatives.realtime.ids.v5.2.messagecategory", ftypes.STRING, nil, nil, nil, "Identifies the category of the transmitted message, and selects the Message Text that follows the header")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "athex.athexderivatives.realtime.ids.v5.2.messagesequencenumber", ftypes.STRING, nil, nil, nil, "Sequence number of the packet. The first message sent has a sequence number of zero and every message thereafter increments it by one, except a Line Verification control message, which repeats the number of the last message sent. A vendor asks the Ids to retransmit by naming the first and last sequence numbers to send, and a retransmitted packet carries its original number")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "athex.athexderivatives.realtime.ids.v5.2.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the packet. The first message sent has a sequence number of zero and every message thereafter increments it by one, except a Line Verification control message, which repeats the number of the last message sent. A vendor asks the Ids to retransmit by naming the first and last sequence numbers to send, and a retransmitted packet carries its original number")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.message_subcategory = ProtoField.new("Message Subcategory", "athex.athexderivatives.realtime.ids.v5.2.messagesubcategory", ftypes.STRING, nil, nil, nil, "Identifies the financial product whose information is conveyed and imposes a second level of categorization upon it. The Ids sends one space when the packet's category is not directly related to a specific financial product")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.message_type = ProtoField.new("Message Type", "athex.athexderivatives.realtime.ids.v5.2.messagetype", ftypes.STRING, nil, nil, nil, "The Category's type")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.nliq = ProtoField.new("Nliq", "athex.athexderivatives.realtime.ids.v5.2.nliq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000002, "Negotiated transaction in liquid instruments waiver")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.notification_headline_in_english = ProtoField.new("Notification Headline In English", "athex.athexderivatives.realtime.ids.v5.2.notificationheadlineinenglish", ftypes.STRING, nil, nil, nil, "The headline of the notification in the English language")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.notification_headline_in_local = ProtoField.new("Notification Headline In Local", "athex.athexderivatives.realtime.ids.v5.2.notificationheadlineinlocal", ftypes.STRING, nil, nil, nil, "The headline of the notification in the Local language")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.notional_amount = ProtoField.new("Notional Amount", "athex.athexderivatives.realtime.ids.v5.2.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Trade value")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.open_interest = ProtoField.new("Open Interest", "athex.athexderivatives.realtime.ids.v5.2.openinterest", ftypes.STRING, nil, nil, nil, "Total number of outstanding contracts")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.oilq = ProtoField.new("Oilq", "athex.athexderivatives.realtime.ids.v5.2.oilq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000004, "Negotiated transaction in illiquid instruments waiver")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.open_interest = ProtoField.new("Open Interest", "athex.athexderivatives.realtime.ids.v5.2.openinterest", ftypes.UINT32, nil, nil, nil, "Total number of outstanding contracts")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.opening_price = ProtoField.new("Opening Price", "athex.athexderivatives.realtime.ids.v5.2.openingprice", ftypes.DOUBLE, nil, nil, nil, "The Instrument's opening price")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_entry_date = ProtoField.new("Order Entry Date", "athex.athexderivatives.realtime.ids.v5.2.orderentrydate", ftypes.STRING, nil, nil, nil, "The date the order entered the trading system")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_lifetime = ProtoField.new("Order Lifetime", "athex.athexderivatives.realtime.ids.v5.2.orderlifetime", ftypes.STRING, nil, nil, nil, "The order's lifetime")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_number = ProtoField.new("Order Number", "athex.athexderivatives.realtime.ids.v5.2.ordernumber", ftypes.STRING, nil, nil, nil, "The order's sequence number")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_number = ProtoField.new("Order Number", "athex.athexderivatives.realtime.ids.v5.2.ordernumber", ftypes.UINT32, nil, nil, nil, "The order's sequence number")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_release_date = ProtoField.new("Order Release Date", "athex.athexderivatives.realtime.ids.v5.2.orderreleasedate", ftypes.STRING, nil, nil, nil, "The date the order was released to the Order Book, or for orders that undergo time priority changes the date when that change occurs")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_release_time = ProtoField.new("Order Release Time", "athex.athexderivatives.realtime.ids.v5.2.orderreleasetime", ftypes.STRING, nil, nil, nil, "The time the order was released to the Order Book, or for orders that undergo time priority changes the time at which that change occurs")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_status = ProtoField.new("Order Status", "athex.athexderivatives.realtime.ids.v5.2.orderstatus", ftypes.STRING, nil, nil, nil, "The status of the order")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_type = ProtoField.new("Order Type", "athex.athexderivatives.realtime.ids.v5.2.ordertype", ftypes.STRING, nil, nil, nil, "The type of the order")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.original_price_type = ProtoField.new("Original Price Type", "athex.athexderivatives.realtime.ids.v5.2.originalpricetype", ftypes.STRING, nil, nil, nil, "The original price type")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.phase_id = ProtoField.new("Phase Id", "athex.athexderivatives.realtime.ids.v5.2.phaseid", ftypes.STRING, nil, nil, nil, "The Instrument's trading phase")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.pric = ProtoField.new("Pric", "athex.athexderivatives.realtime.ids.v5.2.pric", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000008, "Negotiated transaction subject to conditions other than the current market price waiver")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.price = ProtoField.new("Price", "athex.athexderivatives.realtime.ids.v5.2.price", ftypes.DOUBLE, nil, nil, nil, "The trade's price")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.price_flag = ProtoField.new("Price Flag", "athex.athexderivatives.realtime.ids.v5.2.priceflag", ftypes.STRING, nil, nil, nil, "Which of the three prices the message carries")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexderivatives.realtime.ids.v5.2.publicationtimestamp", ftypes.STRING, nil, nil, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexderivatives.realtime.ids.v5.2.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp_utc = ProtoField.new("Publication Timestamp", "athex.athexderivatives.realtime.ids.v5.2.publicationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.quote_level = ProtoField.new("Quote Level", "athex.athexderivatives.realtime.ids.v5.2.quotelevel", ftypes.STRING, nil, nil, nil, "One Bid and Ask level of the given instrument, repeated as many times as the Quote Levels field states")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.quote_levels = ProtoField.new("Quote Levels", "athex.athexderivatives.realtime.ids.v5.2.quotelevels", ftypes.STRING, nil, nil, nil, "The number of Bid and Ask levels contained in this message for the given instrument")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.quote_levels = ProtoField.new("Quote Levels", "athex.athexderivatives.realtime.ids.v5.2.quotelevels", ftypes.UINT16, nil, nil, nil, "The number of Bid and Ask levels contained in this message for the given instrument")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.rfpt = ProtoField.new("Rfpt", "athex.athexderivatives.realtime.ids.v5.2.rfpt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000001, "Reference price waiver")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.sdiv_flag = ProtoField.new("Sdiv Flag", "athex.athexderivatives.realtime.ids.v5.2.sdivflag", ftypes.STRING, nil, nil, nil, "Special Dividend transaction flag. Y is flag on and any other value is flag off")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_algo_flag = ProtoField.new("Sell Algo Flag", "athex.athexderivatives.realtime.ids.v5.2.sellalgoflag", ftypes.STRING, nil, nil, nil, "Algorithmic transaction flag of the sell side. Y is flag on and any other value is flag off")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_order_date = ProtoField.new("Sell Order Date", "athex.athexderivatives.realtime.ids.v5.2.sellorderdate", ftypes.STRING, nil, nil, nil, "The date the sell side order was entered into the trading system")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_order_number = ProtoField.new("Sell Order Number", "athex.athexderivatives.realtime.ids.v5.2.sellordernumber", ftypes.STRING, nil, nil, nil, "The sequence number of the sell side order being matched")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_order_number = ProtoField.new("Sell Order Number", "athex.athexderivatives.realtime.ids.v5.2.sellordernumber", ftypes.UINT32, nil, nil, nil, "The sequence number of the sell side order being matched")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_order_type = ProtoField.new("Sell Order Type", "athex.athexderivatives.realtime.ids.v5.2.sellordertype", ftypes.STRING, nil, nil, nil, "The type of the sell side order")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_waiver_indicator = ProtoField.new("Sell Waiver Indicator", "athex.athexderivatives.realtime.ids.v5.2.sellwaiverindicator", ftypes.STRING, nil, nil, nil, "Bitwise field that defines the waivers: bit 1 RFPT reference price, bit 2 NLIQ negotiated liquid, bit 3 OILQ negotiated illiquid, bit 4 PRIC negotiated conditions, bit 5 SIZE above specified size, bit 6 ILQD illiquid instrument")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_waiver_indicator = ProtoField.new("Sell Waiver Indicator", "athex.athexderivatives.realtime.ids.v5.2.sellwaiverindicator", ftypes.STRING, nil, nil, nil, "Waiver flags for the sell side, a bit mask spelled as four numeric characters")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.side = ProtoField.new("Side", "athex.athexderivatives.realtime.ids.v5.2.side", ftypes.STRING, nil, nil, nil, "The order's side")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.size = ProtoField.new("Size", "athex.athexderivatives.realtime.ids.v5.2.size", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000010, "Above specified size waiver")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.soh = ProtoField.new("Soh", "athex.athexderivatives.realtime.ids.v5.2.soh", ftypes.INT8, nil, nil, nil, "First character of every message packet, signalling the beginning of the packet")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.special_conditions = ProtoField.new("Special Conditions", "athex.athexderivatives.realtime.ids.v5.2.specialconditions", ftypes.STRING, nil, nil, nil, "The condition of the order if available")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.start_of_day_price = ProtoField.new("Start Of Day Price", "athex.athexderivatives.realtime.ids.v5.2.startofdayprice", ftypes.DOUBLE, nil, nil, nil, "Usually the previous day's closing price adjusted, if necessary, from various corporate actions")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.symbol = ProtoField.new("Symbol", "athex.athexderivatives.realtime.ids.v5.2.symbol", ftypes.STRING, nil, nil, nil, "The Instrument's fifteen character symbol")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_english = ProtoField.new("Text Size In English", "athex.athexderivatives.realtime.ids.v5.2.textsizeinenglish", ftypes.STRING, nil, nil, nil, "The size of the notification Text written in the English language")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_local = ProtoField.new("Text Size In Local", "athex.athexderivatives.realtime.ids.v5.2.textsizeinlocal", ftypes.STRING, nil, nil, nil, "The size of the notification Text written in the Local language")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp = ProtoField.new("Time Stamp", "athex.athexderivatives.realtime.ids.v5.2.timestamp", ftypes.STRING, nil, nil, nil, "Time the message was created in the Trading System, as local time to the microsecond")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_english = ProtoField.new("Text Size In English", "athex.athexderivatives.realtime.ids.v5.2.textsizeinenglish", ftypes.UINT32, nil, nil, nil, "The size of the notification Text written in the English language")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_local = ProtoField.new("Text Size In Local", "athex.athexderivatives.realtime.ids.v5.2.textsizeinlocal", ftypes.UINT32, nil, nil, nil, "The size of the notification Text written in the Local language")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp = ProtoField.new("Time Stamp", "athex.athexderivatives.realtime.ids.v5.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was created in the Trading System, as local time to the microsecond")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp_utc = ProtoField.new("Time Stamp", "athex.athexderivatives.realtime.ids.v5.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was created in the Trading System, as local time to the microsecond")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.total_value = ProtoField.new("Total Value", "athex.athexderivatives.realtime.ids.v5.2.totalvalue", ftypes.DOUBLE, nil, nil, nil, "The total value traded in the given Market for the given Instrument, during the trading day")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.total_volume = ProtoField.new("Total Volume", "athex.athexderivatives.realtime.ids.v5.2.totalvolume", ftypes.DOUBLE, nil, nil, nil, "The total number of stocks or contracts traded up to that point")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.trade_number = ProtoField.new("Trade Number", "athex.athexderivatives.realtime.ids.v5.2.tradenumber", ftypes.STRING, nil, nil, nil, "Unique for the trading day")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.trade_number = ProtoField.new("Trade Number", "athex.athexderivatives.realtime.ids.v5.2.tradenumber", ftypes.UINT32, nil, nil, nil, "Unique for the trading day")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.trade_source = ProtoField.new("Trade Source", "athex.athexderivatives.realtime.ids.v5.2.tradesource", ftypes.STRING, nil, nil, nil, "The system the trade came from")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.trade_type = ProtoField.new("Trade Type", "athex.athexderivatives.realtime.ids.v5.2.tradetype", ftypes.STRING, nil, nil, nil, "Whether the trade is new or an edit of one already reported")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.vendor_identifier = ProtoField.new("Vendor Identifier", "athex.athexderivatives.realtime.ids.v5.2.vendoridentifier", ftypes.STRING, nil, nil, nil, "Identifies the Data Vendor the packet is intended for: two spaces for every vendor, which is the value of every packet sent during the trading session, TV for a test vendor, or a vendor code, which the Ids sends only during retransmission")
@@ -124,6 +132,25 @@ omi_athex_athexderivatives_realtime_ids_v5_2.fields.trade_message = ProtoField.n
 -- Athex AthexDerivatives RealTime Ids 5.2 Generated Fields
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.quote_level_index = ProtoField.new("Quote Level Index", "athex.athexderivatives.realtime.ids.v5.2.quotelevelindex", ftypes.UINT16)
 
+-- Athex AthexDerivatives RealTime Ids 5.2 Expert Info
+athex_athexderivatives_realtime_ids_v5_2.experts = {}
+athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number = ProtoExpert.new("athex.athexderivatives.realtime.ids.v5.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_athex_athexderivatives_realtime_ids_v5_2.experts = { athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number }
+
+-----------------------------------------------------------------------
+-- Athex AthexDerivatives RealTime Ids 5.2 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+athex_athexderivatives_realtime_ids_v5_2.absolute_time_base = 0
+
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -132,17 +159,19 @@ local show = {}
 
 -- Athex AthexDerivatives RealTime Ids 5.2 Element Dissection Options
 show.application_messages = true
-show.headers = true
 show.structs = true
+show.headers = true
 show.repeating_groups = true
 show.indexes = true
 
 -- Register Athex AthexDerivatives RealTime Ids 5.2 Show Options
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_athex_athexderivatives_realtime_ids_v5_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
 -- Handle changed preferences
 function omi_athex_athexderivatives_realtime_ids_v5_2.prefs_changed()
@@ -162,6 +191,9 @@ function omi_athex_athexderivatives_realtime_ids_v5_2.prefs_changed()
   end
   if show.indexes ~= omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_indexes then
     show.indexes = omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_indexes
+  end
+  if athex_athexderivatives_realtime_ids_v5_2.absolute_time_base ~= omi_athex_athexderivatives_realtime_ids_v5_2.prefs.absolute_time_base then
+    athex_athexderivatives_realtime_ids_v5_2.absolute_time_base = omi_athex_athexderivatives_realtime_ids_v5_2.prefs.absolute_time_base
   end
 end
 
@@ -274,6 +306,9 @@ athex_athexderivatives_realtime_ids_v5_2.accrued_interest.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.accrued_interest, range, value, "Accrued Interest: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Accrued Interest is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/1000000
 
@@ -302,7 +337,10 @@ athex_athexderivatives_realtime_ids_v5_2.ask_orders.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.ask_orders, range, value, "Ask Orders: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Ask Orders is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.ask_orders.display(value, buffer, offset, packet, parent)
@@ -337,6 +375,9 @@ athex_athexderivatives_realtime_ids_v5_2.ask_price.dissect = function(buffer, of
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -372,6 +413,9 @@ athex_athexderivatives_realtime_ids_v5_2.ask_size.dissect = function(buffer, off
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.ask_size, range, value, "Ask Size: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Ask Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -400,7 +444,10 @@ athex_athexderivatives_realtime_ids_v5_2.bid_orders.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.bid_orders, range, value, "Bid Orders: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Bid Orders is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.bid_orders.display(value, buffer, offset, packet, parent)
@@ -435,6 +482,9 @@ athex_athexderivatives_realtime_ids_v5_2.bid_price.dissect = function(buffer, of
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -470,6 +520,9 @@ athex_athexderivatives_realtime_ids_v5_2.bid_size.dissect = function(buffer, off
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.bid_size, range, value, "Bid Size: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Bid Size is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -591,7 +644,10 @@ athex_athexderivatives_realtime_ids_v5_2.buy_order_number.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_order_number, range, value, "Buy Order Number: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Buy Order Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.buy_order_number.display(value, buffer, offset, packet, parent)
@@ -634,34 +690,6 @@ athex_athexderivatives_realtime_ids_v5_2.buy_order_type.dissect = function(buffe
   return offset + length, value
 end
 
--- Buy Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator = {}
-
--- Size: Buy Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.size = 4
-
--- Display: Buy Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.display = function(value)
-  return "Buy Waiver Indicator: "..value
-end
-
--- Dissect: Buy Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
-  local display = athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_waiver_indicator, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cancelled Trade Price
 athex_athexderivatives_realtime_ids_v5_2.cancelled_trade_price = {}
 
@@ -687,6 +715,9 @@ athex_athexderivatives_realtime_ids_v5_2.cancelled_trade_price.dissect = functio
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.cancelled_trade_price, range, value, "Cancelled Trade Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Cancelled Trade Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -722,6 +753,9 @@ athex_athexderivatives_realtime_ids_v5_2.cancelled_volume.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.cancelled_volume, range, value, "Cancelled Volume: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Cancelled Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -757,6 +791,9 @@ athex_athexderivatives_realtime_ids_v5_2.ceiling_price.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.ceiling_price, range, value, "Ceiling Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Ceiling Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -792,6 +829,9 @@ athex_athexderivatives_realtime_ids_v5_2.closing.dissect = function(buffer, offs
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.closing, range, value, "Closing: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Closing is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -827,6 +867,9 @@ athex_athexderivatives_realtime_ids_v5_2.closing_price.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.closing_price, range, value, "Closing Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -862,6 +905,9 @@ athex_athexderivatives_realtime_ids_v5_2.condition_volume.dissect = function(buf
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.condition_volume, range, value, "Condition Volume: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Condition Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -970,6 +1016,9 @@ athex_athexderivatives_realtime_ids_v5_2.floor_price.dissect = function(buffer, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.floor_price, range, value, "Floor Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Floor Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1057,6 +1106,9 @@ athex_athexderivatives_realtime_ids_v5_2.high.dissect = function(buffer, offset,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.high, range, value, "High: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "High is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1092,6 +1144,9 @@ athex_athexderivatives_realtime_ids_v5_2.index_price.dissect = function(buffer, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.index_price, range, value, "Index Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Index Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1163,6 +1218,9 @@ athex_athexderivatives_realtime_ids_v5_2.last.dissect = function(buffer, offset,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.last, range, value, "Last: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Last is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1244,6 +1302,9 @@ athex_athexderivatives_realtime_ids_v5_2.low.dissect = function(buffer, offset, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.low, range, value, "Low: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Low is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1370,6 +1431,9 @@ athex_athexderivatives_realtime_ids_v5_2.matched_volume.dissect = function(buffe
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.matched_volume, range, value, "Matched Volume: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Matched Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -1464,7 +1528,10 @@ athex_athexderivatives_realtime_ids_v5_2.message_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.message_sequence_number, range, value, "Message Sequence Number: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Message Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.message_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1638,6 +1705,9 @@ athex_athexderivatives_realtime_ids_v5_2.notional_amount.dissect = function(buff
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -1666,7 +1736,10 @@ athex_athexderivatives_realtime_ids_v5_2.open_interest.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.open_interest, range, value, "Open Interest: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Open Interest is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.open_interest.display(value, buffer, offset, packet, parent)
@@ -1701,6 +1774,9 @@ athex_athexderivatives_realtime_ids_v5_2.opening_price.dissect = function(buffer
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.opening_price, range, value, "Opening Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Opening Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -1789,7 +1865,10 @@ athex_athexderivatives_realtime_ids_v5_2.order_number.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.order_number, range, value, "Order Number: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Order Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.order_number.display(value, buffer, offset, packet, parent)
@@ -2025,6 +2104,9 @@ athex_athexderivatives_realtime_ids_v5_2.price.dissect = function(buffer, offset
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.price, range, value, "Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -2074,30 +2156,48 @@ athex_athexderivatives_realtime_ids_v5_2.publication_timestamp = {}
 -- Size: Publication Timestamp
 athex_athexderivatives_realtime_ids_v5_2.publication_timestamp.size = 20
 
--- Display: Publication Timestamp
-athex_athexderivatives_realtime_ids_v5_2.publication_timestamp.display = function(value)
-  local digits = tostring(value)
-
-  if #digits ~= 20 or digits:find("%D") then
-    return "Publication Timestamp: "..digits
-  end
-
-  return string.format("Publication Timestamp: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 20))
-end
-
 -- Dissect: Publication Timestamp
 athex_athexderivatives_realtime_ids_v5_2.publication_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = athex_athexderivatives_realtime_ids_v5_2.publication_timestamp.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = athex_athexderivatives_realtime_ids_v5_2.publication_timestamp.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp
+  if athex_athexderivatives_realtime_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp_utc end
 
-  return offset + length, value
+  -- Twenty digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second, micros
+  if #text == 20 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+    micros = tonumber(text:sub(15, 20))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Publication Timestamp: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = micros * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, text
 end
 
 -- Quote Levels
@@ -2118,7 +2218,10 @@ athex_athexderivatives_realtime_ids_v5_2.quote_levels.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.quote_levels, range, value, "Quote Levels: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Quote Levels is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.quote_levels.display(value, buffer, offset, packet, parent)
@@ -2227,7 +2330,10 @@ athex_athexderivatives_realtime_ids_v5_2.sell_order_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_order_number, range, value, "Sell Order Number: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Sell Order Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.sell_order_number.display(value, buffer, offset, packet, parent)
@@ -2266,34 +2372,6 @@ athex_athexderivatives_realtime_ids_v5_2.sell_order_type.dissect = function(buff
   local display = athex_athexderivatives_realtime_ids_v5_2.sell_order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_order_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Sell Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator = {}
-
--- Size: Sell Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.size = 4
-
--- Display: Sell Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.display = function(value)
-  return "Sell Waiver Indicator: "..value
-end
-
--- Dissect: Sell Waiver Indicator
-athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
-  local display = athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_waiver_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2428,6 +2506,9 @@ athex_athexderivatives_realtime_ids_v5_2.start_of_day_price.dissect = function(b
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.start_of_day_price, range, value, "Start Of Day Price: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Start Of Day Price is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/10000
 
@@ -2479,7 +2560,10 @@ athex_athexderivatives_realtime_ids_v5_2.text_size_in_english.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_english, range, value, "Text Size In English: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Text Size In English is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.text_size_in_english.display(value, buffer, offset, packet, parent)
@@ -2507,7 +2591,10 @@ athex_athexderivatives_realtime_ids_v5_2.text_size_in_local.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_local, range, value, "Text Size In Local: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Text Size In Local is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.text_size_in_local.display(value, buffer, offset, packet, parent)
@@ -2523,30 +2610,48 @@ athex_athexderivatives_realtime_ids_v5_2.time_stamp = {}
 -- Size: Time Stamp
 athex_athexderivatives_realtime_ids_v5_2.time_stamp.size = 20
 
--- Display: Time Stamp
-athex_athexderivatives_realtime_ids_v5_2.time_stamp.display = function(value)
-  local digits = tostring(value)
-
-  if #digits ~= 20 or digits:find("%D") then
-    return "Time Stamp: "..digits
-  end
-
-  return string.format("Time Stamp: %s-%s-%s %s:%s:%s.%s",
-                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
-                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
-                       digits:sub(15, 20))
-end
-
 -- Dissect: Time Stamp
 athex_athexderivatives_realtime_ids_v5_2.time_stamp.dissect = function(buffer, offset, packet, parent)
   local length = athex_athexderivatives_realtime_ids_v5_2.time_stamp.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = athex_athexderivatives_realtime_ids_v5_2.time_stamp.display(value, buffer, offset, packet, parent)
+  local text = range:string()
 
-  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp
+  if athex_athexderivatives_realtime_ids_v5_2.absolute_time_base == 1 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp_utc end
 
-  return offset + length, value
+  -- Twenty digits read as a date; anything else leaves the parts nil
+  local year, month, day, hour, minute, second, micros
+  if #text == 20 and not text:find("%D") then
+    year = tonumber(text:sub(1, 4))
+    month = tonumber(text:sub(5, 6))
+    day = tonumber(text:sub(7, 8))
+    hour = tonumber(text:sub(9, 10))
+    minute = tonumber(text:sub(11, 12))
+    second = tonumber(text:sub(13, 14))
+    micros = tonumber(text:sub(15, 20))
+  end
+
+  if year == nil or month < 1 or month > 12 or day < 1 or day > 31 then
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Time Stamp: " .. text)
+    return offset + length, text
+  end
+
+  -- Days since the Unix epoch, by civil date arithmetic, in Utc
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor((y >= 0 and y or y - 399) / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
+  local nanos = micros * 1000
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, text
 end
 
 -- Total Value
@@ -2574,6 +2679,9 @@ athex_athexderivatives_realtime_ids_v5_2.total_value.dissect = function(buffer, 
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.total_value, range, value, "Total Value: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Total Value is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -2609,6 +2717,9 @@ athex_athexderivatives_realtime_ids_v5_2.total_volume.dissect = function(buffer,
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.total_volume, range, value, "Total Volume: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Total Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -2637,7 +2748,10 @@ athex_athexderivatives_realtime_ids_v5_2.trade_number.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.trade_number, range, value, "Trade Number: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Trade Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = athex_athexderivatives_realtime_ids_v5_2.trade_number.display(value, buffer, offset, packet, parent)
@@ -2781,6 +2895,9 @@ athex_athexderivatives_realtime_ids_v5_2.volume.dissect = function(buffer, offse
 
   if value == nil then
     value = 0
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.volume, range, value, "Volume: Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
+    return offset + length, value
   end
   value = value/100
 
@@ -3328,6 +3445,170 @@ athex_athexderivatives_realtime_ids_v5_2.closing_price_message.dissect = functio
   end
 end
 
+-- Sell Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator = {}
+
+-- Size: Sell Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.size = 4
+
+-- Display: Sell Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Rfpt flag set?
+  if bit.band(value, 0x00000001) ~= 0 then
+    flags[#flags + 1] = "Rfpt"
+  end
+  -- Is Nliq flag set?
+  if bit.band(value, 0x00000002) ~= 0 then
+    flags[#flags + 1] = "Nliq"
+  end
+  -- Is Oilq flag set?
+  if bit.band(value, 0x00000004) ~= 0 then
+    flags[#flags + 1] = "Oilq"
+  end
+  -- Is Pric flag set?
+  if bit.band(value, 0x00000008) ~= 0 then
+    flags[#flags + 1] = "Pric"
+  end
+  -- Is Size flag set?
+  if bit.band(value, 0x00000010) ~= 0 then
+    flags[#flags + 1] = "Size"
+  end
+  -- Is Ilqd flag set?
+  if bit.band(value, 0x00000020) ~= 0 then
+    flags[#flags + 1] = "Ilqd"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Sell Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.bits = function(range, value, packet, parent)
+
+  -- Rfpt: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.rfpt, range, value)
+
+  -- Nliq: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.nliq, range, value)
+
+  -- Oilq: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.oilq, range, value)
+
+  -- Pric: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.pric, range, value)
+
+  -- Size: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.size, range, value)
+
+  -- Ilqd: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.ilqd, range, value)
+end
+
+-- Dissect: Sell Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.dissect = function(buffer, offset, packet, parent)
+  local size = athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.size
+  local range = buffer(offset, size)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    -- Digits that are no number: label it so, flag the protocol expert, add no bits
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_waiver_indicator, range, "Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Sell Waiver Indicator is not a number: '"..range:string().."'")
+    return offset + size, 0
+  end
+  local display = athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.display(range, value, packet, parent)
+  local element = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.sell_waiver_indicator, range, display)
+
+  if show.structs then
+    athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Buy Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator = {}
+
+-- Size: Buy Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.size = 4
+
+-- Display: Buy Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Rfpt flag set?
+  if bit.band(value, 0x00000001) ~= 0 then
+    flags[#flags + 1] = "Rfpt"
+  end
+  -- Is Nliq flag set?
+  if bit.band(value, 0x00000002) ~= 0 then
+    flags[#flags + 1] = "Nliq"
+  end
+  -- Is Oilq flag set?
+  if bit.band(value, 0x00000004) ~= 0 then
+    flags[#flags + 1] = "Oilq"
+  end
+  -- Is Pric flag set?
+  if bit.band(value, 0x00000008) ~= 0 then
+    flags[#flags + 1] = "Pric"
+  end
+  -- Is Size flag set?
+  if bit.band(value, 0x00000010) ~= 0 then
+    flags[#flags + 1] = "Size"
+  end
+  -- Is Ilqd flag set?
+  if bit.band(value, 0x00000020) ~= 0 then
+    flags[#flags + 1] = "Ilqd"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Buy Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.bits = function(range, value, packet, parent)
+
+  -- Rfpt: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.rfpt, range, value)
+
+  -- Nliq: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.nliq, range, value)
+
+  -- Oilq: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.oilq, range, value)
+
+  -- Pric: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.pric, range, value)
+
+  -- Size: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.size, range, value)
+
+  -- Ilqd: 1 Bit
+  parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.ilqd, range, value)
+end
+
+-- Dissect: Buy Waiver Indicator
+athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.dissect = function(buffer, offset, packet, parent)
+  local size = athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.size
+  local range = buffer(offset, size)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    -- Digits that are no number: label it so, flag the protocol expert, add no bits
+    local item = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_waiver_indicator, range, "Not Applicable")
+    item:add_proto_expert_info(athex_athexderivatives_realtime_ids_v5_2.experts.not_a_number, "Buy Waiver Indicator is not a number: '"..range:string().."'")
+    return offset + size, 0
+  end
+  local display = athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.display(range, value, packet, parent)
+  local element = parent:add(omi_athex_athexderivatives_realtime_ids_v5_2.fields.buy_waiver_indicator, range, display)
+
+  if show.structs then
+    athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Cancelled Trade Message
 athex_athexderivatives_realtime_ids_v5_2.cancelled_trade_message = {}
 
@@ -3407,10 +3688,10 @@ athex_athexderivatives_realtime_ids_v5_2.cancelled_trade_message.fields = functi
   -- Sell Order Type: Alpha character
   index, sell_order_type = athex_athexderivatives_realtime_ids_v5_2.sell_order_type.dissect(buffer, index, packet, parent)
 
-  -- Buy Waiver Indicator: Numeric characters
+  -- Buy Waiver Indicator: Struct of 6 fields
   index, buy_waiver_indicator = athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.dissect(buffer, index, packet, parent)
 
-  -- Sell Waiver Indicator: Numeric characters
+  -- Sell Waiver Indicator: Struct of 6 fields
   index, sell_waiver_indicator = athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.dissect(buffer, index, packet, parent)
 
   -- Notional Amount: Numeric Characters
@@ -3772,10 +4053,10 @@ athex_athexderivatives_realtime_ids_v5_2.trade_message.fields = function(buffer,
   -- Sell Order Type: Alpha character
   index, sell_order_type = athex_athexderivatives_realtime_ids_v5_2.sell_order_type.dissect(buffer, index, packet, parent)
 
-  -- Buy Waiver Indicator: Numeric characters
+  -- Buy Waiver Indicator: Struct of 6 fields
   index, buy_waiver_indicator = athex_athexderivatives_realtime_ids_v5_2.buy_waiver_indicator.dissect(buffer, index, packet, parent)
 
-  -- Sell Waiver Indicator: Numeric characters
+  -- Sell Waiver Indicator: Struct of 6 fields
   index, sell_waiver_indicator = athex_athexderivatives_realtime_ids_v5_2.sell_waiver_indicator.dissect(buffer, index, packet, parent)
 
   -- Notional Amount: Numeric Characters

@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Source generated Lua Wireshark dissectors for common binary exchange protocols, market data and order entry, held one directory deep as Organization/Protocol/Version.
+Source generated Lua dissectors for common binary exchange protocols, market data and order entry, read by Wireshark and held one directory deep as Organization/Protocol/Version.
 
 For every organization and protocol published here: [ReadMe](ReadMe.md "Omi Lua Wireshark Dissectors ReadMe")
 

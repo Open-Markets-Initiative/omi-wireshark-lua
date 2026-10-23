@@ -15,7 +15,7 @@ local asx_asxsecurities_trade_ouch_v2_0 = {}
 -----------------------------------------------------------------------
 
 -- Asx AsxSecurities Trade Ouch 2.0 Fields
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_session = ProtoField.new("Accepted Session", "asx.asxsecurities.trade.ouch.v2.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.asxsecurities.trade.ouch.v2.0.capacityofparticipant", ftypes.STRING, nil, nil, nil, "Capacity of the participant.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.asxsecurities.trade.ouch.v2.0.clearingparticipant", ftypes.STRING, nil, nil, nil, "Clearing participant identifier.")
@@ -52,7 +52,7 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.reason = ProtoField.new("Reason", "
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.reject_code = ProtoField.new("Reject Code", "asx.asxsecurities.trade.ouch.v2.0.rejectcode", ftypes.UINT32, nil, nil, nil, "ASX Trade error code.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "asx.asxsecurities.trade.ouch.v2.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "asx.asxsecurities.trade.ouch.v2.0.replacementordertoken", ftypes.STRING, nil, nil, nil, "The original order token used when the order was entered, or the replacement order token from any prior amendments.")
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.requested_session = ProtoField.new("Requested Session", "asx.asxsecurities.trade.ouch.v2.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.reserved = ProtoField.new("Reserved", "asx.asxsecurities.trade.ouch.v2.0.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "asx.asxsecurities.trade.ouch.v2.0.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
@@ -99,6 +99,11 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.unsequenced_data_packet = ProtoFiel
 
 -- Asx AsxSecurities Trade Ouch 2.0 Generated Fields
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Asx AsxSecurities Trade Ouch 2.0 Expert Info
+asx_asxsecurities_trade_ouch_v2_0.experts = {}
+asx_asxsecurities_trade_ouch_v2_0.experts.not_a_number = ProtoExpert.new("asx.asxsecurities.trade.ouch.v2.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_asx_asxsecurities_trade_ouch_v2_0.experts = { asx_asxsecurities_trade_ouch_v2_0.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Asx AsxSecurities Trade Ouch 2.0 Formatting
@@ -241,7 +246,10 @@ asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(asx_asxsecurities_trade_ouch_v2_0.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1133,7 +1141,10 @@ asx_asxsecurities_trade_ouch_v2_0.requested_sequence_number.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(asx_asxsecurities_trade_ouch_v2_0.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = asx_asxsecurities_trade_ouch_v2_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

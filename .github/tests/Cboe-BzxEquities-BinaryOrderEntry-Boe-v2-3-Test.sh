@@ -119,6 +119,17 @@ grep "cboe.bzxequities.binaryorderentry.boe.v2.3.side" Cboe.BzxEquities.BinaryOr
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.orderqty" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofneworderbitfields" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/NewOrderMessage.Tcp.pcap" \
+  -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
+  -T json \
+  > Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json 2> Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (NewOrderMessage.Tcp) ---"; cat Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json.stderr; exit 1; }
+
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.clordid" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.side" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.orderqty" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofneworderbitfields" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/OrderAcknowledgmentMessage.pcap" \
   -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
   -T json \

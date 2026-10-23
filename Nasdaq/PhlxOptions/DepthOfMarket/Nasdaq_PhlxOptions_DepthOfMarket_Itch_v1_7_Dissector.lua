@@ -15,7 +15,7 @@ local nasdaq_phlxoptions_depthofmarket_itch_v1_7 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PhlxOptions DepthOfMarket Itch 1.7 Fields
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.askprice", ftypes.DOUBLE, nil, nil, nil, "NOTE: When converted to a decimal format, this price is in fixed point format with 6 whole number places followed by 4 decimal digits. The display ask price of the new quote.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.askreferencenumberdelta", ftypes.UINT32, nil, nil, nil, "The ask reference number delta associated with the new quote")
@@ -69,7 +69,7 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.price = ProtoField.new("Pr
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.printable = ProtoField.new("Printable", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.printable", ftypes.STRING, nil, nil, nil, "Indicates if the execution should be reflected on time and sale displays and volume calculations.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.referencenumberdelta", ftypes.UINT32, nil, nil, nil, "The order/quote reference number delta associated with the executed order.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.second = ProtoField.new("Second", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.second", ftypes.UINT32, nil, nil, nil, "Number of seconds since midnight")
@@ -154,6 +154,11 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.message_index = ProtoField
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.depthofmarket.itch.v1.7.timestamp", ftypes.UINT64)
+
+-- Nasdaq PhlxOptions DepthOfMarket Itch 1.7 Expert Info
+nasdaq_phlxoptions_depthofmarket_itch_v1_7.experts = {}
+nasdaq_phlxoptions_depthofmarket_itch_v1_7.experts.not_a_number = ProtoExpert.new("nasdaq.phlxoptions.depthofmarket.itch.v1.7.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.experts = { nasdaq_phlxoptions_depthofmarket_itch_v1_7.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq PhlxOptions DepthOfMarket Itch 1.7 Formatting
@@ -330,7 +335,10 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_7.accepted_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_phlxoptions_depthofmarket_itch_v1_7.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1856,7 +1864,10 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_7.requested_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_7.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_phlxoptions_depthofmarket_itch_v1_7.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.requested_sequence_number.display(value, buffer, offset, packet, parent)

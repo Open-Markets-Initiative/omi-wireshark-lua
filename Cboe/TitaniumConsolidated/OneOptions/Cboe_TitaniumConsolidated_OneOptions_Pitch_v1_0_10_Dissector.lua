@@ -1923,7 +1923,7 @@ udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.10
 --   Date: Wednesday, April 1, 2026
---   Specification: Cboe_Options_One_Feed_Specification.pdf
+--   Specification: Cboe_Options_One_Feed_Specification (2026-10-14).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

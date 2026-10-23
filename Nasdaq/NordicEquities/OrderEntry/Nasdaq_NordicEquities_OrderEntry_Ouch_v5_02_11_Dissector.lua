@@ -15,7 +15,7 @@ local nasdaq_nordicequities_orderentry_ouch_v5_02_11 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NordicEquities OrderEntry Ouch 5.02.11 Fields
-omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.add_or_remove = ProtoField.new("Add Or Remove", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.addorremove", ftypes.STRING, nil, nil, nil, "Whether the instruction is added or removed")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.algo_indicator = ProtoField.new("Algo Indicator", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.algoindicator", ftypes.STRING, nil, nil, nil, "Whether the order resulted from algorithmic trading")
@@ -121,7 +121,7 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.reason = ProtoField.ne
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.rejected_order_reason = ProtoField.new("Rejected Order Reason", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.rejectedorderreason", ftypes.UINT16, nil, nil, nil, "The reason the order was rejected")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.replace_pending_reason = ProtoField.new("Replace Pending Reason", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.replacependingreason", ftypes.STRING, nil, nil, nil, "Reason the order was pended")
-omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.reserved_13 = ProtoField.new("Reserved 13", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.reserved13", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.reserved_78 = ProtoField.new("Reserved 78", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.reserved78", ftypes.UINT8, nil, base.DEC, 0xC0)
@@ -201,6 +201,11 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.unsequenced_data_packe
 
 -- Nasdaq NordicEquities OrderEntry Ouch 5.02.11 Generated Fields
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.nordicequities.orderentry.ouch.v5.02.11.sequenceddatapacketsequencenumber", ftypes.UINT64)
+
+-- Nasdaq NordicEquities OrderEntry Ouch 5.02.11 Expert Info
+nasdaq_nordicequities_orderentry_ouch_v5_02_11.experts = {}
+nasdaq_nordicequities_orderentry_ouch_v5_02_11.experts.not_a_number = ProtoExpert.new("nasdaq.nordicequities.orderentry.ouch.v5.02.11.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.experts = { nasdaq_nordicequities_orderentry_ouch_v5_02_11.experts.not_a_number }
 
 -----------------------------------------------------------------------
 -- Nasdaq NordicEquities OrderEntry Ouch 5.02.11 Formatting
@@ -365,7 +370,10 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.accepted_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.accepted_sequence_number, range, value, "Accepted Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicequities_orderentry_ouch_v5_02_11.experts.not_a_number, "Accepted Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicequities_orderentry_ouch_v5_02_11.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2254,7 +2262,10 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.requested_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
+    local item = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_11.fields.requested_sequence_number, range, value, "Requested Sequence Number: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nordicequities_orderentry_ouch_v5_02_11.experts.not_a_number, "Requested Sequence Number is not a number: '"..range:string().."'")
+    return offset + length, value
   end
 
   local display = nasdaq_nordicequities_orderentry_ouch_v5_02_11.requested_sequence_number.display(value, buffer, offset, packet, parent)
