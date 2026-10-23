@@ -34,7 +34,8 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.paired_qty = ProtoField.new("P
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.arcabook.pillar.v2.1.pktsize", ftypes.UINT16, nil, nil, nil, "The size of the packet in bytes, including this 16 byte packet header")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.UINT32, nil, nil, nil, "This field contains the price point. Use the Price scale from the symbol-mapping index.")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.reason_code = ProtoField.new("Reason Code", "nyse.arcaequities.arcabook.pillar.v2.1.reasoncode", ftypes.UINT8, nil, nil, nil, "Modify Reason")
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.arcabook.pillar.v2.1.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
@@ -685,20 +686,20 @@ nyse_arcaequities_arcabook_pillar_v2_1.seconds = {}
 -- Size: Seconds
 nyse_arcaequities_arcabook_pillar_v2_1.seconds.size = 4
 
--- Display: Seconds
-nyse_arcaequities_arcabook_pillar_v2_1.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_arcaequities_arcabook_pillar_v2_1.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arcaequities_arcabook_pillar_v2_1.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds
+  if nyse_arcaequities_arcabook_pillar_v2_1.absolute_time_base == 1 then field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

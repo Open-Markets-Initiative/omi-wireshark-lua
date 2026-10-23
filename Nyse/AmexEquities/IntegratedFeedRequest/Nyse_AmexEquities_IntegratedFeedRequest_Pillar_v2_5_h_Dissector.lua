@@ -27,7 +27,8 @@ omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.pkt_size = Prot
 omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.productid", ftypes.UINT8, nil, nil, nil, "The unique ID of the feed for which a retransmission is requested (listed in the feed's client specification).")
 omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.requestseqnum", ftypes.UINT32, nil, nil, nil, "The sequence number of the request message sent by the client. This can be used by the client to couple this response with the original request message.")
 omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information. Valid values: 0 - deliver via UDP.")
-omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.seconds_utc = ProtoField.new("Seconds", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was sent on the request channel")
 omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was sent on the request channel")
 omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.seq_num = ProtoField.new("Seq Num", "nyse.amexequities.integratedfeedrequest.pillar.v2.5.h.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
@@ -435,7 +436,11 @@ nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.retransmit_method.size = 1
 
 -- Display: Retransmit Method
 nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
+  if value == 0 then
+    return "Retransmit Method: Deliver Via Udp (0)"
+  end
+
+  return "Retransmit Method: Unknown("..value..")"
 end
 
 -- Dissect: Retransmit Method
@@ -456,20 +461,20 @@ nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.seconds = {}
 -- Size: Seconds
 nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.seconds.size = 4
 
--- Display: Seconds
-nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.seconds
+  if nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_amexequities_integratedfeedrequest_pillar_v2_5_h.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1520,7 +1525,7 @@ tcp_table:add_for_decode_as(omi_nyse_amexequities_integratedfeedrequest_pillar_v
 --   Version: 2.5.h
 --   Since: 2.5.d
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification.pdf
+--   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification (2.5h).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

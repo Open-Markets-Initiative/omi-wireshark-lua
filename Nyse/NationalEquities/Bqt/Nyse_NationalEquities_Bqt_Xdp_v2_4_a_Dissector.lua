@@ -85,7 +85,8 @@ omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.retail_interest_on_the_bid_side 
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.nationalequities.bqt.xdp.v2.4.a.retailpricingindicator", ftypes.STRING)
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nationalequities.bqt.xdp.v2.4.a.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information. Valid values: 0 - deliver via UDP.")
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.nationalequities.bqt.xdp.v2.4.a.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted: Y - Yes, N - No.")
-omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.seconds = ProtoField.new("Seconds", "nyse.nationalequities.bqt.xdp.v2.4.a.seconds", ftypes.UINT32, nil, nil, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.seconds = ProtoField.new("Seconds", "nyse.nationalequities.bqt.xdp.v2.4.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nationalequities.bqt.xdp.v2.4.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.security_status = ProtoField.new("Security Status", "nyse.nationalequities.bqt.xdp.v2.4.a.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.security_type = ProtoField.new("Security Type", "nyse.nationalequities.bqt.xdp.v2.4.a.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar-powered markets.")
 omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.send_time = ProtoField.new("Send Time", "nyse.nationalequities.bqt.xdp.v2.4.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -1092,10 +1093,10 @@ nyse_nationalequities_bqt_xdp_v2_4_a.market_id.size = 2
 -- Display: Market Id
 nyse_nationalequities_bqt_xdp_v2_4_a.market_id.display = function(value)
   if value == 1 then
-    return "Market Id: Nyse (1)"
+    return "Market Id: Nyse Equities (1)"
   end
   if value == 3 then
-    return "Market Id: Nyse Arca (3)"
+    return "Market Id: Nyse Arca Equities (3)"
   end
   if value == 4 then
     return "Market Id: Nyse Arca Options (4)"
@@ -1107,13 +1108,13 @@ nyse_nationalequities_bqt_xdp_v2_4_a.market_id.display = function(value)
     return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
-    return "Market Id: Nyse American (9)"
+    return "Market Id: Nyse American Equities (9)"
   end
   if value == 10 then
-    return "Market Id: Nyse National (10)"
+    return "Market Id: Nyse National Equities (10)"
   end
   if value == 11 then
-    return "Market Id: Nyse Texas (11)"
+    return "Market Id: Nyse Texas Equities (11)"
   end
   if value == 0 then
     return "Market Id: Nyse Group Bqt (0)"
@@ -2101,7 +2102,11 @@ nyse_nationalequities_bqt_xdp_v2_4_a.retransmit_method.size = 1
 
 -- Display: Retransmit Method
 nyse_nationalequities_bqt_xdp_v2_4_a.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
+  if value == 0 then
+    return "Retransmit Method: Deliver Via Udp (0)"
+  end
+
+  return "Retransmit Method: Unknown("..value..")"
 end
 
 -- Dissect: Retransmit Method
@@ -2165,20 +2170,20 @@ nyse_nationalequities_bqt_xdp_v2_4_a.seconds = {}
 -- Size: Seconds
 nyse_nationalequities_bqt_xdp_v2_4_a.seconds.size = 4
 
--- Display: Seconds
-nyse_nationalequities_bqt_xdp_v2_4_a.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_nationalequities_bqt_xdp_v2_4_a.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bqt_xdp_v2_4_a.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nationalequities_bqt_xdp_v2_4_a.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.seconds
+  if nyse_nationalequities_bqt_xdp_v2_4_a.absolute_time_base == 1 then field = omi_nyse_nationalequities_bqt_xdp_v2_4_a.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2603,7 +2608,7 @@ nyse_nationalequities_bqt_xdp_v2_4_a.ssr_triggering_exchange_id.display = functi
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Pearl (H)"

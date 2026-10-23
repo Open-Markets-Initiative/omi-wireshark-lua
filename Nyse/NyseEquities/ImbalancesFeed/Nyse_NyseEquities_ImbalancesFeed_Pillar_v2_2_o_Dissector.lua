@@ -63,7 +63,8 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.reserved_1 = ProtoFiel
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.reserved4", ftypes.BYTES, nil, nil, nil, "Future use. Any field content should be ignored.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information. Valid values: 0 - deliver via UDP.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted for this security on the Pillar equity markets: Y - Yes, N - No.")
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar markets.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.o.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -547,7 +548,14 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.size = 1
 
 -- Display: Eth Eligible
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.display = function(value)
-  return "Eth Eligible: "..value
+  if value == 0 then
+    return "Eth Eligible: Not Eligible (0)"
+  end
+  if value == 1 then
+    return "Eth Eligible: Eligible (1)"
+  end
+
+  return "Eth Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Eth Eligible
@@ -697,7 +705,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.halt_condition.display = function
     return "Halt Condition: Merger Effective (E)"
   end
   if value == "F" then
-    return "Halt Condition: Etf Iiv Etf Components Prices Not Available (F)"
+    return "Halt Condition: ETF IIV/ETF Components Prices Not Available (F)"
   end
   if value == "N" then
     return "Halt Condition: Corporate Action (N)"
@@ -890,7 +898,14 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.size = 1
 
 -- Display: Late Close Eligible
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.display = function(value)
-  return "Late Close Eligible: "..value
+  if value == 0 then
+    return "Late Close Eligible: Not Eligible (0)"
+  end
+  if value == 1 then
+    return "Late Close Eligible: Eligible (1)"
+  end
+
+  return "Late Close Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Late Close Eligible
@@ -1415,7 +1430,17 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.price_resolution.size = 1
 
 -- Display: Price Resolution
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.price_resolution.display = function(value)
-  return "Price Resolution: "..value
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1438,7 +1463,17 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.price_scale_code.size = 1
 
 -- Display: Price Scale Code
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.price_scale_code.display = function(value)
-  return "Price Scale Code: "..value
+  if value == 6 then
+    return "Price Scale Code: Low Priced Securities (6)"
+  end
+  if value == 4 then
+    return "Price Scale Code: Medium Priced Securities (4)"
+  end
+  if value == 3 then
+    return "Price Scale Code: High Priced Securities (3)"
+  end
+
+  return "Price Scale Code: Unknown("..value..")"
 end
 
 -- Dissect: Price Scale Code
@@ -1576,7 +1611,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.retransmit_method.size = 1
 
 -- Display: Retransmit Method
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
+  if value == 0 then
+    return "Retransmit Method: Deliver Via Udp (0)"
+  end
+
+  return "Retransmit Method: Unknown("..value..")"
 end
 
 -- Dissect: Retransmit Method
@@ -1640,20 +1679,20 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.seconds = {}
 -- Size: Seconds
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.seconds.size = 4
 
--- Display: Seconds
-nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.seconds
+  if nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.absolute_time_base == 1 then field = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2060,8 +2099,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_o.ssr_triggering_exchange_id.displa
   if value == "D" then
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
+  if value == "F" then
+    return "Ssr Triggering Exchange Id: Txse (F)"
+  end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miax Pearl (H)"
@@ -4089,7 +4131,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_o)
 --   Version: 2.2.o
 --   Since: 2.2.l
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Order_Imbalances_Client_Specification.pdf
+--   Specification: NYSE_Pillar_Order_Imbalances_Client_Specification (2.2o).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

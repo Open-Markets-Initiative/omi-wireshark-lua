@@ -55,7 +55,8 @@ omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.reserved_4 = ProtoField.new("Rese
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexequities.bbo.pillar.v2.5.d.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information. Valid values: 0 - deliver via UDP.")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.bbo.pillar.v2.5.d.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted: Y - Yes, N - No.")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.amexequities.bbo.pillar.v2.5.d.rpiindicator", ftypes.STRING, nil, nil, nil, "The side(s) where Retail Price Indication orders (RPI orders) exist. Values correspond to CQS values.")
-omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.bbo.pillar.v2.5.d.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.bbo.pillar.v2.5.d.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.seconds_utc = ProtoField.new("Seconds", "nyse.amexequities.bbo.pillar.v2.5.d.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.security_status = ProtoField.new("Security Status", "nyse.amexequities.bbo.pillar.v2.5.d.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.security_type = ProtoField.new("Security Type", "nyse.amexequities.bbo.pillar.v2.5.d.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar-powered markets.")
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.bbo.pillar.v2.5.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -1411,20 +1412,20 @@ nyse_amexequities_bbo_pillar_v2_5_d.seconds = {}
 -- Size: Seconds
 nyse_amexequities_bbo_pillar_v2_5_d.seconds.size = 4
 
--- Display: Seconds
-nyse_amexequities_bbo_pillar_v2_5_d.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_amexequities_bbo_pillar_v2_5_d.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bbo_pillar_v2_5_d.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexequities_bbo_pillar_v2_5_d.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.seconds
+  if nyse_amexequities_bbo_pillar_v2_5_d.absolute_time_base == 1 then field = omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

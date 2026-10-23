@@ -61,7 +61,8 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.reserved_2 = ProtoField.n
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.reserved4", ftypes.BYTES, nil, nil, nil, "Future use. Any field content should be ignored.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted")
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.seconds", ftypes.UINT32, nil, nil, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Arca, National and American")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -1408,20 +1409,20 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.seconds = {}
 -- Size: Seconds
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.seconds.size = 4
 
--- Display: Seconds
-nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.absolute_time_base == 1 then field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

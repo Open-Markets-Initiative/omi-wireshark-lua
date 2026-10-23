@@ -9185,7 +9185,7 @@ end
 cboe_cxeequities_binaryorderentry_boe_v2_0_52.trade_capture_report_decline_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_decline_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 134, 1):le_uint()
-  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):bytes():tohex(false, " ")
+  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cxeequities_binaryorderentry_boe_v2_0_52.transaction_time.dissect(buffer, index, packet, parent)
@@ -11287,7 +11287,7 @@ end
 cboe_cxeequities_binaryorderentry_boe_v2_0_52.trade_capture_confirm_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 73, 1):le_uint()
-  local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):bytes():tohex(false, " ")
+  local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cxeequities_binaryorderentry_boe_v2_0_52.transaction_time.dissect(buffer, index, packet, parent)
@@ -13419,7 +13419,7 @@ end
 cboe_cxeequities_binaryorderentry_boe_v2_0_52.trade_capture_report_reject_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 90, 1):le_uint()
-  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
+  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cxeequities_binaryorderentry_boe_v2_0_52.transaction_time.dissect(buffer, index, packet, parent)
@@ -15488,7 +15488,7 @@ end
 cboe_cxeequities_binaryorderentry_boe_v2_0_52.trade_capture_report_acknowledgment_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_acknowledgment_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 29, 1):le_uint()
-  local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):bytes():tohex(false, " ")
+  local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cxeequities_binaryorderentry_boe_v2_0_52.transaction_time.dissect(buffer, index, packet, parent)

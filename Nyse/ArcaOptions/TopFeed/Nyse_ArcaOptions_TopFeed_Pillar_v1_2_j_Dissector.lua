@@ -88,7 +88,8 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.round_lot = ProtoField.new("Ro
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nyse.arcaoptions.topfeed.pillar.v1.2.j.secondreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nyse.arcaoptions.topfeed.pillar.v1.2.j.secondreserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "nyse.arcaoptions.topfeed.pillar.v1.2.j.secondreserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.topfeed.pillar.v1.2.j.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.topfeed.pillar.v1.2.j.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaoptions.topfeed.pillar.v1.2.j.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.topfeed.pillar.v1.2.j.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.security_type = ProtoField.new("Security Type", "nyse.arcaoptions.topfeed.pillar.v1.2.j.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar markets.")
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.j.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -2480,20 +2481,20 @@ nyse_arcaoptions_topfeed_pillar_v1_2_j.seconds = {}
 -- Size: Seconds
 nyse_arcaoptions_topfeed_pillar_v1_2_j.seconds.size = 4
 
--- Display: Seconds
-nyse_arcaoptions_topfeed_pillar_v1_2_j.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_arcaoptions_topfeed_pillar_v1_2_j.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.seconds
+  if nyse_arcaoptions_topfeed_pillar_v1_2_j.absolute_time_base == 1 then field = omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3089,7 +3090,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_j.ssr_triggering_exchange_id.display = func
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Ise (I)"
@@ -3221,7 +3222,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_j.status.display = function(value)
     return "Status: Rejected Due To Maximum Number Of Refresh Requests In A Day (5)"
   end
   if value == "6" then
-    return "Status: Rejected Request Message Seq Num Ttl Is Too Old (6)"
+    return "Status: Rejected Request Message Seq Num Ttl Time To Live Is Too Old Use Refresh To Recover Current State If Necessary (6)"
   end
   if value == "7" then
     return "Status: Rejected Due To An Invalid Channel Id (7)"
@@ -3230,7 +3231,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_j.status.display = function(value)
     return "Status: Rejected Due To An Invalid Product Id (8)"
   end
   if value == "9" then
-    return "Status: Rejected Due To Invalid Msg Type Or Mismatch Between Msg Type And Msg Size (9)"
+    return "Status: Rejected Due To 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
   end
 
   return "Status: Unknown("..value..")"
@@ -6387,7 +6388,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j)
 --   Version: 1.2.j
 --   Since: 1.2.i
 --   Date: Tuesday, November 18, 2025
---   Specification: PILLAR_TOP_Client_Specification.pdf
+--   Specification: PILLAR_TOP_Client_Specification (1.2j).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

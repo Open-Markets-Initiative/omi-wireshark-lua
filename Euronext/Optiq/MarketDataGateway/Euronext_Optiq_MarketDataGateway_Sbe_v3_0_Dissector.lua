@@ -15419,7 +15419,7 @@ euronext_optiq_marketdatagateway_sbe_v3_0.packet.dissect = function(buffer, pack
   index, market_data_packet_header = euronext_optiq_marketdatagateway_sbe_v3_0.market_data_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Flags
-  local packet_flags = buffer(index - 4, 2):bytes():tohex(false, " ")
+  local packet_flags = buffer(index - 4, 2):le_uint()
 
   local optiq_message_conversion = bit.band(packet_flags, 0x0001) == 1
 

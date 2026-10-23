@@ -2101,7 +2101,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_13_3.expiry_date.display = function(value)
     return "Expiry Date: "..value
   end
 
-  return "Expiry Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Expiry Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Expiry Date
@@ -4748,7 +4748,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_13_3.open_interest_date.display = function(
     return "Open Interest Date: "..value
   end
 
-  return "Open Interest Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Open Interest Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Open Interest Date

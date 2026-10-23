@@ -59,7 +59,8 @@ omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.reference_price
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Disregard any content.")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted: Y - Yes, N - No.")
-omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.security_type = ProtoField.new("Security Type", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar-powered markets.")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.depthfeedretransmission.pillar.v1.7.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -529,11 +530,11 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_7.exchange_code.display = fu
     return "Exchange Code: No Value"
   end
 
-  if value == "F" then
-    return "Exchange Code: Txse (F)"
-  end
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
+  end
+  if value == "F" then
+    return "Exchange Code: Txse (F)"
   end
   if value == "L" then
     return "Exchange Code: Ltse (L)"
@@ -822,19 +823,28 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_7.market_id.size = 2
 -- Display: Market Id
 nyse_arcaequities_depthfeedretransmission_pillar_v1_7.market_id.display = function(value)
   if value == 1 then
-    return "Market Id: Nyse (1)"
+    return "Market Id: Nyse Equities (1)"
   end
   if value == 3 then
-    return "Market Id: Nyse Arca (3)"
+    return "Market Id: Nyse Arca Equities (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 5 then
+    return "Market Id: Nyse Bonds (5)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
-    return "Market Id: Nyse American (9)"
+    return "Market Id: Nyse American Equities (9)"
   end
   if value == 10 then
-    return "Market Id: Nyse National (10)"
+    return "Market Id: Nyse National Equities (10)"
   end
   if value == 11 then
-    return "Market Id: Nyse Texas (11)"
+    return "Market Id: Nyse Texas Equities (11)"
   end
 
   return "Market Id: Unknown("..value..")"
@@ -1358,7 +1368,17 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_7.price_scale_code.size = 1
 
 -- Display: Price Scale Code
 nyse_arcaequities_depthfeedretransmission_pillar_v1_7.price_scale_code.display = function(value)
-  return "Price Scale Code: "..value
+  if value == 6 then
+    return "Price Scale Code: Low Priced Securities (6)"
+  end
+  if value == 4 then
+    return "Price Scale Code: Medium Priced Securities (4)"
+  end
+  if value == 3 then
+    return "Price Scale Code: High Priced Securities (3)"
+  end
+
+  return "Price Scale Code: Unknown("..value..")"
 end
 
 -- Dissect: Price Scale Code
@@ -1514,20 +1534,20 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_7.seconds = {}
 -- Size: Seconds
 nyse_arcaequities_depthfeedretransmission_pillar_v1_7.seconds.size = 4
 
--- Display: Seconds
-nyse_arcaequities_depthfeedretransmission_pillar_v1_7.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_arcaequities_depthfeedretransmission_pillar_v1_7.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeedretransmission_pillar_v1_7.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeedretransmission_pillar_v1_7.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.seconds
+  if nyse_arcaequities_depthfeedretransmission_pillar_v1_7.absolute_time_base == 1 then field = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_7.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1927,7 +1947,7 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_7.ssr_triggering_exchange_id
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Oms Tx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Tx (B)"
   end
   if value == "C" then
     return "Ssr Triggering Exchange Id: Nyse National (C)"
@@ -1935,11 +1955,14 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_7.ssr_triggering_exchange_id
   if value == "D" then
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
+  if value == "F" then
+    return "Ssr Triggering Exchange Id: Txse (F)"
+  end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "H" then
-    return "Ssr Triggering Exchange Id: Miami Pearl (H)"
+    return "Ssr Triggering Exchange Id: Miax Pearl (H)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Nasdaq Ise (I)"
@@ -3823,7 +3846,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaequities_depthfeedretransmission_pillar
 --   Version: 1.7
 --   Since: 1.5
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Depth_Client_Specification.pdf
+--   Specification: NYSE_Pillar_Depth_Client_Specification (1.7).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

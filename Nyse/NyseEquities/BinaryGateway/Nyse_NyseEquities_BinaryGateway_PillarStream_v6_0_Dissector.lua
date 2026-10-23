@@ -47,7 +47,8 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.dmm_available_qty =
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.dmm_reject_reason = ProtoField.new("Dmm Reject Reason", "nyse.nyseequities.binarygateway.pillarstream.v6.0.dmmrejectreason", ftypes.STRING, nil, nil, nil, "Optional reject reason displayed on DBK GUI when ManualResponseType=2. Printable ASCII only.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.dmm_requested_qty = ProtoField.new("Dmm Requested Qty", "nyse.nyseequities.binarygateway.pillarstream.v6.0.dmmrequestedqty", ftypes.UINT32, nil, nil, nil, "Requested quantity associated with the manual action.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.dmm_unit_num = ProtoField.new("Dmm Unit Num", "nyse.nyseequities.binarygateway.pillarstream.v6.0.dmmunitnum", ftypes.STRING, nil, nil, nil, "DMM Unit Identification Number")
-omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.effective_time = ProtoField.new("Effective Time", "nyse.nyseequities.binarygateway.pillarstream.v6.0.effectivetime", ftypes.UINT64, nil, nil, nil, "Reserved for future use")
+omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.effective_time = ProtoField.new("Effective Time", "nyse.nyseequities.binarygateway.pillarstream.v6.0.effectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Reserved for future use")
+omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.effective_time_utc = ProtoField.new("Effective Time", "nyse.nyseequities.binarygateway.pillarstream.v6.0.effectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Reserved for future use")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.end_seq = ProtoField.new("End Seq", "nyse.nyseequities.binarygateway.pillarstream.v6.0.endseq", ftypes.UINT64, nil, nil, nil, "End sequence (ignored for write request)")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.nyseequities.binarygateway.pillarstream.v6.0.execinst", ftypes.UINT64, {[0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg"}, base.DEC, 0x00F0000000000000, "ExecInst")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.executed_trading_session = ProtoField.new("Executed Trading Session", "nyse.nyseequities.binarygateway.pillarstream.v6.0.executedtradingsession", ftypes.UINT8, {[0]="Not Applicable", [4]="Overnight"}, base.DEC, 0x07, "ExecutedTradingSession")
@@ -183,10 +184,12 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.throttle_window = P
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.throttled = ProtoField.new("Throttled", "nyse.nyseequities.binarygateway.pillarstream.v6.0.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01)
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.time_in_force = ProtoField.new("Time In Force", "nyse.nyseequities.binarygateway.pillarstream.v6.0.timeinforce", ftypes.UINT64, {[1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close"}, base.DEC, 0x0000000380000000, "TimeInForce")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.time_limit = ProtoField.new("Time Limit", "nyse.nyseequities.binarygateway.pillarstream.v6.0.timelimit", ftypes.INT32, nil, nil, nil, "Microsecond time period. Must be specified for RiskControlTypes: Activity-based Rolling Transaction/Volume/Percentage; Activity-based Global Risk Mitigation Protection; Max Duplicative Orders; Order Rate Threshold – Max Orders across All Symbols. For other RiskControlTypes set to 0.")
-omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.binarygateway.pillarstream.v6.0.timestamp", ftypes.UINT64, nil, nil, nil, "Message timestamp")
+omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.binarygateway.pillarstream.v6.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
+omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.timestamp_utc = ProtoField.new("Timestamp", "nyse.nyseequities.binarygateway.pillarstream.v6.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message timestamp")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.nyseequities.binarygateway.pillarstream.v6.0.tradingmpv", ftypes.DOUBLE, nil, nil, nil, "Numeric value of the Trading Minimum Price Variation for the MPVLevel and Price defined in this message.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.nyseequities.binarygateway.pillarstream.v6.0.tradingsessionid", ftypes.UINT64, {[0]="Overnight Trading Session", [1]="Early Trading Session", [2]="Core Trading Session", [3]="Late Trading Session", [4]="Early And Core Trading Sessions", [5]="Core And Late Trading Sessions", [6]="Early Core And Late Trading Sessions", [7]="Overnight Early Core And Late Trading Sessions"}, base.DEC, 0x0000000070000000, "TradingSessionID")
-omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.transact_time = ProtoField.new("Transact Time", "nyse.nyseequities.binarygateway.pillarstream.v6.0.transacttime", ftypes.UINT64, nil, nil, nil, "Exchange application time.")
+omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.transact_time = ProtoField.new("Transact Time", "nyse.nyseequities.binarygateway.pillarstream.v6.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exchange application time.")
+omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.transact_time_utc = ProtoField.new("Transact Time", "nyse.nyseequities.binarygateway.pillarstream.v6.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Exchange application time.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.nyseequities.binarygateway.pillarstream.v6.0.unpairedqty", ftypes.UINT32, nil, nil, nil, "Unpaired at- and better-priced shares relative to Price, excluding DMM.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.unused_12 = ProtoField.new("Unused 12", "nyse.nyseequities.binarygateway.pillarstream.v6.0.unused12", ftypes.UINT64, nil, base.DEC, 0x0000000000000FFF, "Bits reserved for future use")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.unused_5 = ProtoField.new("Unused 5", "nyse.nyseequities.binarygateway.pillarstream.v6.0.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Bits reserved for future use")
@@ -263,6 +266,15 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.stream_avail = Prot
 -- Nyse NyseEquities BinaryGateway PillarStream 6.0 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_nyseequities_binarygateway_pillarstream_v6_0.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -292,6 +304,8 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.show_structs = Pref.
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
+omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs_changed()
 
@@ -307,6 +321,9 @@ function omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs_changed()
   end
   if show.structs ~= omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.show_structs then
     show.structs = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.show_structs
+  end
+  if nyse_nyseequities_binarygateway_pillarstream_v6_0.absolute_time_base ~= omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.absolute_time_base then
+    nyse_nyseequities_binarygateway_pillarstream_v6_0.absolute_time_base = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.prefs.absolute_time_base
   end
 end
 
@@ -1155,23 +1172,20 @@ nyse_nyseequities_binarygateway_pillarstream_v6_0.effective_time = {}
 -- Size: Effective Time
 nyse_nyseequities_binarygateway_pillarstream_v6_0.effective_time.size = 8
 
--- Display: Effective Time
-nyse_nyseequities_binarygateway_pillarstream_v6_0.effective_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Effective Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Effective Time
 nyse_nyseequities_binarygateway_pillarstream_v6_0.effective_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v6_0.effective_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_nyseequities_binarygateway_pillarstream_v6_0.effective_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.effective_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.effective_time
+  if nyse_nyseequities_binarygateway_pillarstream_v6_0.absolute_time_base == 1 then field = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.effective_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5508,23 +5522,20 @@ nyse_nyseequities_binarygateway_pillarstream_v6_0.timestamp = {}
 -- Size: Timestamp
 nyse_nyseequities_binarygateway_pillarstream_v6_0.timestamp.size = 8
 
--- Display: Timestamp
-nyse_nyseequities_binarygateway_pillarstream_v6_0.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 nyse_nyseequities_binarygateway_pillarstream_v6_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v6_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_nyseequities_binarygateway_pillarstream_v6_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.timestamp
+  if nyse_nyseequities_binarygateway_pillarstream_v6_0.absolute_time_base == 1 then field = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5564,23 +5575,20 @@ nyse_nyseequities_binarygateway_pillarstream_v6_0.transact_time = {}
 -- Size: Transact Time
 nyse_nyseequities_binarygateway_pillarstream_v6_0.transact_time.size = 8
 
--- Display: Transact Time
-nyse_nyseequities_binarygateway_pillarstream_v6_0.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 nyse_nyseequities_binarygateway_pillarstream_v6_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v6_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_nyseequities_binarygateway_pillarstream_v6_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.transact_time
+  if nyse_nyseequities_binarygateway_pillarstream_v6_0.absolute_time_base == 1 then field = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -10494,7 +10502,7 @@ tcp_table:add_for_decode_as(omi_nyse_nyseequities_binarygateway_pillarstream_v6_
 --   Organization: New York Stock Exchange
 --   Version: 6.0
 --   Date: Friday, August 14, 2026
---   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification.pdf
+--   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification (6.0).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -88,7 +88,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 jnx_jnxequities_pts_itch_v2_0.timestamp_format = 2
 
--- Hours ahead of UTC (JST) for midnight calculation
+-- Hours ahead of UTC (Asia/Tokyo) for midnight calculation
 jnx_jnxequities_pts_itch_v2_0.utc_offset_hours = 9
 
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
@@ -117,7 +117,7 @@ omi_jnx_jnxequities_pts_itch_v2_0.prefs.show_sequences = Pref.bool("Show Sequenc
 omi_jnx_jnxequities_pts_itch_v2_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_jnx_jnxequities_pts_itch_v2_0.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
-omi_jnx_jnxequities_pts_itch_v2_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
+omi_jnx_jnxequities_pts_itch_v2_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (Asia/Tokyo) for midnight calculation")
 
 -- Handle changed preferences
 function omi_jnx_jnxequities_pts_itch_v2_0.prefs_changed()

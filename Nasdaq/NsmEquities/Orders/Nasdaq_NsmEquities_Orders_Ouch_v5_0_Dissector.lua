@@ -635,13 +635,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size = 1
 -- Display: Bbo Weight Indicator
 nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.display = function(value)
   if value == "0" then
-    return "Bbo Weight Indicator: Weight 0 To 0.2 Percent (0)"
+    return "Bbo Weight Indicator: 0-0.2% (0)"
   end
   if value == "1" then
-    return "Bbo Weight Indicator: Weight 0.2 To 1 Percent (1)"
+    return "Bbo Weight Indicator: 0.2%-1% (1)"
   end
   if value == "2" then
-    return "Bbo Weight Indicator: Weight 1 To 2 Percent (2)"
+    return "Bbo Weight Indicator: 1%-2% (2)"
   end
   if value == "3" then
     return "Bbo Weight Indicator: Greater Than 2% (3)"

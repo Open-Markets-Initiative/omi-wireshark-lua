@@ -22,7 +22,8 @@ omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.nanoseconds = ProtoField.ne
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nyseoptions.commonclient.pillar.v2.6.numbermsgs", ftypes.UINT8, nil, nil, nil, "The number of messages in this packet")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.payload = ProtoField.new("Payload", "nyse.nyseoptions.commonclient.pillar.v2.6.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nyseoptions.commonclient.pillar.v2.6.pktsize", ftypes.UINT16, nil, nil, nil, "The size of the packet in bytes, including this 16 byte packet header")
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseoptions.commonclient.pillar.v2.6.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
@@ -291,20 +292,20 @@ nyse_nyseoptions_commonclient_pillar_v2_6.seconds = {}
 -- Size: Seconds
 nyse_nyseoptions_commonclient_pillar_v2_6.seconds.size = 4
 
--- Display: Seconds
-nyse_nyseoptions_commonclient_pillar_v2_6.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_nyseoptions_commonclient_pillar_v2_6.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseoptions_commonclient_pillar_v2_6.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseoptions_commonclient_pillar_v2_6.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds
+  if nyse_nyseoptions_commonclient_pillar_v2_6.absolute_time_base == 1 then field = omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -677,7 +678,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseoptions_commonclient_pillar_v2_6)
 --   Organization: New York Stock Exchange
 --   Version: 2.6
 --   Date: Wednesday, August 3, 2022
---   Specification: Pillar_Options_Common_Client_Specification.pdf
+--   Specification: Pillar_Options_Common_Client_Specification (2.6g).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

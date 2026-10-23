@@ -55,7 +55,8 @@ omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.reserved_4 = ProtoField.new("Reserve
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.bbo.xdp.v2.4.g.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information.")
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.bbo.xdp.v2.4.g.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted")
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.nyseequities.bbo.xdp.v2.4.g.rpiindicator", ftypes.STRING, nil, nil, nil, "The side(s) where Retail Price Indication orders (RPI orders) exist.")
-omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.bbo.xdp.v2.4.g.seconds", ftypes.UINT32, nil, nil, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.bbo.xdp.v2.4.g.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.bbo.xdp.v2.4.g.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.bbo.xdp.v2.4.g.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.bbo.xdp.v2.4.g.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Arca, National and American")
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.xdp.v2.4.g.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -1341,20 +1342,20 @@ nyse_nyseequities_bbo_xdp_v2_4_g.seconds = {}
 -- Size: Seconds
 nyse_nyseequities_bbo_xdp_v2_4_g.seconds.size = 4
 
--- Display: Seconds
-nyse_nyseequities_bbo_xdp_v2_4_g.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_nyseequities_bbo_xdp_v2_4_g.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bbo_xdp_v2_4_g.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseequities_bbo_xdp_v2_4_g.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.seconds
+  if nyse_nyseequities_bbo_xdp_v2_4_g.absolute_time_base == 1 then field = omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3350,7 +3351,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_bbo_xdp_v2_4_g)
 --   Version: 2.4.g
 --   Since: 2.4.d
 --   Date: Monday, January 29, 2018
---   Specification: XDP BBO Client Specification (2.4c).pdf
+--   Specification: XDP BBO Client Specification (2.4g).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -1831,7 +1831,7 @@ nasdaq_utp_input_utp_v4_0.orig.display = function(value)
     return "Orig: Texas Stock Exchange Llc (FU)"
   end
   if value == "GU" then
-    return "Orig: N 24 X National Exchange Llc (GU)"
+    return "Orig: 24X National Exchange, LLC (GU)"
   end
   if value == "HU" then
     return "Orig: Miax Pearl Llc (HU)"

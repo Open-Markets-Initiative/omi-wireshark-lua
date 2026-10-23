@@ -2742,7 +2742,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_162.display = fu
     return "Statuscode Uint 162: Branch No Error (13)"
   end
   if value == 14 then
-    return "Statuscode Uint 162: Investor Account Error (14)"
+    return "Statuscode Uint 162: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)"
   end
   if value == 15 then
     return "Statuscode Uint 162: Investor Id Code Error (15)"
@@ -3174,7 +3174,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.statuscode_uint_81.display = fun
     return "Statuscode Uint 81: Branch No Error (13)"
   end
   if value == 14 then
-    return "Statuscode Uint 81: Investor Account Error (14)"
+    return "Statuscode Uint 81: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)"
   end
   if value == 15 then
     return "Statuscode Uint 81: Investor Id Code Error (15)"

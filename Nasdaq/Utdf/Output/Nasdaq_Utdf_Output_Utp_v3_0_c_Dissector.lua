@@ -1553,7 +1553,7 @@ nasdaq_utdf_output_utp_v3_0_c.market_center_originator.display = function(value)
     return "Market Center Originator: Texas Stock Exchange Llc (F)"
   end
   if value == "G" then
-    return "Market Center Originator: N 24 X National Exchange Llc (G)"
+    return "Market Center Originator: 24X National Exchange, LLC (G)"
   end
   if value == "D" then
     return "Market Center Originator: Financial Industry Regulatory Authority (D)"

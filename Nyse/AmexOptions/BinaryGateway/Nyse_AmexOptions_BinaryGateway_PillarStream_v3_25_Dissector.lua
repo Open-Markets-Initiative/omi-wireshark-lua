@@ -86,7 +86,8 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.max_order_quantity 
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mic = ProtoField.new("Mic", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mic", ftypes.STRING, nil, nil, nil, "Market Identifier Code of the connected market")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.min_qty = ProtoField.new("Min Qty", "nyse.amexoptions.binarygateway.pillarstream.v3.25.minqty", ftypes.UINT32, nil, nil, nil, "Minimum execution quantity; must be zero for complex orders")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_quote_type = ProtoField.new("Mm Quote Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mmquotetype", ftypes.UINT8, {[0]="Standard", [1]="Repricing"}, base.DEC, 0x1C, "Market maker quote type")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mmsenttime", ftypes.UINT64, nil, nil, nil, "Customer-provided sending time in nanoseconds since epoch")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mmsenttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Customer-provided sending time in nanoseconds since epoch")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time_utc = ProtoField.new("Mm Sent Time", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mmsenttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Customer-provided sending time in nanoseconds since epoch")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_type = ProtoField.new("Mm Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mmtype", ftypes.UINT8, nil, nil, nil, "Market maker role/type for the appointed symbol")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mode = ProtoField.new("Mode", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mode", ftypes.UINT8, nil, nil, nil, "Mode requested")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mpsubid", ftypes.STRING, nil, nil, nil, "Customer-defined trading desk or entity identifier")
@@ -158,7 +159,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_length = Pr
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seqmsgtype", ftypes.UINT16, nil, nil, nil, "Code identifying this message type")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.series_index = ProtoField.new("Series Index", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seriesindex", ftypes.UINT32, nil, nil, nil, "Options series index used for order entry")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.series_type = ProtoField.new("Series Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seriestype", ftypes.UINT8, nil, nil, nil, "Indicates whether the series is standard or another type")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sess = ProtoField.new("Sess", "nyse.amexoptions.binarygateway.pillarstream.v3.25.sess", ftypes.UINT32, nil, nil, nil, "32 bit session id")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sess = ProtoField.new("Sess", "nyse.amexoptions.binarygateway.pillarstream.v3.25.sess", ftypes.UINT32, nil, nil, nil, "32 bit session id (env_id[31:24], sess_num[23:0])")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.side_2 = ProtoField.new("Side 2", "nyse.amexoptions.binarygateway.pillarstream.v3.25.side2", ftypes.UINT8, nil, base.DEC, 0x03, "Quote side")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.amexoptions.binarygateway.pillarstream.v3.25.sideu81", ftypes.UINT8, nil, nil, nil, "Optional side change; zero indicates no change")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.start_seq = ProtoField.new("Start Seq", "nyse.amexoptions.binarygateway.pillarstream.v3.25.startseq", ftypes.UINT64, nil, nil, nil, "Start sequence number")
@@ -180,9 +181,11 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttle_threshold 
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.amexoptions.binarygateway.pillarstream.v3.25.throttlewindow", ftypes.UINT16, nil, nil, nil, "Time window in milliseconds over which throttling is enforced")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.throttled = ProtoField.new("Throttled", "nyse.amexoptions.binarygateway.pillarstream.v3.25.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01, "Indicates if inbound message was throttled")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.time_limit = ProtoField.new("Time Limit", "nyse.amexoptions.binarygateway.pillarstream.v3.25.timelimit", ftypes.INT32, nil, nil, nil, "Rolling time window in microseconds for activity-based risk controls")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexoptions.binarygateway.pillarstream.v3.25.timestamp", ftypes.UINT64, nil, nil, nil, "Message timestamp")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexoptions.binarygateway.pillarstream.v3.25.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.timestamp_utc = ProtoField.new("Timestamp", "nyse.amexoptions.binarygateway.pillarstream.v3.25.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message timestamp")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.amexoptions.binarygateway.pillarstream.v3.25.tradingmpv", ftypes.DOUBLE, nil, nil, nil, "Trading minimum price variation for this MPV level")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_timestamp_8 = ProtoField.new("Transact Time Timestamp 8", "nyse.amexoptions.binarygateway.pillarstream.v3.25.transacttimetimestamp8", ftypes.UINT64, nil, nil, nil, "Exchange application time")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_timestamp_8 = ProtoField.new("Transact Time Timestamp 8", "nyse.amexoptions.binarygateway.pillarstream.v3.25.transacttimetimestamp8", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exchange application time")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_timestamp_8_utc = ProtoField.new("Transact Time Timestamp 8", "nyse.amexoptions.binarygateway.pillarstream.v3.25.transacttimetimestamp8.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Exchange application time")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_u_648 = ProtoField.new("Transact Time U 648", "nyse.amexoptions.binarygateway.pillarstream.v3.25.transacttimeu648", ftypes.UINT64, nil, nil, nil, "Exchange application time")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.underlyingtype", ftypes.STRING, nil, nil, nil, "Type of the underlying security")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.unused_3 = ProtoField.new("Unused 3", "nyse.amexoptions.binarygateway.pillarstream.v3.25.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved for future use")
@@ -192,11 +195,11 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.usd_calculation_2 =
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usdcalculation3", ftypes.INT64, nil, nil, nil, "USD calculation – Executed ALL orders.")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.usd_calculation_4 = ProtoField.new("Usd Calculation 4", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usdcalculation4", ftypes.INT64, nil, nil, nil, "USD calculation – Executed auction orders.")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.usd_limit = ProtoField.new("Usd Limit", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usdlimit", ftypes.INT64, nil, nil, nil, "Dollar-based limit value for applicable risk control types")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.user = ProtoField.new("User", "nyse.amexoptions.binarygateway.pillarstream.v3.25.user", ftypes.UINT32, nil, nil, nil, "Id of stream within session")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.user_data = ProtoField.new("User Data", "nyse.amexoptions.binarygateway.pillarstream.v3.25.userdata", ftypes.STRING, nil, nil, nil, "Customer-defined free text with restricted ASCII characters")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.user_session_status = ProtoField.new("User Session Status", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usersessionstatus", ftypes.UINT8, nil, nil, nil, "Status of the gateway session")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.user_session_type = ProtoField.new("User Session Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.usersessiontype", ftypes.UINT8, nil, nil, nil, "Permission type assigned to the gateway session")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.username = ProtoField.new("Username", "nyse.amexoptions.binarygateway.pillarstream.v3.25.username", ftypes.STRING, nil, nil, nil, "Gateway session identifier (SenderCompID)")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.value = ProtoField.new("Value", "nyse.amexoptions.binarygateway.pillarstream.v3.25.value", ftypes.UINT32, nil, nil, nil, "Stream identifier value (stream_type[31:24], user_id[23:8], sub_id[7:0])")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.version = ProtoField.new("Version", "nyse.amexoptions.binarygateway.pillarstream.v3.25.version", ftypes.STRING, nil, nil, nil, "Protocol version, should be 1.1")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.amexoptions.binarygateway.pillarstream.v3.25.workingawayfromdisplay", ftypes.UINT8, nil, nil, nil, "Indicates whether working price differs from display price")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.binarygateway.pillarstream.v3.25.workingprice", ftypes.DOUBLE, nil, nil, nil, "Current working price, which may differ from display price")
@@ -205,7 +208,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.working_price = Pro
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.client_pillar_message = ProtoField.new("Client Pillar Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.clientpillarmessage", ftypes.STRING, nil, nil, nil, "Pillar Stream message sent by the member firm")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.msg_header = ProtoField.new("Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.msgheader", ftypes.STRING, nil, nil, nil, "Pillar Stream Message Header")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seqmsgheader", ftypes.STRING, nil, nil, nil, "Pillar Stream Sequenced Message Header")
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.server_pillar_message = ProtoField.new("Server Pillar Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.serverpillarmessage", ftypes.STRING, nil, nil, nil, "Pillar Stream message sent by the exchange")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.server_pillar_message = ProtoField.new("Server Pillar Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.serverpillarmessage", ftypes.STRING, nil, nil, nil, "Pillar Stream message sent by Pillar")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.submsgheader", ftypes.STRING, nil, nil, nil, "Pillar Stream Sub Message Item Header")
 
 -- Nyse AmexOptions BinaryGateway 3.25 Application Messages
@@ -262,6 +265,15 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.quote_ack_with_id_g
 -- Nyse AmexOptions BinaryGateway PillarStream 3.25 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_amexoptions_binarygateway_pillarstream_v3_25.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -295,6 +307,8 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_group
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs_changed()
 
@@ -316,6 +330,9 @@ function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs_changed()
   end
   if show.indexes ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes then
     show.indexes = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes
+  end
+  if nyse_amexoptions_binarygateway_pillarstream_v3_25.absolute_time_base ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.absolute_time_base then
+    nyse_amexoptions_binarygateway_pillarstream_v3_25.absolute_time_base = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.absolute_time_base
   end
 end
 
@@ -2364,23 +2381,20 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_sent_time = {}
 -- Size: Mm Sent Time
 nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_sent_time.size = 8
 
--- Display: Mm Sent Time
-nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_sent_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Mm Sent Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Mm Sent Time
 nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_sent_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_sent_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_sent_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time
+  if nyse_amexoptions_binarygateway_pillarstream_v3_25.absolute_time_base == 1 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5409,6 +5423,48 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.status.display = function(valu
   if value == 18 then
     return "Status: Not Logged In (18)"
   end
+  if value == 24 then
+    return "Status: Invalid Login Details (24)"
+  end
+  if value == 27 then
+    return "Status: Already Logged In (27)"
+  end
+  if value == 28 then
+    return "Status: Heartbeat Timeout (28)"
+  end
+  if value == 29 then
+    return "Status: Login Timed Out (29)"
+  end
+  if value == 33 then
+    return "Status: Invalid Message (33)"
+  end
+  if value == 54 then
+    return "Status: No Stream Permission (54)"
+  end
+  if value == 81 then
+    return "Status: Invalid Protocol Version (81)"
+  end
+  if value == 82 then
+    return "Status: Message Out Of Sequence (82)"
+  end
+  if value == 84 then
+    return "Status: Invalid Stream (84)"
+  end
+  if value == 85 then
+    return "Status: Stream Not Open (85)"
+  end
+  if value == 86 then
+    return "Status: Invalid Timestamp (86)"
+  end
+  if value == 89 then
+    return "Status: Denial Of Service (89)"
+  end
+  if value == 90 then
+    return "Status: Write Permission Revoked (90)"
+  end
+  if value == 93 then
+    return "Status: Invalid Multimessage (93)"
+  end
 
   return "Status: Unknown("..value..")"
 end
@@ -5848,23 +5904,20 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.timestamp = {}
 -- Size: Timestamp
 nyse_amexoptions_binarygateway_pillarstream_v3_25.timestamp.size = 8
 
--- Display: Timestamp
-nyse_amexoptions_binarygateway_pillarstream_v3_25.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 nyse_amexoptions_binarygateway_pillarstream_v3_25.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_25.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.timestamp
+  if nyse_amexoptions_binarygateway_pillarstream_v3_25.absolute_time_base == 1 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5904,23 +5957,20 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.transact_time_timestamp_8 = {}
 -- Size: Transact Time Timestamp 8
 nyse_amexoptions_binarygateway_pillarstream_v3_25.transact_time_timestamp_8.size = 8
 
--- Display: Transact Time Timestamp 8
-nyse_amexoptions_binarygateway_pillarstream_v3_25.transact_time_timestamp_8.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time Timestamp 8: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time Timestamp 8
 nyse_amexoptions_binarygateway_pillarstream_v3_25.transact_time_timestamp_8.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_25.transact_time_timestamp_8.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.transact_time_timestamp_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_timestamp_8, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_timestamp_8
+  if nyse_amexoptions_binarygateway_pillarstream_v3_25.absolute_time_base == 1 then field = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.transact_time_timestamp_8_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6144,29 +6194,6 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.usd_limit.dissect = function(b
   return offset + length, value
 end
 
--- User
-nyse_amexoptions_binarygateway_pillarstream_v3_25.user = {}
-
--- Size: User
-nyse_amexoptions_binarygateway_pillarstream_v3_25.user.size = 4
-
--- Display: User
-nyse_amexoptions_binarygateway_pillarstream_v3_25.user.display = function(value)
-  return "User: "..value
-end
-
--- Dissect: User
-nyse_amexoptions_binarygateway_pillarstream_v3_25.user.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexoptions_binarygateway_pillarstream_v3_25.user.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.user.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.user, range, value, display)
-
-  return offset + length, value
-end
-
 -- User Data
 nyse_amexoptions_binarygateway_pillarstream_v3_25.user_data = {}
 
@@ -6294,6 +6321,29 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.username.dissect = function(bu
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Value
+nyse_amexoptions_binarygateway_pillarstream_v3_25.value = {}
+
+-- Size: Value
+nyse_amexoptions_binarygateway_pillarstream_v3_25.value.size = 4
+
+-- Display: Value
+nyse_amexoptions_binarygateway_pillarstream_v3_25.value.display = function(value)
+  return "Value: "..value
+end
+
+-- Dissect: Value
+nyse_amexoptions_binarygateway_pillarstream_v3_25.value.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_binarygateway_pillarstream_v3_25.value.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.value, range, value, display)
 
   return offset + length, value
 end
@@ -6873,7 +6923,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id = {}
 -- Size: Stream Id
 nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id.size =
   nyse_amexoptions_binarygateway_pillarstream_v3_25.sess.size + 
-  nyse_amexoptions_binarygateway_pillarstream_v3_25.user.size
+  nyse_amexoptions_binarygateway_pillarstream_v3_25.value.size
 
 -- Display: Stream Id
 nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id.display = function(packet, parent, length)
@@ -6887,8 +6937,8 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id.fields = function(bu
   -- Sess: 4 Byte Unsigned Fixed Width Integer
   index, sess = nyse_amexoptions_binarygateway_pillarstream_v3_25.sess.dissect(buffer, index, packet, parent)
 
-  -- User: 4 Byte Unsigned Fixed Width Integer
-  index, user = nyse_amexoptions_binarygateway_pillarstream_v3_25.user.dissect(buffer, index, packet, parent)
+  -- Value: 4 Byte Unsigned Fixed Width Integer
+  index, value = nyse_amexoptions_binarygateway_pillarstream_v3_25.value.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8827,7 +8877,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.close_response.fields = functi
   -- Stream Id: Struct of 2 fields
   index, stream_id = nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, status = nyse_amexoptions_binarygateway_pillarstream_v3_25.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -8883,7 +8933,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.open_response.fields = functio
   -- Stream Id: Struct of 2 fields
   index, stream_id = nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, status = nyse_amexoptions_binarygateway_pillarstream_v3_25.status.dissect(buffer, index, packet, parent)
 
   -- Access: 1 Byte Unsigned Fixed Width Integer
@@ -9051,7 +9101,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.login_response.fields = functi
   -- Username: char(16)
   index, username = nyse_amexoptions_binarygateway_pillarstream_v3_25.username.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, status = nyse_amexoptions_binarygateway_pillarstream_v3_25.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -11271,7 +11321,7 @@ tcp_table:add_for_decode_as(omi_nyse_amexoptions_binarygateway_pillarstream_v3_2
 --   Version: 3.25
 --   Since: 3.24
 --   Date: Friday, October 17, 2025
---   Specification: NYSE_Pillar_Options_Gateway_Binary_Protocol_Specification.pdf
+--   Specification: NYSE_Pillar_Options_Gateway_Binary_Protocol_Specification (3.25).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -1016,7 +1016,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.display = f
     return "Executing Trading Center: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Executing Trading Center: N 24 X Exchange (G)"
+    return "Executing Trading Center: 24X Exchange (G)"
   end
   if value == "H" then
     return "Executing Trading Center: Miax Pearl Equities (H)"
@@ -2476,7 +2476,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.display = functi
     return "Primary Market Code: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Primary Market Code: N 24 X Exchange (G)"
+    return "Primary Market Code: 24X Exchange (G)"
   end
   if value == "H" then
     return "Primary Market Code: Miax Pearl Equities (H)"

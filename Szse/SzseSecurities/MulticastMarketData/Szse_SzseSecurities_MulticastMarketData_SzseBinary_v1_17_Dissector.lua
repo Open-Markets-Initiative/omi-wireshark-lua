@@ -7223,7 +7223,7 @@ end
 -- Dissect Packet
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet.dissect = function(buffer, packet, parent)
   local index = 0
-  local flag = buffer(18, 2):bytes():tohex(false, " ")
+  local flag = buffer(18, 2):uint()
   local msg_count = buffer(16, 2):uint()
 
   -- Packet Header: Struct of 13 fields

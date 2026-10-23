@@ -1079,7 +1079,7 @@ miax_pearlequities_topofmarket_mach_v1_1_c.primary_market_code.display = functio
     return "Primary Market Code: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Primary Market Code: N 24 X Exchange (G)"
+    return "Primary Market Code: 24X Exchange (G)"
   end
   if value == "H" then
     return "Primary Market Code: Miax Pearl Equities (H)"

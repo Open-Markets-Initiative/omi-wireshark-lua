@@ -1553,7 +1553,7 @@ tmx_mx_solamulticast_hsvf_v1_11.cash_flow_alignment_date.display = function(valu
     return "Cash Flow Alignment Date: "..value
   end
 
-  return "Cash Flow Alignment Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Cash Flow Alignment Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Cash Flow Alignment Date
@@ -1981,7 +1981,7 @@ tmx_mx_solamulticast_hsvf_v1_11.effective_date.display = function(value)
     return "Effective Date: "..value
   end
 
-  return "Effective Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Effective Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Effective Date
@@ -2451,7 +2451,7 @@ tmx_mx_solamulticast_hsvf_v1_11.first_payment_date.display = function(value)
     return "First Payment Date: "..value
   end
 
-  return "First Payment Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "First Payment Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: First Payment Date
@@ -2478,7 +2478,7 @@ tmx_mx_solamulticast_hsvf_v1_11.first_reset_date.display = function(value)
     return "First Reset Date: "..value
   end
 
-  return "First Reset Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "First Reset Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: First Reset Date
@@ -2981,7 +2981,7 @@ tmx_mx_solamulticast_hsvf_v1_11.initial_effective_date.display = function(value)
     return "Initial Effective Date: "..value
   end
 
-  return "Initial Effective Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Initial Effective Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Initial Effective Date
@@ -4585,7 +4585,7 @@ tmx_mx_solamulticast_hsvf_v1_11.next_payment_date.display = function(value)
     return "Next Payment Date: "..value
   end
 
-  return "Next Payment Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Next Payment Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Next Payment Date
@@ -4612,7 +4612,7 @@ tmx_mx_solamulticast_hsvf_v1_11.next_reset_date.display = function(value)
     return "Next Reset Date: "..value
   end
 
-  return "Next Reset Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Next Reset Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Next Reset Date
@@ -5310,7 +5310,7 @@ tmx_mx_solamulticast_hsvf_v1_11.previous_reset_date.display = function(value)
     return "Previous Reset Date: "..value
   end
 
-  return "Previous Reset Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Previous Reset Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Previous Reset Date
@@ -9550,7 +9550,7 @@ tmx_mx_solamulticast_hsvf_v1_11.scaled_historical_coupon_b.dissect = function(bu
   local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.scaled_historical_coupon_b, range, value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_11.historical_coupon_b.display(mantissa)
 
-  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_b, range, mantissa, mantissa_display)
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.historical_coupon_b, range, UInt64(tonumber(mantissa) or 0), mantissa_display)
 
   local historical_coupon_fraction_indicator_entry = field_tree:add("Historical Coupon Fraction Indicator: " .. tostring(historical_coupon_fraction_indicator))
   historical_coupon_fraction_indicator_entry:set_generated()
@@ -10153,7 +10153,7 @@ tmx_mx_solamulticast_hsvf_v1_11.scaled_net_present_value_a.dissect = function(bu
   local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.scaled_net_present_value_a, range, value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_11.net_present_value_a.display(mantissa)
 
-  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.net_present_value_a, range, mantissa, mantissa_display)
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.net_present_value_a, range, UInt64(tonumber(mantissa) or 0), mantissa_display)
 
   local net_present_value_fraction_indicator_entry = field_tree:add("Net Present Value Fraction Indicator: " .. tostring(net_present_value_fraction_indicator))
   net_present_value_fraction_indicator_entry:set_generated()
@@ -10689,7 +10689,7 @@ tmx_mx_solamulticast_hsvf_v1_11.scaled_price_alignment_interest_c.dissect = func
   local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.scaled_price_alignment_interest_c, range, value, display)
   local mantissa_display = tmx_mx_solamulticast_hsvf_v1_11.price_alignment_interest_c.display(mantissa)
 
-  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.price_alignment_interest_c, range, mantissa, mantissa_display)
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.price_alignment_interest_c, range, UInt64(tonumber(mantissa) or 0), mantissa_display)
 
   local price_alignment_interest_fraction_indicator_entry = field_tree:add("Price Alignment Interest Fraction Indicator: " .. tostring(price_alignment_interest_fraction_indicator))
   price_alignment_interest_fraction_indicator_entry:set_generated()

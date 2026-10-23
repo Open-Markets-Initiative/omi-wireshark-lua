@@ -93,7 +93,8 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.max_order_quantity 
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mic = ProtoField.new("Mic", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mic", ftypes.STRING, nil, nil, nil, "Market Identifier Code of the connected market")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.min_qty = ProtoField.new("Min Qty", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.minqty", ftypes.UINT32, nil, nil, nil, "Minimum execution quantity; must be zero for complex orders")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_quote_type = ProtoField.new("Mm Quote Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mmquotetype", ftypes.UINT8, {[0]="Standard", [1]="Repricing", [2]="Add Liquidity Only Non Taking", [4]="Repricing Add Liquidity Only Non Taking"}, base.DEC, 0x1C, "Market maker quote type")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mmsenttime", ftypes.UINT64, nil, nil, nil, "Customer-provided sending time in nanoseconds since epoch")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mmsenttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Customer-provided sending time in nanoseconds since epoch")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_sent_time_utc = ProtoField.new("Mm Sent Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mmsenttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Customer-provided sending time in nanoseconds since epoch")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_type = ProtoField.new("Mm Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mmtype", ftypes.UINT8, nil, nil, nil, "Market maker role/type for the appointed symbol")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mode = ProtoField.new("Mode", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mode", ftypes.UINT8, nil, nil, nil, "Mode requested")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.mpsubid", ftypes.STRING, nil, nil, nil, "Customer-defined trading desk or entity identifier")
@@ -174,7 +175,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_length = Pr
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.seqmsgtype", ftypes.UINT16, nil, nil, nil, "Code identifying this message type")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.series_index = ProtoField.new("Series Index", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.seriesindex", ftypes.UINT32, nil, nil, nil, "Options series index used for order entry")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.series_type = ProtoField.new("Series Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.seriestype", ftypes.UINT8, nil, nil, nil, "Indicates whether the series is standard or another type")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.sess = ProtoField.new("Sess", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.sess", ftypes.UINT32, nil, nil, nil, "32 bit session id")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.sess = ProtoField.new("Sess", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.sess", ftypes.UINT32, nil, nil, nil, "32 bit session id (env_id[31:24], sess_num[23:0])")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.side = ProtoField.new("Side", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.side", ftypes.UINT8, nil, nil, nil, "Optional side change; zero indicates no change")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.side_bits = ProtoField.new("Side Bits", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.sidebits", ftypes.UINT8, nil, nil, nil, "Order side")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.specialordtype", ftypes.UINT8, nil, nil, nil, "Special order or auction type")
@@ -199,10 +200,12 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.throttle_window = P
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.throttled = ProtoField.new("Throttled", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01, "Indicates if inbound message was throttled")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.time_in_force = ProtoField.new("Time In Force", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.timeinforce", ftypes.UINT8, nil, nil, nil, "Order duration")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.time_limit = ProtoField.new("Time Limit", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.timelimit", ftypes.INT32, nil, nil, nil, "Rolling time window in microseconds for activity-based risk controls")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.timestamp", ftypes.UINT64, nil, nil, nil, "Message timestamp")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.timestamp_utc = ProtoField.new("Timestamp", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message timestamp")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.tradingmpv", ftypes.DOUBLE, nil, nil, nil, "Trading minimum price variation for this MPV level")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Eligible trading sessions")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.transact_time = ProtoField.new("Transact Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.transacttime", ftypes.UINT64, nil, nil, nil, "Exchange application time")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.transact_time = ProtoField.new("Transact Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exchange application time")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.transact_time_utc = ProtoField.new("Transact Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Exchange application time")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.underlyingtype", ftypes.STRING, nil, nil, nil, "Type of the underlying security")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.unused_3 = ProtoField.new("Unused 3", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved for future use")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.unused_34 = ProtoField.new("Unused 34", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.unused34", ftypes.UINT64, nil, nil, nil, "Reserved for future use")
@@ -212,11 +215,11 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.usd_calculation_2 =
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.usd_calculation_3 = ProtoField.new("Usd Calculation 3", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.usdcalculation3", ftypes.INT64, nil, nil, nil, "USD calculation – Executed ALL orders.")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.usd_calculation_4 = ProtoField.new("Usd Calculation 4", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.usdcalculation4", ftypes.INT64, nil, nil, nil, "USD calculation – Executed auction orders.")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.usd_limit = ProtoField.new("Usd Limit", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.usdlimit", ftypes.INT64, nil, nil, nil, "Dollar-based limit value for applicable risk control types")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.user = ProtoField.new("User", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.user", ftypes.UINT32, nil, nil, nil, "Id of stream within session")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.user_data = ProtoField.new("User Data", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.userdata", ftypes.STRING, nil, nil, nil, "Customer-defined free text with restricted ASCII characters")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.user_session_status = ProtoField.new("User Session Status", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.usersessionstatus", ftypes.UINT8, nil, nil, nil, "Status of the gateway session")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.user_session_type = ProtoField.new("User Session Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.usersessiontype", ftypes.UINT8, nil, nil, nil, "Permission type assigned to the gateway session")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.username = ProtoField.new("Username", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.username", ftypes.STRING, nil, nil, nil, "Gateway session identifier (SenderCompID)")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.value = ProtoField.new("Value", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.value", ftypes.UINT32, nil, nil, nil, "Stream identifier value (stream_type[31:24], user_id[23:8], sub_id[7:0])")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.version = ProtoField.new("Version", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.version", ftypes.STRING, nil, nil, nil, "Protocol version, should be 1.1")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.workingawayfromdisplay", ftypes.UINT8, nil, nil, nil, "Indicates whether working price differs from display price")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.workingprice", ftypes.DOUBLE, nil, nil, nil, "Current working price, which may differ from display price")
@@ -225,7 +228,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.working_price = Pro
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.client_pillar_message = ProtoField.new("Client Pillar Message", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.clientpillarmessage", ftypes.STRING, nil, nil, nil, "Pillar Stream message sent by the member firm")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.msg_header = ProtoField.new("Msg Header", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.msgheader", ftypes.STRING, nil, nil, nil, "Pillar Stream Message Header")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.seqmsgheader", ftypes.STRING, nil, nil, nil, "Pillar Stream Sequenced Message Header")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.server_pillar_message = ProtoField.new("Server Pillar Message", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.serverpillarmessage", ftypes.STRING, nil, nil, nil, "Pillar Stream message sent by the exchange")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.server_pillar_message = ProtoField.new("Server Pillar Message", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.serverpillarmessage", ftypes.STRING, nil, nil, nil, "Pillar Stream message sent by Pillar")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.submsgheader", ftypes.STRING, nil, nil, nil, "Pillar Stream Sub Message Item Header")
 
 -- Nyse ArcaOptions BinaryGateway 3.27 Application Messages
@@ -282,6 +285,15 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_with_id_g
 -- Nyse ArcaOptions BinaryGateway PillarStream 3.27 Formatting
 -----------------------------------------------------------------------
 
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.absolute_time_base = 0
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -315,6 +327,8 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_repeating_group
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs_changed()
 
@@ -336,6 +350,9 @@ function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs_changed()
   end
   if show.indexes ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_indexes then
     show.indexes = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_indexes
+  end
+  if nyse_arcaoptions_binarygateway_pillarstream_v3_27.absolute_time_base ~= omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.absolute_time_base then
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.absolute_time_base = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.absolute_time_base
   end
 end
 
@@ -2340,23 +2357,20 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.mm_sent_time = {}
 -- Size: Mm Sent Time
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.mm_sent_time.size = 8
 
--- Display: Mm Sent Time
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.mm_sent_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Mm Sent Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Mm Sent Time
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.mm_sent_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.mm_sent_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.mm_sent_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_sent_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_sent_time
+  if nyse_arcaoptions_binarygateway_pillarstream_v3_27.absolute_time_base == 1 then field = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.mm_sent_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5370,6 +5384,48 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.display = function(valu
   if value == 18 then
     return "Status: Not Logged In (18)"
   end
+  if value == 24 then
+    return "Status: Invalid Login Details (24)"
+  end
+  if value == 27 then
+    return "Status: Already Logged In (27)"
+  end
+  if value == 28 then
+    return "Status: Heartbeat Timeout (28)"
+  end
+  if value == 29 then
+    return "Status: Login Timed Out (29)"
+  end
+  if value == 33 then
+    return "Status: Invalid Message (33)"
+  end
+  if value == 54 then
+    return "Status: No Stream Permission (54)"
+  end
+  if value == 81 then
+    return "Status: Invalid Protocol Version (81)"
+  end
+  if value == 82 then
+    return "Status: Message Out Of Sequence (82)"
+  end
+  if value == 84 then
+    return "Status: Invalid Stream (84)"
+  end
+  if value == 85 then
+    return "Status: Stream Not Open (85)"
+  end
+  if value == 86 then
+    return "Status: Invalid Timestamp (86)"
+  end
+  if value == 89 then
+    return "Status: Denial Of Service (89)"
+  end
+  if value == 90 then
+    return "Status: Write Permission Revoked (90)"
+  end
+  if value == 93 then
+    return "Status: Invalid Multimessage (93)"
+  end
 
   return "Status: Unknown("..value..")"
 end
@@ -5809,23 +5865,20 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp = {}
 -- Size: Timestamp
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.size = 8
 
--- Display: Timestamp
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Timestamp
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.timestamp
+  if nyse_arcaoptions_binarygateway_pillarstream_v3_27.absolute_time_base == 1 then field = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5865,23 +5918,20 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.transact_time = {}
 -- Size: Transact Time
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.transact_time.size = 8
 
--- Display: Transact Time
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.transact_time.display = function(value)
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return "Transact Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
 -- Dissect: Transact Time
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.transact_time
+  if nyse_arcaoptions_binarygateway_pillarstream_v3_27.absolute_time_base == 1 then field = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6082,29 +6132,6 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.usd_limit.dissect = function(b
   return offset + length, value
 end
 
--- User
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.user = {}
-
--- Size: User
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.user.size = 4
-
--- Display: User
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.user.display = function(value)
-  return "User: "..value
-end
-
--- Dissect: User
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.user.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.user.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.user.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.user, range, value, display)
-
-  return offset + length, value
-end
-
 -- User Data
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.user_data = {}
 
@@ -6232,6 +6259,29 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.username.dissect = function(bu
   local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Value
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.value = {}
+
+-- Size: Value
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.value.size = 4
+
+-- Display: Value
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.value.display = function(value)
+  return "Value: "..value
+end
+
+-- Dissect: Value
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.value.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.value.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.value, range, value, display)
 
   return offset + length, value
 end
@@ -6811,7 +6861,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id = {}
 -- Size: Stream Id
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.size =
   nyse_arcaoptions_binarygateway_pillarstream_v3_27.sess.size + 
-  nyse_arcaoptions_binarygateway_pillarstream_v3_27.user.size
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.value.size
 
 -- Display: Stream Id
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.display = function(packet, parent, length)
@@ -6825,8 +6875,8 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.fields = function(bu
   -- Sess: 4 Byte Unsigned Fixed Width Integer
   index, sess = nyse_arcaoptions_binarygateway_pillarstream_v3_27.sess.dissect(buffer, index, packet, parent)
 
-  -- User: 4 Byte Unsigned Fixed Width Integer
-  index, user = nyse_arcaoptions_binarygateway_pillarstream_v3_27.user.dissect(buffer, index, packet, parent)
+  -- Value: 4 Byte Unsigned Fixed Width Integer
+  index, value = nyse_arcaoptions_binarygateway_pillarstream_v3_27.value.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8901,7 +8951,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.fields = functi
   -- Stream Id: Struct of 2 fields
   index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -8957,7 +9007,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.fields = functio
   -- Stream Id: Struct of 2 fields
   index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
 
   -- Access: 1 Byte Unsigned Fixed Width Integer
@@ -9125,7 +9175,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.fields = functi
   -- Username: char(16)
   index, username = nyse_arcaoptions_binarygateway_pillarstream_v3_27.username.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -11345,7 +11395,7 @@ tcp_table:add_for_decode_as(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_2
 --   Version: 3.27
 --   Since: 3.24
 --   Date: Tuesday, July 21, 2026
---   Specification: NYSE_Pillar_Options_Gateway_Binary_Protocol_Specification.pdf
+--   Specification: NYSE_Pillar_Options_Gateway_Binary_Protocol_Specification (3.27).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

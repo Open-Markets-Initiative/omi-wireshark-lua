@@ -46,14 +46,16 @@ omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.product_id
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.reserved1", ftypes.BYTES, nil, nil, nil, "This field is reserved for future use.")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.reserved4", ftypes.BYTES, nil, nil, nil, "Future use. Any field content should be ignored.")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted: Y - Yes, N - No.")
-omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.seconds_utc = ProtoField.new("Seconds", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.security_status = ProtoField.new("Security Status", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.security_type = ProtoField.new("Security Type", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar-powered markets.")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.seq_num = ProtoField.new("Seq Num", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.session_state = ProtoField.new("Session State", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
-omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.source_time = ProtoField.new("Source Time", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.sourcetime", ftypes.UINT32, nil, nil, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.source_time = ProtoField.new("Source Time", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.source_time_utc = ProtoField.new("Source Time", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.ssr_state = ProtoField.new("Ssr State", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code.")
 omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.amexequities.integratedfeedstocksummary.pillar.v2.5.h.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "This field is only populated when securityStatus = A and this security is listed on this exchange. Otherwise it is defaulted to 0x20.")
@@ -352,11 +354,11 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.exchange_code.display
     return "Exchange Code: No Value"
   end
 
-  if value == "F" then
-    return "Exchange Code: Txse (F)"
-  end
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
+  end
+  if value == "F" then
+    return "Exchange Code: Txse (F)"
   end
   if value == "L" then
     return "Exchange Code: Ltse (L)"
@@ -444,7 +446,7 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.halt_condition.displa
     return "Halt Condition: Merger Effective (E)"
   end
   if value == "F" then
-    return "Halt Condition: Etf Iiv Etf Component Prices Not Available (F)"
+    return "Halt Condition: ETF IIV/ETF Components Prices Not Available (F)"
   end
   if value == "N" then
     return "Halt Condition: Corporate Action (N)"
@@ -1010,7 +1012,17 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.price_resolution.size
 
 -- Display: Price Resolution
 nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.price_resolution.display = function(value)
-  return "Price Resolution: "..value
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1033,7 +1045,17 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.price_scale_code.size
 
 -- Display: Price Scale Code
 nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.price_scale_code.display = function(value)
-  return "Price Scale Code: "..value
+  if value == 6 then
+    return "Price Scale Code: Low Priced Securities (6)"
+  end
+  if value == 4 then
+    return "Price Scale Code: Medium Priced Securities (4)"
+  end
+  if value == 3 then
+    return "Price Scale Code: High Priced Securities (3)"
+  end
+
+  return "Price Scale Code: Unknown("..value..")"
 end
 
 -- Dissect: Price Scale Code
@@ -1166,20 +1188,20 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.seconds = {}
 -- Size: Seconds
 nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.seconds.size = 4
 
--- Display: Seconds
-nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.seconds
+  if nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1280,7 +1302,7 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.security_type.display
   end
 
   if value == "A" then
-    return "Security Type: Adr (A)"
+    return "Security Type: American Depositary Receipts (A)"
   end
   if value == "C" then
     return "Security Type: Common Stock (C)"
@@ -1289,13 +1311,13 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.security_type.display
     return "Security Type: Debentures (D)"
   end
   if value == "E" then
-    return "Security Type: Etf (E)"
+    return "Security Type: Exchange Traded Funds (E)"
   end
   if value == "F" then
     return "Security Type: Foreign (F)"
   end
   if value == "H" then
-    return "Security Type: Us Depositary Shares (H)"
+    return "Security Type: American Depositary Shares (H)"
   end
   if value == "I" then
     return "Security Type: Units (I)"
@@ -1304,7 +1326,7 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.security_type.display
     return "Security Type: Index Linked Notes (L)"
   end
   if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
+    return "Security Type: Other Blank (M)"
   end
   if value == "O" then
     return "Security Type: Ordinary Shares (O)"
@@ -1316,7 +1338,7 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.security_type.display
     return "Security Type: Rights (R)"
   end
   if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
+    return "Security Type: Shares Of Beneficial Interest (S)"
   end
   if value == "T" then
     return "Security Type: Test (T)"
@@ -1325,7 +1347,7 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.security_type.display
     return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
-    return "Security Type: Warrant (W)"
+    return "Security Type: Warrants (W)"
   end
 
   return "Security Type: Unknown("..value..")"
@@ -1426,20 +1448,20 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.source_time.generated
   source_time:set_generated()
 end
 
--- Display: Source Time
-nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.source_time.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Source Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Source Time
 nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.source_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.source_time
+  if nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.fields.source_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1527,7 +1549,7 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.ssr_triggering_exchan
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Oms Tx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Tx (B)"
   end
   if value == "C" then
     return "Ssr Triggering Exchange Id: Nyse National (C)"
@@ -1535,11 +1557,14 @@ nyse_amexequities_integratedfeedstocksummary_pillar_v2_5_h.ssr_triggering_exchan
   if value == "D" then
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
+  if value == "F" then
+    return "Ssr Triggering Exchange Id: Txse (F)"
+  end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "H" then
-    return "Ssr Triggering Exchange Id: Miami Peral (H)"
+    return "Ssr Triggering Exchange Id: Miax Pearl (H)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Nasdaq Ise (I)"
@@ -2920,7 +2945,7 @@ udp_table:add_for_decode_as(omi_nyse_amexequities_integratedfeedstocksummary_pil
 --   Version: 2.5.h
 --   Since: 2.5.g
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification.pdf
+--   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification (2.5h).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

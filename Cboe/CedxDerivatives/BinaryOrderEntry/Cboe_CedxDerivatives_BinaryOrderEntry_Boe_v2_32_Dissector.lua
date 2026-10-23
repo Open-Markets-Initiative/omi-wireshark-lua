@@ -11760,7 +11760,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_capture_report_decline_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_decline_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 134, 1):le_uint()
-  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):bytes():tohex(false, " ")
+  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.dissect(buffer, index, packet, parent)
@@ -13971,7 +13971,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_capture_confirm_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 73, 1):le_uint()
-  local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):bytes():tohex(false, " ")
+  local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.dissect(buffer, index, packet, parent)
@@ -16212,7 +16212,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_capture_report_reject_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 90, 1):le_uint()
-  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
+  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.dissect(buffer, index, packet, parent)
@@ -18399,7 +18399,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.trade_capture_report_acknowledgment_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_acknowledgment_v_2_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 29, 1):le_uint()
-  local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):bytes():tohex(false, " ")
+  local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.dissect(buffer, index, packet, parent)
@@ -33414,7 +33414,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.cross_order_cancelled_message.fields = function(buffer, offset, packet, parent, size_of_cross_order_cancelled_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 30, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
+  local cross_order_cancelled_return_bitfield_1 = buffer(offset + 31, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.dissect(buffer, index, packet, parent)
@@ -49209,7 +49209,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.cross_order_acknowledgment_message.fields = function(buffer, offset, packet, parent, size_of_cross_order_acknowledgment_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 37, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
+  local cross_order_acknowledgment_return_bitfield_1 = buffer(offset + 38, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cedxderivatives_binaryorderentry_boe_v2_32.transaction_time.dissect(buffer, index, packet, parent)
@@ -54598,7 +54598,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.new_order_cross_multileg_message.fields = function(buffer, offset, packet, parent, size_of_new_order_cross_multileg_message)
   local index = offset
   local number_of_new_order_cross_multileg_bitfields = buffer(offset + 34, 1):le_uint()
-  local new_order_cross_multileg_bitfield_1 = buffer(offset + 35, 1):bytes():tohex(false, " ")
+  local new_order_cross_multileg_bitfield_1 = buffer(offset + 35, 1):le_uint()
 
   -- Cross Id: Text
   index, cross_id = cboe_cedxderivatives_binaryorderentry_boe_v2_32.cross_id.dissect(buffer, index, packet, parent)
@@ -56368,7 +56368,7 @@ end
 cboe_cedxderivatives_binaryorderentry_boe_v2_32.new_order_cross_message.fields = function(buffer, offset, packet, parent, size_of_new_order_cross_message)
   local index = offset
   local number_of_new_order_cross_bitfields = buffer(offset + 34, 1):le_uint()
-  local new_order_cross_bitfield_1 = buffer(offset + 35, 1):bytes():tohex(false, " ")
+  local new_order_cross_bitfield_1 = buffer(offset + 35, 1):le_uint()
 
   -- Cross Id: Text
   index, cross_id = cboe_cedxderivatives_binaryorderentry_boe_v2_32.cross_id.dissect(buffer, index, packet, parent)

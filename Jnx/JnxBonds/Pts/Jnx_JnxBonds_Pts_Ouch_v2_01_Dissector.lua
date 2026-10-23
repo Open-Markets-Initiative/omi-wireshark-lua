@@ -113,7 +113,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 jnx_jnxbonds_pts_ouch_v2_01.timestamp_format = 2
 
--- Hours ahead of UTC (JST) for midnight calculation
+-- Hours ahead of UTC (Asia/Tokyo) for midnight calculation
 jnx_jnxbonds_pts_ouch_v2_01.utc_offset_hours = 9
 
 -- assumed connection role
@@ -148,7 +148,7 @@ omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_session_messages = Pref.bool("Show Se
 omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (JST) for midnight calculation")
+omi_jnx_jnxbonds_pts_ouch_v2_01.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 9, "Hours ahead of UTC (Asia/Tokyo) for midnight calculation")
 
 -- Handle changed preferences
 function omi_jnx_jnxbonds_pts_ouch_v2_01.prefs_changed()

@@ -72,7 +72,8 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.rfq_status = ProtoField.ne
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexoptions.complexfeed.pillar.v1.0.h.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted.")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nyse.amexoptions.complexfeed.pillar.v1.0.h.secondreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nyse.amexoptions.complexfeed.pillar.v1.0.h.secondreserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds_utc = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.complexfeed.pillar.v1.0.h.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.security_type = ProtoField.new("Security Type", "nyse.amexoptions.complexfeed.pillar.v1.0.h.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar markets.")
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -2015,20 +2016,20 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.seconds = {}
 -- Size: Seconds
 nyse_amexoptions_complexfeed_pillar_v1_0_h.seconds.size = 4
 
--- Display: Seconds
-nyse_amexoptions_complexfeed_pillar_v1_0_h.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_amexoptions_complexfeed_pillar_v1_0_h.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds
+  if nyse_amexoptions_complexfeed_pillar_v1_0_h.absolute_time_base == 1 then field = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2624,7 +2625,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.ssr_triggering_exchange_id.display = 
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Ise (I)"
@@ -2756,7 +2757,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.status.display = function(value)
     return "Status: Rejected Due To Maximum Number Of Refresh Requests In A Day (5)"
   end
   if value == "6" then
-    return "Status: Rejected Request Message Seq Num Ttl Is Too Old (6)"
+    return "Status: Rejected Request Message Seq Num Ttl Time To Live Is Too Old Use Refresh To Recover Current State If Necessary (6)"
   end
   if value == "7" then
     return "Status: Rejected Due To An Invalid Channel Id (7)"
@@ -2765,7 +2766,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.status.display = function(value)
     return "Status: Rejected Due To An Invalid Product Id (8)"
   end
   if value == "9" then
-    return "Status: Rejected Due To Invalid Msg Type Or Mismatch Between Msg Type And Msg Size (9)"
+    return "Status: Rejected Due To 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
   end
 
   return "Status: Unknown("..value..")"

@@ -29950,7 +29950,7 @@ end
 cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fields = function(buffer, offset, packet, parent, size_of_cross_order_cancelled_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 30, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
+  local cross_order_cancelled_return_bitfield_1 = buffer(offset + 31, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_c1options_binaryorderentry_boe_v2_11_115.transaction_time.dissect(buffer, index, packet, parent)
@@ -47613,7 +47613,7 @@ end
 cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_message.fields = function(buffer, offset, packet, parent, size_of_cross_order_acknowledgment_message)
   local index = offset
   local number_of_return_bitfields = buffer(offset + 38, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_1 = buffer(offset + 39, 1):bytes():tohex(false, " ")
+  local cross_order_acknowledgment_return_bitfield_1 = buffer(offset + 39, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_c1options_binaryorderentry_boe_v2_11_115.transaction_time.dissect(buffer, index, packet, parent)

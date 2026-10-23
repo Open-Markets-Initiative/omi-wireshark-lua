@@ -70,7 +70,8 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.reserved_6 = ProtoField.ne
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information.")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.rfq_status = ProtoField.new("Rfq Status", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.rfqstatus", ftypes.STRING, nil, nil, nil, "This status field is used for CUBE/COA (Type = C).")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.security_type = ProtoField.new("Security Type", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Arca, National and American")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -1862,20 +1863,20 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.seconds = {}
 -- Size: Seconds
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.seconds.size = 4
 
--- Display: Seconds
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_d.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arcaoptions_complexfeed_pillar_v1_0_d.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.seconds
+  if nyse_arcaoptions_complexfeed_pillar_v1_0_d.absolute_time_base == 1 then field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

@@ -53,7 +53,8 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.reserved_2 = ProtoFie
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.reserved4", ftypes.BYTES, nil, nil, nil, "Future use. Any field content should be ignored.")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information. Valid values: 0 - deliver via UDP.")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted: Y - Yes, N - No.")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.seconds", ftypes.UINT32, nil, nil, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar-powered markets.")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -590,7 +591,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.market_id.display = function(val
     return "Market Id: Nyse National Equities (10)"
   end
   if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
+    return "Market Id: Nyse Chicago (11)"
   end
 
   return "Market Id: Unknown("..value..")"
@@ -1010,7 +1011,17 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price_resolution.size = 1
 
 -- Display: Price Resolution
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.price_resolution.display = function(value)
-  return "Price Resolution: "..value
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1198,7 +1209,11 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.retransmit_method.size = 1
 
 -- Display: Retransmit Method
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.retransmit_method.display = function(value)
-  return "Retransmit Method: "..value
+  if value == 0 then
+    return "Retransmit Method: Deliver Via Udp (0)"
+  end
+
+  return "Retransmit Method: Unknown("..value..")"
 end
 
 -- Dissect: Retransmit Method
@@ -1262,20 +1277,20 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.seconds = {}
 -- Size: Seconds
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.seconds.size = 4
 
--- Display: Seconds
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds
+  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.absolute_time_base == 1 then field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1715,7 +1730,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.ssr_triggering_exchange_id.displ
     return "Ssr Triggering Exchange Id: Ltse (L)"
   end
   if value == "M" then
-    return "Ssr Triggering Exchange Id: Nyse Texas (M)"
+    return "Ssr Triggering Exchange Id: Nyse Chicago (M)"
   end
   if value == "N" then
     return "Ssr Triggering Exchange Id: Nyse (N)"

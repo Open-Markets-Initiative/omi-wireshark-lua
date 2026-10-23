@@ -57,7 +57,8 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reference_price = ProtoField.
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.depthfeed.pillar.v1.6.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.depthfeed.pillar.v1.6.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Disregard any content.")
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaequities.depthfeed.pillar.v1.6.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted: Y - Yes, N - No.")
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.depthfeed.pillar.v1.6.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.depthfeed.pillar.v1.6.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaequities.depthfeed.pillar.v1.6.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.depthfeed.pillar.v1.6.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.security_type = ProtoField.new("Security Type", "nyse.arcaequities.depthfeed.pillar.v1.6.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar-powered markets.")
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.depthfeed.pillar.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -770,10 +771,10 @@ nyse_arcaequities_depthfeed_pillar_v1_6.market_id.size = 2
 -- Display: Market Id
 nyse_arcaequities_depthfeed_pillar_v1_6.market_id.display = function(value)
   if value == 1 then
-    return "Market Id: Nyse (1)"
+    return "Market Id: Nyse Equities (1)"
   end
   if value == 3 then
-    return "Market Id: Nyse Arca (3)"
+    return "Market Id: Nyse Arca Equities (3)"
   end
   if value == 4 then
     return "Market Id: Nyse Arca Options (4)"
@@ -785,13 +786,13 @@ nyse_arcaequities_depthfeed_pillar_v1_6.market_id.display = function(value)
     return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
-    return "Market Id: Nyse American (9)"
+    return "Market Id: Nyse American Equities (9)"
   end
   if value == 10 then
-    return "Market Id: Nyse National (10)"
+    return "Market Id: Nyse National Equities (10)"
   end
   if value == 11 then
-    return "Market Id: Nyse Texas (11)"
+    return "Market Id: Nyse Texas Equities (11)"
   end
 
   return "Market Id: Unknown("..value..")"
@@ -1468,20 +1469,20 @@ nyse_arcaequities_depthfeed_pillar_v1_6.seconds = {}
 -- Size: Seconds
 nyse_arcaequities_depthfeed_pillar_v1_6.seconds.size = 4
 
--- Display: Seconds
-nyse_arcaequities_depthfeed_pillar_v1_6.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_arcaequities_depthfeed_pillar_v1_6.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeed_pillar_v1_6.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeed_pillar_v1_6.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds
+  if nyse_arcaequities_depthfeed_pillar_v1_6.absolute_time_base == 1 then field = omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1890,7 +1891,7 @@ nyse_arcaequities_depthfeed_pillar_v1_6.ssr_triggering_exchange_id.display = fun
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Pearl (H)"

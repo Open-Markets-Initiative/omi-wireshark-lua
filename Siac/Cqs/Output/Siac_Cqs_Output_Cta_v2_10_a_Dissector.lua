@@ -2107,7 +2107,7 @@ siac_cqs_output_cta_v2_10_a.participant_id.display = function(value)
     return "Participant Id: Finra Adf (D)"
   end
   if value == "G" then
-    return "Participant Id: N 24 X (G)"
+    return "Participant Id: 24X (G)"
   end
   if value == "H" then
     return "Participant Id: Miax (H)"
@@ -2220,7 +2220,7 @@ siac_cqs_output_cta_v2_10_a.primary_listing_market_participant_id.display = func
     return "Primary Listing Market Participant Id: Finra Adf (D)"
   end
   if value == "G" then
-    return "Primary Listing Market Participant Id: N 24 X (G)"
+    return "Primary Listing Market Participant Id: 24X (G)"
   end
   if value == "H" then
     return "Primary Listing Market Participant Id: Miax Pearl (H)"

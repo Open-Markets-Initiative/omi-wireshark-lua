@@ -129,7 +129,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cnsx_cse2_retransmission_mmd_v1_6.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
+-- Hours behind UTC (America/Toronto) for midnight calculation
 cnsx_cse2_retransmission_mmd_v1_6.utc_offset_hours = 5
 
 -- absolute time base
@@ -165,7 +165,7 @@ omi_cnsx_cse2_retransmission_mmd_v1_6.prefs.show_indexes = Pref.bool("Show Index
 omi_cnsx_cse2_retransmission_mmd_v1_6.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cnsx_cse2_retransmission_mmd_v1_6.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
-omi_cnsx_cse2_retransmission_mmd_v1_6.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_cnsx_cse2_retransmission_mmd_v1_6.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/Toronto) for midnight calculation")
 omi_cnsx_cse2_retransmission_mmd_v1_6.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
 -- Handle changed preferences

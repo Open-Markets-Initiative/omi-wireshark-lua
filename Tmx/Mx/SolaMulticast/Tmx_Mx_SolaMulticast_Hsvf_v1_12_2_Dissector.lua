@@ -1356,7 +1356,7 @@ tmx_mx_solamulticast_hsvf_v1_12_2.expiry_date.display = function(value)
     return "Expiry Date: "..value
   end
 
-  return "Expiry Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Expiry Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Expiry Date
@@ -2697,7 +2697,7 @@ tmx_mx_solamulticast_hsvf_v1_12_2.message_timestamp.dissect = function(buffer, o
   local value = range:string()
   local display = tmx_mx_solamulticast_hsvf_v1_12_2.message_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.message_timestamp, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.message_timestamp, range, UInt64(tonumber(value) or 0), display)
 
   return offset + length, value
 end
@@ -3475,7 +3475,7 @@ tmx_mx_solamulticast_hsvf_v1_12_2.open_interest_date.display = function(value)
     return "Open Interest Date: "..value
   end
 
-  return "Open Interest Date: "..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
+  return "Open Interest Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Open Interest Date

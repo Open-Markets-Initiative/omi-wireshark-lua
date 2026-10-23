@@ -91,7 +91,8 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.rfq_status = ProtoField.new("
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexoptions.deepfeed.pillar.v1.2.m.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nyse.amexoptions.deepfeed.pillar.v1.2.m.secondreserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "nyse.amexoptions.deepfeed.pillar.v1.2.m.secondreserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.deepfeed.pillar.v1.2.m.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.deepfeed.pillar.v1.2.m.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.seconds_utc = ProtoField.new("Seconds", "nyse.amexoptions.deepfeed.pillar.v1.2.m.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.deepfeed.pillar.v1.2.m.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.security_type = ProtoField.new("Security Type", "nyse.amexoptions.deepfeed.pillar.v1.2.m.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar markets.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.deepfeed.pillar.v1.2.m.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
@@ -2717,20 +2718,20 @@ nyse_amexoptions_deepfeed_pillar_v1_2_m.seconds = {}
 -- Size: Seconds
 nyse_amexoptions_deepfeed_pillar_v1_2_m.seconds.size = 4
 
--- Display: Seconds
-nyse_amexoptions_deepfeed_pillar_v1_2_m.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_amexoptions_deepfeed_pillar_v1_2_m.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.seconds
+  if nyse_amexoptions_deepfeed_pillar_v1_2_m.absolute_time_base == 1 then field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3325,8 +3326,11 @@ nyse_amexoptions_deepfeed_pillar_v1_2_m.ssr_triggering_exchange_id.display = fun
   if value == "D" then
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
+  if value == "F" then
+    return "Ssr Triggering Exchange Id: Txse (F)"
+  end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Ise (I)"

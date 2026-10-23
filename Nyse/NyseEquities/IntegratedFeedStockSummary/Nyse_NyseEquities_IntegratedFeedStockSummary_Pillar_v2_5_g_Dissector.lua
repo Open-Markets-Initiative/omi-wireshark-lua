@@ -45,14 +45,16 @@ omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.reserved_1
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.reserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Disregard any content.")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.reserved4", ftypes.BYTES, nil, nil, nil, "Future use. Any field content should be ignored.")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted: Y - Yes, N - No.")
-omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar-powered markets.")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
-omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.sourcetime", ftypes.UINT32, nil, nil, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.source_time_utc = ProtoField.new("Source Time", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.ssr_state = ProtoField.new("Ssr State", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code.")
 omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.nyseequities.integratedfeedstocksummary.pillar.v2.5.g.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "This field is only populated when securityStatus = A and this security is listed on this exchange. Otherwise it is defaulted to 0x20.")
@@ -952,7 +954,17 @@ nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution.size
 
 -- Display: Price Resolution
 nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution.display = function(value)
-  return "Price Resolution: "..value
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1131,20 +1143,20 @@ nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.seconds = {}
 -- Size: Seconds
 nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.seconds.size = 4
 
--- Display: Seconds
-nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.seconds.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Seconds
 nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.seconds.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.seconds
+  if nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.absolute_time_base == 1 then field = omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1388,20 +1400,20 @@ nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.generated
   source_time:set_generated()
 end
 
--- Display: Source Time
-nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.display = function(value)
-  -- Parse unix seconds timestamp
-  return "Source Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
-end
-
 -- Dissect: Source Time
 nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.source_time
+  if nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.absolute_time_base == 1 then field = omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.fields.source_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1498,7 +1510,7 @@ nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_g.ssr_triggering_exchan
     return "Ssr Triggering Exchange Id: Finra (D)"
   end
   if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
+    return "Ssr Triggering Exchange Id: 24X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Peral (H)"
