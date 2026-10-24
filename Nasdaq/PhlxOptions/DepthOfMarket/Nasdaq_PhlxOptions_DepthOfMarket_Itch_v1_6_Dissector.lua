@@ -4063,7 +4063,7 @@ udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.6
 --   Date: Thursday, March 8, 2018
---   Specification: phlxdepth (2018-03-08).pdf
+--   Specification: phlxdepth.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

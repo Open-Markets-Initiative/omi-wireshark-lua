@@ -5729,8 +5729,8 @@ tcp_table:add_for_decode_as(omi_nasdaq_mrxoptions_cti_itch_v3_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0
 --   Date: Monday, August 3, 2026
---   Specification: Options_ETH_CTI.pdf
 --   Specification: Options_CTI.pdf
+--   Specification: Options_ETH_CTI.pdf
 --   Specification: soupbintcp.pdf
 --
 -- Script:

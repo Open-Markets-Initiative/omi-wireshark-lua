@@ -8600,8 +8600,8 @@ tcp_table:add_for_decode_as(omi_nasdaq_gemxoptions_otto_ouch_v3_0_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0.0
 --   Date: Monday, August 17, 2026
---   Specification: Options_ETH_OTTO.pdf
 --   Specification: Options_OTTO.pdf
+--   Specification: Options_ETH_OTTO.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

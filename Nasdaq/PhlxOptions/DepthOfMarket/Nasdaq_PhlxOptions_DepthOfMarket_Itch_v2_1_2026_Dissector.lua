@@ -5303,7 +5303,7 @@ udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1_2026)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1.2026
 --   Date: Wednesday, July 8, 2026
---   Specification: Options_Depth_of_Market_Feed_2.1 (2026-08-03).pdf
+--   Specification: Options_Depth_of_Market_Feed_2.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

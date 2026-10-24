@@ -8793,8 +8793,8 @@ tcp_table:add_for_decode_as(omi_nasdaq_phlxoptions_quoting_sqf_v9_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 9.0
 --   Date: Tuesday, September 22, 2026
---   Specification: Options_ETH_SQF.pdf
 --   Specification: Options_SQF.pdf
+--   Specification: Options_ETH_SQF.pdf
 --   Specification: SoupBinTCP41.pdf
 --
 -- Script:
