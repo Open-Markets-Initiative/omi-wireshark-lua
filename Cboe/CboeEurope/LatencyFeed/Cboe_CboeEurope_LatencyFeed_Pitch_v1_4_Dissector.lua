@@ -1038,7 +1038,7 @@ udp_table:add_for_decode_as(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4
 --   Date: Friday, February 19, 2016
---   Specification: BATS Europe Multicast Latency Feed Specification (2022-01-19).pdf
+--   Specification: BATS_Europe_Multicast_Latency_Feed_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

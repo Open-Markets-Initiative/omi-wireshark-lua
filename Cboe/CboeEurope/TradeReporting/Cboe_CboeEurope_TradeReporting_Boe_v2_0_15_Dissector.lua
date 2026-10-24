@@ -15735,7 +15735,7 @@ tcp_table:add_for_decode_as(omi_cboe_cboeeurope_tradereporting_boe_v2_0_15)
 --   Version: 2.0.15
 --   Since: 2.0.13
 --   Date: Friday, June 2, 2017
---   Specification: BATS Europe TRF BOE2 Specification Effective (2022-01-21).pdf
+--   Specification: BATS_Europe_TRF_BOE2_Specification_Effective.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

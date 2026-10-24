@@ -1513,7 +1513,7 @@ tcp_table:add_for_decode_as(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4)
 --   Version: 1.4
 --   Since: 1.0
 --   Date: Thursday, February 6, 2025
---   Specification: BATS Europe Auction Feed Specification.pdf
+--   Specification: BATS_Europe_Auction_Feed_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

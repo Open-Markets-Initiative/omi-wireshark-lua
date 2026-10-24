@@ -12971,7 +12971,7 @@ tcp_table:add_for_decode_as(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_55)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.4.55
 --   Date: Friday, April 24, 2026
---   Specification: Cboe US Equities BOE Specification (2026-04-27).pdf
+--   Specification: Cboe_US_Equities_BOE_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

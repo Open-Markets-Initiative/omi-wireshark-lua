@@ -5244,7 +5244,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a)
 --   Version: 2.3.a
 --   Since: 2.2
 --   Date: Friday, October 25, 2019
---   Specification: XDP_Integrated_Feed_Client_Specification (2.3a).pdf
+--   Specification: XDP_Integrated_Feed_Client_Specification_v2.3a.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

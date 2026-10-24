@@ -2179,8 +2179,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current
 
 -- Generated: Source Time
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.source_time.generated = function(value, range, packet, parent)
-  local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.source_time.display(value)
-  local source_time = parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time
+  if nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.source_time_utc end
+  local source_time = parent:add(field, range, NSTime.new(value, 0))
   source_time:set_generated()
 end
 
@@ -5099,7 +5102,7 @@ udp_table:add_for_decode_as(omi_nyse_amexequities_integratedfeedretransmission_p
 --   Version: 2.5.h
 --   Since: 2.5.d
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification (2.5h).pdf
+--   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

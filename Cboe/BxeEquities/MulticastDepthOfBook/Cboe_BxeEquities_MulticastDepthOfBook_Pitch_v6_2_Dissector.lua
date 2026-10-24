@@ -3528,7 +3528,7 @@ udp_table:add_for_decode_as(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_2
 --   Version: 6.2
 --   Since: 6.0
 --   Date: Tuesday, January 21, 2014
---   Specification: BATS Europe MC PITCH Specification Effective (2017-01-05).pdf
+--   Specification: BATS_Europe_MC_PITCH_Specification_Effective.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

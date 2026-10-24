@@ -2730,7 +2730,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_basicplus_itch_v1_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.0
 --   Date: Friday, May 29, 2026
---   Specification: Nasdaq Basic Plus_vF.pdf
+--   Specification: Nasdaq_Basic_Plus_vF.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

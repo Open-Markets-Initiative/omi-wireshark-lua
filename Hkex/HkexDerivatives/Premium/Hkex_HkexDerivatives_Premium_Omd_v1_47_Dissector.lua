@@ -5523,7 +5523,7 @@ udp_table:add_for_decode_as(omi_hkex_hkexderivatives_premium_omd_v1_47)
 --   Organization: Hong Kong Exchanges and Clearing
 --   Version: 1.47
 --   Date: Tuesday, October 14, 2025
---   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v1_47.pdf
+--   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v1-47.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

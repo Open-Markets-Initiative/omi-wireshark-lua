@@ -3080,7 +3080,7 @@ tcp_table:add_for_decode_as(omi_iex_iexequities_deep_snap_v1_6)
 --   Organization: Investors Exchange
 --   Version: 1.6
 --   Date: Tuesday, June 2, 2026
---   Specification: IEX DEEP SNAP Specification.pdf
+--   Specification: IEX DEEP SNAP Specification v1.6.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

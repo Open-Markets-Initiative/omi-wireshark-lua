@@ -1816,7 +1816,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.12
 --   Date: Friday, March 21, 2025
---   Specification: CXA Multicast PITCH Specification (2026-05-28).pdf
+--   Specification: CXA_Multicast_PITCH_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

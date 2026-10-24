@@ -571,8 +571,11 @@ cboe_c1options_openingprocess_pitch_v1_0_34.midnight_reference.current = nil
 
 -- Generated: Midnight Reference
 cboe_c1options_openingprocess_pitch_v1_0_34.midnight_reference.generated = function(value, range, packet, parent)
-  local display = cboe_c1options_openingprocess_pitch_v1_0_34.midnight_reference.display(value)
-  local midnight_reference = parent:add(omi_cboe_c1options_openingprocess_pitch_v1_0_34.fields.midnight_reference, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_openingprocess_pitch_v1_0_34.fields.midnight_reference
+  if cboe_c1options_openingprocess_pitch_v1_0_34.absolute_time_base == 1 then field = omi_cboe_c1options_openingprocess_pitch_v1_0_34.fields.midnight_reference_utc end
+  local midnight_reference = parent:add(field, range, NSTime.new(value, 0))
   midnight_reference:set_generated()
 end
 
@@ -1983,7 +1986,7 @@ udp_table:add_for_decode_as(omi_cboe_c1options_openingprocess_pitch_v1_0_34)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.34
 --   Date: Friday, September 4, 2026
---   Specification: technical-specifications-cboe-titanium-us-options-opening-process-feed-specification.pdf
+--   Specification: technical-specifications-cboe-titanium-u-s-options-opening-process-feed-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

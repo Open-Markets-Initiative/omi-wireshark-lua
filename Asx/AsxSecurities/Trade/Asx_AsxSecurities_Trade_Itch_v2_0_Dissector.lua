@@ -1532,8 +1532,11 @@ asx_asxsecurities_trade_itch_v2_0.second.current = nil
 
 -- Generated: Second
 asx_asxsecurities_trade_itch_v2_0.second.generated = function(value, range, packet, parent)
-  local display = asx_asxsecurities_trade_itch_v2_0.second.display(value)
-  local second = parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_asx_asxsecurities_trade_itch_v2_0.fields.second
+  if asx_asxsecurities_trade_itch_v2_0.absolute_time_base == 1 then field = omi_asx_asxsecurities_trade_itch_v2_0.fields.second_utc end
+  local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
 

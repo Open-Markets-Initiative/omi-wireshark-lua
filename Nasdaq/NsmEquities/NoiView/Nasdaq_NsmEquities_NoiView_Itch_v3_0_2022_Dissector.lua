@@ -2217,7 +2217,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_noiview_itch_v3_0_2022)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0.2022
 --   Date: Thursday, July 14, 2022
---   Specification: NOIViewSpecification (2022-08-15).pdf
+--   Specification: NOIViewSpecification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

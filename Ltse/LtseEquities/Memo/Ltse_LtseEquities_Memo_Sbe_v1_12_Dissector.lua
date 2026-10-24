@@ -6750,7 +6750,7 @@ tcp_table:add_for_decode_as(omi_ltse_ltseequities_memo_sbe_v1_12)
 --   Organization: Long-Term Stock Exchange
 --   Version: 1.12
 --   Date: Wednesday, December 13, 2023
---   Specification: LTSE MEMO SBE v1.12.pdf
+--   Specification: (v1.12) LTSE MEMO SBE.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

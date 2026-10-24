@@ -3068,7 +3068,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34
 --   Version: 4.34
 --   Since: 4.17
 --   Date: Friday, January 30, 2026
---   Specification: BATS Europe PITCH Specification.pdf
+--   Specification: BATS_Europe_PITCH_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

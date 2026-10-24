@@ -1337,8 +1337,11 @@ sgx_titandt_depthofbook_glimpse_v1_4.second.current = nil
 
 -- Generated: Second
 sgx_titandt_depthofbook_glimpse_v1_4.second.generated = function(value, range, packet, parent)
-  local display = sgx_titandt_depthofbook_glimpse_v1_4.second.display(value)
-  local second = parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second
+  if sgx_titandt_depthofbook_glimpse_v1_4.absolute_time_base == 1 then field = omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second_utc end
+  local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
 

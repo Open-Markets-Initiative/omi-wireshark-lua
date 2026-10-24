@@ -6388,7 +6388,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j)
 --   Version: 1.2.j
 --   Since: 1.2.i
 --   Date: Tuesday, November 18, 2025
---   Specification: PILLAR_TOP_Client_Specification (1.2j).pdf
+--   Specification: PILLAR_TOP_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

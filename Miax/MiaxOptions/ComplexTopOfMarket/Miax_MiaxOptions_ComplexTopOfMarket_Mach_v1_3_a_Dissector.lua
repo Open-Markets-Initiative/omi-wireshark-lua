@@ -1964,8 +1964,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_3_a.seconds.current = nil
 
 -- Generated: Seconds
 miax_miaxoptions_complextopofmarket_mach_v1_3_a.seconds.generated = function(value, range, packet, parent)
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3_a.seconds.display(value)
-  local seconds = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.seconds
+  if miax_miaxoptions_complextopofmarket_mach_v1_3_a.absolute_time_base == 1 then field = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.seconds_utc end
+  local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
 
@@ -4738,7 +4741,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a)
 --   Organization: Miami International Holdings
 --   Version: 1.3.a
 --   Date: Wednesday, August 12, 2020
---   Specification: miax options complex top of market feed ctom.pdf
+--   Specification: miax_options_complex_top_of_market_feed_ctom.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

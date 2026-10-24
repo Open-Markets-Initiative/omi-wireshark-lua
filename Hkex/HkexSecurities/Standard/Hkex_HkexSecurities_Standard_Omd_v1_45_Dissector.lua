@@ -6258,7 +6258,7 @@ udp_table:add_for_decode_as(omi_hkex_hkexsecurities_standard_omd_v1_45)
 --   Organization: Hong Kong Exchanges and Clearing
 --   Version: 1.45
 --   Date: Friday, January 9, 2026
---   Specification: HKEX_OMDC_Binary_Interface_Specifications_v1_45.pdf
+--   Specification: HKEX_OMDC_Binary_Interface_Specifications_v1.45.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

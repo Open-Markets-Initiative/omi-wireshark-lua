@@ -10472,7 +10472,7 @@ tcp_table:add_for_decode_as(omi_nyse_nyseequities_binarygateway_pillarstream_v5_
 --   Version: 5.17
 --   Since: 5.13
 --   Date: Friday, October 17, 2025
---   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification (5.17).pdf
+--   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -1493,8 +1493,11 @@ bist_borsaistanbul_geniuminet_itch_v21_12.second.current = nil
 
 -- Generated: Second
 bist_borsaistanbul_geniuminet_itch_v21_12.second.generated = function(value, range, packet, parent)
-  local display = bist_borsaistanbul_geniuminet_itch_v21_12.second.display(value)
-  local second = parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.second
+  if bist_borsaistanbul_geniuminet_itch_v21_12.absolute_time_base == 1 then field = omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.second_utc end
+  local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
 

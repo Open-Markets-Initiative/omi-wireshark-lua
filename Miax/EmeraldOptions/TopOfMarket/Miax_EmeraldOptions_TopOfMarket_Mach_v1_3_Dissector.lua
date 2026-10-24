@@ -1862,8 +1862,11 @@ miax_emeraldoptions_topofmarket_mach_v1_3.seconds.current = nil
 
 -- Generated: Seconds
 miax_emeraldoptions_topofmarket_mach_v1_3.seconds.generated = function(value, range, packet, parent)
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.seconds.display(value)
-  local seconds = parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.seconds
+  if miax_emeraldoptions_topofmarket_mach_v1_3.absolute_time_base == 1 then field = omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.seconds_utc end
+  local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
 

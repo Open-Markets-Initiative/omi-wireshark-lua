@@ -3897,7 +3897,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a)
 --   Organization: New York Stock Exchange
 --   Version: 1.3.a
 --   Date: Wednesday, February 28, 2018
---   Specification: XDP_Options_Client_Specification (1.3a).pdf
+--   Specification: XDP_Options_Client_Specification_v1.3a.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

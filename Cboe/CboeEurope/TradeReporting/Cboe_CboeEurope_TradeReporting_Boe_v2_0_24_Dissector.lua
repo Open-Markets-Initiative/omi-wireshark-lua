@@ -18283,7 +18283,7 @@ tcp_table:add_for_decode_as(omi_cboe_cboeeurope_tradereporting_boe_v2_0_24)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.0.24
 --   Date: Tuesday, October 19, 2021
---   Specification: BATS Europe TRF BOE2 Specification (2022-01-20).pdf
+--   Specification: BATS_Europe_TRF_BOE2_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

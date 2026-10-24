@@ -1963,7 +1963,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_openbook_xdp_v1_9_a)
 --   Organization: New York Stock Exchange
 --   Version: 1.9.a
 --   Date: Monday, March 24, 2014
---   Specification: XDP_Depth_of_Book_Client_Spec (1.9a).pdf
+--   Specification: XDP_Depth_of_Book_Client_Spec.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

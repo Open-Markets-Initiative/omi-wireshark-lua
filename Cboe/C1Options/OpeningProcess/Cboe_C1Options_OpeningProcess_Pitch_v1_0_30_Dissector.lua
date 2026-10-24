@@ -571,8 +571,11 @@ cboe_c1options_openingprocess_pitch_v1_0_30.midnight_reference.current = nil
 
 -- Generated: Midnight Reference
 cboe_c1options_openingprocess_pitch_v1_0_30.midnight_reference.generated = function(value, range, packet, parent)
-  local display = cboe_c1options_openingprocess_pitch_v1_0_30.midnight_reference.display(value)
-  local midnight_reference = parent:add(omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.midnight_reference, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.midnight_reference
+  if cboe_c1options_openingprocess_pitch_v1_0_30.absolute_time_base == 1 then field = omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.midnight_reference_utc end
+  local midnight_reference = parent:add(field, range, NSTime.new(value, 0))
   midnight_reference:set_generated()
 end
 

@@ -2457,7 +2457,7 @@ udp_table:add_for_decode_as(omi_nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.0.2013.1
 --   Date: Friday, August 2, 2013
---   Specification: PSXbboSpecification (2013-09-10).pdf
+--   Specification: PSXbboSpecification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

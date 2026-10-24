@@ -1525,7 +1525,7 @@ tcp_table:add_for_decode_as(omi_nyse_texasequities_integratedfeedrequest_pillar_
 --   Version: 2.5.h
 --   Since: 2.5.d
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification (2.5h).pdf
+--   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

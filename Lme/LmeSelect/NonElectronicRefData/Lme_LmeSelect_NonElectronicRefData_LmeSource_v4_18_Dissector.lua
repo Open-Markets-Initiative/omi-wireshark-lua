@@ -2165,7 +2165,7 @@ udp_table:add_for_decode_as(omi_lme_lmeselect_nonelectronicrefdata_lmesource_v4_
 --   Organization: The London Metal Exchange
 --   Version: 4.18
 --   Date: Tuesday, August 18, 2026
---   Specification: LMEsource Client Interface Specification v4 18.pdf
+--   Specification: lmesource-client-interface-specification-v4-18.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

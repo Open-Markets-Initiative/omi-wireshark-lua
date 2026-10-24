@@ -1392,8 +1392,11 @@ jpx_tseequities_marketbyorder_flex_v1_3.time_seconds.current = nil
 
 -- Generated: Time Seconds
 jpx_tseequities_marketbyorder_flex_v1_3.time_seconds.generated = function(value, range, packet, parent)
-  local display = jpx_tseequities_marketbyorder_flex_v1_3.time_seconds.display(value)
-  local time_seconds = parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_3.fields.time_seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_jpx_tseequities_marketbyorder_flex_v1_3.fields.time_seconds
+  if jpx_tseequities_marketbyorder_flex_v1_3.absolute_time_base == 1 then field = omi_jpx_tseequities_marketbyorder_flex_v1_3.fields.time_seconds_utc end
+  local time_seconds = parent:add(field, range, NSTime.new(value, 0))
   time_seconds:set_generated()
 end
 

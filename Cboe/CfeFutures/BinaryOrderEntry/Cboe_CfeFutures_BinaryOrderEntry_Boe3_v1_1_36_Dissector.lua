@@ -8974,7 +8974,7 @@ tcp_table:add_for_decode_as(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_36)
 --   Version: 1.1.36
 --   Since: 1.1.32
 --   Date: Thursday, September 17, 2026
---   Specification: technical-specifications-cboe-titanium-cboe-futures-exchange-boev3-specification (2026-09-18).pdf
+--   Specification: technical-specifications-cboe-titanium-cboe-futures-exchange-boev3-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

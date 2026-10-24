@@ -3068,7 +3068,7 @@ tcp_table:add_for_decode_as(omi_iex_iexequities_tops_snap_v1_6)
 --   Organization: Investors Exchange
 --   Version: 1.6
 --   Date: Tuesday, June 2, 2026
---   Specification: IEX TOPS SNAP Specification.pdf
+--   Specification: IEX TOPS SNAP Specification v1.6.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

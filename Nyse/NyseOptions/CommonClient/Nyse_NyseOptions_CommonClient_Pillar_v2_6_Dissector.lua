@@ -678,7 +678,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseoptions_commonclient_pillar_v2_6)
 --   Organization: New York Stock Exchange
 --   Version: 2.6
 --   Date: Wednesday, August 3, 2022
---   Specification: Pillar_Options_Common_Client_Specification (2.6g).pdf
+--   Specification: Pillar_Options_Common_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

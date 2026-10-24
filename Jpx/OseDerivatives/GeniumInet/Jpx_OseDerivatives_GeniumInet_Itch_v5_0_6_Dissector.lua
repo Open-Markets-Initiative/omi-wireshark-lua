@@ -1416,8 +1416,11 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.current = nil
 
 -- Generated: Seconds
 jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.generated = function(value, range, packet, parent)
-  local display = jpx_osederivatives_geniuminet_itch_v5_0_6.seconds.display(value)
-  local seconds = parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds
+  if jpx_osederivatives_geniuminet_itch_v5_0_6.absolute_time_base == 1 then field = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds_utc end
+  local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
 

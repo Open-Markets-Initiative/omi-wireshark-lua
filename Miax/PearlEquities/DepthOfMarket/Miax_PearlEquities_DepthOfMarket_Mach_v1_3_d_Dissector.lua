@@ -1185,8 +1185,11 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.current = nil
 
 -- Generated: Seconds
 miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.generated = function(value, range, packet, parent)
-  local display = miax_pearlequities_depthofmarket_mach_v1_3_d.seconds.display(value)
-  local seconds = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds
+  if miax_pearlequities_depthofmarket_mach_v1_3_d.absolute_time_base == 1 then field = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.seconds_utc end
+  local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
 
@@ -3708,7 +3711,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_d)
 --   Organization: Miami International Holdings
 --   Version: 1.3.d
 --   Date: Wednesday, February 4, 2026
---   Specification: pearl equities dom feed (2026-03-17).pdf
+--   Specification: pearl_equities_dom_feed.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -5797,7 +5797,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f)
 --   Organization: New York Stock Exchange
 --   Version: 1.2.f
 --   Date: Friday, April 29, 2022
---   Specification: PILLAR_DEEP_Client_Specification (1.2f).pdf
+--   Specification: PILLAR_DEEP_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

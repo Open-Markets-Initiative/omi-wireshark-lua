@@ -1933,7 +1933,7 @@ udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_1_
 --   Version: 1.1.19
 --   Since: 1.1.18
 --   Date: Thursday, September 17, 2026
---   Specification: technical-specifications-cboe-titanium-cboe-one-options-feed-specification (2026-09-18).pdf
+--   Specification: technical-specifications-cboe-titanium-cboe-one-options-feed-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

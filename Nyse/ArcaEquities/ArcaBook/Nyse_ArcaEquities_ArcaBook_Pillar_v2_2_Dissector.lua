@@ -1999,7 +1999,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaequities_arcabook_pillar_v2_2)
 --   Version: 2.2
 --   Since: 1.10
 --   Date: Thursday, July 30, 2026
---   Specification: ArcaBook_Client_Specification (2.2).pdf
+--   Specification: ArcaBook_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

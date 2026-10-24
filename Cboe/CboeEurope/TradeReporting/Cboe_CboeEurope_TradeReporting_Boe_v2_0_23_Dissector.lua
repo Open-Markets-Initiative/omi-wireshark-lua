@@ -16313,7 +16313,7 @@ tcp_table:add_for_decode_as(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23)
 --   Version: 2.0.23
 --   Since: 2.0.20
 --   Date: Thursday, November 15, 2018
---   Specification: BATS Europe TRF BOE2 Specification (2020-06-03).pdf
+--   Specification: BATS_Europe_TRF_BOE2_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

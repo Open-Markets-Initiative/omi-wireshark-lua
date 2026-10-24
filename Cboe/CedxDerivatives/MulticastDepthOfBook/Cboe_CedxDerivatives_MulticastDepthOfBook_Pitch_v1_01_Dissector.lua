@@ -5475,7 +5475,7 @@ udp_table:add_for_decode_as(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.01
 --   Date: Wednesday, April 7, 2021
---   Specification: Cboe Europe CEDX MCP Specification (2021-05-11).pdf
+--   Specification: Cboe_Europe_CEDX_MCP_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

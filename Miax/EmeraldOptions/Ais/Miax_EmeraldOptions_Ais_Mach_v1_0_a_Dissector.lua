@@ -1653,8 +1653,11 @@ miax_emeraldoptions_ais_mach_v1_0_a.seconds.current = nil
 
 -- Generated: Seconds
 miax_emeraldoptions_ais_mach_v1_0_a.seconds.generated = function(value, range, packet, parent)
-  local display = miax_emeraldoptions_ais_mach_v1_0_a.seconds.display(value)
-  local seconds = parent:add(omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.seconds
+  if miax_emeraldoptions_ais_mach_v1_0_a.absolute_time_base == 1 then field = omi_miax_emeraldoptions_ais_mach_v1_0_a.fields.seconds_utc end
+  local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
 

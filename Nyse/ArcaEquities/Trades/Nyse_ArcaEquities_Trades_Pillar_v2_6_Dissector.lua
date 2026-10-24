@@ -4644,7 +4644,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaequities_trades_pillar_v2_6)
 --   Organization: New York Stock Exchange
 --   Version: 2.6
 --   Date: Wednesday, August 20, 2025
---   Specification: NYSE_Pillar_Trades_Client_Specification (2.6).pdf
+--   Specification: NYSE_Pillar_Trades_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

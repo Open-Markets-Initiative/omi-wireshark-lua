@@ -1479,8 +1479,11 @@ miax_pearloptions_liquidityfeed_mach_v1_2.seconds.current = nil
 
 -- Generated: Seconds
 miax_pearloptions_liquidityfeed_mach_v1_2.seconds.generated = function(value, range, packet, parent)
-  local display = miax_pearloptions_liquidityfeed_mach_v1_2.seconds.display(value)
-  local seconds = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds
+  if miax_pearloptions_liquidityfeed_mach_v1_2.absolute_time_base == 1 then field = omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds_utc end
+  local seconds = parent:add(field, range, NSTime.new(value, 0))
   seconds:set_generated()
 end
 
@@ -3666,7 +3669,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_liquidityfeed_mach_v1_2)
 --   Organization: Miami International Holdings
 --   Version: 1.2
 --   Date: Monday, October 5, 2020
---   Specification: PEARL Liquidity Feed PLF v1.2.pdf
+--   Specification: PEARL_Liquidity_Feed_PLF_v1.2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

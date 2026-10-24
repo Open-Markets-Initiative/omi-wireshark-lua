@@ -909,8 +909,11 @@ cboe_c1options_complexauction_pitch_v2_2_41.midnight_reference.current = nil
 
 -- Generated: Midnight Reference
 cboe_c1options_complexauction_pitch_v2_2_41.midnight_reference.generated = function(value, range, packet, parent)
-  local display = cboe_c1options_complexauction_pitch_v2_2_41.midnight_reference.display(value)
-  local midnight_reference = parent:add(omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.midnight_reference, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.midnight_reference
+  if cboe_c1options_complexauction_pitch_v2_2_41.absolute_time_base == 1 then field = omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.midnight_reference_utc end
+  local midnight_reference = parent:add(field, range, NSTime.new(value, 0))
   midnight_reference:set_generated()
 end
 
@@ -2392,7 +2395,7 @@ udp_table:add_for_decode_as(omi_cboe_c1options_complexauction_pitch_v2_2_41)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.2.41
 --   Date: Wednesday, April 1, 2026
---   Specification: US_OPTIONS_COMPLEX_AUCTION_MULTICAST_PITCH_SPECIFICATION (2026-04-02).pdf
+--   Specification: US_OPTIONS_COMPLEX_AUCTION_MULTICAST_PITCH_SPECIFICATION.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

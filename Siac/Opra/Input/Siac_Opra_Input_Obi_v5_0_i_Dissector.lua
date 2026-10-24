@@ -3911,7 +3911,7 @@ tcp_table:add_for_decode_as(omi_siac_opra_input_obi_v5_0_i)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 5.0.i
 --   Date: Friday, February 20, 2026
---   Specification: Siac.Opra.Input.Obi.v5.0.i.pdf
+--   Specification: OPRA_Pillar_Input_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -6731,7 +6731,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_itch_v5_2)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.2
 --   Date: Sunday, February 1, 2026
---   Specification: 0059-26_Updated Totalview ITCH 24H Specs-V2.pdf
+--   Specification: 0059-26_Updated_Totalview_ITCH_24H_Specs-V2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

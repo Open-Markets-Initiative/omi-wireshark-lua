@@ -1574,8 +1574,11 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.second.current = nil
 
 -- Generated: Second
 jpx_osederivatives_geniuminet_glimpse_v2_2.second.generated = function(value, range, packet, parent)
-  local display = jpx_osederivatives_geniuminet_glimpse_v2_2.second.display(value)
-  local second = parent:add(omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second
+  if jpx_osederivatives_geniuminet_glimpse_v2_2.absolute_time_base == 1 then field = omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second_utc end
+  local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
 

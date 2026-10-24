@@ -3076,7 +3076,7 @@ tcp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_tcponeequities_cboeone
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4.15
 --   Date: Tuesday, June 30, 2026
---   Specification: technical-specifications-cboe-titanium-cboe-one-equities-feed-specification (2026-10-14).pdf
+--   Specification: technical-specifications-cboe-titanium-cboe-one-equities-feed-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

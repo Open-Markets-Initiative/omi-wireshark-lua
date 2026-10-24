@@ -1881,8 +1881,11 @@ nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.source_time.current = nil
 
 -- Generated: Source Time
 nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.source_time.generated = function(value, range, packet, parent)
-  local display = nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.source_time.display(value)
-  local source_time = parent:add(omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.source_time
+  if nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.absolute_time_base == 1 then field = omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.source_time_utc end
+  local source_time = parent:add(field, range, NSTime.new(value, 0))
   source_time:set_generated()
 end
 

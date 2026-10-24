@@ -2654,7 +2654,7 @@ tcp_table:add_for_decode_as(omi_currenex_currenexforex_orderservice_cbp_v26)
 --   Organization: Currenex
 --   Version: 26
 --   Date: Saturday, April 6, 2024
---   Specification: Currenex OUCH Order Service Specification (2024-06-04).pdf
+--   Specification: OUCH-Spec.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

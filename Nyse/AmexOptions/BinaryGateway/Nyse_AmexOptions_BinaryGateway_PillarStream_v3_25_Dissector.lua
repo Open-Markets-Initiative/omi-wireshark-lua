@@ -11321,7 +11321,7 @@ tcp_table:add_for_decode_as(omi_nyse_amexoptions_binarygateway_pillarstream_v3_2
 --   Version: 3.25
 --   Since: 3.24
 --   Date: Friday, October 17, 2025
---   Specification: NYSE_Pillar_Options_Gateway_Binary_Protocol_Specification (3.25).pdf
+--   Specification: NYSE_Pillar_Options_Gateway_Binary_Protocol_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

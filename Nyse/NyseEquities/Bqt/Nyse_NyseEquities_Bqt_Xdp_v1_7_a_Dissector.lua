@@ -4818,7 +4818,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_bqt_xdp_v1_7_a)
 --   Organization: New York Stock Exchange
 --   Version: 1.7.a
 --   Date: Monday, July 24, 2017
---   Specification: NYSE_BQT_Client_Specification (1.7a).pdf
+--   Specification: NYSE_BQT_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

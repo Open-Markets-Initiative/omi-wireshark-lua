@@ -976,8 +976,11 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.midnight_reference.current =
 
 -- Generated: Midnight Reference
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.midnight_reference.generated = function(value, range, packet, parent)
-  local display = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.midnight_reference.display(value)
-  local midnight_reference = parent:add(omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.midnight_reference, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.midnight_reference
+  if cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.absolute_time_base == 1 then field = omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.midnight_reference_utc end
+  local midnight_reference = parent:add(field, range, NSTime.new(value, 0))
   midnight_reference:set_generated()
 end
 

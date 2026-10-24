@@ -4423,7 +4423,7 @@ tcp_table:add_for_decode_as(omi_miax_onyxfutures_topofmarketretransmission_sesm_
 --   Organization: Miami International Holdings
 --   Version: 1.3.a
 --   Date: Friday, July 31, 2026
---   Specification: ONYX ToM Feed v1.3a.pdf
+--   Specification: ONYX_ToM_Feed_v1.3a.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

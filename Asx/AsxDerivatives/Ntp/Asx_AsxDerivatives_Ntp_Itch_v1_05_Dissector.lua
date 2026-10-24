@@ -2056,8 +2056,11 @@ asx_asxderivatives_ntp_itch_v1_05.second.current = nil
 
 -- Generated: Second
 asx_asxderivatives_ntp_itch_v1_05.second.generated = function(value, range, packet, parent)
-  local display = asx_asxderivatives_ntp_itch_v1_05.second.display(value)
-  local second = parent:add(omi_asx_asxderivatives_ntp_itch_v1_05.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second
+  if asx_asxderivatives_ntp_itch_v1_05.absolute_time_base == 1 then field = omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc end
+  local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
 

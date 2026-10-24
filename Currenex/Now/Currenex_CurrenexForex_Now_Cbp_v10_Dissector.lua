@@ -2252,7 +2252,7 @@ udp_table:add_for_decode_as(omi_currenex_currenexforex_now_cbp_v10)
 --   Organization: Currenex
 --   Version: 10
 --   Date: Monday, May 7, 2018
---   Specification: Currenex NOW ITCH Specification (2018-05-07).pdf
+--   Specification: Currenex_NOW_Itch_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

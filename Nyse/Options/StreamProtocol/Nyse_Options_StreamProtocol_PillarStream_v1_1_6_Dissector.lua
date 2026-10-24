@@ -1875,7 +1875,7 @@ tcp_table:add_for_decode_as(omi_nyse_options_streamprotocol_pillarstream_v1_1_6)
 --   Organization: New York Stock Exchange
 --   Version: 1.1.6
 --   Date: Monday, August 26, 2019
---   Specification: 20200716141036_KXKMVSRC.pdf
+--   Specification: NYSE_Pillar_Stream_Protocol_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

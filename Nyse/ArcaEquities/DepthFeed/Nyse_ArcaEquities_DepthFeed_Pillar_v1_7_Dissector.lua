@@ -3738,7 +3738,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaequities_depthfeed_pillar_v1_7)
 --   Version: 1.7
 --   Since: 1.5
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Depth_Client_Specification (1.7).pdf
+--   Specification: NYSE_Pillar_Depth_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -10506,7 +10506,7 @@ tcp_table:add_for_decode_as(omi_nyse_arcaequities_binarygateway_pillarstream_v6_
 --   Version: 6.1
 --   Since: 6.0
 --   Date: Tuesday, September 22, 2026
---   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification (6.1).pdf
+--   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

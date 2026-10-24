@@ -1539,8 +1539,11 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.current = nil
 
 -- Generated: Second
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.generated = function(value, range, packet, parent)
-  local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.second.display(value)
-  local second = parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second
+  if nasdaq_nordicderivatives_depthofbook_itch_v1_06.absolute_time_base == 1 then field = omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.second_utc end
+  local second = parent:add(field, range, NSTime.new(value, 0))
   second:set_generated()
 end
 

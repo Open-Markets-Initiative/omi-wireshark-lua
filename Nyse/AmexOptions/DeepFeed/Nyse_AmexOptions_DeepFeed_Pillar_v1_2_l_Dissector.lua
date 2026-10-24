@@ -6768,7 +6768,7 @@ udp_table:add_for_decode_as(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l)
 --   Version: 1.2.l
 --   Since: 1.2.f
 --   Date: Tuesday, November 18, 2025
---   Specification: PILLAR_DEEP_Client_Specification (1.2l).pdf
+--   Specification: PILLAR_DEEP_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

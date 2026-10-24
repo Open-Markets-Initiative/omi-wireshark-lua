@@ -9782,7 +9782,7 @@ tcp_table:add_for_decode_as(omi_iex_iexoptions_binaryorderentry_sbe_v1_02)
 --   Organization: Investors Exchange
 --   Version: 1.02
 --   Date: Monday, June 1, 2026
---   Specification: IEX Binary Options Protocol Specification (v1.02).pdf
+--   Specification: IEX Binary Options Protocol Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

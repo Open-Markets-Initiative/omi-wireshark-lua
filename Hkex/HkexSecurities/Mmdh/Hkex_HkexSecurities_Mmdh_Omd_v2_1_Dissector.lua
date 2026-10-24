@@ -7887,7 +7887,7 @@ tcp_table:add_for_decode_as(omi_hkex_hkexsecurities_mmdh_omd_v2_1)
 --   Organization: Hong Kong Exchanges and Clearing
 --   Version: 2.1
 --   Date: Friday, January 9, 2026
---   Specification: HKEX_OMDC_MMDH_Binary_Interface_Specifications_v2_1.pdf
+--   Specification: HKEX_OMDC_MMDH_Binary_Interface_Specifications_v2.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

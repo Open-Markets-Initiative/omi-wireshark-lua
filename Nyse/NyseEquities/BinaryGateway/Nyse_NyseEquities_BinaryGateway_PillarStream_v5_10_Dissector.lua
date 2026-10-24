@@ -10346,7 +10346,7 @@ tcp_table:add_for_decode_as(omi_nyse_nyseequities_binarygateway_pillarstream_v5_
 --   Organization: New York Stock Exchange
 --   Version: 5.10
 --   Date: Monday, March 11, 2024
---   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification (5.10).pdf
+--   Specification: NYSE_Pillar_Gateway_Binary_Protocol_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

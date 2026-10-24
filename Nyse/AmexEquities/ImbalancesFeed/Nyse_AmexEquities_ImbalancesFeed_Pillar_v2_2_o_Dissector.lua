@@ -4131,7 +4131,7 @@ udp_table:add_for_decode_as(omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o)
 --   Version: 2.2.o
 --   Since: 2.2.l
 --   Date: Thursday, July 30, 2026
---   Specification: NYSE_Pillar_Order_Imbalances_Client_Specification (2.2o).pdf
+--   Specification: NYSE_Pillar_Order_Imbalances_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
