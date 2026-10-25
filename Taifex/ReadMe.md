@@ -7,8 +7,8 @@
 
 | Division | [Protocol][Omi.Taifex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Taifex.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TaifexDerivatives][TaifexDerivatives.Exchange] | [ClearingMember][Taifex.TaifexDerivatives.ClearingMember] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Dissector] | 8/18/2025 | 5376 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Pdf] |
-| [TaifexDerivatives][TaifexDerivatives.Exchange] | [DropCopy][Taifex.TaifexDerivatives.DropCopy] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Dissector] | 8/18/2025 | 5306 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Pdf] |
+| [TaifexDerivatives][TaifexDerivatives.Exchange] | [ClearingMember][Taifex.TaifexDerivatives.ClearingMember] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Dissector] | 8/18/2025 | 5188 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Pdf] |
+| [TaifexDerivatives][TaifexDerivatives.Exchange] | [DropCopy][Taifex.TaifexDerivatives.DropCopy] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Dissector] | 8/18/2025 | 5129 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Pdf] |
 
 
 ### Order Entry
