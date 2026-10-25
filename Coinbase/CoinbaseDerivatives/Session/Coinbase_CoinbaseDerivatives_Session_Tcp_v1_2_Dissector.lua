@@ -1439,6 +1439,67 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+coinbase_coinbasederivatives_session_tcp_v1_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 28 then
+    return false
+  end
+
+  local template_id = buffer(26, 2):le_uint()
+
+  -- Logon Message
+  if template_id == 100 then
+    return true
+  end
+
+  -- Logon Conf Message
+  if template_id == 200 then
+    return true
+  end
+
+  -- Logout Message
+  if template_id == 101 then
+    return true
+  end
+
+  -- Logged Out Message
+  if template_id == 201 then
+    return true
+  end
+
+  -- Heartbeat Message
+  if template_id == 10 then
+    return true
+  end
+
+  -- Test Request Message
+  if template_id == 11 then
+    return true
+  end
+
+  -- Resend Request Message
+  if template_id == 102 then
+    return true
+  end
+
+  -- Gap Fill Message
+  if template_id == 202 then
+    return true
+  end
+
+  -- Reject Message
+  if template_id == 210 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1486,6 +1547,9 @@ local function omi_coinbase_coinbasederivatives_session_tcp_v1_2_tcp_heuristic(b
 
   -- Verify Version
   if not coinbase_coinbasederivatives_session_tcp_v1_2.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not coinbase_coinbasederivatives_session_tcp_v1_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_coinbase_coinbasederivatives_session_tcp_v1_2

@@ -1302,6 +1302,73 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_edgxequities_lastsale_asciipitch_v1_2_4.packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local packet_type = buffer(0, 1):string()
+
+  -- Debug Packet
+  if packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if packet_type == "S" then
+    if buffer:len() < 10 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(9, 1):string()
+
+    -- Last Sale Message
+    if sequenced_message_type == "L" then
+      return true
+    end
+
+    -- Last Sale Extended Message
+    if sequenced_message_type == "5" then
+      return true
+    end
+
+    -- Trade Break Message
+    if sequenced_message_type == "B" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Login Request Packet
+  if packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if packet_type == "U" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1309,6 +1376,9 @@ end
 local function omi_cboe_edgxequities_lastsale_asciipitch_v1_2_4_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_edgxequities_lastsale_asciipitch_v1_2_4.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_edgxequities_lastsale_asciipitch_v1_2_4.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_edgxequities_lastsale_asciipitch_v1_2_4

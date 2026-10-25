@@ -1821,6 +1821,88 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+miax_pearlequities_topofmarket_mach_v1_1_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local mach_packet_type = buffer(10, 1):le_uint()
+
+  -- Heartbeat
+  if mach_packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if mach_packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if mach_packet_type == 2 then
+    return true
+  end
+
+  -- Application Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if mach_packet_type == 3 then
+    if buffer:len() < 13 then
+      return false
+    end
+
+    local message_type = buffer(12, 1):uint()
+
+    -- System Time Message
+    if message_type == 49 then
+      return true
+    end
+
+    -- Symbol Update Message
+    if message_type == 1 then
+      return true
+    end
+
+    -- System State Message
+    if message_type == 83 then
+      return true
+    end
+
+    -- Security Trading Status Notification Message
+    if message_type == 4 then
+      return true
+    end
+
+    -- Compact Top Of Market Best Bid And Offer Message
+    if message_type == 2 then
+      return true
+    end
+
+    -- Wide Top Of Market Best Bid And Offer Message
+    if message_type == 3 then
+      return true
+    end
+
+    -- Last Sale Message
+    if message_type == 10 then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if message_type == 11 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1828,6 +1910,9 @@ end
 local function omi_miax_pearlequities_topofmarket_mach_v1_1_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_topofmarket_mach_v1_1_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not miax_pearlequities_topofmarket_mach_v1_1_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_topofmarket_mach_v1_1_a

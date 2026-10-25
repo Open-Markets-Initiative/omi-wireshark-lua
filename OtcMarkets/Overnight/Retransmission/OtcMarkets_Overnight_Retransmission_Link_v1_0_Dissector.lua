@@ -3033,6 +3033,132 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+otcmarkets_overnight_retransmission_link_v1_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_type = buffer(2, 1):uint()
+
+  -- Start Of Spin Message
+  if message_type == 11 then
+    return true
+  end
+
+  -- End Of Spin Message
+  if message_type == 12 then
+    return true
+  end
+
+  -- Trading Session Message
+  if message_type == 20 then
+    return true
+  end
+
+  -- Security Message
+  if message_type == 9 then
+    return true
+  end
+
+  -- Order Add Message
+  if message_type == 21 then
+    return true
+  end
+
+  -- Order Update Message
+  if message_type == 22 then
+    return true
+  end
+
+  -- Order Delete Message
+  if message_type == 23 then
+    return true
+  end
+
+  -- Order Execution Message
+  if message_type == 24 then
+    return true
+  end
+
+  -- Order Execution With Price Message
+  if message_type == 25 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 26 then
+    return true
+  end
+
+  -- Top Of Book Message
+  if message_type == 27 then
+    return true
+  end
+
+  -- Imbalance Message
+  if message_type == 28 then
+    return true
+  end
+
+  -- System Recovery Event Message
+  if message_type == 74 then
+    return true
+  end
+
+  -- Login Request Message
+  if message_type == 108 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 97 then
+    return true
+  end
+
+  -- Retransmission Request Message
+  if message_type == 114 then
+    return true
+  end
+
+  -- Retransmission Response Message
+  if message_type == 98 then
+    return true
+  end
+
+  -- Spin Request Message
+  if message_type == 115 then
+    return true
+  end
+
+  -- Spin Response Message
+  if message_type == 99 then
+    return true
+  end
+
+  -- Enhanced Spin Request Message
+  if message_type == 116 then
+    return true
+  end
+
+  -- Enhanced Spin Response Message
+  if message_type == 100 then
+    return true
+  end
+
+  -- Heartbeat Message
+  if message_type == 104 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3040,6 +3166,9 @@ end
 local function omi_otcmarkets_overnight_retransmission_link_v1_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not otcmarkets_overnight_retransmission_link_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not otcmarkets_overnight_retransmission_link_v1_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_otcmarkets_overnight_retransmission_link_v1_0

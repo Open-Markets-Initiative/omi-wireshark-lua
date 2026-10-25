@@ -4731,6 +4731,212 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local tr_code = buffer(0, 5):string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+
+  -- Polling Data Message
+  if tr_code == "I2000" then
+    return true
+  end
+
+  -- Krx Index Message
+  if tr_code == "IA000" then
+    return true
+  end
+
+  -- Krx Estimated Index Message
+  if tr_code == "IB000" then
+    return true
+  end
+
+  -- Global Index Message
+  if tr_code == "J2000" then
+    return true
+  end
+
+  -- Bond Prime Index Message
+  if tr_code == "J4000" then
+    return true
+  end
+
+  -- Bond Ktb Index Message
+  if tr_code == "K1000" then
+    return true
+  end
+
+  -- Bond Ktb Index Term Structure Message
+  if tr_code == "K8000" then
+    return true
+  end
+
+  -- Bond Index Krx Message
+  if tr_code == "IG000" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Industry Message
+  if tr_code == "C001S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Industry Message
+  if tr_code == "C001Q" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Industry Message
+  if tr_code == "C001X" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C101S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C102S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C103S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C104S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C105S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C101Q" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C101X" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Issue Eod Message
+  if tr_code == "C101G" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Commodities Message
+  if tr_code == "IC02S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Commodities Message
+  if tr_code == "IC03S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Commodities Message
+  if tr_code == "IC04S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Commodities Message
+  if tr_code == "IC05S" then
+    return true
+  end
+
+  -- Securities Investor Activities Per Commodities Message
+  if tr_code == "IC01G" then
+    return true
+  end
+
+  -- Securities Short Selling Message
+  if tr_code == "I801S" then
+    return true
+  end
+
+  -- Securities Short Selling Message
+  if tr_code == "I803S" then
+    return true
+  end
+
+  -- Securities Short Selling Message
+  if tr_code == "I804S" then
+    return true
+  end
+
+  -- Securities Short Selling Message
+  if tr_code == "I805S" then
+    return true
+  end
+
+  -- Securities Short Selling Message
+  if tr_code == "I801Q" then
+    return true
+  end
+
+  -- Securities Treasury Stocks Traded Message
+  if tr_code == "B001S" then
+    return true
+  end
+
+  -- Securities Treasury Stocks Traded Message
+  if tr_code == "B001Q" then
+    return true
+  end
+
+  -- Securities Treasury Stocks Traded Message
+  if tr_code == "B001X" then
+    return true
+  end
+
+  -- Securities Buy In Volume Message
+  if tr_code == "O401S" then
+    return true
+  end
+
+  -- Securities Buy In Volume Message
+  if tr_code == "O402S" then
+    return true
+  end
+
+  -- Securities Buy In Volume Message
+  if tr_code == "O403S" then
+    return true
+  end
+
+  -- Securities Buy In Volume Message
+  if tr_code == "O404S" then
+    return true
+  end
+
+  -- Securities Buy In Volume Message
+  if tr_code == "O401Q" then
+    return true
+  end
+
+  -- Securities Buy In Volume Message
+  if tr_code == "O401X" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4738,6 +4944,9 @@ end
 local function omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018

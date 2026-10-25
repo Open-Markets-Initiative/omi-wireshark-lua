@@ -3737,6 +3737,127 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+bse_bseindia_eobi_fbe_v1_4.packet.fingerprint = function(buffer)
+  if buffer:len() < 36 then
+    return false
+  end
+
+  local template_id = buffer(34, 2):le_uint()
+
+  -- Heartbeat Message
+  if template_id == 13001 then
+    return true
+  end
+
+  -- Product Summary Message
+  if template_id == 13600 then
+    return true
+  end
+
+  -- Snapshot Order Message
+  if template_id == 13602 then
+    return true
+  end
+
+  -- Instrument Summary Message
+  if template_id == 13601 then
+    return true
+  end
+
+  -- Auction Best Bid Offer Message
+  if template_id == 13500 then
+    return true
+  end
+
+  -- Auction Clearing Price Message
+  if template_id == 13501 then
+    return true
+  end
+
+  -- Top Of Book Message
+  if template_id == 13504 then
+    return true
+  end
+
+  -- Order Add Message
+  if template_id == 13100 then
+    return true
+  end
+
+  -- Order Modify Message
+  if template_id == 13101 then
+    return true
+  end
+
+  -- Order Modify Same Priority Message
+  if template_id == 13106 then
+    return true
+  end
+
+  -- Order Delete Message
+  if template_id == 13102 then
+    return true
+  end
+
+  -- Order Mass Delete Message
+  if template_id == 13103 then
+    return true
+  end
+
+  -- Partial Order Execution Message
+  if template_id == 13105 then
+    return true
+  end
+
+  -- Full Order Execution Message
+  if template_id == 13104 then
+    return true
+  end
+
+  -- Trade Reversal Message
+  if template_id == 13200 then
+    return true
+  end
+
+  -- Execution Summary Message
+  if template_id == 13202 then
+    return true
+  end
+
+  -- Instrument Info Message
+  if template_id == 13203 then
+    return true
+  end
+
+  -- Lpp Range Message
+  if template_id == 13204 then
+    return true
+  end
+
+  -- Product State Change Message
+  if template_id == 13300 then
+    return true
+  end
+
+  -- Instrument State Change Message
+  if template_id == 13301 then
+    return true
+  end
+
+  -- Add Complex Instrument Message
+  if template_id == 13400 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3744,6 +3865,9 @@ end
 local function omi_bse_bseindia_eobi_fbe_v1_4_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not bse_bseindia_eobi_fbe_v1_4.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not bse_bseindia_eobi_fbe_v1_4.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_bse_bseindia_eobi_fbe_v1_4

@@ -5416,6 +5416,136 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cqs_output_cta_v2_10_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_category = buffer(22, 1):string()
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local administrative_message_type = buffer(23, 1):string()
+
+    -- Symbol Reference Data Message
+    if administrative_message_type == "S" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local control_message_type = buffer(23, 1):string()
+
+    -- Start Of Day Message
+    if control_message_type == "A" then
+      return true
+    end
+
+    -- Finra Close Message
+    if control_message_type == "C" then
+      return true
+    end
+
+    -- Reset Block Sequence Number Message
+    if control_message_type == "L" then
+      return true
+    end
+
+    -- Finra Open Message
+    if control_message_type == "O" then
+      return true
+    end
+
+    -- Disaster Recovery Data Center Activation Message
+    if control_message_type == "P" then
+      return true
+    end
+
+    -- Line Integrity Message
+    if control_message_type == "T" then
+      return true
+    end
+
+    -- End Of Day Message
+    if control_message_type == "Z" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Market Status Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "M" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local market_status_message_type = buffer(23, 1):string()
+
+    -- Market Wide Circuit Breaker Decline Level Status Message
+    if market_status_message_type == "K" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Status Message
+    if market_status_message_type == "L" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "Q" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local quote_message_type = buffer(23, 1):string()
+
+    -- Auction Status Message
+    if quote_message_type == "A" then
+      return true
+    end
+
+    -- Long Quote Message
+    if quote_message_type == "L" then
+      return true
+    end
+
+    -- Short Quote Message
+    if quote_message_type == "Q" then
+      return true
+    end
+
+    -- Special Long Quote Message
+    if quote_message_type == "S" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5423,6 +5553,9 @@ end
 local function omi_siac_cqs_output_cta_v2_10_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_output_cta_v2_10_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cqs_output_cta_v2_10_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_output_cta_v2_10_a

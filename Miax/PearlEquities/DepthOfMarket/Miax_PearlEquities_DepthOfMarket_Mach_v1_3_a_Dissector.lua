@@ -2070,6 +2070,103 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+miax_pearlequities_depthofmarket_mach_v1_3_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local mach_packet_type = buffer(10, 1):le_uint()
+
+  -- Heartbeat
+  if mach_packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if mach_packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if mach_packet_type == 2 then
+    return true
+  end
+
+  -- Application Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if mach_packet_type == 3 then
+    if buffer:len() < 13 then
+      return false
+    end
+
+    local message_type = buffer(12, 1):uint()
+
+    -- System Time Message
+    if message_type == 49 then
+      return true
+    end
+
+    -- Symbol Update Message
+    if message_type == 1 then
+      return true
+    end
+
+    -- System State Message
+    if message_type == 83 then
+      return true
+    end
+
+    -- Security Trading Status Notification Message
+    if message_type == 4 then
+      return true
+    end
+
+    -- Symbol Clear Message
+    if message_type == 5 then
+      return true
+    end
+
+    -- Add Order Message
+    if message_type == 20 then
+      return true
+    end
+
+    -- Modify Order Message
+    if message_type == 21 then
+      return true
+    end
+
+    -- Delete Order Message
+    if message_type == 23 then
+      return true
+    end
+
+    -- Order Execution Message
+    if message_type == 24 then
+      return true
+    end
+
+    -- Trade Message
+    if message_type == 10 then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if message_type == 11 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2077,6 +2174,9 @@ end
 local function omi_miax_pearlequities_depthofmarket_mach_v1_3_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_depthofmarket_mach_v1_3_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not miax_pearlequities_depthofmarket_mach_v1_3_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_depthofmarket_mach_v1_3_a

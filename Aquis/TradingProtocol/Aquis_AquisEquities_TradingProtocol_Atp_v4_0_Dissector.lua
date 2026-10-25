@@ -3492,6 +3492,127 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+aquis_aquisequities_tradingprotocol_atp_v4_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local msg_type = buffer(2, 1):uint()
+
+  -- Login Message
+  if msg_type == 1 then
+    return true
+  end
+
+  -- Login Response Message
+  if msg_type == 2 then
+    return true
+  end
+
+  -- Heartbeat
+  if msg_type == 0 then
+    return true
+  end
+
+  -- Logout Request Message
+  if msg_type == 3 then
+    return true
+  end
+
+  -- Logout Message
+  if msg_type == 4 then
+    return true
+  end
+
+  -- Order Add Message
+  if msg_type == 5 then
+    return true
+  end
+
+  -- Order Add Extended Message
+  if msg_type == 21 then
+    return true
+  end
+
+  -- Order Cancel Message
+  if msg_type == 7 then
+    return true
+  end
+
+  -- Order Modify Message
+  if msg_type == 9 then
+    return true
+  end
+
+  -- Order Modify Extended Message
+  if msg_type == 22 then
+    return true
+  end
+
+  -- Order Add Response Message
+  if msg_type == 6 then
+    return true
+  end
+
+  -- Order Cancel Response Message
+  if msg_type == 8 then
+    return true
+  end
+
+  -- Order Modify Response Message
+  if msg_type == 10 then
+    return true
+  end
+
+  -- Iceberg Order Refresh Message
+  if msg_type == 23 then
+    return true
+  end
+
+  -- Trade Capture Message
+  if msg_type == 17 then
+    return true
+  end
+
+  -- Trade Capture Response Message
+  if msg_type == 18 then
+    return true
+  end
+
+  -- Trade Message
+  if msg_type == 11 then
+    return true
+  end
+
+  -- Trade Bust Message
+  if msg_type == 12 then
+    return true
+  end
+
+  -- Ioi Add Message
+  if msg_type == 27 then
+    return true
+  end
+
+  -- Ioi Invite Message
+  if msg_type == 28 then
+    return true
+  end
+
+  -- Ioi Firmup Message
+  if msg_type == 29 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3499,6 +3620,9 @@ end
 local function omi_aquis_aquisequities_tradingprotocol_atp_v4_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not aquis_aquisequities_tradingprotocol_atp_v4_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not aquis_aquisequities_tradingprotocol_atp_v4_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_aquis_aquisequities_tradingprotocol_atp_v4_0

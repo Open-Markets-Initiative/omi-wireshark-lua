@@ -5046,6 +5046,147 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nyse_nyseequities_integratedfeed_xdp_v2_3_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Sequence Number Reset Message
+  if message_type == 1 then
+    return true
+  end
+
+  -- Source Time Reference Message
+  if message_type == 2 then
+    return true
+  end
+
+  -- Symbol Index Mapping Message
+  if message_type == 3 then
+    return true
+  end
+
+  -- Retransmission Request Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Request Response Message
+  if message_type == 11 then
+    return true
+  end
+
+  -- Heartbeat Response Message
+  if message_type == 12 then
+    return true
+  end
+
+  -- Symbol Index Mapping Request Message
+  if message_type == 13 then
+    return true
+  end
+
+  -- Refresh Request Message
+  if message_type == 15 then
+    return true
+  end
+
+  -- Message Unavailable Message
+  if message_type == 31 then
+    return true
+  end
+
+  -- Symbol Clear Message
+  if message_type == 32 then
+    return true
+  end
+
+  -- Security Status Message
+  if message_type == 34 then
+    return true
+  end
+
+  -- Refresh Header Message
+  if message_type == 35 then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == 100 then
+    return true
+  end
+
+  -- Modify Order Message
+  if message_type == 101 then
+    return true
+  end
+
+  -- Replace Order Message
+  if message_type == 104 then
+    return true
+  end
+
+  -- Delete Order Message
+  if message_type == 102 then
+    return true
+  end
+
+  -- Order Execution Message
+  if message_type == 103 then
+    return true
+  end
+
+  -- Non Displayed Trade Message
+  if message_type == 110 then
+    return true
+  end
+
+  -- Trade Cancel Message
+  if message_type == 112 then
+    return true
+  end
+
+  -- Retail Price Improvement Message
+  if message_type == 114 then
+    return true
+  end
+
+  -- Cross Trade Message
+  if message_type == 111 then
+    return true
+  end
+
+  -- Cross Correction Message
+  if message_type == 113 then
+    return true
+  end
+
+  -- Imbalance Message
+  if message_type == 105 then
+    return true
+  end
+
+  -- Add Order Refresh Message
+  if message_type == 106 then
+    return true
+  end
+
+  -- Stock Summary Message
+  if message_type == 223 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5053,6 +5194,9 @@ end
 local function omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_nyseequities_integratedfeed_xdp_v2_3_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nyse_nyseequities_integratedfeed_xdp_v2_3_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_nyseequities_integratedfeed_xdp_v2_3_a

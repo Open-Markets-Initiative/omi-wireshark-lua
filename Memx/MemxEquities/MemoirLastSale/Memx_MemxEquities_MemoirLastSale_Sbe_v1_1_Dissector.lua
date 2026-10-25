@@ -2364,6 +2364,78 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+memx_memxequities_memoirlastsale_sbe_v1_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local message_type = buffer(0, 1):uint()
+
+  -- Heartbeat
+  if message_type == 0 then
+    return true
+  end
+
+  -- Session Shutdown
+  if message_type == 1 then
+    return true
+  end
+
+  -- Sequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == 2 then
+    if buffer:len() < 25 then
+      return false
+    end
+
+    local template_id = buffer(24, 1):uint()
+
+    -- Instrument Directory Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Reg Sho Restriction Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Security Trading Status Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Trading Session Status Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Trade Report Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if template_id == 11 then
+      return true
+    end
+
+    -- Trade Correct Message
+    if template_id == 12 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2371,6 +2443,9 @@ end
 local function omi_memx_memxequities_memoirlastsale_sbe_v1_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not memx_memxequities_memoirlastsale_sbe_v1_1.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not memx_memxequities_memoirlastsale_sbe_v1_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_memx_memxequities_memoirlastsale_sbe_v1_1

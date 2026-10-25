@@ -2792,6 +2792,122 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nse_nsefo_orderentry_nnftrimmed_v9_50.packet.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local transaction_code = buffer(0, 2):int()
+
+  -- Board Lot In Trimmed Message
+  if transaction_code == 20000 then
+    return true
+  end
+
+  -- Board Lot In Trimmed Message
+  if transaction_code == 20400 then
+    return true
+  end
+
+  -- Order Modify Cancel Trimmed Message
+  if transaction_code == 20040 then
+    return true
+  end
+
+  -- Order Modify Cancel Trimmed Message
+  if transaction_code == 20060 then
+    return true
+  end
+
+  -- Order Modify Cancel Trimmed Message
+  if transaction_code == 20070 then
+    return true
+  end
+
+  -- Order Modify Cancel Trimmed Message
+  if transaction_code == 20402 then
+    return true
+  end
+
+  -- Order Modify Cancel Trimmed Message
+  if transaction_code == 20404 then
+    return true
+  end
+
+  -- Order Confirmation Trimmed Message
+  if transaction_code == 20073 then
+    return true
+  end
+
+  -- Order Confirmation Trimmed Message
+  if transaction_code == 20074 then
+    return true
+  end
+
+  -- Order Confirmation Trimmed Message
+  if transaction_code == 20075 then
+    return true
+  end
+
+  -- Trade Confirmation Trimmed Message
+  if transaction_code == 20222 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20401 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20403 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20405 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20407 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20409 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20411 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20413 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20415 then
+    return true
+  end
+
+  -- Quick Acknowledgement Message
+  if transaction_code == 20417 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2799,6 +2915,9 @@ end
 local function omi_nse_nsefo_orderentry_nnftrimmed_v9_50_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsefo_orderentry_nnftrimmed_v9_50.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not nse_nsefo_orderentry_nnftrimmed_v9_50.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nse_nsefo_orderentry_nnftrimmed_v9_50

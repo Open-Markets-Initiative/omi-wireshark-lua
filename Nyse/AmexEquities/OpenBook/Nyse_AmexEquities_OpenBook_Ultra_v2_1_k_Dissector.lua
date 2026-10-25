@@ -2442,6 +2442,87 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nyse_amexequities_openbook_ultra_v2_1_k.packet.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local message_type = buffer(2, 2):uint()
+
+  -- Symbol Index Mapping Response Messages
+  if message_type == 35 then
+    return true
+  end
+
+  -- Sequence Number Reset Message
+  if message_type == 1 then
+    return true
+  end
+
+  -- Heartbeat Message
+  if message_type == 2 then
+    return true
+  end
+
+  -- Unavailable Message
+  if message_type == 5 then
+    return true
+  end
+
+  -- Request Response Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Heartbeat Subscription Message
+  if message_type == 19 then
+    return true
+  end
+
+  -- Retransmission Request Message
+  if message_type == 20 then
+    return true
+  end
+
+  -- Book Refresh Request Message
+  if message_type == 22 then
+    return true
+  end
+
+  -- Heartbeat Response Message
+  if message_type == 24 then
+    return true
+  end
+
+  -- Extended Book Refresh Request Message
+  if message_type == 27 then
+    return true
+  end
+
+  -- Symbol Index Mapping Request Message
+  if message_type == 34 then
+    return true
+  end
+
+  -- Full Update Messages
+  if message_type == 230 then
+    return true
+  end
+
+  -- Delta Update Messages
+  if message_type == 231 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2469,6 +2550,9 @@ local function omi_nyse_amexequities_openbook_ultra_v2_1_k_udp_heuristic(buffer,
 
   -- Verify Product Id
   if not nyse_amexequities_openbook_ultra_v2_1_k.product_id.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nyse_amexequities_openbook_ultra_v2_1_k.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_amexequities_openbook_ultra_v2_1_k

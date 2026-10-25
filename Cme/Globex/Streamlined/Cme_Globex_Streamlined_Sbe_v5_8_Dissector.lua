@@ -12124,6 +12124,87 @@ end
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
 
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+cme_globex_streamlined_sbe_v5_8.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 18 then
+    return false
+  end
+
+  local template_id = buffer(16, 2):le_uint()
+
+  -- Admin Heartbeat
+  if template_id == 312 then
+    return true
+  end
+
+  -- Admin Login
+  if template_id == 315 then
+    return true
+  end
+
+  -- Admin Logout
+  if template_id == 316 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris Reference Data And Daily Statistics
+  if template_id == 333 then
+    return true
+  end
+
+  -- Md News Indices
+  if template_id == 339 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Blocks 340
+  if template_id == 340 then
+    return true
+  end
+
+  -- Quote Request
+  if template_id == 345 then
+    return true
+  end
+
+  -- Md Instrument Definition Indices
+  if template_id == 347 then
+    return true
+  end
+
+  -- Md Incremental Refresh Indices
+  if template_id == 348 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Blocks 349
+  if template_id == 349 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris 351
+  if template_id == 351 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris 353
+  if template_id == 353 then
+    return true
+  end
+
+  -- Md Incremental Refresh Otc
+  if template_id == 356 then
+    return true
+  end
+
+  -- Md Instrument Definition Eris
+  if template_id == 363 then
+    return true
+  end
+
+  return false
+end
+
 -- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
 cme_globex_streamlined_sbe_v5_8.tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 20 then
@@ -12305,6 +12386,9 @@ local function omi_cme_globex_streamlined_sbe_v5_8_udp_heuristic(buffer, packet,
 
   -- Verify Version
   if not cme_globex_streamlined_sbe_v5_8.version.udp_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not cme_globex_streamlined_sbe_v5_8.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_streamlined_sbe_v5_8

@@ -9132,6 +9132,142 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+qse_qsecash_marketdata_xdp_v2_6.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):uint()
+
+  -- Stock State Change Message
+  if message_type == 505 then
+    return true
+  end
+
+  -- Class State Change Message
+  if message_type == 516 then
+    return true
+  end
+
+  -- Mail Message
+  if message_type == 523 then
+    return true
+  end
+
+  -- Indicative Matching Price Message
+  if message_type == 530 then
+    return true
+  end
+
+  -- Collars Message
+  if message_type == 537 then
+    return true
+  end
+
+  -- Session Timetable Message
+  if message_type == 539 then
+    return true
+  end
+
+  -- Global Market Activity Summary Message
+  if message_type == 545 then
+    return true
+  end
+
+  -- Start Referential Message
+  if message_type == 550 then
+    return true
+  end
+
+  -- End Referential Message
+  if message_type == 551 then
+    return true
+  end
+
+  -- Referential Message
+  if message_type == 555 then
+    return true
+  end
+
+  -- Trade Creation Message
+  if message_type == 220 then
+    return true
+  end
+
+  -- Trade Cancellation Message
+  if message_type == 221 then
+    return true
+  end
+
+  -- Trade Full Information Message
+  if message_type == 240 then
+    return true
+  end
+
+  -- Price Update Message
+  if message_type == 241 then
+    return true
+  end
+
+  -- Auction Summary Message
+  if message_type == 245 then
+    return true
+  end
+
+  -- Vwap Closing Price Message
+  if message_type == 247 then
+    return true
+  end
+
+  -- Quotes Message
+  if message_type == 140 then
+    return true
+  end
+
+  -- Order Update Market Sheet Message
+  if message_type == 230 then
+    return true
+  end
+
+  -- Orderbook Retransmission Delimiter Message
+  if message_type == 231 then
+    return true
+  end
+
+  -- Real Time Index Message
+  if message_type == 542 then
+    return true
+  end
+
+  -- Index Summary Message
+  if message_type == 543 then
+    return true
+  end
+
+  -- Index Composition Message
+  if message_type == 544 then
+    return true
+  end
+
+  -- Start Refresh Message
+  if message_type == 580 then
+    return true
+  end
+
+  -- End Refresh Message
+  if message_type == 581 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -9139,6 +9275,9 @@ end
 local function omi_qse_qsecash_marketdata_xdp_v2_6_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not qse_qsecash_marketdata_xdp_v2_6.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not qse_qsecash_marketdata_xdp_v2_6.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_qse_qsecash_marketdata_xdp_v2_6

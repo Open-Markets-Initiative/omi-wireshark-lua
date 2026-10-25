@@ -7,8 +7,8 @@
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TxseEquities][TxseEquities.Exchange] | [Bale][Txse.TxseEquities.Bale] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Bale.Rake.v1.0.Dissector] | 6/12/2026 | 2319 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Bale.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Bale.Rake.v1.0.Pdf] |
-| [TxseEquities][TxseEquities.Exchange] | [Feed][Txse.TxseEquities.Feed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Feed.Rake.v1.0.Dissector] | 6/12/2026 | 2720 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Feed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Feed.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Bale][Txse.TxseEquities.Bale] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Bale.Rake.v1.0.Dissector] | 6/12/2026 | 2378 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Bale.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Bale.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Feed][Txse.TxseEquities.Feed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Feed.Rake.v1.0.Dissector] | 6/12/2026 | 2809 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Feed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Feed.Rake.v1.0.Pdf] |
 
 
 ### Order Entry

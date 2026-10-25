@@ -2600,6 +2600,115 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+finra_finraotc_bbds_dfi_v2018_1a.packet.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local message_category = buffer(1, 1):string()
+
+  -- Quotation Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "Q" then
+    if buffer:len() < 3 then
+      return false
+    end
+
+    local quotation_message_type = buffer(2, 1):string()
+
+    -- Market Participant Quote Update Message
+    if quotation_message_type == "1" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 3 then
+      return false
+    end
+
+    local administrative_message_type = buffer(2, 1):string()
+
+    -- General Administrative Message
+    if administrative_message_type == "A" then
+      return true
+    end
+
+    -- Trading Action Message
+    if administrative_message_type == "H" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 3 then
+      return false
+    end
+
+    local control_message_type = buffer(2, 1):string()
+
+    -- Start Of Day Message
+    if control_message_type == "I" then
+      return true
+    end
+
+    -- End Of Day Message
+    if control_message_type == "J" then
+      return true
+    end
+
+    -- Market Session Open Message
+    if control_message_type == "O" then
+      return true
+    end
+
+    -- Market Session Close Message
+    if control_message_type == "C" then
+      return true
+    end
+
+    -- End Of Retransmission Requests Message
+    if control_message_type == "K" then
+      return true
+    end
+
+    -- End Of Transmissions Message
+    if control_message_type == "Z" then
+      return true
+    end
+
+    -- Line Integrity Message
+    if control_message_type == "T" then
+      return true
+    end
+
+    -- Sequence Number Reset Message
+    if control_message_type == "L" then
+      return true
+    end
+
+    -- End Of Trade Reporting Message
+    if control_message_type == "X" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2627,6 +2736,9 @@ local function omi_finra_finraotc_bbds_dfi_v2018_1a_udp_heuristic(buffer, packet
 
   -- Verify Block Soh
   if not finra_finraotc_bbds_dfi_v2018_1a.block_soh.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not finra_finraotc_bbds_dfi_v2018_1a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_finra_finraotc_bbds_dfi_v2018_1a

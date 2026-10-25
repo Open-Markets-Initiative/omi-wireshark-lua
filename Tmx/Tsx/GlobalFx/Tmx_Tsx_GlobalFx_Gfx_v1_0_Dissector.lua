@@ -881,6 +881,27 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+tmx_tsx_globalfx_gfx_v1_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local msg_type = buffer(0, 1):string()
+
+  -- Reference Price Fx Spot
+  if msg_type == "#" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -888,6 +909,9 @@ end
 local function omi_tmx_tsx_globalfx_gfx_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not tmx_tsx_globalfx_gfx_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not tmx_tsx_globalfx_gfx_v1_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_tsx_globalfx_gfx_v1_0

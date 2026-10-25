@@ -13609,6 +13609,237 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+bme_meff_orderentry_bmegate_v1_6.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_type = buffer(2, 1):uint()
+
+  -- Logon Response Message
+  if message_type == 0x08 then
+    return true
+  end
+
+  -- Logout Response Message
+  if message_type == 0x0B then
+    return true
+  end
+
+  -- Heartbeat Message
+  if message_type == 0x30 then
+    return true
+  end
+
+  -- Network Status Message
+  if message_type == 0x0A then
+    return true
+  end
+
+  -- Logon Message
+  if message_type == 0x41 then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == 0x35 then
+    return true
+  end
+
+  -- Reject Message
+  if message_type == 0x0D then
+    return true
+  end
+
+  -- Trading Session Status Message
+  if message_type == 0x68 then
+    return true
+  end
+
+  -- News Message
+  if message_type == 0x42 then
+    return true
+  end
+
+  -- Security List Cancellation Report Message
+  if message_type == 0x78 then
+    return true
+  end
+
+  -- Statistics Message
+  if message_type == 0x84 then
+    return true
+  end
+
+  -- Security List Message
+  if message_type == 0x79 then
+    return true
+  end
+
+  -- Security List Update Report Message
+  if message_type == 0x80 then
+    return true
+  end
+
+  -- Security Status Message
+  if message_type == 0x66 then
+    return true
+  end
+
+  -- Family Status Message
+  if message_type == 0x89 then
+    return true
+  end
+
+  -- Order Cancellation Market Member Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Quote Cancellation Market Member Message
+  if message_type == 0x05 then
+    return true
+  end
+
+  -- Indication Of Interest Message
+  if message_type == 0x36 then
+    return true
+  end
+
+  -- Order And Quote Client Data Message
+  if message_type == 0x6F then
+    return true
+  end
+
+  -- Delta Protection Parameters Message
+  if message_type == 0x86 then
+    return true
+  end
+
+  -- Simple New Order Message
+  if message_type == 0x44 then
+    return true
+  end
+
+  -- Simple New Order With Client Data Message
+  if message_type == 0x45 then
+    return true
+  end
+
+  -- Simple Order Modification Message
+  if message_type == 0x47 then
+    return true
+  end
+
+  -- Simple Order Modification With Client Data Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Order Cancellation Request Message
+  if message_type == 0x46 then
+    return true
+  end
+
+  -- New Quote Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Quote Modification Request Message
+  if message_type == 0x61 then
+    return true
+  end
+
+  -- Quote Cancellation Request Message
+  if message_type == 0x5A then
+    return true
+  end
+
+  -- Mass Orderquote Cancellation Message
+  if message_type == 0x71 then
+    return true
+  end
+
+  -- Order And Quote Client Data Parameters Ack Nack Message
+  if message_type == 0x87 then
+    return true
+  end
+
+  -- Delta Protection Parameters Ack Nack Message
+  if message_type == 0x88 then
+    return true
+  end
+
+  -- Simple Order Status Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Quote Status Message
+  if message_type == 0x06 then
+    return true
+  end
+
+  -- Order Cancel Reject Message
+  if message_type == 0x39 then
+    return true
+  end
+
+  -- Mass Orderquote Cancellation Completion Message
+  if message_type == 0x72 then
+    return true
+  end
+
+  -- Mass Orderquote Cancellation Reject Message
+  if message_type == 0x73 then
+    return true
+  end
+
+  -- Business Message Reject Message
+  if message_type == 0x6A then
+    return true
+  end
+
+  -- Execution Private Information 2 Legs Message
+  if message_type == 0x17 then
+    return true
+  end
+
+  -- Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message
+  if message_type == 0x1A then
+    return true
+  end
+
+  -- Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message
+  if message_type == 0x1C then
+    return true
+  end
+
+  -- Trade Trade Amendment Or Cancellation 2 Legs Private Information Message
+  if message_type == 0x1E then
+    return true
+  end
+
+  -- Execution Private Information 1 Leg Buy Order Entry Message
+  if message_type == 0x12 then
+    return true
+  end
+
+  -- Execution Private Information 1 Leg Sell Order Entry Message
+  if message_type == 0x14 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -13616,6 +13847,9 @@ end
 local function omi_bme_meff_orderentry_bmegate_v1_6_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not bme_meff_orderentry_bmegate_v1_6.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not bme_meff_orderentry_bmegate_v1_6.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_bme_meff_orderentry_bmegate_v1_6

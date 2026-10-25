@@ -6082,6 +6082,224 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+miax_pearlequities_expressorders_meo_v2_7_b.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local esesm_packet_type = buffer(2, 1):string()
+
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if esesm_packet_type == "s" then
+    if buffer:len() < 14 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(12, 2):string()
+
+    -- Symbol Update Message
+    if sequenced_message_type == "SU" then
+      return true
+    end
+
+    -- New Order Response Message
+    if sequenced_message_type == "NR" then
+      return true
+    end
+
+    -- Modify Order Response Message
+    if sequenced_message_type == "MR" then
+      return true
+    end
+
+    -- Cancel Order Response Message
+    if sequenced_message_type == "CR" then
+      return true
+    end
+
+    -- Cancel Order By Exchange Order Id Response Message
+    if sequenced_message_type == "CQ" then
+      return true
+    end
+
+    -- System State Notification Message
+    if sequenced_message_type == "SN" then
+      return true
+    end
+
+    -- New Order Notification Message
+    if sequenced_message_type == "O1" then
+      return true
+    end
+
+    -- Modify Order Notification Message
+    if sequenced_message_type == "MN" then
+      return true
+    end
+
+    -- Cancel Reduce Size Order Notification Message
+    if sequenced_message_type == "XN" then
+      return true
+    end
+
+    -- Order Price Update Notification Message
+    if sequenced_message_type == "P1" then
+      return true
+    end
+
+    -- Reserve Order Replenishment Notification Message
+    if sequenced_message_type == "RA" then
+      return true
+    end
+
+    -- Execution Notification Message
+    if sequenced_message_type == "E1" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if esesm_packet_type == "U" then
+    if buffer:len() < 5 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 2):string()
+
+    -- New Order Request Message
+    if unsequenced_message_type == "N1" then
+      return true
+    end
+
+    -- New Order Response Message
+    if unsequenced_message_type == "NR" then
+      return true
+    end
+
+    -- Modify Order Request Message
+    if unsequenced_message_type == "M1" then
+      return true
+    end
+
+    -- Modify Order Response Message
+    if unsequenced_message_type == "MR" then
+      return true
+    end
+
+    -- Cancel Order Request Message
+    if unsequenced_message_type == "CO" then
+      return true
+    end
+
+    -- Cancel Order Response Message
+    if unsequenced_message_type == "CR" then
+      return true
+    end
+
+    -- Cancel Order By Exchange Order Id Request Message
+    if unsequenced_message_type == "CX" then
+      return true
+    end
+
+    -- Cancel Order By Exchange Order Id Response Message
+    if unsequenced_message_type == "CQ" then
+      return true
+    end
+
+    -- Mass Cancel Request Message
+    if unsequenced_message_type == "XQ" then
+      return true
+    end
+
+    -- Mass Cancel Response Message
+    if unsequenced_message_type == "XR" then
+      return true
+    end
+
+    -- Aggressive Side Purge Request Message
+    if unsequenced_message_type == "XS" then
+      return true
+    end
+
+    -- Aggressive Side Purge Response Message
+    if unsequenced_message_type == "SR" then
+      return true
+    end
+
+    -- Reserve Order Replenishment Notification Message
+    if unsequenced_message_type == "RA" then
+      return true
+    end
+
+    -- Execution Notification Message
+    if unsequenced_message_type == "E1" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Login Request
+  if esesm_packet_type == "l" then
+    return true
+  end
+
+  -- Login Response
+  if esesm_packet_type == "r" then
+    return true
+  end
+
+  -- Synchronization Complete
+  if esesm_packet_type == "c" then
+    return true
+  end
+
+  -- Retransmission Request
+  if esesm_packet_type == "a" then
+    return true
+  end
+
+  -- Logout Request
+  if esesm_packet_type == "X" then
+    return true
+  end
+
+  -- Goodbye Packet
+  if esesm_packet_type == "G" then
+    return true
+  end
+
+  -- Trading Session Update
+  if esesm_packet_type == "u" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if esesm_packet_type == "0" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if esesm_packet_type == "1" then
+    return true
+  end
+
+  -- Test Packet
+  if esesm_packet_type == "T" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -6089,6 +6307,9 @@ end
 local function omi_miax_pearlequities_expressorders_meo_v2_7_b_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_expressorders_meo_v2_7_b.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not miax_pearlequities_expressorders_meo_v2_7_b.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_expressorders_meo_v2_7_b

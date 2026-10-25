@@ -2145,6 +2145,92 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+currenex_currenexforex_now_cbp_v10.packet.fingerprint = function(buffer)
+  if buffer:len() < 14 then
+    return false
+  end
+
+  local message_type = buffer(13, 1):string()
+
+  -- Logon Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Heart Beat Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Instrument Info
+  if message_type == "D" then
+    return true
+  end
+
+  -- Instrument Info Ack Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Subscription Request Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Mass Subscription Request Message
+  if message_type == "Y" then
+    return true
+  end
+
+  -- Subscription Reply Message
+  if message_type == "G" then
+    return true
+  end
+
+  -- Mass Subscription Reply Message
+  if message_type == "Z" then
+    return true
+  end
+
+  -- Depth Of Book Message
+  if message_type == "d" then
+    return true
+  end
+
+  -- Paid Given Message
+  if message_type == "k" then
+    return true
+  end
+
+  -- Wamr With Confidence Factor Message
+  if message_type == "r" then
+    return true
+  end
+
+  -- Mid Activity Indicator Message
+  if message_type == "x" then
+    return true
+  end
+
+  -- Reject Message
+  if message_type == "K" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2172,6 +2258,9 @@ local function omi_currenex_currenexforex_now_cbp_v10_udp_heuristic(buffer, pack
 
   -- Verify Itch Soh
   if not currenex_currenexforex_now_cbp_v10.itch_soh.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not currenex_currenexforex_now_cbp_v10.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_currenex_currenexforex_now_cbp_v10

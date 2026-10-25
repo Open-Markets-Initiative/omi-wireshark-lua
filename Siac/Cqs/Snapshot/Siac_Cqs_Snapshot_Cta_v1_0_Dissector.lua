@@ -2972,6 +2972,58 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cqs_snapshot_cta_v1_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 24 then
+    return false
+  end
+
+  local message_category = buffer(23, 1):string()
+
+  -- Snapshot Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "R" then
+    if buffer:len() < 25 then
+      return false
+    end
+
+    local snapshot_message_type = buffer(24, 1):string()
+
+    -- Line Integrity Message
+    if snapshot_message_type == "T" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Decline Level Status Snapshot Message
+    if snapshot_message_type == "K" then
+      return true
+    end
+
+    -- Consolidated Snapshot Message
+    if snapshot_message_type == "C" then
+      return true
+    end
+
+    -- Participant Snapshot Message
+    if snapshot_message_type == "P" then
+      return true
+    end
+
+    -- Finra Snapshot Message
+    if snapshot_message_type == "F" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2979,6 +3031,9 @@ end
 local function omi_siac_cqs_snapshot_cta_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_snapshot_cta_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cqs_snapshot_cta_v1_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_snapshot_cta_v1_0

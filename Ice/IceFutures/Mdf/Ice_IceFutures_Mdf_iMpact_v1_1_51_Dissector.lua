@@ -11604,6 +11604,273 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+ice_icefutures_mdf_impact_v1_1_51.packet.fingerprint = function(buffer)
+  if buffer:len() < 17 then
+    return false
+  end
+
+  local message_type = buffer(16, 1):string()
+
+  -- Market Snapshot Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "G" then
+    return true
+  end
+
+  -- Spot Market Trade Message
+  if message_type == "Y" then
+    return true
+  end
+
+  -- Investigated Trade Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Cancelled Trade Message
+  if message_type == "I" then
+    return true
+  end
+
+  -- Market Statistics Message
+  if message_type == "J" then
+    return true
+  end
+
+  -- Market State Change Message
+  if message_type == "K" then
+    return true
+  end
+
+  -- System Text Message
+  if message_type == "L" then
+    return true
+  end
+
+  -- Open Interest Message
+  if message_type == "M" then
+    return true
+  end
+
+  -- Open Price Message
+  if message_type == "N" then
+    return true
+  end
+
+  -- Close Price Message
+  if message_type == "c" then
+    return true
+  end
+
+  -- Settlement Price Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Index Prices Message
+  if message_type == "z" then
+    return true
+  end
+
+  -- End Of Day Market Summary Message
+  if message_type == "u" then
+    return true
+  end
+
+  -- Market Event Message
+  if message_type == "f" then
+    return true
+  end
+
+  -- Pre Open Price Indicator Message
+  if message_type == "g" then
+    return true
+  end
+
+  -- Strip Info Message
+  if message_type == "i" then
+    return true
+  end
+
+  -- Interval Price Limit Notification Message
+  if message_type == "V" then
+    return true
+  end
+
+  -- New Futures Strategy Definition Message
+  if message_type == "9" then
+    return true
+  end
+
+  -- New Expiry Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Special Field Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "b" then
+    if buffer:len() < 21 then
+      return false
+    end
+
+    local special_field_id = buffer(20, 1):int()
+
+    -- Alt Price
+    if special_field_id == 1 then
+      return true
+    end
+
+    -- Alt High Price
+    if special_field_id == 2 then
+      return true
+    end
+
+    -- Alt Low Price
+    if special_field_id == 3 then
+      return true
+    end
+
+    -- Alt Vwap
+    if special_field_id == 4 then
+      return true
+    end
+
+    -- Alt Last Trade Price
+    if special_field_id == 5 then
+      return true
+    end
+
+    -- Aon
+    if special_field_id == 6 then
+      return true
+    end
+
+    -- Accrued Distribution
+    if special_field_id == 18 then
+      return true
+    end
+
+    -- Accrued Funding
+    if special_field_id == 19 then
+      return true
+    end
+
+    -- Annualization Factor
+    if special_field_id == 20 then
+      return true
+    end
+
+    -- Trf Days To Maturity
+    if special_field_id == 21 then
+      return true
+    end
+
+    -- Seconds To End Tpl Hold
+    if special_field_id == 22 then
+      return true
+    end
+
+    return false
+  end
+
+  -- Fragment Wrapper Message
+  if message_type == "Z" then
+    return true
+  end
+
+  -- New Options Strategy Definition Message
+  if message_type == "U" then
+    return true
+  end
+
+  -- New Options Market Definition Message
+  if message_type == "l" then
+    return true
+  end
+
+  -- Option Open Interest Message
+  if message_type == "v" then
+    return true
+  end
+
+  -- Option Settlement Price Message
+  if message_type == "w" then
+    return true
+  end
+
+  -- Market Snapshot Order Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Add Or Modify Order Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Delete Order Message
+  if message_type == "F" then
+    return true
+  end
+
+  -- Message Bundle Marker
+  if message_type == "T" then
+    return true
+  end
+
+  -- Fixing Transition Message
+  if message_type == "3" then
+    return true
+  end
+
+  -- Fixing Lockdown Message
+  if message_type == "4" then
+    return true
+  end
+
+  -- Fixing Indicative Price Message
+  if message_type == "0" then
+    return true
+  end
+
+  -- Market Snapshot Price Level Message
+  if message_type == "m" then
+    return true
+  end
+
+  -- Add Price Level Message
+  if message_type == "t" then
+    return true
+  end
+
+  -- Change Price Level Message
+  if message_type == "s" then
+    return true
+  end
+
+  -- Delete Price Level Message
+  if message_type == "r" then
+    return true
+  end
+
+  -- Rfq Message
+  if message_type == "k" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -11611,6 +11878,9 @@ end
 local function omi_ice_icefutures_mdf_impact_v1_1_51_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not ice_icefutures_mdf_impact_v1_1_51.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not ice_icefutures_mdf_impact_v1_1_51.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_ice_icefutures_mdf_impact_v1_1_51

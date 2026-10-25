@@ -5223,6 +5223,254 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.fingerprint = function(buffer)
+  if buffer:len() < 30 then
+    return false
+  end
+
+  local schema_id = buffer(28, 2):le_uint()
+
+  -- Session Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if schema_id == 1100 then
+    if buffer:len() < 27 then
+      return false
+    end
+
+    local template_id = buffer(25, 2):le_uint()
+
+    -- Logon Message
+    if template_id == 100 then
+      return true
+    end
+
+    -- Logon Conf Message
+    if template_id == 200 then
+      return true
+    end
+
+    -- Logout Message
+    if template_id == 101 then
+      return true
+    end
+
+    -- Logged Out Message
+    if template_id == 201 then
+      return true
+    end
+
+    -- Heartbeat Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Test Request Message
+    if template_id == 11 then
+      return true
+    end
+
+    -- Resend Request Message
+    if template_id == 102 then
+      return true
+    end
+
+    -- Gap Fill Message
+    if template_id == 202 then
+      return true
+    end
+
+    -- Reject Message
+    if template_id == 210 then
+      return true
+    end
+
+    return false
+  end
+
+  -- Order Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if schema_id == 1101 then
+    if buffer:len() < 27 then
+      return false
+    end
+
+    local template_id = buffer(25, 2):le_uint()
+
+    -- Ping Message
+    if template_id == 102 then
+      return true
+    end
+
+    -- Pong Message
+    if template_id == 202 then
+      return true
+    end
+
+    -- Instrument Info Request Message
+    if template_id == 103 then
+      return true
+    end
+
+    -- Instrument Info Message
+    if template_id == 203 then
+      return true
+    end
+
+    -- Set Account Message
+    if template_id == 105 then
+      return true
+    end
+
+    -- Set Trader Message
+    if template_id == 106 then
+      return true
+    end
+
+    -- Set Ack Message
+    if template_id == 205 then
+      return true
+    end
+
+    -- New Order Message
+    if template_id == 110 then
+      return true
+    end
+
+    -- New Ioc Order Message
+    if template_id == 111 then
+      return true
+    end
+
+    -- Order Entered Message
+    if template_id == 210 then
+      return true
+    end
+
+    -- Replace Order Message
+    if template_id == 120 then
+      return true
+    end
+
+    -- Obsolete Stream Order Message
+    if template_id == 121 then
+      return true
+    end
+
+    -- Order Reject Message
+    if template_id == 221 then
+      return true
+    end
+
+    -- Order Replaced Message
+    if template_id == 220 then
+      return true
+    end
+
+    -- Cancel Order Message
+    if template_id == 130 then
+      return true
+    end
+
+    -- Order Canceled Message
+    if template_id == 230 then
+      return true
+    end
+
+    -- Cancel Order Reject Message
+    if template_id == 233 then
+      return true
+    end
+
+    -- Mass Cancel Order Message
+    if template_id == 131 then
+      return true
+    end
+
+    -- Mass Cancel Order Ack Message
+    if template_id == 231 then
+      return true
+    end
+
+    -- Mass Cancel Order Reject Message
+    if template_id == 232 then
+      return true
+    end
+
+    -- Unlock Trading Message
+    if template_id == 132 then
+      return true
+    end
+
+    -- Unlock Trading Ack Message
+    if template_id == 234 then
+      return true
+    end
+
+    -- Unlock Trading Reject Message
+    if template_id == 235 then
+      return true
+    end
+
+    -- Order Filled Message
+    if template_id == 240 then
+      return true
+    end
+
+    -- Spread Order Filled Message
+    if template_id == 241 then
+      return true
+    end
+
+    -- Last Exec Id Request Message
+    if template_id == 150 then
+      return true
+    end
+
+    -- Last Exec Id Message
+    if template_id == 250 then
+      return true
+    end
+
+    -- Event Resend Request Message
+    if template_id == 152 then
+      return true
+    end
+
+    -- Event Resend Complete Message
+    if template_id == 252 then
+      return true
+    end
+
+    -- Event Resend Reject Message
+    if template_id == 253 then
+      return true
+    end
+
+    -- Reset Options Fill Protection Message
+    if template_id == 160 then
+      return true
+    end
+
+    -- Reset Options Fill Protection Ack Message
+    if template_id == 260 then
+      return true
+    end
+
+    -- Reset Options Fill Protection Reject Message
+    if template_id == 261 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5254,6 +5502,9 @@ local function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_tcp_heuristic
 
   -- Verify Version
   if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8

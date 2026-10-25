@@ -2523,6 +2523,112 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+currenex_currenexforex_orderservice_cbp_v26.packet.fingerprint = function(buffer)
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):string()
+
+  -- Logon
+  if message_type == "A" then
+    return true
+  end
+
+  -- Logout
+  if message_type == "B" then
+    return true
+  end
+
+  -- Heartbeat
+  if message_type == "C" then
+    return true
+  end
+
+  -- Instrument Info Request
+  if message_type == "E" then
+    return true
+  end
+
+  -- Instrument Info
+  if message_type == "D" then
+    return true
+  end
+
+  -- New Order Request
+  if message_type == "L" then
+    return true
+  end
+
+  -- New Order Ack
+  if message_type == "M" then
+    return true
+  end
+
+  -- Order Cancel Request
+  if message_type == "N" then
+    return true
+  end
+
+  -- Order Cancel Reject
+  if message_type == "O" then
+    return true
+  end
+
+  -- Order Replace Or Cancel Request
+  if message_type == "P" then
+    return true
+  end
+
+  -- Order Replace Or Cancel Ack
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Order Canceled Or Expired
+  if message_type == "R" then
+    return true
+  end
+
+  -- Trade
+  if message_type == "T" then
+    return true
+  end
+
+  -- Pending Fill
+  if message_type == "U" then
+    return true
+  end
+
+  -- Pending Fill Cancel
+  if message_type == "V" then
+    return true
+  end
+
+  -- Trade Pending
+  if message_type == "t" then
+    return true
+  end
+
+  -- Resend Request
+  if message_type == "2" then
+    return true
+  end
+
+  -- Gap Fill
+  if message_type == "4" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2550,6 +2656,9 @@ local function omi_currenex_currenexforex_orderservice_cbp_v26_tcp_heuristic(buf
 
   -- Verify Soh
   if not currenex_currenexforex_orderservice_cbp_v26.soh.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not currenex_currenexforex_orderservice_cbp_v26.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_currenex_currenexforex_orderservice_cbp_v26

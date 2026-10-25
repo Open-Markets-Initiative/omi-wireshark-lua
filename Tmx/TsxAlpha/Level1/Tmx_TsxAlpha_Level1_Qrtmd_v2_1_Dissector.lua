@@ -2406,6 +2406,67 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+tmx_tsxalpha_level1_qrtmd_v2_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 21 then
+    return false
+  end
+
+  local message_type = buffer(19, 2):string()
+
+  -- Trade Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Symbol Status Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Stock State Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Quote Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- General Message
+  if message_type == "G" then
+    return true
+  end
+
+  -- Trade Cancellation Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Market State Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Trading Tier Status Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- Trade Correction Message
+  if message_type == "X" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2433,6 +2494,9 @@ local function omi_tmx_tsxalpha_level1_qrtmd_v2_1_udp_heuristic(buffer, packet, 
 
   -- Verify Qrtmd Stx
   if not tmx_tsxalpha_level1_qrtmd_v2_1.qrtmd_stx.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not tmx_tsxalpha_level1_qrtmd_v2_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_tsxalpha_level1_qrtmd_v2_1

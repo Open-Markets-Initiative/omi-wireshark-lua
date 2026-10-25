@@ -4969,6 +4969,112 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local message_type = buffer(3, 1):string()
+
+  -- Logon Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Logon Reply Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == "5" then
+    return true
+  end
+
+  -- Heartbeat Message
+  if message_type == "0" then
+    return true
+  end
+
+  -- Missed Message Request Message
+  if message_type == "M" then
+    return true
+  end
+
+  -- Missed Message Request Ack Message
+  if message_type == "N" then
+    return true
+  end
+
+  -- Missed Message Report Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Reject Message
+  if message_type == "3" then
+    return true
+  end
+
+  -- System Status Message
+  if message_type == "n" then
+    return true
+  end
+
+  -- Execution Report Message
+  if message_type == "8" then
+    return true
+  end
+
+  -- Order Mass Cancel Report Message
+  if message_type == "r" then
+    return true
+  end
+
+  -- Quote Request Message
+  if message_type == "a" then
+    return true
+  end
+
+  -- Quote Status Report Message
+  if message_type == "c" then
+    return true
+  end
+
+  -- Quote Request Reject Message
+  if message_type == "b" then
+    return true
+  end
+
+  -- Rfq Quote Message
+  if message_type == "d" then
+    return true
+  end
+
+  -- Quote Ack Message
+  if message_type == "e" then
+    return true
+  end
+
+  -- Quote Response Message
+  if message_type == "f" then
+    return true
+  end
+
+  -- Rfq Execution Report Message
+  if message_type == "g" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4976,6 +5082,9 @@ end
 local function omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2

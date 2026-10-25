@@ -2042,6 +2042,72 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+aquis_aquisequities_realtime_amd_v4_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(1, 1):uint()
+
+  -- Order Add
+  if msg_type == 2 then
+    return true
+  end
+
+  -- Order Cancel
+  if msg_type == 3 then
+    return true
+  end
+
+  -- Order Modify
+  if msg_type == 4 then
+    return true
+  end
+
+  -- Trade
+  if msg_type == 5 then
+    return true
+  end
+
+  -- Trade Bust Message
+  if msg_type == 6 then
+    return true
+  end
+
+  -- Tick Table Data Message
+  if msg_type == 7 then
+    return true
+  end
+
+  -- Security Definition Message
+  if msg_type == 8 then
+    return true
+  end
+
+  -- Security Status Message
+  if msg_type == 9 then
+    return true
+  end
+
+  -- Ao D Update Message
+  if msg_type == 17 then
+    return true
+  end
+
+  -- Ma C Update Message
+  if msg_type == 16 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2049,6 +2115,9 @@ end
 local function omi_aquis_aquisequities_realtime_amd_v4_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not aquis_aquisequities_realtime_amd_v4_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not aquis_aquisequities_realtime_amd_v4_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_aquis_aquisequities_realtime_amd_v4_0

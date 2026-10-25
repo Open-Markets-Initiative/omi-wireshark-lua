@@ -8040,6 +8040,122 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+bme_bmeequities_fulldepth_bmegate_v1_6.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_type = buffer(2, 1):uint()
+
+  -- Logon Response Message
+  if message_type == 0x08 then
+    return true
+  end
+
+  -- Logout Response Message
+  if message_type == 0x0B then
+    return true
+  end
+
+  -- Heartbeat Message
+  if message_type == 0x30 then
+    return true
+  end
+
+  -- Network Status Message
+  if message_type == 0x0A then
+    return true
+  end
+
+  -- Trading Session Status Message
+  if message_type == 0x68 then
+    return true
+  end
+
+  -- News Message
+  if message_type == 0x42 then
+    return true
+  end
+
+  -- Security List Cancellation Report Message
+  if message_type == 0x78 then
+    return true
+  end
+
+  -- Statistics Message
+  if message_type == 0x84 then
+    return true
+  end
+
+  -- Security List Message
+  if message_type == 0x79 then
+    return true
+  end
+
+  -- Security List Update Report Message
+  if message_type == 0x80 then
+    return true
+  end
+
+  -- Security Status Message
+  if message_type == 0x66 then
+    return true
+  end
+
+  -- Order Book Clear Message
+  if message_type == 0x81 then
+    return true
+  end
+
+  -- Order Market Pre Transparency Information Message
+  if message_type == 0x03 then
+    return true
+  end
+
+  -- Quote Market Pre Transparency Information Message
+  if message_type == 0x07 then
+    return true
+  end
+
+  -- Order Cancellation Market Member Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Quote Cancellation Market Member Message
+  if message_type == 0x05 then
+    return true
+  end
+
+  -- Trade Market Post Transparency Information Topofbook Message
+  if message_type == 0x10 then
+    return true
+  end
+
+  -- Trade Trade Amendment Or Cancellation Message
+  if message_type == 0x18 then
+    return true
+  end
+
+  -- Trade Market Post Transparency Information Full Depth Message
+  if message_type == 0x11 then
+    return true
+  end
+
+  -- Topofbook Message
+  if message_type == 0x82 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -8047,6 +8163,9 @@ end
 local function omi_bme_bmeequities_fulldepth_bmegate_v1_6_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not bme_bmeequities_fulldepth_bmegate_v1_6.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not bme_bmeequities_fulldepth_bmegate_v1_6.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_bme_bmeequities_fulldepth_bmegate_v1_6

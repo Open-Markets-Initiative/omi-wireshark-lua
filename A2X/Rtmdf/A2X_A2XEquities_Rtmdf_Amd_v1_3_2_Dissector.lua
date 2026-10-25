@@ -1683,6 +1683,77 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+a2x_a2xequities_rtmdf_amd_v1_3_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(1, 1):uint()
+
+  -- Heartbeat Message
+  if msg_type == 1 then
+    return true
+  end
+
+  -- Order Add Message
+  if msg_type == 2 then
+    return true
+  end
+
+  -- Order Cancel Message
+  if msg_type == 3 then
+    return true
+  end
+
+  -- Order Modify Message
+  if msg_type == 4 then
+    return true
+  end
+
+  -- Trade Message
+  if msg_type == 5 then
+    return true
+  end
+
+  -- Trade Bust Message
+  if msg_type == 6 then
+    return true
+  end
+
+  -- Tick Table Data Message
+  if msg_type == 7 then
+    return true
+  end
+
+  -- Security Definition Message
+  if msg_type == 8 then
+    return true
+  end
+
+  -- Security Status Message
+  if msg_type == 9 then
+    return true
+  end
+
+  -- Auction On Demand Message
+  if msg_type == 17 then
+    return true
+  end
+
+  -- Market At Close
+  if msg_type == 16 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1690,6 +1761,9 @@ end
 local function omi_a2x_a2xequities_rtmdf_amd_v1_3_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not a2x_a2xequities_rtmdf_amd_v1_3_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not a2x_a2xequities_rtmdf_amd_v1_3_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_a2x_a2xequities_rtmdf_amd_v1_3_2

@@ -10448,6 +10448,157 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nextrade_nextrade_etpcommon_nxtbinary_v2_12.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local tr_code = buffer(0, 5):string(nextrade_nextrade_etpcommon_nxtbinary_v2_12.text_encoding)
+
+  -- Polling Data Message
+  if tr_code == "I2500" then
+    return true
+  end
+
+  -- Securities Quote Mm Lp Quotes Included 10 Level Message
+  if tr_code == "B753S" then
+    return true
+  end
+
+  -- Securities Order Filled Message
+  if tr_code == "A353S" then
+    return true
+  end
+
+  -- Market Operation Ts Message
+  if tr_code == "A753S" then
+    return true
+  end
+
+  -- Issue Closing Message
+  if tr_code == "A653S" then
+    return true
+  end
+
+  -- Triggering Removing Vi Message
+  if tr_code == "R853S" then
+    return true
+  end
+
+  -- Closing Price Trading Quote Message
+  if tr_code == "E153S" then
+    return true
+  end
+
+  -- Equities Snapshot Mm Lp Quotes Included 10 Level Message
+  if tr_code == "B253S" then
+    return true
+  end
+
+  -- Investor Activities Per Commodities Message
+  if tr_code == "IC53S" then
+    return true
+  end
+
+  -- Etp Constituents Message
+  if tr_code == "V650S" then
+    return true
+  end
+
+  -- Etp Constituents Message
+  if tr_code == "EA50S" then
+    return true
+  end
+
+  -- Mm Lp Information Message
+  if tr_code == "I753S" then
+    return true
+  end
+
+  -- Mm Lp Information Message
+  if tr_code == "EB53S" then
+    return true
+  end
+
+  -- Market Operation Schedule Message
+  if tr_code == "M453S" then
+    return true
+  end
+
+  -- Member Firm Imposing Lifting Sanctions Message
+  if tr_code == "R350S" then
+    return true
+  end
+
+  -- Top Five Traders Activities Message
+  if tr_code == "B953S" then
+    return true
+  end
+
+  -- Equities Batch Data Message
+  if tr_code == "A053S" then
+    return true
+  end
+
+  -- Equities Batch Data Message
+  if tr_code == "E053S" then
+    return true
+  end
+
+  -- Member Information Message
+  if tr_code == "M950S" then
+    return true
+  end
+
+  -- Member Information Message
+  if tr_code == "E850S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I653S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "E653S" then
+    return true
+  end
+
+  -- Block Basket Trade Data Message
+  if tr_code == "C453S" then
+    return true
+  end
+
+  -- Investor Activities Per An Issue Eod Message
+  if tr_code == "C153S" then
+    return true
+  end
+
+  -- Short Selling Message
+  if tr_code == "I853S" then
+    return true
+  end
+
+  -- Brokers Acitity Information Message
+  if tr_code == "E253S" then
+    return true
+  end
+
+  -- Trading Activity By Session Per An Issue Message
+  if tr_code == "E353S" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -10455,6 +10606,9 @@ end
 local function omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nextrade_nextrade_etpcommon_nxtbinary_v2_12.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nextrade_nextrade_etpcommon_nxtbinary_v2_12.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12

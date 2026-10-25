@@ -14944,6 +14944,1722 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+koscom_mdcsrealtime_nightderivatives_exture_v2_018.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local tr_code = buffer(0, 5):string(koscom_mdcsrealtime_nightderivatives_exture_v2_018.text_encoding)
+
+  -- Polling Data Message
+  if tr_code == "I2000" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B601V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B602V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B603V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B606V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B607V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B608V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B609V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B610V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B611V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B612V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B613V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B615V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B616V" then
+    return true
+  end
+
+  -- Derivatives Quote Five Levels Message
+  if tr_code == "B617V" then
+    return true
+  end
+
+  -- Derivatives Quote Ten Levels Message
+  if tr_code == "B604V" then
+    return true
+  end
+
+  -- Derivatives Quote Ten Levels Message
+  if tr_code == "B605V" then
+    return true
+  end
+
+  -- Derivatives Quote Ten Levels Message
+  if tr_code == "B618V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B201V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B202V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B203V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B206V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B207V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B208V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B209V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B210V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B211V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B212V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B213V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B215V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B216V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Five Levels Message
+  if tr_code == "B217V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Ten Levels Message
+  if tr_code == "B204V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Ten Levels Message
+  if tr_code == "B205V" then
+    return true
+  end
+
+  -- Derivatives Snapshot Ten Levels Message
+  if tr_code == "B218V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A301V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A302V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A303V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A304V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A305V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A306V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A307V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A308V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A309V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A310V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A311V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A312V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A313V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A315V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A316V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A317V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Message
+  if tr_code == "A318V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G701V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G702V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G703V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G706V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G707V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G708V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G709V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G710V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G711V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G712V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G713V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G715V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G716V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Five Levels Message
+  if tr_code == "G717V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Ten Levels Message
+  if tr_code == "G704V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Ten Levels Message
+  if tr_code == "G705V" then
+    return true
+  end
+
+  -- Derivatives Order Filled Plus Quote Ten Levels Message
+  if tr_code == "G718V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R101V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R102V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R103V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R106V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R107V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R108V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R109V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R110V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R111V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R112V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R113V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R115V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R116V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Five Levels Message
+  if tr_code == "R117V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Ten Levels Message
+  if tr_code == "R104V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Ten Levels Message
+  if tr_code == "R105V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Plus Quote Ten Levels Message
+  if tr_code == "R118V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C401V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C402V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C403V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C404V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C405V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C406V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C407V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C408V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C409V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C410V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C411V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C412V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C413V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C415V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C416V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C417V" then
+    return true
+  end
+
+  -- Derivatives Negotiated Trade Message
+  if tr_code == "C418V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A702S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A703S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A704S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A705S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701Q" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701X" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701B" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701M" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701K" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701R" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A702V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A703V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A704V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A705V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A706V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A707V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A708V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A709V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A710V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A711V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A712V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A713V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A715V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A716V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A717V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A718V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701G" then
+    return true
+  end
+
+  -- Derivatives Market Operation Ts Message
+  if tr_code == "A701E" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A601V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A602V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A603V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A604V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A605V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A606V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A607V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A608V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A609V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A610V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A611V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A612V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A613V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A615V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A616V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A617V" then
+    return true
+  end
+
+  -- Derivatives Issue Closing Message
+  if tr_code == "A618V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M402S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M403S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M404S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M405S" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401Q" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401X" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401B" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401M" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401K" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401R" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M402V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M403V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M404V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M405V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M406V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M407V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M408V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M409V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M410V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M411V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M412V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M413V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M415V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M416V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M417V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M418V" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401G" then
+    return true
+  end
+
+  -- Derivatives Market Operation Schedule Message
+  if tr_code == "M401E" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q201V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q202V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q203V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q204V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q206V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q208V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q209V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q210V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q211V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q212V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q216V" then
+    return true
+  end
+
+  -- Derivatives Dynamic Upper Lower Limit Message
+  if tr_code == "Q217V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V101V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V102V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V103V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V104V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V105V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V108V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V109V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V111V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V112V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V113V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V115V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V116V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V117V" then
+    return true
+  end
+
+  -- Derivatives Price Limit Range Increase Message
+  if tr_code == "V118V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O601S" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O603S" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O604S" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O605S" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O601Q" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O601X" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O601V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O602V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O603V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O604V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O605V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O606V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O607V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O608V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O609V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O610V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O611V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O612V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O613V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O615V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O616V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O617V" then
+    return true
+  end
+
+  -- Derivatives Quantity Allocation Message
+  if tr_code == "O618V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF01S" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF02S" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF03S" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF04S" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF05S" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF01Q" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF01V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF02V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF03V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF04V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF05V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF06V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF07V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF08V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF09V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF10V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF11V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF12V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF13V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF15V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF16V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF17V" then
+    return true
+  end
+
+  -- Derivatives Group Order Acceptance Halt Message
+  if tr_code == "IF18V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A001V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A002V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A003V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A004V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A005V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A006V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A007V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A008V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A009V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A010V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A011V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A012V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A013V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A015V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A016V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A017V" then
+    return true
+  end
+
+  -- Derivatives Batch Data Message
+  if tr_code == "A018V" then
+    return true
+  end
+
+  -- Equity Derivatives Adjustment Details Message
+  if tr_code == "H404V" then
+    return true
+  end
+
+  -- Equity Derivatives Adjustment Details Message
+  if tr_code == "H405V" then
+    return true
+  end
+
+  -- Equity Derivatives Adjustment Details Message
+  if tr_code == "H418V" then
+    return true
+  end
+
+  -- Commodity Futures Settlement Reference Ktb Message
+  if tr_code == "H606V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H101V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H102V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H103V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H104V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H105V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H106V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H107V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H108V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H109V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H110V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H111V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H112V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H113V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H115V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H116V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H117V" then
+    return true
+  end
+
+  -- Derivatives Investor Activities Message
+  if tr_code == "H118V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H201V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H202V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H203V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H204V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H205V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H206V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H207V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H208V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H209V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H210V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H211V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H212V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H213V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H215V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H216V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H217V" then
+    return true
+  end
+
+  -- Derivatives Open Interest Message
+  if tr_code == "H218V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H301V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H302V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H304V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H306V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H308V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H309V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H310V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H311V" then
+    return true
+  end
+
+  -- Futures Settled Price Message
+  if tr_code == "H313V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID03V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID05V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID07V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID12V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID15V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID16V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID17V" then
+    return true
+  end
+
+  -- Options Base Price Of Clearing Margins Message
+  if tr_code == "ID18V" then
+    return true
+  end
+
+  -- Options Implied Volatility Message
+  if tr_code == "P103V" then
+    return true
+  end
+
+  -- Options Implied Volatility Message
+  if tr_code == "P112V" then
+    return true
+  end
+
+  -- Options Implied Volatility Message
+  if tr_code == "P115V" then
+    return true
+  end
+
+  -- Options Implied Volatility Message
+  if tr_code == "P116V" then
+    return true
+  end
+
+  -- Options Implied Volatility Message
+  if tr_code == "P117V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N703V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N705V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N707V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N712V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N715V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N716V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N717V" then
+    return true
+  end
+
+  -- Options Sensitivity Message
+  if tr_code == "N718V" then
+    return true
+  end
+
+  -- Commodity Futures Spot Settlement Reference Message
+  if tr_code == "H506V" then
+    return true
+  end
+
+  -- Commodity Futures Spot Settlement Reference Message
+  if tr_code == "H599V" then
+    return true
+  end
+
+  -- Daily Disclosed Rfr Message
+  if tr_code == "HA06V" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -14951,6 +16667,9 @@ end
 local function omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not koscom_mdcsrealtime_nightderivatives_exture_v2_018.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not koscom_mdcsrealtime_nightderivatives_exture_v2_018.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018

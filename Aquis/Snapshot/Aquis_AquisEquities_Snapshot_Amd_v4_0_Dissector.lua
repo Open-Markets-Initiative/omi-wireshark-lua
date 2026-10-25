@@ -1004,6 +1004,42 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+aquis_aquisequities_snapshot_amd_v4_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(1, 1):uint()
+
+  -- Snapshot Start Message
+  if msg_type == 10 then
+    return true
+  end
+
+  -- Book Status Message
+  if msg_type == 11 then
+    return true
+  end
+
+  -- Book Entry Message
+  if msg_type == 12 then
+    return true
+  end
+
+  -- Ma C Book Entry Message
+  if msg_type == 18 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1011,6 +1047,9 @@ end
 local function omi_aquis_aquisequities_snapshot_amd_v4_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not aquis_aquisequities_snapshot_amd_v4_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not aquis_aquisequities_snapshot_amd_v4_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_aquis_aquisequities_snapshot_amd_v4_0

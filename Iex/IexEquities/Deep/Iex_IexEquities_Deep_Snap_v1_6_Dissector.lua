@@ -2923,6 +2923,118 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+iex_iexequities_deep_snap_v1_6.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_type = buffer(2, 1):string()
+
+  -- Snapshot Request Message
+  if message_type == "r" then
+    return true
+  end
+
+  -- Error Response Message
+  if message_type == "e" then
+    return true
+  end
+
+  -- Snapshot Start Message
+  if message_type == "s" then
+    return true
+  end
+
+  -- Snapshot Data Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "d" then
+    if buffer:len() < 48 then
+      return false
+    end
+
+    local iex_tp_message_type = buffer(47, 1):string()
+
+    -- System Event Message
+    if iex_tp_message_type == "S" then
+      return true
+    end
+
+    -- Security Directory Message
+    if iex_tp_message_type == "D" then
+      return true
+    end
+
+    -- Trading Status Message
+    if iex_tp_message_type == "H" then
+      return true
+    end
+
+    -- Retail Liquidity Indicator Message
+    if iex_tp_message_type == "I" then
+      return true
+    end
+
+    -- Operational Halt Status Message
+    if iex_tp_message_type == "O" then
+      return true
+    end
+
+    -- Short Sale Price Test Status Message
+    if iex_tp_message_type == "P" then
+      return true
+    end
+
+    -- Security Event Message
+    if iex_tp_message_type == "E" then
+      return true
+    end
+
+    -- Price Level Buy Update Message
+    if iex_tp_message_type == "8" then
+      return true
+    end
+
+    -- Price Level Sell Update Message
+    if iex_tp_message_type == "5" then
+      return true
+    end
+
+    -- Trade Report Message
+    if iex_tp_message_type == "T" then
+      return true
+    end
+
+    -- Official Price Message
+    if iex_tp_message_type == "X" then
+      return true
+    end
+
+    -- Trade Break Message
+    if iex_tp_message_type == "B" then
+      return true
+    end
+
+    -- Auction Information Message
+    if iex_tp_message_type == "A" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Snapshot End Message
+  if message_type == "x" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2930,6 +3042,9 @@ end
 local function omi_iex_iexequities_deep_snap_v1_6_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not iex_iexequities_deep_snap_v1_6.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not iex_iexequities_deep_snap_v1_6.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_iexequities_deep_snap_v1_6

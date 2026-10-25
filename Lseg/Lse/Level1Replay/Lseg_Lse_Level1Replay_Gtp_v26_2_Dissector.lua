@@ -3598,6 +3598,87 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_lse_level1replay_gtp_v26_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local message_type = buffer(10, 1):uint()
+
+  -- Login Request Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Replay Request Message
+  if message_type == 0x03 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Replay Response Message
+  if message_type == 0x04 then
+    return true
+  end
+
+  -- Replay And Recovery Complete Message
+  if message_type == 0x83 then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Instrument Directory Message
+  if message_type == 0x70 then
+    return true
+  end
+
+  -- Instrument Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Top Of Book Message
+  if message_type == 0x69 then
+    return true
+  end
+
+  -- Order Book Clear Message
+  if message_type == 0x79 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 0x50 then
+    return true
+  end
+
+  -- Statistics Message
+  if message_type == 0x77 then
+    return true
+  end
+
+  -- Statistics Update Message
+  if message_type == 0x6A then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3605,6 +3686,9 @@ end
 local function omi_lseg_lse_level1replay_gtp_v26_2_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_lse_level1replay_gtp_v26_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not lseg_lse_level1replay_gtp_v26_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_lse_level1replay_gtp_v26_2

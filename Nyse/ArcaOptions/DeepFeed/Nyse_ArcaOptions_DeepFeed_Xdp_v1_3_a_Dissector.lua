@@ -2681,6 +2681,72 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nyse_arcaoptions_deepfeed_xdp_v1_3_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Outright Market Depth Buy Message
+  if message_type == 403 then
+    return true
+  end
+
+  -- Outright Market Depth Sell Message
+  if message_type == 405 then
+    return true
+  end
+
+  -- Underlying Status Message
+  if message_type == 419 then
+    return true
+  end
+
+  -- Outright Series Status Message
+  if message_type == 421 then
+    return true
+  end
+
+  -- Refresh Outright Market Depth Buy Message
+  if message_type == 503 then
+    return true
+  end
+
+  -- Refresh Outright Market Depth Sell Message
+  if message_type == 505 then
+    return true
+  end
+
+  -- Underlying Index Mapping Message
+  if message_type == 435 then
+    return true
+  end
+
+  -- Series Index Mapping Message
+  if message_type == 437 then
+    return true
+  end
+
+  -- Stream Id Message
+  if message_type == 455 then
+    return true
+  end
+
+  -- Sequence Number Reset Message
+  if message_type == 1 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2688,6 +2754,9 @@ end
 local function omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_arcaoptions_deepfeed_xdp_v1_3_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nyse_arcaoptions_deepfeed_xdp_v1_3_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_arcaoptions_deepfeed_xdp_v1_3_a

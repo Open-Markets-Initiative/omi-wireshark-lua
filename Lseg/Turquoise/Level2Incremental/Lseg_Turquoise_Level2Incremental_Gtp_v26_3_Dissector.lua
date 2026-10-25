@@ -3801,6 +3801,82 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_turquoise_level2incremental_gtp_v26_3.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local message_type = buffer(10, 1):uint()
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Instrument Directory Message
+  if message_type == 0x70 then
+    return true
+  end
+
+  -- Instrument Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Add Order Incremental Message
+  if message_type == 0x46 then
+    return true
+  end
+
+  -- Modify Order Message
+  if message_type == 0x55 then
+    return true
+  end
+
+  -- Delete Order Message
+  if message_type == 0x44 then
+    return true
+  end
+
+  -- Order Book Clear Message
+  if message_type == 0x79 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 0x50 then
+    return true
+  end
+
+  -- Trade Cross Message
+  if message_type == 0x71 then
+    return true
+  end
+
+  -- Statistics Message
+  if message_type == 0x77 then
+    return true
+  end
+
+  -- Statistics Update Message
+  if message_type == 0x6A then
+    return true
+  end
+
+  -- Trade Summary Message
+  if message_type == 0x57 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3808,6 +3884,9 @@ end
 local function omi_lseg_turquoise_level2incremental_gtp_v26_3_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_turquoise_level2incremental_gtp_v26_3.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not lseg_turquoise_level2incremental_gtp_v26_3.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_turquoise_level2incremental_gtp_v26_3

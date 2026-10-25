@@ -1869,6 +1869,62 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nyse_arcaequities_arcabook_xdp_v1_9_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Add Order Message
+  if message_type == 100 then
+    return true
+  end
+
+  -- Attributed Add Order Message
+  if message_type == 107 then
+    return true
+  end
+
+  -- Modify Order Message
+  if message_type == 101 then
+    return true
+  end
+
+  -- Delete Order Message
+  if message_type == 102 then
+    return true
+  end
+
+  -- Execution Message
+  if message_type == 103 then
+    return true
+  end
+
+  -- Add Order Refresh Message
+  if message_type == 106 then
+    return true
+  end
+
+  -- Attributed Add Order Refresh Message
+  if message_type == 108 then
+    return true
+  end
+
+  -- Imbalance Message
+  if message_type == 105 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1876,6 +1932,9 @@ end
 local function omi_nyse_arcaequities_arcabook_xdp_v1_9_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_arcaequities_arcabook_xdp_v1_9_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nyse_arcaequities_arcabook_xdp_v1_9_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_arcaequities_arcabook_xdp_v1_9_a

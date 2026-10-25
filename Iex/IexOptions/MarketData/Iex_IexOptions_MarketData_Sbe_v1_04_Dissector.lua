@@ -3850,6 +3850,167 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+iex_iexoptions_marketdata_sbe_v1_04.packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Underlying Ref Data Message
+  if template_id == 1 then
+    return true
+  end
+
+  -- Symbol Mapping Message
+  if template_id == 2 then
+    return true
+  end
+
+  -- Instrument Clear Message
+  if template_id == 3 then
+    return true
+  end
+
+  -- Trading Status Message
+  if template_id == 4 then
+    return true
+  end
+
+  -- Options Auction Summary Message
+  if template_id == 5 then
+    return true
+  end
+
+  -- Options Auction Width Update Message
+  if template_id == 6 then
+    return true
+  end
+
+  -- Liquidity Event Notification Message
+  if template_id == 7 then
+    return true
+  end
+
+  -- Liquidity Event Execution Message
+  if template_id == 8 then
+    return true
+  end
+
+  -- Liquidity Event Cancel Message
+  if template_id == 9 then
+    return true
+  end
+
+  -- Add Order Non Customer Message
+  if template_id == 100 then
+    return true
+  end
+
+  -- Add Order Customer Message
+  if template_id == 101 then
+    return true
+  end
+
+  -- Modify Order Message
+  if template_id == 102 then
+    return true
+  end
+
+  -- Delete Order Message
+  if template_id == 103 then
+    return true
+  end
+
+  -- Order Execution Message
+  if template_id == 104 then
+    return true
+  end
+
+  -- Deep Trade Break Message
+  if template_id == 105 then
+    return true
+  end
+
+  -- Quote Update No Customer Interest Message
+  if template_id == 200 then
+    return true
+  end
+
+  -- Quote Update Customer Interest Message
+  if template_id == 201 then
+    return true
+  end
+
+  -- Trade Message
+  if template_id == 202 then
+    return true
+  end
+
+  -- Trade Correction Message
+  if template_id == 203 then
+    return true
+  end
+
+  -- Tops Trade Break Message
+  if template_id == 204 then
+    return true
+  end
+
+  -- Heartbeat Message
+  if template_id == 300 then
+    return true
+  end
+
+  -- Sequenced Packet Message
+  if template_id == 301 then
+    return true
+  end
+
+  -- Session Shutdown Message
+  if template_id == 302 then
+    return true
+  end
+
+  -- Sequence Number Reset Message
+  if template_id == 303 then
+    return true
+  end
+
+  -- Server Heartbeat Message
+  if template_id == 400 then
+    return true
+  end
+
+  -- Client Heartbeat Message
+  if template_id == 401 then
+    return true
+  end
+
+  -- Retransmission Request Message
+  if template_id == 402 then
+    return true
+  end
+
+  -- Retransmission Response Message
+  if template_id == 403 then
+    return true
+  end
+
+  -- Snapshot Header Message
+  if template_id == 601 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3897,6 +4058,9 @@ local function omi_iex_iexoptions_marketdata_sbe_v1_04_udp_heuristic(buffer, pac
 
   -- Verify Version
   if not iex_iexoptions_marketdata_sbe_v1_04.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not iex_iexoptions_marketdata_sbe_v1_04.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_iexoptions_marketdata_sbe_v1_04

@@ -1492,6 +1492,97 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+ltse_commonheader_tcp_v1_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local message_type = buffer(0, 1):uint()
+
+  -- Login Request Message
+  if message_type == 100 then
+    return true
+  end
+
+  -- Replay Request Message
+  if message_type == 101 then
+    return true
+  end
+
+  -- Replay All Request Message
+  if message_type == 102 then
+    return true
+  end
+
+  -- Stream Request Message
+  if message_type == 103 then
+    return true
+  end
+
+  -- Unsequenced Message
+  if message_type == 104 then
+    return true
+  end
+
+  -- Login Accepted Message
+  if message_type == 1 then
+    return true
+  end
+
+  -- Login Rejected Message
+  if message_type == 2 then
+    return true
+  end
+
+  -- Start Of Session Message
+  if message_type == 3 then
+    return true
+  end
+
+  -- Replay Begin Message
+  if message_type == 5 then
+    return true
+  end
+
+  -- Replay Rejected Message
+  if message_type == 6 then
+    return true
+  end
+
+  -- Replay Complete Message
+  if message_type == 7 then
+    return true
+  end
+
+  -- Stream Begin Message
+  if message_type == 8 then
+    return true
+  end
+
+  -- Stream Rejected Message
+  if message_type == 9 then
+    return true
+  end
+
+  -- Stream Complete Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Sequenced Message
+  if message_type == 11 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1499,6 +1590,9 @@ end
 local function omi_ltse_commonheader_tcp_v1_2_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not ltse_commonheader_tcp_v1_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not ltse_commonheader_tcp_v1_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_ltse_commonheader_tcp_v1_2

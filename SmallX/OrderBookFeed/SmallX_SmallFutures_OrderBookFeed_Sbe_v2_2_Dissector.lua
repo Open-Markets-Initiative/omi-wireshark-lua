@@ -5579,6 +5579,87 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+smallx_smallfutures_orderbookfeed_sbe_v2_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 16 then
+    return false
+  end
+
+  local template_id = buffer(14, 2):le_uint()
+
+  -- Instrument Trading Status Incremental Message
+  if template_id == 3 then
+    return true
+  end
+
+  -- Trades Incremental Message
+  if template_id == 4 then
+    return true
+  end
+
+  -- Trade Correct Message
+  if template_id == 5 then
+    return true
+  end
+
+  -- Trade Bust Message
+  if template_id == 6 then
+    return true
+  end
+
+  -- Order Book Incremental Message
+  if template_id == 7 then
+    return true
+  end
+
+  -- Market Summary Incremental Message
+  if template_id == 8 then
+    return true
+  end
+
+  -- Order Book Snapshot Message
+  if template_id == 11 then
+    return true
+  end
+
+  -- Market Summary Snapshot Message
+  if template_id == 12 then
+    return true
+  end
+
+  -- Index Value Snapshot Message
+  if template_id == 13 then
+    return true
+  end
+
+  -- Single Instrument Definition Incremental V 2 Message
+  if template_id == 14 then
+    return true
+  end
+
+  -- Multileg Definition Incremental V 2 Message
+  if template_id == 15 then
+    return true
+  end
+
+  -- Single Instrument Definition Snapshot V 2 Message
+  if template_id == 16 then
+    return true
+  end
+
+  -- Multileg Definition Snapshot V 2 Message
+  if template_id == 17 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5626,6 +5707,9 @@ local function omi_smallx_smallfutures_orderbookfeed_sbe_v2_2_udp_heuristic(buff
 
   -- Verify Version
   if not smallx_smallfutures_orderbookfeed_sbe_v2_2.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not smallx_smallfutures_orderbookfeed_sbe_v2_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2

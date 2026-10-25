@@ -3616,6 +3616,117 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_opra_input_obi_v5_0_i.packet.fingerprint = function(buffer)
+  if buffer:len() < 25 then
+    return false
+  end
+
+  local message_category = buffer(24, 1):string()
+
+  -- Equity And Index Last Sale Category: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "a" then
+    if buffer:len() < 26 then
+      return false
+    end
+
+    local equity_and_index_last_sale_message_type = buffer(25, 1):string()
+
+    -- Equity And Index Last Sale Message
+    if equity_and_index_last_sale_message_type == "A" or equity_and_index_last_sale_message_type == "B" or equity_and_index_last_sale_message_type == "C" or equity_and_index_last_sale_message_type == "D" or equity_and_index_last_sale_message_type == "E" or equity_and_index_last_sale_message_type == "F" or equity_and_index_last_sale_message_type == "G" or equity_and_index_last_sale_message_type == "H" or equity_and_index_last_sale_message_type == "I" or equity_and_index_last_sale_message_type == "J" or equity_and_index_last_sale_message_type == "S" or equity_and_index_last_sale_message_type == "a" or equity_and_index_last_sale_message_type == "b" or equity_and_index_last_sale_message_type == "c" or equity_and_index_last_sale_message_type == "d" or equity_and_index_last_sale_message_type == "e" or equity_and_index_last_sale_message_type == "f" or equity_and_index_last_sale_message_type == "g" or equity_and_index_last_sale_message_type == "h" or equity_and_index_last_sale_message_type == "i" or equity_and_index_last_sale_message_type == "j" or equity_and_index_last_sale_message_type == "k" or equity_and_index_last_sale_message_type == "l" or equity_and_index_last_sale_message_type == "m" or equity_and_index_last_sale_message_type == "n" or equity_and_index_last_sale_message_type == "o" or equity_and_index_last_sale_message_type == "p" or equity_and_index_last_sale_message_type == "q" or equity_and_index_last_sale_message_type == "r" or equity_and_index_last_sale_message_type == "s" or equity_and_index_last_sale_message_type == "t" or equity_and_index_last_sale_message_type == "u" or equity_and_index_last_sale_message_type == "v" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Equity And Index End Of Day Summary Category: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "f" then
+    if buffer:len() < 26 then
+      return false
+    end
+
+    local equity_and_index_end_of_day_summary_message_type = buffer(25, 1):string()
+
+    -- Equity And Index End Of Day Summary Message
+    if equity_and_index_end_of_day_summary_message_type == " " then
+      return true
+    end
+
+    return false
+  end
+
+  -- Long Equity And Index Quote Category: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "k" then
+    if buffer:len() < 26 then
+      return false
+    end
+
+    local long_equity_and_index_quote_message_type = buffer(25, 1):string()
+
+    -- Long Equity And Index Quote Message
+    if long_equity_and_index_quote_message_type == " " or long_equity_and_index_quote_message_type == "F" or long_equity_and_index_quote_message_type == "I" or long_equity_and_index_quote_message_type == "R" or long_equity_and_index_quote_message_type == "T" or long_equity_and_index_quote_message_type == "A" or long_equity_and_index_quote_message_type == "B" or long_equity_and_index_quote_message_type == "O" or long_equity_and_index_quote_message_type == "C" or long_equity_and_index_quote_message_type == "X" or long_equity_and_index_quote_message_type == "Y" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Short Equity And Index Quote Category: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "q" then
+    if buffer:len() < 26 then
+      return false
+    end
+
+    local short_equity_and_index_quote_message_type = buffer(25, 1):string()
+
+    -- Short Equity And Index Quote Message
+    if short_equity_and_index_quote_message_type == " " or short_equity_and_index_quote_message_type == "F" or short_equity_and_index_quote_message_type == "I" or short_equity_and_index_quote_message_type == "R" or short_equity_and_index_quote_message_type == "T" or short_equity_and_index_quote_message_type == "A" or short_equity_and_index_quote_message_type == "B" or short_equity_and_index_quote_message_type == "O" or short_equity_and_index_quote_message_type == "C" or short_equity_and_index_quote_message_type == "X" or short_equity_and_index_quote_message_type == "Y" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Administrative Category: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 26 then
+      return false
+    end
+
+    local administrative_message_type = buffer(25, 1):string()
+
+    -- Administrative Message
+    if administrative_message_type == " " then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Category
+  if message_category == "H" then
+    return true
+  end
+
+  -- Sequence Number Status Category
+  if message_category == "N" then
+    return true
+  end
+
+  -- Underlying Value Message Category
+  if message_category == "Y" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3643,6 +3754,9 @@ local function omi_siac_opra_input_obi_v5_0_i_tcp_heuristic(buffer, packet, pare
 
   -- Verify Version
   if not siac_opra_input_obi_v5_0_i.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not siac_opra_input_obi_v5_0_i.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_opra_input_obi_v5_0_i

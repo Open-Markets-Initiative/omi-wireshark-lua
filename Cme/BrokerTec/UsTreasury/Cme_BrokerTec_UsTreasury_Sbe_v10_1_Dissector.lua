@@ -1782,6 +1782,27 @@ end
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
 
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+cme_brokertec_ustreasury_sbe_v10_1.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 18 then
+    return false
+  end
+
+  local template_id = buffer(16, 2):le_uint()
+
+  -- Md Incremental Refresh Btec
+  if template_id == 405 then
+    return true
+  end
+
+  -- Admin Heartbeat
+  if template_id == 411 then
+    return true
+  end
+
+  return false
+end
+
 -- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
 cme_brokertec_ustreasury_sbe_v10_1.tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 20 then
@@ -1903,6 +1924,9 @@ local function omi_cme_brokertec_ustreasury_sbe_v10_1_udp_heuristic(buffer, pack
 
   -- Verify Version
   if not cme_brokertec_ustreasury_sbe_v10_1.version.udp_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not cme_brokertec_ustreasury_sbe_v10_1.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_brokertec_ustreasury_sbe_v10_1

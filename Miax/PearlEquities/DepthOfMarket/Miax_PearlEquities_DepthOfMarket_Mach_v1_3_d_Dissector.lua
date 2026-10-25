@@ -3514,6 +3514,195 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local mach_packet_type = buffer(10, 1):le_uint()
+
+  -- Heartbeat
+  if mach_packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if mach_packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if mach_packet_type == 2 then
+    return true
+  end
+
+  -- Application Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if mach_packet_type == 3 then
+    if buffer:len() < 13 then
+      return false
+    end
+
+    local message_type = buffer(12, 1):uint()
+
+    -- System Time Message
+    if message_type == 49 then
+      return true
+    end
+
+    -- Symbol Update Message
+    if message_type == 1 then
+      return true
+    end
+
+    -- System State Message
+    if message_type == 83 then
+      return true
+    end
+
+    -- Security Trading Status Notification Message
+    if message_type == 4 then
+      return true
+    end
+
+    -- Symbol Clear Message
+    if message_type == 5 then
+      return true
+    end
+
+    -- Add Order Message
+    if message_type == 20 then
+      return true
+    end
+
+    -- Modify Order Message
+    if message_type == 21 then
+      return true
+    end
+
+    -- Delete Order Message
+    if message_type == 23 then
+      return true
+    end
+
+    -- Order Execution Message
+    if message_type == 24 then
+      return true
+    end
+
+    -- Trade Message
+    if message_type == 10 then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if message_type == 11 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
+miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local esesm_packet_type = buffer(2, 1):string()
+
+  -- Sequenced Data Packet
+  if esesm_packet_type == "s" then
+    return true
+  end
+
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if esesm_packet_type == "U" then
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 1):string()
+
+    -- Refresh Request Message
+    if unsequenced_message_type == "R" then
+      return true
+    end
+
+    -- Refresh Response Message
+    if unsequenced_message_type == "r" then
+      return true
+    end
+
+    -- End Of Refresh Notification Message
+    if unsequenced_message_type == "E" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Login Request
+  if esesm_packet_type == "l" then
+    return true
+  end
+
+  -- Login Response
+  if esesm_packet_type == "r" then
+    return true
+  end
+
+  -- Synchronization Complete
+  if esesm_packet_type == "c" then
+    return true
+  end
+
+  -- Retransmission Request
+  if esesm_packet_type == "a" then
+    return true
+  end
+
+  -- Logout Request
+  if esesm_packet_type == "X" then
+    return true
+  end
+
+  -- Goodbye Packet
+  if esesm_packet_type == "G" then
+    return true
+  end
+
+  -- Trading Session Update
+  if esesm_packet_type == "u" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if esesm_packet_type == "0" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if esesm_packet_type == "1" then
+    return true
+  end
+
+  -- Test Packet
+  if esesm_packet_type == "T" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3521,6 +3710,9 @@ end
 local function omi_miax_pearlequities_depthofmarket_mach_v1_3_d_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_depthofmarket_mach_v1_3_d
@@ -3533,6 +3725,9 @@ end
 local function omi_miax_pearlequities_depthofmarket_mach_v1_3_d_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp tcp packet message dispatch
+  if not miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_depthofmarket_mach_v1_3_d

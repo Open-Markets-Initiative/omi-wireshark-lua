@@ -5038,6 +5038,87 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_lse_level2mborecovery_gtp_v26_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local message_type = buffer(10, 1):uint()
+
+  -- Login Request Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Recovery Request Message
+  if message_type == 0x81 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Recovery Response Message
+  if message_type == 0x82 then
+    return true
+  end
+
+  -- Replay And Recovery Complete Message
+  if message_type == 0x83 then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Instrument Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Add Order Mbo Message
+  if message_type == 0x41 then
+    return true
+  end
+
+  -- Add Order Short Mbo Message
+  if message_type == 0x65 then
+    return true
+  end
+
+  -- Order Book Clear Message
+  if message_type == 0x79 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 0x50 then
+    return true
+  end
+
+  -- Instrument Directory Equities Message
+  if message_type == 0x52 then
+    return true
+  end
+
+  -- Statistics Snapshot Message
+  if message_type == 0x6B then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5045,6 +5126,9 @@ end
 local function omi_lseg_lse_level2mborecovery_gtp_v26_2_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_lse_level2mborecovery_gtp_v26_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not lseg_lse_level2mborecovery_gtp_v26_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_lse_level2mborecovery_gtp_v26_2
