@@ -2112,75 +2112,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-tradelogiq_omegaats_multicastlevel1_itch_v1_01.packet.fingerprint = function(buffer)
-  if buffer:len() < 20 then
-    return false
-  end
-
-  local message_count = buffer(18, 2):uint()
-
-  -- Heartbeat
-  if message_count == 0 then
-    return true
-  end
-
-  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if buffer:len() < 23 then
-    return false
-  end
-
-  local message_type = buffer(22, 1):string()
-
-  -- Quote Message
-  if message_type == "W" then
-    return true
-  end
-
-  -- Trade Report Message
-  if message_type == "T" then
-    return true
-  end
-
-  -- Trade Bust Message
-  if message_type == "N" then
-    return true
-  end
-
-  -- Trade Correction Message
-  if message_type == "M" then
-    return true
-  end
-
-  -- System Event Message
-  if message_type == "S" then
-    return true
-  end
-
-  -- Stock Directory Message
-  if message_type == "R" then
-    return true
-  end
-
-  -- Extended Stock Directory Message
-  if message_type == "r" then
-    return true
-  end
-
-  -- Stock Status Message
-  if message_type == "H" then
-    return true
-  end
-
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2189,8 +2120,17 @@ local function omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01_udp_heuristic(
   -- Verify packet length
   if not tradelogiq_omegaats_multicastlevel1_itch_v1_01.packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this udp packet message dispatch
-  if not tradelogiq_omegaats_multicastlevel1_itch_v1_01.packet.fingerprint(buffer) then return false end
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01
+  omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Tradelogiq OmegaAts MulticastLevel1 Itch 1.01 (Udp)
+local function omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01_udp_initiator_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not tradelogiq_omegaats_multicastlevel1_itch_v1_01.request_packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01

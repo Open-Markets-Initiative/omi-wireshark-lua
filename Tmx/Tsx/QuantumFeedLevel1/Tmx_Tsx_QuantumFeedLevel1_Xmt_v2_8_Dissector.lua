@@ -3179,65 +3179,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet.fingerprint = function(buffer)
-  if buffer:len() < 14 then
-    return false
-  end
-
-  local msg_type = buffer(13, 1):string()
-
-  -- Heartbeat Body
-  if msg_type == "0" then
-    return true
-  end
-
-  -- Business Bodies: carries the application messages, which tell this protocol from others sharing the session framing
-  if buffer:len() < 14 then
-    return false
-  end
-
-  local msg_type = buffer(13, 1):string()
-
-  -- Symbol Status Message
-  if msg_type == "J" then
-    return true
-  end
-
-  -- Trade Report Message
-  if msg_type == "s" then
-    return true
-  end
-
-  -- Trade Cancelled Message
-  if msg_type == "t" then
-    return true
-  end
-
-  -- Moc Imbalance Message
-  if msg_type == "u" then
-    return true
-  end
-
-  -- Stock Status Message
-  if msg_type == "v" then
-    return true
-  end
-
-  -- Quote Message
-  if msg_type == "w" then
-    return true
-  end
-
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3285,9 +3226,6 @@ local function omi_tmx_tsx_quantumfeedlevel1_xmt_v2_8_udp_heuristic(buffer, pack
 
   -- Verify Protocol Name
   if not tmx_tsx_quantumfeedlevel1_xmt_v2_8.protocol_name.verify(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_tsx_quantumfeedlevel1_xmt_v2_8

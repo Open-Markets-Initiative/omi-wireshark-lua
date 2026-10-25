@@ -1336,42 +1336,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-hkex_hkexsecurities_index_omd_v1_44.packet.fingerprint = function(buffer)
-  if buffer:len() < 20 then
-    return false
-  end
-
-  local msg_type = buffer(18, 2):le_uint()
-
-  -- Sequence Reset Message
-  if msg_type == 100 then
-    return true
-  end
-
-  -- Disaster Recovery Signal Message
-  if msg_type == 105 then
-    return true
-  end
-
-  -- Index Definition Message
-  if msg_type == 70 then
-    return true
-  end
-
-  -- Index Data Message
-  if msg_type == 71 then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1379,9 +1343,6 @@ end
 local function omi_hkex_hkexsecurities_index_omd_v1_44_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not hkex_hkexsecurities_index_omd_v1_44.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not hkex_hkexsecurities_index_omd_v1_44.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_hkex_hkexsecurities_index_omd_v1_44

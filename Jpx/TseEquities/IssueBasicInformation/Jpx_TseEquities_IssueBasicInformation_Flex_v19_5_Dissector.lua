@@ -3542,47 +3542,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Udp Packet: would its message dispatch accept this frame?
-jpx_tseequities_issuebasicinformation_flex_v19_5.udp_packet.fingerprint = function(buffer)
-  if buffer:len() < 19 then
-    return false
-  end
-
-  local message_type_large_classification = buffer(18, 1):string()
-
-  -- Issue Realtime Medium Classification
-  if message_type_large_classification == "1" then
-    return true
-  end
-
-  -- Statistics Medium Classification
-  if message_type_large_classification == "2" then
-    return true
-  end
-
-  -- Index Medium Classification
-  if message_type_large_classification == "3" then
-    return true
-  end
-
-  -- Issue Basic Medium Classification
-  if message_type_large_classification == "4" then
-    return true
-  end
-
-  -- Control Medium Classification
-  if message_type_large_classification == "9" then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3590,9 +3549,6 @@ end
 local function omi_jpx_tseequities_issuebasicinformation_flex_v19_5_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not jpx_tseequities_issuebasicinformation_flex_v19_5.udp_packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp udp packet message dispatch
-  if not jpx_tseequities_issuebasicinformation_flex_v19_5.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jpx_tseequities_issuebasicinformation_flex_v19_5

@@ -1836,70 +1836,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet.fingerprint = function(buffer)
-  if buffer:len() < 3 then
-    return false
-  end
-
-  local message_count = buffer(2, 1):le_uint()
-
-  -- Heartbeat
-  if message_count == 0 then
-    return true
-  end
-
-  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if buffer:len() < 10 then
-    return false
-  end
-
-  local message_type = buffer(9, 1):le_uint()
-
-  -- Short Symbol Summary Message
-  if message_type == 0xA4 then
-    return true
-  end
-
-  -- Long Symbol Summary Message
-  if message_type == 0xA3 then
-    return true
-  end
-
-  -- Best Quote Update Message
-  if message_type == 0xA5 then
-    return true
-  end
-
-  -- Cboe Market Status Message
-  if message_type == 0xA6 then
-    return true
-  end
-
-  -- Trade Message
-  if message_type == 0xA9 then
-    return true
-  end
-
-  -- Trade Break Message
-  if message_type == 0xAA then
-    return true
-  end
-
-  -- Trading Status Message
-  if message_type == 0xAB then
-    return true
-  end
-
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1907,9 +1843,6 @@ end
 local function omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10

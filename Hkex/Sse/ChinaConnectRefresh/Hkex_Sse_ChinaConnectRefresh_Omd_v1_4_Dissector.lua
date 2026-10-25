@@ -1774,52 +1774,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-hkex_sse_chinaconnectrefresh_omd_v1_4.packet.fingerprint = function(buffer)
-  if buffer:len() < 20 then
-    return false
-  end
-
-  local msg_type = buffer(18, 2):le_uint()
-
-  -- Market Definition Message
-  if msg_type == 610 then
-    return true
-  end
-
-  -- Refresh Complete Message
-  if msg_type == 203 then
-    return true
-  end
-
-  -- Security Definition Message
-  if msg_type == 611 then
-    return true
-  end
-
-  -- Security Status Message
-  if msg_type == 621 then
-    return true
-  end
-
-  -- Statistics Message
-  if msg_type == 660 then
-    return true
-  end
-
-  -- Top Of Book Message
-  if msg_type == 655 then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1827,9 +1781,6 @@ end
 local function omi_hkex_sse_chinaconnectrefresh_omd_v1_4_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not hkex_sse_chinaconnectrefresh_omd_v1_4.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not hkex_sse_chinaconnectrefresh_omd_v1_4.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_hkex_sse_chinaconnectrefresh_omd_v1_4

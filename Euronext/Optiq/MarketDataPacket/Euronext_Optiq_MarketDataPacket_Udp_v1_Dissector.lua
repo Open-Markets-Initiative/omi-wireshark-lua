@@ -666,6 +666,20 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Dissector Heuristic for Euronext Optiq MarketDataPacket Udp 1 (Udp)
+local function omi_euronext_optiq_marketdatapacket_udp_v1_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not euronext_optiq_marketdatapacket_udp_v1.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_euronext_optiq_marketdatapacket_udp_v1
+  omi_euronext_optiq_marketdatapacket_udp_v1.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Euronext Optiq MarketDataPacket Udp 1
+omi_euronext_optiq_marketdatapacket_udp_v1:register_heuristic("udp", omi_euronext_optiq_marketdatapacket_udp_v1_udp_heuristic)
 
 -- Register Euronext Optiq MarketDataPacket Udp 1 for Decode As
 local udp_table = DissectorTable.get("udp.port")

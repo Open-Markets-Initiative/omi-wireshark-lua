@@ -8,7 +8,7 @@
 | Division | [Protocol][Omi.Bist.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bist.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Glimpse][Omi.Encoding.Glimpse] | [2.7][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Dissector] | 1/17/2025 | 3368 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Pdf] |
-| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Itch][Omi.Encoding.Itch] | [21.12][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Dissector] | 2/28/2025 | 3335 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Pdf] |
+| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Itch][Omi.Encoding.Itch] | [21.12][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Dissector] | 2/28/2025 | 3218 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Pdf] |
 
 
 ### Order  Entry

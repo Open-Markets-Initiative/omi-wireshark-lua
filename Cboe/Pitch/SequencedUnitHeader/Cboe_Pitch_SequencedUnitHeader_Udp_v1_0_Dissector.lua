@@ -478,27 +478,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-cboe_pitch_sequencedunitheader_udp_v1_0.packet.fingerprint = function(buffer)
-  if buffer:len() < 3 then
-    return false
-  end
-
-  local message_count = buffer(2, 1):le_uint()
-
-  -- Heartbeat
-  if message_count == 0 then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -506,9 +485,6 @@ end
 local function omi_cboe_pitch_sequencedunitheader_udp_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_pitch_sequencedunitheader_udp_v1_0.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not cboe_pitch_sequencedunitheader_udp_v1_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_pitch_sequencedunitheader_udp_v1_0

@@ -2264,62 +2264,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-txse_txseequities_bale_rake_v1_0.packet.fingerprint = function(buffer)
-  if buffer:len() < 23 then
-    return false
-  end
-
-  local message_type = buffer(22, 1):uint()
-
-  -- Trading Session Status Message
-  if message_type == 105 then
-    return true
-  end
-
-  -- Define Symbol Message
-  if message_type == 115 then
-    return true
-  end
-
-  -- Symbol Status Message
-  if message_type == 121 then
-    return true
-  end
-
-  -- Trade Message
-  if message_type == 120 then
-    return true
-  end
-
-  -- Top Of Book Message
-  if message_type == 113 then
-    return true
-  end
-
-  -- Auction Preamble Message
-  if message_type == 117 then
-    return true
-  end
-
-  -- Auction Band Window Message
-  if message_type == 118 then
-    return true
-  end
-
-  -- Auction Print Message
-  if message_type == 110 then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2327,9 +2271,6 @@ end
 local function omi_txse_txseequities_bale_rake_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not txse_txseequities_bale_rake_v1_0.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not txse_txseequities_bale_rake_v1_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_txse_txseequities_bale_rake_v1_0

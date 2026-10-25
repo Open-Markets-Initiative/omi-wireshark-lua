@@ -379,6 +379,20 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Dissector Heuristic for Aquis AquisEquities UdpHeader Amd 1.0 (Udp)
+local function omi_aquis_aquisequities_udpheader_amd_v1_0_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not aquis_aquisequities_udpheader_amd_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_aquis_aquisequities_udpheader_amd_v1_0
+  omi_aquis_aquisequities_udpheader_amd_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Aquis AquisEquities UdpHeader Amd 1.0
+omi_aquis_aquisequities_udpheader_amd_v1_0:register_heuristic("udp", omi_aquis_aquisequities_udpheader_amd_v1_0_udp_heuristic)
 
 -- Register Aquis AquisEquities UdpHeader Amd 1.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")

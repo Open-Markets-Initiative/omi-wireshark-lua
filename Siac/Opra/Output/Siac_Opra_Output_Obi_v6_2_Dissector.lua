@@ -4469,73 +4469,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-siac_opra_output_obi_v6_2.packet.fingerprint = function(buffer)
-  if buffer:len() < 23 then
-    return false
-  end
-
-  local message_category = buffer(22, 1):string()
-
-  -- Administrative Category: carries the application messages, which tell this protocol from others sharing the session framing
-  if message_category == "C" then
-    if buffer:len() < 24 then
-      return false
-    end
-
-    local administrative_message_type = buffer(23, 1):string()
-
-    -- Administrative Message
-    if administrative_message_type == " " then
-      return true
-    end
-
-    return false
-  end
-
-  -- Control Category
-  if message_category == "H" then
-    return true
-  end
-
-  -- Equity And Index Last Sale Category
-  if message_category == "a" then
-    return true
-  end
-
-  -- Open Interest Category
-  if message_category == "d" then
-    return true
-  end
-
-  -- Equity And Index End Of Day Summary Category
-  if message_category == "f" then
-    return true
-  end
-
-  -- Long Equity And Index Quote Category
-  if message_category == "k" then
-    return true
-  end
-
-  -- Short Equity And Index Quote Category
-  if message_category == "q" then
-    return true
-  end
-
-  -- Underlying Value Category
-  if message_category == "Y" then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4563,9 +4496,6 @@ local function omi_siac_opra_output_obi_v6_2_udp_heuristic(buffer, packet, paren
 
   -- Verify Version
   if not siac_opra_output_obi_v6_2.version.verify(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not siac_opra_output_obi_v6_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_opra_output_obi_v6_2

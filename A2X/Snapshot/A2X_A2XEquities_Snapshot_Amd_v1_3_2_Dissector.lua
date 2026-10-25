@@ -933,47 +933,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-a2x_a2xequities_snapshot_amd_v1_3_2.packet.fingerprint = function(buffer)
-  if buffer:len() < 2 then
-    return false
-  end
-
-  local msg_type = buffer(1, 1):uint()
-
-  -- Heartbeat Message
-  if msg_type == 1 then
-    return true
-  end
-
-  -- Snapshot Start Message
-  if msg_type == 10 then
-    return true
-  end
-
-  -- Book Status Message
-  if msg_type == 11 then
-    return true
-  end
-
-  -- Book Entry Message
-  if msg_type == 12 then
-    return true
-  end
-
-  -- Market At Close Book Entry Message
-  if msg_type == 18 then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -981,9 +940,6 @@ end
 local function omi_a2x_a2xequities_snapshot_amd_v1_3_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not a2x_a2xequities_snapshot_amd_v1_3_2.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not a2x_a2xequities_snapshot_amd_v1_3_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_a2x_a2xequities_snapshot_amd_v1_3_2

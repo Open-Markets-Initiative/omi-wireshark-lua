@@ -972,55 +972,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-cboe_neoequities_gaprequestproxy_pitch_v1_0_13.packet.fingerprint = function(buffer)
-  if buffer:len() < 3 then
-    return false
-  end
-
-  local message_count = buffer(2, 1):le_uint()
-
-  -- Heartbeat
-  if message_count == 0 then
-    return true
-  end
-
-  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if buffer:len() < 10 then
-    return false
-  end
-
-  local message_type = buffer(9, 1):le_uint()
-
-  -- Login Message
-  if message_type == 0x01 then
-    return true
-  end
-
-  -- Login Response Message
-  if message_type == 0x02 then
-    return true
-  end
-
-  -- Gap Request Message
-  if message_type == 0x03 then
-    return true
-  end
-
-  -- Gap Response Message
-  if message_type == 0x04 then
-    return true
-  end
-
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1028,9 +979,6 @@ end
 local function omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_13_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_neoequities_gaprequestproxy_pitch_v1_0_13.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this tcp packet message dispatch
-  if not cboe_neoequities_gaprequestproxy_pitch_v1_0_13.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_13

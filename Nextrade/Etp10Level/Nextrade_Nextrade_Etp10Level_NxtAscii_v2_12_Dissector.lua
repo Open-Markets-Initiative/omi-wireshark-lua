@@ -4467,57 +4467,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-nextrade_nextrade_etp10level_nxtascii_v2_12.packet.fingerprint = function(buffer)
-  if buffer:len() < 5 then
-    return false
-  end
-
-  local tr_code = buffer(0, 5):string(nextrade_nextrade_etp10level_nxtascii_v2_12.text_encoding)
-
-  -- Polling Data Message
-  if tr_code == "I2500" then
-    return true
-  end
-
-  -- Securities Quote Mm Lp Quotes Included 10 Level Message
-  if tr_code == "B753S" then
-    return true
-  end
-
-  -- Securities Order Filled Message
-  if tr_code == "A353S" then
-    return true
-  end
-
-  -- Market Operation Ts Message
-  if tr_code == "A753S" then
-    return true
-  end
-
-  -- Issue Closing Message
-  if tr_code == "A653S" then
-    return true
-  end
-
-  -- Triggering Removing Vi Message
-  if tr_code == "R853S" then
-    return true
-  end
-
-  -- Closing Price Trading Quote Message
-  if tr_code == "E153S" then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4525,9 +4474,6 @@ end
 local function omi_nextrade_nextrade_etp10level_nxtascii_v2_12_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nextrade_nextrade_etp10level_nxtascii_v2_12.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not nextrade_nextrade_etp10level_nxtascii_v2_12.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nextrade_nextrade_etp10level_nxtascii_v2_12

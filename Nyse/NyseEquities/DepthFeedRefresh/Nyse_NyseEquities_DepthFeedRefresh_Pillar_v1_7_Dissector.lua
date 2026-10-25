@@ -3766,65 +3766,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-nyse_nyseequities_depthfeedrefresh_pillar_v1_7.packet.fingerprint = function(buffer)
-  if buffer:len() < 3 then
-    return false
-  end
-
-  local delivery_flag = buffer(2, 1):le_uint()
-
-  -- Heartbeat
-  if delivery_flag == 1 then
-    return true
-  end
-
-  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if buffer:len() < 20 then
-    return false
-  end
-
-  local message_type = buffer(18, 2):le_uint()
-
-  -- Sequence Number Reset Message
-  if message_type == 1 then
-    return true
-  end
-
-  -- Symbol Index Mapping Message
-  if message_type == 3 then
-    return true
-  end
-
-  -- Security Status Message
-  if message_type == 34 then
-    return true
-  end
-
-  -- Refresh Header Message
-  if message_type == 35 then
-    return true
-  end
-
-  -- Delta Message
-  if message_type == 115 then
-    return true
-  end
-
-  -- Imbalance Message
-  if message_type == 105 then
-    return true
-  end
-
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3832,9 +3773,6 @@ end
 local function omi_nyse_nyseequities_depthfeedrefresh_pillar_v1_7_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_nyseequities_depthfeedrefresh_pillar_v1_7.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not nyse_nyseequities_depthfeedrefresh_pillar_v1_7.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_nyseequities_depthfeedrefresh_pillar_v1_7

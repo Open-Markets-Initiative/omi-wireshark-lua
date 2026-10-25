@@ -1913,67 +1913,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-lseg_millennium_level2recovery_mitch_v11_9.packet.fingerprint = function(buffer)
-  if buffer:len() < 10 then
-    return false
-  end
-
-  local message_type = buffer(9, 1):uint()
-
-  -- Login Request Message
-  if message_type == 0x01 then
-    return true
-  end
-
-  -- Login Response Message
-  if message_type == 0x02 then
-    return true
-  end
-
-  -- Snapshot Request Message
-  if message_type == 0x81 then
-    return true
-  end
-
-  -- Snapshot Response Message
-  if message_type == 0x82 then
-    return true
-  end
-
-  -- Snapshot Complete Message
-  if message_type == 0x83 then
-    return true
-  end
-
-  -- Logout Request Message
-  if message_type == 0x05 then
-    return true
-  end
-
-  -- Symbol Status Message
-  if message_type == 0x48 then
-    return true
-  end
-
-  -- Add Order Message
-  if message_type == 0x41 then
-    return true
-  end
-
-  -- Add Attributed Order Message
-  if message_type == 0x46 then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1981,9 +1920,6 @@ end
 local function omi_lseg_millennium_level2recovery_mitch_v11_9_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_millennium_level2recovery_mitch_v11_9.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this tcp packet message dispatch
-  if not lseg_millennium_level2recovery_mitch_v11_9.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_millennium_level2recovery_mitch_v11_9

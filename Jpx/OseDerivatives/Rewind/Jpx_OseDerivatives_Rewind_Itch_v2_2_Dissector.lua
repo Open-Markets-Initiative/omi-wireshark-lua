@@ -186,6 +186,20 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Dissector Heuristic for Jpx OseDerivatives Rewind Itch 2.2 (Udp)
+local function omi_jpx_osederivatives_rewind_itch_v2_2_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not jpx_osederivatives_rewind_itch_v2_2.rewind_request_packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_jpx_osederivatives_rewind_itch_v2_2
+  omi_jpx_osederivatives_rewind_itch_v2_2.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Jpx OseDerivatives Rewind Itch 2.2
+omi_jpx_osederivatives_rewind_itch_v2_2:register_heuristic("udp", omi_jpx_osederivatives_rewind_itch_v2_2_udp_heuristic)
 
 -- Register Jpx OseDerivatives Rewind Itch 2.2 for Decode As
 local udp_table = DissectorTable.get("udp.port")

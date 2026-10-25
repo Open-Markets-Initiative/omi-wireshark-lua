@@ -2060,52 +2060,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-lseg_tradeecho_level2incremental_gtp_v26_1_2.packet.fingerprint = function(buffer)
-  if buffer:len() < 11 then
-    return false
-  end
-
-  local message_type = buffer(10, 1):uint()
-
-  -- System Event Message
-  if message_type == 0x53 then
-    return true
-  end
-
-  -- Instrument Directory Message
-  if message_type == 0x70 then
-    return true
-  end
-
-  -- Instrument Status Message
-  if message_type == 0x48 then
-    return true
-  end
-
-  -- Delete Order Message
-  if message_type == 0x44 then
-    return true
-  end
-
-  -- Order Book Clear Message
-  if message_type == 0x79 then
-    return true
-  end
-
-  -- Si Quote Message
-  if message_type == 0x47 then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2113,9 +2067,6 @@ end
 local function omi_lseg_tradeecho_level2incremental_gtp_v26_1_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_tradeecho_level2incremental_gtp_v26_1_2.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not lseg_tradeecho_level2incremental_gtp_v26_1_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_tradeecho_level2incremental_gtp_v26_1_2

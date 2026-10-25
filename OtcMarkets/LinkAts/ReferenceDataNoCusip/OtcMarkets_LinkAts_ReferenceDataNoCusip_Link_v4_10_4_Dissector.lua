@@ -2120,60 +2120,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-otcmarkets_linkats_referencedatanocusip_link_v4_10_4.packet.fingerprint = function(buffer)
-  if buffer:len() < 7 then
-    return false
-  end
-
-  local heartbeat = buffer(6, 1):le_uint()
-
-  -- Heartbeat Packet
-  if bit.band(packet_flag, 0x01) == 1 then
-    return true
-  end
-
-  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if buffer:len() < 14 then
-    return false
-  end
-
-  local message_type = buffer(13, 1):uint()
-
-  -- Start Of Spin Message
-  if message_type == 11 then
-    return true
-  end
-
-  -- End Of Spin Message
-  if message_type == 12 then
-    return true
-  end
-
-  -- Market Open Message
-  if message_type == 13 then
-    return true
-  end
-
-  -- Market Close Message
-  if message_type == 14 then
-    return true
-  end
-
-  -- Extended Security No Cusip Message
-  if message_type == 16 then
-    return true
-  end
-
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2181,9 +2127,6 @@ end
 local function omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not otcmarkets_linkats_referencedatanocusip_link_v4_10_4.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not otcmarkets_linkats_referencedatanocusip_link_v4_10_4.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_otcmarkets_linkats_referencedatanocusip_link_v4_10_4

@@ -2008,70 +2008,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-otcmarkets_linknqb_topofbook_link_v1_18.packet.fingerprint = function(buffer)
-  if buffer:len() < 7 then
-    return false
-  end
-
-  local heartbeat = buffer(6, 1):le_uint()
-
-  -- Heartbeat Packet
-  if bit.band(packet_flag, 0x01) == 1 then
-    return true
-  end
-
-  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if buffer:len() < 14 then
-    return false
-  end
-
-  local message_type = buffer(13, 1):uint()
-
-  -- Start Of Spin Message
-  if message_type == 11 then
-    return true
-  end
-
-  -- End Of Spin Message
-  if message_type == 12 then
-    return true
-  end
-
-  -- Trading Session Message
-  if message_type == 20 then
-    return true
-  end
-
-  -- Security Message
-  if message_type == 9 then
-    return true
-  end
-
-  -- Top Of Book Message
-  if message_type == 27 then
-    return true
-  end
-
-  -- Imbalance Message
-  if message_type == 28 then
-    return true
-  end
-
-  -- System Recovery Event Message
-  if message_type == 74 then
-    return true
-  end
-
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2079,9 +2015,6 @@ end
 local function omi_otcmarkets_linknqb_topofbook_link_v1_18_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not otcmarkets_linknqb_topofbook_link_v1_18.packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not otcmarkets_linknqb_topofbook_link_v1_18.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_otcmarkets_linknqb_topofbook_link_v1_18
