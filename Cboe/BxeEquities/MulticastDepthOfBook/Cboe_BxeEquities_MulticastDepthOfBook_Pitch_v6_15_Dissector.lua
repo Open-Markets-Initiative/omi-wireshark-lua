@@ -702,31 +702,69 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_15.message_type = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_15.message_type.size = 1
 
 -- Display: Message Type
-cboe_bxeequities_multicastdepthofbook_pitch_v6_15.message_type.labels = {
-  [0x20] = "Message Type: Time Message (0x20)",
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0x40] = "Message Type: Add Order Long Message (0x40)",
-  [0x22] = "Message Type: Add Order Short Message (0x22)",
-  [0x2f] = "Message Type: Add Order Expanded Message (0x2f)",
-  [0x23] = "Message Type: Order Executed Message (0x23)",
-  [0x24] = "Message Type: Order Executed At Price Size Message (0x24)",
-  [0x25] = "Message Type: Reduce Size Long Message (0x25)",
-  [0x26] = "Message Type: Reduce Size Short Message (0x26)",
-  [0x27] = "Message Type: Modify Order Long Message (0x27)",
-  [0x28] = "Message Type: Modify Order Short Message (0x28)",
-  [0x29] = "Message Type: Delete Order Message (0x29)",
-  [0x41] = "Message Type: Trade Long Message (0x41)",
-  [0x2B] = "Message Type: Trade Short Message (0x2B)",
-  [0x32] = "Message Type: Trade Extended Message (0x32)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-  [0x31] = "Message Type: Trading Status Message (0x31)",
-  [0x34] = "Message Type: Statistics Message (0x34)",
-  [0xAC] = "Message Type: Auction Update Message (0xAC)",
-  [0x96] = "Message Type: Auction Summary Message (0x96)",
-}
-
 cboe_bxeequities_multicastdepthofbook_pitch_v6_15.message_type.display = function(value)
-  return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x40 then
+    return "Message Type: Add Order Long Message (0x40)"
+  end
+  if value == 0x22 then
+    return "Message Type: Add Order Short Message (0x22)"
+  end
+  if value == 0x2f then
+    return "Message Type: Add Order Expanded Message (0x2f)"
+  end
+  if value == 0x23 then
+    return "Message Type: Order Executed Message (0x23)"
+  end
+  if value == 0x24 then
+    return "Message Type: Order Executed At Price Size Message (0x24)"
+  end
+  if value == 0x25 then
+    return "Message Type: Reduce Size Long Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Reduce Size Short Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Modify Order Long Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Modify Order Short Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: Delete Order Message (0x29)"
+  end
+  if value == 0x41 then
+    return "Message Type: Trade Long Message (0x41)"
+  end
+  if value == 0x2B then
+    return "Message Type: Trade Short Message (0x2B)"
+  end
+  if value == 0x32 then
+    return "Message Type: Trade Extended Message (0x32)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0x34 then
+    return "Message Type: Statistics Message (0x34)"
+  end
+  if value == 0xAC then
+    return "Message Type: Auction Update Message (0xAC)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -2977,33 +3015,86 @@ end
 cboe_bxeequities_multicastdepthofbook_pitch_v6_15.payload = {}
 
 -- Dissect: Payload
-cboe_bxeequities_multicastdepthofbook_pitch_v6_15.payload.dispatch = {
-  [0x20] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.time_message.dissect,
-  [0x97] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.unit_clear_message.dissect,
-  [0x40] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.add_order_long_message.dissect,
-  [0x22] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.add_order_short_message.dissect,
-  [0x2f] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.add_order_expanded_message.dissect,
-  [0x23] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.order_executed_message.dissect,
-  [0x24] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.order_executed_at_price_size_message.dissect,
-  [0x25] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.reduce_size_long_message.dissect,
-  [0x26] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.reduce_size_short_message.dissect,
-  [0x27] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.modify_order_long_message.dissect,
-  [0x28] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.modify_order_short_message.dissect,
-  [0x29] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.delete_order_message.dissect,
-  [0x41] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trade_long_message.dissect,
-  [0x2B] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trade_short_message.dissect,
-  [0x32] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trade_extended_message.dissect,
-  [0x2D] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.end_of_session_message.dissect,
-  [0x31] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trading_status_message.dissect,
-  [0x34] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.statistics_message.dissect,
-  [0xAC] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.auction_update_message.dissect,
-  [0x96] = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.auction_summary_message.dissect,
-}
-
 cboe_bxeequities_multicastdepthofbook_pitch_v6_15.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_bxeequities_multicastdepthofbook_pitch_v6_15.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Long Message
+  if message_type == 0x40 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.add_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Short Message
+  if message_type == 0x22 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.add_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Expanded Message
+  if message_type == 0x2f then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.add_order_expanded_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed Message
+  if message_type == 0x23 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.order_executed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed At Price Size Message
+  if message_type == 0x24 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Long Message
+  if message_type == 0x25 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.reduce_size_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Short Message
+  if message_type == 0x26 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.reduce_size_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Long Message
+  if message_type == 0x27 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.modify_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Short Message
+  if message_type == 0x28 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.modify_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Message
+  if message_type == 0x29 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.delete_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Long Message
+  if message_type == 0x41 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trade_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Short Message
+  if message_type == 0x2B then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trade_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Extended Message
+  if message_type == 0x32 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trade_extended_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.end_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Message
+  if message_type == 0x34 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.statistics_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Update Message
+  if message_type == 0xAC then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.auction_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Summary Message
+  if message_type == 0x96 then
+    return cboe_bxeequities_multicastdepthofbook_pitch_v6_15.auction_summary_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

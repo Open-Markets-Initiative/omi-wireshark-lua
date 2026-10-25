@@ -747,18 +747,30 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.size = 1
 
 -- Display: Message Type
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.labels = {
-  [0xA4] = "Message Type: Short Symbol Summary Message (0xA4)",
-  [0xA3] = "Message Type: Long Symbol Summary Message (0xA3)",
-  [0xA5] = "Message Type: Best Quote Update Message (0xA5)",
-  [0xA6] = "Message Type: Cboe Market Status Message (0xA6)",
-  [0xA9] = "Message Type: Trade Message (0xA9)",
-  [0xAA] = "Message Type: Trade Break Message (0xAA)",
-  [0xAB] = "Message Type: Trading Status Message (0xAB)",
-}
-
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.display = function(value)
-  return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0xA4 then
+    return "Message Type: Short Symbol Summary Message (0xA4)"
+  end
+  if value == 0xA3 then
+    return "Message Type: Long Symbol Summary Message (0xA3)"
+  end
+  if value == 0xA5 then
+    return "Message Type: Best Quote Update Message (0xA5)"
+  end
+  if value == 0xA6 then
+    return "Message Type: Cboe Market Status Message (0xA6)"
+  end
+  if value == 0xA9 then
+    return "Message Type: Trade Message (0xA9)"
+  end
+  if value == 0xAA then
+    return "Message Type: Trade Break Message (0xAA)"
+  end
+  if value == 0xAB then
+    return "Message Type: Trading Status Message (0xAB)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1540,20 +1552,34 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload = {}
 
 -- Dissect: Payload
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload.dispatch = {
-  [0xA4] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.short_symbol_summary_message.dissect,
-  [0xA3] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.long_symbol_summary_message.dissect,
-  [0xA5] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.best_quote_update_message.dissect,
-  [0xA6] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.cboe_market_status_message.dissect,
-  [0xA9] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_message.dissect,
-  [0xAA] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_break_message.dissect,
-  [0xAB] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trading_status_message.dissect,
-}
-
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Short Symbol Summary Message
+  if message_type == 0xA4 then
+    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.short_symbol_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Long Symbol Summary Message
+  if message_type == 0xA3 then
+    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.long_symbol_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Best Quote Update Message
+  if message_type == 0xA5 then
+    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.best_quote_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cboe Market Status Message
+  if message_type == 0xA6 then
+    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.cboe_market_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Message
+  if message_type == 0xA9 then
+    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Break Message
+  if message_type == 0xAA then
+    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0xAB then
+    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trading_status_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -820,25 +820,51 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.message_type = {}
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.message_type.size = 1
 
 -- Display: Message Type
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.message_type.labels = {
-  [0xA0] = "Message Type: Cboe One Login Message (0xA0)",
-  [0x02] = "Message Type: Login Response Message (0x02)",
-  [0xA1] = "Message Type: Replay Complete Message (0xA1)",
-  [0xA2] = "Message Type: Clear Quote Message (0xA2)",
-  [0xE7] = "Message Type: Fractional Symbol Summary Message (0xE7)",
-  [0xA5] = "Message Type: Best Quote Update Message (0xA5)",
-  [0xA6] = "Message Type: Cboe Market Status Message (0xA6)",
-  [0xA7] = "Message Type: Adap Message (0xA7)",
-  [0xA8] = "Message Type: Rpi Message (0xA8)",
-  [0xE8] = "Message Type: Fractional Trade Message (0xE8)",
-  [0xE9] = "Message Type: Fractional Trade Break Message (0xE9)",
-  [0xAB] = "Message Type: Trading Status Message (0xAB)",
-  [0xB0] = "Message Type: Opening Closing Price Message (0xB0)",
-  [0xEA] = "Message Type: Fractional End Of Day Summary Message (0xEA)",
-}
-
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.message_type.display = function(value)
-  return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0xA0 then
+    return "Message Type: Cboe One Login Message (0xA0)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0xA1 then
+    return "Message Type: Replay Complete Message (0xA1)"
+  end
+  if value == 0xA2 then
+    return "Message Type: Clear Quote Message (0xA2)"
+  end
+  if value == 0xE7 then
+    return "Message Type: Fractional Symbol Summary Message (0xE7)"
+  end
+  if value == 0xA5 then
+    return "Message Type: Best Quote Update Message (0xA5)"
+  end
+  if value == 0xA6 then
+    return "Message Type: Cboe Market Status Message (0xA6)"
+  end
+  if value == 0xA7 then
+    return "Message Type: Adap Message (0xA7)"
+  end
+  if value == 0xA8 then
+    return "Message Type: Rpi Message (0xA8)"
+  end
+  if value == 0xE8 then
+    return "Message Type: Fractional Trade Message (0xE8)"
+  end
+  if value == 0xE9 then
+    return "Message Type: Fractional Trade Break Message (0xE9)"
+  end
+  if value == 0xAB then
+    return "Message Type: Trading Status Message (0xAB)"
+  end
+  if value == 0xB0 then
+    return "Message Type: Opening Closing Price Message (0xB0)"
+  end
+  if value == 0xEA then
+    return "Message Type: Fractional End Of Day Summary Message (0xEA)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -2677,27 +2703,62 @@ end
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.payload = {}
 
 -- Dissect: Payload
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.payload.dispatch = {
-  [0xA0] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.cboe_one_login_message.dissect,
-  [0x02] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.login_response_message.dissect,
-  [0xA1] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.replay_complete_message.dissect,
-  [0xA2] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.clear_quote_message.dissect,
-  [0xE7] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_symbol_summary_message.dissect,
-  [0xA5] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.best_quote_update_message.dissect,
-  [0xA6] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.cboe_market_status_message.dissect,
-  [0xA7] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.adap_message.dissect,
-  [0xA8] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.rpi_message.dissect,
-  [0xE8] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_trade_message.dissect,
-  [0xE9] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_trade_break_message.dissect,
-  [0xAB] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.trading_status_message.dissect,
-  [0xB0] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.opening_closing_price_message.dissect,
-  [0xEA] = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.dissect,
-}
-
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Cboe One Login Message
+  if message_type == 0xA0 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.cboe_one_login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 0xA1 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Clear Quote Message
+  if message_type == 0xA2 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.clear_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Symbol Summary Message
+  if message_type == 0xE7 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_symbol_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Best Quote Update Message
+  if message_type == 0xA5 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.best_quote_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cboe Market Status Message
+  if message_type == 0xA6 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.cboe_market_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Adap Message
+  if message_type == 0xA7 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.adap_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Rpi Message
+  if message_type == 0xA8 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.rpi_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Trade Message
+  if message_type == 0xE8 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Trade Break Message
+  if message_type == 0xE9 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0xAB then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Opening Closing Price Message
+  if message_type == 0xB0 then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.opening_closing_price_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional End Of Day Summary Message
+  if message_type == 0xEA then
+    return cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

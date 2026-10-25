@@ -917,24 +917,48 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.labels = {
-  [0x20] = "Message Type: Time Message (0x20)",
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
-  [0xD4] = "Message Type: Single Side Update Expanded Short Message (0xD4)",
-  [0xD5] = "Message Type: Single Side Update Expanded Long Message (0xD5)",
-  [0xD6] = "Message Type: Two Side Update Expanded Short Message (0xD6)",
-  [0xD7] = "Message Type: Two Side Update Expanded Long Message (0xD7)",
-  [0xB8] = "Message Type: Top Trade Message (0xB8)",
-  [0xD1] = "Message Type: Options Auction Update Message (0xD1)",
-  [0x96] = "Message Type: Auction Summary Message (0x96)",
-  [0x31] = "Message Type: Trading Status Message (0x31)",
-  [0xD2] = "Message Type: Width Update Message (0xD2)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-}
-
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.display = function(value)
-  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x2E then
+    return "Message Type: Symbol Mapping Message (0x2E)"
+  end
+  if value == 0xD4 then
+    return "Message Type: Single Side Update Expanded Short Message (0xD4)"
+  end
+  if value == 0xD5 then
+    return "Message Type: Single Side Update Expanded Long Message (0xD5)"
+  end
+  if value == 0xD6 then
+    return "Message Type: Two Side Update Expanded Short Message (0xD6)"
+  end
+  if value == 0xD7 then
+    return "Message Type: Two Side Update Expanded Long Message (0xD7)"
+  end
+  if value == 0xB8 then
+    return "Message Type: Top Trade Message (0xB8)"
+  end
+  if value == 0xD1 then
+    return "Message Type: Options Auction Update Message (0xD1)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0xD2 then
+    return "Message Type: Width Update Message (0xD2)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -2526,26 +2550,58 @@ end
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload = {}
 
 -- Dissect: Payload
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload.dispatch = {
-  [0x20] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.time_message.dissect,
-  [0x97] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.unit_clear_message.dissect,
-  [0x2E] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_mapping_message.dissect,
-  [0xD4] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_short_message.dissect,
-  [0xD5] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_long_message.dissect,
-  [0xD6] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_short_message.dissect,
-  [0xD7] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_long_message.dissect,
-  [0xB8] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.top_trade_message.dissect,
-  [0xD1] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.options_auction_update_message.dissect,
-  [0x96] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_summary_message.dissect,
-  [0x31] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status_message.dissect,
-  [0xD2] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_update_message.dissect,
-  [0x2D] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message.dissect,
-}
-
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Mapping Message
+  if message_type == 0x2E then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Expanded Short Message
+  if message_type == 0xD4 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Expanded Long Message
+  if message_type == 0xD5 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Two Side Update Expanded Short Message
+  if message_type == 0xD6 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Two Side Update Expanded Long Message
+  if message_type == 0xD7 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Top Trade Message
+  if message_type == 0xB8 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.top_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Options Auction Update Message
+  if message_type == 0xD1 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.options_auction_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Summary Message
+  if message_type == 0x96 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Width Update Message
+  if message_type == 0xD2 then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

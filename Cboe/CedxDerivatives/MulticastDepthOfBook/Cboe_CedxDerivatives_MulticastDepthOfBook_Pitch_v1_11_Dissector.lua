@@ -1471,43 +1471,105 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.size = 1
 
 -- Display: Message Type
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.labels = {
-  [0x20] = "Message Type: Time Message (0x20)",
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0x40] = "Message Type: Add Order Long Message (0x40)",
-  [0x22] = "Message Type: Add Order Short Message (0x22)",
-  [0x23] = "Message Type: Order Executed Message (0x23)",
-  [0x24] = "Message Type: Order Executed At Price Size Message (0x24)",
-  [0x25] = "Message Type: Reduce Size Long Message (0x25)",
-  [0x26] = "Message Type: Reduce Size Short Message (0x26)",
-  [0x27] = "Message Type: Modify Order Long Message (0x27)",
-  [0x28] = "Message Type: Modify Order Short Message (0x28)",
-  [0x29] = "Message Type: Delete Order Message (0x29)",
-  [0x41] = "Message Type: Trade Long Message (0x41)",
-  [0x2B] = "Message Type: Trade Short Message (0x2B)",
-  [0x32] = "Message Type: Trade Extended Message (0x32)",
-  [0x2D] = "Message Type: End Of Session (0x2D)",
-  [0xBC] = "Message Type: Transaction Begin Message (0xBC)",
-  [0xBD] = "Message Type: Transaction End Message (0xBD)",
-  [0x31] = "Message Type: Trading Status Message (0x31)",
-  [0xE2] = "Message Type: Fast Status Message (0xE2)",
-  [0x96] = "Message Type: Auction Summary Message (0x96)",
-  [0xD1] = "Message Type: Opening Auction Update Message (0xD1)",
-  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
-  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
-  [0xDF] = "Message Type: Auction Trade Message (0xDF)",
-  [0xDE] = "Message Type: Auction Liquidity Message (0xDE)",
-  [0xD2] = "Message Type: Width Update Message (0xD2)",
-  [0xDA] = "Message Type: Futures Instrument Definition Message (0xDA)",
-  [0xDB] = "Message Type: Options Instrument Definition Message (0xDB)",
-  [0xDC] = "Message Type: Complex Instrument Definition Message (0xDC)",
-  [0x2C] = "Message Type: Trade Break Message (0x2C)",
-  [0xB9] = "Message Type: Settlement Message (0xB9)",
-  [0xBA] = "Message Type: End Of Day Summary Message (0xBA)",
-}
-
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.display = function(value)
-  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x40 then
+    return "Message Type: Add Order Long Message (0x40)"
+  end
+  if value == 0x22 then
+    return "Message Type: Add Order Short Message (0x22)"
+  end
+  if value == 0x23 then
+    return "Message Type: Order Executed Message (0x23)"
+  end
+  if value == 0x24 then
+    return "Message Type: Order Executed At Price Size Message (0x24)"
+  end
+  if value == 0x25 then
+    return "Message Type: Reduce Size Long Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Reduce Size Short Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Modify Order Long Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Modify Order Short Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: Delete Order Message (0x29)"
+  end
+  if value == 0x41 then
+    return "Message Type: Trade Long Message (0x41)"
+  end
+  if value == 0x2B then
+    return "Message Type: Trade Short Message (0x2B)"
+  end
+  if value == 0x32 then
+    return "Message Type: Trade Extended Message (0x32)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session (0x2D)"
+  end
+  if value == 0xBC then
+    return "Message Type: Transaction Begin Message (0xBC)"
+  end
+  if value == 0xBD then
+    return "Message Type: Transaction End Message (0xBD)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0xE2 then
+    return "Message Type: Fast Status Message (0xE2)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0xD1 then
+    return "Message Type: Opening Auction Update Message (0xD1)"
+  end
+  if value == 0xAD then
+    return "Message Type: Auction Notification Message (0xAD)"
+  end
+  if value == 0xAE then
+    return "Message Type: Auction Cancel Message (0xAE)"
+  end
+  if value == 0xDF then
+    return "Message Type: Auction Trade Message (0xDF)"
+  end
+  if value == 0xDE then
+    return "Message Type: Auction Liquidity Message (0xDE)"
+  end
+  if value == 0xD2 then
+    return "Message Type: Width Update Message (0xD2)"
+  end
+  if value == 0xDA then
+    return "Message Type: Futures Instrument Definition Message (0xDA)"
+  end
+  if value == 0xDB then
+    return "Message Type: Options Instrument Definition Message (0xDB)"
+  end
+  if value == 0xDC then
+    return "Message Type: Complex Instrument Definition Message (0xDC)"
+  end
+  if value == 0x2C then
+    return "Message Type: Trade Break Message (0x2C)"
+  end
+  if value == 0xB9 then
+    return "Message Type: Settlement Message (0xB9)"
+  end
+  if value == 0xBA then
+    return "Message Type: End Of Day Summary Message (0xBA)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -4964,45 +5026,134 @@ end
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload = {}
 
 -- Dissect: Payload
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload.dispatch = {
-  [0x20] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.time_message.dissect,
-  [0x97] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.unit_clear_message.dissect,
-  [0x40] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_long_message.dissect,
-  [0x22] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_short_message.dissect,
-  [0x23] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_message.dissect,
-  [0x24] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_at_price_size_message.dissect,
-  [0x25] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_long_message.dissect,
-  [0x26] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_short_message.dissect,
-  [0x27] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_long_message.dissect,
-  [0x28] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_short_message.dissect,
-  [0x29] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.delete_order_message.dissect,
-  [0x41] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_long_message.dissect,
-  [0x2B] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_short_message.dissect,
-  [0x32] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_extended_message.dissect,
-  [0x2D] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_session.dissect,
-  [0xBC] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_begin_message.dissect,
-  [0xBD] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.dissect,
-  [0x31] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.dissect,
-  [0xE2] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fast_status_message.dissect,
-  [0x96] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_summary_message.dissect,
-  [0xD1] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_auction_update_message.dissect,
-  [0xAD] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_notification_message.dissect,
-  [0xAE] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_cancel_message.dissect,
-  [0xDF] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_trade_message.dissect,
-  [0xDE] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_liquidity_message.dissect,
-  [0xD2] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_update_message.dissect,
-  [0xDA] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.futures_instrument_definition_message.dissect,
-  [0xDB] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.options_instrument_definition_message.dissect,
-  [0xDC] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.dissect,
-  [0x2C] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_break_message.dissect,
-  [0xB9] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.settlement_message.dissect,
-  [0xBA] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_day_summary_message.dissect,
-}
-
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Long Message
+  if message_type == 0x40 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Short Message
+  if message_type == 0x22 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed Message
+  if message_type == 0x23 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed At Price Size Message
+  if message_type == 0x24 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Long Message
+  if message_type == 0x25 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Short Message
+  if message_type == 0x26 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Long Message
+  if message_type == 0x27 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Short Message
+  if message_type == 0x28 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Message
+  if message_type == 0x29 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.delete_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Long Message
+  if message_type == 0x41 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Short Message
+  if message_type == 0x2B then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Extended Message
+  if message_type == 0x32 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_extended_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session
+  if message_type == 0x2D then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_session.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Transaction Begin Message
+  if message_type == 0xBC then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Transaction End Message
+  if message_type == 0xBD then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fast Status Message
+  if message_type == 0xE2 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fast_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Summary Message
+  if message_type == 0x96 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Opening Auction Update Message
+  if message_type == 0xD1 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_auction_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Notification Message
+  if message_type == 0xAD then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Cancel Message
+  if message_type == 0xAE then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Trade Message
+  if message_type == 0xDF then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Liquidity Message
+  if message_type == 0xDE then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_liquidity_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Width Update Message
+  if message_type == 0xD2 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Futures Instrument Definition Message
+  if message_type == 0xDA then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.futures_instrument_definition_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Options Instrument Definition Message
+  if message_type == 0xDB then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.options_instrument_definition_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Instrument Definition Message
+  if message_type == 0xDC then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Break Message
+  if message_type == 0x2C then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Settlement Message
+  if message_type == 0xB9 then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.settlement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Day Summary Message
+  if message_type == 0xBA then
+    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_day_summary_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

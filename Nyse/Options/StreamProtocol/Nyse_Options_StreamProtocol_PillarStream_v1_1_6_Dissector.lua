@@ -280,20 +280,36 @@ nyse_options_streamprotocol_pillarstream_v1_1_6.msg_type = {}
 nyse_options_streamprotocol_pillarstream_v1_1_6.msg_type.size = 2
 
 -- Display: Msg Type
-nyse_options_streamprotocol_pillarstream_v1_1_6.msg_type.labels = {
-  [0x0201] = "Msg Type: Login (0x0201)",
-  [0x0202] = "Msg Type: Login Response (0x0202)",
-  [0x0203] = "Msg Type: Stream Avail (0x0203)",
-  [0x0204] = "Msg Type: Heartbeat (0x0204)",
-  [0x0205] = "Msg Type: Open (0x0205)",
-  [0x0206] = "Msg Type: Open Response (0x0206)",
-  [0x0207] = "Msg Type: Close (0x0207)",
-  [0x0208] = "Msg Type: Close Response (0x0208)",
-  [0x0905] = "Msg Type: Seq Msg (0x0905)",
-}
-
 nyse_options_streamprotocol_pillarstream_v1_1_6.msg_type.display = function(value)
-  return nyse_options_streamprotocol_pillarstream_v1_1_6.msg_type.labels[value] or "Msg Type: Unknown("..string.format("0x%04X", value)..")"
+  if value == 0x0201 then
+    return "Msg Type: Login (0x0201)"
+  end
+  if value == 0x0202 then
+    return "Msg Type: Login Response (0x0202)"
+  end
+  if value == 0x0203 then
+    return "Msg Type: Stream Avail (0x0203)"
+  end
+  if value == 0x0204 then
+    return "Msg Type: Heartbeat (0x0204)"
+  end
+  if value == 0x0205 then
+    return "Msg Type: Open (0x0205)"
+  end
+  if value == 0x0206 then
+    return "Msg Type: Open Response (0x0206)"
+  end
+  if value == 0x0207 then
+    return "Msg Type: Close (0x0207)"
+  end
+  if value == 0x0208 then
+    return "Msg Type: Close Response (0x0208)"
+  end
+  if value == 0x0905 then
+    return "Msg Type: Seq Msg (0x0905)"
+  end
+
+  return "Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Msg Type
@@ -1216,19 +1232,30 @@ end
 nyse_options_streamprotocol_pillarstream_v1_1_6.server_message = {}
 
 -- Dissect: Server Message
-nyse_options_streamprotocol_pillarstream_v1_1_6.server_message.dispatch = {
-  [0x0202] = nyse_options_streamprotocol_pillarstream_v1_1_6.login_response.dissect,
-  [0x0203] = nyse_options_streamprotocol_pillarstream_v1_1_6.stream_avail.dissect,
-  [0x0204] = nyse_options_streamprotocol_pillarstream_v1_1_6.heartbeat.dissect,
-  [0x0206] = nyse_options_streamprotocol_pillarstream_v1_1_6.open_response.dissect,
-  [0x0208] = nyse_options_streamprotocol_pillarstream_v1_1_6.close_response.dissect,
-  [0x0905] = nyse_options_streamprotocol_pillarstream_v1_1_6.server_seq_msg.dissect,
-}
-
 nyse_options_streamprotocol_pillarstream_v1_1_6.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  local dissect = nyse_options_streamprotocol_pillarstream_v1_1_6.server_message.dispatch[msg_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.server_seq_msg.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1510,18 +1537,26 @@ end
 nyse_options_streamprotocol_pillarstream_v1_1_6.client_message = {}
 
 -- Dissect: Client Message
-nyse_options_streamprotocol_pillarstream_v1_1_6.client_message.dispatch = {
-  [0x0201] = nyse_options_streamprotocol_pillarstream_v1_1_6.login_message.dissect,
-  [0x0204] = nyse_options_streamprotocol_pillarstream_v1_1_6.heartbeat.dissect,
-  [0x0205] = nyse_options_streamprotocol_pillarstream_v1_1_6.open.dissect,
-  [0x0207] = nyse_options_streamprotocol_pillarstream_v1_1_6.close.dissect,
-  [0x0905] = nyse_options_streamprotocol_pillarstream_v1_1_6.client_seq_msg.dissect,
-}
-
 nyse_options_streamprotocol_pillarstream_v1_1_6.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  local dissect = nyse_options_streamprotocol_pillarstream_v1_1_6.client_message.dispatch[msg_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Message
+  if msg_type == 0x0201 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open
+  if msg_type == 0x0205 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.open.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close
+  if msg_type == 0x0207 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.close.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_options_streamprotocol_pillarstream_v1_1_6.client_seq_msg.dissect(buffer, offset, packet, parent)
   end
 
   return offset

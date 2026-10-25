@@ -335,15 +335,21 @@ cboe_matchnow_gaprequestproxy_pitch_v1_0_13.message_type = {}
 cboe_matchnow_gaprequestproxy_pitch_v1_0_13.message_type.size = 1
 
 -- Display: Message Type
-cboe_matchnow_gaprequestproxy_pitch_v1_0_13.message_type.labels = {
-  [0x01] = "Message Type: Login Message (0x01)",
-  [0x02] = "Message Type: Login Response Message (0x02)",
-  [0x03] = "Message Type: Gap Request Message (0x03)",
-  [0x04] = "Message Type: Gap Response Message (0x04)",
-}
-
 cboe_matchnow_gaprequestproxy_pitch_v1_0_13.message_type.display = function(value)
-  return cboe_matchnow_gaprequestproxy_pitch_v1_0_13.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x01 then
+    return "Message Type: Login Message (0x01)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x03 then
+    return "Message Type: Gap Request Message (0x03)"
+  end
+  if value == 0x04 then
+    return "Message Type: Gap Response Message (0x04)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -674,17 +680,22 @@ end
 cboe_matchnow_gaprequestproxy_pitch_v1_0_13.payload = {}
 
 -- Dissect: Payload
-cboe_matchnow_gaprequestproxy_pitch_v1_0_13.payload.dispatch = {
-  [0x01] = cboe_matchnow_gaprequestproxy_pitch_v1_0_13.login_message.dissect,
-  [0x02] = cboe_matchnow_gaprequestproxy_pitch_v1_0_13.login_response_message.dissect,
-  [0x03] = cboe_matchnow_gaprequestproxy_pitch_v1_0_13.gap_request_message.dissect,
-  [0x04] = cboe_matchnow_gaprequestproxy_pitch_v1_0_13.gap_response_message.dissect,
-}
-
 cboe_matchnow_gaprequestproxy_pitch_v1_0_13.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_matchnow_gaprequestproxy_pitch_v1_0_13.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Message
+  if message_type == 0x01 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_13.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_13.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gap Request Message
+  if message_type == 0x03 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_13.gap_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gap Response Message
+  if message_type == 0x04 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_13.gap_response_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

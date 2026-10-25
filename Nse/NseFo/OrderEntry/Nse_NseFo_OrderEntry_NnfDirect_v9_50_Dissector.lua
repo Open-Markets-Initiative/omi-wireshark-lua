@@ -16168,7 +16168,6 @@ end
 
 -- Register Heuristics for Nse NseFo OrderEntry NnfDirect 9.50
 omi_nse_nsefo_orderentry_nnfdirect_v9_50:register_heuristic("tcp", omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_heuristic)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50:register_heuristic("tcp", omi_nse_nsefo_orderentry_nnfdirect_v9_50_tcp_heuristic)
 
 -- Register Nse NseFo OrderEntry NnfDirect 9.50 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")

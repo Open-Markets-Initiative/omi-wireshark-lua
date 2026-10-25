@@ -497,20 +497,36 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_type = {}
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_type.size = 1
 
 -- Display: Message Type
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_type.labels = {
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0x3B] = "Message Type: Trading Status Message (0x3B)",
-  [0xE4] = "Message Type: Single Side Update Message (0xE4)",
-  [0xE5] = "Message Type: Two Side Update Message (0xE5)",
-  [0xE6] = "Message Type: Top Trade Message (0xE6)",
-  [0xE3] = "Message Type: Calculated Value Message (0xE3)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-  [0x95] = "Message Type: Auction Update Message (0x95)",
-  [0x96] = "Message Type: Auction Summary Message (0x96)",
-}
-
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_type.display = function(value)
-  return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x3B then
+    return "Message Type: Trading Status Message (0x3B)"
+  end
+  if value == 0xE4 then
+    return "Message Type: Single Side Update Message (0xE4)"
+  end
+  if value == 0xE5 then
+    return "Message Type: Two Side Update Message (0xE5)"
+  end
+  if value == 0xE6 then
+    return "Message Type: Top Trade Message (0xE6)"
+  end
+  if value == 0xE3 then
+    return "Message Type: Calculated Value Message (0xE3)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+  if value == 0x95 then
+    return "Message Type: Auction Update Message (0x95)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1725,22 +1741,42 @@ end
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.payload = {}
 
 -- Dissect: Payload
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.payload.dispatch = {
-  [0x97] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.unit_clear_message.dissect,
-  [0x3B] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.trading_status_message.dissect,
-  [0xE4] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.single_side_update_message.dissect,
-  [0xE5] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.two_side_update_message.dissect,
-  [0xE6] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.top_trade_message.dissect,
-  [0xE3] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.calculated_value_message.dissect,
-  [0x2D] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.end_of_session_message.dissect,
-  [0x95] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.auction_update_message.dissect,
-  [0x96] = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.auction_summary_message.dissect,
-}
-
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x3B then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Message
+  if message_type == 0xE4 then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.single_side_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Two Side Update Message
+  if message_type == 0xE5 then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.two_side_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Top Trade Message
+  if message_type == 0xE6 then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.top_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Calculated Value Message
+  if message_type == 0xE3 then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.calculated_value_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.end_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Update Message
+  if message_type == 0x95 then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.auction_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Summary Message
+  if message_type == 0x96 then
+    return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.auction_summary_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

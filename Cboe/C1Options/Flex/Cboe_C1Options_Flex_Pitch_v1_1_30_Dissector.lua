@@ -1027,26 +1027,54 @@ cboe_c1options_flex_pitch_v1_1_30.message_type = {}
 cboe_c1options_flex_pitch_v1_1_30.message_type.size = 1
 
 -- Display: Message Type
-cboe_c1options_flex_pitch_v1_1_30.message_type.labels = {
-  [0xB1] = "Message Type: Time Reference Message (0xB1)",
-  [0x20] = "Message Type: Time Message (0x20)",
-  [0x9C] = "Message Type: Flex Instrument Definition Message (0x9C)",
-  [0x9B] = "Message Type: Complex Flex Instrument Definition Message (0x9B)",
-  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
-  [0xDD] = "Message Type: Dac Auction Notification Message (0xDD)",
-  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
-  [0xAF] = "Message Type: Auction Trade Message (0xAF)",
-  [0x2A] = "Message Type: Trade Long Message (0x2A)",
-  [0x2B] = "Message Type: Trade Short Message (0x2B)",
-  [0x36] = "Message Type: Dac Trade Message (0x36)",
-  [0x2C] = "Message Type: Trade Break Message (0x2C)",
-  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
-  [0x31] = "Message Type: Trading Status Message (0x31)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-}
-
 cboe_c1options_flex_pitch_v1_1_30.message_type.display = function(value)
-  return cboe_c1options_flex_pitch_v1_1_30.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0xB1 then
+    return "Message Type: Time Reference Message (0xB1)"
+  end
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x9C then
+    return "Message Type: Flex Instrument Definition Message (0x9C)"
+  end
+  if value == 0x9B then
+    return "Message Type: Complex Flex Instrument Definition Message (0x9B)"
+  end
+  if value == 0xAD then
+    return "Message Type: Auction Notification Message (0xAD)"
+  end
+  if value == 0xDD then
+    return "Message Type: Dac Auction Notification Message (0xDD)"
+  end
+  if value == 0xAE then
+    return "Message Type: Auction Cancel Message (0xAE)"
+  end
+  if value == 0xAF then
+    return "Message Type: Auction Trade Message (0xAF)"
+  end
+  if value == 0x2A then
+    return "Message Type: Trade Long Message (0x2A)"
+  end
+  if value == 0x2B then
+    return "Message Type: Trade Short Message (0x2B)"
+  end
+  if value == 0x36 then
+    return "Message Type: Dac Trade Message (0x36)"
+  end
+  if value == 0x2C then
+    return "Message Type: Trade Break Message (0x2C)"
+  end
+  if value == 0x2E then
+    return "Message Type: Symbol Mapping Message (0x2E)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -3045,28 +3073,66 @@ end
 cboe_c1options_flex_pitch_v1_1_30.payload = {}
 
 -- Dissect: Payload
-cboe_c1options_flex_pitch_v1_1_30.payload.dispatch = {
-  [0xB1] = cboe_c1options_flex_pitch_v1_1_30.time_reference_message.dissect,
-  [0x20] = cboe_c1options_flex_pitch_v1_1_30.time_message.dissect,
-  [0x9C] = cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message.dissect,
-  [0x9B] = cboe_c1options_flex_pitch_v1_1_30.complex_flex_instrument_definition_message.dissect,
-  [0xAD] = cboe_c1options_flex_pitch_v1_1_30.auction_notification_message.dissect,
-  [0xDD] = cboe_c1options_flex_pitch_v1_1_30.dac_auction_notification_message.dissect,
-  [0xAE] = cboe_c1options_flex_pitch_v1_1_30.auction_cancel_message.dissect,
-  [0xAF] = cboe_c1options_flex_pitch_v1_1_30.auction_trade_message.dissect,
-  [0x2A] = cboe_c1options_flex_pitch_v1_1_30.trade_long_message.dissect,
-  [0x2B] = cboe_c1options_flex_pitch_v1_1_30.trade_short_message.dissect,
-  [0x36] = cboe_c1options_flex_pitch_v1_1_30.dac_trade_message.dissect,
-  [0x2C] = cboe_c1options_flex_pitch_v1_1_30.trade_break_message.dissect,
-  [0x2E] = cboe_c1options_flex_pitch_v1_1_30.symbol_mapping_message.dissect,
-  [0x31] = cboe_c1options_flex_pitch_v1_1_30.trading_status_message.dissect,
-  [0x2D] = cboe_c1options_flex_pitch_v1_1_30.end_of_session_message.dissect,
-}
-
 cboe_c1options_flex_pitch_v1_1_30.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_c1options_flex_pitch_v1_1_30.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Reference Message
+  if message_type == 0xB1 then
+    return cboe_c1options_flex_pitch_v1_1_30.time_reference_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_c1options_flex_pitch_v1_1_30.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Flex Instrument Definition Message
+  if message_type == 0x9C then
+    return cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Flex Instrument Definition Message
+  if message_type == 0x9B then
+    return cboe_c1options_flex_pitch_v1_1_30.complex_flex_instrument_definition_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Notification Message
+  if message_type == 0xAD then
+    return cboe_c1options_flex_pitch_v1_1_30.auction_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Dac Auction Notification Message
+  if message_type == 0xDD then
+    return cboe_c1options_flex_pitch_v1_1_30.dac_auction_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Cancel Message
+  if message_type == 0xAE then
+    return cboe_c1options_flex_pitch_v1_1_30.auction_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Trade Message
+  if message_type == 0xAF then
+    return cboe_c1options_flex_pitch_v1_1_30.auction_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Long Message
+  if message_type == 0x2A then
+    return cboe_c1options_flex_pitch_v1_1_30.trade_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Short Message
+  if message_type == 0x2B then
+    return cboe_c1options_flex_pitch_v1_1_30.trade_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Dac Trade Message
+  if message_type == 0x36 then
+    return cboe_c1options_flex_pitch_v1_1_30.dac_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Break Message
+  if message_type == 0x2C then
+    return cboe_c1options_flex_pitch_v1_1_30.trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Mapping Message
+  if message_type == 0x2E then
+    return cboe_c1options_flex_pitch_v1_1_30.symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_c1options_flex_pitch_v1_1_30.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_c1options_flex_pitch_v1_1_30.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

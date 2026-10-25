@@ -464,18 +464,30 @@ cboe_edgaequities_summarydepth_csdp_v1_0_9.message_type = {}
 cboe_edgaequities_summarydepth_csdp_v1_0_9.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgaequities_summarydepth_csdp_v1_0_9.message_type.labels = {
-  [0xA2] = "Message Type: Clear Quote Message (0xA2)",
-  [0xA6] = "Message Type: Cboe Market Status Message (0xA6)",
-  [0xA7] = "Message Type: Adap Message (0xA7)",
-  [0xA8] = "Message Type: Rpi Message (0xA8)",
-  [0xA9] = "Message Type: Trade Message (0xA9)",
-  [0xAA] = "Message Type: Trade Break Message (0xAA)",
-  [0xAB] = "Message Type: Trading Status Message (0xAB)",
-}
-
 cboe_edgaequities_summarydepth_csdp_v1_0_9.message_type.display = function(value)
-  return cboe_edgaequities_summarydepth_csdp_v1_0_9.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0xA2 then
+    return "Message Type: Clear Quote Message (0xA2)"
+  end
+  if value == 0xA6 then
+    return "Message Type: Cboe Market Status Message (0xA6)"
+  end
+  if value == 0xA7 then
+    return "Message Type: Adap Message (0xA7)"
+  end
+  if value == 0xA8 then
+    return "Message Type: Rpi Message (0xA8)"
+  end
+  if value == 0xA9 then
+    return "Message Type: Trade Message (0xA9)"
+  end
+  if value == 0xAA then
+    return "Message Type: Trade Break Message (0xAA)"
+  end
+  if value == 0xAB then
+    return "Message Type: Trading Status Message (0xAB)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1640,20 +1652,34 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_9.payload = {}
 
 -- Dissect: Payload
-cboe_edgaequities_summarydepth_csdp_v1_0_9.payload.dispatch = {
-  [0xA2] = cboe_edgaequities_summarydepth_csdp_v1_0_9.clear_quote_message.dissect,
-  [0xA6] = cboe_edgaequities_summarydepth_csdp_v1_0_9.cboe_market_status_message.dissect,
-  [0xA7] = cboe_edgaequities_summarydepth_csdp_v1_0_9.adap_message.dissect,
-  [0xA8] = cboe_edgaequities_summarydepth_csdp_v1_0_9.rpi_message.dissect,
-  [0xA9] = cboe_edgaequities_summarydepth_csdp_v1_0_9.trade_message.dissect,
-  [0xAA] = cboe_edgaequities_summarydepth_csdp_v1_0_9.trade_break_message.dissect,
-  [0xAB] = cboe_edgaequities_summarydepth_csdp_v1_0_9.trading_status_message.dissect,
-}
-
 cboe_edgaequities_summarydepth_csdp_v1_0_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_edgaequities_summarydepth_csdp_v1_0_9.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Clear Quote Message
+  if message_type == 0xA2 then
+    return cboe_edgaequities_summarydepth_csdp_v1_0_9.clear_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cboe Market Status Message
+  if message_type == 0xA6 then
+    return cboe_edgaequities_summarydepth_csdp_v1_0_9.cboe_market_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Adap Message
+  if message_type == 0xA7 then
+    return cboe_edgaequities_summarydepth_csdp_v1_0_9.adap_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Rpi Message
+  if message_type == 0xA8 then
+    return cboe_edgaequities_summarydepth_csdp_v1_0_9.rpi_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Message
+  if message_type == 0xA9 then
+    return cboe_edgaequities_summarydepth_csdp_v1_0_9.trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Break Message
+  if message_type == 0xAA then
+    return cboe_edgaequities_summarydepth_csdp_v1_0_9.trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0xAB then
+    return cboe_edgaequities_summarydepth_csdp_v1_0_9.trading_status_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -4266,40 +4266,114 @@ end
 siac_cts_input_cta_v2_7_f.message_payload = {}
 
 -- Dissect: Message Payload
-siac_cts_input_cta_v2_7_f.message_payload.dispatch = {
-  [0x4152] = siac_cts_input_cta_v2_7_f.rejection_message.dissect,
-  [0x4157] = siac_cts_input_cta_v2_7_f.warning_message.dissect,
-  [0x4341] = siac_cts_input_cta_v2_7_f.start_of_day_message.dissect,
-  [0x4349] = siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_inquiry_message.dissect,
-  [0x434E] = siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_response_message.dissect,
-  [0x4354] = siac_cts_input_cta_v2_7_f.line_integrity_message.dissect,
-  [0x435A] = siac_cts_input_cta_v2_7_f.end_of_day_message.dissect,
-  [0x4335] = siac_cts_input_cta_v2_7_f.test_message.dissect,
-  [0x4949] = siac_cts_input_cta_v2_7_f.index_message.dissect,
-  [0x4951] = siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.dissect,
-  [0x4D4F] = siac_cts_input_cta_v2_7_f.approximate_trades_and_total_dollar_value_message.dissect,
-  [0x4D50] = siac_cts_input_cta_v2_7_f.crossing_session_message.dissect,
-  [0x5043] = siac_cts_input_cta_v2_7_f.prior_day_trade_correction_message.dissect,
-  [0x504F] = siac_cts_input_cta_v2_7_f.fractional_prior_day_trade_correction_message.dissect,
-  [0x5054] = siac_cts_input_cta_v2_7_f.prior_day_trade_message.dissect,
-  [0x5052] = siac_cts_input_cta_v2_7_f.fractional_prior_day_trade_message.dissect,
-  [0x5058] = siac_cts_input_cta_v2_7_f.prior_day_trade_cancel_error_message.dissect,
-  [0x5045] = siac_cts_input_cta_v2_7_f.fractional_prior_day_trade_cancel_error_message.dissect,
-  [0x5441] = siac_cts_input_cta_v2_7_f.auction_status_message.dissect,
-  [0x5443] = siac_cts_input_cta_v2_7_f.trade_correction_message.dissect,
-  [0x544F] = siac_cts_input_cta_v2_7_f.fractional_trade_correction_message.dissect,
-  [0x544C] = siac_cts_input_cta_v2_7_f.long_trade_message.dissect,
-  [0x5452] = siac_cts_input_cta_v2_7_f.fractional_long_trade_message.dissect,
-  [0x5453] = siac_cts_input_cta_v2_7_f.trading_status_message.dissect,
-  [0x5454] = siac_cts_input_cta_v2_7_f.short_trade_message.dissect,
-  [0x5448] = siac_cts_input_cta_v2_7_f.fractional_short_trade_message.dissect,
-  [0x5458] = siac_cts_input_cta_v2_7_f.trade_cancel_error_message.dissect,
-}
-
 siac_cts_input_cta_v2_7_f.message_payload.dissect = function(buffer, offset, packet, parent, message_header_key)
-  local dissect = siac_cts_input_cta_v2_7_f.message_payload.dispatch[message_header_key]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Rejection Message
+  if message_header_key == 0x4152 then
+    return siac_cts_input_cta_v2_7_f.rejection_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Warning Message
+  if message_header_key == 0x4157 then
+    return siac_cts_input_cta_v2_7_f.warning_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Day Message
+  if message_header_key == 0x4341 then
+    return siac_cts_input_cta_v2_7_f.start_of_day_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequence Information And Message Count Inquiry Message
+  if message_header_key == 0x4349 then
+    return siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_inquiry_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequence Information And Message Count Response Message
+  if message_header_key == 0x434E then
+    return siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Line Integrity Message
+  if message_header_key == 0x4354 then
+    return siac_cts_input_cta_v2_7_f.line_integrity_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Day Message
+  if message_header_key == 0x435A then
+    return siac_cts_input_cta_v2_7_f.end_of_day_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Test Message
+  if message_header_key == 0x4335 then
+    return siac_cts_input_cta_v2_7_f.test_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Index Message
+  if message_header_key == 0x4949 then
+    return siac_cts_input_cta_v2_7_f.index_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bid And Offer Index Message
+  if message_header_key == 0x4951 then
+    return siac_cts_input_cta_v2_7_f.bid_and_offer_index_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Approximate Trades And Total Dollar Value Message
+  if message_header_key == 0x4D4F then
+    return siac_cts_input_cta_v2_7_f.approximate_trades_and_total_dollar_value_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Crossing Session Message
+  if message_header_key == 0x4D50 then
+    return siac_cts_input_cta_v2_7_f.crossing_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Prior Day Trade Correction Message
+  if message_header_key == 0x5043 then
+    return siac_cts_input_cta_v2_7_f.prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Prior Day Trade Correction Message
+  if message_header_key == 0x504F then
+    return siac_cts_input_cta_v2_7_f.fractional_prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Prior Day Trade Message
+  if message_header_key == 0x5054 then
+    return siac_cts_input_cta_v2_7_f.prior_day_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Prior Day Trade Message
+  if message_header_key == 0x5052 then
+    return siac_cts_input_cta_v2_7_f.fractional_prior_day_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Prior Day Trade Cancel Error Message
+  if message_header_key == 0x5058 then
+    return siac_cts_input_cta_v2_7_f.prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Prior Day Trade Cancel Error Message
+  if message_header_key == 0x5045 then
+    return siac_cts_input_cta_v2_7_f.fractional_prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Status Message
+  if message_header_key == 0x5441 then
+    return siac_cts_input_cta_v2_7_f.auction_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Correction Message
+  if message_header_key == 0x5443 then
+    return siac_cts_input_cta_v2_7_f.trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Trade Correction Message
+  if message_header_key == 0x544F then
+    return siac_cts_input_cta_v2_7_f.fractional_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Long Trade Message
+  if message_header_key == 0x544C then
+    return siac_cts_input_cta_v2_7_f.long_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Long Trade Message
+  if message_header_key == 0x5452 then
+    return siac_cts_input_cta_v2_7_f.fractional_long_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_header_key == 0x5453 then
+    return siac_cts_input_cta_v2_7_f.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Short Trade Message
+  if message_header_key == 0x5454 then
+    return siac_cts_input_cta_v2_7_f.short_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Fractional Short Trade Message
+  if message_header_key == 0x5448 then
+    return siac_cts_input_cta_v2_7_f.fractional_short_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Error Message
+  if message_header_key == 0x5458 then
+    return siac_cts_input_cta_v2_7_f.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

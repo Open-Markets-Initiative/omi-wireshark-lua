@@ -2132,28 +2132,60 @@ lseg_turquoise_recovery_gtp_v26_3.message_type = {}
 lseg_turquoise_recovery_gtp_v26_3.message_type.size = 1
 
 -- Display: Message Type
-lseg_turquoise_recovery_gtp_v26_3.message_type.labels = {
-  [0x01] = "Message Type: Login Request Message (0x01)",
-  [0x81] = "Message Type: Recovery Request Message (0x81)",
-  [0x02] = "Message Type: Login Response Message (0x02)",
-  [0x82] = "Message Type: Recovery Response Message (0x82)",
-  [0x83] = "Message Type: Replay And Recovery Complete Message (0x83)",
-  [0x53] = "Message Type: System Event Message (0x53)",
-  [0x52] = "Message Type: Instrument Directory Extended Message (0x52)",
-  [0x48] = "Message Type: Instrument Status Message (0x48)",
-  [0x46] = "Message Type: Add Order Incremental Message (0x46)",
-  [0x69] = "Message Type: Top Of Book Message (0x69)",
-  [0x79] = "Message Type: Order Book Clear Message (0x79)",
-  [0x50] = "Message Type: Trade Message (0x50)",
-  [0x71] = "Message Type: Trade Cross Message (0x71)",
-  [0x6B] = "Message Type: Statistics Snapshot Message (0x6B)",
-  [0x51] = "Message Type: Mifid Ii Trade Message (0x51)",
-  [0x56] = "Message Type: Mifid Ii Trade Cross Message (0x56)",
-  [0x62] = "Message Type: Mifid Ii Order Book Update Message (0x62)",
-}
-
 lseg_turquoise_recovery_gtp_v26_3.message_type.display = function(value)
-  return lseg_turquoise_recovery_gtp_v26_3.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x01 then
+    return "Message Type: Login Request Message (0x01)"
+  end
+  if value == 0x81 then
+    return "Message Type: Recovery Request Message (0x81)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x82 then
+    return "Message Type: Recovery Response Message (0x82)"
+  end
+  if value == 0x83 then
+    return "Message Type: Replay And Recovery Complete Message (0x83)"
+  end
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x52 then
+    return "Message Type: Instrument Directory Extended Message (0x52)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x46 then
+    return "Message Type: Add Order Incremental Message (0x46)"
+  end
+  if value == 0x69 then
+    return "Message Type: Top Of Book Message (0x69)"
+  end
+  if value == 0x79 then
+    return "Message Type: Order Book Clear Message (0x79)"
+  end
+  if value == 0x50 then
+    return "Message Type: Trade Message (0x50)"
+  end
+  if value == 0x71 then
+    return "Message Type: Trade Cross Message (0x71)"
+  end
+  if value == 0x6B then
+    return "Message Type: Statistics Snapshot Message (0x6B)"
+  end
+  if value == 0x51 then
+    return "Message Type: Mifid Ii Trade Message (0x51)"
+  end
+  if value == 0x56 then
+    return "Message Type: Mifid Ii Trade Cross Message (0x56)"
+  end
+  if value == 0x62 then
+    return "Message Type: Mifid Ii Order Book Update Message (0x62)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -7178,30 +7210,74 @@ end
 lseg_turquoise_recovery_gtp_v26_3.payload = {}
 
 -- Dissect: Payload
-lseg_turquoise_recovery_gtp_v26_3.payload.dispatch = {
-  [0x01] = lseg_turquoise_recovery_gtp_v26_3.login_request_message.dissect,
-  [0x81] = lseg_turquoise_recovery_gtp_v26_3.recovery_request_message.dissect,
-  [0x02] = lseg_turquoise_recovery_gtp_v26_3.login_response_message.dissect,
-  [0x82] = lseg_turquoise_recovery_gtp_v26_3.recovery_response_message.dissect,
-  [0x83] = lseg_turquoise_recovery_gtp_v26_3.replay_and_recovery_complete_message.dissect,
-  [0x53] = lseg_turquoise_recovery_gtp_v26_3.system_event_message.dissect,
-  [0x52] = lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.dissect,
-  [0x48] = lseg_turquoise_recovery_gtp_v26_3.instrument_status_message.dissect,
-  [0x46] = lseg_turquoise_recovery_gtp_v26_3.add_order_incremental_message.dissect,
-  [0x69] = lseg_turquoise_recovery_gtp_v26_3.top_of_book_message.dissect,
-  [0x79] = lseg_turquoise_recovery_gtp_v26_3.order_book_clear_message.dissect,
-  [0x50] = lseg_turquoise_recovery_gtp_v26_3.trade_message.dissect,
-  [0x71] = lseg_turquoise_recovery_gtp_v26_3.trade_cross_message.dissect,
-  [0x6B] = lseg_turquoise_recovery_gtp_v26_3.statistics_snapshot_message.dissect,
-  [0x51] = lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_message.dissect,
-  [0x56] = lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.dissect,
-  [0x62] = lseg_turquoise_recovery_gtp_v26_3.mifid_ii_order_book_update_message.dissect,
-}
-
 lseg_turquoise_recovery_gtp_v26_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = lseg_turquoise_recovery_gtp_v26_3.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request Message
+  if message_type == 0x01 then
+    return lseg_turquoise_recovery_gtp_v26_3.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Recovery Request Message
+  if message_type == 0x81 then
+    return lseg_turquoise_recovery_gtp_v26_3.recovery_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return lseg_turquoise_recovery_gtp_v26_3.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Recovery Response Message
+  if message_type == 0x82 then
+    return lseg_turquoise_recovery_gtp_v26_3.recovery_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay And Recovery Complete Message
+  if message_type == 0x83 then
+    return lseg_turquoise_recovery_gtp_v26_3.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_turquoise_recovery_gtp_v26_3.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Extended Message
+  if message_type == 0x52 then
+    return lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_turquoise_recovery_gtp_v26_3.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Incremental Message
+  if message_type == 0x46 then
+    return lseg_turquoise_recovery_gtp_v26_3.add_order_incremental_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Top Of Book Message
+  if message_type == 0x69 then
+    return lseg_turquoise_recovery_gtp_v26_3.top_of_book_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Book Clear Message
+  if message_type == 0x79 then
+    return lseg_turquoise_recovery_gtp_v26_3.order_book_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Message
+  if message_type == 0x50 then
+    return lseg_turquoise_recovery_gtp_v26_3.trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cross Message
+  if message_type == 0x71 then
+    return lseg_turquoise_recovery_gtp_v26_3.trade_cross_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Snapshot Message
+  if message_type == 0x6B then
+    return lseg_turquoise_recovery_gtp_v26_3.statistics_snapshot_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Trade Message
+  if message_type == 0x51 then
+    return lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Trade Cross Message
+  if message_type == 0x56 then
+    return lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Order Book Update Message
+  if message_type == 0x62 then
+    return lseg_turquoise_recovery_gtp_v26_3.mifid_ii_order_book_update_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

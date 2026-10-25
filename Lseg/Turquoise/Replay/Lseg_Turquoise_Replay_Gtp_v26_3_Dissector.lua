@@ -1759,33 +1759,75 @@ lseg_turquoise_replay_gtp_v26_3.message_type = {}
 lseg_turquoise_replay_gtp_v26_3.message_type.size = 1
 
 -- Display: Message Type
-lseg_turquoise_replay_gtp_v26_3.message_type.labels = {
-  [0x01] = "Message Type: Login Request Message (0x01)",
-  [0x03] = "Message Type: Replay Request Message (0x03)",
-  [0x02] = "Message Type: Login Response Message (0x02)",
-  [0x04] = "Message Type: Replay Response Message (0x04)",
-  [0x83] = "Message Type: Replay And Recovery Complete Message (0x83)",
-  [0x53] = "Message Type: System Event Message (0x53)",
-  [0x70] = "Message Type: Instrument Directory Message (0x70)",
-  [0x48] = "Message Type: Instrument Status Message (0x48)",
-  [0x46] = "Message Type: Add Order Incremental Message (0x46)",
-  [0x55] = "Message Type: Modify Order Message (0x55)",
-  [0x44] = "Message Type: Delete Order Message (0x44)",
-  [0x69] = "Message Type: Top Of Book Message (0x69)",
-  [0x79] = "Message Type: Order Book Clear Message (0x79)",
-  [0x50] = "Message Type: Trade Message (0x50)",
-  [0x71] = "Message Type: Trade Cross Message (0x71)",
-  [0x77] = "Message Type: Statistics Message (0x77)",
-  [0x6A] = "Message Type: Statistics Update Message (0x6A)",
-  [0x51] = "Message Type: Mifid Ii Trade Message (0x51)",
-  [0x56] = "Message Type: Mifid Ii Trade Cross Message (0x56)",
-  [0x57] = "Message Type: Trade Summary Message (0x57)",
-  [0x61] = "Message Type: Analytics Message (0x61)",
-  [0x62] = "Message Type: Mifid Ii Order Book Update Message (0x62)",
-}
-
 lseg_turquoise_replay_gtp_v26_3.message_type.display = function(value)
-  return lseg_turquoise_replay_gtp_v26_3.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x01 then
+    return "Message Type: Login Request Message (0x01)"
+  end
+  if value == 0x03 then
+    return "Message Type: Replay Request Message (0x03)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x04 then
+    return "Message Type: Replay Response Message (0x04)"
+  end
+  if value == 0x83 then
+    return "Message Type: Replay And Recovery Complete Message (0x83)"
+  end
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x46 then
+    return "Message Type: Add Order Incremental Message (0x46)"
+  end
+  if value == 0x55 then
+    return "Message Type: Modify Order Message (0x55)"
+  end
+  if value == 0x44 then
+    return "Message Type: Delete Order Message (0x44)"
+  end
+  if value == 0x69 then
+    return "Message Type: Top Of Book Message (0x69)"
+  end
+  if value == 0x79 then
+    return "Message Type: Order Book Clear Message (0x79)"
+  end
+  if value == 0x50 then
+    return "Message Type: Trade Message (0x50)"
+  end
+  if value == 0x71 then
+    return "Message Type: Trade Cross Message (0x71)"
+  end
+  if value == 0x77 then
+    return "Message Type: Statistics Message (0x77)"
+  end
+  if value == 0x6A then
+    return "Message Type: Statistics Update Message (0x6A)"
+  end
+  if value == 0x51 then
+    return "Message Type: Mifid Ii Trade Message (0x51)"
+  end
+  if value == 0x56 then
+    return "Message Type: Mifid Ii Trade Cross Message (0x56)"
+  end
+  if value == 0x57 then
+    return "Message Type: Trade Summary Message (0x57)"
+  end
+  if value == 0x61 then
+    return "Message Type: Analytics Message (0x61)"
+  end
+  if value == 0x62 then
+    return "Message Type: Mifid Ii Order Book Update Message (0x62)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -6913,35 +6955,94 @@ end
 lseg_turquoise_replay_gtp_v26_3.payload = {}
 
 -- Dissect: Payload
-lseg_turquoise_replay_gtp_v26_3.payload.dispatch = {
-  [0x01] = lseg_turquoise_replay_gtp_v26_3.login_request_message.dissect,
-  [0x03] = lseg_turquoise_replay_gtp_v26_3.replay_request_message.dissect,
-  [0x02] = lseg_turquoise_replay_gtp_v26_3.login_response_message.dissect,
-  [0x04] = lseg_turquoise_replay_gtp_v26_3.replay_response_message.dissect,
-  [0x83] = lseg_turquoise_replay_gtp_v26_3.replay_and_recovery_complete_message.dissect,
-  [0x53] = lseg_turquoise_replay_gtp_v26_3.system_event_message.dissect,
-  [0x70] = lseg_turquoise_replay_gtp_v26_3.instrument_directory_message.dissect,
-  [0x48] = lseg_turquoise_replay_gtp_v26_3.instrument_status_message.dissect,
-  [0x46] = lseg_turquoise_replay_gtp_v26_3.add_order_incremental_message.dissect,
-  [0x55] = lseg_turquoise_replay_gtp_v26_3.modify_order_message.dissect,
-  [0x44] = lseg_turquoise_replay_gtp_v26_3.delete_order_message.dissect,
-  [0x69] = lseg_turquoise_replay_gtp_v26_3.top_of_book_message.dissect,
-  [0x79] = lseg_turquoise_replay_gtp_v26_3.order_book_clear_message.dissect,
-  [0x50] = lseg_turquoise_replay_gtp_v26_3.trade_message.dissect,
-  [0x71] = lseg_turquoise_replay_gtp_v26_3.trade_cross_message.dissect,
-  [0x77] = lseg_turquoise_replay_gtp_v26_3.statistics_message.dissect,
-  [0x6A] = lseg_turquoise_replay_gtp_v26_3.statistics_update_message.dissect,
-  [0x51] = lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_message.dissect,
-  [0x56] = lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_cross_message.dissect,
-  [0x57] = lseg_turquoise_replay_gtp_v26_3.trade_summary_message.dissect,
-  [0x61] = lseg_turquoise_replay_gtp_v26_3.analytics_message.dissect,
-  [0x62] = lseg_turquoise_replay_gtp_v26_3.mifid_ii_order_book_update_message.dissect,
-}
-
 lseg_turquoise_replay_gtp_v26_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = lseg_turquoise_replay_gtp_v26_3.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request Message
+  if message_type == 0x01 then
+    return lseg_turquoise_replay_gtp_v26_3.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Request Message
+  if message_type == 0x03 then
+    return lseg_turquoise_replay_gtp_v26_3.replay_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return lseg_turquoise_replay_gtp_v26_3.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Response Message
+  if message_type == 0x04 then
+    return lseg_turquoise_replay_gtp_v26_3.replay_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay And Recovery Complete Message
+  if message_type == 0x83 then
+    return lseg_turquoise_replay_gtp_v26_3.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_turquoise_replay_gtp_v26_3.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x70 then
+    return lseg_turquoise_replay_gtp_v26_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_turquoise_replay_gtp_v26_3.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Incremental Message
+  if message_type == 0x46 then
+    return lseg_turquoise_replay_gtp_v26_3.add_order_incremental_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Message
+  if message_type == 0x55 then
+    return lseg_turquoise_replay_gtp_v26_3.modify_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Message
+  if message_type == 0x44 then
+    return lseg_turquoise_replay_gtp_v26_3.delete_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Top Of Book Message
+  if message_type == 0x69 then
+    return lseg_turquoise_replay_gtp_v26_3.top_of_book_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Book Clear Message
+  if message_type == 0x79 then
+    return lseg_turquoise_replay_gtp_v26_3.order_book_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Message
+  if message_type == 0x50 then
+    return lseg_turquoise_replay_gtp_v26_3.trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cross Message
+  if message_type == 0x71 then
+    return lseg_turquoise_replay_gtp_v26_3.trade_cross_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Message
+  if message_type == 0x77 then
+    return lseg_turquoise_replay_gtp_v26_3.statistics_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Update Message
+  if message_type == 0x6A then
+    return lseg_turquoise_replay_gtp_v26_3.statistics_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Trade Message
+  if message_type == 0x51 then
+    return lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Trade Cross Message
+  if message_type == 0x56 then
+    return lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_cross_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Summary Message
+  if message_type == 0x57 then
+    return lseg_turquoise_replay_gtp_v26_3.trade_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Analytics Message
+  if message_type == 0x61 then
+    return lseg_turquoise_replay_gtp_v26_3.analytics_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Order Book Update Message
+  if message_type == 0x62 then
+    return lseg_turquoise_replay_gtp_v26_3.mifid_ii_order_book_update_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

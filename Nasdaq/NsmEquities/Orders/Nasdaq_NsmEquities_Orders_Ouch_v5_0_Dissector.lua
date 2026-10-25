@@ -2392,63 +2392,165 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason = {}
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.size = 2
 
 -- Display: Rejected Order Reason
-nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.labels = {
-  [0x0001] = "Rejected Order Reason: Quote Unavailable (0x0001)",
-  [0x0002] = "Rejected Order Reason: Destination Closed (0x0002)",
-  [0x0003] = "Rejected Order Reason: Invalid Display (0x0003)",
-  [0x0004] = "Rejected Order Reason: Invalid Max Floor (0x0004)",
-  [0x0005] = "Rejected Order Reason: Invalid Peg Type (0x0005)",
-  [0x0006] = "Rejected Order Reason: Fat Finger (0x0006)",
-  [0x0007] = "Rejected Order Reason: Halted (0x0007)",
-  [0x0008] = "Rejected Order Reason: Iso Not Allowed (0x0008)",
-  [0x0009] = "Rejected Order Reason: Invalid Side (0x0009)",
-  [0x000A] = "Rejected Order Reason: Processing Error (0x000A)",
-  [0x000B] = "Rejected Order Reason: Cancel Pending (0x000B)",
-  [0x000C] = "Rejected Order Reason: Firm Not Authorized (0x000C)",
-  [0x000D] = "Rejected Order Reason: Invalid Min Quantity (0x000D)",
-  [0x000E] = "Rejected Order Reason: No Closing Reference Price (0x000E)",
-  [0x000F] = "Rejected Order Reason: Other (0x000F)",
-  [0x0010] = "Rejected Order Reason: Cancel Not Allowed (0x0010)",
-  [0x0011] = "Rejected Order Reason: Pegging Not Allowed (0x0011)",
-  [0x0012] = "Rejected Order Reason: Crossed Market (0x0012)",
-  [0x0013] = "Rejected Order Reason: Invalid Quantity (0x0013)",
-  [0x0014] = "Rejected Order Reason: Invalid Cross Order (0x0014)",
-  [0x0015] = "Rejected Order Reason: Replace Not Allowed (0x0015)",
-  [0x0016] = "Rejected Order Reason: Routing Not Allowed (0x0016)",
-  [0x0017] = "Rejected Order Reason: Invalid Symbol (0x0017)",
-  [0x0018] = "Rejected Order Reason: Test (0x0018)",
-  [0x0019] = "Rejected Order Reason: Late Loc Too Aggressive (0x0019)",
-  [0x001A] = "Rejected Order Reason: Retail Not Allowed (0x001A)",
-  [0x001B] = "Rejected Order Reason: Invalid Midpoint Post Only Price (0x001B)",
-  [0x001C] = "Rejected Order Reason: Invalid Destination (0x001C)",
-  [0x001D] = "Rejected Order Reason: Invalid Price (0x001D)",
-  [0x001E] = "Rejected Order Reason: Shares Exceed Threshold (0x001E)",
-  [0x001F] = "Rejected Order Reason: Exceeds Maximum Allowed Notional Value (0x001F)",
-  [0x0020] = "Rejected Order Reason: Risk Aggregate Exposure Exceeded (0x0020)",
-  [0x0021] = "Rejected Order Reason: Risk Market Impact (0x0021)",
-  [0x0022] = "Rejected Order Reason: Risk Restricted Stock (0x0022)",
-  [0x0023] = "Rejected Order Reason: Risk Short Sell Restricted (0x0023)",
-  [0x0024] = "Rejected Order Reason: Risk Iso Not Allowed (0x0024)",
-  [0x0025] = "Rejected Order Reason: Risk Exceeds Adv Limit (0x0025)",
-  [0x0026] = "Rejected Order Reason: Risk Fat Finger (0x0026)",
-  [0x0027] = "Rejected Order Reason: Risk Locate Required (0x0027)",
-  [0x0028] = "Rejected Order Reason: Risk Symbol Message Rate Restriction (0x0028)",
-  [0x0029] = "Rejected Order Reason: Risk Port Message Rate Restriction (0x0029)",
-  [0x002A] = "Rejected Order Reason: Risk Duplicate Message Rate Restriction (0x002A)",
-  [0x002B] = "Rejected Order Reason: Risk Short Sell Not Allowed (0x002B)",
-  [0x002C] = "Rejected Order Reason: Risk Market Order Not Allowed (0x002C)",
-  [0x002D] = "Rejected Order Reason: Risk Pre Market Not Allowed (0x002D)",
-  [0x002E] = "Rejected Order Reason: Risk Post Market Not Allowed (0x002E)",
-  [0x002F] = "Rejected Order Reason: Risk Short Sell Exempt Not Allowed (0x002F)",
-  [0x0030] = "Rejected Order Reason: Risk Single Order Notional Exceeded (0x0030)",
-  [0x0031] = "Rejected Order Reason: Risk Max Quantity Exceeded (0x0031)",
-  [0x0032] = "Rejected Order Reason: Reg Sho State Not Available (0x0032)",
-  [0x0033] = "Rejected Order Reason: Risk Ipo Market Buy Not Allowed (0x0033)",
-  [0x0040] = "Rejected Order Reason: Invalid Aiq (0x0040)",
-}
-
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.display = function(value)
-  return nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.labels[value] or "Rejected Order Reason: Unknown("..string.format("0x%04X", value)..")"
+  if value == 0x0001 then
+    return "Rejected Order Reason: Quote Unavailable (0x0001)"
+  end
+  if value == 0x0002 then
+    return "Rejected Order Reason: Destination Closed (0x0002)"
+  end
+  if value == 0x0003 then
+    return "Rejected Order Reason: Invalid Display (0x0003)"
+  end
+  if value == 0x0004 then
+    return "Rejected Order Reason: Invalid Max Floor (0x0004)"
+  end
+  if value == 0x0005 then
+    return "Rejected Order Reason: Invalid Peg Type (0x0005)"
+  end
+  if value == 0x0006 then
+    return "Rejected Order Reason: Fat Finger (0x0006)"
+  end
+  if value == 0x0007 then
+    return "Rejected Order Reason: Halted (0x0007)"
+  end
+  if value == 0x0008 then
+    return "Rejected Order Reason: Iso Not Allowed (0x0008)"
+  end
+  if value == 0x0009 then
+    return "Rejected Order Reason: Invalid Side (0x0009)"
+  end
+  if value == 0x000A then
+    return "Rejected Order Reason: Processing Error (0x000A)"
+  end
+  if value == 0x000B then
+    return "Rejected Order Reason: Cancel Pending (0x000B)"
+  end
+  if value == 0x000C then
+    return "Rejected Order Reason: Firm Not Authorized (0x000C)"
+  end
+  if value == 0x000D then
+    return "Rejected Order Reason: Invalid Min Quantity (0x000D)"
+  end
+  if value == 0x000E then
+    return "Rejected Order Reason: No Closing Reference Price (0x000E)"
+  end
+  if value == 0x000F then
+    return "Rejected Order Reason: Other (0x000F)"
+  end
+  if value == 0x0010 then
+    return "Rejected Order Reason: Cancel Not Allowed (0x0010)"
+  end
+  if value == 0x0011 then
+    return "Rejected Order Reason: Pegging Not Allowed (0x0011)"
+  end
+  if value == 0x0012 then
+    return "Rejected Order Reason: Crossed Market (0x0012)"
+  end
+  if value == 0x0013 then
+    return "Rejected Order Reason: Invalid Quantity (0x0013)"
+  end
+  if value == 0x0014 then
+    return "Rejected Order Reason: Invalid Cross Order (0x0014)"
+  end
+  if value == 0x0015 then
+    return "Rejected Order Reason: Replace Not Allowed (0x0015)"
+  end
+  if value == 0x0016 then
+    return "Rejected Order Reason: Routing Not Allowed (0x0016)"
+  end
+  if value == 0x0017 then
+    return "Rejected Order Reason: Invalid Symbol (0x0017)"
+  end
+  if value == 0x0018 then
+    return "Rejected Order Reason: Test (0x0018)"
+  end
+  if value == 0x0019 then
+    return "Rejected Order Reason: Late Loc Too Aggressive (0x0019)"
+  end
+  if value == 0x001A then
+    return "Rejected Order Reason: Retail Not Allowed (0x001A)"
+  end
+  if value == 0x001B then
+    return "Rejected Order Reason: Invalid Midpoint Post Only Price (0x001B)"
+  end
+  if value == 0x001C then
+    return "Rejected Order Reason: Invalid Destination (0x001C)"
+  end
+  if value == 0x001D then
+    return "Rejected Order Reason: Invalid Price (0x001D)"
+  end
+  if value == 0x001E then
+    return "Rejected Order Reason: Shares Exceed Threshold (0x001E)"
+  end
+  if value == 0x001F then
+    return "Rejected Order Reason: Exceeds Maximum Allowed Notional Value (0x001F)"
+  end
+  if value == 0x0020 then
+    return "Rejected Order Reason: Risk Aggregate Exposure Exceeded (0x0020)"
+  end
+  if value == 0x0021 then
+    return "Rejected Order Reason: Risk Market Impact (0x0021)"
+  end
+  if value == 0x0022 then
+    return "Rejected Order Reason: Risk Restricted Stock (0x0022)"
+  end
+  if value == 0x0023 then
+    return "Rejected Order Reason: Risk Short Sell Restricted (0x0023)"
+  end
+  if value == 0x0024 then
+    return "Rejected Order Reason: Risk Iso Not Allowed (0x0024)"
+  end
+  if value == 0x0025 then
+    return "Rejected Order Reason: Risk Exceeds Adv Limit (0x0025)"
+  end
+  if value == 0x0026 then
+    return "Rejected Order Reason: Risk Fat Finger (0x0026)"
+  end
+  if value == 0x0027 then
+    return "Rejected Order Reason: Risk Locate Required (0x0027)"
+  end
+  if value == 0x0028 then
+    return "Rejected Order Reason: Risk Symbol Message Rate Restriction (0x0028)"
+  end
+  if value == 0x0029 then
+    return "Rejected Order Reason: Risk Port Message Rate Restriction (0x0029)"
+  end
+  if value == 0x002A then
+    return "Rejected Order Reason: Risk Duplicate Message Rate Restriction (0x002A)"
+  end
+  if value == 0x002B then
+    return "Rejected Order Reason: Risk Short Sell Not Allowed (0x002B)"
+  end
+  if value == 0x002C then
+    return "Rejected Order Reason: Risk Market Order Not Allowed (0x002C)"
+  end
+  if value == 0x002D then
+    return "Rejected Order Reason: Risk Pre Market Not Allowed (0x002D)"
+  end
+  if value == 0x002E then
+    return "Rejected Order Reason: Risk Post Market Not Allowed (0x002E)"
+  end
+  if value == 0x002F then
+    return "Rejected Order Reason: Risk Short Sell Exempt Not Allowed (0x002F)"
+  end
+  if value == 0x0030 then
+    return "Rejected Order Reason: Risk Single Order Notional Exceeded (0x0030)"
+  end
+  if value == 0x0031 then
+    return "Rejected Order Reason: Risk Max Quantity Exceeded (0x0031)"
+  end
+  if value == 0x0032 then
+    return "Rejected Order Reason: Reg Sho State Not Available (0x0032)"
+  end
+  if value == 0x0033 then
+    return "Rejected Order Reason: Risk Ipo Market Buy Not Allowed (0x0033)"
+  end
+  if value == 0x0040 then
+    return "Rejected Order Reason: Invalid Aiq (0x0040)"
+  end
+
+  return "Rejected Order Reason: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Rejected Order Reason

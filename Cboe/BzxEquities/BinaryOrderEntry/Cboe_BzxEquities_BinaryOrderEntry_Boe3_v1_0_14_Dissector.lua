@@ -1368,27 +1368,57 @@ cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message_type = {}
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.size = 2
 
 -- Display: Exchange Message Type
-cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.labels = {
-  [501] = "Message Type: Login Response Message (501)",
-  [502] = "Message Type: Replay Complete Message (502)",
-  [503] = "Message Type: Logout Response Message (503)",
-  [504] = "Message Type: Server Heartbeat Message (504)",
-  [0x1195] = "Message Type: Order Acknowledgement Us Equities V 1 (0x1195)",
-  [0x1196] = "Message Type: Order Rejected Us Equities V 1 (0x1196)",
-  [0x1197] = "Message Type: Order Modified Us Equities V 1 (0x1197)",
-  [0x1199] = "Message Type: Order Restated Us Equities V 1 (0x1199)",
-  [0x1198] = "Message Type: Modify Rejected Us Equities V 1 (0x1198)",
-  [0x119A] = "Message Type: Order Cancelled Us Equities V 1 (0x119A)",
-  [0x119B] = "Message Type: Cancel Rejected Us Equities V 1 (0x119B)",
-  [0x119C] = "Message Type: Order Execution Us Equities V 1 (0x119C)",
-  [0x119D] = "Message Type: Trade Cancel Correct Us Equities V 1 (0x119D)",
-  [0x11A0] = "Message Type: Purge Rejected Us Equities V 1 (0x11A0)",
-  [0x119E] = "Message Type: Reset Risk Acknowledgement Us Equities V 1 (0x119E)",
-  [0x119F] = "Message Type: Purge Acknowledgement Us Equities V 1 (0x119F)",
-}
-
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.display = function(value)
-  return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.labels[value] or "Message Type: Unknown("..value..")"
+  if value == 501 then
+    return "Message Type: Login Response Message (501)"
+  end
+  if value == 502 then
+    return "Message Type: Replay Complete Message (502)"
+  end
+  if value == 503 then
+    return "Message Type: Logout Response Message (503)"
+  end
+  if value == 504 then
+    return "Message Type: Server Heartbeat Message (504)"
+  end
+  if value == 0x1195 then
+    return "Message Type: Order Acknowledgement Us Equities V 1 (0x1195)"
+  end
+  if value == 0x1196 then
+    return "Message Type: Order Rejected Us Equities V 1 (0x1196)"
+  end
+  if value == 0x1197 then
+    return "Message Type: Order Modified Us Equities V 1 (0x1197)"
+  end
+  if value == 0x1199 then
+    return "Message Type: Order Restated Us Equities V 1 (0x1199)"
+  end
+  if value == 0x1198 then
+    return "Message Type: Modify Rejected Us Equities V 1 (0x1198)"
+  end
+  if value == 0x119A then
+    return "Message Type: Order Cancelled Us Equities V 1 (0x119A)"
+  end
+  if value == 0x119B then
+    return "Message Type: Cancel Rejected Us Equities V 1 (0x119B)"
+  end
+  if value == 0x119C then
+    return "Message Type: Order Execution Us Equities V 1 (0x119C)"
+  end
+  if value == 0x119D then
+    return "Message Type: Trade Cancel Correct Us Equities V 1 (0x119D)"
+  end
+  if value == 0x11A0 then
+    return "Message Type: Purge Rejected Us Equities V 1 (0x11A0)"
+  end
+  if value == 0x119E then
+    return "Message Type: Reset Risk Acknowledgement Us Equities V 1 (0x119E)"
+  end
+  if value == 0x119F then
+    return "Message Type: Purge Acknowledgement Us Equities V 1 (0x119F)"
+  end
+
+  return "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Message Type
@@ -1650,20 +1680,36 @@ cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message_type = {}
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message_type.size = 2
 
 -- Display: Firm Message Type
-cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message_type.labels = {
-  [1] = "Message Type: Login Request Message (1)",
-  [2] = "Message Type: Logout Request Message (2)",
-  [3] = "Message Type: Client Heartbeat Message (3)",
-  [0x0FA1] = "Message Type: New Order Us Equities V 1 (0x0FA1)",
-  [0x0FA6] = "Message Type: New Order Short Us Equities V 1 (0x0FA6)",
-  [0x0FA3] = "Message Type: Cancel Order Us Equities V 1 (0x0FA3)",
-  [0x0FA2] = "Message Type: Modify Order Us Equities V 1 (0x0FA2)",
-  [0x0FA5] = "Message Type: Purge Orders Us Equities V 1 (0x0FA5)",
-  [0x0FA4] = "Message Type: Reset Risk Us Equities V 1 (0x0FA4)",
-}
-
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message_type.display = function(value)
-  return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message_type.labels[value] or "Message Type: Unknown("..value..")"
+  if value == 1 then
+    return "Message Type: Login Request Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Logout Request Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Client Heartbeat Message (3)"
+  end
+  if value == 0x0FA1 then
+    return "Message Type: New Order Us Equities V 1 (0x0FA1)"
+  end
+  if value == 0x0FA6 then
+    return "Message Type: New Order Short Us Equities V 1 (0x0FA6)"
+  end
+  if value == 0x0FA3 then
+    return "Message Type: Cancel Order Us Equities V 1 (0x0FA3)"
+  end
+  if value == 0x0FA2 then
+    return "Message Type: Modify Order Us Equities V 1 (0x0FA2)"
+  end
+  if value == 0x0FA5 then
+    return "Message Type: Purge Orders Us Equities V 1 (0x0FA5)"
+  end
+  if value == 0x0FA4 then
+    return "Message Type: Reset Risk Us Equities V 1 (0x0FA4)"
+  end
+
+  return "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Firm Message Type
@@ -5082,29 +5128,70 @@ end
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message = {}
 
 -- Dissect: Exchange Message
-cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message.dispatch = {
-  [501] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.login_response_message.dissect,
-  [502] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.replay_complete.dissect,
-  [503] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.logout_response_message.dissect,
-  [504] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.server_heartbeat.dissect,
-  [0x1195] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_acknowledgement_us_equities_v_1.dissect,
-  [0x1196] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_rejected_us_equities_v_1.dissect,
-  [0x1197] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_modified_us_equities_v_1.dissect,
-  [0x1199] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_restated_us_equities_v_1.dissect,
-  [0x1198] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.modify_rejected_us_equities_v_1.dissect,
-  [0x119A] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_cancelled_us_equities_v_1.dissect,
-  [0x119B] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.cancel_rejected_us_equities_v_1.dissect,
-  [0x119C] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_execution_us_equities_v_1.dissect,
-  [0x119D] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.trade_cancel_correct_us_equities_v_1.dissect,
-  [0x11A0] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.purge_rejected_us_equities_v_1.dissect,
-  [0x119E] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.reset_risk_acknowledgement_us_equities_v_1.dissect,
-  [0x119F] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.purge_acknowledgement_us_equities_v_1.dissect,
-}
-
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
-  local dissect = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.exchange_message.dispatch[exchange_message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Response Message
+  if exchange_message_type == 501 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete
+  if exchange_message_type == 502 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.replay_complete.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Response Message
+  if exchange_message_type == 503 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.logout_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Heartbeat
+  if exchange_message_type == 504 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.server_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Acknowledgement Us Equities V 1
+  if exchange_message_type == 0x1195 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_acknowledgement_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Rejected Us Equities V 1
+  if exchange_message_type == 0x1196 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modified Us Equities V 1
+  if exchange_message_type == 0x1197 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_modified_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Restated Us Equities V 1
+  if exchange_message_type == 0x1199 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_restated_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Rejected Us Equities V 1
+  if exchange_message_type == 0x1198 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.modify_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancelled Us Equities V 1
+  if exchange_message_type == 0x119A then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_cancelled_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Rejected Us Equities V 1
+  if exchange_message_type == 0x119B then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.cancel_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Execution Us Equities V 1
+  if exchange_message_type == 0x119C then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.order_execution_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Correct Us Equities V 1
+  if exchange_message_type == 0x119D then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.trade_cancel_correct_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Rejected Us Equities V 1
+  if exchange_message_type == 0x11A0 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.purge_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Risk Acknowledgement Us Equities V 1
+  if exchange_message_type == 0x119E then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.reset_risk_acknowledgement_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Acknowledgement Us Equities V 1
+  if exchange_message_type == 0x119F then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.purge_acknowledgement_us_equities_v_1.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5841,22 +5928,42 @@ end
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message = {}
 
 -- Dissect: Firm Message
-cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message.dispatch = {
-  [1] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.login_request_message.dissect,
-  [2] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.logout_request.dissect,
-  [3] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.client_heartbeat.dissect,
-  [0x0FA1] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.new_order_us_equities_v_1.dissect,
-  [0x0FA6] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.new_order_short_us_equities_v_1.dissect,
-  [0x0FA3] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.cancel_order_us_equities_v_1.dissect,
-  [0x0FA2] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.modify_order_us_equities_v_1.dissect,
-  [0x0FA5] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.purge_orders_us_equities_v_1.dissect,
-  [0x0FA4] = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.reset_risk_us_equities_v_1.dissect,
-}
-
 cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
-  local dissect = cboe_bzxequities_binaryorderentry_boe3_v1_0_14.firm_message.dispatch[firm_message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request Message
+  if firm_message_type == 1 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request
+  if firm_message_type == 2 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.logout_request.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat
+  if firm_message_type == 3 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.client_heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Us Equities V 1
+  if firm_message_type == 0x0FA1 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.new_order_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Short Us Equities V 1
+  if firm_message_type == 0x0FA6 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.new_order_short_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Order Us Equities V 1
+  if firm_message_type == 0x0FA3 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.cancel_order_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Us Equities V 1
+  if firm_message_type == 0x0FA2 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.modify_order_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Orders Us Equities V 1
+  if firm_message_type == 0x0FA5 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.purge_orders_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Risk Us Equities V 1
+  if firm_message_type == 0x0FA4 then
+    return cboe_bzxequities_binaryorderentry_boe3_v1_0_14.reset_risk_us_equities_v_1.dissect(buffer, offset, packet, parent)
   end
 
   return offset

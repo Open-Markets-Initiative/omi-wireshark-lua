@@ -1604,16 +1604,24 @@ lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.message_type = {}
 lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.message_type.size = 1
 
 -- Display: Message Type
-lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.message_type.labels = {
-  [0x53] = "Message Type: System Event Message (0x53)",
-  [0x70] = "Message Type: Instrument Directory Message (0x70)",
-  [0x48] = "Message Type: Instrument Status Message (0x48)",
-  [0x77] = "Message Type: Statistics Message (0x77)",
-  [0x54] = "Message Type: Mifid Ii Trade Report Message (0x54)",
-}
-
 lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.message_type.display = function(value)
-  return lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x77 then
+    return "Message Type: Statistics Message (0x77)"
+  end
+  if value == 0x54 then
+    return "Message Type: Mifid Ii Trade Report Message (0x54)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -4785,18 +4793,26 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.payload = {}
 
 -- Dissect: Payload
-lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.payload.dispatch = {
-  [0x53] = lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.system_event_message.dissect,
-  [0x70] = lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.instrument_directory_message.dissect,
-  [0x48] = lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.instrument_status_message.dissect,
-  [0x77] = lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.statistics_message.dissect,
-  [0x54] = lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.mifid_ii_trade_report_message.dissect,
-}
-
 lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x70 then
+    return lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Message
+  if message_type == 0x77 then
+    return lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.statistics_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Trade Report Message
+  if message_type == 0x54 then
+    return lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.mifid_ii_trade_report_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

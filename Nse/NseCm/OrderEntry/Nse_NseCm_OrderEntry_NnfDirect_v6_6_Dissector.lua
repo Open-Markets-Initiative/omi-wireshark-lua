@@ -10793,7 +10793,6 @@ end
 
 -- Register Heuristics for Nse NseCm OrderEntry NnfDirect 6.6
 omi_nse_nsecm_orderentry_nnfdirect_v6_6:register_heuristic("tcp", omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_heuristic)
-omi_nse_nsecm_orderentry_nnfdirect_v6_6:register_heuristic("tcp", omi_nse_nsecm_orderentry_nnfdirect_v6_6_tcp_heuristic)
 
 -- Register Nse NseCm OrderEntry NnfDirect 6.6 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")

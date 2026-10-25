@@ -639,21 +639,39 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.labels = {
-  [0x20] = "Message Type: Time Message (0x20)",
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
-  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
-  [0xAF] = "Message Type: Auction Trade Message (0xAF)",
-  [0xD1] = "Message Type: Options Auction Update Message (0xD1)",
-  [0x96] = "Message Type: Auction Summary Message (0x96)",
-  [0xD2] = "Message Type: Width Update Message (0xD2)",
-  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-}
-
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.display = function(value)
-  return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0xAD then
+    return "Message Type: Auction Notification Message (0xAD)"
+  end
+  if value == 0xAE then
+    return "Message Type: Auction Cancel Message (0xAE)"
+  end
+  if value == 0xAF then
+    return "Message Type: Auction Trade Message (0xAF)"
+  end
+  if value == 0xD1 then
+    return "Message Type: Options Auction Update Message (0xD1)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0xD2 then
+    return "Message Type: Width Update Message (0xD2)"
+  end
+  if value == 0x2E then
+    return "Message Type: Symbol Mapping Message (0x2E)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1748,23 +1766,46 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload = {}
 
 -- Dissect: Payload
-cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload.dispatch = {
-  [0x20] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message.dissect,
-  [0x97] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.unit_clear_message.dissect,
-  [0xAD] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_notification_message.dissect,
-  [0xAE] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_cancel_message.dissect,
-  [0xAF] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_trade_message.dissect,
-  [0xD1] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.options_auction_update_message.dissect,
-  [0x96] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_summary_message.dissect,
-  [0xD2] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.width_update_message.dissect,
-  [0x2E] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_mapping_message.dissect,
-  [0x2D] = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.end_of_session_message.dissect,
-}
-
 cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Notification Message
+  if message_type == 0xAD then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Cancel Message
+  if message_type == 0xAE then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Trade Message
+  if message_type == 0xAF then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Options Auction Update Message
+  if message_type == 0xD1 then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.options_auction_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Summary Message
+  if message_type == 0x96 then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.auction_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Width Update Message
+  if message_type == 0xD2 then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.width_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Mapping Message
+  if message_type == 0x2E then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_edgxoptions_auctionfeed_pitch_v1_1_39.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

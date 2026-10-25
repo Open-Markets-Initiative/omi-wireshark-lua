@@ -1187,29 +1187,63 @@ cboe_cfefutures_multicasttop_pitch_v1_2_22.message_type = {}
 cboe_cfefutures_multicasttop_pitch_v1_2_22.message_type.size = 1
 
 -- Display: Message Type
-cboe_cfefutures_multicasttop_pitch_v1_2_22.message_type.labels = {
-  [0xB1] = "Message Type: Time Reference Message (0xB1)",
-  [0x20] = "Message Type: Time Message (0x20)",
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0xBB] = "Message Type: Futures Instrument Definition Message (0xBB)",
-  [0xFA] = "Message Type: Futures Variance Symbol Mapping Message (0xFA)",
-  [0xBE] = "Message Type: Price Limits Message (0xBE)",
-  [0xB2] = "Message Type: Market Snapshot Short Message (0xB2)",
-  [0xB3] = "Message Type: Market Snapshot Long Message (0xB3)",
-  [0xB4] = "Message Type: Single Side Update Short Message (0xB4)",
-  [0xB5] = "Message Type: Single Side Update Long Message (0xB5)",
-  [0xB6] = "Message Type: Two Side Update Short Message (0xB6)",
-  [0xB7] = "Message Type: Two Side Update Long Message (0xB7)",
-  [0xB8] = "Message Type: Top Trade Message (0xB8)",
-  [0xB9] = "Message Type: Settlement Message (0xB9)",
-  [0xBA] = "Message Type: End Of Day Summary Message (0xBA)",
-  [0x31] = "Message Type: Trading Status Message (0x31)",
-  [0xD3] = "Message Type: Open Interest Message (0xD3)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-}
-
 cboe_cfefutures_multicasttop_pitch_v1_2_22.message_type.display = function(value)
-  return cboe_cfefutures_multicasttop_pitch_v1_2_22.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0xB1 then
+    return "Message Type: Time Reference Message (0xB1)"
+  end
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0xBB then
+    return "Message Type: Futures Instrument Definition Message (0xBB)"
+  end
+  if value == 0xFA then
+    return "Message Type: Futures Variance Symbol Mapping Message (0xFA)"
+  end
+  if value == 0xBE then
+    return "Message Type: Price Limits Message (0xBE)"
+  end
+  if value == 0xB2 then
+    return "Message Type: Market Snapshot Short Message (0xB2)"
+  end
+  if value == 0xB3 then
+    return "Message Type: Market Snapshot Long Message (0xB3)"
+  end
+  if value == 0xB4 then
+    return "Message Type: Single Side Update Short Message (0xB4)"
+  end
+  if value == 0xB5 then
+    return "Message Type: Single Side Update Long Message (0xB5)"
+  end
+  if value == 0xB6 then
+    return "Message Type: Two Side Update Short Message (0xB6)"
+  end
+  if value == 0xB7 then
+    return "Message Type: Two Side Update Long Message (0xB7)"
+  end
+  if value == 0xB8 then
+    return "Message Type: Top Trade Message (0xB8)"
+  end
+  if value == 0xB9 then
+    return "Message Type: Settlement Message (0xB9)"
+  end
+  if value == 0xBA then
+    return "Message Type: End Of Day Summary Message (0xBA)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0xD3 then
+    return "Message Type: Open Interest Message (0xD3)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -3327,31 +3361,78 @@ end
 cboe_cfefutures_multicasttop_pitch_v1_2_22.payload = {}
 
 -- Dissect: Payload
-cboe_cfefutures_multicasttop_pitch_v1_2_22.payload.dispatch = {
-  [0xB1] = cboe_cfefutures_multicasttop_pitch_v1_2_22.time_reference_message.dissect,
-  [0x20] = cboe_cfefutures_multicasttop_pitch_v1_2_22.time_message.dissect,
-  [0x97] = cboe_cfefutures_multicasttop_pitch_v1_2_22.unit_clear_message.dissect,
-  [0xBB] = cboe_cfefutures_multicasttop_pitch_v1_2_22.futures_instrument_definition_message.dissect,
-  [0xFA] = cboe_cfefutures_multicasttop_pitch_v1_2_22.futures_variance_symbol_mapping_message.dissect,
-  [0xBE] = cboe_cfefutures_multicasttop_pitch_v1_2_22.price_limits_message.dissect,
-  [0xB2] = cboe_cfefutures_multicasttop_pitch_v1_2_22.market_snapshot_short_message.dissect,
-  [0xB3] = cboe_cfefutures_multicasttop_pitch_v1_2_22.market_snapshot_long_message.dissect,
-  [0xB4] = cboe_cfefutures_multicasttop_pitch_v1_2_22.single_side_update_short_message.dissect,
-  [0xB5] = cboe_cfefutures_multicasttop_pitch_v1_2_22.single_side_update_long_message.dissect,
-  [0xB6] = cboe_cfefutures_multicasttop_pitch_v1_2_22.two_side_update_short_message.dissect,
-  [0xB7] = cboe_cfefutures_multicasttop_pitch_v1_2_22.two_side_update_long_message.dissect,
-  [0xB8] = cboe_cfefutures_multicasttop_pitch_v1_2_22.top_trade_message.dissect,
-  [0xB9] = cboe_cfefutures_multicasttop_pitch_v1_2_22.settlement_message.dissect,
-  [0xBA] = cboe_cfefutures_multicasttop_pitch_v1_2_22.end_of_day_summary_message.dissect,
-  [0x31] = cboe_cfefutures_multicasttop_pitch_v1_2_22.trading_status_message.dissect,
-  [0xD3] = cboe_cfefutures_multicasttop_pitch_v1_2_22.open_interest_message.dissect,
-  [0x2D] = cboe_cfefutures_multicasttop_pitch_v1_2_22.end_of_session_message.dissect,
-}
-
 cboe_cfefutures_multicasttop_pitch_v1_2_22.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_cfefutures_multicasttop_pitch_v1_2_22.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Reference Message
+  if message_type == 0xB1 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.time_reference_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Futures Instrument Definition Message
+  if message_type == 0xBB then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.futures_instrument_definition_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Futures Variance Symbol Mapping Message
+  if message_type == 0xFA then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.futures_variance_symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Price Limits Message
+  if message_type == 0xBE then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.price_limits_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Snapshot Short Message
+  if message_type == 0xB2 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.market_snapshot_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Snapshot Long Message
+  if message_type == 0xB3 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.market_snapshot_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Short Message
+  if message_type == 0xB4 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.single_side_update_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Long Message
+  if message_type == 0xB5 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.single_side_update_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Two Side Update Short Message
+  if message_type == 0xB6 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.two_side_update_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Two Side Update Long Message
+  if message_type == 0xB7 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.two_side_update_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Top Trade Message
+  if message_type == 0xB8 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.top_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Settlement Message
+  if message_type == 0xB9 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.settlement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Day Summary Message
+  if message_type == 0xBA then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Interest Message
+  if message_type == 0xD3 then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.open_interest_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_cfefutures_multicasttop_pitch_v1_2_22.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

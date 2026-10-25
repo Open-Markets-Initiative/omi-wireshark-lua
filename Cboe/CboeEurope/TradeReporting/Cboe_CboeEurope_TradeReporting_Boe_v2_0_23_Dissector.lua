@@ -2001,27 +2001,57 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type = {}
 cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type.size = 1
 
 -- Display: Message Type
-cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type.labels = {
-  [0x37] = "Message Type: Login Request V 2 Message (0x37)",
-  [0x02] = "Message Type: Logout Request Message (0x02)",
-  [0x03] = "Message Type: Client Heartbeat Message (0x03)",
-  [0x24] = "Message Type: Login Response V 2 Message (0x24)",
-  [0x08] = "Message Type: Logout Message (0x08)",
-  [0x09] = "Message Type: Server Heartbeat Message (0x09)",
-  [0x13] = "Message Type: Replay Complete Message (0x13)",
-  [0x3C] = "Message Type: Trade Capture Report V 2 Message (0x3C)",
-  [0x3D] = "Message Type: Quote V 2 Message (0x3D)",
-  [0x3E] = "Message Type: Quote Cancel V 2 Message (0x3E)",
-  [0x30] = "Message Type: Trade Capture Report Acknowledgment V 2 Message (0x30)",
-  [0x31] = "Message Type: Trade Capture Report Reject V 2 Message (0x31)",
-  [0x32] = "Message Type: Trade Capture Confirm V 2 Message (0x32)",
-  [0x33] = "Message Type: Trade Capture Report Decline V 2 Message (0x33)",
-  [0x3F] = "Message Type: Quote Status V 2 Message (0x3F)",
-  [0x40] = "Message Type: Quote Reject V 2 Message (0x40)",
-}
-
 cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type.display = function(value)
-  return cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x37 then
+    return "Message Type: Login Request V 2 Message (0x37)"
+  end
+  if value == 0x02 then
+    return "Message Type: Logout Request Message (0x02)"
+  end
+  if value == 0x03 then
+    return "Message Type: Client Heartbeat Message (0x03)"
+  end
+  if value == 0x24 then
+    return "Message Type: Login Response V 2 Message (0x24)"
+  end
+  if value == 0x08 then
+    return "Message Type: Logout Message (0x08)"
+  end
+  if value == 0x09 then
+    return "Message Type: Server Heartbeat Message (0x09)"
+  end
+  if value == 0x13 then
+    return "Message Type: Replay Complete Message (0x13)"
+  end
+  if value == 0x3C then
+    return "Message Type: Trade Capture Report V 2 Message (0x3C)"
+  end
+  if value == 0x3D then
+    return "Message Type: Quote V 2 Message (0x3D)"
+  end
+  if value == 0x3E then
+    return "Message Type: Quote Cancel V 2 Message (0x3E)"
+  end
+  if value == 0x30 then
+    return "Message Type: Trade Capture Report Acknowledgment V 2 Message (0x30)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trade Capture Report Reject V 2 Message (0x31)"
+  end
+  if value == 0x32 then
+    return "Message Type: Trade Capture Confirm V 2 Message (0x32)"
+  end
+  if value == 0x33 then
+    return "Message Type: Trade Capture Report Decline V 2 Message (0x33)"
+  end
+  if value == 0x3F then
+    return "Message Type: Quote Status V 2 Message (0x3F)"
+  end
+  if value == 0x40 then
+    return "Message Type: Quote Reject V 2 Message (0x40)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -16021,29 +16051,70 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.message = {}
 
 -- Dissect: Message
-cboe_cboeeurope_tradereporting_boe_v2_0_23.message.dispatch = {
-  [0x37] = cboe_cboeeurope_tradereporting_boe_v2_0_23.login_request_v_2_message.dissect,
-  [0x02] = cboe_cboeeurope_tradereporting_boe_v2_0_23.logout_request_message.dissect,
-  [0x03] = cboe_cboeeurope_tradereporting_boe_v2_0_23.client_heartbeat_message.dissect,
-  [0x24] = cboe_cboeeurope_tradereporting_boe_v2_0_23.login_response_v_2_message.dissect,
-  [0x08] = cboe_cboeeurope_tradereporting_boe_v2_0_23.logout_message.dissect,
-  [0x09] = cboe_cboeeurope_tradereporting_boe_v2_0_23.server_heartbeat_message.dissect,
-  [0x13] = cboe_cboeeurope_tradereporting_boe_v2_0_23.replay_complete_message.dissect,
-  [0x3C] = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_v_2_message.dissect,
-  [0x3D] = cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_v_2_message.dissect,
-  [0x3E] = cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_cancel_v_2_message.dissect,
-  [0x30] = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_acknowledgment_v_2_message.dissect,
-  [0x31] = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_reject_v_2_message.dissect,
-  [0x32] = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_confirm_v_2_message.dissect,
-  [0x33] = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_decline_v_2_message.dissect,
-  [0x3F] = cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_status_v_2_message.dissect,
-  [0x40] = cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_reject_v_2_message.dissect,
-}
-
 cboe_cboeeurope_tradereporting_boe_v2_0_23.message.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_cboeeurope_tradereporting_boe_v2_0_23.message.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request V 2 Message
+  if message_type == 0x37 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.login_request_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request Message
+  if message_type == 0x02 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.logout_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Message
+  if message_type == 0x03 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.client_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response V 2 Message
+  if message_type == 0x24 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.login_response_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Message
+  if message_type == 0x08 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.logout_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Heartbeat Message
+  if message_type == 0x09 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.server_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 0x13 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report V 2 Message
+  if message_type == 0x3C then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote V 2 Message
+  if message_type == 0x3D then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Cancel V 2 Message
+  if message_type == 0x3E then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_cancel_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report Acknowledgment V 2 Message
+  if message_type == 0x30 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_acknowledgment_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report Reject V 2 Message
+  if message_type == 0x31 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_reject_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Confirm V 2 Message
+  if message_type == 0x32 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_confirm_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report Decline V 2 Message
+  if message_type == 0x33 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_decline_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Status V 2 Message
+  if message_type == 0x3F then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_status_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Reject V 2 Message
+  if message_type == 0x40 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_reject_v_2_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

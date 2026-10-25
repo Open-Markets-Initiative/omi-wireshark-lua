@@ -341,20 +341,36 @@ lseg_millennium_level2recovery_mitch_v11_9.message_type = {}
 lseg_millennium_level2recovery_mitch_v11_9.message_type.size = 1
 
 -- Display: Message Type
-lseg_millennium_level2recovery_mitch_v11_9.message_type.labels = {
-  [0x01] = "Message Type: Login Request Message (0x01)",
-  [0x02] = "Message Type: Login Response Message (0x02)",
-  [0x81] = "Message Type: Snapshot Request Message (0x81)",
-  [0x82] = "Message Type: Snapshot Response Message (0x82)",
-  [0x83] = "Message Type: Snapshot Complete Message (0x83)",
-  [0x05] = "Message Type: Logout Request Message (0x05)",
-  [0x48] = "Message Type: Symbol Status Message (0x48)",
-  [0x41] = "Message Type: Add Order Message (0x41)",
-  [0x46] = "Message Type: Add Attributed Order Message (0x46)",
-}
-
 lseg_millennium_level2recovery_mitch_v11_9.message_type.display = function(value)
-  return lseg_millennium_level2recovery_mitch_v11_9.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x01 then
+    return "Message Type: Login Request Message (0x01)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x81 then
+    return "Message Type: Snapshot Request Message (0x81)"
+  end
+  if value == 0x82 then
+    return "Message Type: Snapshot Response Message (0x82)"
+  end
+  if value == 0x83 then
+    return "Message Type: Snapshot Complete Message (0x83)"
+  end
+  if value == 0x05 then
+    return "Message Type: Logout Request Message (0x05)"
+  end
+  if value == 0x48 then
+    return "Message Type: Symbol Status Message (0x48)"
+  end
+  if value == 0x41 then
+    return "Message Type: Add Order Message (0x41)"
+  end
+  if value == 0x46 then
+    return "Message Type: Add Attributed Order Message (0x46)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1575,22 +1591,42 @@ end
 lseg_millennium_level2recovery_mitch_v11_9.payload = {}
 
 -- Dissect: Payload
-lseg_millennium_level2recovery_mitch_v11_9.payload.dispatch = {
-  [0x01] = lseg_millennium_level2recovery_mitch_v11_9.login_request_message.dissect,
-  [0x02] = lseg_millennium_level2recovery_mitch_v11_9.login_response_message.dissect,
-  [0x81] = lseg_millennium_level2recovery_mitch_v11_9.snapshot_request_message.dissect,
-  [0x82] = lseg_millennium_level2recovery_mitch_v11_9.snapshot_response_message.dissect,
-  [0x83] = lseg_millennium_level2recovery_mitch_v11_9.snapshot_complete_message.dissect,
-  [0x05] = lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.dissect,
-  [0x48] = lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.dissect,
-  [0x41] = lseg_millennium_level2recovery_mitch_v11_9.add_order_message.dissect,
-  [0x46] = lseg_millennium_level2recovery_mitch_v11_9.add_attributed_order_message.dissect,
-}
-
 lseg_millennium_level2recovery_mitch_v11_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = lseg_millennium_level2recovery_mitch_v11_9.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request Message
+  if message_type == 0x01 then
+    return lseg_millennium_level2recovery_mitch_v11_9.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return lseg_millennium_level2recovery_mitch_v11_9.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Snapshot Request Message
+  if message_type == 0x81 then
+    return lseg_millennium_level2recovery_mitch_v11_9.snapshot_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Snapshot Response Message
+  if message_type == 0x82 then
+    return lseg_millennium_level2recovery_mitch_v11_9.snapshot_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Snapshot Complete Message
+  if message_type == 0x83 then
+    return lseg_millennium_level2recovery_mitch_v11_9.snapshot_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request Message
+  if message_type == 0x05 then
+    return lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Status Message
+  if message_type == 0x48 then
+    return lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Message
+  if message_type == 0x41 then
+    return lseg_millennium_level2recovery_mitch_v11_9.add_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Attributed Order Message
+  if message_type == 0x46 then
+    return lseg_millennium_level2recovery_mitch_v11_9.add_attributed_order_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

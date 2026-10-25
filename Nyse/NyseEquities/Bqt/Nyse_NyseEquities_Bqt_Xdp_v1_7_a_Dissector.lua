@@ -1681,15 +1681,21 @@ nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.size = 1
 
 -- Display: Retail Pricing Indicator
-nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.labels = {
-  [0x00] = "Retail Pricing Indicator: No Retail Interest (0x00)",
-  [0x01] = "Retail Pricing Indicator: Retail Interest On The Bid Side (0x01)",
-  [0x02] = "Retail Pricing Indicator: Retail Interest On The Ask Side (0x02)",
-  [0x04] = "Retail Pricing Indicator: Combination Of Retail Interest On Bid And Ask Side (0x04)",
-}
-
 nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.display = function(value)
-  return nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.labels[value] or "Retail Pricing Indicator: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x00 then
+    return "Retail Pricing Indicator: No Retail Interest (0x00)"
+  end
+  if value == 0x01 then
+    return "Retail Pricing Indicator: Retail Interest On The Bid Side (0x01)"
+  end
+  if value == 0x02 then
+    return "Retail Pricing Indicator: Retail Interest On The Ask Side (0x02)"
+  end
+  if value == 0x04 then
+    return "Retail Pricing Indicator: Combination Of Retail Interest On Bid And Ask Side (0x04)"
+  end
+
+  return "Retail Pricing Indicator: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Retail Pricing Indicator

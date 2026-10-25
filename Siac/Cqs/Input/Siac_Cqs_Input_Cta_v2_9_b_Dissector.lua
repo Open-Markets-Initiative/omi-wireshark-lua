@@ -4748,36 +4748,98 @@ end
 siac_cqs_input_cta_v2_9_b.message_payload = {}
 
 -- Dissect: Message Payload
-siac_cqs_input_cta_v2_9_b.message_payload.dispatch = {
-  [0x4152] = siac_cqs_input_cta_v2_9_b.rejection_message.dissect,
-  [0x4150] = siac_cqs_input_cta_v2_9_b.partial_rejection_message.dissect,
-  [0x4157] = siac_cqs_input_cta_v2_9_b.warning_message.dissect,
-  [0x4341] = siac_cqs_input_cta_v2_9_b.start_of_day_message.dissect,
-  [0x4343] = siac_cqs_input_cta_v2_9_b.finra_close_message.dissect,
-  [0x4349] = siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_inquiry_message.dissect,
-  [0x434E] = siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_response_message.dissect,
-  [0x434F] = siac_cqs_input_cta_v2_9_b.finra_open_message.dissect,
-  [0x4352] = siac_cqs_input_cta_v2_9_b.odd_lot_refresh_request_message.dissect,
-  [0x4354] = siac_cqs_input_cta_v2_9_b.line_integrity_message.dissect,
-  [0x435A] = siac_cqs_input_cta_v2_9_b.end_of_day_message.dissect,
-  [0x4335] = siac_cqs_input_cta_v2_9_b.test_message.dissect,
-  [0x5141] = siac_cqs_input_cta_v2_9_b.auction_status_message.dissect,
-  [0x5151] = siac_cqs_input_cta_v2_9_b.short_quote_message.dissect,
-  [0x514C] = siac_cqs_input_cta_v2_9_b.long_quote_message.dissect,
-  [0x5153] = siac_cqs_input_cta_v2_9_b.special_long_quote_message.dissect,
-  [0x5150] = siac_cqs_input_cta_v2_9_b.round_lot_short_quote_message.dissect,
-  [0x514B] = siac_cqs_input_cta_v2_9_b.round_lot_long_quote_message.dissect,
-  [0x5155] = siac_cqs_input_cta_v2_9_b.round_lot_finra_adf_quote_message.dissect,
-  [0x5152] = siac_cqs_input_cta_v2_9_b.odd_lot_short_quote_message.dissect,
-  [0x514D] = siac_cqs_input_cta_v2_9_b.odd_lot_long_quote_message.dissect,
-  [0x5154] = siac_cqs_input_cta_v2_9_b.odd_lot_finra_adf_quote_message.dissect,
-  [0x5453] = siac_cqs_input_cta_v2_9_b.trading_status_message.dissect,
-}
-
 siac_cqs_input_cta_v2_9_b.message_payload.dissect = function(buffer, offset, packet, parent, message_header_key)
-  local dissect = siac_cqs_input_cta_v2_9_b.message_payload.dispatch[message_header_key]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Rejection Message
+  if message_header_key == 0x4152 then
+    return siac_cqs_input_cta_v2_9_b.rejection_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Partial Rejection Message
+  if message_header_key == 0x4150 then
+    return siac_cqs_input_cta_v2_9_b.partial_rejection_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Warning Message
+  if message_header_key == 0x4157 then
+    return siac_cqs_input_cta_v2_9_b.warning_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Day Message
+  if message_header_key == 0x4341 then
+    return siac_cqs_input_cta_v2_9_b.start_of_day_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Finra Close Message
+  if message_header_key == 0x4343 then
+    return siac_cqs_input_cta_v2_9_b.finra_close_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequence Information And Message Count Inquiry Message
+  if message_header_key == 0x4349 then
+    return siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_inquiry_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequence Information And Message Count Response Message
+  if message_header_key == 0x434E then
+    return siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Finra Open Message
+  if message_header_key == 0x434F then
+    return siac_cqs_input_cta_v2_9_b.finra_open_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Odd Lot Refresh Request Message
+  if message_header_key == 0x4352 then
+    return siac_cqs_input_cta_v2_9_b.odd_lot_refresh_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Line Integrity Message
+  if message_header_key == 0x4354 then
+    return siac_cqs_input_cta_v2_9_b.line_integrity_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Day Message
+  if message_header_key == 0x435A then
+    return siac_cqs_input_cta_v2_9_b.end_of_day_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Test Message
+  if message_header_key == 0x4335 then
+    return siac_cqs_input_cta_v2_9_b.test_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Status Message
+  if message_header_key == 0x5141 then
+    return siac_cqs_input_cta_v2_9_b.auction_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Short Quote Message
+  if message_header_key == 0x5151 then
+    return siac_cqs_input_cta_v2_9_b.short_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Long Quote Message
+  if message_header_key == 0x514C then
+    return siac_cqs_input_cta_v2_9_b.long_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Special Long Quote Message
+  if message_header_key == 0x5153 then
+    return siac_cqs_input_cta_v2_9_b.special_long_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Round Lot Short Quote Message
+  if message_header_key == 0x5150 then
+    return siac_cqs_input_cta_v2_9_b.round_lot_short_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Round Lot Long Quote Message
+  if message_header_key == 0x514B then
+    return siac_cqs_input_cta_v2_9_b.round_lot_long_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Round Lot Finra Adf Quote Message
+  if message_header_key == 0x5155 then
+    return siac_cqs_input_cta_v2_9_b.round_lot_finra_adf_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Odd Lot Short Quote Message
+  if message_header_key == 0x5152 then
+    return siac_cqs_input_cta_v2_9_b.odd_lot_short_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Odd Lot Long Quote Message
+  if message_header_key == 0x514D then
+    return siac_cqs_input_cta_v2_9_b.odd_lot_long_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Odd Lot Finra Adf Quote Message
+  if message_header_key == 0x5154 then
+    return siac_cqs_input_cta_v2_9_b.odd_lot_finra_adf_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_header_key == 0x5453 then
+    return siac_cqs_input_cta_v2_9_b.trading_status_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

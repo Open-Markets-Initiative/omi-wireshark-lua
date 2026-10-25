@@ -2542,20 +2542,36 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_28.msg_type = {}
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.msg_type.size = 2
 
 -- Display: Msg Type
-nyse_arcaoptions_binarygateway_pillarstream_v3_28.msg_type.labels = {
-  [0x0201] = "Msg Type: Login (0x0201)",
-  [0x0202] = "Msg Type: Login Response (0x0202)",
-  [0x0203] = "Msg Type: Stream Avail (0x0203)",
-  [0x0204] = "Msg Type: Heartbeat (0x0204)",
-  [0x0205] = "Msg Type: Open (0x0205)",
-  [0x0206] = "Msg Type: Open Response (0x0206)",
-  [0x0207] = "Msg Type: Close (0x0207)",
-  [0x0208] = "Msg Type: Close Response (0x0208)",
-  [0x0905] = "Msg Type: Seq Msg (0x0905)",
-}
-
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.msg_type.display = function(value)
-  return nyse_arcaoptions_binarygateway_pillarstream_v3_28.msg_type.labels[value] or "Msg Type: Unknown("..string.format("0x%04X", value)..")"
+  if value == 0x0201 then
+    return "Msg Type: Login (0x0201)"
+  end
+  if value == 0x0202 then
+    return "Msg Type: Login Response (0x0202)"
+  end
+  if value == 0x0203 then
+    return "Msg Type: Stream Avail (0x0203)"
+  end
+  if value == 0x0204 then
+    return "Msg Type: Heartbeat (0x0204)"
+  end
+  if value == 0x0205 then
+    return "Msg Type: Open (0x0205)"
+  end
+  if value == 0x0206 then
+    return "Msg Type: Open Response (0x0206)"
+  end
+  if value == 0x0207 then
+    return "Msg Type: Close (0x0207)"
+  end
+  if value == 0x0208 then
+    return "Msg Type: Close Response (0x0208)"
+  end
+  if value == 0x0905 then
+    return "Msg Type: Seq Msg (0x0905)"
+  end
+
+  return "Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Msg Type
@@ -4280,42 +4296,102 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_28.seq_msg_type = {}
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.seq_msg_type.size = 2
 
 -- Display: Seq Msg Type
-nyse_arcaoptions_binarygateway_pillarstream_v3_28.seq_msg_type.labels = {
-  [0x0220] = "Seq Msg Type: Session Configuration Request Message (0x0220)",
-  [0x0282] = "Seq Msg Type: Sequenced Filler Message (0x0282)",
-  [0x0248] = "Seq Msg Type: New Order Message (0x0248)",
-  [0x0250] = "Seq Msg Type: Order Cancel Request Message (0x0250)",
-  [0x0251] = "Seq Msg Type: Order Modify Request Message (0x0251)",
-  [0x0243] = "Seq Msg Type: New Bulk Quote Message (0x0243)",
-  [0x0259] = "Seq Msg Type: New Bulk Quote With Order Id Message (0x0259)",
-  [0x0222] = "Seq Msg Type: New Order Cross Message (0x0222)",
-  [0x0223] = "Seq Msg Type: Bulk Cancel Request Message (0x0223)",
-  [0x0224] = "Seq Msg Type: Bulk Cancel Request With Mp Sub Id Message (0x0224)",
-  [0x0330] = "Seq Msg Type: Risk Limit Update Request Message (0x0330)",
-  [0x0331] = "Seq Msg Type: Risk Action Request Message (0x0331)",
-  [0x0357] = "Seq Msg Type: New Complex Series Request Message (0x0357)",
-  [0x0233] = "Seq Msg Type: Underlying Symbol Reference Data Message (0x0233)",
-  [0x0234] = "Seq Msg Type: Series Reference Data Message (0x0234)",
-  [0x0230] = "Seq Msg Type: Minimum Price Variant Class Reference Data Message (0x0230)",
-  [0x0231] = "Seq Msg Type: Minimum Price Variant Level Reference Data Message (0x0231)",
-  [0x0272] = "Seq Msg Type: Mpid Configuration Message (0x0272)",
-  [0x0833] = "Seq Msg Type: Options Market Maker Symbol Appointment Reference Data Message (0x0833)",
-  [0x0221] = "Seq Msg Type: Session Configuration Acknowledgement Message (0x0221)",
-  [0x0269] = "Seq Msg Type: Order And Cancel Replace Acknowledgement Message (0x0269)",
-  [0x0294] = "Seq Msg Type: Bulk Quote Acknowledgment Message (0x0294)",
-  [0x0308] = "Seq Msg Type: Bulk Quote Acknowledgment With Details Message (0x0308)",
-  [0x0278] = "Seq Msg Type: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message (0x0278)",
-  [0x0268] = "Seq Msg Type: Order Priority Update Acknowledgment Message (0x0268)",
-  [0x0295] = "Seq Msg Type: Execution Report Message (0x0295)",
-  [0x0293] = "Seq Msg Type: Trade Bust Correct Message (0x0293)",
-  [0x0267] = "Seq Msg Type: Application Layer Reject Message (0x0267)",
-  [0x0332] = "Seq Msg Type: Risk Control Acknowledgement Message (0x0332)",
-  [0x0333] = "Seq Msg Type: Risk Control Alert Message (0x0333)",
-  [0x0358] = "Seq Msg Type: Complex Series Request Acknowledgement Message (0x0358)",
-}
-
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.seq_msg_type.display = function(value)
-  return nyse_arcaoptions_binarygateway_pillarstream_v3_28.seq_msg_type.labels[value] or "Seq Msg Type: Unknown("..string.format("0x%04X", value)..")"
+  if value == 0x0220 then
+    return "Seq Msg Type: Session Configuration Request Message (0x0220)"
+  end
+  if value == 0x0282 then
+    return "Seq Msg Type: Sequenced Filler Message (0x0282)"
+  end
+  if value == 0x0248 then
+    return "Seq Msg Type: New Order Message (0x0248)"
+  end
+  if value == 0x0250 then
+    return "Seq Msg Type: Order Cancel Request Message (0x0250)"
+  end
+  if value == 0x0251 then
+    return "Seq Msg Type: Order Modify Request Message (0x0251)"
+  end
+  if value == 0x0243 then
+    return "Seq Msg Type: New Bulk Quote Message (0x0243)"
+  end
+  if value == 0x0259 then
+    return "Seq Msg Type: New Bulk Quote With Order Id Message (0x0259)"
+  end
+  if value == 0x0222 then
+    return "Seq Msg Type: New Order Cross Message (0x0222)"
+  end
+  if value == 0x0223 then
+    return "Seq Msg Type: Bulk Cancel Request Message (0x0223)"
+  end
+  if value == 0x0224 then
+    return "Seq Msg Type: Bulk Cancel Request With Mp Sub Id Message (0x0224)"
+  end
+  if value == 0x0330 then
+    return "Seq Msg Type: Risk Limit Update Request Message (0x0330)"
+  end
+  if value == 0x0331 then
+    return "Seq Msg Type: Risk Action Request Message (0x0331)"
+  end
+  if value == 0x0357 then
+    return "Seq Msg Type: New Complex Series Request Message (0x0357)"
+  end
+  if value == 0x0233 then
+    return "Seq Msg Type: Underlying Symbol Reference Data Message (0x0233)"
+  end
+  if value == 0x0234 then
+    return "Seq Msg Type: Series Reference Data Message (0x0234)"
+  end
+  if value == 0x0230 then
+    return "Seq Msg Type: Minimum Price Variant Class Reference Data Message (0x0230)"
+  end
+  if value == 0x0231 then
+    return "Seq Msg Type: Minimum Price Variant Level Reference Data Message (0x0231)"
+  end
+  if value == 0x0272 then
+    return "Seq Msg Type: Mpid Configuration Message (0x0272)"
+  end
+  if value == 0x0833 then
+    return "Seq Msg Type: Options Market Maker Symbol Appointment Reference Data Message (0x0833)"
+  end
+  if value == 0x0221 then
+    return "Seq Msg Type: Session Configuration Acknowledgement Message (0x0221)"
+  end
+  if value == 0x0269 then
+    return "Seq Msg Type: Order And Cancel Replace Acknowledgement Message (0x0269)"
+  end
+  if value == 0x0294 then
+    return "Seq Msg Type: Bulk Quote Acknowledgment Message (0x0294)"
+  end
+  if value == 0x0308 then
+    return "Seq Msg Type: Bulk Quote Acknowledgment With Details Message (0x0308)"
+  end
+  if value == 0x0278 then
+    return "Seq Msg Type: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message (0x0278)"
+  end
+  if value == 0x0268 then
+    return "Seq Msg Type: Order Priority Update Acknowledgment Message (0x0268)"
+  end
+  if value == 0x0295 then
+    return "Seq Msg Type: Execution Report Message (0x0295)"
+  end
+  if value == 0x0293 then
+    return "Seq Msg Type: Trade Bust Correct Message (0x0293)"
+  end
+  if value == 0x0267 then
+    return "Seq Msg Type: Application Layer Reject Message (0x0267)"
+  end
+  if value == 0x0332 then
+    return "Seq Msg Type: Risk Control Acknowledgement Message (0x0332)"
+  end
+  if value == 0x0333 then
+    return "Seq Msg Type: Risk Control Alert Message (0x0333)"
+  end
+  if value == 0x0358 then
+    return "Seq Msg Type: Complex Series Request Acknowledgement Message (0x0358)"
+  end
+
+  return "Seq Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Seq Msg Type
@@ -7645,31 +7721,78 @@ end
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_sequenced_message = {}
 
 -- Dissect: Server Sequenced Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_sequenced_message.dispatch = {
-  [0x0233] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.underlying_symbol_reference_data_message.dissect,
-  [0x0234] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.series_reference_data_message.dissect,
-  [0x0230] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.minimum_price_variant_class_reference_data_message.dissect,
-  [0x0231] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.minimum_price_variant_level_reference_data_message.dissect,
-  [0x0272] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.mpid_configuration_message.dissect,
-  [0x0833] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.options_market_maker_symbol_appointment_reference_data_message.dissect,
-  [0x0221] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.session_configuration_acknowledgement_message.dissect,
-  [0x0269] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_and_cancel_replace_acknowledgement_message.dissect,
-  [0x0294] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_quote_acknowledgment_message.dissect,
-  [0x0308] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_quote_acknowledgment_with_details_message.dissect,
-  [0x0278] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect,
-  [0x0268] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_priority_update_acknowledgment_message.dissect,
-  [0x0295] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.execution_report_message.dissect,
-  [0x0293] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.trade_bust_correct_message.dissect,
-  [0x0267] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.application_layer_reject_message.dissect,
-  [0x0332] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_control_acknowledgement_message.dissect,
-  [0x0333] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_control_alert_message.dissect,
-  [0x0358] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.complex_series_request_acknowledgement_message.dissect,
-}
-
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
-  local dissect = nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_sequenced_message.dispatch[seq_msg_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Underlying Symbol Reference Data Message
+  if seq_msg_type == 0x0233 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.underlying_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Series Reference Data Message
+  if seq_msg_type == 0x0234 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.series_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Minimum Price Variant Class Reference Data Message
+  if seq_msg_type == 0x0230 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.minimum_price_variant_class_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Minimum Price Variant Level Reference Data Message
+  if seq_msg_type == 0x0231 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.minimum_price_variant_level_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mpid Configuration Message
+  if seq_msg_type == 0x0272 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.mpid_configuration_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Options Market Maker Symbol Appointment Reference Data Message
+  if seq_msg_type == 0x0833 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.options_market_maker_symbol_appointment_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Configuration Acknowledgement Message
+  if seq_msg_type == 0x0221 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order And Cancel Replace Acknowledgement Message
+  if seq_msg_type == 0x0269 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_and_cancel_replace_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Acknowledgment Message
+  if seq_msg_type == 0x0294 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_quote_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Acknowledgment With Details Message
+  if seq_msg_type == 0x0308 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_quote_acknowledgment_with_details_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
+  if seq_msg_type == 0x0278 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Priority Update Acknowledgment Message
+  if seq_msg_type == 0x0268 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_priority_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Message
+  if seq_msg_type == 0x0295 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.execution_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Bust Correct Message
+  if seq_msg_type == 0x0293 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Application Layer Reject Message
+  if seq_msg_type == 0x0267 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.application_layer_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Acknowledgement Message
+  if seq_msg_type == 0x0332 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_control_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Alert Message
+  if seq_msg_type == 0x0333 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_control_alert_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Series Request Acknowledgement Message
+  if seq_msg_type == 0x0358 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.complex_series_request_acknowledgement_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8159,19 +8282,30 @@ end
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_message = {}
 
 -- Dissect: Server Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_message.dispatch = {
-  [0x0202] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.login_response.dissect,
-  [0x0203] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.stream_avail.dissect,
-  [0x0204] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.heartbeat.dissect,
-  [0x0206] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.open_response.dissect,
-  [0x0208] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.close_response.dissect,
-  [0x0905] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_seq_msg.dissect,
-}
-
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  local dissect = nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_message.dispatch[msg_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.server_seq_msg.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -9523,26 +9657,58 @@ end
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_sequenced_message = {}
 
 -- Dissect: Client Sequenced Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_sequenced_message.dispatch = {
-  [0x0220] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.session_configuration_request_message.dissect,
-  [0x0282] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.sequenced_filler_message.dissect,
-  [0x0248] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_order_message.dissect,
-  [0x0250] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_cancel_request_message.dissect,
-  [0x0251] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_modify_request_message.dissect,
-  [0x0243] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_bulk_quote_message.dissect,
-  [0x0259] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_bulk_quote_with_order_id_message.dissect,
-  [0x0222] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_order_cross_message.dissect,
-  [0x0223] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_cancel_request_message.dissect,
-  [0x0224] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_cancel_request_with_mp_sub_id_message.dissect,
-  [0x0330] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_limit_update_request_message.dissect,
-  [0x0331] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_action_request_message.dissect,
-  [0x0357] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_complex_series_request_message.dissect,
-}
-
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
-  local dissect = nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_sequenced_message.dispatch[seq_msg_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Session Configuration Request Message
+  if seq_msg_type == 0x0220 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.session_configuration_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Filler Message
+  if seq_msg_type == 0x0282 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.sequenced_filler_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Message
+  if seq_msg_type == 0x0248 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Request Message
+  if seq_msg_type == 0x0250 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_cancel_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modify Request Message
+  if seq_msg_type == 0x0251 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.order_modify_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Bulk Quote Message
+  if seq_msg_type == 0x0243 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_bulk_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Bulk Quote With Order Id Message
+  if seq_msg_type == 0x0259 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_bulk_quote_with_order_id_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Cross Message
+  if seq_msg_type == 0x0222 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_order_cross_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Cancel Request Message
+  if seq_msg_type == 0x0223 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_cancel_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Cancel Request With Mp Sub Id Message
+  if seq_msg_type == 0x0224 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.bulk_cancel_request_with_mp_sub_id_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Limit Update Request Message
+  if seq_msg_type == 0x0330 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_limit_update_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Action Request Message
+  if seq_msg_type == 0x0331 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.risk_action_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Complex Series Request Message
+  if seq_msg_type == 0x0357 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_complex_series_request_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -9800,18 +9966,26 @@ end
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_message = {}
 
 -- Dissect: Client Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_message.dispatch = {
-  [0x0201] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.login_message.dissect,
-  [0x0204] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.heartbeat.dissect,
-  [0x0205] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.open.dissect,
-  [0x0207] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.close.dissect,
-  [0x0905] = nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_seq_msg.dissect,
-}
-
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  local dissect = nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_message.dispatch[msg_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Message
+  if msg_type == 0x0201 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open
+  if msg_type == 0x0205 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.open.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close
+  if msg_type == 0x0207 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.close.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_28.client_seq_msg.dissect(buffer, offset, packet, parent)
   end
 
   return offset

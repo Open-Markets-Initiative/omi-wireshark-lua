@@ -438,17 +438,27 @@ lseg_tradeecho_level2incremental_gtp_v24_4.message_type = {}
 lseg_tradeecho_level2incremental_gtp_v24_4.message_type.size = 1
 
 -- Display: Message Type
-lseg_tradeecho_level2incremental_gtp_v24_4.message_type.labels = {
-  [0x53] = "Message Type: System Event Message (0x53)",
-  [0x70] = "Message Type: Instrument Directory Message (0x70)",
-  [0x48] = "Message Type: Instrument Status Message (0x48)",
-  [0x44] = "Message Type: Order Delete Message (0x44)",
-  [0x79] = "Message Type: Order Book Clear Message (0x79)",
-  [0x47] = "Message Type: Systematic Internaliser Quotes Message (0x47)",
-}
-
 lseg_tradeecho_level2incremental_gtp_v24_4.message_type.display = function(value)
-  return lseg_tradeecho_level2incremental_gtp_v24_4.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x44 then
+    return "Message Type: Order Delete Message (0x44)"
+  end
+  if value == 0x79 then
+    return "Message Type: Order Book Clear Message (0x79)"
+  end
+  if value == 0x47 then
+    return "Message Type: Systematic Internaliser Quotes Message (0x47)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1850,19 +1860,30 @@ end
 lseg_tradeecho_level2incremental_gtp_v24_4.payload = {}
 
 -- Dissect: Payload
-lseg_tradeecho_level2incremental_gtp_v24_4.payload.dispatch = {
-  [0x53] = lseg_tradeecho_level2incremental_gtp_v24_4.system_event_message.dissect,
-  [0x70] = lseg_tradeecho_level2incremental_gtp_v24_4.instrument_directory_message.dissect,
-  [0x48] = lseg_tradeecho_level2incremental_gtp_v24_4.instrument_status_message.dissect,
-  [0x44] = lseg_tradeecho_level2incremental_gtp_v24_4.order_delete_message.dissect,
-  [0x79] = lseg_tradeecho_level2incremental_gtp_v24_4.order_book_clear_message.dissect,
-  [0x47] = lseg_tradeecho_level2incremental_gtp_v24_4.systematic_internaliser_quotes_message.dissect,
-}
-
 lseg_tradeecho_level2incremental_gtp_v24_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = lseg_tradeecho_level2incremental_gtp_v24_4.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_tradeecho_level2incremental_gtp_v24_4.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x70 then
+    return lseg_tradeecho_level2incremental_gtp_v24_4.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_tradeecho_level2incremental_gtp_v24_4.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Delete Message
+  if message_type == 0x44 then
+    return lseg_tradeecho_level2incremental_gtp_v24_4.order_delete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Book Clear Message
+  if message_type == 0x79 then
+    return lseg_tradeecho_level2incremental_gtp_v24_4.order_book_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Systematic Internaliser Quotes Message
+  if message_type == 0x47 then
+    return lseg_tradeecho_level2incremental_gtp_v24_4.systematic_internaliser_quotes_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

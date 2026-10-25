@@ -559,19 +559,33 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message_type = {}
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message_type.size = 1
 
 -- Display: Message Type
-cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message_type.labels = {
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0x60] = "Message Type: Instrument Directory Message (0x60)",
-  [0x61] = "Message Type: Trading Status Message (0x61)",
-  [0x67] = "Message Type: Trade Message (0x67)",
-  [0x68] = "Message Type: Trade Break Message (0x68)",
-  [0x69] = "Message Type: Trade Correction Message (0x69)",
-  [0x6A] = "Message Type: Single Side Update Message (0x6A)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-}
-
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message_type.display = function(value)
-  return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x60 then
+    return "Message Type: Instrument Directory Message (0x60)"
+  end
+  if value == 0x61 then
+    return "Message Type: Trading Status Message (0x61)"
+  end
+  if value == 0x67 then
+    return "Message Type: Trade Message (0x67)"
+  end
+  if value == 0x68 then
+    return "Message Type: Trade Break Message (0x68)"
+  end
+  if value == 0x69 then
+    return "Message Type: Trade Correction Message (0x69)"
+  end
+  if value == 0x6A then
+    return "Message Type: Single Side Update Message (0x6A)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1881,21 +1895,38 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.payload = {}
 
 -- Dissect: Payload
-cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.payload.dispatch = {
-  [0x97] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.unit_clear_message.dissect,
-  [0x60] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.instrument_directory_message.dissect,
-  [0x61] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trading_status_message.dissect,
-  [0x67] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_message.dissect,
-  [0x68] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_break_message.dissect,
-  [0x69] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_correction_message.dissect,
-  [0x6A] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.single_side_update_message.dissect,
-  [0x2D] = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.end_of_session_message.dissect,
-}
-
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x60 then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x61 then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Message
+  if message_type == 0x67 then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Break Message
+  if message_type == 0x68 then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Correction Message
+  if message_type == 0x69 then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Message
+  if message_type == 0x6A then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.single_side_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

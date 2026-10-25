@@ -967,36 +967,84 @@ cboe_c1options_complex_pitch_v2_1_18.message_type = {}
 cboe_c1options_complex_pitch_v2_1_18.message_type.size = 1
 
 -- Display: Message Type
-cboe_c1options_complex_pitch_v2_1_18.message_type.labels = {
-  [0x20] = "Message Type: Time Message (0x20)",
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0xBC] = "Message Type: Transaction Begin (0xBC)",
-  [0xBD] = "Message Type: Transaction End Message (0xBD)",
-  [0x9A] = "Message Type: Complex Instrument Definition Expanded Message (0x9A)",
-  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
-  [0x21] = "Message Type: Add Order Long Message (0x21)",
-  [0x22] = "Message Type: Add Order Short Message (0x22)",
-  [0x2F] = "Message Type: Add Order Expanded Message (0x2F)",
-  [0x23] = "Message Type: Order Executed Message (0x23)",
-  [0x24] = "Message Type: Order Executed At Price Size Message (0x24)",
-  [0x25] = "Message Type: Reduce Size Long Message (0x25)",
-  [0x26] = "Message Type: Reduce Size Short Message (0x26)",
-  [0x27] = "Message Type: Modify Order Long Message (0x27)",
-  [0x28] = "Message Type: Modify Order Short Message (0x28)",
-  [0x29] = "Message Type: Delete Order Message (0x29)",
-  [0x2A] = "Message Type: Trade Long Message (0x2A)",
-  [0x2B] = "Message Type: Trade Short Message (0x2B)",
-  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
-  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
-  [0xAF] = "Message Type: Auction Trade Message (0xAF)",
-  [0x31] = "Message Type: Trading Status Message (0x31)",
-  [0xD1] = "Message Type: Auction Update Message (0xD1)",
-  [0x96] = "Message Type: Auction Summary Message (0x96)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-}
-
 cboe_c1options_complex_pitch_v2_1_18.message_type.display = function(value)
-  return cboe_c1options_complex_pitch_v2_1_18.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0xBC then
+    return "Message Type: Transaction Begin (0xBC)"
+  end
+  if value == 0xBD then
+    return "Message Type: Transaction End Message (0xBD)"
+  end
+  if value == 0x9A then
+    return "Message Type: Complex Instrument Definition Expanded Message (0x9A)"
+  end
+  if value == 0x2E then
+    return "Message Type: Symbol Mapping Message (0x2E)"
+  end
+  if value == 0x21 then
+    return "Message Type: Add Order Long Message (0x21)"
+  end
+  if value == 0x22 then
+    return "Message Type: Add Order Short Message (0x22)"
+  end
+  if value == 0x2F then
+    return "Message Type: Add Order Expanded Message (0x2F)"
+  end
+  if value == 0x23 then
+    return "Message Type: Order Executed Message (0x23)"
+  end
+  if value == 0x24 then
+    return "Message Type: Order Executed At Price Size Message (0x24)"
+  end
+  if value == 0x25 then
+    return "Message Type: Reduce Size Long Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Reduce Size Short Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Modify Order Long Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Modify Order Short Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: Delete Order Message (0x29)"
+  end
+  if value == 0x2A then
+    return "Message Type: Trade Long Message (0x2A)"
+  end
+  if value == 0x2B then
+    return "Message Type: Trade Short Message (0x2B)"
+  end
+  if value == 0xAD then
+    return "Message Type: Auction Notification Message (0xAD)"
+  end
+  if value == 0xAE then
+    return "Message Type: Auction Cancel Message (0xAE)"
+  end
+  if value == 0xAF then
+    return "Message Type: Auction Trade Message (0xAF)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0xD1 then
+    return "Message Type: Auction Update Message (0xD1)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -3143,38 +3191,106 @@ end
 cboe_c1options_complex_pitch_v2_1_18.payload = {}
 
 -- Dissect: Payload
-cboe_c1options_complex_pitch_v2_1_18.payload.dispatch = {
-  [0x20] = cboe_c1options_complex_pitch_v2_1_18.time_message.dissect,
-  [0x97] = cboe_c1options_complex_pitch_v2_1_18.unit_clear_message.dissect,
-  [0xBC] = cboe_c1options_complex_pitch_v2_1_18.transaction_begin.dissect,
-  [0xBD] = cboe_c1options_complex_pitch_v2_1_18.transaction_end_message.dissect,
-  [0x9A] = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_definition_expanded_message.dissect,
-  [0x2E] = cboe_c1options_complex_pitch_v2_1_18.symbol_mapping_message.dissect,
-  [0x21] = cboe_c1options_complex_pitch_v2_1_18.add_order_long_message.dissect,
-  [0x22] = cboe_c1options_complex_pitch_v2_1_18.add_order_short_message.dissect,
-  [0x2F] = cboe_c1options_complex_pitch_v2_1_18.add_order_expanded_message.dissect,
-  [0x23] = cboe_c1options_complex_pitch_v2_1_18.order_executed_message.dissect,
-  [0x24] = cboe_c1options_complex_pitch_v2_1_18.order_executed_at_price_size_message.dissect,
-  [0x25] = cboe_c1options_complex_pitch_v2_1_18.reduce_size_long_message.dissect,
-  [0x26] = cboe_c1options_complex_pitch_v2_1_18.reduce_size_short_message.dissect,
-  [0x27] = cboe_c1options_complex_pitch_v2_1_18.modify_order_long_message.dissect,
-  [0x28] = cboe_c1options_complex_pitch_v2_1_18.modify_order_short_message.dissect,
-  [0x29] = cboe_c1options_complex_pitch_v2_1_18.delete_order_message.dissect,
-  [0x2A] = cboe_c1options_complex_pitch_v2_1_18.trade_long_message.dissect,
-  [0x2B] = cboe_c1options_complex_pitch_v2_1_18.trade_short_message.dissect,
-  [0xAD] = cboe_c1options_complex_pitch_v2_1_18.auction_notification_message.dissect,
-  [0xAE] = cboe_c1options_complex_pitch_v2_1_18.auction_cancel_message.dissect,
-  [0xAF] = cboe_c1options_complex_pitch_v2_1_18.auction_trade_message.dissect,
-  [0x31] = cboe_c1options_complex_pitch_v2_1_18.trading_status_message.dissect,
-  [0xD1] = cboe_c1options_complex_pitch_v2_1_18.auction_update_message.dissect,
-  [0x96] = cboe_c1options_complex_pitch_v2_1_18.auction_summary_message.dissect,
-  [0x2D] = cboe_c1options_complex_pitch_v2_1_18.end_of_session_message.dissect,
-}
-
 cboe_c1options_complex_pitch_v2_1_18.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_c1options_complex_pitch_v2_1_18.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_c1options_complex_pitch_v2_1_18.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_c1options_complex_pitch_v2_1_18.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Transaction Begin
+  if message_type == 0xBC then
+    return cboe_c1options_complex_pitch_v2_1_18.transaction_begin.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Transaction End Message
+  if message_type == 0xBD then
+    return cboe_c1options_complex_pitch_v2_1_18.transaction_end_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Instrument Definition Expanded Message
+  if message_type == 0x9A then
+    return cboe_c1options_complex_pitch_v2_1_18.complex_instrument_definition_expanded_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Mapping Message
+  if message_type == 0x2E then
+    return cboe_c1options_complex_pitch_v2_1_18.symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Long Message
+  if message_type == 0x21 then
+    return cboe_c1options_complex_pitch_v2_1_18.add_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Short Message
+  if message_type == 0x22 then
+    return cboe_c1options_complex_pitch_v2_1_18.add_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Expanded Message
+  if message_type == 0x2F then
+    return cboe_c1options_complex_pitch_v2_1_18.add_order_expanded_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed Message
+  if message_type == 0x23 then
+    return cboe_c1options_complex_pitch_v2_1_18.order_executed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed At Price Size Message
+  if message_type == 0x24 then
+    return cboe_c1options_complex_pitch_v2_1_18.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Long Message
+  if message_type == 0x25 then
+    return cboe_c1options_complex_pitch_v2_1_18.reduce_size_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Short Message
+  if message_type == 0x26 then
+    return cboe_c1options_complex_pitch_v2_1_18.reduce_size_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Long Message
+  if message_type == 0x27 then
+    return cboe_c1options_complex_pitch_v2_1_18.modify_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Short Message
+  if message_type == 0x28 then
+    return cboe_c1options_complex_pitch_v2_1_18.modify_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Message
+  if message_type == 0x29 then
+    return cboe_c1options_complex_pitch_v2_1_18.delete_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Long Message
+  if message_type == 0x2A then
+    return cboe_c1options_complex_pitch_v2_1_18.trade_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Short Message
+  if message_type == 0x2B then
+    return cboe_c1options_complex_pitch_v2_1_18.trade_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Notification Message
+  if message_type == 0xAD then
+    return cboe_c1options_complex_pitch_v2_1_18.auction_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Cancel Message
+  if message_type == 0xAE then
+    return cboe_c1options_complex_pitch_v2_1_18.auction_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Trade Message
+  if message_type == 0xAF then
+    return cboe_c1options_complex_pitch_v2_1_18.auction_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_c1options_complex_pitch_v2_1_18.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Update Message
+  if message_type == 0xD1 then
+    return cboe_c1options_complex_pitch_v2_1_18.auction_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Summary Message
+  if message_type == 0x96 then
+    return cboe_c1options_complex_pitch_v2_1_18.auction_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_c1options_complex_pitch_v2_1_18.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

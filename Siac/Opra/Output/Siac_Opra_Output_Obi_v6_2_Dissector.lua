@@ -1833,13 +1833,15 @@ siac_opra_output_obi_v6_2.session_indicator = {}
 siac_opra_output_obi_v6_2.session_indicator.size = 1
 
 -- Display: Session Indicator
-siac_opra_output_obi_v6_2.session_indicator.labels = {
-  [0] = "Session Indicator: Regular (0)",
-  [0x58] = "Session Indicator: Pre Market (0x58)",
-}
-
 siac_opra_output_obi_v6_2.session_indicator.display = function(value)
-  return siac_opra_output_obi_v6_2.session_indicator.labels[value] or "Session Indicator: Unknown("..value..")"
+  if value == 0 then
+    return "Session Indicator: Regular (0)"
+  end
+  if value == 0x58 then
+    return "Session Indicator: Pre Market (0x58)"
+  end
+
+  return "Session Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Session Indicator

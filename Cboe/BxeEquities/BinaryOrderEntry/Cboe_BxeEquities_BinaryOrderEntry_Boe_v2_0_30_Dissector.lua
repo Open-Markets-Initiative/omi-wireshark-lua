@@ -4003,35 +4003,81 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type = {}
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type.size = 1
 
 -- Display: Message Type
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type.labels = {
-  [0x37] = "Message Type: Login Request V 2 Message (0x37)",
-  [0x02] = "Message Type: Logout Request Message (0x02)",
-  [0x03] = "Message Type: Client Heartbeat Message (0x03)",
-  [0x24] = "Message Type: Login Response V 2 Message (0x24)",
-  [0x08] = "Message Type: Logout Message (0x08)",
-  [0x09] = "Message Type: Server Heartbeat Message (0x09)",
-  [0x13] = "Message Type: Replay Complete Message (0x13)",
-  [0x38] = "Message Type: New Order V 2 Message (0x38)",
-  [0x39] = "Message Type: Cancel Order V 2 Message (0x39)",
-  [0x3A] = "Message Type: Modify Order V 2 Message (0x3A)",
-  [0x3C] = "Message Type: Trade Capture Report V 2 Message (0x3C)",
-  [0x25] = "Message Type: Order Acknowledgment V 2 Message (0x25)",
-  [0x26] = "Message Type: Order Rejected V 2 Message (0x26)",
-  [0x27] = "Message Type: Order Modified V 2 Message (0x27)",
-  [0x28] = "Message Type: Order Restated V 2 Message (0x28)",
-  [0x29] = "Message Type: User Modify Rejected V 2 Message (0x29)",
-  [0x2A] = "Message Type: Order Cancelled V 2 Message (0x2A)",
-  [0x2B] = "Message Type: Cancel Rejected V 2 Message (0x2B)",
-  [0x2C] = "Message Type: Order Execution V 2 Message (0x2C)",
-  [0x2D] = "Message Type: Trade Cancel Or Correct V 2 Message (0x2D)",
-  [0x30] = "Message Type: Trade Capture Report Acknowledgment V 2 Message (0x30)",
-  [0x31] = "Message Type: Trade Capture Report Reject V 2 Message (0x31)",
-  [0x32] = "Message Type: Trade Capture Confirm V 2 Message (0x32)",
-  [0x33] = "Message Type: Trade Capture Report Decline V 2 Message (0x33)",
-}
-
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type.display = function(value)
-  return cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x37 then
+    return "Message Type: Login Request V 2 Message (0x37)"
+  end
+  if value == 0x02 then
+    return "Message Type: Logout Request Message (0x02)"
+  end
+  if value == 0x03 then
+    return "Message Type: Client Heartbeat Message (0x03)"
+  end
+  if value == 0x24 then
+    return "Message Type: Login Response V 2 Message (0x24)"
+  end
+  if value == 0x08 then
+    return "Message Type: Logout Message (0x08)"
+  end
+  if value == 0x09 then
+    return "Message Type: Server Heartbeat Message (0x09)"
+  end
+  if value == 0x13 then
+    return "Message Type: Replay Complete Message (0x13)"
+  end
+  if value == 0x38 then
+    return "Message Type: New Order V 2 Message (0x38)"
+  end
+  if value == 0x39 then
+    return "Message Type: Cancel Order V 2 Message (0x39)"
+  end
+  if value == 0x3A then
+    return "Message Type: Modify Order V 2 Message (0x3A)"
+  end
+  if value == 0x3C then
+    return "Message Type: Trade Capture Report V 2 Message (0x3C)"
+  end
+  if value == 0x25 then
+    return "Message Type: Order Acknowledgment V 2 Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Order Rejected V 2 Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Order Modified V 2 Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Order Restated V 2 Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: User Modify Rejected V 2 Message (0x29)"
+  end
+  if value == 0x2A then
+    return "Message Type: Order Cancelled V 2 Message (0x2A)"
+  end
+  if value == 0x2B then
+    return "Message Type: Cancel Rejected V 2 Message (0x2B)"
+  end
+  if value == 0x2C then
+    return "Message Type: Order Execution V 2 Message (0x2C)"
+  end
+  if value == 0x2D then
+    return "Message Type: Trade Cancel Or Correct V 2 Message (0x2D)"
+  end
+  if value == 0x30 then
+    return "Message Type: Trade Capture Report Acknowledgment V 2 Message (0x30)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trade Capture Report Reject V 2 Message (0x31)"
+  end
+  if value == 0x32 then
+    return "Message Type: Trade Capture Confirm V 2 Message (0x32)"
+  end
+  if value == 0x33 then
+    return "Message Type: Trade Capture Report Decline V 2 Message (0x33)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -32555,37 +32601,102 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.message = {}
 
 -- Dissect: Message
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.message.dispatch = {
-  [0x37] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.login_request_v_2_message.dissect,
-  [0x02] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.logout_request_message.dissect,
-  [0x03] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.client_heartbeat_message.dissect,
-  [0x24] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.login_response_v_2_message.dissect,
-  [0x08] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.logout_message.dissect,
-  [0x09] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.server_heartbeat_message.dissect,
-  [0x13] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.replay_complete_message.dissect,
-  [0x38] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.new_order_v_2_message.dissect,
-  [0x39] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.cancel_order_v_2_message.dissect,
-  [0x3A] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.modify_order_v_2_message.dissect,
-  [0x3C] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_v_2_message.dissect,
-  [0x25] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_acknowledgment_v_2_message.dissect,
-  [0x26] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_rejected_v_2_message.dissect,
-  [0x27] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_modified_v_2_message.dissect,
-  [0x28] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_restated_v_2_message.dissect,
-  [0x29] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.user_modify_rejected_v_2_message.dissect,
-  [0x2A] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_cancelled_v_2_message.dissect,
-  [0x2B] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.cancel_rejected_v_2_message.dissect,
-  [0x2C] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_execution_v_2_message.dissect,
-  [0x2D] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_cancel_or_correct_v_2_message.dissect,
-  [0x30] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_acknowledgment_v_2_message.dissect,
-  [0x31] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_reject_v_2_message.dissect,
-  [0x32] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_confirm_v_2_message.dissect,
-  [0x33] = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_decline_v_2_message.dissect,
-}
-
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.message.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_bxeequities_binaryorderentry_boe_v2_0_30.message.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request V 2 Message
+  if message_type == 0x37 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.login_request_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request Message
+  if message_type == 0x02 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.logout_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Message
+  if message_type == 0x03 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.client_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response V 2 Message
+  if message_type == 0x24 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.login_response_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Message
+  if message_type == 0x08 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.logout_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Heartbeat Message
+  if message_type == 0x09 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.server_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 0x13 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order V 2 Message
+  if message_type == 0x38 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.new_order_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Order V 2 Message
+  if message_type == 0x39 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.cancel_order_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order V 2 Message
+  if message_type == 0x3A then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.modify_order_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report V 2 Message
+  if message_type == 0x3C then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Acknowledgment V 2 Message
+  if message_type == 0x25 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_acknowledgment_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Rejected V 2 Message
+  if message_type == 0x26 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_rejected_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modified V 2 Message
+  if message_type == 0x27 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_modified_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Restated V 2 Message
+  if message_type == 0x28 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_restated_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Modify Rejected V 2 Message
+  if message_type == 0x29 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.user_modify_rejected_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancelled V 2 Message
+  if message_type == 0x2A then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_cancelled_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Rejected V 2 Message
+  if message_type == 0x2B then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.cancel_rejected_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Execution V 2 Message
+  if message_type == 0x2C then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_execution_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Or Correct V 2 Message
+  if message_type == 0x2D then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_cancel_or_correct_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report Acknowledgment V 2 Message
+  if message_type == 0x30 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_acknowledgment_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report Reject V 2 Message
+  if message_type == 0x31 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_reject_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Confirm V 2 Message
+  if message_type == 0x32 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_confirm_v_2_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Capture Report Decline V 2 Message
+  if message_type == 0x33 then
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_decline_v_2_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

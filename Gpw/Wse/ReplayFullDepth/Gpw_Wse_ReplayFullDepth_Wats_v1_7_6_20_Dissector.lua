@@ -12857,7 +12857,6 @@ end
 
 -- Register Heuristics for Gpw Wse ReplayFullDepth Wats 1.7.6.20
 omi_gpw_wse_replayfulldepth_wats_v1_7_6_20:register_heuristic("tcp", omi_gpw_wse_replayfulldepth_wats_v1_7_6_20_tcp_heuristic)
-omi_gpw_wse_replayfulldepth_wats_v1_7_6_20:register_heuristic("tcp", omi_gpw_wse_replayfulldepth_wats_v1_7_6_20_tcp_heuristic)
 
 -- Register Gpw Wse ReplayFullDepth Wats 1.7.6.20 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")

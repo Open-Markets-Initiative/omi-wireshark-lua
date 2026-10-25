@@ -2017,33 +2017,75 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_55.message_type = {}
 cboe_edgxequities_binaryorderentry_boe_v2_4_55.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgxequities_binaryorderentry_boe_v2_4_55.message_type.labels = {
-  [0x37] = "Message Type: Login Request Message (0x37)",
-  [0x02] = "Message Type: Logout Request Message (0x02)",
-  [0x03] = "Message Type: Client Heartbeat Message (0x03)",
-  [0x24] = "Message Type: Login Response Message (0x24)",
-  [0x08] = "Message Type: Logout Message (0x08)",
-  [0x09] = "Message Type: Server Heartbeat Message (0x09)",
-  [0x13] = "Message Type: Replay Complete Message (0x13)",
-  [0x38] = "Message Type: New Order Message (0x38)",
-  [0x39] = "Message Type: Cancel Order Message (0x39)",
-  [0x3A] = "Message Type: Modify Order Message (0x3A)",
-  [0x47] = "Message Type: Purge Orders Message (0x47)",
-  [0x25] = "Message Type: Order Acknowledgment Message (0x25)",
-  [0x26] = "Message Type: Order Rejected Message (0x26)",
-  [0x27] = "Message Type: Order Modified Message (0x27)",
-  [0x28] = "Message Type: Order Restated Message (0x28)",
-  [0x29] = "Message Type: User Modify Rejected Message (0x29)",
-  [0x2A] = "Message Type: Order Cancelled Message (0x2A)",
-  [0x2B] = "Message Type: Cancel Rejected Message (0x2B)",
-  [0x2C] = "Message Type: Order Execution Message (0x2C)",
-  [0x2D] = "Message Type: Trade Cancel Or Correct Message (0x2D)",
-  [0x36] = "Message Type: Mass Cancel Acknowledgment Message (0x36)",
-  [0x48] = "Message Type: Purge Rejected Message (0x48)",
-}
-
 cboe_edgxequities_binaryorderentry_boe_v2_4_55.message_type.display = function(value)
-  return cboe_edgxequities_binaryorderentry_boe_v2_4_55.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x37 then
+    return "Message Type: Login Request Message (0x37)"
+  end
+  if value == 0x02 then
+    return "Message Type: Logout Request Message (0x02)"
+  end
+  if value == 0x03 then
+    return "Message Type: Client Heartbeat Message (0x03)"
+  end
+  if value == 0x24 then
+    return "Message Type: Login Response Message (0x24)"
+  end
+  if value == 0x08 then
+    return "Message Type: Logout Message (0x08)"
+  end
+  if value == 0x09 then
+    return "Message Type: Server Heartbeat Message (0x09)"
+  end
+  if value == 0x13 then
+    return "Message Type: Replay Complete Message (0x13)"
+  end
+  if value == 0x38 then
+    return "Message Type: New Order Message (0x38)"
+  end
+  if value == 0x39 then
+    return "Message Type: Cancel Order Message (0x39)"
+  end
+  if value == 0x3A then
+    return "Message Type: Modify Order Message (0x3A)"
+  end
+  if value == 0x47 then
+    return "Message Type: Purge Orders Message (0x47)"
+  end
+  if value == 0x25 then
+    return "Message Type: Order Acknowledgment Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Order Rejected Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Order Modified Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Order Restated Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: User Modify Rejected Message (0x29)"
+  end
+  if value == 0x2A then
+    return "Message Type: Order Cancelled Message (0x2A)"
+  end
+  if value == 0x2B then
+    return "Message Type: Cancel Rejected Message (0x2B)"
+  end
+  if value == 0x2C then
+    return "Message Type: Order Execution Message (0x2C)"
+  end
+  if value == 0x2D then
+    return "Message Type: Trade Cancel Or Correct Message (0x2D)"
+  end
+  if value == 0x36 then
+    return "Message Type: Mass Cancel Acknowledgment Message (0x36)"
+  end
+  if value == 0x48 then
+    return "Message Type: Purge Rejected Message (0x48)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -12640,35 +12682,94 @@ end
 cboe_edgxequities_binaryorderentry_boe_v2_4_55.message = {}
 
 -- Dissect: Message
-cboe_edgxequities_binaryorderentry_boe_v2_4_55.message.dispatch = {
-  [0x37] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.login_request_message.dissect,
-  [0x02] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.logout_request_message.dissect,
-  [0x03] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.client_heartbeat_message.dissect,
-  [0x24] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.login_response_message.dissect,
-  [0x08] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.logout_message.dissect,
-  [0x09] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.server_heartbeat_message.dissect,
-  [0x13] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.replay_complete_message.dissect,
-  [0x38] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.new_order_message.dissect,
-  [0x39] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.cancel_order_message.dissect,
-  [0x3A] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.modify_order_message.dissect,
-  [0x47] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.purge_orders_message.dissect,
-  [0x25] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.dissect,
-  [0x26] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.dissect,
-  [0x27] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_modified_message.dissect,
-  [0x28] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_restated_message.dissect,
-  [0x29] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.user_modify_rejected_message.dissect,
-  [0x2A] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.dissect,
-  [0x2B] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.dissect,
-  [0x2C] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_execution_message.dissect,
-  [0x2D] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.trade_cancel_or_correct_message.dissect,
-  [0x36] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.mass_cancel_acknowledgment_message.dissect,
-  [0x48] = cboe_edgxequities_binaryorderentry_boe_v2_4_55.purge_rejected_message.dissect,
-}
-
 cboe_edgxequities_binaryorderentry_boe_v2_4_55.message.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_edgxequities_binaryorderentry_boe_v2_4_55.message.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request Message
+  if message_type == 0x37 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request Message
+  if message_type == 0x02 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.logout_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Message
+  if message_type == 0x03 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.client_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x24 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Message
+  if message_type == 0x08 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.logout_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Heartbeat Message
+  if message_type == 0x09 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.server_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 0x13 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Order Message
+  if message_type == 0x38 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.new_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Order Message
+  if message_type == 0x39 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.cancel_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Message
+  if message_type == 0x3A then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.modify_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Orders Message
+  if message_type == 0x47 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.purge_orders_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Acknowledgment Message
+  if message_type == 0x25 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Rejected Message
+  if message_type == 0x26 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modified Message
+  if message_type == 0x27 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_modified_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Restated Message
+  if message_type == 0x28 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_restated_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Modify Rejected Message
+  if message_type == 0x29 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.user_modify_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancelled Message
+  if message_type == 0x2A then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cancel Rejected Message
+  if message_type == 0x2B then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Execution Message
+  if message_type == 0x2C then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.order_execution_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Cancel Or Correct Message
+  if message_type == 0x2D then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.trade_cancel_or_correct_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Acknowledgment Message
+  if message_type == 0x36 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.mass_cancel_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Rejected Message
+  if message_type == 0x48 then
+    return cboe_edgxequities_binaryorderentry_boe_v2_4_55.purge_rejected_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -339,12 +339,12 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type = {}
 cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.size = 1
 
 -- Display: Message Type
-cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.labels = {
-  [0x90] = "Message Type: Latency Stat Message (0x90)",
-}
-
 cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.display = function(value)
-  return cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x90 then
+    return "Message Type: Latency Stat Message (0x90)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -748,14 +748,10 @@ end
 cboe_cboeeurope_latencyfeed_pitch_v1_4.payload = {}
 
 -- Dissect: Payload
-cboe_cboeeurope_latencyfeed_pitch_v1_4.payload.dispatch = {
-  [0x90] = cboe_cboeeurope_latencyfeed_pitch_v1_4.latency_stat_message.dissect,
-}
-
 cboe_cboeeurope_latencyfeed_pitch_v1_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_cboeeurope_latencyfeed_pitch_v1_4.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Latency Stat Message
+  if message_type == 0x90 then
+    return cboe_cboeeurope_latencyfeed_pitch_v1_4.latency_stat_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

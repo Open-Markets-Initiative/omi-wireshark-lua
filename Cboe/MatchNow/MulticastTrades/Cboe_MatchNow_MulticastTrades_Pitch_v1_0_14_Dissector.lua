@@ -290,15 +290,21 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.message_type = {}
 cboe_matchnow_multicasttrades_pitch_v1_0_14.message_type.size = 1
 
 -- Display: Message Type
-cboe_matchnow_multicasttrades_pitch_v1_0_14.message_type.labels = {
-  [0x97] = "Message Type: Unit Clear Message (0x97)",
-  [0x43] = "Message Type: Trading Status Message (0x43)",
-  [0x42] = "Message Type: Trade Message (0x42)",
-  [0x2D] = "Message Type: End Of Session Message (0x2D)",
-}
-
 cboe_matchnow_multicasttrades_pitch_v1_0_14.message_type.display = function(value)
-  return cboe_matchnow_multicasttrades_pitch_v1_0_14.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x43 then
+    return "Message Type: Trading Status Message (0x43)"
+  end
+  if value == 0x42 then
+    return "Message Type: Trade Message (0x42)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -908,17 +914,22 @@ end
 cboe_matchnow_multicasttrades_pitch_v1_0_14.payload = {}
 
 -- Dissect: Payload
-cboe_matchnow_multicasttrades_pitch_v1_0_14.payload.dispatch = {
-  [0x97] = cboe_matchnow_multicasttrades_pitch_v1_0_14.unit_clear_message.dissect,
-  [0x43] = cboe_matchnow_multicasttrades_pitch_v1_0_14.trading_status_message.dissect,
-  [0x42] = cboe_matchnow_multicasttrades_pitch_v1_0_14.trade_message.dissect,
-  [0x2D] = cboe_matchnow_multicasttrades_pitch_v1_0_14.end_of_session_message.dissect,
-}
-
 cboe_matchnow_multicasttrades_pitch_v1_0_14.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = cboe_matchnow_multicasttrades_pitch_v1_0_14.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_matchnow_multicasttrades_pitch_v1_0_14.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x43 then
+    return cboe_matchnow_multicasttrades_pitch_v1_0_14.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Message
+  if message_type == 0x42 then
+    return cboe_matchnow_multicasttrades_pitch_v1_0_14.trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_matchnow_multicasttrades_pitch_v1_0_14.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

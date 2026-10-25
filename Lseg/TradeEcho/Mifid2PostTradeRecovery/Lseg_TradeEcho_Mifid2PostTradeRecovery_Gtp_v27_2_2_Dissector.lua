@@ -2235,21 +2235,39 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.message_type = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.message_type.size = 1
 
 -- Display: Message Type
-lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.message_type.labels = {
-  [0x01] = "Message Type: Login Request Message (0x01)",
-  [0x81] = "Message Type: Recovery Request Message (0x81)",
-  [0x02] = "Message Type: Login Response Message (0x02)",
-  [0x82] = "Message Type: Recovery Response Message (0x82)",
-  [0x83] = "Message Type: Replay And Recovery Complete Message (0x83)",
-  [0x53] = "Message Type: System Event Message (0x53)",
-  [0x70] = "Message Type: Instrument Directory Message (0x70)",
-  [0x48] = "Message Type: Instrument Status Message (0x48)",
-  [0x6b] = "Message Type: Statistics Snapshot Message (0x6b)",
-  [0x54] = "Message Type: Mifid Ii Trade Report Message (0x54)",
-}
-
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.message_type.display = function(value)
-  return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x01 then
+    return "Message Type: Login Request Message (0x01)"
+  end
+  if value == 0x81 then
+    return "Message Type: Recovery Request Message (0x81)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x82 then
+    return "Message Type: Recovery Response Message (0x82)"
+  end
+  if value == 0x83 then
+    return "Message Type: Replay And Recovery Complete Message (0x83)"
+  end
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x6b then
+    return "Message Type: Statistics Snapshot Message (0x6b)"
+  end
+  if value == 0x54 then
+    return "Message Type: Mifid Ii Trade Report Message (0x54)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -6273,23 +6291,46 @@ end
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.payload = {}
 
 -- Dissect: Payload
-lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.payload.dispatch = {
-  [0x01] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.login_request_message.dissect,
-  [0x81] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.recovery_request_message.dissect,
-  [0x02] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.login_response_message.dissect,
-  [0x82] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.recovery_response_message.dissect,
-  [0x83] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.replay_and_recovery_complete_message.dissect,
-  [0x53] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.system_event_message.dissect,
-  [0x70] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.instrument_directory_message.dissect,
-  [0x48] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.instrument_status_message.dissect,
-  [0x6b] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.statistics_snapshot_message.dissect,
-  [0x54] = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.mifid_ii_trade_report_message.dissect,
-}
-
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Login Request Message
+  if message_type == 0x01 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Recovery Request Message
+  if message_type == 0x81 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.recovery_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Recovery Response Message
+  if message_type == 0x82 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.recovery_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay And Recovery Complete Message
+  if message_type == 0x83 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x70 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Snapshot Message
+  if message_type == 0x6b then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.statistics_snapshot_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Trade Report Message
+  if message_type == 0x54 then
+    return lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.mifid_ii_trade_report_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

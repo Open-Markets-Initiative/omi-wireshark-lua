@@ -4991,57 +4991,147 @@ bme_bmeequities_marketandorder_bmegate_v1_6.message_type = {}
 bme_bmeequities_marketandorder_bmegate_v1_6.message_type.size = 1
 
 -- Display: Message Type
-bme_bmeequities_marketandorder_bmegate_v1_6.message_type.labels = {
-  [0x08] = "Message Type: Logon Response Message (0x08)",
-  [0x0B] = "Message Type: Logout Response Message (0x0B)",
-  [0x30] = "Message Type: Heartbeat Message (0x30)",
-  [0x0A] = "Message Type: Network Status Message (0x0A)",
-  [0x41] = "Message Type: Logon Message (0x41)",
-  [0x35] = "Message Type: Logout Message (0x35)",
-  [0x0D] = "Message Type: Reject Message (0x0D)",
-  [0x68] = "Message Type: Trading Session Status Message (0x68)",
-  [0x42] = "Message Type: News Message (0x42)",
-  [0x78] = "Message Type: Security List Cancellation Report Message (0x78)",
-  [0x84] = "Message Type: Statistics Message (0x84)",
-  [0x79] = "Message Type: Security List Message (0x79)",
-  [0x80] = "Message Type: Security List Update Report Message (0x80)",
-  [0x66] = "Message Type: Security Status Message (0x66)",
-  [0x81] = "Message Type: Order Book Clear Message (0x81)",
-  [0x03] = "Message Type: Order Market Pre Transparency Information Message (0x03)",
-  [0x07] = "Message Type: Quote Market Pre Transparency Information Message (0x07)",
-  [0x01] = "Message Type: Order Cancellation Market Member Message (0x01)",
-  [0x05] = "Message Type: Quote Cancellation Market Member Message (0x05)",
-  [0x10] = "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)",
-  [0x18] = "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)",
-  [0x11] = "Message Type: Trade Market Post Transparency Information Full Depth Message (0x11)",
-  [0x82] = "Message Type: Topofbook Message (0x82)",
-  [0x6F] = "Message Type: Order And Quote Client Data Message (0x6F)",
-  [0x44] = "Message Type: Simple New Order Message (0x44)",
-  [0x45] = "Message Type: Simple New Order With Client Data Message (0x45)",
-  [0x47] = "Message Type: Simple Order Modification Message (0x47)",
-  [0x48] = "Message Type: Simple Order Modification With Client Data Message (0x48)",
-  [0x46] = "Message Type: Order Cancellation Request Message (0x46)",
-  [0x53] = "Message Type: New Quote Message (0x53)",
-  [0x61] = "Message Type: Quote Modification Request Message (0x61)",
-  [0x5A] = "Message Type: Quote Cancellation Request Message (0x5A)",
-  [0x71] = "Message Type: Mass Orderquote Cancellation Message (0x71)",
-  [0x87] = "Message Type: Order And Quote Client Data Parameters Ack Nack Message (0x87)",
-  [0x02] = "Message Type: Simple Order Status Message (0x02)",
-  [0x06] = "Message Type: Quote Status Message (0x06)",
-  [0x39] = "Message Type: Order Cancel Reject Message (0x39)",
-  [0x72] = "Message Type: Mass Orderquote Cancellation Completion Message (0x72)",
-  [0x73] = "Message Type: Mass Orderquote Cancellation Reject Message (0x73)",
-  [0x6A] = "Message Type: Business Message Reject Message (0x6A)",
-  [0x17] = "Message Type: Execution Private Information 2 Legs Message (0x17)",
-  [0x1A] = "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message (0x1A)",
-  [0x1C] = "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message (0x1C)",
-  [0x1E] = "Message Type: Trade Trade Amendment Or Cancellation 2 Legs Private Information Message (0x1E)",
-  [0x13] = "Message Type: Execution Private Information 1 Leg Buy Market Order Message (0x13)",
-  [0x15] = "Message Type: Execution Private Information 1 Leg Sell Market Order Message (0x15)",
-}
-
 bme_bmeequities_marketandorder_bmegate_v1_6.message_type.display = function(value)
-  return bme_bmeequities_marketandorder_bmegate_v1_6.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x08 then
+    return "Message Type: Logon Response Message (0x08)"
+  end
+  if value == 0x0B then
+    return "Message Type: Logout Response Message (0x0B)"
+  end
+  if value == 0x30 then
+    return "Message Type: Heartbeat Message (0x30)"
+  end
+  if value == 0x0A then
+    return "Message Type: Network Status Message (0x0A)"
+  end
+  if value == 0x41 then
+    return "Message Type: Logon Message (0x41)"
+  end
+  if value == 0x35 then
+    return "Message Type: Logout Message (0x35)"
+  end
+  if value == 0x0D then
+    return "Message Type: Reject Message (0x0D)"
+  end
+  if value == 0x68 then
+    return "Message Type: Trading Session Status Message (0x68)"
+  end
+  if value == 0x42 then
+    return "Message Type: News Message (0x42)"
+  end
+  if value == 0x78 then
+    return "Message Type: Security List Cancellation Report Message (0x78)"
+  end
+  if value == 0x84 then
+    return "Message Type: Statistics Message (0x84)"
+  end
+  if value == 0x79 then
+    return "Message Type: Security List Message (0x79)"
+  end
+  if value == 0x80 then
+    return "Message Type: Security List Update Report Message (0x80)"
+  end
+  if value == 0x66 then
+    return "Message Type: Security Status Message (0x66)"
+  end
+  if value == 0x81 then
+    return "Message Type: Order Book Clear Message (0x81)"
+  end
+  if value == 0x03 then
+    return "Message Type: Order Market Pre Transparency Information Message (0x03)"
+  end
+  if value == 0x07 then
+    return "Message Type: Quote Market Pre Transparency Information Message (0x07)"
+  end
+  if value == 0x01 then
+    return "Message Type: Order Cancellation Market Member Message (0x01)"
+  end
+  if value == 0x05 then
+    return "Message Type: Quote Cancellation Market Member Message (0x05)"
+  end
+  if value == 0x10 then
+    return "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)"
+  end
+  if value == 0x18 then
+    return "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)"
+  end
+  if value == 0x11 then
+    return "Message Type: Trade Market Post Transparency Information Full Depth Message (0x11)"
+  end
+  if value == 0x82 then
+    return "Message Type: Topofbook Message (0x82)"
+  end
+  if value == 0x6F then
+    return "Message Type: Order And Quote Client Data Message (0x6F)"
+  end
+  if value == 0x44 then
+    return "Message Type: Simple New Order Message (0x44)"
+  end
+  if value == 0x45 then
+    return "Message Type: Simple New Order With Client Data Message (0x45)"
+  end
+  if value == 0x47 then
+    return "Message Type: Simple Order Modification Message (0x47)"
+  end
+  if value == 0x48 then
+    return "Message Type: Simple Order Modification With Client Data Message (0x48)"
+  end
+  if value == 0x46 then
+    return "Message Type: Order Cancellation Request Message (0x46)"
+  end
+  if value == 0x53 then
+    return "Message Type: New Quote Message (0x53)"
+  end
+  if value == 0x61 then
+    return "Message Type: Quote Modification Request Message (0x61)"
+  end
+  if value == 0x5A then
+    return "Message Type: Quote Cancellation Request Message (0x5A)"
+  end
+  if value == 0x71 then
+    return "Message Type: Mass Orderquote Cancellation Message (0x71)"
+  end
+  if value == 0x87 then
+    return "Message Type: Order And Quote Client Data Parameters Ack Nack Message (0x87)"
+  end
+  if value == 0x02 then
+    return "Message Type: Simple Order Status Message (0x02)"
+  end
+  if value == 0x06 then
+    return "Message Type: Quote Status Message (0x06)"
+  end
+  if value == 0x39 then
+    return "Message Type: Order Cancel Reject Message (0x39)"
+  end
+  if value == 0x72 then
+    return "Message Type: Mass Orderquote Cancellation Completion Message (0x72)"
+  end
+  if value == 0x73 then
+    return "Message Type: Mass Orderquote Cancellation Reject Message (0x73)"
+  end
+  if value == 0x6A then
+    return "Message Type: Business Message Reject Message (0x6A)"
+  end
+  if value == 0x17 then
+    return "Message Type: Execution Private Information 2 Legs Message (0x17)"
+  end
+  if value == 0x1A then
+    return "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message (0x1A)"
+  end
+  if value == 0x1C then
+    return "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message (0x1C)"
+  end
+  if value == 0x1E then
+    return "Message Type: Trade Trade Amendment Or Cancellation 2 Legs Private Information Message (0x1E)"
+  end
+  if value == 0x13 then
+    return "Message Type: Execution Private Information 1 Leg Buy Market Order Message (0x13)"
+  end
+  if value == 0x15 then
+    return "Message Type: Execution Private Information 1 Leg Sell Market Order Message (0x15)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -8506,26 +8596,54 @@ bme_bmeequities_marketandorder_bmegate_v1_6.trading_scope = {}
 bme_bmeequities_marketandorder_bmegate_v1_6.trading_scope.size = 1
 
 -- Display: Trading Scope
-bme_bmeequities_marketandorder_bmegate_v1_6.trading_scope.labels = {
-  [1] = "Trading Scope: Valencia (1)",
-  [2] = "Trading Scope: Bilbao (2)",
-  [3] = "Trading Scope: Valencia And Bilbao (3)",
-  [4] = "Trading Scope: Barcelona (4)",
-  [5] = "Trading Scope: Valencia And Barcelona (5)",
-  [6] = "Trading Scope: Bilbao And Barcelona (6)",
-  [7] = "Trading Scope: Valencia Bilbao And Barcelona (7)",
-  [8] = "Trading Scope: Madrid (8)",
-  [9] = "Trading Scope: Valencia And Madrid (9)",
-  [A] = "Trading Scope: Bilbao And Madrid (A)",
-  [B] = "Trading Scope: Valencia Bilbao And Madrid (B)",
-  [C] = "Trading Scope: Barcelona And Madrid (C)",
-  [D] = "Trading Scope: Valencia Barcelona And Madrid (D)",
-  [E] = "Trading Scope: Bilbao Barcelona And Madrid (E)",
-  [F] = "Trading Scope: Valencia Bilbao Barcelona And Madrid (F)",
-}
-
 bme_bmeequities_marketandorder_bmegate_v1_6.trading_scope.display = function(value)
-  return bme_bmeequities_marketandorder_bmegate_v1_6.trading_scope.labels[value] or "Trading Scope: Unknown("..value..")"
+  if value == 1 then
+    return "Trading Scope: Valencia (1)"
+  end
+  if value == 2 then
+    return "Trading Scope: Bilbao (2)"
+  end
+  if value == 3 then
+    return "Trading Scope: Valencia And Bilbao (3)"
+  end
+  if value == 4 then
+    return "Trading Scope: Barcelona (4)"
+  end
+  if value == 5 then
+    return "Trading Scope: Valencia And Barcelona (5)"
+  end
+  if value == 6 then
+    return "Trading Scope: Bilbao And Barcelona (6)"
+  end
+  if value == 7 then
+    return "Trading Scope: Valencia Bilbao And Barcelona (7)"
+  end
+  if value == 8 then
+    return "Trading Scope: Madrid (8)"
+  end
+  if value == 9 then
+    return "Trading Scope: Valencia And Madrid (9)"
+  end
+  if value == A then
+    return "Trading Scope: Bilbao And Madrid (A)"
+  end
+  if value == B then
+    return "Trading Scope: Valencia Bilbao And Madrid (B)"
+  end
+  if value == C then
+    return "Trading Scope: Barcelona And Madrid (C)"
+  end
+  if value == D then
+    return "Trading Scope: Valencia Barcelona And Madrid (D)"
+  end
+  if value == E then
+    return "Trading Scope: Bilbao Barcelona And Madrid (E)"
+  end
+  if value == F then
+    return "Trading Scope: Valencia Bilbao Barcelona And Madrid (F)"
+  end
+
+  return "Trading Scope: Unknown("..value..")"
 end
 
 -- Dissect: Trading Scope
@@ -14364,59 +14482,190 @@ end
 bme_bmeequities_marketandorder_bmegate_v1_6.payload = {}
 
 -- Dissect: Payload
-bme_bmeequities_marketandorder_bmegate_v1_6.payload.dispatch = {
-  [0x08] = bme_bmeequities_marketandorder_bmegate_v1_6.logon_response_message.dissect,
-  [0x0B] = bme_bmeequities_marketandorder_bmegate_v1_6.logout_response_message.dissect,
-  [0x30] = bme_bmeequities_marketandorder_bmegate_v1_6.heartbeat_message.dissect,
-  [0x0A] = bme_bmeequities_marketandorder_bmegate_v1_6.network_status_message.dissect,
-  [0x41] = bme_bmeequities_marketandorder_bmegate_v1_6.logon_message.dissect,
-  [0x35] = bme_bmeequities_marketandorder_bmegate_v1_6.logout_message.dissect,
-  [0x0D] = bme_bmeequities_marketandorder_bmegate_v1_6.reject_message.dissect,
-  [0x68] = bme_bmeequities_marketandorder_bmegate_v1_6.trading_session_status_message.dissect,
-  [0x42] = bme_bmeequities_marketandorder_bmegate_v1_6.news_message.dissect,
-  [0x78] = bme_bmeequities_marketandorder_bmegate_v1_6.security_list_cancellation_report_message.dissect,
-  [0x84] = bme_bmeequities_marketandorder_bmegate_v1_6.statistics_message.dissect,
-  [0x79] = bme_bmeequities_marketandorder_bmegate_v1_6.security_list_message.dissect,
-  [0x80] = bme_bmeequities_marketandorder_bmegate_v1_6.security_list_update_report_message.dissect,
-  [0x66] = bme_bmeequities_marketandorder_bmegate_v1_6.security_status_message.dissect,
-  [0x81] = bme_bmeequities_marketandorder_bmegate_v1_6.order_book_clear_message.dissect,
-  [0x03] = bme_bmeequities_marketandorder_bmegate_v1_6.order_market_pre_transparency_information_message.dissect,
-  [0x07] = bme_bmeequities_marketandorder_bmegate_v1_6.quote_market_pre_transparency_information_message.dissect,
-  [0x01] = bme_bmeequities_marketandorder_bmegate_v1_6.order_cancellation_market_member_message.dissect,
-  [0x05] = bme_bmeequities_marketandorder_bmegate_v1_6.quote_cancellation_market_member_message.dissect,
-  [0x10] = bme_bmeequities_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect,
-  [0x18] = bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_message.dissect,
-  [0x11] = bme_bmeequities_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_full_depth_message.dissect,
-  [0x82] = bme_bmeequities_marketandorder_bmegate_v1_6.topofbook_message.dissect,
-  [0x6F] = bme_bmeequities_marketandorder_bmegate_v1_6.order_and_quote_client_data_message.dissect,
-  [0x44] = bme_bmeequities_marketandorder_bmegate_v1_6.simple_new_order_message.dissect,
-  [0x45] = bme_bmeequities_marketandorder_bmegate_v1_6.simple_new_order_with_client_data_message.dissect,
-  [0x47] = bme_bmeequities_marketandorder_bmegate_v1_6.simple_order_modification_message.dissect,
-  [0x48] = bme_bmeequities_marketandorder_bmegate_v1_6.simple_order_modification_with_client_data_message.dissect,
-  [0x46] = bme_bmeequities_marketandorder_bmegate_v1_6.order_cancellation_request_message.dissect,
-  [0x53] = bme_bmeequities_marketandorder_bmegate_v1_6.new_quote_message.dissect,
-  [0x61] = bme_bmeequities_marketandorder_bmegate_v1_6.quote_modification_request_message.dissect,
-  [0x5A] = bme_bmeequities_marketandorder_bmegate_v1_6.quote_cancellation_request_message.dissect,
-  [0x71] = bme_bmeequities_marketandorder_bmegate_v1_6.mass_orderquote_cancellation_message.dissect,
-  [0x87] = bme_bmeequities_marketandorder_bmegate_v1_6.order_and_quote_client_data_parameters_ack_nack_message.dissect,
-  [0x02] = bme_bmeequities_marketandorder_bmegate_v1_6.simple_order_status_message.dissect,
-  [0x06] = bme_bmeequities_marketandorder_bmegate_v1_6.quote_status_message.dissect,
-  [0x39] = bme_bmeequities_marketandorder_bmegate_v1_6.order_cancel_reject_message.dissect,
-  [0x72] = bme_bmeequities_marketandorder_bmegate_v1_6.mass_orderquote_cancellation_completion_message.dissect,
-  [0x73] = bme_bmeequities_marketandorder_bmegate_v1_6.mass_orderquote_cancellation_reject_message.dissect,
-  [0x6A] = bme_bmeequities_marketandorder_bmegate_v1_6.business_message_reject_message.dissect,
-  [0x17] = bme_bmeequities_marketandorder_bmegate_v1_6.execution_private_information_2_legs_message.dissect,
-  [0x1A] = bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_buy_private_information_message.dissect,
-  [0x1C] = bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_sell_private_information_message.dissect,
-  [0x1E] = bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_legs_private_information_message.dissect,
-  [0x13] = bme_bmeequities_marketandorder_bmegate_v1_6.execution_private_information_1_leg_buy_market_order_message.dissect,
-  [0x15] = bme_bmeequities_marketandorder_bmegate_v1_6.execution_private_information_1_leg_sell_market_order_message.dissect,
-}
-
 bme_bmeequities_marketandorder_bmegate_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = bme_bmeequities_marketandorder_bmegate_v1_6.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Logon Response Message
+  if message_type == 0x08 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.logon_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Response Message
+  if message_type == 0x0B then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.logout_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat Message
+  if message_type == 0x30 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Network Status Message
+  if message_type == 0x0A then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.network_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logon Message
+  if message_type == 0x41 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.logon_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Message
+  if message_type == 0x35 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reject Message
+  if message_type == 0x0D then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Session Status Message
+  if message_type == 0x68 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.trading_session_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect News Message
+  if message_type == 0x42 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.news_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security List Cancellation Report Message
+  if message_type == 0x78 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.security_list_cancellation_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Message
+  if message_type == 0x84 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.statistics_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security List Message
+  if message_type == 0x79 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.security_list_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security List Update Report Message
+  if message_type == 0x80 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.security_list_update_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security Status Message
+  if message_type == 0x66 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.security_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Book Clear Message
+  if message_type == 0x81 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.order_book_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Market Pre Transparency Information Message
+  if message_type == 0x03 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.order_market_pre_transparency_information_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Market Pre Transparency Information Message
+  if message_type == 0x07 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.quote_market_pre_transparency_information_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancellation Market Member Message
+  if message_type == 0x01 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.order_cancellation_market_member_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Cancellation Market Member Message
+  if message_type == 0x05 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.quote_cancellation_market_member_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Market Post Transparency Information Topofbook Message
+  if message_type == 0x10 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Trade Amendment Or Cancellation Message
+  if message_type == 0x18 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Market Post Transparency Information Full Depth Message
+  if message_type == 0x11 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.trade_market_post_transparency_information_full_depth_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Topofbook Message
+  if message_type == 0x82 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.topofbook_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order And Quote Client Data Message
+  if message_type == 0x6F then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.order_and_quote_client_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Simple New Order Message
+  if message_type == 0x44 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.simple_new_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Simple New Order With Client Data Message
+  if message_type == 0x45 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.simple_new_order_with_client_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Simple Order Modification Message
+  if message_type == 0x47 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.simple_order_modification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Simple Order Modification With Client Data Message
+  if message_type == 0x48 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.simple_order_modification_with_client_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancellation Request Message
+  if message_type == 0x46 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.order_cancellation_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Quote Message
+  if message_type == 0x53 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.new_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Modification Request Message
+  if message_type == 0x61 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.quote_modification_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Cancellation Request Message
+  if message_type == 0x5A then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.quote_cancellation_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Orderquote Cancellation Message
+  if message_type == 0x71 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.mass_orderquote_cancellation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order And Quote Client Data Parameters Ack Nack Message
+  if message_type == 0x87 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.order_and_quote_client_data_parameters_ack_nack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Simple Order Status Message
+  if message_type == 0x02 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.simple_order_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Status Message
+  if message_type == 0x06 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.quote_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Reject Message
+  if message_type == 0x39 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Orderquote Cancellation Completion Message
+  if message_type == 0x72 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.mass_orderquote_cancellation_completion_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Orderquote Cancellation Reject Message
+  if message_type == 0x73 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.mass_orderquote_cancellation_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Business Message Reject Message
+  if message_type == 0x6A then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.business_message_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Private Information 2 Legs Message
+  if message_type == 0x17 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.execution_private_information_2_legs_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message
+  if message_type == 0x1A then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_buy_private_information_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message
+  if message_type == 0x1C then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_sell_private_information_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Trade Amendment Or Cancellation 2 Legs Private Information Message
+  if message_type == 0x1E then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_legs_private_information_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Private Information 1 Leg Buy Market Order Message
+  if message_type == 0x13 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.execution_private_information_1_leg_buy_market_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Private Information 1 Leg Sell Market Order Message
+  if message_type == 0x15 then
+    return bme_bmeequities_marketandorder_bmegate_v1_6.execution_private_information_1_leg_sell_market_order_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

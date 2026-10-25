@@ -583,27 +583,57 @@ lseg_millennium_level2_mitch_v11_9.message_type = {}
 lseg_millennium_level2_mitch_v11_9.message_type.size = 1
 
 -- Display: Message Type
-lseg_millennium_level2_mitch_v11_9.message_type.labels = {
-  [0x54] = "Message Type: Time Message (0x54)",
-  [0x53] = "Message Type: System Event Message (0x53)",
-  [0x52] = "Message Type: Symbol Directory Message (0x52)",
-  [0x48] = "Message Type: Symbol Status Message (0x48)",
-  [0x41] = "Message Type: Add Order Message (0x41)",
-  [0x46] = "Message Type: Add Attributed Order Message (0x46)",
-  [0x44] = "Message Type: Order Deleted Message (0x44)",
-  [0x55] = "Message Type: Order Modified Message (0x55)",
-  [0x79] = "Message Type: Order Book Clear Message (0x79)",
-  [0x45] = "Message Type: Order Executed Message (0x45)",
-  [0x43] = "Message Type: Order Executed With Price Size Message (0x43)",
-  [0x50] = "Message Type: Trade Message (0x50)",
-  [0x51] = "Message Type: Auction Trade Message (0x51)",
-  [0x49] = "Message Type: Auction Info Message (0x49)",
-  [0x77] = "Message Type: Statistics Message (0x77)",
-  [0x71] = "Message Type: Top Of Book Message (0x71)",
-}
-
 lseg_millennium_level2_mitch_v11_9.message_type.display = function(value)
-  return lseg_millennium_level2_mitch_v11_9.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
+  if value == 0x54 then
+    return "Message Type: Time Message (0x54)"
+  end
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x52 then
+    return "Message Type: Symbol Directory Message (0x52)"
+  end
+  if value == 0x48 then
+    return "Message Type: Symbol Status Message (0x48)"
+  end
+  if value == 0x41 then
+    return "Message Type: Add Order Message (0x41)"
+  end
+  if value == 0x46 then
+    return "Message Type: Add Attributed Order Message (0x46)"
+  end
+  if value == 0x44 then
+    return "Message Type: Order Deleted Message (0x44)"
+  end
+  if value == 0x55 then
+    return "Message Type: Order Modified Message (0x55)"
+  end
+  if value == 0x79 then
+    return "Message Type: Order Book Clear Message (0x79)"
+  end
+  if value == 0x45 then
+    return "Message Type: Order Executed Message (0x45)"
+  end
+  if value == 0x43 then
+    return "Message Type: Order Executed With Price Size Message (0x43)"
+  end
+  if value == 0x50 then
+    return "Message Type: Trade Message (0x50)"
+  end
+  if value == 0x51 then
+    return "Message Type: Auction Trade Message (0x51)"
+  end
+  if value == 0x49 then
+    return "Message Type: Auction Info Message (0x49)"
+  end
+  if value == 0x77 then
+    return "Message Type: Statistics Message (0x77)"
+  end
+  if value == 0x71 then
+    return "Message Type: Top Of Book Message (0x71)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -2911,29 +2941,70 @@ end
 lseg_millennium_level2_mitch_v11_9.payload = {}
 
 -- Dissect: Payload
-lseg_millennium_level2_mitch_v11_9.payload.dispatch = {
-  [0x54] = lseg_millennium_level2_mitch_v11_9.time_message.dissect,
-  [0x53] = lseg_millennium_level2_mitch_v11_9.system_event_message.dissect,
-  [0x52] = lseg_millennium_level2_mitch_v11_9.symbol_directory_message.dissect,
-  [0x48] = lseg_millennium_level2_mitch_v11_9.symbol_status_message.dissect,
-  [0x41] = lseg_millennium_level2_mitch_v11_9.add_order_message.dissect,
-  [0x46] = lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.dissect,
-  [0x44] = lseg_millennium_level2_mitch_v11_9.order_deleted_message.dissect,
-  [0x55] = lseg_millennium_level2_mitch_v11_9.order_modified_message.dissect,
-  [0x79] = lseg_millennium_level2_mitch_v11_9.order_book_clear_message.dissect,
-  [0x45] = lseg_millennium_level2_mitch_v11_9.order_executed_message.dissect,
-  [0x43] = lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message.dissect,
-  [0x50] = lseg_millennium_level2_mitch_v11_9.trade_message.dissect,
-  [0x51] = lseg_millennium_level2_mitch_v11_9.auction_trade_message.dissect,
-  [0x49] = lseg_millennium_level2_mitch_v11_9.auction_info_message.dissect,
-  [0x77] = lseg_millennium_level2_mitch_v11_9.statistics_message.dissect,
-  [0x71] = lseg_millennium_level2_mitch_v11_9.top_of_book_message.dissect,
-}
-
 lseg_millennium_level2_mitch_v11_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  local dissect = lseg_millennium_level2_mitch_v11_9.payload.dispatch[message_type]
-  if dissect then
-    return dissect(buffer, offset, packet, parent)
+  -- Dissect Time Message
+  if message_type == 0x54 then
+    return lseg_millennium_level2_mitch_v11_9.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_millennium_level2_mitch_v11_9.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Directory Message
+  if message_type == 0x52 then
+    return lseg_millennium_level2_mitch_v11_9.symbol_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Status Message
+  if message_type == 0x48 then
+    return lseg_millennium_level2_mitch_v11_9.symbol_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Message
+  if message_type == 0x41 then
+    return lseg_millennium_level2_mitch_v11_9.add_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Attributed Order Message
+  if message_type == 0x46 then
+    return lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Deleted Message
+  if message_type == 0x44 then
+    return lseg_millennium_level2_mitch_v11_9.order_deleted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modified Message
+  if message_type == 0x55 then
+    return lseg_millennium_level2_mitch_v11_9.order_modified_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Book Clear Message
+  if message_type == 0x79 then
+    return lseg_millennium_level2_mitch_v11_9.order_book_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed Message
+  if message_type == 0x45 then
+    return lseg_millennium_level2_mitch_v11_9.order_executed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed With Price Size Message
+  if message_type == 0x43 then
+    return lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Message
+  if message_type == 0x50 then
+    return lseg_millennium_level2_mitch_v11_9.trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Trade Message
+  if message_type == 0x51 then
+    return lseg_millennium_level2_mitch_v11_9.auction_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Info Message
+  if message_type == 0x49 then
+    return lseg_millennium_level2_mitch_v11_9.auction_info_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Statistics Message
+  if message_type == 0x77 then
+    return lseg_millennium_level2_mitch_v11_9.statistics_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Top Of Book Message
+  if message_type == 0x71 then
+    return lseg_millennium_level2_mitch_v11_9.top_of_book_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
