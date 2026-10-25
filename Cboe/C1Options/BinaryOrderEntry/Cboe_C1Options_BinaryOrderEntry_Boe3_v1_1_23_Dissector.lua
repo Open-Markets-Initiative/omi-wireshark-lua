@@ -13975,7 +13975,7 @@ local function omi_cboe_c1options_binaryorderentry_boe3_v1_1_23_tcp_initiator_he
   -- Verify packet length
   if not cboe_c1options_binaryorderentry_boe3_v1_1_23.firm_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp firm packet message dispatch
   if not cboe_c1options_binaryorderentry_boe3_v1_1_23.firm_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -13990,7 +13990,7 @@ local function omi_cboe_c1options_binaryorderentry_boe3_v1_1_23_tcp_acceptor_heu
   -- Verify packet length
   if not cboe_c1options_binaryorderentry_boe3_v1_1_23.exchange_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp exchange packet message dispatch
   if not cboe_c1options_binaryorderentry_boe3_v1_1_23.exchange_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

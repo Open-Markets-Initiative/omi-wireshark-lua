@@ -204,7 +204,7 @@ omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.exchange_id = ProtoField.ne
 omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.expiry_date = ProtoField.new("Expiry Date", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.expirydate", ftypes.UINT24)
 omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.expiry_day = ProtoField.new("Expiry Day", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.expiryday", ftypes.UINT8, nil, nil, nil, "Expiry day of the option")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.expiry_month = ProtoField.new("Expiry Month", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.expirymonth", ftypes.STRING, nil, nil, nil, "Option expiry month code Refer to Month Codes")
-omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.expiry_month_strategy = ProtoField.new("Expiry Month Strategy", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.expirymonthstrategy", ftypes.STRING, nil, nil, nil, "Contract expiry month from the first expiring leg Refer to Month Codes")
+omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.expiry_month_strategy = ProtoField.new("Expiry Month Strategy", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.expirymonthstrategy", ftypes.STRING, nil, nil, nil, "Contract expiry month from the first expiring leg Refer to Month Codes. For Market Flow Indicator first letter W, use the Call Options and Strategies month table (A-L). For first letter U, V or Y, use the Futures / Futures Options / Strategies month table. For June, W uses F and U, V and Y use M.")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.expiry_year = ProtoField.new("Expiry Year", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.expiryyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the option expiry year")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.external_price_at_source = ProtoField.new("External Price At Source", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.externalpriceatsource", ftypes.UINT24, nil, nil, nil, "Last price obtained from an external pricing source")
 omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1.fields.external_price_at_source_negative_hundred_pair = ProtoField.new("External Price At Source Negative Hundred Pair", "tmx.mx.solatcpretransmission.hsvf.v1.14.1.externalpriceatsourcenegativehundredpair", ftypes.STRING)
@@ -40372,6 +40372,11 @@ end
 
 -- Verify Hsvf Stx Field
 tmx_mx_solatcpretransmission_hsvf_v1_14_1.hsvf_stx.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -40384,6 +40389,11 @@ end
 
 -- Verify Hsvf Stx Field
 tmx_mx_solatcpretransmission_hsvf_v1_14_1.hsvf_stx.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -40402,7 +40412,7 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1_tcp_initiator_heuri
   -- Verify Hsvf Stx
   if not tmx_mx_solatcpretransmission_hsvf_v1_14_1.hsvf_stx.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_14_1.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -40420,7 +40430,7 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_14_1_tcp_acceptor_heuris
   -- Verify Hsvf Stx
   if not tmx_mx_solatcpretransmission_hsvf_v1_14_1.hsvf_stx.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_14_1.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

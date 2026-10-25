@@ -4983,6 +4983,179 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local sesm_packet_type = buffer(2, 1):string()
+
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if sesm_packet_type == "S" then
+    if buffer:len() < 12 then
+      return false
+    end
+
+    local message_type = buffer(11, 1):uint()
+
+    -- Simple Instrument Definition Message
+    if message_type == 1 then
+      return true
+    end
+
+    -- Complex Instrument Definition Message
+    if message_type == 17 then
+      return true
+    end
+
+    -- Complex Instrument Definition Deprecated Message
+    if message_type == 2 then
+      return true
+    end
+
+    -- System State Message
+    if message_type == 3 then
+      return true
+    end
+
+    -- Instrument Trading Status Notification Message
+    if message_type == 4 then
+      return true
+    end
+
+    -- Anticipated Opening Price Message
+    if message_type == 5 then
+      return true
+    end
+
+    -- Settlement Price Update Message
+    if message_type == 6 then
+      return true
+    end
+
+    -- Open Interest Update Message
+    if message_type == 7 then
+      return true
+    end
+
+    -- Total Volume Update Message
+    if message_type == 8 then
+      return true
+    end
+
+    -- Instrument Clear Message
+    if message_type == 9 then
+      return true
+    end
+
+    -- Add Order Message
+    if message_type == 10 then
+      return true
+    end
+
+    -- Modify Order Message
+    if message_type == 11 then
+      return true
+    end
+
+    -- Delete Order Message
+    if message_type == 12 then
+      return true
+    end
+
+    -- Order Execution Message
+    if message_type == 13 then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if message_type == 14 then
+      return true
+    end
+
+    return false
+  end
+
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if sesm_packet_type == "U" then
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local refresh_type = buffer(3, 1):string()
+
+    -- Refresh Request
+    if refresh_type == "R" then
+      return true
+    end
+
+    -- Refresh Response
+    if refresh_type == "r" then
+      return true
+    end
+
+    -- End Of Refresh
+    if refresh_type == "E" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Login Request
+  if sesm_packet_type == "L" then
+    return true
+  end
+
+  -- Login Response
+  if sesm_packet_type == "R" then
+    return true
+  end
+
+  -- Synchronization Complete
+  if sesm_packet_type == "C" then
+    return true
+  end
+
+  -- Retransmission Request
+  if sesm_packet_type == "A" then
+    return true
+  end
+
+  -- Logout Request
+  if sesm_packet_type == "X" then
+    return true
+  end
+
+  -- Goodbye Packet
+  if sesm_packet_type == "G" then
+    return true
+  end
+
+  -- End Of Session
+  if sesm_packet_type == "E" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if sesm_packet_type == "0" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if sesm_packet_type == "1" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4990,6 +5163,9 @@ end
 local function omi_miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a

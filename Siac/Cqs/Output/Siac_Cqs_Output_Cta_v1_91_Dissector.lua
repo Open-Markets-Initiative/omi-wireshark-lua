@@ -69,9 +69,9 @@ omi_siac_cqs_output_cta_v1_91.fields.message_category = ProtoField.new("Message 
 omi_siac_cqs_output_cta_v1_91.fields.message_id = ProtoField.new("Message Id", "siac.cqs.output.cta.v1.91.messageid", ftypes.UINT8, nil, nil, nil, "The Message ID identifies the individual message within the block beginning with number one")
 omi_siac_cqs_output_cta_v1_91.fields.message_length = ProtoField.new("Message Length", "siac.cqs.output.cta.v1.91.messagelength", ftypes.UINT16, nil, nil, nil, "The Message Length identifies the total message length inclusive of the Message Header and Message Body")
 omi_siac_cqs_output_cta_v1_91.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.output.cta.v1.91.messagesinblock", ftypes.UINT8, nil, nil, nil, "The number of messages contained in the transmission block")
-omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.output.cta.v1.91.mwcblevel1", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value. Level 1 = 7% of Previous Close S&P 500 Value. Has implied 6 decimal places")
-omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v1.91.mwcblevel2", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 13%")
-omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.output.cta.v1.91.mwcblevel3", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 20%")
+omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.output.cta.v1.91.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value. Level 1 = 7% of Previous Close S&P 500 Value. Has implied 6 decimal places")
+omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v1.91.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 13%")
+omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.output.cta.v1.91.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 20%")
 omi_siac_cqs_output_cta_v1_91.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.output.cta.v1.91.nanoseconds", ftypes.UINT32, nil, nil, nil, "Nanosecond portion of the time")
 omi_siac_cqs_output_cta_v1_91.fields.national_bbo_indicator = ProtoField.new("National Bbo Indicator", "siac.cqs.output.cta.v1.91.nationalbboindicator", ftypes.STRING, nil, nil, nil, "Indicates the affect the new quote has on the National BBO.")
 omi_siac_cqs_output_cta_v1_91.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.output.cta.v1.91.nationalbboluldindicator", ftypes.STRING, nil, nil, nil, "Indicates the affect that the Limit Up-Limit Down Price Band changes have on the National Best Bid and National Best Offer")
@@ -125,7 +125,7 @@ omi_siac_cqs_output_cta_v1_91.fields.finra_close_message = ProtoField.new("Finra
 omi_siac_cqs_output_cta_v1_91.fields.finra_open_message = ProtoField.new("Finra Open Message", "siac.cqs.output.cta.v1.91.finraopenmessage", ftypes.STRING, nil, nil, nil, "The FINRA Open message is transmitted by FINRA to CQS")
 omi_siac_cqs_output_cta_v1_91.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.output.cta.v1.91.lineintegritymessage", ftypes.STRING, nil, nil, nil, "The Line Integrity message is transmitted over the multicast lines at intervals of sixty (60) seconds to verify continued integrity of multicast transmission")
 omi_siac_cqs_output_cta_v1_91.fields.long_quote_message = ProtoField.new("Long Quote Message", "siac.cqs.output.cta.v1.91.longquotemessage", ftypes.STRING, nil, nil, nil, "The Long Quote message is used to report quote data for a Cta eligible Equity, Local Issue or Bonds.")
-omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cqs.output.cta.v1.91.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING, nil, nil, nil, "The server will, on each packet multicast, transmit this message for every second for which at least one application message is generated. The time specified in this message serves as a reference for the times specified in all other non-Time messages following. The timestamps in all other messages are specified as a nanosecond offset from the most recent Time message.")
+omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cqs.output.cta.v1.91.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING, nil, nil, nil, "The Market-Wide Circuit Breaker Decline Level Status message is used to report the calculated Level 1, Level 2 and Level 3 threshold values for the current trading day necessary to trigger a circuit breaker")
 omi_siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cqs.output.cta.v1.91.marketwidecircuitbreakerstatusmessage", ftypes.STRING, nil, nil, nil, "The Market-Wide Circuit Breaker Status message is used to report the Market-Wide Circuit Breaker threshold Level that has been breached.")
 omi_siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cqs.output.cta.v1.91.resetblocksequencenumbermessage", ftypes.STRING, nil, nil, nil, "The Reset Block Sequence Number message is transmitted when the block sequence number on an output multicast line requires resetting.")
 omi_siac_cqs_output_cta_v1_91.fields.short_quote_message = ProtoField.new("Short Quote Message", "siac.cqs.output.cta.v1.91.shortquotemessage", ftypes.STRING, nil, nil, nil, "The Auction Status message is used when a Participant in a Cta eligible security")
@@ -1536,8 +1536,8 @@ siac_cqs_output_cta_v1_91.market_status_message_type.size = 1
 
 -- Display: Market Status Message Type
 siac_cqs_output_cta_v1_91.market_status_message_type.display = function(value)
-  if value == "M" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
+  if value == "K" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (K)"
   end
   if value == "L" then
     return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
@@ -1710,11 +1710,17 @@ siac_cqs_output_cta_v1_91.mwcb_level_1.display = function(value)
   return "Mwcb Level 1: "..value
 end
 
+-- Translate: Mwcb Level 1
+siac_cqs_output_cta_v1_91.mwcb_level_1.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 1
 siac_cqs_output_cta_v1_91.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.mwcb_level_1.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v1_91.mwcb_level_1.translate(raw)
   local display = siac_cqs_output_cta_v1_91.mwcb_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_1, range, value, display)
@@ -1733,11 +1739,17 @@ siac_cqs_output_cta_v1_91.mwcb_level_2.display = function(value)
   return "Mwcb Level 2: "..value
 end
 
+-- Translate: Mwcb Level 2
+siac_cqs_output_cta_v1_91.mwcb_level_2.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 2
 siac_cqs_output_cta_v1_91.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.mwcb_level_2.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v1_91.mwcb_level_2.translate(raw)
   local display = siac_cqs_output_cta_v1_91.mwcb_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_2, range, value, display)
@@ -1756,11 +1768,17 @@ siac_cqs_output_cta_v1_91.mwcb_level_3.display = function(value)
   return "Mwcb Level 3: "..value
 end
 
+-- Translate: Mwcb Level 3
+siac_cqs_output_cta_v1_91.mwcb_level_3.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 3
 siac_cqs_output_cta_v1_91.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v1_91.mwcb_level_3.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v1_91.mwcb_level_3.translate(raw)
   local display = siac_cqs_output_cta_v1_91.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v1_91.fields.mwcb_level_3, range, value, display)
@@ -4092,7 +4110,7 @@ siac_cqs_output_cta_v1_91.market_status_message_payload = {}
 -- Dissect: Market Status Message Payload
 siac_cqs_output_cta_v1_91.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
-  if market_status_message_type == "M" then
+  if market_status_message_type == "K" then
     return siac_cqs_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Wide Circuit Breaker Status Message
@@ -5150,6 +5168,146 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cqs_output_cta_v1_91.packet.fingerprint = function(buffer)
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_category = buffer(22, 1):string()
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local administrative_message_type = buffer(23, 1):string()
+
+    -- Administrative Unformatted Message
+    if administrative_message_type == "H" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local control_message_type = buffer(23, 1):string()
+
+    -- Start Of Day Message
+    if control_message_type == "A" then
+      return true
+    end
+
+    -- Finra Close Message
+    if control_message_type == "C" then
+      return true
+    end
+
+    -- Reset Block Sequence Number Message
+    if control_message_type == "L" then
+      return true
+    end
+
+    -- Start Of Test Cycle Message
+    if control_message_type == "M" then
+      return true
+    end
+
+    -- End Of Test Cycle Message
+    if control_message_type == "N" then
+      return true
+    end
+
+    -- Finra Open Message
+    if control_message_type == "O" then
+      return true
+    end
+
+    -- Disaster Recovery Data Center Activation Message
+    if control_message_type == "P" then
+      return true
+    end
+
+    -- Line Integrity Message
+    if control_message_type == "T" then
+      return true
+    end
+
+    -- End Of Day Message
+    if control_message_type == "Z" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Market Status Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "M" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local market_status_message_type = buffer(23, 1):string()
+
+    -- Market Wide Circuit Breaker Decline Level Status Message
+    if market_status_message_type == "K" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Status Message
+    if market_status_message_type == "L" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "Q" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local quote_message_type = buffer(23, 1):string()
+
+    -- Auction Status Message
+    if quote_message_type == "A" then
+      return true
+    end
+
+    -- Long Quote Message
+    if quote_message_type == "L" then
+      return true
+    end
+
+    -- Short Quote Message
+    if quote_message_type == "Q" then
+      return true
+    end
+
+    -- Special Long Quote Message
+    if quote_message_type == "S" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5157,6 +5315,9 @@ end
 local function omi_siac_cqs_output_cta_v1_91_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_output_cta_v1_91.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cqs_output_cta_v1_91.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_output_cta_v1_91

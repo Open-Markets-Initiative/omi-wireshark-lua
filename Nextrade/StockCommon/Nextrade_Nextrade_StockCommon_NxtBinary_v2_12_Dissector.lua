@@ -10921,6 +10921,272 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nextrade_nextrade_stockcommon_nxtbinary_v2_12.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local tr_code = buffer(0, 5):string(nextrade_nextrade_stockcommon_nxtbinary_v2_12.text_encoding)
+
+  -- Polling Data Message
+  if tr_code == "I2500" then
+    return true
+  end
+
+  -- Securities Quote 10 Level Message
+  if tr_code == "B651S" then
+    return true
+  end
+
+  -- Securities Quote 10 Level Message
+  if tr_code == "B651Q" then
+    return true
+  end
+
+  -- Securities Order Filled Message
+  if tr_code == "A351S" then
+    return true
+  end
+
+  -- Securities Order Filled Message
+  if tr_code == "A351Q" then
+    return true
+  end
+
+  -- Market Operation Ts Message
+  if tr_code == "A751S" then
+    return true
+  end
+
+  -- Market Operation Ts Message
+  if tr_code == "A751Q" then
+    return true
+  end
+
+  -- Issue Closing Message
+  if tr_code == "A651S" then
+    return true
+  end
+
+  -- Issue Closing Message
+  if tr_code == "A651Q" then
+    return true
+  end
+
+  -- Triggering Removing Vi Message
+  if tr_code == "R851S" then
+    return true
+  end
+
+  -- Triggering Removing Vi Message
+  if tr_code == "R851Q" then
+    return true
+  end
+
+  -- Closing Price Trading Quote Message
+  if tr_code == "E151S" then
+    return true
+  end
+
+  -- Closing Price Trading Quote Message
+  if tr_code == "E151Q" then
+    return true
+  end
+
+  -- Equities Snapshot 10 Level Message
+  if tr_code == "B251S" then
+    return true
+  end
+
+  -- Equities Snapshot 10 Level Message
+  if tr_code == "B251Q" then
+    return true
+  end
+
+  -- Investor Activities Per An Industry Message
+  if tr_code == "C051S" then
+    return true
+  end
+
+  -- Investor Activities Per An Industry Message
+  if tr_code == "C051Q" then
+    return true
+  end
+
+  -- Current Movement Message
+  if tr_code == "B551S" then
+    return true
+  end
+
+  -- Current Movement Message
+  if tr_code == "B551Q" then
+    return true
+  end
+
+  -- Program Trading Activity Per Investor Message
+  if tr_code == "P051S" then
+    return true
+  end
+
+  -- Program Trading Activity Per Investor Message
+  if tr_code == "P051Q" then
+    return true
+  end
+
+  -- Program Trading Information Per Issue Aggregated Information Message
+  if tr_code == "C351S" then
+    return true
+  end
+
+  -- Program Trading Information Per Issue Aggregated Information Message
+  if tr_code == "C351Q" then
+    return true
+  end
+
+  -- Program Trading Information Of Total Aggregated Information Message
+  if tr_code == "J051S" then
+    return true
+  end
+
+  -- Program Trading Information Of Total Aggregated Information Message
+  if tr_code == "J051Q" then
+    return true
+  end
+
+  -- Market Operation Schedule Message
+  if tr_code == "M451S" then
+    return true
+  end
+
+  -- Market Operation Schedule Message
+  if tr_code == "M451Q" then
+    return true
+  end
+
+  -- Member Firm Imposing Lifting Sanctions Message
+  if tr_code == "R351T" then
+    return true
+  end
+
+  -- Top Five Traders Activities Message
+  if tr_code == "B951S" then
+    return true
+  end
+
+  -- Top Five Traders Activities Message
+  if tr_code == "B951Q" then
+    return true
+  end
+
+  -- Equities Batch Data Message
+  if tr_code == "A051S" then
+    return true
+  end
+
+  -- Equities Batch Data Message
+  if tr_code == "E051S" then
+    return true
+  end
+
+  -- Equities Batch Data Message
+  if tr_code == "A051Q" then
+    return true
+  end
+
+  -- Equities Batch Data Message
+  if tr_code == "E051Q" then
+    return true
+  end
+
+  -- Member Information Message
+  if tr_code == "M951T" then
+    return true
+  end
+
+  -- Member Information Message
+  if tr_code == "E851T" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I651S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "E651S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I651Q" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "E651Q" then
+    return true
+  end
+
+  -- Block Basket Trade Data Message
+  if tr_code == "C451S" then
+    return true
+  end
+
+  -- Block Basket Trade Data Message
+  if tr_code == "C451Q" then
+    return true
+  end
+
+  -- Investor Activities Per An Issue Eod Message
+  if tr_code == "C151S" then
+    return true
+  end
+
+  -- Investor Activities Per An Issue Eod Message
+  if tr_code == "C151Q" then
+    return true
+  end
+
+  -- Short Selling Message
+  if tr_code == "I851S" then
+    return true
+  end
+
+  -- Short Selling Message
+  if tr_code == "I851Q" then
+    return true
+  end
+
+  -- Brokers Acitity Information Message
+  if tr_code == "E251S" then
+    return true
+  end
+
+  -- Brokers Acitity Information Message
+  if tr_code == "E251Q" then
+    return true
+  end
+
+  -- Trading Activity By Session Per An Issue Message
+  if tr_code == "E351S" then
+    return true
+  end
+
+  -- Trading Activity By Session Per An Issue Message
+  if tr_code == "E351Q" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -10928,6 +11194,9 @@ end
 local function omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nextrade_nextrade_stockcommon_nxtbinary_v2_12.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nextrade_nextrade_stockcommon_nxtbinary_v2_12.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12

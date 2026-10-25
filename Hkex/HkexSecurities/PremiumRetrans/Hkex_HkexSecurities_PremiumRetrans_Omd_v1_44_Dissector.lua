@@ -6295,6 +6295,152 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+hkex_hkexsecurities_premiumretrans_omd_v1_44.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local msg_type = buffer(18, 2):le_uint()
+
+  -- Aggregate Order Book Update Message
+  if msg_type == 53 then
+    return true
+  end
+
+  -- Closing Price Message
+  if msg_type == 62 then
+    return true
+  end
+
+  -- Sequence Reset Message
+  if msg_type == 100 then
+    return true
+  end
+
+  -- Disaster Recovery Signal Message
+  if msg_type == 105 then
+    return true
+  end
+
+  -- Indicative Equilibrium Price Message
+  if msg_type == 41 then
+    return true
+  end
+
+  -- News Message
+  if msg_type == 22 then
+    return true
+  end
+
+  -- Nominal Price Message
+  if msg_type == 40 then
+    return true
+  end
+
+  -- Order Imbalance Message
+  if msg_type == 56 then
+    return true
+  end
+
+  -- Market Definition Message
+  if msg_type == 10 then
+    return true
+  end
+
+  -- Security Definition Message
+  if msg_type == 11 then
+    return true
+  end
+
+  -- Liquidity Provider Message
+  if msg_type == 13 then
+    return true
+  end
+
+  -- Currency Rate Message
+  if msg_type == 14 then
+    return true
+  end
+
+  -- Reference Price Message
+  if msg_type == 43 then
+    return true
+  end
+
+  -- Refresh Complete Message
+  if msg_type == 203 then
+    return true
+  end
+
+  -- Logon Message
+  if msg_type == 101 then
+    return true
+  end
+
+  -- Logon Response Message
+  if msg_type == 102 then
+    return true
+  end
+
+  -- Retransmission Request Message
+  if msg_type == 201 then
+    return true
+  end
+
+  -- Retransmission Response Message
+  if msg_type == 202 then
+    return true
+  end
+
+  -- Statistics Message
+  if msg_type == 60 then
+    return true
+  end
+
+  -- Market Turnover Message
+  if msg_type == 61 then
+    return true
+  end
+
+  -- Yield Message
+  if msg_type == 44 then
+    return true
+  end
+
+  -- Trading Session Status Message
+  if msg_type == 20 then
+    return true
+  end
+
+  -- Security Status Message
+  if msg_type == 21 then
+    return true
+  end
+
+  -- Trade Message
+  if msg_type == 50 then
+    return true
+  end
+
+  -- Trade Cancel Message
+  if msg_type == 51 then
+    return true
+  end
+
+  -- Vcm Trigger Message
+  if msg_type == 23 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -6302,6 +6448,9 @@ end
 local function omi_hkex_hkexsecurities_premiumretrans_omd_v1_44_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not hkex_hkexsecurities_premiumretrans_omd_v1_44.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not hkex_hkexsecurities_premiumretrans_omd_v1_44.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_hkex_hkexsecurities_premiumretrans_omd_v1_44

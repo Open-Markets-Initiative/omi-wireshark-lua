@@ -4756,6 +4756,11 @@ end
 
 -- Verify Start Of Frame Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.start_of_frame.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -4768,6 +4773,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.protocol_name.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -4780,6 +4790,11 @@ end
 
 -- Verify Start Of Frame Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.start_of_frame.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -4792,6 +4807,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.protocol_name.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -4813,7 +4833,7 @@ local function omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6_tcp_initiator_heur
   -- Verify Protocol Name
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.protocol_name.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -4834,7 +4854,7 @@ local function omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6_tcp_acceptor_heuri
   -- Verify Protocol Name
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.protocol_name.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

@@ -1197,6 +1197,55 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_matchnow_multicasttrades_pitch_v1_0_13.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Unit Clear Message
+  if message_type == 0x97 then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0x43 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 0x42 then
+    return true
+  end
+
+  -- End Of Session Message
+  if message_type == 0x2D then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1204,6 +1253,9 @@ end
 local function omi_cboe_matchnow_multicasttrades_pitch_v1_0_13_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_matchnow_multicasttrades_pitch_v1_0_13.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cboe_matchnow_multicasttrades_pitch_v1_0_13.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_matchnow_multicasttrades_pitch_v1_0_13
@@ -1228,7 +1280,7 @@ udp_table:add_for_decode_as(omi_cboe_matchnow_multicasttrades_pitch_v1_0_13)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.13
 --   Date: Monday, October 27, 2025
---   Specification: Cboe Canada Equities Multicast PITCH Specification (2025-12-06).pdf
+--   Specification: Cboe Canada Equities Multicast PITCH Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -1593,7 +1593,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.cash_flow_alignment_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.cash_flow_alignment_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.cash_flow_alignment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.cash_flow_alignment_date, range, value, display)
@@ -2054,7 +2054,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.effective_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.effective_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.effective_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.effective_date, range, value, display)
@@ -2646,7 +2646,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.first_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.first_payment_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.first_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.first_payment_date, range, value, display)
@@ -2673,7 +2673,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.first_reset_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.first_reset_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.first_reset_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.first_reset_date, range, value, display)
@@ -3176,7 +3176,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.initial_effective_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.initial_effective_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.initial_effective_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.initial_effective_date, range, value, display)
@@ -4862,7 +4862,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.next_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.next_payment_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.next_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.next_payment_date, range, value, display)
@@ -4889,7 +4889,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.next_reset_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.next_reset_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.next_reset_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.next_reset_date, range, value, display)
@@ -5587,7 +5587,7 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_date.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_11.fields.previous_reset_date, range, value, display)
@@ -38455,6 +38455,11 @@ end
 
 -- Verify Hsvf Stx Field
 tmx_mx_solatcpretransmission_hsvf_v1_11.hsvf_stx.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -38467,6 +38472,11 @@ end
 
 -- Verify Hsvf Stx Field
 tmx_mx_solatcpretransmission_hsvf_v1_11.hsvf_stx.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -38485,7 +38495,7 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_11_tcp_initiator_heurist
   -- Verify Hsvf Stx
   if not tmx_mx_solatcpretransmission_hsvf_v1_11.hsvf_stx.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_11.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -38503,7 +38513,7 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_11_tcp_acceptor_heuristi
   -- Verify Hsvf Stx
   if not tmx_mx_solatcpretransmission_hsvf_v1_11.hsvf_stx.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_11.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

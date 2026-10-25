@@ -1321,6 +1321,72 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nse_nsecd_mtbt_binary_v7_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 9 then
+    return false
+  end
+
+  local message_type = buffer(8, 1):string()
+
+  -- New Order Message
+  if message_type == "N" then
+    return true
+  end
+
+  -- Order Modification Message
+  if message_type == "M" then
+    return true
+  end
+
+  -- Order Cancellation Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- New Spread Order Message
+  if message_type == "G" then
+    return true
+  end
+
+  -- Spread Order Modification Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Spread Order Cancellation Message
+  if message_type == "J" then
+    return true
+  end
+
+  -- Spread Trade Message
+  if message_type == "K" then
+    return true
+  end
+
+  -- Trade Cancel Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Heartbeat Message
+  if message_type == "Z" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1328,6 +1394,9 @@ end
 local function omi_nse_nsecd_mtbt_binary_v7_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsecd_mtbt_binary_v7_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nse_nsecd_mtbt_binary_v7_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nse_nsecd_mtbt_binary_v7_0

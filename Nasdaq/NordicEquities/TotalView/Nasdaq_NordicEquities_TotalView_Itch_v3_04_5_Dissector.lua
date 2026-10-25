@@ -3998,6 +3998,125 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_nordicequities_totalview_itch_v3_04_5.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Order Book Trading Action Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Order Book Directory Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Add Order Mpid Attribution Message
+  if message_type == "F" then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Order Executed With Price Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Order Cancel Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Order Delete Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Order Book Flush Message
+  if message_type == "Y" then
+    return true
+  end
+
+  -- Order Replace Message
+  if message_type == "U" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Cross Trade Message
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Broken Trade Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Noii Message
+  if message_type == "I" then
+    return true
+  end
+
+  -- Moii Message
+  if message_type == "J" then
+    return true
+  end
+
+  -- Execution Summary Message
+  if message_type == "K" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4005,6 +4124,9 @@ end
 local function omi_nasdaq_nordicequities_totalview_itch_v3_04_5_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_nordicequities_totalview_itch_v3_04_5.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_nordicequities_totalview_itch_v3_04_5.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nordicequities_totalview_itch_v3_04_5

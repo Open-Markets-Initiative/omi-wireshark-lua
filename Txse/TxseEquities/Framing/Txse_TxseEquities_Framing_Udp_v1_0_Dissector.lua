@@ -313,7 +313,7 @@ txse_txseequities_framing_udp_v1_0.udp_sequenced_message.dissect = function(buff
   local index = offset + size_of_udp_sequenced_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.headers then
+  if show.structs then
     parent = parent:add(omi_txse_txseequities_framing_udp_v1_0.fields.udp_sequenced_message, buffer(offset, 0))
     local current = txse_txseequities_framing_udp_v1_0.udp_sequenced_message.fields(buffer, offset, packet, parent, size_of_udp_sequenced_message, udp_sequenced_message_index)
     parent:set_len(size_of_udp_sequenced_message)
@@ -439,20 +439,6 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Txse TxseEquities Framing Udp 1.0 (Udp)
-local function omi_txse_txseequities_framing_udp_v1_0_udp_heuristic(buffer, packet, parent)
-  -- Verify packet length
-  if not txse_txseequities_framing_udp_v1_0.packet.requiredsize(buffer) then return false end
-
-  -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = omi_txse_txseequities_framing_udp_v1_0
-  omi_txse_txseequities_framing_udp_v1_0.dissector(buffer, packet, parent)
-
-  return true
-end
-
--- Register Heuristic for Txse TxseEquities Framing Udp 1.0
-omi_txse_txseequities_framing_udp_v1_0:register_heuristic("udp", omi_txse_txseequities_framing_udp_v1_0_udp_heuristic)
 
 -- Register Txse TxseEquities Framing Udp 1.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")

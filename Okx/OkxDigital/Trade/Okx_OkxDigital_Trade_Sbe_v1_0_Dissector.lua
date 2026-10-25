@@ -2803,11 +2803,92 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Frame: would its message dispatch accept this frame?
+okx_okxdigital_trade_sbe_v1_0.frame.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local template_id = buffer(2, 2):le_uint()
+
+  -- Place Order Message
+  if template_id == 1 then
+    return true
+  end
+
+  -- Place Order Response Message
+  if template_id == 2 then
+    return true
+  end
+
+  -- Place Orders Message
+  if template_id == 3 then
+    return true
+  end
+
+  -- Place Orders Response Message
+  if template_id == 4 then
+    return true
+  end
+
+  -- Amend Order Message
+  if template_id == 5 then
+    return true
+  end
+
+  -- Amend Order Response Message
+  if template_id == 6 then
+    return true
+  end
+
+  -- Amend Orders Message
+  if template_id == 7 then
+    return true
+  end
+
+  -- Amend Orders Response Message
+  if template_id == 8 then
+    return true
+  end
+
+  -- Cancel Order Message
+  if template_id == 9 then
+    return true
+  end
+
+  -- Cancel Order Response Message
+  if template_id == 10 then
+    return true
+  end
+
+  -- Cancel Orders Message
+  if template_id == 11 then
+    return true
+  end
+
+  -- Cancel Orders Response Message
+  if template_id == 12 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
 okx_okxdigital_trade_sbe_v1_0.schema_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 4 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(4, 2):le_uint()
 
@@ -2820,6 +2901,11 @@ end
 
 -- Verify Version Field
 okx_okxdigital_trade_sbe_v1_0.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 6 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(6, 2):le_uint()
 
@@ -2840,6 +2926,9 @@ local function omi_okx_okxdigital_trade_sbe_v1_0_ws_heuristic(buffer, packet, pa
 
   -- Verify Version
   if not okx_okxdigital_trade_sbe_v1_0.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this websocket frame message dispatch
+  if not okx_okxdigital_trade_sbe_v1_0.frame.fingerprint(buffer) then return false end
 
   -- Protocol is valid, dissect this packet: each WebSocket message comes to the heuristic, so the conversation stays the WebSocket's
   omi_okx_okxdigital_trade_sbe_v1_0.dissector(buffer, packet, parent)

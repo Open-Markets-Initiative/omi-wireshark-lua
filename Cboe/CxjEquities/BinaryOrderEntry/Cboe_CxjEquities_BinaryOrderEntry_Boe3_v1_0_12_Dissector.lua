@@ -4350,7 +4350,7 @@ local function omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12_tcp_initiator_
   -- Verify packet length
   if not cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp firm packet message dispatch
   if not cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -4365,7 +4365,7 @@ local function omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12_tcp_acceptor_h
   -- Verify packet length
   if not cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp exchange packet message dispatch
   if not cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -4420,7 +4420,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12)
 --   Version: 1.0.12
 --   Since: 1.0.7
 --   Date: Monday, June 9, 2025
---   Specification: CXJ Equities BOEv3 Specification (2026-05-28).pdf
+--   Specification: CXJ Equities BOEv3 Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

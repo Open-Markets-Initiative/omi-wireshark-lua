@@ -278,20 +278,6 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for CixAts CixAspen Rerequest Aspen 1.1 (Udp)
-local function omi_cixats_cixaspen_rerequest_aspen_v1_1_udp_initiator_heuristic(buffer, packet, parent)
-  -- Verify packet length
-  if not cixats_cixaspen_rerequest_aspen_v1_1.packet.requiredsize(buffer) then return false end
-
-  -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = omi_cixats_cixaspen_rerequest_aspen_v1_1
-  omi_cixats_cixaspen_rerequest_aspen_v1_1.dissector(buffer, packet, parent)
-
-  return true
-end
-
--- Register Heuristic for CixAts CixAspen Rerequest Aspen 1.1
-omi_cixats_cixaspen_rerequest_aspen_v1_1:register_heuristic("udp", omi_cixats_cixaspen_rerequest_aspen_v1_1_udp_initiator_heuristic)
 
 -- Register CixAts CixAspen Rerequest Aspen 1.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")

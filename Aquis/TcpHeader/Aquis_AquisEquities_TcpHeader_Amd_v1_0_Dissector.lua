@@ -329,20 +329,6 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Aquis AquisEquities TcpHeader Amd 1.0 (Tcp)
-local function omi_aquis_aquisequities_tcpheader_amd_v1_0_tcp_heuristic(buffer, packet, parent)
-  -- Verify packet length
-  if not aquis_aquisequities_tcpheader_amd_v1_0.packet.requiredsize(buffer) then return false end
-
-  -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = omi_aquis_aquisequities_tcpheader_amd_v1_0
-  omi_aquis_aquisequities_tcpheader_amd_v1_0.dissector(buffer, packet, parent)
-
-  return true
-end
-
--- Register Heuristic for Aquis AquisEquities TcpHeader Amd 1.0
-omi_aquis_aquisequities_tcpheader_amd_v1_0:register_heuristic("tcp", omi_aquis_aquisequities_tcpheader_amd_v1_0_tcp_heuristic)
 
 -- Register Aquis AquisEquities TcpHeader Amd 1.0 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")

@@ -1059,7 +1059,12 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.resume_trade_time.display = function(val
     return "Resume Trade Time: No Value"
   end
 
-  return "Resume Trade Time: "..value
+  local hour = math.floor(value / 1000000)
+  local minute = math.floor(value / 10000) % 100
+  local second = math.floor(value / 100) % 100
+  local hundredth = value % 100
+
+  return string.format("Resume Trade Time: %02d:%02d:%02d.%02d", hour, minute, second, hundredth)
 end
 
 -- Dissect: Resume Trade Time
@@ -1461,7 +1466,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.trade_time_stamp.display = function(valu
     return "Trade Time Stamp: No Value"
   end
 
-  return "Trade Time Stamp: "..value
+  local hour = math.floor(value / 10000)
+  local minute = math.floor(value / 100) % 100
+  local second = value % 100
+
+  return string.format("Trade Time Stamp: %02d:%02d:%02d", hour, minute, second)
 end
 
 -- Dissect: Trade Time Stamp
@@ -2438,11 +2447,70 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 14 then
+    return false
+  end
+
+  local msg_type = buffer(13, 1):string()
+
+  -- Heartbeat Body
+  if msg_type == "0" then
+    return true
+  end
+
+  -- Business Bodies: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 14 then
+    return false
+  end
+
+  local msg_type = buffer(13, 1):string()
+
+  -- Symbol Status Message
+  if msg_type == "J" then
+    return true
+  end
+
+  -- Trade Message
+  if msg_type == "s" then
+    return true
+  end
+
+  -- Trade Cancelled Message
+  if msg_type == "t" then
+    return true
+  end
+
+  -- Stock Status Message
+  if msg_type == "v" then
+    return true
+  end
+
+  -- Equity Quote Message
+  if msg_type == "w" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Start Of Frame Field
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.start_of_frame.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -2455,6 +2523,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.protocol_name.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -2475,6 +2548,9 @@ local function omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1_udp_heuristic(buffer,
 
   -- Verify Protocol Name
   if not tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.protocol_name.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1

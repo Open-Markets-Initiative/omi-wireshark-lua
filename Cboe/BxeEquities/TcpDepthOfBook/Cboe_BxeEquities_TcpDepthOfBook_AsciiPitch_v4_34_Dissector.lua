@@ -3036,6 +3036,133 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local packet_type = buffer(0, 1):string()
+
+  -- Debug Packet
+  if packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if packet_type == "S" then
+    if buffer:len() < 13 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(12, 1):string()
+
+    -- Symbol Clear Message
+    if sequenced_message_type == "h" then
+      return true
+    end
+
+    -- Add Order Message
+    if sequenced_message_type == "K" then
+      return true
+    end
+
+    -- Add Order Message Long Form
+    if sequenced_message_type == "M" then
+      return true
+    end
+
+    -- Order Executed Message
+    if sequenced_message_type == "N" then
+      return true
+    end
+
+    -- Order Executed Message Long Form
+    if sequenced_message_type == "g" then
+      return true
+    end
+
+    -- Order Cancel Message
+    if sequenced_message_type == "F" then
+      return true
+    end
+
+    -- Order Cancel Message Long Form
+    if sequenced_message_type == "G" then
+      return true
+    end
+
+    -- Trade Message
+    if sequenced_message_type == "V" then
+      return true
+    end
+
+    -- Trade Message Long Form
+    if sequenced_message_type == "W" then
+      return true
+    end
+
+    -- Trade Message Extended Form
+    if sequenced_message_type == "v" then
+      return true
+    end
+
+    -- Trade Message Unknown Symbol
+    if sequenced_message_type == "w" then
+      return true
+    end
+
+    -- Trading Status Message
+    if sequenced_message_type == "a" then
+      return true
+    end
+
+    -- Statistics Message
+    if sequenced_message_type == "Y" then
+      return true
+    end
+
+    -- Auction Update Message
+    if sequenced_message_type == "b" then
+      return true
+    end
+
+    -- Auction Summary Message
+    if sequenced_message_type == "f" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Login Request Packet
+  if packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if packet_type == "U" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3043,6 +3170,9 @@ end
 local function omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34

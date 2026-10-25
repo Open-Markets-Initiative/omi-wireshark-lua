@@ -6021,6 +6021,104 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+finra_trace_atds_dfi_v2_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_category = buffer(22, 1):string()
+
+  -- Trade Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "T" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local trade_message_type = buffer(23, 1):string()
+
+    -- Trade Report Message
+    if trade_message_type == "M" then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if trade_message_type == "N" then
+      return true
+    end
+
+    -- Trade Correction Message
+    if trade_message_type == "O" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local administrative_message_type = buffer(23, 1):string()
+
+    -- Daily Trade Summary Message
+    if administrative_message_type == "E" then
+      return true
+    end
+
+    -- Trading Halt Message
+    if administrative_message_type == "H" then
+      return true
+    end
+
+    -- General Administrative Message
+    if administrative_message_type == "A" then
+      return true
+    end
+
+    -- Market Breadth Message
+    if administrative_message_type == "1" then
+      return true
+    end
+
+    -- Market Sentiment All Securities Message
+    if administrative_message_type == "2" then
+      return true
+    end
+
+    -- Market Sentiment Fannie Mae Message
+    if administrative_message_type == "3" then
+      return true
+    end
+
+    -- Market Sentiment Fhlb Message
+    if administrative_message_type == "4" then
+      return true
+    end
+
+    -- Market Sentiment Freddie Mac Message
+    if administrative_message_type == "5" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message
+  if message_category == "C" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -6028,6 +6126,9 @@ end
 local function omi_finra_trace_atds_dfi_v2_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not finra_trace_atds_dfi_v2_1.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not finra_trace_atds_dfi_v2_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_finra_trace_atds_dfi_v2_1

@@ -3030,6 +3030,97 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cnsx_cse2_multicast_mmd_v1_6.packet.fingerprint = function(buffer)
+  if buffer:len() < 9 then
+    return false
+  end
+
+  local message_type = buffer(8, 1):string()
+
+  -- Time Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Symbol Directory Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Symbol Dynamics Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Trading Action Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Order Executed With Price Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Broken Trade Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Order Delete Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Order Replace Message
+  if message_type == "U" then
+    return true
+  end
+
+  -- Best Bid Offer Message
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Closing Price Message
+  if message_type == "F" then
+    return true
+  end
+
+  -- General Message
+  if message_type == "G" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3037,6 +3128,9 @@ end
 local function omi_cnsx_cse2_multicast_mmd_v1_6_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cnsx_cse2_multicast_mmd_v1_6.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cnsx_cse2_multicast_mmd_v1_6.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cnsx_cse2_multicast_mmd_v1_6

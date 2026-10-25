@@ -2373,6 +2373,85 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+biva_bivaequities_lastsale_itch_v1_12.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- Time Stamp Seconds Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Price Tick Size Message
+  if message_type == "L" then
+    return true
+  end
+
+  -- Quantity Tick Size Message
+  if message_type == "M" then
+    return true
+  end
+
+  -- Orderbook Directory Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Participant Directory Message
+  if message_type == "F" then
+    return true
+  end
+
+  -- Orderbook Trading Action Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Orderbook Reference Price Message
+  if message_type == "X" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2380,6 +2459,9 @@ end
 local function omi_biva_bivaequities_lastsale_itch_v1_12_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not biva_bivaequities_lastsale_itch_v1_12.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not biva_bivaequities_lastsale_itch_v1_12.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_biva_bivaequities_lastsale_itch_v1_12

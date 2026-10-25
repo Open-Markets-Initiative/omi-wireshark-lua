@@ -636,6 +636,37 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+aquis_aquisequities_replay_amd_v4_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local msg_type = buffer(0, 1):uint()
+
+  -- Login Message
+  if msg_type == 13 then
+    return true
+  end
+
+  -- Replay Request Message
+  if msg_type == 14 then
+    return true
+  end
+
+  -- Replay Response Message
+  if msg_type == 15 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -643,6 +674,9 @@ end
 local function omi_aquis_aquisequities_replay_amd_v4_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not aquis_aquisequities_replay_amd_v4_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not aquis_aquisequities_replay_amd_v4_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_aquis_aquisequities_replay_amd_v4_0

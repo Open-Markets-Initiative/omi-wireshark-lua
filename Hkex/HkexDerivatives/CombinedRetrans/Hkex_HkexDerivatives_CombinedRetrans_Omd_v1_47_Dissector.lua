@@ -6542,6 +6542,167 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+hkex_hkexderivatives_combinedretrans_omd_v1_47.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local msg_type = buffer(18, 2):le_uint()
+
+  -- Aggregate Order Book Update Message
+  if msg_type == 353 then
+    return true
+  end
+
+  -- Calculated Opening Price Message
+  if msg_type == 364 then
+    return true
+  end
+
+  -- Sequence Reset
+  if msg_type == 100 then
+    return true
+  end
+
+  -- Disaster Recovery Signal Message
+  if msg_type == 105 then
+    return true
+  end
+
+  -- Implied Volatility Message
+  if msg_type == 367 then
+    return true
+  end
+
+  -- Market Alert Message
+  if msg_type == 323 then
+    return true
+  end
+
+  -- Open Interest Message
+  if msg_type == 366 then
+    return true
+  end
+
+  -- Add Order Message
+  if msg_type == 330 then
+    return true
+  end
+
+  -- Modify Order Message
+  if msg_type == 331 then
+    return true
+  end
+
+  -- Delete Order Message
+  if msg_type == 332 then
+    return true
+  end
+
+  -- Orderbook Clear Message
+  if msg_type == 335 then
+    return true
+  end
+
+  -- Quote Request
+  if msg_type == 336 then
+    return true
+  end
+
+  -- Commodity Definition Message
+  if msg_type == 301 then
+    return true
+  end
+
+  -- Class Definition Message
+  if msg_type == 302 then
+    return true
+  end
+
+  -- Series Definition Base Message
+  if msg_type == 303 then
+    return true
+  end
+
+  -- Series Definition Extended Message
+  if msg_type == 304 then
+    return true
+  end
+
+  -- Combination Definition Message
+  if msg_type == 305 then
+    return true
+  end
+
+  -- Refresh Complete
+  if msg_type == 203 then
+    return true
+  end
+
+  -- Logon
+  if msg_type == 101 then
+    return true
+  end
+
+  -- Logon Response
+  if msg_type == 102 then
+    return true
+  end
+
+  -- Retransmission Request
+  if msg_type == 201 then
+    return true
+  end
+
+  -- Retransmission Response
+  if msg_type == 202 then
+    return true
+  end
+
+  -- Series Statistics Message
+  if msg_type == 363 then
+    return true
+  end
+
+  -- Market Status Message
+  if msg_type == 320 then
+    return true
+  end
+
+  -- Series Status Message
+  if msg_type == 321 then
+    return true
+  end
+
+  -- Commodity Status Message
+  if msg_type == 322 then
+    return true
+  end
+
+  -- Trade Message
+  if msg_type == 350 then
+    return true
+  end
+
+  -- Trade Amendment Message
+  if msg_type == 356 then
+    return true
+  end
+
+  -- Trade Statistics Message
+  if msg_type == 360 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -6549,6 +6710,9 @@ end
 local function omi_hkex_hkexderivatives_combinedretrans_omd_v1_47_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not hkex_hkexderivatives_combinedretrans_omd_v1_47.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not hkex_hkexderivatives_combinedretrans_omd_v1_47.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_hkex_hkexderivatives_combinedretrans_omd_v1_47

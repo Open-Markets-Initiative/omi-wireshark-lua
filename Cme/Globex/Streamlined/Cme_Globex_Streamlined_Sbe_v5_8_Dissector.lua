@@ -214,11 +214,11 @@ omi_cme_globex_streamlined_sbe_v5_8.fields.seniority = ProtoField.new("Seniority
 omi_cme_globex_streamlined_sbe_v5_8.fields.settl_date = ProtoField.new("Settl Date", "cme.globex.streamlined.sbe.v5.8.settldate", ftypes.UINT16, nil, nil, nil, "Indicates date of settlement")
 omi_cme_globex_streamlined_sbe_v5_8.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.streamlined.sbe.v5.8.settlpricetype", ftypes.STRING, nil, nil, nil, "SettlPriceType bit set")
 omi_cme_globex_streamlined_sbe_v5_8.fields.settlement_npv = ProtoField.new("Settlement Npv", "cme.globex.streamlined.sbe.v5.8.settlementnpv", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
+omi_cme_globex_streamlined_sbe_v5_8.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.globex.streamlined.sbe.v5.8.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_globex_streamlined_sbe_v5_8.fields.strategy_link_id = ProtoField.new("Strategy Link Id", "cme.globex.streamlined.sbe.v5.8.strategylinkid", ftypes.STRING, nil, nil, nil, "Identifies the multileg strategy (e.g. spread) to which the trade belongs. This links together trade legs executed as part of a strategy during a single match event.")
 omi_cme_globex_streamlined_sbe_v5_8.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.streamlined.sbe.v5.8.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Strike Price for an option instrument")
 omi_cme_globex_streamlined_sbe_v5_8.fields.strike_price_decimal = ProtoField.new("Strike Price Decimal", "cme.globex.streamlined.sbe.v5.8.strikepricedecimal", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_8.fields.symbol = ProtoField.new("Symbol", "cme.globex.streamlined.sbe.v5.8.symbol", ftypes.STRING, nil, nil, nil, "Instrument Name or Symbol.")
-omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.streamlined.sbe.v5.8.tcpmessagesize", ftypes.UINT16, nil, nil, nil, "Message Size")
 omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.streamlined.sbe.v5.8.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
 omi_cme_globex_streamlined_sbe_v5_8.fields.template_id = ProtoField.new("Template Id", "cme.globex.streamlined.sbe.v5.8.templateid", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_8.fields.text = ProtoField.new("Text", "cme.globex.streamlined.sbe.v5.8.text", ftypes.STRING, nil, nil, nil, "Free format text string. May include logout confirmation or reason for logout")
@@ -265,11 +265,11 @@ omi_cme_globex_streamlined_sbe_v5_8.fields.yield_type = ProtoField.new("Yield Ty
 -- Cme Globex Streamlined Sbe 5.8 Framing
 omi_cme_globex_streamlined_sbe_v5_8.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.streamlined.sbe.v5.8.binarypacketheader", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet Header")
 omi_cme_globex_streamlined_sbe_v5_8.fields.message = ProtoField.new("Message", "cme.globex.streamlined.sbe.v5.8.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
-omi_cme_globex_streamlined_sbe_v5_8.fields.message_header = ProtoField.new("Message Header", "cme.globex.streamlined.sbe.v5.8.messageheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
+omi_cme_globex_streamlined_sbe_v5_8.fields.message_header = ProtoField.new("Message Header", "cme.globex.streamlined.sbe.v5.8.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_frame = ProtoField.new("Tcp Frame", "cme.globex.streamlined.sbe.v5.8.tcpframe", ftypes.STRING, nil, nil, nil, "One technical header framed Cme Sbe message")
 omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.streamlined.sbe.v5.8.tcpmessage", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
 omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.streamlined.sbe.v5.8.tcppacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet")
-omi_cme_globex_streamlined_sbe_v5_8.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.streamlined.sbe.v5.8.technicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header. Tcp Message Size is the last field so this fixed 16 byte header spans everything up to and including the length the reassembly reads.")
+omi_cme_globex_streamlined_sbe_v5_8.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.streamlined.sbe.v5.8.technicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header")
 omi_cme_globex_streamlined_sbe_v5_8.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.8.udppacket", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet")
 
 -- Cme Globex Streamlined 5.8 Application Messages
@@ -4283,29 +4283,6 @@ cme_globex_streamlined_sbe_v5_8.symbol.dissect = function(buffer, offset, packet
   local display = cme_globex_streamlined_sbe_v5_8.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Tcp Message Size
-cme_globex_streamlined_sbe_v5_8.tcp_message_size = {}
-
--- Size: Tcp Message Size
-cme_globex_streamlined_sbe_v5_8.tcp_message_size.size = 2
-
--- Display: Tcp Message Size
-cme_globex_streamlined_sbe_v5_8.tcp_message_size.display = function(value)
-  return "Tcp Message Size: "..value
-end
-
--- Dissect: Tcp Message Size
-cme_globex_streamlined_sbe_v5_8.tcp_message_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_8.tcp_message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_globex_streamlined_sbe_v5_8.tcp_message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_message_size, range, value, display)
 
   return offset + length, value
 end
@@ -11763,23 +11740,23 @@ cme_globex_streamlined_sbe_v5_8.payload.dissect = function(buffer, offset, packe
   return offset
 end
 
--- Message Header
-cme_globex_streamlined_sbe_v5_8.message_header = {}
+-- Simple Binary Header
+cme_globex_streamlined_sbe_v5_8.simple_binary_header = {}
 
--- Size: Message Header
-cme_globex_streamlined_sbe_v5_8.message_header.size =
+-- Size: Simple Binary Header
+cme_globex_streamlined_sbe_v5_8.simple_binary_header.size =
   cme_globex_streamlined_sbe_v5_8.block_length.size + 
   cme_globex_streamlined_sbe_v5_8.template_id.size + 
   cme_globex_streamlined_sbe_v5_8.schema_id.size + 
   cme_globex_streamlined_sbe_v5_8.version.size
 
--- Display: Message Header
-cme_globex_streamlined_sbe_v5_8.message_header.display = function(packet, parent, length)
+-- Display: Simple Binary Header
+cme_globex_streamlined_sbe_v5_8.simple_binary_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-cme_globex_streamlined_sbe_v5_8.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Binary Header
+cme_globex_streamlined_sbe_v5_8.simple_binary_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: uint16
@@ -11793,6 +11770,50 @@ cme_globex_streamlined_sbe_v5_8.message_header.fields = function(buffer, offset,
 
   -- Version: uint16
   index, version = cme_globex_streamlined_sbe_v5_8.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Simple Binary Header
+cme_globex_streamlined_sbe_v5_8.simple_binary_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.simple_binary_header, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_8.simple_binary_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_8.simple_binary_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_8.simple_binary_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Header
+cme_globex_streamlined_sbe_v5_8.message_header = {}
+
+-- Size: Message Header
+cme_globex_streamlined_sbe_v5_8.message_header.size =
+  cme_globex_streamlined_sbe_v5_8.message_size.size + 
+  cme_globex_streamlined_sbe_v5_8.simple_binary_header.size
+
+-- Display: Message Header
+cme_globex_streamlined_sbe_v5_8.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cme_globex_streamlined_sbe_v5_8.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = cme_globex_streamlined_sbe_v5_8.message_size.dissect(buffer, index, packet, parent)
+
+  -- Simple Binary Header: Struct of 4 fields
+  index, simple_binary_header = cme_globex_streamlined_sbe_v5_8.simple_binary_header.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11841,7 +11862,7 @@ end
 cme_globex_streamlined_sbe_v5_8.tcp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_globex_streamlined_sbe_v5_8.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -11855,7 +11876,7 @@ end
 
 -- Dissect: Tcp Message
 cme_globex_streamlined_sbe_v5_8.tcp_message.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.tcp_message, buffer(offset, 0))
     local index = cme_globex_streamlined_sbe_v5_8.tcp_message.fields(buffer, offset, packet, parent)
@@ -11878,8 +11899,7 @@ cme_globex_streamlined_sbe_v5_8.technical_header = {}
 cme_globex_streamlined_sbe_v5_8.technical_header.size =
   cme_globex_streamlined_sbe_v5_8.encoding_type.size + 
   cme_globex_streamlined_sbe_v5_8.message_sequence_number.size + 
-  cme_globex_streamlined_sbe_v5_8.tcp_sending_time.size + 
-  cme_globex_streamlined_sbe_v5_8.tcp_message_size.size
+  cme_globex_streamlined_sbe_v5_8.tcp_sending_time.size
 
 -- Display: Technical Header
 cme_globex_streamlined_sbe_v5_8.technical_header.display = function(packet, parent, length)
@@ -11898,9 +11918,6 @@ cme_globex_streamlined_sbe_v5_8.technical_header.fields = function(buffer, offse
 
   -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, tcp_sending_time = cme_globex_streamlined_sbe_v5_8.tcp_sending_time.dissect(buffer, index, packet, parent)
-
-  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, tcp_message_size = cme_globex_streamlined_sbe_v5_8.tcp_message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11935,7 +11952,7 @@ end
 cme_globex_streamlined_sbe_v5_8.tcp_frame.fields = function(buffer, offset, packet, parent, size_of_tcp_frame)
   local index = offset
 
-  -- Technical Header: Struct of 4 fields
+  -- Technical Header: Struct of 3 fields
   index, technical_header = cme_globex_streamlined_sbe_v5_8.technical_header.dissect(buffer, index, packet, parent)
 
   -- Tcp Message: Struct of 2 fields
@@ -11971,7 +11988,7 @@ local tcp_frame_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < cme_globex_streamlined_sbe_v5_8.technical_header.size then
+  if remaining < 14 + cme_globex_streamlined_sbe_v5_8.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -12036,10 +12053,7 @@ end
 cme_globex_streamlined_sbe_v5_8.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_globex_streamlined_sbe_v5_8.message_size.dissect(buffer, index, packet, parent)
-
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_globex_streamlined_sbe_v5_8.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -12056,7 +12070,7 @@ cme_globex_streamlined_sbe_v5_8.message.dissect = function(buffer, offset, packe
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.headers then
+  if show.structs then
     parent = parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.message, buffer(offset, 0))
     local current = cme_globex_streamlined_sbe_v5_8.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -12121,7 +12135,7 @@ cme_globex_streamlined_sbe_v5_8.udp_packet = {}
 
 -- Verify required size of Udp packet
 cme_globex_streamlined_sbe_v5_8.udp_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_globex_streamlined_sbe_v5_8.binary_packet_header.size + cme_globex_streamlined_sbe_v5_8.message_size.size + cme_globex_streamlined_sbe_v5_8.message_header.size
+  return buffer:len() >= cme_globex_streamlined_sbe_v5_8.binary_packet_header.size + cme_globex_streamlined_sbe_v5_8.message_header.size
 end
 
 -- Dissect Udp Packet
@@ -12134,7 +12148,7 @@ cme_globex_streamlined_sbe_v5_8.udp_packet.dissect = function(buffer, packet, pa
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 3 fields
+  -- Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -12180,6 +12194,87 @@ end
 -----------------------------------------------------------------------
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
+
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+cme_globex_streamlined_sbe_v5_8.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 18 then
+    return false
+  end
+
+  local template_id = buffer(16, 2):le_uint()
+
+  -- Admin Heartbeat
+  if template_id == 312 then
+    return true
+  end
+
+  -- Admin Login
+  if template_id == 315 then
+    return true
+  end
+
+  -- Admin Logout
+  if template_id == 316 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris Reference Data And Daily Statistics
+  if template_id == 333 then
+    return true
+  end
+
+  -- Md News Indices
+  if template_id == 339 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Blocks 340
+  if template_id == 340 then
+    return true
+  end
+
+  -- Quote Request
+  if template_id == 345 then
+    return true
+  end
+
+  -- Md Instrument Definition Indices
+  if template_id == 347 then
+    return true
+  end
+
+  -- Md Incremental Refresh Indices
+  if template_id == 348 then
+    return true
+  end
+
+  -- Md Incremental Refresh Trade Blocks 349
+  if template_id == 349 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris 351
+  if template_id == 351 then
+    return true
+  end
+
+  -- Md Incremental Refresh Eris 353
+  if template_id == 353 then
+    return true
+  end
+
+  -- Md Incremental Refresh Otc
+  if template_id == 356 then
+    return true
+  end
+
+  -- Md Instrument Definition Eris
+  if template_id == 363 then
+    return true
+  end
+
+  return false
+end
 
 -- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
 cme_globex_streamlined_sbe_v5_8.tcp_packet.fingerprint = function(buffer)
@@ -12269,6 +12364,11 @@ end
 
 -- Verify Schema Id Field
 cme_globex_streamlined_sbe_v5_8.schema_id.udp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 18 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(18, 2):le_uint()
 
@@ -12281,6 +12381,11 @@ end
 
 -- Verify Version Field
 cme_globex_streamlined_sbe_v5_8.version.udp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -12293,6 +12398,11 @@ end
 
 -- Verify Encoding Type Field
 cme_globex_streamlined_sbe_v5_8.encoding_type.tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 2):le_uint()
 
@@ -12305,6 +12415,11 @@ end
 
 -- Verify Schema Id Field
 cme_globex_streamlined_sbe_v5_8.schema_id.tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -12317,6 +12432,11 @@ end
 
 -- Verify Version Field
 cme_globex_streamlined_sbe_v5_8.version.tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 22 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -12337,6 +12457,9 @@ local function omi_cme_globex_streamlined_sbe_v5_8_udp_heuristic(buffer, packet,
 
   -- Verify Version
   if not cme_globex_streamlined_sbe_v5_8.version.udp_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not cme_globex_streamlined_sbe_v5_8.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_streamlined_sbe_v5_8
@@ -12359,7 +12482,7 @@ local function omi_cme_globex_streamlined_sbe_v5_8_tcp_acceptor_heuristic(buffer
   -- Verify Version
   if not cme_globex_streamlined_sbe_v5_8.version.tcp_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp tcp packet message dispatch
   if not cme_globex_streamlined_sbe_v5_8.tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

@@ -2181,11 +2181,67 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Frame: would its message dispatch accept this frame?
+okx_okxdigital_marketdata_sbe_v1_0.frame.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local template_id = buffer(2, 2):le_uint()
+
+  -- Bbo Tbt Channel Event Message
+  if template_id == 1000 then
+    return true
+  end
+
+  -- Books L 2 Tbt Channel Event Message
+  if template_id == 1001 then
+    return true
+  end
+
+  -- Books L 2 Tbt Exponent Update Event Message
+  if template_id == 1002 then
+    return true
+  end
+
+  -- Books L 2 Tbt Elp Channel Event Message
+  if template_id == 1003 then
+    return true
+  end
+
+  -- Books L 2 Tbt Elp Exponent Update Event Message
+  if template_id == 1004 then
+    return true
+  end
+
+  -- Trades Channel Event Message
+  if template_id == 1005 then
+    return true
+  end
+
+  -- Snapshot Depth Response Event Message
+  if template_id == 1006 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
 okx_okxdigital_marketdata_sbe_v1_0.schema_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 4 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(4, 2):le_uint()
 
@@ -2198,6 +2254,11 @@ end
 
 -- Verify Version Field
 okx_okxdigital_marketdata_sbe_v1_0.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 6 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(6, 2):le_uint()
 
@@ -2218,6 +2279,9 @@ local function omi_okx_okxdigital_marketdata_sbe_v1_0_ws_heuristic(buffer, packe
 
   -- Verify Version
   if not okx_okxdigital_marketdata_sbe_v1_0.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this websocket frame message dispatch
+  if not okx_okxdigital_marketdata_sbe_v1_0.frame.fingerprint(buffer) then return false end
 
   -- Protocol is valid, dissect this packet: each WebSocket message comes to the heuristic, so the conversation stays the WebSocket's
   omi_okx_okxdigital_marketdata_sbe_v1_0.dissector(buffer, packet, parent)

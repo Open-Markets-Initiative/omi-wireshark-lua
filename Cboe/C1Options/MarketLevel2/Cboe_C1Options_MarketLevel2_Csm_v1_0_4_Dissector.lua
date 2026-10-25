@@ -3052,6 +3052,47 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_c1options_marketlevel2_csm_v1_0_4.packet.fingerprint = function(buffer)
+  if buffer:len() < 19 then
+    return false
+  end
+
+  local template_id = buffer(18, 1):uint()
+
+  -- Security Definition Message
+  if template_id == 13 then
+    return true
+  end
+
+  -- Snapshot Full Refresh Message
+  if template_id == 17 then
+    return true
+  end
+
+  -- Incremental Refresh Message
+  if template_id == 18 then
+    return true
+  end
+
+  -- Security Status Message
+  if template_id == 19 then
+    return true
+  end
+
+  -- Heartbeat Message
+  if template_id == 16 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3059,6 +3100,9 @@ end
 local function omi_cboe_c1options_marketlevel2_csm_v1_0_4_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_c1options_marketlevel2_csm_v1_0_4.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cboe_c1options_marketlevel2_csm_v1_0_4.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_c1options_marketlevel2_csm_v1_0_4

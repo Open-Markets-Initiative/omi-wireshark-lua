@@ -9235,7 +9235,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.message.dissect = function(buffer, offset, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.headers then
+  if show.structs then
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.message, buffer(offset, 0))
     local current = b3_b3derivatives_binaryumdf_sbe_v2_1.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -9361,11 +9361,177 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+b3_b3derivatives_binaryumdf_sbe_v2_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 24 then
+    return false
+  end
+
+  local template_id = buffer(22, 2):le_uint()
+
+  -- Sequence Reset Message
+  if template_id == 1 then
+    return true
+  end
+
+  -- Sequence Message
+  if template_id == 2 then
+    return true
+  end
+
+  -- Empty Book Message
+  if template_id == 9 then
+    return true
+  end
+
+  -- Channel Reset 11 Message
+  if template_id == 11 then
+    return true
+  end
+
+  -- Security Status 3 Message
+  if template_id == 3 then
+    return true
+  end
+
+  -- Security Group Phase 10 Message
+  if template_id == 10 then
+    return true
+  end
+
+  -- Security Definition Message
+  if template_id == 12 then
+    return true
+  end
+
+  -- News 5 Message
+  if template_id == 5 then
+    return true
+  end
+
+  -- Opening Price 15 Message
+  if template_id == 15 then
+    return true
+  end
+
+  -- Theoretical Opening Price 16 Message
+  if template_id == 16 then
+    return true
+  end
+
+  -- Closing Price 17 Message
+  if template_id == 17 then
+    return true
+  end
+
+  -- Auction Imbalance 19 Message
+  if template_id == 19 then
+    return true
+  end
+
+  -- Quantity Band 21 Message
+  if template_id == 21 then
+    return true
+  end
+
+  -- Price Band 22 Message
+  if template_id == 22 then
+    return true
+  end
+
+  -- High Price 24 Message
+  if template_id == 24 then
+    return true
+  end
+
+  -- Low Price 25 Message
+  if template_id == 25 then
+    return true
+  end
+
+  -- Last Trade Price 27 Message
+  if template_id == 27 then
+    return true
+  end
+
+  -- Settlement Price 28 Message
+  if template_id == 28 then
+    return true
+  end
+
+  -- Open Interest 29 Message
+  if template_id == 29 then
+    return true
+  end
+
+  -- Snapshot Full Refresh Header 30 Message
+  if template_id == 30 then
+    return true
+  end
+
+  -- Order Mb O 50 Message
+  if template_id == 50 then
+    return true
+  end
+
+  -- Delete Order Mb O 51 Message
+  if template_id == 51 then
+    return true
+  end
+
+  -- Mass Delete Orders Mb O 52 Message
+  if template_id == 52 then
+    return true
+  end
+
+  -- Trade 53 Message
+  if template_id == 53 then
+    return true
+  end
+
+  -- Forward Trade 54 Message
+  if template_id == 54 then
+    return true
+  end
+
+  -- Execution Summary 55 Message
+  if template_id == 55 then
+    return true
+  end
+
+  -- Execution Statistics 56 Message
+  if template_id == 56 then
+    return true
+  end
+
+  -- Trade Bust 57 Message
+  if template_id == 57 then
+    return true
+  end
+
+  -- Snapshot Full Refresh Orders Mb O 71 Message
+  if template_id == 71 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
 b3_b3derivatives_binaryumdf_sbe_v2_1.schema_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 24 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(24, 2):le_uint()
 
@@ -9378,6 +9544,11 @@ end
 
 -- Verify Version Field
 b3_b3derivatives_binaryumdf_sbe_v2_1.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 26 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(26, 2):le_uint()
 
@@ -9398,6 +9569,9 @@ local function omi_b3_b3derivatives_binaryumdf_sbe_v2_1_udp_heuristic(buffer, pa
 
   -- Verify Version
   if not b3_b3derivatives_binaryumdf_sbe_v2_1.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not b3_b3derivatives_binaryumdf_sbe_v2_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_b3_b3derivatives_binaryumdf_sbe_v2_1

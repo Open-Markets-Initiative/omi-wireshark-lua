@@ -1906,6 +1906,98 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cixats_cixaspen_snapshot_tcpout_v1_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local packet_type = buffer(2, 1):string()
+
+  -- Login Message
+  if packet_type == "L" then
+    return true
+  end
+
+  -- Client Heartbeat Message
+  if packet_type == "R" then
+    return true
+  end
+
+  -- Successful Login Message
+  if packet_type == "A" then
+    return true
+  end
+
+  -- Login Reject Message
+  if packet_type == "J" then
+    return true
+  end
+
+  -- Server Heartbeat Message
+  if packet_type == "H" then
+    return true
+  end
+
+  -- Binary Data Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if packet_type == "S" then
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local message_type = buffer(3, 1):string()
+
+    -- Market Event Message
+    if message_type == "A" then
+      return true
+    end
+
+    -- Symbol Information Message
+    if message_type == "B" then
+      return true
+    end
+
+    -- Symbol State Message
+    if message_type == "C" then
+      return true
+    end
+
+    -- New Order Add Message
+    if message_type == "D" then
+      return true
+    end
+
+    -- Order Partial Cancel Message
+    if message_type == "F" then
+      return true
+    end
+
+    -- Order Cancel All Message
+    if message_type == "G" then
+      return true
+    end
+
+    -- Order Executed Message
+    if message_type == "J" then
+      return true
+    end
+
+    -- End Of Snapshot Message
+    if message_type == "X" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1913,6 +2005,9 @@ end
 local function omi_cixats_cixaspen_snapshot_tcpout_v1_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cixats_cixaspen_snapshot_tcpout_v1_1.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cixats_cixaspen_snapshot_tcpout_v1_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cixats_cixaspen_snapshot_tcpout_v1_1

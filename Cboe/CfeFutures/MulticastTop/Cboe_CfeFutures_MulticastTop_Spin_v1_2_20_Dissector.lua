@@ -3368,6 +3368,110 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_cfefutures_multicasttop_spin_v1_2_20.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Login Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Spin Image Available Message
+  if message_type == 0x80 then
+    return true
+  end
+
+  -- Spin Request Message
+  if message_type == 0x81 then
+    return true
+  end
+
+  -- Spin Response Message
+  if message_type == 0x82 then
+    return true
+  end
+
+  -- Spin Finished Message
+  if message_type == 0x83 then
+    return true
+  end
+
+  -- Time Reference Message
+  if message_type == 0xB1 then
+    return true
+  end
+
+  -- Time Message
+  if message_type == 0x20 then
+    return true
+  end
+
+  -- Futures Instrument Definition Message
+  if message_type == 0xBB then
+    return true
+  end
+
+  -- Futures Variance Symbol Mapping Message
+  if message_type == 0xFA then
+    return true
+  end
+
+  -- Price Limits Message
+  if message_type == 0xBE then
+    return true
+  end
+
+  -- Market Snapshot Short Message
+  if message_type == 0xB2 then
+    return true
+  end
+
+  -- Market Snapshot Long Message
+  if message_type == 0xB3 then
+    return true
+  end
+
+  -- Settlement Message
+  if message_type == 0xB9 then
+    return true
+  end
+
+  -- End Of Day Summary Message
+  if message_type == 0xBA then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3375,6 +3479,9 @@ end
 local function omi_cboe_cfefutures_multicasttop_spin_v1_2_20_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cfefutures_multicasttop_spin_v1_2_20.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_cfefutures_multicasttop_spin_v1_2_20.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cfefutures_multicasttop_spin_v1_2_20

@@ -21,7 +21,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.approximate_volume_participant = ProtoFie
 omi_siac_cts_output_cta_v2_11_b.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v2.11.b.auctioncollarlowerthresholdprice", ftypes.DOUBLE, nil, nil, nil, "Represents the latest lower threshold price of the Auction Collar. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v2.11.b.auctioncollarreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Represents the price used by the exchange to establish the Auction Collar. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.11.b.auctioncollarupperthresholdprice", ftypes.DOUBLE, nil, nil, nil, "Represents the latest upper threshold price of the Auction Collar. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.11.b.bidindexvalue", ftypes.INT64, nil, nil, nil, "Represents the value of the index's calculation formula using the current Bid values of the component securities. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.11.b.bidindexvalue", ftypes.DOUBLE, nil, nil, nil, "Represents the value of the index's calculation formula using the current Bid values of the component securities. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.11.b.blockchecksum", ftypes.UINT16, nil, nil, nil, "Lower 16 Bits Of The 32 Bit Sum Of All Bytes In The Block Excluding The Block Checksum Field")
 omi_siac_cts_output_cta_v2_11_b.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.11.b.blockpadbyte", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_11_b.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.11.b.blocksequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
@@ -33,7 +33,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.category_2 = ProtoField.new("Category 2",
 omi_siac_cts_output_cta_v2_11_b.fields.category_3 = ProtoField.new("Category 3", "siac.cts.output.cta.v2.11.b.category3", ftypes.STRING, nil, nil, nil, "Extended Hours / Sequence Type")
 omi_siac_cts_output_cta_v2_11_b.fields.category_4 = ProtoField.new("Category 4", "siac.cts.output.cta.v2.11.b.category4", ftypes.STRING, nil, nil, nil, "SRO Trade Detail")
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_closing_price = ProtoField.new("Consolidated Closing Price", "siac.cts.output.cta.v2.11.b.consolidatedclosingprice", ftypes.DOUBLE, nil, nil, nil, "Represents the consolidated closing price. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.consolidated_fractional_total_volume = ProtoField.new("Consolidated Fractional Total Volume", "siac.cts.output.cta.v2.11.b.consolidatedfractionaltotalvolume", ftypes.UINT64, nil, nil, nil, "Consolidated total volume of shares traded. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.consolidated_fractional_total_volume = ProtoField.new("Consolidated Fractional Total Volume", "siac.cts.output.cta.v2.11.b.consolidatedfractionaltotalvolume", ftypes.DOUBLE, nil, nil, nil, "Consolidated total volume of shares traded. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_high_low_last_indicator = ProtoField.new("Consolidated High Low Last Indicator", "siac.cts.output.cta.v2.11.b.consolidatedhighlowlastindicator", ftypes.STRING, nil, nil, nil, "Identifies the Consolidated High/Low/Last Price applicable to the trade")
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "siac.cts.output.cta.v2.11.b.consolidatedhighprice", ftypes.DOUBLE, nil, nil, nil, "Consolidated highest price paid during the trading day. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_last_participant_id = ProtoField.new("Consolidated Last Participant Id", "siac.cts.output.cta.v2.11.b.consolidatedlastparticipantid", ftypes.STRING)
@@ -44,7 +44,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.consolidated_tick = ProtoField.new("Conso
 omi_siac_cts_output_cta_v2_11_b.fields.consolidated_total_volume = ProtoField.new("Consolidated Total Volume", "siac.cts.output.cta.v2.11.b.consolidatedtotalvolume", ftypes.UINT32, nil, nil, nil, "Contains the Consolidated Total Volume of shares traded for a security at the time of the trade correction or cancel/error")
 omi_siac_cts_output_cta_v2_11_b.fields.control_message = ProtoField.new("Control Message", "siac.cts.output.cta.v2.11.b.controlmessage", ftypes.STRING, nil, nil, nil, "Control Category")
 omi_siac_cts_output_cta_v2_11_b.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.11.b.controlmessagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of Control message")
-omi_siac_cts_output_cta_v2_11_b.fields.corrected_fractional_trade_volume = ProtoField.new("Corrected Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.correctedfractionaltradevolume", ftypes.UINT64, nil, nil, nil, "Corrected total number of shares which traded in a single transaction. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.corrected_fractional_trade_volume = ProtoField.new("Corrected Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.correctedfractionaltradevolume", ftypes.DOUBLE, nil, nil, nil, "Corrected total number of shares which traded in a single transaction. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The corrected prior day trade date and time")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time_utc = ProtoField.new("Corrected Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The corrected prior day trade date and time")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_sale_condition = ProtoField.new("Corrected Sale Condition", "siac.cts.output.cta.v2.11.b.correctedsalecondition", ftypes.STRING, nil, nil, nil, "Corrected sale condition associated with a trade")
@@ -55,21 +55,21 @@ omi_siac_cts_output_cta_v2_11_b.fields.corrected_trade_price = ProtoField.new("C
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_trade_through_exempt_indicator = ProtoField.new("Corrected Trade Through Exempt Indicator", "siac.cts.output.cta.v2.11.b.correctedtradethroughexemptindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_trade_volume = ProtoField.new("Corrected Trade Volume", "siac.cts.output.cta.v2.11.b.correctedtradevolume", ftypes.UINT32, nil, nil, nil, "Corrected total number of shares which traded in a single transaction for an individual security")
 omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_i_total_trades_volume = ProtoField.new("Crossing Session I Total Trades Volume", "siac.cts.output.cta.v2.11.b.crossingsessionitotaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded at the Participant's close price and taking place after the close of a Participant's regular session")
-omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_ii_dollar_value = ProtoField.new("Crossing Session Ii Dollar Value", "siac.cts.output.cta.v2.11.b.crossingsessioniidollarvalue", ftypes.UINT64, nil, nil, nil, "Contains the Dollar Value traded after the close of a Participant's regular session. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_ii_dollar_value = ProtoField.new("Crossing Session Ii Dollar Value", "siac.cts.output.cta.v2.11.b.crossingsessioniidollarvalue", ftypes.DOUBLE, nil, nil, nil, "Contains the Dollar Value traded after the close of a Participant's regular session. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_ii_total_trades_volume = ProtoField.new("Crossing Session Ii Total Trades Volume", "siac.cts.output.cta.v2.11.b.crossingsessioniitotaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded after the close of a Participant's regular session")
 omi_siac_cts_output_cta_v2_11_b.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.11.b.datafeedindicator", ftypes.STRING)
-omi_siac_cts_output_cta_v2_11_b.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.11.b.dollarvalue", ftypes.UINT64, nil, nil, nil, "Represents the total dollar worth of the daily trade transactions. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.11.b.dollarvalue", ftypes.DOUBLE, nil, nil, nil, "Represents the total dollar worth of the daily trade transactions. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cts.output.cta.v2.11.b.financialstatusindicator", ftypes.STRING, nil, nil, nil, "Identifies the financial status of the security")
-omi_siac_cts_output_cta_v2_11_b.fields.fractional_total_volume = ProtoField.new("Fractional Total Volume", "siac.cts.output.cta.v2.11.b.fractionaltotalvolume", ftypes.UINT64, nil, nil, nil, "Contains Total Volume of shares traded in a security either on a Consolidated or an individual Participant basis. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_total_volume = ProtoField.new("Fractional Trade Total Volume", "siac.cts.output.cta.v2.11.b.fractionaltradetotalvolume", ftypes.UINT64, nil, nil, nil, "Contains the total number of shares traded for each Participant. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_volume = ProtoField.new("Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.fractionaltradevolume", ftypes.UINT64, nil, nil, nil, "Contains the total number of shares which traded in a single transaction for an individual security. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_volume_4 = ProtoField.new("Fractional Trade Volume 4", "siac.cts.output.cta.v2.11.b.fractionaltradevolume4", ftypes.UINT32, nil, nil, nil, "Contains the total number of shares which traded in a single transaction for an individual security. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.fractional_total_volume = ProtoField.new("Fractional Total Volume", "siac.cts.output.cta.v2.11.b.fractionaltotalvolume", ftypes.DOUBLE, nil, nil, nil, "Contains Total Volume of shares traded in a security either on a Consolidated or an individual Participant basis. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_total_volume = ProtoField.new("Fractional Trade Total Volume", "siac.cts.output.cta.v2.11.b.fractionaltradetotalvolume", ftypes.DOUBLE, nil, nil, nil, "Contains the total number of shares traded for each Participant. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_volume = ProtoField.new("Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.fractionaltradevolume", ftypes.DOUBLE, nil, nil, nil, "Contains the total number of shares which traded in a single transaction for an individual security. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_volume_4 = ProtoField.new("Fractional Trade Volume 4", "siac.cts.output.cta.v2.11.b.fractionaltradevolume4", ftypes.DOUBLE, nil, nil, nil, "Contains the total number of shares which traded in a single transaction for an individual security. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cts.output.cta.v2.11.b.haltreason", ftypes.STRING, nil, nil, nil, "Denotes the reason for the Trading Halt")
 omi_siac_cts_output_cta_v2_11_b.fields.held_trade_indicator = ProtoField.new("Held Trade Indicator", "siac.cts.output.cta.v2.11.b.heldtradeindicator", ftypes.STRING, nil, nil, nil, "Reflects whether a held trade qualifies for the Participant or Consolidated Last Price at the time it is disseminated")
 omi_siac_cts_output_cta_v2_11_b.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.output.cta.v2.11.b.highindicationpriceupperlimitpriceband", ftypes.DOUBLE, nil, nil, nil, "Represents an approximation of what the high end Offer price of a security's trading range may be, or the upper price band value for a security. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v2.11.b.highprice", ftypes.DOUBLE, nil, nil, nil, "Represents the highest price paid for a security during the trading day. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.index_symbol = ProtoField.new("Index Symbol", "siac.cts.output.cta.v2.11.b.indexsymbol", ftypes.STRING, nil, nil, nil, "Contains the Index symbol. Left justified, space-filled")
-omi_siac_cts_output_cta_v2_11_b.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.11.b.indexvalue", ftypes.INT64, nil, nil, nil, "Represents a statistical composite that measures changes in the economy or in financial markets. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.11.b.indexvalue", ftypes.DOUBLE, nil, nil, nil, "Represents a statistical composite that measures changes in the economy or in financial markets. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.indices_message = ProtoField.new("Indices Message", "siac.cts.output.cta.v2.11.b.indicesmessage", ftypes.STRING, nil, nil, nil, "Index Category Index Messages Are Used To Provide Index Value Information Of A Security")
 omi_siac_cts_output_cta_v2_11_b.fields.indices_message_type = ProtoField.new("Indices Message Type", "siac.cts.output.cta.v2.11.b.indicesmessagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of Index message")
 omi_siac_cts_output_cta_v2_11_b.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cts.output.cta.v2.11.b.instrumenttype", ftypes.STRING, nil, nil, nil, "Identifies the instrument type relevant to the trade")
@@ -79,7 +79,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.last_price = ProtoField.new("Last Price",
 omi_siac_cts_output_cta_v2_11_b.fields.limit_up_limit_down_luld_indicator = ProtoField.new("Limit Up Limit Down Luld Indicator", "siac.cts.output.cta.v2.11.b.limituplimitdownluldindicator", ftypes.STRING, nil, nil, nil, "Identifies the Limit Up-Limit Down action related to a security")
 omi_siac_cts_output_cta_v2_11_b.fields.low_indication_price_lower_limit_price_band = ProtoField.new("Low Indication Price Lower Limit Price Band", "siac.cts.output.cta.v2.11.b.lowindicationpricelowerlimitpriceband", ftypes.DOUBLE, nil, nil, nil, "Represents an approximation of what the low end Bid price of a security's trading range may be, or the lower price band value for a security. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v2.11.b.lowprice", ftypes.DOUBLE, nil, nil, nil, "Represents the lowest price paid for a security during the trading day. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.luld_leverage_ratio = ProtoField.new("Luld Leverage Ratio", "siac.cts.output.cta.v2.11.b.luldleverageratio", ftypes.UINT32, nil, nil, nil, "Represents the Leverage ratio associated with the LULD Tier of the security symbol. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.luld_leverage_ratio = ProtoField.new("Luld Leverage Ratio", "siac.cts.output.cta.v2.11.b.luldleverageratio", ftypes.DOUBLE, nil, nil, nil, "Represents the Leverage ratio associated with the LULD Tier of the security symbol. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.luld_tier = ProtoField.new("Luld Tier", "siac.cts.output.cta.v2.11.b.luldtier", ftypes.STRING, nil, nil, nil, "Identifies the Limit Up Limit Down tier of the security symbol")
 omi_siac_cts_output_cta_v2_11_b.fields.market_status_message = ProtoField.new("Market Status Message", "siac.cts.output.cta.v2.11.b.marketstatusmessage", ftypes.STRING, nil, nil, nil, "Market Status Category Market Status Messages Are Used To Provide Market Data Information")
 omi_siac_cts_output_cta_v2_11_b.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v2.11.b.marketstatusmessagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of Market Status message")
@@ -89,15 +89,15 @@ omi_siac_cts_output_cta_v2_11_b.fields.message_id = ProtoField.new("Message Id",
 omi_siac_cts_output_cta_v2_11_b.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.11.b.messagelength", ftypes.UINT16, nil, nil, nil, "The total length of the message in bytes")
 omi_siac_cts_output_cta_v2_11_b.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v2.11.b.messagesinblock", ftypes.UINT8, nil, nil, nil, "The Number Of Messages Contained In The Block Data Of The Transmission Block")
 omi_siac_cts_output_cta_v2_11_b.fields.minimum_price_increment_indicator = ProtoField.new("Minimum Price Increment Indicator", "siac.cts.output.cta.v2.11.b.minimumpriceincrementindicator", ftypes.STRING, nil, nil, nil, "Identifies the applicable tick size for a symbol")
-omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.11.b.mwcblevel1", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value. Level 1 = 7% of Previous Close S&P 500 Value. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.11.b.mwcblevel2", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value. Level 2 = 13% of Previous Close S&P 500 Value. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.11.b.mwcblevel3", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value. Level 3 = 20% of Previous Close S&P 500 Value. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.11.b.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value. Level 1 = 7% of Previous Close S&P 500 Value. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.11.b.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value. Level 2 = 13% of Previous Close S&P 500 Value. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.11.b.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value. Level 3 = 20% of Previous Close S&P 500 Value. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.output.cta.v2.11.b.nanoseconds", ftypes.UINT32, nil, nil, nil, "The Nanosecond Portion Of The Time Currently Rounded To The Nearest Microsecond")
 omi_siac_cts_output_cta_v2_11_b.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cts.output.cta.v2.11.b.numberofextensions", ftypes.UINT8, nil, nil, nil, "Identifies the number of manual or automatic extensions the applicable auction has received")
 omi_siac_cts_output_cta_v2_11_b.fields.number_of_participants = ProtoField.new("Number Of Participants", "siac.cts.output.cta.v2.11.b.numberofparticipants", ftypes.UINT8, nil, nil, nil, "Represents the actual number of Participants for which an issue will be reported")
-omi_siac_cts_output_cta_v2_11_b.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.output.cta.v2.11.b.offerindexvalue", ftypes.INT64, nil, nil, nil, "Represents the value of the index calculation formula using the current offer values of the component securities. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.output.cta.v2.11.b.offerindexvalue", ftypes.DOUBLE, nil, nil, nil, "Represents the value of the index calculation formula using the current offer values of the component securities. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v2.11.b.openprice", ftypes.DOUBLE, nil, nil, nil, "Represents the first qualifying price paid for a security during the trading day. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.original_fractional_trade_volume = ProtoField.new("Original Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.originalfractionaltradevolume", ftypes.UINT64, nil, nil, nil, "Original total number of shares which traded in a single transaction. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.original_fractional_trade_volume = ProtoField.new("Original Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.originalfractionaltradevolume", ftypes.DOUBLE, nil, nil, nil, "Original total number of shares which traded in a single transaction. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v2.11.b.originalparticipantreferencenumber", ftypes.INT64, nil, nil, nil, "Contains the Participant Reference Number of transaction to be corrected, cancelled or errored")
 omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.originalpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The original prior day trade date and time")
 omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time_utc = ProtoField.new("Original Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.originalpriordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The original prior day trade date and time")
@@ -109,7 +109,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.original_trade_price = ProtoField.new("Or
 omi_siac_cts_output_cta_v2_11_b.fields.original_trade_through_exempt_indicator = ProtoField.new("Original Trade Through Exempt Indicator", "siac.cts.output.cta.v2.11.b.originaltradethroughexemptindicator", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.original_trade_volume = ProtoField.new("Original Trade Volume", "siac.cts.output.cta.v2.11.b.originaltradevolume", ftypes.UINT32, nil, nil, nil, "Original total number of shares which traded in a single transaction for an individual security")
 omi_siac_cts_output_cta_v2_11_b.fields.participant = ProtoField.new("Participant", "siac.cts.output.cta.v2.11.b.participant", ftypes.STRING, nil, nil, nil, "Active Participants")
-omi_siac_cts_output_cta_v2_11_b.fields.participant_fractional_total_volume = ProtoField.new("Participant Fractional Total Volume", "siac.cts.output.cta.v2.11.b.participantfractionaltotalvolume", ftypes.UINT64, nil, nil, nil, "Participant total volume of shares traded. Has implied 6 decimal places")
+omi_siac_cts_output_cta_v2_11_b.fields.participant_fractional_total_volume = ProtoField.new("Participant Fractional Total Volume", "siac.cts.output.cta.v2.11.b.participantfractionaltotalvolume", ftypes.DOUBLE, nil, nil, nil, "Participant total volume of shares traded. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.participant_high_price = ProtoField.new("Participant High Price", "siac.cts.output.cta.v2.11.b.participanthighprice", ftypes.DOUBLE, nil, nil, nil, "Participant highest price paid during the trading day. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.participant_id = ProtoField.new("Participant Id", "siac.cts.output.cta.v2.11.b.participantid", ftypes.STRING, nil, nil, nil, "Identifies the Participant or Processor that initiated the message")
 omi_siac_cts_output_cta_v2_11_b.fields.participant_last_price = ProtoField.new("Participant Last Price", "siac.cts.output.cta.v2.11.b.participantlastprice", ftypes.DOUBLE, nil, nil, nil, "Participant last price. Has implied 6 decimal places")
@@ -442,11 +442,17 @@ siac_cts_output_cta_v2_11_b.bid_index_value.display = function(value)
   return "Bid Index Value: "..value
 end
 
+-- Translate: Bid Index Value
+siac_cts_output_cta_v2_11_b.bid_index_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Bid Index Value
 siac_cts_output_cta_v2_11_b.bid_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.bid_index_value.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_11_b.bid_index_value.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.bid_index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.bid_index_value, range, value, display)
@@ -822,11 +828,17 @@ siac_cts_output_cta_v2_11_b.consolidated_fractional_total_volume.display = funct
   return "Consolidated Fractional Total Volume: "..value
 end
 
+-- Translate: Consolidated Fractional Total Volume
+siac_cts_output_cta_v2_11_b.consolidated_fractional_total_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Consolidated Fractional Total Volume
 siac_cts_output_cta_v2_11_b.consolidated_fractional_total_volume.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.consolidated_fractional_total_volume.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.consolidated_fractional_total_volume.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.consolidated_fractional_total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.consolidated_fractional_total_volume, range, value, display)
@@ -1111,11 +1123,17 @@ siac_cts_output_cta_v2_11_b.corrected_fractional_trade_volume.display = function
   return "Corrected Fractional Trade Volume: "..value
 end
 
+-- Translate: Corrected Fractional Trade Volume
+siac_cts_output_cta_v2_11_b.corrected_fractional_trade_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Corrected Fractional Trade Volume
 siac_cts_output_cta_v2_11_b.corrected_fractional_trade_volume.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.corrected_fractional_trade_volume.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.corrected_fractional_trade_volume.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.corrected_fractional_trade_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.corrected_fractional_trade_volume, range, value, display)
@@ -1324,11 +1342,17 @@ siac_cts_output_cta_v2_11_b.crossing_session_ii_dollar_value.display = function(
   return "Crossing Session Ii Dollar Value: "..value
 end
 
+-- Translate: Crossing Session Ii Dollar Value
+siac_cts_output_cta_v2_11_b.crossing_session_ii_dollar_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Crossing Session Ii Dollar Value
 siac_cts_output_cta_v2_11_b.crossing_session_ii_dollar_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.crossing_session_ii_dollar_value.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.crossing_session_ii_dollar_value.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.crossing_session_ii_dollar_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.crossing_session_ii_dollar_value, range, value, display)
@@ -1393,11 +1417,17 @@ siac_cts_output_cta_v2_11_b.dollar_value.display = function(value)
   return "Dollar Value: "..value
 end
 
+-- Translate: Dollar Value
+siac_cts_output_cta_v2_11_b.dollar_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Dollar Value
 siac_cts_output_cta_v2_11_b.dollar_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.dollar_value.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.dollar_value.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.dollar_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.dollar_value, range, value, display)
@@ -1473,11 +1503,17 @@ siac_cts_output_cta_v2_11_b.fractional_total_volume.display = function(value)
   return "Fractional Total Volume: "..value
 end
 
+-- Translate: Fractional Total Volume
+siac_cts_output_cta_v2_11_b.fractional_total_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Fractional Total Volume
 siac_cts_output_cta_v2_11_b.fractional_total_volume.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.fractional_total_volume.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.fractional_total_volume.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.fractional_total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.fractional_total_volume, range, value, display)
@@ -1496,11 +1532,17 @@ siac_cts_output_cta_v2_11_b.fractional_trade_total_volume.display = function(val
   return "Fractional Trade Total Volume: "..value
 end
 
+-- Translate: Fractional Trade Total Volume
+siac_cts_output_cta_v2_11_b.fractional_trade_total_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Fractional Trade Total Volume
 siac_cts_output_cta_v2_11_b.fractional_trade_total_volume.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.fractional_trade_total_volume.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.fractional_trade_total_volume.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.fractional_trade_total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_total_volume, range, value, display)
@@ -1519,11 +1561,17 @@ siac_cts_output_cta_v2_11_b.fractional_trade_volume.display = function(value)
   return "Fractional Trade Volume: "..value
 end
 
+-- Translate: Fractional Trade Volume
+siac_cts_output_cta_v2_11_b.fractional_trade_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Fractional Trade Volume
 siac_cts_output_cta_v2_11_b.fractional_trade_volume.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.fractional_trade_volume.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.fractional_trade_volume.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.fractional_trade_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_volume, range, value, display)
@@ -1542,11 +1590,17 @@ siac_cts_output_cta_v2_11_b.fractional_trade_volume_4.display = function(value)
   return "Fractional Trade Volume 4: "..value
 end
 
+-- Translate: Fractional Trade Volume 4
+siac_cts_output_cta_v2_11_b.fractional_trade_volume_4.translate = function(raw)
+  return raw/1000000
+end
+
 -- Dissect: Fractional Trade Volume 4
 siac_cts_output_cta_v2_11_b.fractional_trade_volume_4.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.fractional_trade_volume_4.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = siac_cts_output_cta_v2_11_b.fractional_trade_volume_4.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.fractional_trade_volume_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.fractional_trade_volume_4, range, value, display)
@@ -1757,11 +1811,17 @@ siac_cts_output_cta_v2_11_b.index_value.display = function(value)
   return "Index Value: "..value
 end
 
+-- Translate: Index Value
+siac_cts_output_cta_v2_11_b.index_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Index Value
 siac_cts_output_cta_v2_11_b.index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.index_value.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_11_b.index_value.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.index_value, range, value, display)
@@ -2043,11 +2103,17 @@ siac_cts_output_cta_v2_11_b.luld_leverage_ratio.display = function(value)
   return "Luld Leverage Ratio: "..value
 end
 
+-- Translate: Luld Leverage Ratio
+siac_cts_output_cta_v2_11_b.luld_leverage_ratio.translate = function(raw)
+  return raw/1000000
+end
+
 -- Dissect: Luld Leverage Ratio
 siac_cts_output_cta_v2_11_b.luld_leverage_ratio.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.luld_leverage_ratio.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = siac_cts_output_cta_v2_11_b.luld_leverage_ratio.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.luld_leverage_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.luld_leverage_ratio, range, value, display)
@@ -2321,11 +2387,17 @@ siac_cts_output_cta_v2_11_b.mwcb_level_1.display = function(value)
   return "Mwcb Level 1: "..value
 end
 
+-- Translate: Mwcb Level 1
+siac_cts_output_cta_v2_11_b.mwcb_level_1.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 1
 siac_cts_output_cta_v2_11_b.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.mwcb_level_1.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_11_b.mwcb_level_1.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.mwcb_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_1, range, value, display)
@@ -2344,11 +2416,17 @@ siac_cts_output_cta_v2_11_b.mwcb_level_2.display = function(value)
   return "Mwcb Level 2: "..value
 end
 
+-- Translate: Mwcb Level 2
+siac_cts_output_cta_v2_11_b.mwcb_level_2.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 2
 siac_cts_output_cta_v2_11_b.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.mwcb_level_2.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_11_b.mwcb_level_2.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.mwcb_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_2, range, value, display)
@@ -2367,11 +2445,17 @@ siac_cts_output_cta_v2_11_b.mwcb_level_3.display = function(value)
   return "Mwcb Level 3: "..value
 end
 
+-- Translate: Mwcb Level 3
+siac_cts_output_cta_v2_11_b.mwcb_level_3.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 3
 siac_cts_output_cta_v2_11_b.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.mwcb_level_3.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_11_b.mwcb_level_3.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.mwcb_level_3, range, value, display)
@@ -2459,11 +2543,17 @@ siac_cts_output_cta_v2_11_b.offer_index_value.display = function(value)
   return "Offer Index Value: "..value
 end
 
+-- Translate: Offer Index Value
+siac_cts_output_cta_v2_11_b.offer_index_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Offer Index Value
 siac_cts_output_cta_v2_11_b.offer_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.offer_index_value.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_11_b.offer_index_value.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.offer_index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.offer_index_value, range, value, display)
@@ -2511,11 +2601,17 @@ siac_cts_output_cta_v2_11_b.original_fractional_trade_volume.display = function(
   return "Original Fractional Trade Volume: "..value
 end
 
+-- Translate: Original Fractional Trade Volume
+siac_cts_output_cta_v2_11_b.original_fractional_trade_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Original Fractional Trade Volume
 siac_cts_output_cta_v2_11_b.original_fractional_trade_volume.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.original_fractional_trade_volume.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.original_fractional_trade_volume.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.original_fractional_trade_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.original_fractional_trade_volume, range, value, display)
@@ -2724,11 +2820,17 @@ siac_cts_output_cta_v2_11_b.participant_fractional_total_volume.display = functi
   return "Participant Fractional Total Volume: "..value
 end
 
+-- Translate: Participant Fractional Total Volume
+siac_cts_output_cta_v2_11_b.participant_fractional_total_volume.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Participant Fractional Total Volume
 siac_cts_output_cta_v2_11_b.participant_fractional_total_volume.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_11_b.participant_fractional_total_volume.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_11_b.participant_fractional_total_volume.translate(raw)
   local display = siac_cts_output_cta_v2_11_b.participant_fractional_total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_11_b.fields.participant_fractional_total_volume, range, value, display)
@@ -9487,6 +9589,299 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cts_output_cta_v2_11_b.packet.fingerprint = function(buffer)
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_category = buffer(22, 1):string()
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local administrative_message_type = buffer(23, 1):string()
+
+    -- Start Of End Of Day Summary Message
+    if administrative_message_type == "A" then
+      return true
+    end
+
+    -- End Of End Of Day Summary Message
+    if administrative_message_type == "B" then
+      return true
+    end
+
+    -- Start Of Start Of Day Summary Message
+    if administrative_message_type == "C" then
+      return true
+    end
+
+    -- End Of Start Of Day Summary Message
+    if administrative_message_type == "D" then
+      return true
+    end
+
+    -- Symbol Reference Data Message
+    if administrative_message_type == "S" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local control_message_type = buffer(23, 1):string()
+
+    -- Start Of Day Message
+    if control_message_type == "A" then
+      return true
+    end
+
+    -- Reset Block Sequence Number Message
+    if control_message_type == "L" then
+      return true
+    end
+
+    -- Disaster Recovery Data Center Activation Message
+    if control_message_type == "P" then
+      return true
+    end
+
+    -- Line Integrity Message
+    if control_message_type == "T" then
+      return true
+    end
+
+    -- End Of Day Message
+    if control_message_type == "Z" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Indices Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "I" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local indices_message_type = buffer(23, 1):string()
+
+    -- Index Message
+    if indices_message_type == "I" then
+      return true
+    end
+
+    -- Bid And Offer Index Message
+    if indices_message_type == "Q" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Market Status Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "M" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local market_status_message_type = buffer(23, 1):string()
+
+    -- Market Wide Circuit Breaker Decline Level Status Message
+    if market_status_message_type == "K" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Status Message
+    if market_status_message_type == "L" then
+      return true
+    end
+
+    -- Approximate Adjusted Volume Market Center Message
+    if market_status_message_type == "N" then
+      return true
+    end
+
+    -- Fractional Approximate Adjusted Volume Market Center Message
+    if market_status_message_type == "V" then
+      return true
+    end
+
+    -- Approximate Trades And Total Dollar Value Message
+    if market_status_message_type == "O" then
+      return true
+    end
+
+    -- Crossing Session Summary Message
+    if market_status_message_type == "P" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Prior Day Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "P" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local prior_day_message_type = buffer(23, 1):string()
+
+    -- Prior Day Trade Correction Message
+    if prior_day_message_type == "C" then
+      return true
+    end
+
+    -- Prior Day Trade Message
+    if prior_day_message_type == "T" then
+      return true
+    end
+
+    -- Prior Day Trade Cancel Error Message
+    if prior_day_message_type == "X" then
+      return true
+    end
+
+    -- Fractional Prior Day Trade Correction Message
+    if prior_day_message_type == "O" then
+      return true
+    end
+
+    -- Fractional Prior Day Trade Message
+    if prior_day_message_type == "R" then
+      return true
+    end
+
+    -- Fractional Prior Day Trade Cancel Error Message
+    if prior_day_message_type == "E" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Summary Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "S" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local summary_message_type = buffer(23, 1):string()
+
+    -- Consolidated Start Of Day Summary Message
+    if summary_message_type == "A" then
+      return true
+    end
+
+    -- Participant Start Of Day Summary Message
+    if summary_message_type == "B" then
+      return true
+    end
+
+    -- Consolidated End Of Day Summary Message
+    if summary_message_type == "C" then
+      return true
+    end
+
+    -- Fractional Consolidated End Of Day Summary Message
+    if summary_message_type == "T" then
+      return true
+    end
+
+    -- Participant End Of Day Summary Message
+    if summary_message_type == "D" then
+      return true
+    end
+
+    -- Fractional Participant End Of Day Summary Message
+    if summary_message_type == "P" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Trade Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "T" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local trade_message_type = buffer(23, 1):string()
+
+    -- Auction Status Message
+    if trade_message_type == "A" then
+      return true
+    end
+
+    -- Trade Correction Message
+    if trade_message_type == "C" then
+      return true
+    end
+
+    -- Long Trade Message
+    if trade_message_type == "L" then
+      return true
+    end
+
+    -- Short Trade Message
+    if trade_message_type == "T" then
+      return true
+    end
+
+    -- Trade Cancel Error Message
+    if trade_message_type == "X" then
+      return true
+    end
+
+    -- Fractional Trade Correction Message
+    if trade_message_type == "O" then
+      return true
+    end
+
+    -- Fractional Long Trade Message
+    if trade_message_type == "R" then
+      return true
+    end
+
+    -- Trading Status Message
+    if trade_message_type == "S" then
+      return true
+    end
+
+    -- Fractional Short Trade Message
+    if trade_message_type == "H" then
+      return true
+    end
+
+    -- Fractional Trade Cancel Error Message
+    if trade_message_type == "E" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -9494,6 +9889,9 @@ end
 local function omi_siac_cts_output_cta_v2_11_b_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cts_output_cta_v2_11_b.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cts_output_cta_v2_11_b.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cts_output_cta_v2_11_b

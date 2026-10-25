@@ -30685,7 +30685,7 @@ local function omi_eurex_t7_xti_fbe_v15_0_tcp_initiator_heuristic(buffer, packet
   -- Verify packet length
   if not eurex_t7_xti_fbe_v15_0.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not eurex_t7_xti_fbe_v15_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -30700,7 +30700,7 @@ local function omi_eurex_t7_xti_fbe_v15_0_tcp_acceptor_heuristic(buffer, packet,
   -- Verify packet length
   if not eurex_t7_xti_fbe_v15_0.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not eurex_t7_xti_fbe_v15_0.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

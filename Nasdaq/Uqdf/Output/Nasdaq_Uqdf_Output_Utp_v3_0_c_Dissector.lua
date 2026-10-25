@@ -7414,6 +7414,55 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_uqdf_output_utp_v3_0_c.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 24 then
+    return false
+  end
+
+  local message_category = buffer(23, 1):string()
+
+  -- Quote Message
+  if message_category == "Q" then
+    return true
+  end
+
+  -- Administrative Message
+  if message_category == "A" then
+    return true
+  end
+
+  -- Control Message
+  if message_category == "C" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -7421,6 +7470,9 @@ end
 local function omi_nasdaq_uqdf_output_utp_v3_0_c_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_uqdf_output_utp_v3_0_c.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_uqdf_output_utp_v3_0_c.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_uqdf_output_utp_v3_0_c

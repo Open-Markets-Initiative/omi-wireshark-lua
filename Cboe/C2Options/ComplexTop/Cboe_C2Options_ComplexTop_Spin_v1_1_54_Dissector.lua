@@ -3003,6 +3003,125 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_c2options_complextop_spin_v1_1_54.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Login Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Spin Image Available Message
+  if message_type == 0x80 then
+    return true
+  end
+
+  -- Spin Request Message
+  if message_type == 0x81 then
+    return true
+  end
+
+  -- Spin Response Message
+  if message_type == 0x82 then
+    return true
+  end
+
+  -- Spin Finished Message
+  if message_type == 0x83 then
+    return true
+  end
+
+  -- Instrument Definition Request Message
+  if message_type == 0x84 then
+    return true
+  end
+
+  -- Instrument Definition Response Message
+  if message_type == 0x85 then
+    return true
+  end
+
+  -- Instrument Definition Finished Message
+  if message_type == 0x86 then
+    return true
+  end
+
+  -- Time Message
+  if message_type == 0x20 then
+    return true
+  end
+
+  -- Symbol Mapping Message
+  if message_type == 0x2F then
+    return true
+  end
+
+  -- Complex Instrument Definition Expanded Message
+  if message_type == 0x9A then
+    return true
+  end
+
+  -- Single Side Update Expanded Short Message
+  if message_type == 0xD4 then
+    return true
+  end
+
+  -- Single Side Update Expanded Long Message
+  if message_type == 0xD5 then
+    return true
+  end
+
+  -- Two Side Update Expanded Short Message
+  if message_type == 0xD6 then
+    return true
+  end
+
+  -- Two Side Update Expanded Long Message
+  if message_type == 0xD7 then
+    return true
+  end
+
+  -- Top Trade Message
+  if message_type == 0xB8 then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0x31 then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3010,6 +3129,9 @@ end
 local function omi_cboe_c2options_complextop_spin_v1_1_54_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_c2options_complextop_spin_v1_1_54.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_c2options_complextop_spin_v1_1_54.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_c2options_complextop_spin_v1_1_54

@@ -647,6 +647,27 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nyse_nyseoptions_commonclient_pillar_v2_6.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local delivery_flag = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if delivery_flag == 1 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -654,6 +675,9 @@ end
 local function omi_nyse_nyseoptions_commonclient_pillar_v2_6_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_nyseoptions_commonclient_pillar_v2_6.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nyse_nyseoptions_commonclient_pillar_v2_6.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_nyseoptions_commonclient_pillar_v2_6

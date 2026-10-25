@@ -16417,11 +16417,127 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+euronext_optiq_dropcopygateway_sbe_v6_67.packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Dc Market Status Change Message
+  if template_id == 16001 then
+    return true
+  end
+
+  -- Dc Price Update Message
+  if template_id == 16003 then
+    return true
+  end
+
+  -- Long Order Message
+  if template_id == 16006 then
+    return true
+  end
+
+  -- Dc Short Order Reject Message
+  if template_id == 16010 then
+    return true
+  end
+
+  -- Dc Short Trade Cancellation Message
+  if template_id == 16016 then
+    return true
+  end
+
+  -- Dc Static Collars Message
+  if template_id == 16018 then
+    return true
+  end
+
+  -- Trade Bust Notification Message
+  if template_id == 16021 then
+    return true
+  end
+
+  -- Dc Quote Message
+  if template_id == 16050 then
+    return true
+  end
+
+  -- Dcafqrfe Message
+  if template_id == 16051 then
+    return true
+  end
+
+  -- Dc Declaration New Message
+  if template_id == 16052 then
+    return true
+  end
+
+  -- Dc Short Declaration Reject Message
+  if template_id == 16053 then
+    return true
+  end
+
+  -- Dc Short Declaration Cancel Message
+  if template_id == 16054 then
+    return true
+  end
+
+  -- Dc Short Trade Declaration Message
+  if template_id == 16055 then
+    return true
+  end
+
+  -- Dc Short Trade Declaration Cancellation Message
+  if template_id == 16056 then
+    return true
+  end
+
+  -- Dc Trade Bust Declaration Message
+  if template_id == 16057 then
+    return true
+  end
+
+  -- Dc Trade Message
+  if template_id == 16058 then
+    return true
+  end
+
+  -- Dc Short Declaration Fill Message
+  if template_id == 16059 then
+    return true
+  end
+
+  -- Dc Quote Request Message
+  if template_id == 16060 then
+    return true
+  end
+
+  -- Dc Clear Book Message
+  if template_id == 16061 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
 euronext_optiq_dropcopygateway_sbe_v6_67.schema_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 6 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(6, 2):le_uint()
 
@@ -16434,6 +16550,11 @@ end
 
 -- Verify Version Field
 euronext_optiq_dropcopygateway_sbe_v6_67.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -16454,6 +16575,9 @@ local function omi_euronext_optiq_dropcopygateway_sbe_v6_67_tcp_heuristic(buffer
 
   -- Verify Version
   if not euronext_optiq_dropcopygateway_sbe_v6_67.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not euronext_optiq_dropcopygateway_sbe_v6_67.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_euronext_optiq_dropcopygateway_sbe_v6_67

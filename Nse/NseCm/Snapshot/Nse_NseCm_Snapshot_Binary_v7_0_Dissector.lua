@@ -84,8 +84,8 @@ local show = {}
 
 -- Nse NseCm Snapshot Binary 7.0 Element Dissection Options
 show.structs = true
-show.headers = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Nse NseCm Snapshot Binary 7.0 Show Options
@@ -93,8 +93,8 @@ omi_nse_nsecm_snapshot_binary_v7_0.prefs.acceptor_port = Pref.uint("Acceptor Por
 omi_nse_nsecm_snapshot_binary_v7_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_nse_nsecm_snapshot_binary_v7_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nse_nsecm_snapshot_binary_v7_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-omi_nse_nsecm_snapshot_binary_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecm_snapshot_binary_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsecm_snapshot_binary_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecm_snapshot_binary_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nse_nsecm_snapshot_binary_v7_0.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -1098,7 +1098,7 @@ end
 
 -- Dissect: Message
 nse_nsecm_snapshot_binary_v7_0.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.headers then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecm_snapshot_binary_v7_0.fields.message, buffer(offset, 0))
     local index = nse_nsecm_snapshot_binary_v7_0.message.fields(buffer, offset, packet, parent, message_index)
@@ -1393,7 +1393,7 @@ local function omi_nse_nsecm_snapshot_binary_v7_0_tcp_acceptor_heuristic(buffer,
   -- Verify packet length
   if not nse_nsecm_snapshot_binary_v7_0.packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp packet message dispatch
   if not nse_nsecm_snapshot_binary_v7_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -1408,7 +1408,7 @@ local function omi_nse_nsecm_snapshot_binary_v7_0_tcp_initiator_heuristic(buffer
   -- Verify packet length
   if not nse_nsecm_snapshot_binary_v7_0.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nse_nsecm_snapshot_binary_v7_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -1423,7 +1423,7 @@ local function omi_nse_nsecm_snapshot_binary_v7_0_tcp_acceptor_heuristic(buffer,
   -- Verify packet length
   if not nse_nsecm_snapshot_binary_v7_0.response_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp response packet message dispatch
   if not nse_nsecm_snapshot_binary_v7_0.response_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

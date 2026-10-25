@@ -1583,6 +1583,82 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+miax_pearlequities_headeronly_esesm_v1_0_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local esesm_packet_type = buffer(2, 1):string()
+
+  -- Sequenced Data Packet
+  if esesm_packet_type == "s" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if esesm_packet_type == "U" then
+    return true
+  end
+
+  -- Login Request
+  if esesm_packet_type == "l" then
+    return true
+  end
+
+  -- Login Response
+  if esesm_packet_type == "r" then
+    return true
+  end
+
+  -- Synchronization Complete
+  if esesm_packet_type == "c" then
+    return true
+  end
+
+  -- Retransmission Request
+  if esesm_packet_type == "a" then
+    return true
+  end
+
+  -- Logout Request
+  if esesm_packet_type == "X" then
+    return true
+  end
+
+  -- Goodbye Packet
+  if esesm_packet_type == "G" then
+    return true
+  end
+
+  -- Trading Session Update
+  if esesm_packet_type == "u" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if esesm_packet_type == "0" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if esesm_packet_type == "1" then
+    return true
+  end
+
+  -- Test Packet
+  if esesm_packet_type == "T" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1590,6 +1666,9 @@ end
 local function omi_miax_pearlequities_headeronly_esesm_v1_0_a_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_headeronly_esesm_v1_0_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not miax_pearlequities_headeronly_esesm_v1_0_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_headeronly_esesm_v1_0_a

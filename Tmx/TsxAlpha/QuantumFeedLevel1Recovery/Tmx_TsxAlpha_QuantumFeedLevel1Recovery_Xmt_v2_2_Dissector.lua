@@ -1432,7 +1432,12 @@ tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.resume_trade_time.display = func
     return "Resume Trade Time: No Value"
   end
 
-  return "Resume Trade Time: "..value
+  local hour = math.floor(value / 1000000)
+  local minute = math.floor(value / 10000) % 100
+  local second = math.floor(value / 100) % 100
+  local hundredth = value % 100
+
+  return string.format("Resume Trade Time: %02d:%02d:%02d.%02d", hour, minute, second, hundredth)
 end
 
 -- Dissect: Resume Trade Time
@@ -1926,7 +1931,11 @@ tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.trade_time_stamp.display = funct
     return "Trade Time Stamp: No Value"
   end
 
-  return "Trade Time Stamp: "..value
+  local hour = math.floor(value / 10000)
+  local minute = math.floor(value / 100) % 100
+  local second = value % 100
+
+  return string.format("Trade Time Stamp: %02d:%02d:%02d", hour, minute, second)
 end
 
 -- Dissect: Trade Time Stamp
@@ -3952,6 +3961,11 @@ end
 
 -- Verify Start Of Frame Field
 tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.start_of_frame.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -3964,6 +3978,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.protocol_name.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -3976,6 +3995,11 @@ end
 
 -- Verify Start Of Frame Field
 tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.start_of_frame.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -3988,6 +4012,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.protocol_name.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -4009,7 +4038,7 @@ local function omi_tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2_tcp_initiator
   -- Verify Protocol Name
   if not tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.protocol_name.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -4030,7 +4059,7 @@ local function omi_tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2_tcp_acceptor_
   -- Verify Protocol Name
   if not tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.protocol_name.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

@@ -3208,6 +3208,115 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Login Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Spin Image Available Message
+  if message_type == 0x80 then
+    return true
+  end
+
+  -- Spin Request Message
+  if message_type == 0x81 then
+    return true
+  end
+
+  -- Spin Response Message
+  if message_type == 0x82 then
+    return true
+  end
+
+  -- Spin Finished Message
+  if message_type == 0x83 then
+    return true
+  end
+
+  -- Time Reference Message
+  if message_type == 0xB1 then
+    return true
+  end
+
+  -- Time Message
+  if message_type == 0x20 then
+    return true
+  end
+
+  -- Futures Instrument Definition Message
+  if message_type == 0xBB then
+    return true
+  end
+
+  -- Futures Variance Symbol Mapping Message
+  if message_type == 0xFA then
+    return true
+  end
+
+  -- Add Order Long Message
+  if message_type == 0x21 then
+    return true
+  end
+
+  -- Add Order Short Message
+  if message_type == 0x22 then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0x31 then
+    return true
+  end
+
+  -- Settlement Message
+  if message_type == 0xB9 then
+    return true
+  end
+
+  -- Price Limits Message
+  if message_type == 0xBE then
+    return true
+  end
+
+  -- End Of Day Summary Message
+  if message_type == 0xBA then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3215,6 +3324,9 @@ end
 local function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13
@@ -3239,7 +3351,7 @@ tcp_table:add_for_decode_as(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_1
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.2.13
 --   Date: Monday, April 7, 2025
---   Specification: Cboe Futures Exchange Multicast PITCH Specification (2025-05-04).pdf
+--   Specification: Cboe Futures Exchange Multicast PITCH Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

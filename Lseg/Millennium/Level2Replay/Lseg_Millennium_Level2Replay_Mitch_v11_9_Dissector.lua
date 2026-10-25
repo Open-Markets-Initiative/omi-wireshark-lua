@@ -3769,6 +3769,127 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_millennium_level2replay_mitch_v11_9.packet.fingerprint = function(buffer)
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):uint()
+
+  -- Login Request Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Replay Request Message
+  if message_type == 0x03 then
+    return true
+  end
+
+  -- Replay Response Message
+  if message_type == 0x04 then
+    return true
+  end
+
+  -- Logout Request Message
+  if message_type == 0x05 then
+    return true
+  end
+
+  -- Time Message
+  if message_type == 0x54 then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Symbol Directory Message
+  if message_type == 0x52 then
+    return true
+  end
+
+  -- Symbol Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == 0x41 then
+    return true
+  end
+
+  -- Add Attributed Order Message
+  if message_type == 0x46 then
+    return true
+  end
+
+  -- Order Deleted Message
+  if message_type == 0x44 then
+    return true
+  end
+
+  -- Order Modified Message
+  if message_type == 0x55 then
+    return true
+  end
+
+  -- Order Book Clear Message
+  if message_type == 0x79 then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == 0x45 then
+    return true
+  end
+
+  -- Order Executed With Price Size Message
+  if message_type == 0x43 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 0x50 then
+    return true
+  end
+
+  -- Auction Trade Message
+  if message_type == 0x51 then
+    return true
+  end
+
+  -- Auction Info Message
+  if message_type == 0x49 then
+    return true
+  end
+
+  -- Statistics Message
+  if message_type == 0x77 then
+    return true
+  end
+
+  -- Top Of Book Message
+  if message_type == 0x71 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3776,6 +3897,9 @@ end
 local function omi_lseg_millennium_level2replay_mitch_v11_9_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_millennium_level2replay_mitch_v11_9.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not lseg_millennium_level2replay_mitch_v11_9.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_millennium_level2replay_mitch_v11_9

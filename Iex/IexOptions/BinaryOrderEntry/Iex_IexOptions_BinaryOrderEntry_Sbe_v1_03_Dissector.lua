@@ -10644,6 +10644,11 @@ end
 
 -- Verify Version Field
 iex_iexoptions_binaryorderentry_sbe_v1_03.version.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -10656,6 +10661,11 @@ end
 
 -- Verify Version Field
 iex_iexoptions_binaryorderentry_sbe_v1_03.version.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -10674,7 +10684,7 @@ local function omi_iex_iexoptions_binaryorderentry_sbe_v1_03_tcp_initiator_heuri
   -- Verify Version
   if not iex_iexoptions_binaryorderentry_sbe_v1_03.version.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not iex_iexoptions_binaryorderentry_sbe_v1_03.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -10692,7 +10702,7 @@ local function omi_iex_iexoptions_binaryorderentry_sbe_v1_03_tcp_acceptor_heuris
   -- Verify Version
   if not iex_iexoptions_binaryorderentry_sbe_v1_03.version.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not iex_iexoptions_binaryorderentry_sbe_v1_03.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

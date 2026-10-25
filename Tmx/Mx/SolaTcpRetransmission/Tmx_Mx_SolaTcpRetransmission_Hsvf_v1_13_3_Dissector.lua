@@ -38295,6 +38295,11 @@ end
 
 -- Verify Hsvf Stx Field
 tmx_mx_solatcpretransmission_hsvf_v1_13_3.hsvf_stx.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -38307,6 +38312,11 @@ end
 
 -- Verify Hsvf Stx Field
 tmx_mx_solatcpretransmission_hsvf_v1_13_3.hsvf_stx.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -38325,7 +38335,7 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3_tcp_initiator_heuri
   -- Verify Hsvf Stx
   if not tmx_mx_solatcpretransmission_hsvf_v1_13_3.hsvf_stx.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_13_3.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -38343,7 +38353,7 @@ local function omi_tmx_mx_solatcpretransmission_hsvf_v1_13_3_tcp_acceptor_heuris
   -- Verify Hsvf Stx
   if not tmx_mx_solatcpretransmission_hsvf_v1_13_3.hsvf_stx.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not tmx_mx_solatcpretransmission_hsvf_v1_13_3.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

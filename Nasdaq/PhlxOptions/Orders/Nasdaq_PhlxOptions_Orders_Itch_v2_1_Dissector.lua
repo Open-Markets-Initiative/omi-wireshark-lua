@@ -3717,6 +3717,60 @@ nasdaq_phlxoptions_orders_itch_v2_1.server_packet.fingerprint = function(buffer)
   return false
 end
 
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_phlxoptions_orders_itch_v2_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Derivative Directory Message
+  if message_type == "m" then
+    return true
+  end
+
+  -- Trading Action Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Auction Message
+  if message_type == "J" then
+    return true
+  end
+
+
+  return false
+end
+
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics
@@ -3727,7 +3781,7 @@ local function omi_nasdaq_phlxoptions_orders_itch_v2_1_tcp_initiator_heuristic(b
   -- Verify packet length
   if not nasdaq_phlxoptions_orders_itch_v2_1.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nasdaq_phlxoptions_orders_itch_v2_1.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -3742,7 +3796,7 @@ local function omi_nasdaq_phlxoptions_orders_itch_v2_1_tcp_acceptor_heuristic(bu
   -- Verify packet length
   if not nasdaq_phlxoptions_orders_itch_v2_1.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not nasdaq_phlxoptions_orders_itch_v2_1.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -3756,6 +3810,9 @@ end
 local function omi_nasdaq_phlxoptions_orders_itch_v2_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_phlxoptions_orders_itch_v2_1.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_phlxoptions_orders_itch_v2_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_phlxoptions_orders_itch_v2_1

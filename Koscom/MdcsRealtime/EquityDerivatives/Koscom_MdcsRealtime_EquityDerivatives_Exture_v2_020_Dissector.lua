@@ -12792,6 +12792,337 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local tr_code = buffer(0, 5):string(koscom_mdcsrealtime_equityderivatives_exture_v2_020.text_encoding)
+
+  -- Polling Data Message
+  if tr_code == "I2000" then
+    return true
+  end
+
+  -- Krx Index Message
+  if tr_code == "IA000" then
+    return true
+  end
+
+  -- Krx Estimated Index Message
+  if tr_code == "IB000" then
+    return true
+  end
+
+  -- Global Index Message
+  if tr_code == "J2000" then
+    return true
+  end
+
+  -- Bond Prime Index Message
+  if tr_code == "J4000" then
+    return true
+  end
+
+  -- Bond Ktb Index Message
+  if tr_code == "K1000" then
+    return true
+  end
+
+  -- Bond Ktb Index Term Structure Message
+  if tr_code == "K8000" then
+    return true
+  end
+
+  -- Bond Index Krx Message
+  if tr_code == "IG000" then
+    return true
+  end
+
+  -- Equity Derivatives Underlying Snapshot Kospi Message
+  if tr_code == "B201S" then
+    return true
+  end
+
+  -- Equity Derivatives Underlying Snapshot Kosdaq Message
+  if tr_code == "B201Q" then
+    return true
+  end
+
+  -- Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
+  if tr_code == "B202S" then
+    return true
+  end
+
+  -- Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
+  if tr_code == "B203S" then
+    return true
+  end
+
+  -- Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
+  if tr_code == "B204S" then
+    return true
+  end
+
+  -- Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
+  if tr_code == "B205S" then
+    return true
+  end
+
+  -- Securities Equities Batch Data Message
+  if tr_code == "A001S" then
+    return true
+  end
+
+  -- Securities Equities Batch Data Message
+  if tr_code == "A002S" then
+    return true
+  end
+
+  -- Securities Equities Batch Data Message
+  if tr_code == "A003S" then
+    return true
+  end
+
+  -- Securities Equities Batch Data Message
+  if tr_code == "A004S" then
+    return true
+  end
+
+  -- Securities Equities Batch Data Message
+  if tr_code == "A005S" then
+    return true
+  end
+
+  -- Securities Equities Batch Data Message
+  if tr_code == "A001Q" then
+    return true
+  end
+
+  -- Securities Equities Batch Data Message
+  if tr_code == "A001X" then
+    return true
+  end
+
+  -- Securities Closing Date Message
+  if tr_code == "I501S" then
+    return true
+  end
+
+  -- Securities Closing Date Message
+  if tr_code == "I503S" then
+    return true
+  end
+
+  -- Securities Closing Date Message
+  if tr_code == "I504S" then
+    return true
+  end
+
+  -- Securities Closing Date Message
+  if tr_code == "I505S" then
+    return true
+  end
+
+  -- Securities Closing Date Message
+  if tr_code == "I501Q" then
+    return true
+  end
+
+  -- Securities Closing Date Message
+  if tr_code == "I501X" then
+    return true
+  end
+
+  -- Securities Mm Lp Information Message
+  if tr_code == "I701S" then
+    return true
+  end
+
+  -- Securities Mm Lp Information Message
+  if tr_code == "I702S" then
+    return true
+  end
+
+  -- Securities Mm Lp Information Message
+  if tr_code == "I703S" then
+    return true
+  end
+
+  -- Securities Mm Lp Information Message
+  if tr_code == "I704S" then
+    return true
+  end
+
+  -- Securities Mm Lp Information Message
+  if tr_code == "I705S" then
+    return true
+  end
+
+  -- Securities Mm Lp Information Message
+  if tr_code == "I701Q" then
+    return true
+  end
+
+  -- Securities Mm Lp Information Message
+  if tr_code == "I701X" then
+    return true
+  end
+
+  -- Securities Member Information Message
+  if tr_code == "M900S" then
+    return true
+  end
+
+  -- Securities Member Information Message
+  if tr_code == "M900Q" then
+    return true
+  end
+
+  -- Securities Member Information Message
+  if tr_code == "M900X" then
+    return true
+  end
+
+  -- Securities Treasury Stocks Batch Message
+  if tr_code == "A901S" then
+    return true
+  end
+
+  -- Securities Treasury Stocks Batch Message
+  if tr_code == "A901Q" then
+    return true
+  end
+
+  -- Securities Treasury Stocks Batch Message
+  if tr_code == "A901X" then
+    return true
+  end
+
+  -- Securities Equity Index Indicator Message
+  if tr_code == "CA01S" then
+    return true
+  end
+
+  -- Securities Equity Index Indicator Message
+  if tr_code == "CA01Q" then
+    return true
+  end
+
+  -- Securities Dividend Yield Per Industry Message
+  if tr_code == "P200S" then
+    return true
+  end
+
+  -- Securities Dividend Yield Per Industry Message
+  if tr_code == "P200Q" then
+    return true
+  end
+
+  -- Bonds Batch Data Message
+  if tr_code == "A001B" then
+    return true
+  end
+
+  -- Repo Batch Data Message
+  if tr_code == "A001R" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I601S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I602S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I603S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I604S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I605S" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I601Q" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I601X" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I601B" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I601M" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I601K" then
+    return true
+  end
+
+  -- Issue Event Message
+  if tr_code == "I601R" then
+    return true
+  end
+
+  -- Corporate Bonds Reference Message
+  if tr_code == "F901B" then
+    return true
+  end
+
+  -- Corporate Bonds Reference Message
+  if tr_code == "F901M" then
+    return true
+  end
+
+  -- Regular Bonds Installment Repayment Date Message
+  if tr_code == "BN01B" then
+    return true
+  end
+
+  -- Repo Classification Data Message
+  if tr_code == "CB01R" then
+    return true
+  end
+
+  -- Repo Trade Availability Per Term Message
+  if tr_code == "S001R" then
+    return true
+  end
+
+  -- Retail Bonds Type Code Message
+  if tr_code == "G300B" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -12799,6 +13130,9 @@ end
 local function omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not koscom_mdcsrealtime_equityderivatives_exture_v2_020.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not koscom_mdcsrealtime_equityderivatives_exture_v2_020.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020

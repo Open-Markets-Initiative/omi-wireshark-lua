@@ -108,7 +108,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.hsvf_stx = ProtoField.new("Hsv
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_order_side = ProtoField.new("Improvement Order Side", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementorderside", ftypes.STRING, nil, nil, nil, "Side")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time = ProtoField.new("Improvement Phase Expiry Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementphaseexpirytime", ftypes.STRING, nil, nil, nil, "Indicates the expiry time of the Improvement Phase (value is in HHMMSSCC)")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementphasesequentialnumber", ftypes.UINT24, nil, nil, nil, "Indicates the number of an Improvement Phase. Sequential number unique per Instrument and per trading day")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementprocessexpiryduration", ftypes.UINT16, nil, nil, nil, "Indicates the expiry duration of the Improvement Phase (value is in SSCC)")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.boxoptions.solaunicast.hsvf.v4.5.1.improvementprocessexpiryduration", ftypes.DOUBLE, nil, nil, nil, "Indicates the expiry duration of the Improvement Phase (value is in SSCC)")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price = ProtoField.new("Initial Order Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderprice", ftypes.UINT24, nil, nil, nil, "Indicates the price of the Initial Order")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderpricefractionindicator", ftypes.STRING, nil, nil, nil, "Fraction Indicator Code")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price_negative_hundred_pair = ProtoField.new("Initial Order Price Negative Hundred Pair", "box.boxoptions.solaunicast.hsvf.v4.5.1.initialorderpricenegativehundredpair", ftypes.STRING)
@@ -318,7 +318,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price_unknown_fraction_
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.system_default = ProtoField.new("System Default", "box.boxoptions.solaunicast.hsvf.v4.5.1.systemdefault", ftypes.STRING, nil, nil, nil, "Y")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.system_value = ProtoField.new("System Value", "box.boxoptions.solaunicast.hsvf.v4.5.1.systemvalue", ftypes.STRING, nil, nil, nil, "N")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick = ProtoField.new("Tick", "box.boxoptions.solaunicast.hsvf.v4.5.1.tick", ftypes.STRING, nil, nil, nil, "Determined by the difference between last price and the previous different trade price")
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment = ProtoField.new("Tick Increment", "box.boxoptions.solaunicast.hsvf.v4.5.1.tickincrement", ftypes.STRING, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment = ProtoField.new("Tick Increment", "box.boxoptions.solaunicast.hsvf.v4.5.1.tickincrement", ftypes.UINT24, nil, nil, nil, "Precision with which the price of an order limit can be expressed")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.tickincrementfractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment_negative_hundred_pair = ProtoField.new("Tick Increment Negative Hundred Pair", "box.boxoptions.solaunicast.hsvf.v4.5.1.tickincrementnegativehundredpair", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment_negative_hundred_thousand_pair = ProtoField.new("Tick Increment Negative Hundred Thousand Pair", "box.boxoptions.solaunicast.hsvf.v4.5.1.tickincrementnegativehundredthousandpair", ftypes.STRING)
@@ -491,6 +491,69 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
@@ -1979,7 +2042,7 @@ end
 box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_expiry_time.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_expiry_time.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_expiry_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time, range, value, display)
@@ -2025,8 +2088,14 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration = {}
 box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.size = 4
 
 -- Display: Improvement Process Expiry Duration
-box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.display = function(value)
-  return "Improvement Process Expiry Duration: "..value
+box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.size):string(), 2)
+
+  if text == nil then
+    return "Improvement Process Expiry Duration: "..tostring(value)
+  end
+
+  return "Improvement Process Expiry Duration: "..text
 end
 
 -- Dissect: Improvement Process Expiry Duration
@@ -2041,6 +2110,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.disse
     item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Improvement Process Expiry Duration is not a number: '"..range:string().."'")
     return offset + length, value
   end
+  value = value/100
 
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_process_expiry_duration.display(value, buffer, offset, packet, parent)
 
@@ -5706,7 +5776,15 @@ end
 box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment, range, value, "Tick Increment: Not Applicable")
+    item:add_proto_expert_info(box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, "Tick Increment is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment, range, value, display)
@@ -20170,11 +20248,1839 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+box_boxoptions_solaunicast_hsvf_v4_5_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 12 then
+    return false
+  end
+
+  local message_type = buffer(10, 2):string()
+
+  -- Connection Message
+  if message_type == "RS" then
+    return true
+  end
+
+  -- End Of Transmission Message
+  if message_type == "U" then
+    return true
+  end
+
+  -- Circuit Assurance Message
+  if message_type == "V" then
+    return true
+  end
+
+  -- Gap Sequence Message
+  if message_type == "W" then
+    return true
+  end
+
+  -- System Timestamp Message
+  if message_type == "Z" then
+    return true
+  end
+
+  -- Option Trade Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "C" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Instrument Trade Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "CS" then
+    if buffer:len() < 59 then
+      return false
+    end
+
+    local trade_price_fraction_indicator = buffer(58, 1):string()
+
+    -- Trade Price Negative Whole Pair
+    if trade_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Trade Price Negative Ten Pair
+    if trade_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Trade Price Negative Hundred Pair
+    if trade_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Trade Price Negative Thousand Pair
+    if trade_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Trade Price Negative Ten Thousand Pair
+    if trade_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Trade Price Negative Hundred Thousand Pair
+    if trade_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Trade Price Negative Million Pair
+    if trade_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Option Request For Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "D" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Option Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "F" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "FS" then
+    if buffer:len() < 51 then
+      return false
+    end
+
+    local bid_price_fraction_indicator = buffer(50, 1):string()
+    local bid_price_quote_opening = buffer(44, 6):string()
+    local bid_price_fraction_indicator = buffer(50, 1):string()
+
+    -- Bid Price Quote Negative Whole Pair
+    if bid_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Ten Pair
+    if bid_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Hundred Pair
+    if bid_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Thousand Pair
+    if bid_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Ten Thousand Pair
+    if bid_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Hundred Thousand Pair
+    if bid_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Million Pair
+    if bid_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Bid Price Quote Opening Pair
+    if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Option Market Depth Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "H" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Market Depth Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "HS" then
+    if buffer:len() < 54 then
+      return false
+    end
+
+    local bid_price_fraction_indicator = buffer(53, 1):string()
+    local bid_price_quote_opening = buffer(47, 6):string()
+    local bid_price_fraction_indicator = buffer(53, 1):string()
+
+    -- Bid Price Quote Negative Whole Pair
+    if bid_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Ten Pair
+    if bid_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Hundred Pair
+    if bid_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Thousand Pair
+    if bid_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Ten Thousand Pair
+    if bid_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Hundred Thousand Pair
+    if bid_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Bid Price Quote Negative Million Pair
+    if bid_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Bid Price Quote Opening Pair
+    if bid_price_quote_opening == "OUV" and bid_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Bid Price Quote Numeric Pair
+    if bid_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Option Trade Cancellation Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "I" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Trade Cancellation Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "IS" then
+    if buffer:len() < 59 then
+      return false
+    end
+
+    local trade_price_fraction_indicator = buffer(58, 1):string()
+
+    -- Trade Price Negative Whole Pair
+    if trade_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Trade Price Negative Ten Pair
+    if trade_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Trade Price Negative Hundred Pair
+    if trade_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Trade Price Negative Thousand Pair
+    if trade_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Trade Price Negative Ten Thousand Pair
+    if trade_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Trade Price Negative Hundred Thousand Pair
+    if trade_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Trade Price Negative Million Pair
+    if trade_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Trade Price Numeric Pair
+    if trade_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Option Instrument Keys Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "J" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Instrument Keys Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "JS" then
+    if buffer:len() < 68 then
+      return false
+    end
+
+    local max_threshold_price_fraction_indicator = buffer(67, 1):string()
+
+    -- Max Threshold Price Negative Whole Pair
+    if max_threshold_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Max Threshold Price Negative Ten Pair
+    if max_threshold_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Max Threshold Price Negative Hundred Pair
+    if max_threshold_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Max Threshold Price Negative Thousand Pair
+    if max_threshold_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Max Threshold Price Negative Ten Thousand Pair
+    if max_threshold_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Max Threshold Price Negative Hundred Thousand Pair
+    if max_threshold_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Max Threshold Price Negative Million Pair
+    if max_threshold_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Max Threshold Price Numeric Pair
+    if max_threshold_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Option Summary Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "N" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Summary Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "NS" then
+    if buffer:len() < 51 then
+      return false
+    end
+
+    local bid_price_fraction_indicator = buffer(50, 1):string()
+
+    -- Bid Price Negative Whole Pair
+    if bid_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Bid Price Negative Ten Pair
+    if bid_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Bid Price Negative Hundred Pair
+    if bid_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Bid Price Negative Thousand Pair
+    if bid_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Bid Price Negative Ten Thousand Pair
+    if bid_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Bid Price Negative Hundred Thousand Pair
+    if bid_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Bid Price Negative Million Pair
+    if bid_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Bid Price Numeric Pair
+    if bid_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Beginning Of Options Summary Message
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Beginning Of Complex Order Summary Message
+  if message_type == "QS" then
+    return true
+  end
+
+  -- Group Opening Time Message
+  if message_type == "GC" then
+    return true
+  end
+
+  -- Group Status Message
+  if message_type == "GR" then
+    return true
+  end
+
+  -- Complex Order Group Status Message
+  if message_type == "GS" then
+    return true
+  end
+
+  -- Bulletins Message
+  if message_type == "L" then
+    return true
+  end
+
+  -- End Of Sales Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Option Improvement Process Beginning Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "M" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Improvement Process Beginning Message Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "MS" then
+    if buffer:len() < 57 then
+      return false
+    end
+
+    local initial_order_price_fraction_indicator = buffer(56, 1):string()
+
+    -- Initial Order Price Negative Whole Pair
+    if initial_order_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Initial Order Price Negative Ten Pair
+    if initial_order_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Initial Order Price Negative Hundred Pair
+    if initial_order_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Initial Order Price Negative Thousand Pair
+    if initial_order_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Initial Order Price Negative Ten Thousand Pair
+    if initial_order_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Initial Order Price Negative Hundred Thousand Pair
+    if initial_order_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Initial Order Price Negative Million Pair
+    if initial_order_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Initial Order Price Numeric Pair
+    if initial_order_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Market Sheet Initial And Improvement Order Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "O" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Market Sheet Initial And Improvement Order Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "OS" then
+    if buffer:len() < 53 then
+      return false
+    end
+
+    local limit_fraction_indicator = buffer(52, 1):string()
+
+    -- Limit Entered For An Order Negative Whole Pair
+    if limit_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Limit Entered For An Order Negative Ten Pair
+    if limit_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Limit Entered For An Order Negative Hundred Pair
+    if limit_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Limit Entered For An Order Negative Thousand Pair
+    if limit_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Limit Entered For An Order Negative Ten Thousand Pair
+    if limit_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Limit Entered For An Order Negative Hundred Thousand Pair
+    if limit_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Limit Entered For An Order Negative Million Pair
+    if limit_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Limit Entered For An Order Numeric Pair
+    if limit_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Initial And Improvement Order Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == "T" then
+    if buffer:len() < 29 then
+      return false
+    end
+
+    local strike_price_fraction_indicator = buffer(28, 1):string()
+
+    -- Strike Price Negative Whole Pair
+    if strike_price_fraction_indicator == "A" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Pair
+    if strike_price_fraction_indicator == "B" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Pair
+    if strike_price_fraction_indicator == "C" then
+      return true
+    end
+
+    -- Strike Price Negative Thousand Pair
+    if strike_price_fraction_indicator == "D" then
+      return true
+    end
+
+    -- Strike Price Negative Ten Thousand Pair
+    if strike_price_fraction_indicator == "E" then
+      return true
+    end
+
+    -- Strike Price Negative Hundred Thousand Pair
+    if strike_price_fraction_indicator == "F" then
+      return true
+    end
+
+    -- Strike Price Negative Million Pair
+    if strike_price_fraction_indicator == "G" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "0" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "1" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "2" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "3" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "4" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "5" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "6" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "7" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "8" then
+      return true
+    end
+
+    -- Strike Price Numeric Pair
+    if strike_price_fraction_indicator == "9" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Complex Order Initial And Improvement Order Message
+  if message_type == "TS" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Hsvf Stx Field
 box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -20192,6 +22098,9 @@ local function omi_box_boxoptions_solaunicast_hsvf_v4_5_1_tcp_heuristic(buffer, 
 
   -- Verify Hsvf Stx
   if not box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_stx.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not box_boxoptions_solaunicast_hsvf_v4_5_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_box_boxoptions_solaunicast_hsvf_v4_5_1

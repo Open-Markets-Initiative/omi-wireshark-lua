@@ -9204,6 +9204,247 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Tmp Message: would its message dispatch accept this frame?
+taifex_taifexderivatives_orderentry_tmp_v2_18_7.tmp_message.fingerprint = function(buffer)
+  if buffer:len() < 13 then
+    return false
+  end
+
+  local message_type = buffer(12, 1):uint()
+
+  -- Wake Up Call Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Wake Up Call Confirmed Message
+  if message_type == 20 then
+    return true
+  end
+
+  -- Logon Notice Message
+  if message_type == 30 then
+    return true
+  end
+
+  -- Final Sequential Number Notification For Group Message
+  if message_type == 230 then
+    return true
+  end
+
+  -- Request Logon Message
+  if message_type == 40 then
+    return true
+  end
+
+  -- Resend Report Message
+  if message_type == 41 then
+    return true
+  end
+
+  -- Resend Report Confirmed Message
+  if message_type == 42 then
+    return true
+  end
+
+  -- Activate Application System Message
+  if message_type == 50 then
+    return true
+  end
+
+  -- Activate Application System Confirmed Message
+  if message_type == 60 then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == 70 then
+    return true
+  end
+
+  -- Logout Confirmed Message
+  if message_type == 80 then
+    return true
+  end
+
+  -- Confirm Connection Message
+  if message_type == 104 then
+    return true
+  end
+
+  -- Connection Confirmed Message
+  if message_type == 105 then
+    return true
+  end
+
+  -- Trade Session Status Request Message
+  if message_type == 111 then
+    return true
+  end
+
+  -- Trade Session Status Report Message
+  if message_type == 112 then
+    return true
+  end
+
+  -- Order Input Message
+  if message_type == 101 then
+    return true
+  end
+
+  -- Order Input Long Format Message
+  if message_type == 131 then
+    return true
+  end
+
+  -- Order Status Report Message
+  if message_type == 102 then
+    return true
+  end
+
+  -- Order Status Report Long Format Message
+  if message_type == 132 then
+    return true
+  end
+
+  -- Error Report Message
+  if message_type == 103 then
+    return true
+  end
+
+  -- Price Inquiry Input Message
+  if message_type == 107 then
+    return true
+  end
+
+  -- Price Inquiry Input Long Format Message
+  if message_type == 137 then
+    return true
+  end
+
+  -- Price Inquiry Reply Message
+  if message_type == 108 then
+    return true
+  end
+
+  -- Price Inquiry Reply Long Format Message
+  if message_type == 138 then
+    return true
+  end
+
+  -- Quote Input Message
+  if message_type == 109 then
+    return true
+  end
+
+  -- Quote Input Long Format Message
+  if message_type == 139 then
+    return true
+  end
+
+  -- Condensed Version Order Status Report Message
+  if message_type == 122 then
+    return true
+  end
+
+  -- Execution Report Including Head Office And Branch Offices Message
+  if message_type == 106 then
+    return true
+  end
+
+  -- Bulletin Request Message
+  if message_type == 113 then
+    return true
+  end
+
+  -- Bulletin Report Message
+  if message_type == 114 then
+    return true
+  end
+
+  -- System Setting Message
+  if message_type == 117 then
+    return true
+  end
+
+  -- System Notification Message
+  if message_type == 118 then
+    return true
+  end
+
+  -- Flex Order Input Single Message
+  if message_type == 201 then
+    return true
+  end
+
+  -- Flex Price Inquiry Input Message
+  if message_type == 207 then
+    return true
+  end
+
+  -- Flex Quote Input Message
+  if message_type == 209 then
+    return true
+  end
+
+  -- Request For Supplementary Flex Group Report Message
+  if message_type == 240 then
+    return true
+  end
+
+  -- Temporary Suspension Of Supplementary Flex Group Report Message
+  if message_type == 242 then
+    return true
+  end
+
+  -- Flex Product Definition Request Message
+  if message_type == 219 then
+    return true
+  end
+
+  -- Flex Order Status Report Message
+  if message_type == 202 then
+    return true
+  end
+
+  -- Flex Error Report Message
+  if message_type == 203 then
+    return true
+  end
+
+  -- Flex Price Inquiry Reply Message
+  if message_type == 208 then
+    return true
+  end
+
+  -- Send Flex Group Report Resend Message
+  if message_type == 241 then
+    return true
+  end
+
+  -- Flex Product Definition Message
+  if message_type == 220 then
+    return true
+  end
+
+  -- Flex Bulletin Request Message
+  if message_type == 213 then
+    return true
+  end
+
+  -- Flex Bulletin Report Message
+  if message_type == 214 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -9211,6 +9452,9 @@ end
 local function omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not taifex_taifexderivatives_orderentry_tmp_v2_18_7.tmp_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp tmp message message dispatch
+  if not taifex_taifexderivatives_orderentry_tmp_v2_18_7.tmp_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7

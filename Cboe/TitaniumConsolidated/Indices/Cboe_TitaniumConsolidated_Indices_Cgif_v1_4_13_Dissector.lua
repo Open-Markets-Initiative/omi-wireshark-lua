@@ -1821,6 +1821,52 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.packet.fingerprint = function(buffer)
+  if buffer:len() < 19 then
+    return false
+  end
+
+  local template_id = buffer(18, 1):uint()
+
+  -- Heartbeat Message
+  if template_id == 0x10 then
+    return true
+  end
+
+  -- Index Value Message
+  if template_id == 0x16 then
+    return true
+  end
+
+  -- Contributor Value Message
+  if template_id == 0x17 then
+    return true
+  end
+
+  -- Index Summary Message
+  if template_id == 0x18 then
+    return true
+  end
+
+  -- Index Value With Status Message
+  if template_id == 0x19 then
+    return true
+  end
+
+  -- Index Definition Message
+  if template_id == 0x1A then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1828,6 +1874,9 @@ end
 local function omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_titaniumconsolidated_indices_cgif_v1_4_13.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cboe_titaniumconsolidated_indices_cgif_v1_4_13.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13
@@ -1852,7 +1901,7 @@ udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4.13
 --   Date: Friday, May 16, 2025
---   Specification: Cboe Titanium Cboe Global Indices Feed Specification _ Cboe (2026-05-19).pdf
+--   Specification: Cboe Titanium Cboe Global Indices Feed Specification _ Cboe.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -20,7 +20,7 @@ omi_siac_cts_output_cta_v2_9.fields.administrative_message_type = ProtoField.new
 omi_siac_cts_output_cta_v2_9.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v2.9.auctioncollarlowerthresholdprice", ftypes.DOUBLE, nil, nil, nil, "Represents the latest lower threshold price of the Auction Collar. The lower threshold price of the Auction Collar is the lowest price of the auction collar, if any")
 omi_siac_cts_output_cta_v2_9.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v2.9.auctioncollarreferenceprice", ftypes.DOUBLE, nil, nil, nil, "The Auction Collar Reference Price represents the price used by the exchange to establish the Auction Collar")
 omi_siac_cts_output_cta_v2_9.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.9.auctioncollarupperthresholdprice", ftypes.DOUBLE, nil, nil, nil, "Represents the latest upper threshold price of the Auction Collar")
-omi_siac_cts_output_cta_v2_9.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.9.bidindexvalue", ftypes.INT64, nil, nil, nil, "The Bid Index Value represents the value of the index’s calculation formula using the current Bid values of the component securities.")
+omi_siac_cts_output_cta_v2_9.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.9.bidindexvalue", ftypes.DOUBLE, nil, nil, nil, "The Bid Index Value represents the value of the index’s calculation formula using the current Bid values of the component securities.")
 omi_siac_cts_output_cta_v2_9.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.9.blockchecksum", ftypes.UINT16, nil, nil, nil, "Lower 2 bytes of the 4 byte sum of all the bytes in the block, excluding this Block Checksum field")
 omi_siac_cts_output_cta_v2_9.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.9.blockpadbyte", ftypes.UINT8, nil, nil, nil, "Cta Block Pad Byte")
 omi_siac_cts_output_cta_v2_9.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.9.blocksequencenumber", ftypes.UINT32, nil, nil, nil, "All transmission blocks are assigned a sequential Block Sequence Number")
@@ -32,11 +32,11 @@ omi_siac_cts_output_cta_v2_9.fields.consolidated_high_low_last_indicator = Proto
 omi_siac_cts_output_cta_v2_9.fields.control_message = ProtoField.new("Control Message", "siac.cts.output.cta.v2.9.controlmessage", ftypes.STRING, nil, nil, nil, "Control Message Header")
 omi_siac_cts_output_cta_v2_9.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.9.controlmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.corrected_trade = ProtoField.new("Corrected Trade", "siac.cts.output.cta.v2.9.correctedtrade", ftypes.STRING)
-omi_siac_cts_output_cta_v2_9.fields.crossing_session_1_total_trades_volume = ProtoField.new("Crossing Session 1 Total Trades Volume", "siac.cts.output.cta.v2.9.crossingsession1totaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded at the Participant’s close price and taking place after the close of a Participant’s regular session.")
-omi_siac_cts_output_cta_v2_9.fields.crossing_session_2_dollar_value = ProtoField.new("Crossing Session 2 Dollar Value", "siac.cts.output.cta.v2.9.crossingsession2dollarvalue", ftypes.UINT64, nil, nil, nil, "Contains the Dollar Value traded after the close of a Participant’s regular session.")
-omi_siac_cts_output_cta_v2_9.fields.crossing_session_2_total_trades_volume = ProtoField.new("Crossing Session 2 Total Trades Volume", "siac.cts.output.cta.v2.9.crossingsession2totaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded after the close of a Participant’s regular session.")
+omi_siac_cts_output_cta_v2_9.fields.crossing_session_i_total_trades_volume = ProtoField.new("Crossing Session I Total Trades Volume", "siac.cts.output.cta.v2.9.crossingsessionitotaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded at the Participant’s close price and taking place after the close of a Participant’s regular session.")
+omi_siac_cts_output_cta_v2_9.fields.crossing_session_ii_dollar_value = ProtoField.new("Crossing Session Ii Dollar Value", "siac.cts.output.cta.v2.9.crossingsessioniidollarvalue", ftypes.DOUBLE, nil, nil, nil, "Contains the Dollar Value traded after the close of a Participant’s regular session.")
+omi_siac_cts_output_cta_v2_9.fields.crossing_session_ii_total_trades_volume = ProtoField.new("Crossing Session Ii Total Trades Volume", "siac.cts.output.cta.v2.9.crossingsessioniitotaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded after the close of a Participant’s regular session.")
 omi_siac_cts_output_cta_v2_9.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.9.datafeedindicator", ftypes.STRING, nil, nil, nil, "Q for Consolidated Quotation System")
-omi_siac_cts_output_cta_v2_9.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.9.dollarvalue", ftypes.UINT64, nil, nil, nil, "The Dollar Value represents the total dollar worth of the daily trade transactions.")
+omi_siac_cts_output_cta_v2_9.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.9.dollarvalue", ftypes.DOUBLE, nil, nil, nil, "The Dollar Value represents the total dollar worth of the daily trade transactions.")
 omi_siac_cts_output_cta_v2_9.fields.extended_hours_or_sequence_type = ProtoField.new("Extended Hours Or Sequence Type", "siac.cts.output.cta.v2.9.extendedhoursorsequencetype", ftypes.STRING, nil, nil, nil, "Category 3: Extended Hours Or Sequence Type")
 omi_siac_cts_output_cta_v2_9.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cts.output.cta.v2.9.financialstatusindicator", ftypes.STRING, nil, nil, nil, "Identifies the financial status of the security.")
 omi_siac_cts_output_cta_v2_9.fields.future_use = ProtoField.new("Future Use", "siac.cts.output.cta.v2.9.futureuse", ftypes.STRING, nil, nil, nil, "Field is reserved for future use.")
@@ -45,7 +45,7 @@ omi_siac_cts_output_cta_v2_9.fields.held_trade_indicator = ProtoField.new("Held 
 omi_siac_cts_output_cta_v2_9.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.output.cta.v2.9.highindicationpriceupperlimitpriceband", ftypes.DOUBLE, nil, nil, nil, "Represents an approximation of what the high end Offer price of a security's trading range may be, or the upper price band value for a security. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_9.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v2.9.highprice", ftypes.DOUBLE, nil, nil, nil, "The High Price represents the highest price paid for a security during the trading day")
 omi_siac_cts_output_cta_v2_9.fields.index_symbol = ProtoField.new("Index Symbol", "siac.cts.output.cta.v2.9.indexsymbol", ftypes.STRING, nil, nil, nil, "Contains the Index symbol")
-omi_siac_cts_output_cta_v2_9.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.9.indexvalue", ftypes.INT64, nil, nil, nil, "The Index Value represents a statistical composite that measures changes in the economy or in financial markets")
+omi_siac_cts_output_cta_v2_9.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v2.9.indexvalue", ftypes.DOUBLE, nil, nil, nil, "The Index Value represents a statistical composite that measures changes in the economy or in financial markets")
 omi_siac_cts_output_cta_v2_9.fields.indices_message = ProtoField.new("Indices Message", "siac.cts.output.cta.v2.9.indicesmessage", ftypes.STRING, nil, nil, nil, "Index Messages Header")
 omi_siac_cts_output_cta_v2_9.fields.indices_message_type = ProtoField.new("Indices Message Type", "siac.cts.output.cta.v2.9.indicesmessagetype", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.initiating_participant_id = ProtoField.new("Initiating Participant Id", "siac.cts.output.cta.v2.9.initiatingparticipantid", ftypes.STRING, nil, nil, nil, "Participant or Processor that generated the message")
@@ -62,13 +62,13 @@ omi_siac_cts_output_cta_v2_9.fields.message_category = ProtoField.new("Message C
 omi_siac_cts_output_cta_v2_9.fields.message_id = ProtoField.new("Message Id", "siac.cts.output.cta.v2.9.messageid", ftypes.UINT8, nil, nil, nil, "The Message ID identifies the individual message within the block beginning with number one")
 omi_siac_cts_output_cta_v2_9.fields.message_length = ProtoField.new("Message Length", "siac.cts.output.cta.v2.9.messagelength", ftypes.UINT16, nil, nil, nil, "The Message Length identifies the total message length inclusive of the Message Header and Message Body")
 omi_siac_cts_output_cta_v2_9.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cts.output.cta.v2.9.messagesinblock", ftypes.UINT8, nil, nil, nil, "The number of messages contained in the transmission block")
-omi_siac_cts_output_cta_v2_9.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.9.mwcblevel1", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 7%")
-omi_siac_cts_output_cta_v2_9.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.9.mwcblevel2", ftypes.INT64, nil, nil, nil, "Decline Level 13% of Previous Close")
-omi_siac_cts_output_cta_v2_9.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.9.mwcblevel3", ftypes.INT64, nil, nil, nil, "Decline Level 20% of Previous Close")
+omi_siac_cts_output_cta_v2_9.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cts.output.cta.v2.9.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 7%")
+omi_siac_cts_output_cta_v2_9.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cts.output.cta.v2.9.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Decline Level 13% of Previous Close")
+omi_siac_cts_output_cta_v2_9.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cts.output.cta.v2.9.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Decline Level 20% of Previous Close")
 omi_siac_cts_output_cta_v2_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cts.output.cta.v2.9.nanoseconds", ftypes.UINT32, nil, nil, nil, "Nanosecond portion of the time")
 omi_siac_cts_output_cta_v2_9.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cts.output.cta.v2.9.numberofextensions", ftypes.UINT8, nil, nil, nil, "Identifies the number of manual or automatic extensions the applicable auction has received")
 omi_siac_cts_output_cta_v2_9.fields.number_of_participants = ProtoField.new("Number Of Participants", "siac.cts.output.cta.v2.9.numberofparticipants", ftypes.UINT8, nil, nil, nil, "Represents the actual number of Participants for which an issue will be reported.")
-omi_siac_cts_output_cta_v2_9.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.output.cta.v2.9.offerindexvalue", ftypes.INT64, nil, nil, nil, "Represents the value of the index calculation formula using the current offer values of the component securities")
+omi_siac_cts_output_cta_v2_9.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.output.cta.v2.9.offerindexvalue", ftypes.DOUBLE, nil, nil, nil, "Represents the value of the index calculation formula using the current offer values of the component securities")
 omi_siac_cts_output_cta_v2_9.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v2.9.openprice", ftypes.DOUBLE, nil, nil, nil, "The Open Price represents the first qualifying price paid for a security during the trading day.")
 omi_siac_cts_output_cta_v2_9.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v2.9.originalparticipantreferencenumber", ftypes.INT64, nil, nil, nil, "Contains the Participant Reference Number of transaction to be corrected, cancelled or error")
 omi_siac_cts_output_cta_v2_9.fields.original_trade = ProtoField.new("Original Trade", "siac.cts.output.cta.v2.9.originaltrade", ftypes.STRING)
@@ -381,11 +381,17 @@ siac_cts_output_cta_v2_9.bid_index_value.display = function(value)
   return "Bid Index Value: "..value
 end
 
+-- Translate: Bid Index Value
+siac_cts_output_cta_v2_9.bid_index_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Bid Index Value
 siac_cts_output_cta_v2_9.bid_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_9.bid_index_value.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_9.bid_index_value.translate(raw)
   local display = siac_cts_output_cta_v2_9.bid_index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_9.fields.bid_index_value, range, value, display)
@@ -625,71 +631,77 @@ siac_cts_output_cta_v2_9.control_message_type.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume = {}
+-- Crossing Session I Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume = {}
 
--- Size: Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.size = 8
+-- Size: Crossing Session I Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume.size = 8
 
--- Display: Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.display = function(value)
-  return "Crossing Session 1 Total Trades Volume: "..value
+-- Display: Crossing Session I Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume.display = function(value)
+  return "Crossing Session I Total Trades Volume: "..value
 end
 
--- Dissect: Crossing Session 1 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.size
+-- Dissect: Crossing Session I Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.display(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_9.fields.crossing_session_1_total_trades_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_9.fields.crossing_session_i_total_trades_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_9.crossing_session_2_dollar_value = {}
+-- Crossing Session Ii Dollar Value
+siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value = {}
 
--- Size: Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.size = 8
+-- Size: Crossing Session Ii Dollar Value
+siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.size = 8
 
--- Display: Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.display = function(value)
-  return "Crossing Session 2 Dollar Value: "..value
+-- Display: Crossing Session Ii Dollar Value
+siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.display = function(value)
+  return "Crossing Session Ii Dollar Value: "..value
 end
 
--- Dissect: Crossing Session 2 Dollar Value
-siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.display(value, buffer, offset, packet, parent)
+-- Translate: Crossing Session Ii Dollar Value
+siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
 
-  parent:add(omi_siac_cts_output_cta_v2_9.fields.crossing_session_2_dollar_value, range, value, display)
+-- Dissect: Crossing Session Ii Dollar Value
+siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.translate(raw)
+  local display = siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_siac_cts_output_cta_v2_9.fields.crossing_session_ii_dollar_value, range, value, display)
 
   return offset + length, value
 end
 
--- Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume = {}
+-- Crossing Session Ii Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume = {}
 
--- Size: Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.size = 8
+-- Size: Crossing Session Ii Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume.size = 8
 
--- Display: Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.display = function(value)
-  return "Crossing Session 2 Total Trades Volume: "..value
+-- Display: Crossing Session Ii Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume.display = function(value)
+  return "Crossing Session Ii Total Trades Volume: "..value
 end
 
--- Dissect: Crossing Session 2 Total Trades Volume
-siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.size
+-- Dissect: Crossing Session Ii Total Trades Volume
+siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.display(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_9.fields.crossing_session_2_total_trades_volume, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_9.fields.crossing_session_ii_total_trades_volume, range, value, display)
 
   return offset + length, value
 end
@@ -728,11 +740,17 @@ siac_cts_output_cta_v2_9.dollar_value.display = function(value)
   return "Dollar Value: "..value
 end
 
+-- Translate: Dollar Value
+siac_cts_output_cta_v2_9.dollar_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Dollar Value
 siac_cts_output_cta_v2_9.dollar_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_9.dollar_value.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = siac_cts_output_cta_v2_9.dollar_value.translate(raw)
   local display = siac_cts_output_cta_v2_9.dollar_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_9.fields.dollar_value, range, value, display)
@@ -1062,11 +1080,17 @@ siac_cts_output_cta_v2_9.index_value.display = function(value)
   return "Index Value: "..value
 end
 
+-- Translate: Index Value
+siac_cts_output_cta_v2_9.index_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Index Value
 siac_cts_output_cta_v2_9.index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_9.index_value.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_9.index_value.translate(raw)
   local display = siac_cts_output_cta_v2_9.index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_9.fields.index_value, range, value, display)
@@ -1454,8 +1478,8 @@ siac_cts_output_cta_v2_9.market_status_message_type.size = 1
 
 -- Display: Market Status Message Type
 siac_cts_output_cta_v2_9.market_status_message_type.display = function(value)
-  if value == "M" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
+  if value == "K" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (K)"
   end
   if value == "L" then
     return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
@@ -1646,11 +1670,17 @@ siac_cts_output_cta_v2_9.mwcb_level_1.display = function(value)
   return "Mwcb Level 1: "..value
 end
 
+-- Translate: Mwcb Level 1
+siac_cts_output_cta_v2_9.mwcb_level_1.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 1
 siac_cts_output_cta_v2_9.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_9.mwcb_level_1.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_9.mwcb_level_1.translate(raw)
   local display = siac_cts_output_cta_v2_9.mwcb_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_9.fields.mwcb_level_1, range, value, display)
@@ -1669,11 +1699,17 @@ siac_cts_output_cta_v2_9.mwcb_level_2.display = function(value)
   return "Mwcb Level 2: "..value
 end
 
+-- Translate: Mwcb Level 2
+siac_cts_output_cta_v2_9.mwcb_level_2.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 2
 siac_cts_output_cta_v2_9.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_9.mwcb_level_2.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_9.mwcb_level_2.translate(raw)
   local display = siac_cts_output_cta_v2_9.mwcb_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_9.fields.mwcb_level_2, range, value, display)
@@ -1692,11 +1728,17 @@ siac_cts_output_cta_v2_9.mwcb_level_3.display = function(value)
   return "Mwcb Level 3: "..value
 end
 
+-- Translate: Mwcb Level 3
+siac_cts_output_cta_v2_9.mwcb_level_3.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 3
 siac_cts_output_cta_v2_9.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_9.mwcb_level_3.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_9.mwcb_level_3.translate(raw)
   local display = siac_cts_output_cta_v2_9.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_9.fields.mwcb_level_3, range, value, display)
@@ -1784,11 +1826,17 @@ siac_cts_output_cta_v2_9.offer_index_value.display = function(value)
   return "Offer Index Value: "..value
 end
 
+-- Translate: Offer Index Value
+siac_cts_output_cta_v2_9.offer_index_value.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Offer Index Value
 siac_cts_output_cta_v2_9.offer_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_output_cta_v2_9.offer_index_value.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cts_output_cta_v2_9.offer_index_value.translate(raw)
   local display = siac_cts_output_cta_v2_9.offer_index_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_output_cta_v2_9.fields.offer_index_value, range, value, display)
@@ -2165,11 +2213,11 @@ siac_cts_output_cta_v2_9.prior_day_message_type.display = function(value)
   if value == "C" then
     return "Prior Day Message Type: Prior Day Trade Correction Message (C)"
   end
-  if value == "L" then
-    return "Prior Day Message Type: Prior Day Trade Message (L)"
+  if value == "T" then
+    return "Prior Day Message Type: Prior Day Trade Message (T)"
   end
   if value == "X" then
-    return "Prior Day Message Type: Prior Day Trade Message (X)"
+    return "Prior Day Message Type: Prior Day Trade Cancel Error Message (X)"
   end
 
   return "Prior Day Message Type: Unknown("..value..")"
@@ -5263,9 +5311,9 @@ siac_cts_output_cta_v2_9.crossing_session_summary_message.size =
   siac_cts_output_cta_v2_9.message_id.size + 
   siac_cts_output_cta_v2_9.transaction_id.size + 
   siac_cts_output_cta_v2_9.participant_reference_number.size + 
-  siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.size + 
-  siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.size + 
-  siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.size
+  siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume.size + 
+  siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.size + 
+  siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume.size
 
 -- Display: Crossing Session Summary Message
 siac_cts_output_cta_v2_9.crossing_session_summary_message.display = function(packet, parent, length)
@@ -5291,14 +5339,14 @@ siac_cts_output_cta_v2_9.crossing_session_summary_message.fields = function(buff
   -- Participant Reference Number: Signed Long
   index, participant_reference_number = siac_cts_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Crossing Session 1 Total Trades Volume: Long
-  index, crossing_session_1_total_trades_volume = siac_cts_output_cta_v2_9.crossing_session_1_total_trades_volume.dissect(buffer, index, packet, parent)
+  -- Crossing Session I Total Trades Volume: Long
+  index, crossing_session_i_total_trades_volume = siac_cts_output_cta_v2_9.crossing_session_i_total_trades_volume.dissect(buffer, index, packet, parent)
 
-  -- Crossing Session 2 Dollar Value: Long
-  index, crossing_session_2_dollar_value = siac_cts_output_cta_v2_9.crossing_session_2_dollar_value.dissect(buffer, index, packet, parent)
+  -- Crossing Session Ii Dollar Value: Long
+  index, crossing_session_ii_dollar_value = siac_cts_output_cta_v2_9.crossing_session_ii_dollar_value.dissect(buffer, index, packet, parent)
 
-  -- Crossing Session 2 Total Trades Volume: Long
-  index, crossing_session_2_total_trades_volume = siac_cts_output_cta_v2_9.crossing_session_2_total_trades_volume.dissect(buffer, index, packet, parent)
+  -- Crossing Session Ii Total Trades Volume: Long
+  index, crossing_session_ii_total_trades_volume = siac_cts_output_cta_v2_9.crossing_session_ii_total_trades_volume.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5656,7 +5704,7 @@ siac_cts_output_cta_v2_9.market_status_message_payload = {}
 -- Dissect: Market Status Message Payload
 siac_cts_output_cta_v2_9.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
-  if market_status_message_type == "M" then
+  if market_status_message_type == "K" then
     return siac_cts_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Wide Circuit Breaker Status Message
@@ -6876,6 +6924,244 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cts_output_cta_v2_9.packet.fingerprint = function(buffer)
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_category = buffer(22, 1):string()
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local administrative_message_type = buffer(23, 1):string()
+
+    -- Start Of End Of Day Message
+    if administrative_message_type == "A" then
+      return true
+    end
+
+    -- End Of End Of Day Message
+    if administrative_message_type == "B" then
+      return true
+    end
+
+    -- Start Of Start Of Day Message
+    if administrative_message_type == "C" then
+      return true
+    end
+
+    -- End Of Start Of Day Message
+    if administrative_message_type == "D" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local control_message_type = buffer(23, 1):string()
+
+    -- Start Of Day Message
+    if control_message_type == "A" then
+      return true
+    end
+
+    -- Reset Block Sequence Number Message
+    if control_message_type == "L" then
+      return true
+    end
+
+    -- Disaster Recovery Data Center Activation Message
+    if control_message_type == "P" then
+      return true
+    end
+
+    -- Line Integrity Message
+    if control_message_type == "T" then
+      return true
+    end
+
+    -- End Of Day Message
+    if control_message_type == "Z" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Indices Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "I" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local indices_message_type = buffer(23, 1):string()
+
+    -- Index Message
+    if indices_message_type == "I" then
+      return true
+    end
+
+    -- Bid And Offer Index Message
+    if indices_message_type == "Q" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Market Status Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "M" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local market_status_message_type = buffer(23, 1):string()
+
+    -- Market Wide Circuit Breaker Decline Level Status Message
+    if market_status_message_type == "K" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Status Message
+    if market_status_message_type == "L" then
+      return true
+    end
+
+    -- Approximate Adjusted Volume Market Center Message
+    if market_status_message_type == "N" then
+      return true
+    end
+
+    -- Approximate Trades And Total Dollar Value Message
+    if market_status_message_type == "O" then
+      return true
+    end
+
+    -- Crossing Session Summary Message
+    if market_status_message_type == "P" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Prior Day Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "P" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local prior_day_message_type = buffer(23, 1):string()
+
+    -- Prior Day Trade Correction Message
+    if prior_day_message_type == "C" then
+      return true
+    end
+
+    -- Prior Day Trade Message
+    if prior_day_message_type == "T" then
+      return true
+    end
+
+    -- Prior Day Trade Cancel Error Message
+    if prior_day_message_type == "X" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Summary Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "S" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local summary_message_type = buffer(23, 1):string()
+
+    -- Consolidated Start Of Day Summary Message
+    if summary_message_type == "A" then
+      return true
+    end
+
+    -- Participant Start Of Day Summary Message
+    if summary_message_type == "B" then
+      return true
+    end
+
+    -- Consolidated End Of Day Summary Message
+    if summary_message_type == "C" then
+      return true
+    end
+
+    -- Participant End Of Day Summary Message
+    if summary_message_type == "D" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Trade Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "T" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local trade_message_type = buffer(23, 1):string()
+
+    -- Auction Status Message
+    if trade_message_type == "A" then
+      return true
+    end
+
+    -- Trade Correction Message
+    if trade_message_type == "C" then
+      return true
+    end
+
+    -- Long Trade Message
+    if trade_message_type == "L" then
+      return true
+    end
+
+    -- Trading Status Message
+    if trade_message_type == "S" then
+      return true
+    end
+
+    -- Short Trade Message
+    if trade_message_type == "T" then
+      return true
+    end
+
+    -- Trade Cancel Error Message
+    if trade_message_type == "X" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -6883,6 +7169,9 @@ end
 local function omi_siac_cts_output_cta_v2_9_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cts_output_cta_v2_9.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cts_output_cta_v2_9.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cts_output_cta_v2_9

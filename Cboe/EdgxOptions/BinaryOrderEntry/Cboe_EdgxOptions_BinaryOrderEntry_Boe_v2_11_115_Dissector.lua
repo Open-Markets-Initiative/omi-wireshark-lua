@@ -58341,6 +58341,282 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local message_type = buffer(4, 1):le_uint()
+
+  -- Login Request Message
+  if message_type == 0x37 then
+    return true
+  end
+
+  -- Logout Request Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Client Heartbeat Message
+  if message_type == 0x03 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x24 then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == 0x08 then
+    return true
+  end
+
+  -- Server Heartbeat Message
+  if message_type == 0x09 then
+    return true
+  end
+
+  -- Replay Complete Message
+  if message_type == 0x13 then
+    return true
+  end
+
+  -- New Order Message
+  if message_type == 0x38 then
+    return true
+  end
+
+  -- New Order Cross Message
+  if message_type == 0x41 then
+    return true
+  end
+
+  -- New Complex Order Message
+  if message_type == 0x4B then
+    return true
+  end
+
+  -- New Order Cross Multileg Message
+  if message_type == 0x5A then
+    return true
+  end
+
+  -- Cancel Order Message
+  if message_type == 0x39 then
+    return true
+  end
+
+  -- Modify Order Message
+  if message_type == 0x3A then
+    return true
+  end
+
+  -- Quote Update Message
+  if message_type == 0x55 then
+    return true
+  end
+
+  -- Quote Update Short Message
+  if message_type == 0x59 then
+    return true
+  end
+
+  -- Complex Quote Update Message
+  if message_type == 0x84 then
+    return true
+  end
+
+  -- Complex Quote Update Short Message
+  if message_type == 0x86 then
+    return true
+  end
+
+  -- Purge Orders Message
+  if message_type == 0x47 then
+    return true
+  end
+
+  -- Reset Risk Message
+  if message_type == 0x56 then
+    return true
+  end
+
+  -- New Complex Instrument Message
+  if message_type == 0x4C then
+    return true
+  end
+
+  -- Add Floor Trade Message
+  if message_type == 0x5C then
+    return true
+  end
+
+  -- Floor Trade Confirmation Message
+  if message_type == 0x5B then
+    return true
+  end
+
+  -- Delete Floor Trade Message
+  if message_type == 0x5D then
+    return true
+  end
+
+  -- Order Acknowledgment Message
+  if message_type == 0x25 then
+    return true
+  end
+
+  -- Cross Order Acknowledgment Message
+  if message_type == 0x43 then
+    return true
+  end
+
+  -- Quote Update Acknowledgment Message
+  if message_type == 0x51 then
+    return true
+  end
+
+  -- Order Rejected Message
+  if message_type == 0x26 then
+    return true
+  end
+
+  -- Cross Order Rejected Message
+  if message_type == 0x44 then
+    return true
+  end
+
+  -- Quote Update Rejected Message
+  if message_type == 0x58 then
+    return true
+  end
+
+  -- Order Modified Message
+  if message_type == 0x27 then
+    return true
+  end
+
+  -- Order Restated Message
+  if message_type == 0x28 then
+    return true
+  end
+
+  -- Quote Restated Message
+  if message_type == 0x52 then
+    return true
+  end
+
+  -- User Modify Rejected Message
+  if message_type == 0x29 then
+    return true
+  end
+
+  -- Order Cancelled Message
+  if message_type == 0x2A then
+    return true
+  end
+
+  -- Quote Cancelled Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Cross Order Cancelled Message
+  if message_type == 0x46 then
+    return true
+  end
+
+  -- Cancel Rejected Message
+  if message_type == 0x2B then
+    return true
+  end
+
+  -- Order Execution Message
+  if message_type == 0x2C then
+    return true
+  end
+
+  -- Quote Execution Message
+  if message_type == 0x54 then
+    return true
+  end
+
+  -- Complex Quote Execution Message
+  if message_type == 0x87 then
+    return true
+  end
+
+  -- Trade Cancel Or Correct Message
+  if message_type == 0x2D then
+    return true
+  end
+
+  -- Purge Rejected Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Reset Risk Acknowledgment Message
+  if message_type == 0x57 then
+    return true
+  end
+
+  -- Mass Cancel Acknowledgment Message
+  if message_type == 0x36 then
+    return true
+  end
+
+  -- Purge Notification Message
+  if message_type == 0x63 then
+    return true
+  end
+
+  -- Complex Instrument Accepted Message
+  if message_type == 0x4D then
+    return true
+  end
+
+  -- Complex Instrument Rejected Message
+  if message_type == 0x4E then
+    return true
+  end
+
+  -- Floor Trade Notification Message
+  if message_type == 0x62 then
+    return true
+  end
+
+  -- Add Floor Trade Rejected Message
+  if message_type == 0x5F then
+    return true
+  end
+
+  -- Floor Trade Confirmation Rejected Message
+  if message_type == 0x5E then
+    return true
+  end
+
+  -- Delete Floor Trade Rejected Message
+  if message_type == 0x60 then
+    return true
+  end
+
+  -- Delete Floor Trade Acknowledgement Message
+  if message_type == 0x61 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -58348,6 +58624,9 @@ end
 local function omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_edgxoptions_binaryorderentry_boe_v2_11_115.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_edgxoptions_binaryorderentry_boe_v2_11_115.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115

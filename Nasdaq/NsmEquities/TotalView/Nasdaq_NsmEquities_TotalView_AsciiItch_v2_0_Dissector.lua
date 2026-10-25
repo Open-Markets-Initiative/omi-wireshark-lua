@@ -2659,6 +2659,35 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.server_packet.fingerprint = function
   return false
 end
 
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_nsmequities_totalview_asciiitch_v2_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 16 then
+    return false
+  end
+
+  local message_count = buffer(14, 2):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 18 then
+    return false
+  end
+
+  local message_length = buffer(16, 2):le_uint()
+
+  -- End Of Session
+  if message_length == 0 then
+    return true
+  end
+
+
+  return false
+end
+
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics
@@ -2669,7 +2698,7 @@ local function omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_tcp_initiator_heu
   -- Verify packet length
   if not nasdaq_nsmequities_totalview_asciiitch_v2_0.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nasdaq_nsmequities_totalview_asciiitch_v2_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -2684,7 +2713,7 @@ local function omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_tcp_acceptor_heur
   -- Verify packet length
   if not nasdaq_nsmequities_totalview_asciiitch_v2_0.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not nasdaq_nsmequities_totalview_asciiitch_v2_0.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -2698,6 +2727,9 @@ end
 local function omi_nasdaq_nsmequities_totalview_asciiitch_v2_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_nsmequities_totalview_asciiitch_v2_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_nsmequities_totalview_asciiitch_v2_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_totalview_asciiitch_v2_0

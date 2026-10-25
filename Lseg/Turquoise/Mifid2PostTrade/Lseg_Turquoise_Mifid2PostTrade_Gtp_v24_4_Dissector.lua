@@ -3440,6 +3440,47 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_turquoise_mifid2posttrade_gtp_v24_4.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local message_type = buffer(10, 1):uint()
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Instrument Directory Message
+  if message_type == 0x70 then
+    return true
+  end
+
+  -- Instrument Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Mifid Ii Trade Message
+  if message_type == 0x51 then
+    return true
+  end
+
+  -- Mi Fid Ii Trade Cross Message
+  if message_type == 0x56 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3447,6 +3488,9 @@ end
 local function omi_lseg_turquoise_mifid2posttrade_gtp_v24_4_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_turquoise_mifid2posttrade_gtp_v24_4.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not lseg_turquoise_mifid2posttrade_gtp_v24_4.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_turquoise_mifid2posttrade_gtp_v24_4

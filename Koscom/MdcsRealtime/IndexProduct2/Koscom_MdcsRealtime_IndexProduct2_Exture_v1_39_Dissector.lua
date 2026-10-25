@@ -3587,6 +3587,62 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+koscom_mdcsrealtime_indexproduct2_exture_v1_39.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local tr_code = buffer(0, 5):string(koscom_mdcsrealtime_indexproduct2_exture_v1_39.text_encoding)
+
+  -- Polling Data Message
+  if tr_code == "I2000" then
+    return true
+  end
+
+  -- Krx Index Message
+  if tr_code == "IA000" then
+    return true
+  end
+
+  -- Krx Estimated Index Message
+  if tr_code == "IB000" then
+    return true
+  end
+
+  -- Global Index Message
+  if tr_code == "J2000" then
+    return true
+  end
+
+  -- Bond Prime Index Message
+  if tr_code == "J4000" then
+    return true
+  end
+
+  -- Bond Ktb Index Message
+  if tr_code == "K1000" then
+    return true
+  end
+
+  -- Bond Ktb Index Term Structure Message
+  if tr_code == "K8000" then
+    return true
+  end
+
+  -- Bond Index Krx Message
+  if tr_code == "IG000" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3594,6 +3650,9 @@ end
 local function omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not koscom_mdcsrealtime_indexproduct2_exture_v1_39.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not koscom_mdcsrealtime_indexproduct2_exture_v1_39.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_koscom_mdcsrealtime_indexproduct2_exture_v1_39

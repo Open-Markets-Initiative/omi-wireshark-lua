@@ -4353,6 +4353,160 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_cxeequities_multicastdepthofbook_pitch_v6_68.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Time Message
+  if message_type == 0x20 then
+    return true
+  end
+
+  -- Unit Clear Message
+  if message_type == 0x97 then
+    return true
+  end
+
+  -- Add Order Long Message
+  if message_type == 0x40 then
+    return true
+  end
+
+  -- Add Order Short Message
+  if message_type == 0x22 then
+    return true
+  end
+
+  -- Add Order Expanded Message
+  if message_type == 0x2f then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == 0x23 then
+    return true
+  end
+
+  -- Order Executed At Price Size Message
+  if message_type == 0x24 then
+    return true
+  end
+
+  -- Reduce Size Long Message
+  if message_type == 0x25 then
+    return true
+  end
+
+  -- Reduce Size Short Message
+  if message_type == 0x26 then
+    return true
+  end
+
+  -- Modify Order Long Message
+  if message_type == 0x27 then
+    return true
+  end
+
+  -- Modify Order Short Message
+  if message_type == 0x28 then
+    return true
+  end
+
+  -- Delete Order Message
+  if message_type == 0x29 then
+    return true
+  end
+
+  -- Trade Long Message
+  if message_type == 0x41 then
+    return true
+  end
+
+  -- Trade Short Message
+  if message_type == 0x2B then
+    return true
+  end
+
+  -- Trade Extended Message
+  if message_type == 0x32 then
+    return true
+  end
+
+  -- Trade Unknown Symbol Message
+  if message_type == 0x35 then
+    return true
+  end
+
+  -- End Of Session
+  if message_type == 0x2D then
+    return true
+  end
+
+  -- Transaction Begin Message
+  if message_type == 0xBC then
+    return true
+  end
+
+  -- Transaction End Message
+  if message_type == 0xBD then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0x31 then
+    return true
+  end
+
+  -- Statistics Message
+  if message_type == 0x34 then
+    return true
+  end
+
+  -- Auction Update Message
+  if message_type == 0xAC then
+    return true
+  end
+
+  -- Auction Summary Message
+  if message_type == 0x96 then
+    return true
+  end
+
+  -- Index Quote Message
+  if message_type == 0xD8 then
+    return true
+  end
+
+  -- Index Quote Edsp Message
+  if message_type == 0xD9 then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4360,6 +4514,9 @@ end
 local function omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_68_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cxeequities_multicastdepthofbook_pitch_v6_68.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cboe_cxeequities_multicastdepthofbook_pitch_v6_68.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_68

@@ -6408,7 +6408,7 @@ local function omi_cboe_edgaequities_binaryorderentry_boe3_v1_0_14_tcp_initiator
   -- Verify packet length
   if not cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp firm packet message dispatch
   if not cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -6423,7 +6423,7 @@ local function omi_cboe_edgaequities_binaryorderentry_boe3_v1_0_14_tcp_acceptor_
   -- Verify packet length
   if not cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp exchange packet message dispatch
   if not cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

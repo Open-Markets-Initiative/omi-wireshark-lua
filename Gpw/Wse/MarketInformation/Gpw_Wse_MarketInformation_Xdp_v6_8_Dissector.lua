@@ -9689,6 +9689,113 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+gpw_wse_marketinformation_xdp_v6_8.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):uint()
+
+  -- Class State Change Message
+  if message_type == 516 then
+    return true
+  end
+
+  -- Mail Message
+  if message_type == 523 then
+    return true
+  end
+
+  -- Collars Message
+  if message_type == 537 then
+    return true
+  end
+
+  -- Session Timetable Message
+  if message_type == 539 then
+    return true
+  end
+
+  -- Start Referential Message
+  if message_type == 550 then
+    return true
+  end
+
+  -- End Referential Message
+  if message_type == 551 then
+    return true
+  end
+
+  -- Referential Message
+  if message_type == 556 then
+    return true
+  end
+
+  -- Session Summary Message
+  if message_type == 561 then
+    return true
+  end
+
+  -- Instrument State Change Message
+  if message_type == 505 then
+    return true
+  end
+
+  -- Indicative Matching Price Message
+  if message_type == 530 then
+    return true
+  end
+
+  -- Short Sale Change Message
+  if message_type == 560 then
+    return true
+  end
+
+  -- Generic Wse Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == 592 then
+    if buffer:len() < 37 then
+      return false
+    end
+
+    local internal_msg_type = buffer(35, 2):string()
+
+    -- Treasury Bond Futures Data
+    if internal_msg_type == "02" then
+      return true
+    end
+
+    -- Kid
+    if internal_msg_type == "03" then
+      return true
+    end
+
+    -- Market Conditions
+    if internal_msg_type == "04" then
+      return true
+    end
+
+    -- Market Conditions
+    if internal_msg_type == "05" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Open Position Message
+  if message_type == 595 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -9696,6 +9803,9 @@ end
 local function omi_gpw_wse_marketinformation_xdp_v6_8_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not gpw_wse_marketinformation_xdp_v6_8.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not gpw_wse_marketinformation_xdp_v6_8.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_gpw_wse_marketinformation_xdp_v6_8

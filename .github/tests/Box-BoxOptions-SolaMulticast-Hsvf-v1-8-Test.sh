@@ -14,15 +14,9 @@ grep "box.boxoptions.solamulticast.hsvf.v1.8.exchangeid" Box.BoxOptions.SolaMult
 grep "box.boxoptions.solamulticast.hsvf.v1.8.rootsymbol" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.expirymonthcode" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.filler1" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.strikeprice" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.strikepricefractionindicator" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.expiryyear" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.expiryday" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.bidprice" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.bidpricefractionindicator" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.bidsize" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.askprice" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
-grep "box.boxoptions.solamulticast.hsvf.v1.8.askpricefractionindicator" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.asksize" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.filler1" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.instrumentstatusmarker" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json

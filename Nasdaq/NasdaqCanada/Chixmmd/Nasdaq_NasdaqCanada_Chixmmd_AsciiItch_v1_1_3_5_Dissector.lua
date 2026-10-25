@@ -2235,6 +2235,90 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+
+  local message_count = buffer(4, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 17 then
+    return false
+  end
+
+  local message_type = buffer(16, 1):string()
+
+  -- Add Order Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Long Form Add Order Message
+  if message_type == "a" then
+    return true
+  end
+
+  -- Order Execution Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Long Form Order Execution Message
+  if message_type == "e" then
+    return true
+  end
+
+  -- Order Cancel Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Long Form Order Cancel Message
+  if message_type == "x" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Long Form Trade Message
+  if message_type == "p" then
+    return true
+  end
+
+  -- Broken Trade Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Stock Status Message
+  if message_type == "H" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2242,6 +2326,9 @@ end
 local function omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5

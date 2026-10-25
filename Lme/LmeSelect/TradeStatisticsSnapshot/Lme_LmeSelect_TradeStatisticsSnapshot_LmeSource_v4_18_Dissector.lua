@@ -881,6 +881,37 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lme_lmeselect_tradestatisticssnapshot_lmesource_v4_18.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local msg_type = buffer(18, 2):le_uint()
+
+  -- Sequence Reset Message
+  if msg_type == 100 then
+    return true
+  end
+
+  -- Trade Statistics Intraday Message
+  if msg_type == 352 then
+    return true
+  end
+
+  -- Refresh Complete Message
+  if msg_type == 203 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -888,6 +919,9 @@ end
 local function omi_lme_lmeselect_tradestatisticssnapshot_lmesource_v4_18_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lme_lmeselect_tradestatisticssnapshot_lmesource_v4_18.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not lme_lmeselect_tradestatisticssnapshot_lmesource_v4_18.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lme_lmeselect_tradestatisticssnapshot_lmesource_v4_18

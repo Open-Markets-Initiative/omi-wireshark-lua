@@ -16097,6 +16097,11 @@ end
 
 -- Verify Schema Id Field
 cme_ebs_ilink3_sbe_v8_3.schema_id.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -16109,6 +16114,11 @@ end
 
 -- Verify Version Field
 cme_ebs_ilink3_sbe_v8_3.version.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 10 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(10, 2):le_uint()
 
@@ -16121,6 +16131,11 @@ end
 
 -- Verify Schema Id Field
 cme_ebs_ilink3_sbe_v8_3.schema_id.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -16133,6 +16148,11 @@ end
 
 -- Verify Version Field
 cme_ebs_ilink3_sbe_v8_3.version.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 10 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(10, 2):le_uint()
 
@@ -16154,7 +16174,7 @@ local function omi_cme_ebs_ilink3_sbe_v8_3_tcp_initiator_heuristic(buffer, packe
   -- Verify Version
   if not cme_ebs_ilink3_sbe_v8_3.version.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not cme_ebs_ilink3_sbe_v8_3.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -16175,7 +16195,7 @@ local function omi_cme_ebs_ilink3_sbe_v8_3_tcp_acceptor_heuristic(buffer, packet
   -- Verify Version
   if not cme_ebs_ilink3_sbe_v8_3.version.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not cme_ebs_ilink3_sbe_v8_3.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

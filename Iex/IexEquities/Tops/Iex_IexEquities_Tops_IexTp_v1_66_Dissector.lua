@@ -2597,11 +2597,100 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+iex_iexequities_tops_iextp_v1_66.packet.fingerprint = function(buffer)
+  if buffer:len() < 16 then
+    return false
+  end
+
+  local message_count = buffer(14, 2):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 43 then
+    return false
+  end
+
+  local message_type = buffer(42, 1):string()
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Security Directory Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Retail Liquidity Indicator Message
+  if message_type == "I" then
+    return true
+  end
+
+  -- Operational Halt Status Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Short Sale Price Test Status Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Quote Update Message
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Trade Report Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- Official Price Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Trade Break Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Auction Information Message
+  if message_type == "A" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Version Field
 iex_iexequities_tops_iextp_v1_66.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):le_uint()
 
@@ -2614,6 +2703,11 @@ end
 
 -- Verify Message Protocol Id Field
 iex_iexequities_tops_iextp_v1_66.message_protocol_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 2 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(2, 2):le_uint()
 
@@ -2626,6 +2720,11 @@ end
 
 -- Verify Channel Id Field
 iex_iexequities_tops_iextp_v1_66.channel_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 4 + 4 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(4, 4):le_uint()
 
@@ -2649,6 +2748,9 @@ local function omi_iex_iexequities_tops_iextp_v1_66_udp_heuristic(buffer, packet
 
   -- Verify Channel Id
   if not iex_iexequities_tops_iextp_v1_66.channel_id.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not iex_iexequities_tops_iextp_v1_66.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_iexequities_tops_iextp_v1_66

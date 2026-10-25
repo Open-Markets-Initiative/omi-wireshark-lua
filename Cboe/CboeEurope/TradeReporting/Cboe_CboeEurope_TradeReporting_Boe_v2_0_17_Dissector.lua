@@ -15722,6 +15722,102 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_cboeeurope_tradereporting_boe_v2_0_17.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local message_type = buffer(4, 1):le_uint()
+
+  -- Login Request V 2 Message
+  if message_type == 0x37 then
+    return true
+  end
+
+  -- Logout Request Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Client Heartbeat Message
+  if message_type == 0x03 then
+    return true
+  end
+
+  -- Login Response V 2 Message
+  if message_type == 0x24 then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == 0x08 then
+    return true
+  end
+
+  -- Server Heartbeat Message
+  if message_type == 0x09 then
+    return true
+  end
+
+  -- Replay Complete Message
+  if message_type == 0x13 then
+    return true
+  end
+
+  -- Trade Capture Report V 2 Message
+  if message_type == 0x3C then
+    return true
+  end
+
+  -- Quote V 2 Message
+  if message_type == 0x3D then
+    return true
+  end
+
+  -- Quote Cancel V 2 Message
+  if message_type == 0x3E then
+    return true
+  end
+
+  -- Trade Capture Report Acknowledgment V 2 Message
+  if message_type == 0x30 then
+    return true
+  end
+
+  -- Trade Capture Report Reject V 2 Message
+  if message_type == 0x31 then
+    return true
+  end
+
+  -- Trade Capture Confirm V 2 Message
+  if message_type == 0x32 then
+    return true
+  end
+
+  -- Trade Capture Report Decline V 2 Message
+  if message_type == 0x33 then
+    return true
+  end
+
+  -- Quote Status V 2 Message
+  if message_type == 0x3F then
+    return true
+  end
+
+  -- Quote Reject V 2 Message
+  if message_type == 0x40 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -15729,6 +15825,9 @@ end
 local function omi_cboe_cboeeurope_tradereporting_boe_v2_0_17_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cboeeurope_tradereporting_boe_v2_0_17.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_cboeeurope_tradereporting_boe_v2_0_17.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cboeeurope_tradereporting_boe_v2_0_17

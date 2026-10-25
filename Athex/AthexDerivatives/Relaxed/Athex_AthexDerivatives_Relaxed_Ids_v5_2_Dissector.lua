@@ -2583,11 +2583,42 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+athex_athexderivatives_relaxed_ids_v5_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local message_category = buffer(3, 1):string()
+
+  -- Apa Post Trade Message
+  if message_category == "U" then
+    return true
+  end
+
+  -- Apa Pre Trade Message
+  if message_category == "V" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Soh Field
 athex_athexderivatives_relaxed_ids_v5_2.soh.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -2605,6 +2636,9 @@ local function omi_athex_athexderivatives_relaxed_ids_v5_2_tcp_heuristic(buffer,
 
   -- Verify Soh
   if not athex_athexderivatives_relaxed_ids_v5_2.soh.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not athex_athexderivatives_relaxed_ids_v5_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_athex_athexderivatives_relaxed_ids_v5_2

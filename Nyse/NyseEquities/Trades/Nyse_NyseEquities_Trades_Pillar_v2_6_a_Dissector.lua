@@ -4613,6 +4613,140 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nyse_nyseequities_trades_pillar_v2_6_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local delivery_flag = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if delivery_flag == 1 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Sequence Number Reset Message
+  if message_type == 1 then
+    return true
+  end
+
+  -- Source Time Reference Message
+  if message_type == 2 then
+    return true
+  end
+
+  -- Symbol Index Mapping Message
+  if message_type == 3 then
+    return true
+  end
+
+  -- Symbol Clear Message
+  if message_type == 32 then
+    return true
+  end
+
+  -- Security Status Message
+  if message_type == 34 then
+    return true
+  end
+
+  -- Retransmission Request Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Symbol Index Mapping Request Message
+  if message_type == 13 then
+    return true
+  end
+
+  -- Refresh Request Message
+  if message_type == 15 then
+    return true
+  end
+
+  -- Message Unavailable Message
+  if message_type == 31 then
+    return true
+  end
+
+  -- Refresh Header Message
+  if message_type == 35 then
+    return true
+  end
+
+  -- Request Response Message
+  if message_type == 11 then
+    return true
+  end
+
+  -- Heartbeat Response Message
+  if message_type == 12 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 220 then
+    return true
+  end
+
+  -- Trade Cancel Message
+  if message_type == 221 then
+    return true
+  end
+
+  -- Trade Correction Message
+  if message_type == 222 then
+    return true
+  end
+
+  -- Stock Summary Message
+  if message_type == 223 then
+    return true
+  end
+
+  -- Trf Fractional Trade Message
+  if message_type == 210 then
+    return true
+  end
+
+  -- Trf Trade Cancel Message
+  if message_type == 216 then
+    return true
+  end
+
+  -- Trf Fractional Trade Correction Message
+  if message_type == 212 then
+    return true
+  end
+
+  -- Trf Fractional Prior Day Trade Message
+  if message_type == 213 then
+    return true
+  end
+
+  -- Trf Fractional Prior Day Trade Cancel Message
+  if message_type == 214 then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4620,6 +4754,9 @@ end
 local function omi_nyse_nyseequities_trades_pillar_v2_6_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_nyseequities_trades_pillar_v2_6_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nyse_nyseequities_trades_pillar_v2_6_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_nyseequities_trades_pillar_v2_6_a

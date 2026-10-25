@@ -3223,6 +3223,9 @@ nyse_amexoptions_binarygateway_pillarstream_v3_28.pre_liquidity_indicator.displa
   if value == "4" then
     return "Pre Liquidity Indicator: Join Nbbo Candidate (4)"
   end
+  if value == "5" then
+    return "Pre Liquidity Indicator: Set Nbbo Candidate (5)"
+  end
 
   return "Pre Liquidity Indicator: Unknown("..value..")"
 end
@@ -11251,7 +11254,7 @@ local function omi_nyse_amexoptions_binarygateway_pillarstream_v3_28_tcp_initiat
   -- Verify packet length
   if not nyse_amexoptions_binarygateway_pillarstream_v3_28.client_pillar_message.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client pillar message message dispatch
   if not nyse_amexoptions_binarygateway_pillarstream_v3_28.client_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -11266,7 +11269,7 @@ local function omi_nyse_amexoptions_binarygateway_pillarstream_v3_28_tcp_accepto
   -- Verify packet length
   if not nyse_amexoptions_binarygateway_pillarstream_v3_28.server_pillar_message.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server pillar message message dispatch
   if not nyse_amexoptions_binarygateway_pillarstream_v3_28.server_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

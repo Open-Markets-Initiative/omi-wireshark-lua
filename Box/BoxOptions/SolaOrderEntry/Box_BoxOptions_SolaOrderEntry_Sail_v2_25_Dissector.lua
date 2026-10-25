@@ -10683,7 +10683,7 @@ local function omi_box_boxoptions_solaorderentry_sail_v2_25_tcp_initiator_heuris
   -- Verify packet length
   if not box_boxoptions_solaorderentry_sail_v2_25.firm_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp firm packet message dispatch
   if not box_boxoptions_solaorderentry_sail_v2_25.firm_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -10698,7 +10698,7 @@ local function omi_box_boxoptions_solaorderentry_sail_v2_25_tcp_acceptor_heurist
   -- Verify packet length
   if not box_boxoptions_solaorderentry_sail_v2_25.exchange_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp exchange packet message dispatch
   if not box_boxoptions_solaorderentry_sail_v2_25.exchange_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

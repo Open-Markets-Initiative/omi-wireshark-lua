@@ -12237,7 +12237,7 @@ local function omi_cboe_c1options_binaryorderentry_boe3_v1_0_10_tcp_initiator_he
   -- Verify packet length
   if not cboe_c1options_binaryorderentry_boe3_v1_0_10.firm_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp firm packet message dispatch
   if not cboe_c1options_binaryorderentry_boe3_v1_0_10.firm_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -12252,7 +12252,7 @@ local function omi_cboe_c1options_binaryorderentry_boe3_v1_0_10_tcp_acceptor_heu
   -- Verify packet length
   if not cboe_c1options_binaryorderentry_boe3_v1_0_10.exchange_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp exchange packet message dispatch
   if not cboe_c1options_binaryorderentry_boe3_v1_0_10.exchange_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -12306,7 +12306,7 @@ tcp_table:add_for_decode_as(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.10
 --   Date: Thursday, January 23, 2025
---   Specification: US Options BOE3 Specification (2024-11-15).pdf
+--   Specification: US Options BOE3 Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

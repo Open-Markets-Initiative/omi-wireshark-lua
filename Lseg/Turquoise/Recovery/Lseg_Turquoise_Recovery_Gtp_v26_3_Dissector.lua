@@ -7622,6 +7622,107 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_turquoise_recovery_gtp_v26_3.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local message_type = buffer(10, 1):uint()
+
+  -- Login Request Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Recovery Request Message
+  if message_type == 0x81 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Recovery Response Message
+  if message_type == 0x82 then
+    return true
+  end
+
+  -- Replay And Recovery Complete Message
+  if message_type == 0x83 then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Instrument Directory Extended Message
+  if message_type == 0x52 then
+    return true
+  end
+
+  -- Instrument Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Add Order Incremental Message
+  if message_type == 0x46 then
+    return true
+  end
+
+  -- Top Of Book Message
+  if message_type == 0x69 then
+    return true
+  end
+
+  -- Order Book Clear Message
+  if message_type == 0x79 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 0x50 then
+    return true
+  end
+
+  -- Trade Cross Message
+  if message_type == 0x71 then
+    return true
+  end
+
+  -- Statistics Snapshot Message
+  if message_type == 0x6B then
+    return true
+  end
+
+  -- Mifid Ii Trade Message
+  if message_type == 0x51 then
+    return true
+  end
+
+  -- Mifid Ii Trade Cross Message
+  if message_type == 0x56 then
+    return true
+  end
+
+  -- Mifid Ii Order Book Update Message
+  if message_type == 0x62 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -7629,6 +7730,9 @@ end
 local function omi_lseg_turquoise_recovery_gtp_v26_3_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lseg_turquoise_recovery_gtp_v26_3.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not lseg_turquoise_recovery_gtp_v26_3.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lseg_turquoise_recovery_gtp_v26_3

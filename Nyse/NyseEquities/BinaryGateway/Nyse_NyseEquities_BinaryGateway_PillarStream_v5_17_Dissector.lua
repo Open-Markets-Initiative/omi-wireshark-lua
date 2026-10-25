@@ -10402,7 +10402,7 @@ local function omi_nyse_nyseequities_binarygateway_pillarstream_v5_17_tcp_initia
   -- Verify packet length
   if not nyse_nyseequities_binarygateway_pillarstream_v5_17.client_pillar_message.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client pillar message message dispatch
   if not nyse_nyseequities_binarygateway_pillarstream_v5_17.client_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -10417,7 +10417,7 @@ local function omi_nyse_nyseequities_binarygateway_pillarstream_v5_17_tcp_accept
   -- Verify packet length
   if not nyse_nyseequities_binarygateway_pillarstream_v5_17.server_pillar_message.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server pillar message message dispatch
   if not nyse_nyseequities_binarygateway_pillarstream_v5_17.server_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

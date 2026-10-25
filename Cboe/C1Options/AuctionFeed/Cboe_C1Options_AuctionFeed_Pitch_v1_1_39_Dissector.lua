@@ -2431,6 +2431,100 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_c1options_auctionfeed_pitch_v1_1_39.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Time Reference Message
+  if message_type == 0xB1 then
+    return true
+  end
+
+  -- Time Message
+  if message_type == 0x20 then
+    return true
+  end
+
+  -- Unit Clear Message
+  if message_type == 0x97 then
+    return true
+  end
+
+  -- Auction Notification Message
+  if message_type == 0xAD then
+    return true
+  end
+
+  -- Auction Cancel Message
+  if message_type == 0xAE then
+    return true
+  end
+
+  -- Auction Trade Message
+  if message_type == 0xAF then
+    return true
+  end
+
+  -- Options Auction Update Message
+  if message_type == 0xD1 then
+    return true
+  end
+
+  -- Auction Summary Message
+  if message_type == 0x96 then
+    return true
+  end
+
+  -- Width Update Message
+  if message_type == 0xD2 then
+    return true
+  end
+
+  -- Symbol Mapping Message
+  if message_type == 0x2E then
+    return true
+  end
+
+  -- End Of Session Message
+  if message_type == 0x2D then
+    return true
+  end
+
+  -- Soq Strike Range Update Message
+  if message_type == 0x9D then
+    return true
+  end
+
+  -- Constituent Symbol Mapping Message
+  if message_type == 0x9E then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2438,6 +2532,9 @@ end
 local function omi_cboe_c1options_auctionfeed_pitch_v1_1_39_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_c1options_auctionfeed_pitch_v1_1_39.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cboe_c1options_auctionfeed_pitch_v1_1_39.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_c1options_auctionfeed_pitch_v1_1_39

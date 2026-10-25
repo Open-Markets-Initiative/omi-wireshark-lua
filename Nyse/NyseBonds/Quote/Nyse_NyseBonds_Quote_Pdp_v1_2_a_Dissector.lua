@@ -1579,7 +1579,7 @@ local function omi_nyse_nysebonds_quote_pdp_v1_2_a_udp_acceptor_heuristic(buffer
   -- Verify packet length
   if not nyse_nysebonds_quote_pdp_v1_2_a.packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this udp packet message dispatch
   if not nyse_nysebonds_quote_pdp_v1_2_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

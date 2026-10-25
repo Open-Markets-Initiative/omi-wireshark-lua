@@ -2346,11 +2346,115 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+iex_iexequities_deepplus_iextp_v1_01.packet.fingerprint = function(buffer)
+  if buffer:len() < 16 then
+    return false
+  end
+
+  local message_count = buffer(14, 2):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 43 then
+    return false
+  end
+
+  local message_type = buffer(42, 1):string()
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Security Directory Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Retail Liquidity Indicator Message
+  if message_type == "I" then
+    return true
+  end
+
+  -- Operational Halt Status Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Short Sale Price Test Status Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Security Event Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == "a" then
+    return true
+  end
+
+  -- Order Modify Message
+  if message_type == "M" then
+    return true
+  end
+
+  -- Order Delete Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == "L" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- Trade Break Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Clear Book Message
+  if message_type == "C" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Version Field
 iex_iexequities_deepplus_iextp_v1_01.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):le_uint()
 
@@ -2363,6 +2467,11 @@ end
 
 -- Verify Message Protocol Id Field
 iex_iexequities_deepplus_iextp_v1_01.message_protocol_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 2 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(2, 2):le_uint()
 
@@ -2383,6 +2492,9 @@ local function omi_iex_iexequities_deepplus_iextp_v1_01_udp_heuristic(buffer, pa
 
   -- Verify Message Protocol Id
   if not iex_iexequities_deepplus_iextp_v1_01.message_protocol_id.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not iex_iexequities_deepplus_iextp_v1_01.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_iexequities_deepplus_iextp_v1_01

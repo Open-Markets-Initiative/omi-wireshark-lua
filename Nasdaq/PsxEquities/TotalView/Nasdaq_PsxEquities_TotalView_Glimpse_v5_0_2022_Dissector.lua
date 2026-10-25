@@ -3139,7 +3139,7 @@ local function omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022_tcp_initiator_
   -- Verify packet length
   if not nasdaq_psxequities_totalview_glimpse_v5_0_2022.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nasdaq_psxequities_totalview_glimpse_v5_0_2022.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -3154,7 +3154,7 @@ local function omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022_tcp_acceptor_h
   -- Verify packet length
   if not nasdaq_psxequities_totalview_glimpse_v5_0_2022.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not nasdaq_psxequities_totalview_glimpse_v5_0_2022.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

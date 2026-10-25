@@ -3470,6 +3470,135 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Clear Quote Message
+  if message_type == 0xA2 then
+    return true
+  end
+
+  -- Expanded Clear Quote Message
+  if message_type == 0xF0 then
+    return true
+  end
+
+  -- Fractional Symbol Summary Message
+  if message_type == 0xE7 then
+    return true
+  end
+
+  -- Expanded Fractional Symbol Summary Message
+  if message_type == 0xEB then
+    return true
+  end
+
+  -- Best Quote Update Message
+  if message_type == 0xA5 then
+    return true
+  end
+
+  -- Expanded Best Quote Update Message
+  if message_type == 0xF2 then
+    return true
+  end
+
+  -- Cboe Market Status Message
+  if message_type == 0xA6 then
+    return true
+  end
+
+  -- Adap Message
+  if message_type == 0xA7 then
+    return true
+  end
+
+  -- Expanded Adap Message
+  if message_type == 0xF3 then
+    return true
+  end
+
+  -- Rpi Message
+  if message_type == 0xA8 then
+    return true
+  end
+
+  -- Fractional Trade Message
+  if message_type == 0xE8 then
+    return true
+  end
+
+  -- Expanded Fractional Trade Message
+  if message_type == 0xEC then
+    return true
+  end
+
+  -- Fractional Trade Break Message
+  if message_type == 0xE9 then
+    return true
+  end
+
+  -- Expanded Fractional Trade Break Message
+  if message_type == 0xED then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0xAB then
+    return true
+  end
+
+  -- Expanded Trading Status Message
+  if message_type == 0xF6 then
+    return true
+  end
+
+  -- Opening Closing Price Message
+  if message_type == 0xB0 then
+    return true
+  end
+
+  -- Expanded Opening Closing Price Message
+  if message_type == 0xF7 then
+    return true
+  end
+
+  -- Fractional End Of Day Summary Message
+  if message_type == 0xEA then
+    return true
+  end
+
+  -- Expanded Fractional End Of Day Summary Message
+  if message_type == 0xEF then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3477,6 +3606,9 @@ end
 local function omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13
@@ -3501,7 +3633,7 @@ udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_multicastoneequities_c
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4.13
 --   Date: Monday, March 16, 2026
---   Specification: Cboe_US_Equities_Auction_Feed_Specification.pdf
+--   Specification: technical-specifications-cboe-titanium-cboe-one-equities-feed-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

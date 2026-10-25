@@ -15193,6 +15193,202 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+gpw_wse_snapshotbbo_wats_v1_7_6_20.packet.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local message_type = buffer(2, 2):le_uint()
+
+  -- Week Plan
+  if message_type == 33 then
+    return true
+  end
+
+  -- Calendar Exception
+  if message_type == 35 then
+    return true
+  end
+
+  -- Tick Table Entry
+  if message_type == 32 then
+    return true
+  end
+
+  -- Collar Table Entry
+  if message_type == 108 then
+    return true
+  end
+
+  -- Trading Phase Schedule Entry
+  if message_type == 27 then
+    return true
+  end
+
+  -- Market Structure
+  if message_type == 275 then
+    return true
+  end
+
+  -- Collar Group
+  if message_type == 299 then
+    return true
+  end
+
+  -- External Underlying
+  if message_type == 806 then
+    return true
+  end
+
+  -- Instrument
+  if message_type == 279 then
+    return true
+  end
+
+  -- Accrued Interest Table Entry
+  if message_type == 36 then
+    return true
+  end
+
+  -- Indexation Table Entry
+  if message_type == 37 then
+    return true
+  end
+
+  -- Index Params
+  if message_type == 503 then
+    return true
+  end
+
+  -- Index Portfolio Entry
+  if message_type == 502 then
+    return true
+  end
+
+  -- Auction Summary
+  if message_type == 270 then
+    return true
+  end
+
+  -- Auction Update
+  if message_type == 268 then
+    return true
+  end
+
+  -- Price Level Snapshot
+  if message_type == 257 then
+    return true
+  end
+
+  -- Top Price Level Update
+  if message_type == 256 then
+    return true
+  end
+
+  -- Trade
+  if message_type == 38 then
+    return true
+  end
+
+  -- Position Report
+  if message_type == 801 then
+    return true
+  end
+
+  -- Instrument Status Change
+  if message_type == 26 then
+    return true
+  end
+
+  -- Order Collars
+  if message_type == 272 then
+    return true
+  end
+
+  -- Trade Collars
+  if message_type == 273 then
+    return true
+  end
+
+  -- Instrument Summary
+  if message_type == 671 then
+    return true
+  end
+
+  -- Product Summary
+  if message_type == 672 then
+    return true
+  end
+
+  -- Price Update
+  if message_type == 271 then
+    return true
+  end
+
+  -- News
+  if message_type == 517 then
+    return true
+  end
+
+  -- Real Time Index
+  if message_type == 500 then
+    return true
+  end
+
+  -- Index Summary
+  if message_type == 501 then
+    return true
+  end
+
+  -- Trading Session Status
+  if message_type == 23 then
+    return true
+  end
+
+  -- Heartbeat
+  if message_type == 1 then
+    return true
+  end
+
+  -- Test Event
+  if message_type == 8192 then
+    return true
+  end
+
+  -- Encryption Key
+  if message_type == 24 then
+    return true
+  end
+
+  -- Login
+  if message_type == 667 then
+    return true
+  end
+
+  -- Login Response
+  if message_type == 668 then
+    return true
+  end
+
+  -- Logout
+  if message_type == 669 then
+    return true
+  end
+
+  -- End Of Snapshot
+  if message_type == 670 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -15200,6 +15396,9 @@ end
 local function omi_gpw_wse_snapshotbbo_wats_v1_7_6_20_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not gpw_wse_snapshotbbo_wats_v1_7_6_20.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not gpw_wse_snapshotbbo_wats_v1_7_6_20.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_gpw_wse_snapshotbbo_wats_v1_7_6_20

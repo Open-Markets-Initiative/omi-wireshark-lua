@@ -1598,6 +1598,32 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+gpw_wse_quotes_xdp_v6_8.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):uint()
+
+  -- Quotes And Bbo 5 Message
+  if message_type == 140 then
+    return true
+  end
+
+  -- Indication Of Interest Message
+  if message_type == 142 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1605,6 +1631,9 @@ end
 local function omi_gpw_wse_quotes_xdp_v6_8_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not gpw_wse_quotes_xdp_v6_8.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not gpw_wse_quotes_xdp_v6_8.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_gpw_wse_quotes_xdp_v6_8

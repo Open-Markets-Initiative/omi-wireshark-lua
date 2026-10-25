@@ -2441,6 +2441,72 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Complex Quote Message
+  if message_type == 423 then
+    return true
+  end
+
+  -- Complex Trade Message
+  if message_type == 425 then
+    return true
+  end
+
+  -- Complex Crossing Rfq Message
+  if message_type == 429 then
+    return true
+  end
+
+  -- Complex Cube Rfq Message
+  if message_type == 472 then
+    return true
+  end
+
+  -- Complex Status Message
+  if message_type == 433 then
+    return true
+  end
+
+  -- Refresh Complex Quote Message
+  if message_type == 511 then
+    return true
+  end
+
+  -- Refresh Complex Trade Message
+  if message_type == 513 then
+    return true
+  end
+
+  -- Complex Symbol Definition Message
+  if message_type == 439 then
+    return true
+  end
+
+  -- Stream Id Message
+  if message_type == 455 then
+    return true
+  end
+
+  -- Sequence Number Reset Message
+  if message_type == 1 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2448,6 +2514,9 @@ end
 local function omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a

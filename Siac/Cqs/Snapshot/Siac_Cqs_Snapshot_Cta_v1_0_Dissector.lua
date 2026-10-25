@@ -47,9 +47,9 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.market_condition = ProtoField.new("Market 
 omi_siac_cqs_snapshot_cta_v1_0.fields.message_category = ProtoField.new("Message Category", "siac.cqs.snapshot.cta.v1.0.messagecategory", ftypes.STRING, nil, nil, nil, "The Message Category represents the message classification")
 omi_siac_cqs_snapshot_cta_v1_0.fields.message_length = ProtoField.new("Message Length", "siac.cqs.snapshot.cta.v1.0.messagelength", ftypes.UINT16, nil, nil, nil, "The Message Length identifies the total message length inclusive of the Message Header and Message Body")
 omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v1.0.messagesinblock", ftypes.UINT8, nil, nil, nil, "The number of messages contained in the transmission block")
-omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.snapshot.cta.v1.0.mwcblevel1", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 7%")
-omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v1.0.mwcblevel2", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 13%")
-omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v1.0.mwcblevel3", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 20%")
+omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.snapshot.cta.v1.0.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 7%")
+omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v1.0.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 13%")
+omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v1.0.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 20%")
 omi_siac_cqs_snapshot_cta_v1_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.snapshot.cta.v1.0.nanoseconds", ftypes.UINT32, nil, nil, nil, "Nanosecond portion of the time")
 omi_siac_cqs_snapshot_cta_v1_0.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.snapshot.cta.v1.0.nationalbboluldindicator", ftypes.STRING, nil, nil, nil, "Indicates the affect that the Limit Up-Limit Down Price Band changes have on the National Best Bid and National Best Offer")
 omi_siac_cqs_snapshot_cta_v1_0.fields.national_best_bid_participant_id = ProtoField.new("National Best Bid Participant Id", "siac.cqs.snapshot.cta.v1.0.nationalbestbidparticipantid", ftypes.STRING, nil, nil, nil, "Identifies the Participant that submitted the Best Bid on a consolidated basis")
@@ -1135,8 +1135,8 @@ siac_cqs_snapshot_cta_v1_0.message_category.size = 1
 
 -- Display: Message Category
 siac_cqs_snapshot_cta_v1_0.message_category.display = function(value)
-  if value == "K" then
-    return "Message Category: Snapshot (K)"
+  if value == "R" then
+    return "Message Category: Snapshot (R)"
   end
 
   return "Message Category: Unknown("..value..")"
@@ -1211,11 +1211,17 @@ siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display = function(value)
   return "Mwcb Level 1: "..value
 end
 
+-- Translate: Mwcb Level 1
+siac_cqs_snapshot_cta_v1_0.mwcb_level_1.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 1
 siac_cqs_snapshot_cta_v1_0.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1, range, value, display)
@@ -1234,11 +1240,17 @@ siac_cqs_snapshot_cta_v1_0.mwcb_level_2.display = function(value)
   return "Mwcb Level 2: "..value
 end
 
+-- Translate: Mwcb Level 2
+siac_cqs_snapshot_cta_v1_0.mwcb_level_2.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 2
 siac_cqs_snapshot_cta_v1_0.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_2.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_snapshot_cta_v1_0.mwcb_level_2.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2, range, value, display)
@@ -1257,11 +1269,17 @@ siac_cqs_snapshot_cta_v1_0.mwcb_level_3.display = function(value)
   return "Mwcb Level 3: "..value
 end
 
+-- Translate: Mwcb Level 3
+siac_cqs_snapshot_cta_v1_0.mwcb_level_3.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 3
 siac_cqs_snapshot_cta_v1_0.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.translate(raw)
   local display = siac_cqs_snapshot_cta_v1_0.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3, range, value, display)
@@ -2860,7 +2878,7 @@ siac_cqs_snapshot_cta_v1_0.category_payload = {}
 -- Dissect: Category Payload
 siac_cqs_snapshot_cta_v1_0.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
   -- Dissect Snapshot Message
-  if message_category == "K" then
+  if message_category == "R" then
     return siac_cqs_snapshot_cta_v1_0.snapshot_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -3112,6 +3130,58 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cqs_snapshot_cta_v1_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 24 then
+    return false
+  end
+
+  local message_category = buffer(23, 1):string()
+
+  -- Snapshot Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "R" then
+    if buffer:len() < 25 then
+      return false
+    end
+
+    local snapshot_message_type = buffer(24, 1):string()
+
+    -- Line Integrity Message
+    if snapshot_message_type == "T" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Decline Level Status Snapshot Message
+    if snapshot_message_type == "K" then
+      return true
+    end
+
+    -- Consolidated Snapshot Message
+    if snapshot_message_type == "C" then
+      return true
+    end
+
+    -- Participant Snapshot Message
+    if snapshot_message_type == "P" then
+      return true
+    end
+
+    -- Finra Snapshot Message
+    if snapshot_message_type == "F" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3119,6 +3189,9 @@ end
 local function omi_siac_cqs_snapshot_cta_v1_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_snapshot_cta_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cqs_snapshot_cta_v1_0.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_snapshot_cta_v1_0

@@ -5355,6 +5355,145 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet.fingerprint = function(buffe
   return false
 end
 
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_nomoptions_itto_itch_v4_0_2025.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Options Directory Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Trading Action Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Security Open Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Add Order Message Short Message Form
+  if message_type == "a" then
+    return true
+  end
+
+  -- Add Order Message Long Form Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Add Quote Message Short Form Message
+  if message_type == "j" then
+    return true
+  end
+
+  -- Add Quote Message Long Form Message
+  if message_type == "J" then
+    return true
+  end
+
+  -- Single Side Executed Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Single Side Executed With Price Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Order Cancel Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Single Side Replace Message Short Form
+  if message_type == "u" then
+    return true
+  end
+
+  -- Single Side Replace Message Long Form
+  if message_type == "U" then
+    return true
+  end
+
+  -- Single Side Delete Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Single Side Change Message
+  if message_type == "G" then
+    return true
+  end
+
+  -- Quote Replace Message Short Form
+  if message_type == "k" then
+    return true
+  end
+
+  -- Quote Replace Message Long Form
+  if message_type == "K" then
+    return true
+  end
+
+  -- Quote Delete Message
+  if message_type == "Y" then
+    return true
+  end
+
+  -- Options Trade Messages Non Auction
+  if message_type == "P" then
+    return true
+  end
+
+  -- Options Cross Trade Message
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Broken Trade Order Executed Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Noii Message
+  if message_type == "I" then
+    return true
+  end
+
+
+  return false
+end
+
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics
@@ -5365,7 +5504,7 @@ local function omi_nasdaq_nomoptions_itto_itch_v4_0_2025_tcp_initiator_heuristic
   -- Verify packet length
   if not nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -5380,7 +5519,7 @@ local function omi_nasdaq_nomoptions_itto_itch_v4_0_2025_tcp_acceptor_heuristic(
   -- Verify packet length
   if not nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -5394,6 +5533,9 @@ end
 local function omi_nasdaq_nomoptions_itto_itch_v4_0_2025_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_nomoptions_itto_itch_v4_0_2025.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_nomoptions_itto_itch_v4_0_2025.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nomoptions_itto_itch_v4_0_2025

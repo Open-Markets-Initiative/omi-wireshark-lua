@@ -2500,6 +2500,77 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lme_lmeselect_level3_lmesource_v4_18.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local msg_type = buffer(18, 2):le_uint()
+
+  -- Sequence Reset Message
+  if msg_type == 100 then
+    return true
+  end
+
+  -- Market State Contract Message
+  if msg_type == 311 then
+    return true
+  end
+
+  -- Market State Instrument Message
+  if msg_type == 312 then
+    return true
+  end
+
+  -- Indicative Opening Price Message
+  if msg_type == 320 then
+    return true
+  end
+
+  -- Quote Request Message
+  if msg_type == 329 then
+    return true
+  end
+
+  -- Order Book Clear Message
+  if msg_type == 327 then
+    return true
+  end
+
+  -- Cross Request Message
+  if msg_type == 330 then
+    return true
+  end
+
+  -- Order Add Message
+  if msg_type == 323 then
+    return true
+  end
+
+  -- Order Amend Message
+  if msg_type == 324 then
+    return true
+  end
+
+  -- Order Cancel Message
+  if msg_type == 325 then
+    return true
+  end
+
+  -- Order Executed Message
+  if msg_type == 326 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2507,6 +2578,9 @@ end
 local function omi_lme_lmeselect_level3_lmesource_v4_18_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not lme_lmeselect_level3_lmesource_v4_18.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not lme_lmeselect_level3_lmesource_v4_18.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_lme_lmeselect_level3_lmesource_v4_18

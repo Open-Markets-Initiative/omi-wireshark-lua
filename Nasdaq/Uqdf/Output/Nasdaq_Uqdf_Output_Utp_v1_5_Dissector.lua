@@ -4779,6 +4779,114 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_uqdf_output_utp_v1_5.packet.fingerprint = function(buffer)
+  if buffer:len() < 24 then
+    return false
+  end
+
+  local message_category = buffer(23, 1):string()
+
+  -- Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "Q" then
+    if buffer:len() < 25 then
+      return false
+    end
+
+    local quote_message_type = buffer(24, 1):string()
+
+    -- Quote Short Form Message
+    if quote_message_type == "E" then
+      return true
+    end
+
+    -- Quote Long Form Message
+    if quote_message_type == "F" then
+      return true
+    end
+
+    -- Finra Adf Market Participant Quotation Message
+    if quote_message_type == "M" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 25 then
+      return false
+    end
+
+    local administrative_message_type = buffer(24, 1):string()
+
+    -- General Administrative Message
+    if administrative_message_type == "A" then
+      return true
+    end
+
+    -- Cross Sro Trading Action Message
+    if administrative_message_type == "H" then
+      return true
+    end
+
+    -- Market Center Trading Action Message
+    if administrative_message_type == "K" then
+      return true
+    end
+
+    -- Issue Symbol Directory Message
+    if administrative_message_type == "B" then
+      return true
+    end
+
+    -- Regulation Sho Short Sale Price Test Restricted Indicator Message
+    if administrative_message_type == "V" then
+      return true
+    end
+
+    -- Limit Up Limit Down Price Band Message
+    if administrative_message_type == "P" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Decline Level Message
+    if administrative_message_type == "C" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Status Message
+    if administrative_message_type == "D" then
+      return true
+    end
+
+    -- Auction Collar Message
+    if administrative_message_type == "E" then
+      return true
+    end
+
+    -- Session Close Recap Message
+    if administrative_message_type == "R" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message
+  if message_category == "C" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4786,6 +4894,9 @@ end
 local function omi_nasdaq_uqdf_output_utp_v1_5_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_uqdf_output_utp_v1_5.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_uqdf_output_utp_v1_5.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_uqdf_output_utp_v1_5

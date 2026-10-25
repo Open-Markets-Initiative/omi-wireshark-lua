@@ -66,9 +66,9 @@ omi_siac_cqs_output_cta_v2_9.fields.message_category = ProtoField.new("Message C
 omi_siac_cqs_output_cta_v2_9.fields.message_id = ProtoField.new("Message Id", "siac.cqs.output.cta.v2.9.messageid", ftypes.UINT8, nil, nil, nil, "The Message ID identifies the individual message within the block beginning with number one")
 omi_siac_cqs_output_cta_v2_9.fields.message_length = ProtoField.new("Message Length", "siac.cqs.output.cta.v2.9.messagelength", ftypes.UINT16, nil, nil, nil, "The Message Length identifies the total message length inclusive of the Message Header and Message Body")
 omi_siac_cqs_output_cta_v2_9.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.output.cta.v2.9.messagesinblock", ftypes.UINT8, nil, nil, nil, "The number of messages contained in the transmission block")
-omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.output.cta.v2.9.mwcblevel1", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 7%")
-omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v2.9.mwcblevel2", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 13%")
-omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.output.cta.v2.9.mwcblevel3", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 20%")
+omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.output.cta.v2.9.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 7%")
+omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v2.9.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 13%")
+omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.output.cta.v2.9.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 20%")
 omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_indicator = ProtoField.new("Mwcb Level Indicator", "siac.cqs.output.cta.v2.9.mwcblevelindicator", ftypes.STRING, nil, nil, nil, "Identifies the threshold level that was breached.")
 omi_siac_cqs_output_cta_v2_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.output.cta.v2.9.nanoseconds", ftypes.UINT32, nil, nil, nil, "Nanosecond portion of the time")
 omi_siac_cqs_output_cta_v2_9.fields.national_bbo_indicator = ProtoField.new("National Bbo Indicator", "siac.cqs.output.cta.v2.9.nationalbboindicator", ftypes.STRING, nil, nil, nil, "Indicates the affect the new quote has on the National BBO.")
@@ -116,18 +116,16 @@ omi_siac_cqs_output_cta_v2_9.fields.packet = ProtoField.new("Packet", "siac.cqs.
 omi_siac_cqs_output_cta_v2_9.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.output.cta.v2.9.auctionstatusmessage", ftypes.STRING, nil, nil, nil, "The Auction Status message is used when a Participant in a Cta eligible security")
 omi_siac_cqs_output_cta_v2_9.fields.disaster_recovery_data_center_activation_message = ProtoField.new("Disaster Recovery Data Center Activation Message", "siac.cqs.output.cta.v2.9.disasterrecoverydatacenteractivationmessage", ftypes.STRING, nil, nil, nil, "The Disaster Recovery Data Center Activation message is transmitted to signify that the Consolidated Quotation System (CQS) has switched processing from the Primary Data Center to the Disaster Recovery Data Center")
 omi_siac_cqs_output_cta_v2_9.fields.end_of_day_message = ProtoField.new("End Of Day Message", "siac.cqs.output.cta.v2.9.endofdaymessage", ftypes.STRING, nil, nil, nil, "The End of Day message is transmitted over the multicast lines to advise all Data Recipients that there are no further messages of any type transmitted for the day")
-omi_siac_cqs_output_cta_v2_9.fields.end_of_test_cycle_message = ProtoField.new("End Of Test Cycle Message", "siac.cqs.output.cta.v2.9.endoftestcyclemessage", ftypes.STRING, nil, nil, nil, "The End of Test Cycle message is transmitted to signal the end of the transmission of the repeated free form text test message cycles")
 omi_siac_cqs_output_cta_v2_9.fields.finra_close_message = ProtoField.new("Finra Close Message", "siac.cqs.output.cta.v2.9.finraclosemessage", ftypes.STRING, nil, nil, nil, "The FINRA Close message is transmitted by FINRA to CQS to indicate the Close state of FINRA Market Maker(s).")
 omi_siac_cqs_output_cta_v2_9.fields.finra_open_message = ProtoField.new("Finra Open Message", "siac.cqs.output.cta.v2.9.finraopenmessage", ftypes.STRING, nil, nil, nil, "The FINRA Open message is transmitted by FINRA to CQS")
 omi_siac_cqs_output_cta_v2_9.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cqs.output.cta.v2.9.lineintegritymessage", ftypes.STRING, nil, nil, nil, "The Line Integrity message is transmitted over the multicast lines at intervals of sixty (60) seconds to verify continued integrity of multicast transmission")
 omi_siac_cqs_output_cta_v2_9.fields.long_quote_message = ProtoField.new("Long Quote Message", "siac.cqs.output.cta.v2.9.longquotemessage", ftypes.STRING, nil, nil, nil, "The Long Quote message is used to report quote data for a Cta eligible Equity, Local Issue or Bonds.")
-omi_siac_cqs_output_cta_v2_9.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cqs.output.cta.v2.9.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING, nil, nil, nil, "The server will, on each packet multicast, transmit this message for every second for which at least one application message is generated. The time specified in this message serves as a reference for the times specified in all other non-Time messages following. The timestamps in all other messages are specified as a nanosecond offset from the most recent Time message.")
+omi_siac_cqs_output_cta_v2_9.fields.market_wide_circuit_breaker_decline_level_status_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Message", "siac.cqs.output.cta.v2.9.marketwidecircuitbreakerdeclinelevelstatusmessage", ftypes.STRING, nil, nil, nil, "The Market-Wide Circuit Breaker Decline Level Status message is used to report the calculated Level 1, Level 2 and Level 3 threshold values for the current trading day necessary to trigger a circuit breaker")
 omi_siac_cqs_output_cta_v2_9.fields.market_wide_circuit_breaker_status_message = ProtoField.new("Market Wide Circuit Breaker Status Message", "siac.cqs.output.cta.v2.9.marketwidecircuitbreakerstatusmessage", ftypes.STRING, nil, nil, nil, "The Market-Wide Circuit Breaker Status message is used to report the Market-Wide Circuit Breaker threshold Level that has been breached.")
 omi_siac_cqs_output_cta_v2_9.fields.reset_block_sequence_number_message = ProtoField.new("Reset Block Sequence Number Message", "siac.cqs.output.cta.v2.9.resetblocksequencenumbermessage", ftypes.STRING, nil, nil, nil, "The Reset Block Sequence Number message is transmitted when the block sequence number on an output multicast line requires resetting.")
 omi_siac_cqs_output_cta_v2_9.fields.short_quote_message = ProtoField.new("Short Quote Message", "siac.cqs.output.cta.v2.9.shortquotemessage", ftypes.STRING, nil, nil, nil, "The Auction Status message is used when a Participant in a Cta eligible security")
 omi_siac_cqs_output_cta_v2_9.fields.special_long_quote_message = ProtoField.new("Special Long Quote Message", "siac.cqs.output.cta.v2.9.speciallongquotemessage", ftypes.STRING, nil, nil, nil, "The Special Quote (FINRA ADF) with FINRA BBO Information message is used only by FINRA to report the FINRA Best Bid and FINRA Best Offer for their Market Makers for Cta eligible Equity, Local Issue or Bond information Makers inclusive of changes to any existing FINRA BBO.")
 omi_siac_cqs_output_cta_v2_9.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cqs.output.cta.v2.9.startofdaymessage", ftypes.STRING, nil, nil, nil, "The Start of Day message signals the start of normal data dissemination over the multicast lines")
-omi_siac_cqs_output_cta_v2_9.fields.start_of_test_cycle_message = ProtoField.new("Start Of Test Cycle Message", "siac.cqs.output.cta.v2.9.startoftestcyclemessage", ftypes.STRING, nil, nil, nil, "The Start of Test Cycle message is transmitted to signal the beginning of the transmission of test message cycles")
 
 -- Siac Cqs Output Cta 2.9 Generated Fields
 omi_siac_cqs_output_cta_v2_9.fields.message_index = ProtoField.new("Message Index", "siac.cqs.output.cta.v2.9.messageindex", ftypes.UINT16)
@@ -1045,12 +1043,6 @@ siac_cqs_output_cta_v2_9.control_message_type.display = function(value)
   if value == "L" then
     return "Control Message Type: Reset Block Sequence Number Message (L)"
   end
-  if value == "M" then
-    return "Control Message Type: Start Of Test Cycle Message (M)"
-  end
-  if value == "N" then
-    return "Control Message Type: End Of Test Cycle Message (N)"
-  end
   if value == "O" then
     return "Control Message Type: Finra Open Message (O)"
   end
@@ -1669,8 +1661,8 @@ siac_cqs_output_cta_v2_9.market_status_message_type.size = 1
 
 -- Display: Market Status Message Type
 siac_cqs_output_cta_v2_9.market_status_message_type.display = function(value)
-  if value == "M" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
+  if value == "K" then
+    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (K)"
   end
   if value == "L" then
     return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
@@ -1804,11 +1796,17 @@ siac_cqs_output_cta_v2_9.mwcb_level_1.display = function(value)
   return "Mwcb Level 1: "..value
 end
 
+-- Translate: Mwcb Level 1
+siac_cqs_output_cta_v2_9.mwcb_level_1.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 1
 siac_cqs_output_cta_v2_9.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_9.mwcb_level_1.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v2_9.mwcb_level_1.translate(raw)
   local display = siac_cqs_output_cta_v2_9.mwcb_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_1, range, value, display)
@@ -1827,11 +1825,17 @@ siac_cqs_output_cta_v2_9.mwcb_level_2.display = function(value)
   return "Mwcb Level 2: "..value
 end
 
+-- Translate: Mwcb Level 2
+siac_cqs_output_cta_v2_9.mwcb_level_2.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 2
 siac_cqs_output_cta_v2_9.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_9.mwcb_level_2.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v2_9.mwcb_level_2.translate(raw)
   local display = siac_cqs_output_cta_v2_9.mwcb_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_2, range, value, display)
@@ -1850,11 +1854,17 @@ siac_cqs_output_cta_v2_9.mwcb_level_3.display = function(value)
   return "Mwcb Level 3: "..value
 end
 
+-- Translate: Mwcb Level 3
+siac_cqs_output_cta_v2_9.mwcb_level_3.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 3
 siac_cqs_output_cta_v2_9.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_9.mwcb_level_3.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v2_9.mwcb_level_3.translate(raw)
   local display = siac_cqs_output_cta_v2_9.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_9.fields.mwcb_level_3, range, value, display)
@@ -4235,7 +4245,7 @@ siac_cqs_output_cta_v2_9.market_status_message_payload = {}
 -- Dissect: Market Status Message Payload
 siac_cqs_output_cta_v2_9.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
-  if market_status_message_type == "M" then
+  if market_status_message_type == "K" then
     return siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Market Wide Circuit Breaker Status Message
@@ -4523,118 +4533,6 @@ siac_cqs_output_cta_v2_9.finra_open_message.dissect = function(buffer, offset, p
   end
 end
 
--- End Of Test Cycle Message
-siac_cqs_output_cta_v2_9.end_of_test_cycle_message = {}
-
--- Size: End Of Test Cycle Message
-siac_cqs_output_cta_v2_9.end_of_test_cycle_message.size =
-  siac_cqs_output_cta_v2_9.participant_id.size + 
-  siac_cqs_output_cta_v2_9.participant_timestamp.size + 
-  siac_cqs_output_cta_v2_9.message_id.size + 
-  siac_cqs_output_cta_v2_9.transaction_id.size + 
-  siac_cqs_output_cta_v2_9.participant_reference_number.size
-
--- Display: End Of Test Cycle Message
-siac_cqs_output_cta_v2_9.end_of_test_cycle_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: End Of Test Cycle Message
-siac_cqs_output_cta_v2_9.end_of_test_cycle_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = siac_cqs_output_cta_v2_9.participant_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cqs_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cqs_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cqs_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: End Of Test Cycle Message
-siac_cqs_output_cta_v2_9.end_of_test_cycle_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v2_9.fields.end_of_test_cycle_message, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v2_9.end_of_test_cycle_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v2_9.end_of_test_cycle_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v2_9.end_of_test_cycle_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Start Of Test Cycle Message
-siac_cqs_output_cta_v2_9.start_of_test_cycle_message = {}
-
--- Size: Start Of Test Cycle Message
-siac_cqs_output_cta_v2_9.start_of_test_cycle_message.size =
-  siac_cqs_output_cta_v2_9.participant_id.size + 
-  siac_cqs_output_cta_v2_9.participant_timestamp.size + 
-  siac_cqs_output_cta_v2_9.message_id.size + 
-  siac_cqs_output_cta_v2_9.transaction_id.size + 
-  siac_cqs_output_cta_v2_9.participant_reference_number.size
-
--- Display: Start Of Test Cycle Message
-siac_cqs_output_cta_v2_9.start_of_test_cycle_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Start Of Test Cycle Message
-siac_cqs_output_cta_v2_9.start_of_test_cycle_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Id: Char
-  index, participant_id = siac_cqs_output_cta_v2_9.participant_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = siac_cqs_output_cta_v2_9.participant_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Message Id: Byte
-  index, message_id = siac_cqs_output_cta_v2_9.message_id.dissect(buffer, index, packet, parent)
-
-  -- Transaction Id: Integer
-  index, transaction_id = siac_cqs_output_cta_v2_9.transaction_id.dissect(buffer, index, packet, parent)
-
-  -- Participant Reference Number: Signed Long
-  index, participant_reference_number = siac_cqs_output_cta_v2_9.participant_reference_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Start Of Test Cycle Message
-siac_cqs_output_cta_v2_9.start_of_test_cycle_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v2_9.fields.start_of_test_cycle_message, buffer(offset, 0))
-    local index = siac_cqs_output_cta_v2_9.start_of_test_cycle_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v2_9.start_of_test_cycle_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return siac_cqs_output_cta_v2_9.start_of_test_cycle_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Reset Block Sequence Number Message
 siac_cqs_output_cta_v2_9.reset_block_sequence_number_message = {}
 
@@ -4820,14 +4718,6 @@ siac_cqs_output_cta_v2_9.control_message_payload.dissect = function(buffer, offs
   if control_message_type == "L" then
     return siac_cqs_output_cta_v2_9.reset_block_sequence_number_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Start Of Test Cycle Message
-  if control_message_type == "M" then
-    return siac_cqs_output_cta_v2_9.start_of_test_cycle_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Test Cycle Message
-  if control_message_type == "N" then
-    return siac_cqs_output_cta_v2_9.end_of_test_cycle_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Finra Open Message
   if control_message_type == "O" then
     return siac_cqs_output_cta_v2_9.finra_open_message.dissect(buffer, offset, packet, parent)
@@ -4874,10 +4764,10 @@ end
 siac_cqs_output_cta_v2_9.control_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Control Message Type: 1 Byte Ascii String Enum with 9 values
+  -- Control Message Type: 1 Byte Ascii String Enum with 7 values
   index, control_message_type = siac_cqs_output_cta_v2_9.control_message_type.dissect(buffer, index, packet, parent)
 
-  -- Control Message Payload: Runtime Type with 9 branches
+  -- Control Message Payload: Runtime Type with 7 branches
   index = siac_cqs_output_cta_v2_9.control_message_payload.dissect(buffer, index, packet, parent, control_message_type)
 
   return index
@@ -5163,6 +5053,120 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cqs_output_cta_v2_9.packet.fingerprint = function(buffer)
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_category = buffer(22, 1):string()
+
+  -- Control Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local control_message_type = buffer(23, 1):string()
+
+    -- Start Of Day Message
+    if control_message_type == "A" then
+      return true
+    end
+
+    -- Finra Close Message
+    if control_message_type == "C" then
+      return true
+    end
+
+    -- Reset Block Sequence Number Message
+    if control_message_type == "L" then
+      return true
+    end
+
+    -- Finra Open Message
+    if control_message_type == "O" then
+      return true
+    end
+
+    -- Disaster Recovery Data Center Activation Message
+    if control_message_type == "P" then
+      return true
+    end
+
+    -- Line Integrity Message
+    if control_message_type == "T" then
+      return true
+    end
+
+    -- End Of Day Message
+    if control_message_type == "Z" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Market Status Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "M" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local market_status_message_type = buffer(23, 1):string()
+
+    -- Market Wide Circuit Breaker Decline Level Status Message
+    if market_status_message_type == "K" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Status Message
+    if market_status_message_type == "L" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "Q" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local quote_message_type = buffer(23, 1):string()
+
+    -- Auction Status Message
+    if quote_message_type == "A" then
+      return true
+    end
+
+    -- Long Quote Message
+    if quote_message_type == "L" then
+      return true
+    end
+
+    -- Short Quote Message
+    if quote_message_type == "Q" then
+      return true
+    end
+
+    -- Special Long Quote Message
+    if quote_message_type == "S" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5170,6 +5174,9 @@ end
 local function omi_siac_cqs_output_cta_v2_9_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_output_cta_v2_9.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cqs_output_cta_v2_9.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_output_cta_v2_9

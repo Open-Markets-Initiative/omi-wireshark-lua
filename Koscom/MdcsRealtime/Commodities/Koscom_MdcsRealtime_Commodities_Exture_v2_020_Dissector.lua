@@ -12119,6 +12119,187 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+koscom_mdcsrealtime_commodities_exture_v2_020.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local tr_code = buffer(0, 5):string(koscom_mdcsrealtime_commodities_exture_v2_020.text_encoding)
+
+  -- Polling Data Message
+  if tr_code == "I2000" then
+    return true
+  end
+
+  -- Krx Index Message
+  if tr_code == "IA000" then
+    return true
+  end
+
+  -- Krx Estimated Index Message
+  if tr_code == "IB000" then
+    return true
+  end
+
+  -- Global Index Message
+  if tr_code == "J2000" then
+    return true
+  end
+
+  -- Bond Prime Index Message
+  if tr_code == "J4000" then
+    return true
+  end
+
+  -- Bond Ktb Index Message
+  if tr_code == "K1000" then
+    return true
+  end
+
+  -- Bond Ktb Index Term Structure Message
+  if tr_code == "K8000" then
+    return true
+  end
+
+  -- Bond Index Krx Message
+  if tr_code == "IG000" then
+    return true
+  end
+
+  -- Spot Gold Quote Message
+  if tr_code == "B601G" then
+    return true
+  end
+
+  -- Spot Gold Order Filled Message
+  if tr_code == "A301G" then
+    return true
+  end
+
+  -- Spot Gold Order Filled Plus Quote Message
+  if tr_code == "G701G" then
+    return true
+  end
+
+  -- Spot Gold Market Operation Ts Plus Quote Message
+  if tr_code == "R101G" then
+    return true
+  end
+
+  -- Spot Gold Snapshot Message
+  if tr_code == "B201G" then
+    return true
+  end
+
+  -- Spot Gold Negotiated Trade Message
+  if tr_code == "C401G" then
+    return true
+  end
+
+  -- Emissions Quote Message
+  if tr_code == "B601E" then
+    return true
+  end
+
+  -- Emissions Order Filled Message
+  if tr_code == "A301E" then
+    return true
+  end
+
+  -- Emissions Order Filled Plus Quote Message
+  if tr_code == "G701E" then
+    return true
+  end
+
+  -- Emissions Market Operation Ts Plus Quote Message
+  if tr_code == "R101E" then
+    return true
+  end
+
+  -- Emissions Snapshot Message
+  if tr_code == "B201E" then
+    return true
+  end
+
+  -- Emissions Negotiated Trade Message
+  if tr_code == "C401E" then
+    return true
+  end
+
+  -- Emissions Determination Of Base Price Message
+  if tr_code == "A401E" then
+    return true
+  end
+
+  -- Emissions Auction Results Message
+  if tr_code == "AC01E" then
+    return true
+  end
+
+  -- Spot Gold Batch Data Message
+  if tr_code == "A001G" then
+    return true
+  end
+
+  -- Emissions Batch Data Message
+  if tr_code == "A001E" then
+    return true
+  end
+
+  -- External Gold Spot Closing Price Message
+  if tr_code == "M200G" then
+    return true
+  end
+
+  -- Spot Gold Market Operation Ts Message
+  if tr_code == "A701G" then
+    return true
+  end
+
+  -- Spot Gold Issue Closing Message
+  if tr_code == "A601G" then
+    return true
+  end
+
+  -- Spot Gold Market Operation Schedule Message
+  if tr_code == "M401G" then
+    return true
+  end
+
+  -- Emissions Market Operation Ts Message
+  if tr_code == "A701E" then
+    return true
+  end
+
+  -- Emissions Issue Closing Message
+  if tr_code == "A601E" then
+    return true
+  end
+
+  -- Emissions Market Operation Schedule Message
+  if tr_code == "M401E" then
+    return true
+  end
+
+  -- Spot Gold Random End Message
+  if tr_code == "A501X" then
+    return true
+  end
+
+  -- Spot Gold Random End Message
+  if tr_code == "A501G" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -12126,6 +12307,9 @@ end
 local function omi_koscom_mdcsrealtime_commodities_exture_v2_020_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not koscom_mdcsrealtime_commodities_exture_v2_020.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not koscom_mdcsrealtime_commodities_exture_v2_020.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_koscom_mdcsrealtime_commodities_exture_v2_020

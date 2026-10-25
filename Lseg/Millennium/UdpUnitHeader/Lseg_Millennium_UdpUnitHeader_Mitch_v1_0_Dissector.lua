@@ -437,20 +437,6 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Lseg Millennium UdpUnitHeader Mitch 1.0 (Udp)
-local function omi_lseg_millennium_udpunitheader_mitch_v1_0_udp_heuristic(buffer, packet, parent)
-  -- Verify packet length
-  if not lseg_millennium_udpunitheader_mitch_v1_0.packet.requiredsize(buffer) then return false end
-
-  -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = omi_lseg_millennium_udpunitheader_mitch_v1_0
-  omi_lseg_millennium_udpunitheader_mitch_v1_0.dissector(buffer, packet, parent)
-
-  return true
-end
-
--- Register Heuristic for Lseg Millennium UdpUnitHeader Mitch 1.0
-omi_lseg_millennium_udpunitheader_mitch_v1_0:register_heuristic("udp", omi_lseg_millennium_udpunitheader_mitch_v1_0_udp_heuristic)
 
 -- Register Lseg Millennium UdpUnitHeader Mitch 1.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")

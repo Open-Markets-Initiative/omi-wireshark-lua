@@ -3058,7 +3058,7 @@ local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_initiator_heuristic(buff
   -- Verify packet length
   if not jnx_jnxequities_pts_glimpse_v1_3.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not jnx_jnxequities_pts_glimpse_v1_3.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -3073,7 +3073,7 @@ local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_acceptor_heuristic(buffe
   -- Verify packet length
   if not jnx_jnxequities_pts_glimpse_v1_3.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not jnx_jnxequities_pts_glimpse_v1_3.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

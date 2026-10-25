@@ -2079,6 +2079,11 @@ end
 
 -- Verify Version Field
 iex_iexoptions_session_sbe_v1_01.version.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -2091,6 +2096,11 @@ end
 
 -- Verify Version Field
 iex_iexoptions_session_sbe_v1_01.version.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -2109,7 +2119,7 @@ local function omi_iex_iexoptions_session_sbe_v1_01_tcp_initiator_heuristic(buff
   -- Verify Version
   if not iex_iexoptions_session_sbe_v1_01.version.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not iex_iexoptions_session_sbe_v1_01.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -2127,7 +2137,7 @@ local function omi_iex_iexoptions_session_sbe_v1_01_tcp_acceptor_heuristic(buffe
   -- Verify Version
   if not iex_iexoptions_session_sbe_v1_01.version.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not iex_iexoptions_session_sbe_v1_01.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

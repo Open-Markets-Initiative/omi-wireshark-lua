@@ -45,15 +45,15 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.lastseqnum = ProtoField.new("Lastseqnum", 
 omi_siac_cqs_snapshot_cta_v2_1.fields.limit_up_limit_down_luld_indicator = ProtoField.new("Limit Up Limit Down Luld Indicator", "siac.cqs.snapshot.cta.v2.1.limituplimitdownluldindicator", ftypes.STRING, nil, nil, nil, "Indicates the effect the Quote has on the Limit Up-Limit Down Price Band range")
 omi_siac_cqs_snapshot_cta_v2_1.fields.low_indication_price = ProtoField.new("Low Indication Price", "siac.cqs.snapshot.cta.v2.1.lowindicationprice", ftypes.DOUBLE, nil, nil, nil, "Represents an approximation of what the low end Bid price of a security's trading range may be, used for Trading Range Indication or Price Indication following a Trading Halt")
 omi_siac_cqs_snapshot_cta_v2_1.fields.lower_limit_price_band = ProtoField.new("Lower Limit Price Band", "siac.cqs.snapshot.cta.v2.1.lowerlimitpriceband", ftypes.DOUBLE, nil, nil, nil, "Represents the lower price band value for a security, set to zero when Price Bands are not in effect")
-omi_siac_cqs_snapshot_cta_v2_1.fields.luld_leverage_ratio = ProtoField.new("Luld Leverage Ratio", "siac.cqs.snapshot.cta.v2.1.luldleverageratio", ftypes.UINT32, nil, nil, nil, "Represents the Leverage ratio associated with the LULD Tier of the security symbol")
+omi_siac_cqs_snapshot_cta_v2_1.fields.luld_leverage_ratio = ProtoField.new("Luld Leverage Ratio", "siac.cqs.snapshot.cta.v2.1.luldleverageratio", ftypes.DOUBLE, nil, nil, nil, "Represents the Leverage ratio associated with the LULD Tier of the security symbol")
 omi_siac_cqs_snapshot_cta_v2_1.fields.luld_tier = ProtoField.new("Luld Tier", "siac.cqs.snapshot.cta.v2.1.luldtier", ftypes.STRING, nil, nil, nil, "Identifies the Limit Up Limit Down tier of the security symbol")
 omi_siac_cqs_snapshot_cta_v2_1.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.snapshot.cta.v2.1.marketcondition", ftypes.STRING, nil, nil, nil, "Identifies the market condition of a quote for a security")
 omi_siac_cqs_snapshot_cta_v2_1.fields.message_category = ProtoField.new("Message Category", "siac.cqs.snapshot.cta.v2.1.messagecategory", ftypes.STRING, nil, nil, nil, "Identifies the type of category and message")
 omi_siac_cqs_snapshot_cta_v2_1.fields.message_length = ProtoField.new("Message Length", "siac.cqs.snapshot.cta.v2.1.messagelength", ftypes.UINT16, nil, nil, nil, "The total length of the message in bytes")
 omi_siac_cqs_snapshot_cta_v2_1.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v2.1.messagesinblock", ftypes.UINT8, nil, nil, nil, "The Number Of Messages Contained In The Block Data Of The Transmission Block")
-omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.snapshot.cta.v2.1.mwcblevel1", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value, Level 1 = 7% of Previous Close S&P 500 Value")
-omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v2.1.mwcblevel2", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value, Level 2 = 13% of Previous Close S&P 500 Value")
-omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v2.1.mwcblevel3", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value, Level 3 = 20% of Previous Close S&P 500 Value")
+omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.snapshot.cta.v2.1.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value, Level 1 = 7% of Previous Close S&P 500 Value")
+omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v2.1.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value, Level 2 = 13% of Previous Close S&P 500 Value")
+omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v2.1.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value, Level 3 = 20% of Previous Close S&P 500 Value")
 omi_siac_cqs_snapshot_cta_v2_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.snapshot.cta.v2.1.nanoseconds", ftypes.UINT32, nil, nil, nil, "The Nanosecond Portion Of The Time Currently Rounded To The Nearest Microsecond")
 omi_siac_cqs_snapshot_cta_v2_1.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.snapshot.cta.v2.1.nationalbboluldindicator", ftypes.STRING, nil, nil, nil, "Indicates the effect that the Limit Up-Limit Down Price Band changes have on the National Best Bid and National Best Offer")
 omi_siac_cqs_snapshot_cta_v2_1.fields.national_best_bid_participant_id = ProtoField.new("National Best Bid Participant Id", "siac.cqs.snapshot.cta.v2.1.nationalbestbidparticipantid", ftypes.STRING, nil, nil, nil, "Identifies the Participant that submitted the Best Bid on a consolidated basis")
@@ -1089,11 +1089,17 @@ siac_cqs_snapshot_cta_v2_1.luld_leverage_ratio.display = function(value)
   return "Luld Leverage Ratio: "..value
 end
 
+-- Translate: Luld Leverage Ratio
+siac_cqs_snapshot_cta_v2_1.luld_leverage_ratio.translate = function(raw)
+  return raw/1000000
+end
+
 -- Dissect: Luld Leverage Ratio
 siac_cqs_snapshot_cta_v2_1.luld_leverage_ratio.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.luld_leverage_ratio.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = siac_cqs_snapshot_cta_v2_1.luld_leverage_ratio.translate(raw)
   local display = siac_cqs_snapshot_cta_v2_1.luld_leverage_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.luld_leverage_ratio, range, value, display)
@@ -1251,11 +1257,17 @@ siac_cqs_snapshot_cta_v2_1.mwcb_level_1.display = function(value)
   return "Mwcb Level 1: "..value
 end
 
+-- Translate: Mwcb Level 1
+siac_cqs_snapshot_cta_v2_1.mwcb_level_1.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 1
 siac_cqs_snapshot_cta_v2_1.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.mwcb_level_1.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_snapshot_cta_v2_1.mwcb_level_1.translate(raw)
   local display = siac_cqs_snapshot_cta_v2_1.mwcb_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_1, range, value, display)
@@ -1274,11 +1286,17 @@ siac_cqs_snapshot_cta_v2_1.mwcb_level_2.display = function(value)
   return "Mwcb Level 2: "..value
 end
 
+-- Translate: Mwcb Level 2
+siac_cqs_snapshot_cta_v2_1.mwcb_level_2.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 2
 siac_cqs_snapshot_cta_v2_1.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.mwcb_level_2.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_snapshot_cta_v2_1.mwcb_level_2.translate(raw)
   local display = siac_cqs_snapshot_cta_v2_1.mwcb_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_2, range, value, display)
@@ -1297,11 +1315,17 @@ siac_cqs_snapshot_cta_v2_1.mwcb_level_3.display = function(value)
   return "Mwcb Level 3: "..value
 end
 
+-- Translate: Mwcb Level 3
+siac_cqs_snapshot_cta_v2_1.mwcb_level_3.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 3
 siac_cqs_snapshot_cta_v2_1.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_snapshot_cta_v2_1.mwcb_level_3.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_snapshot_cta_v2_1.mwcb_level_3.translate(raw)
   local display = siac_cqs_snapshot_cta_v2_1.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.mwcb_level_3, range, value, display)
@@ -3192,6 +3216,63 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cqs_snapshot_cta_v2_1.packet.fingerprint = function(buffer)
+  if buffer:len() < 27 then
+    return false
+  end
+
+  local message_category = buffer(26, 1):string()
+
+  -- Snapshot Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "R" then
+    if buffer:len() < 28 then
+      return false
+    end
+
+    local snapshot_message_type = buffer(27, 1):string()
+
+    -- Line Integrity Message
+    if snapshot_message_type == "T" then
+      return true
+    end
+
+    -- Symbol Reference Data Message
+    if snapshot_message_type == "S" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Decline Level Status Snapshot Message
+    if snapshot_message_type == "K" then
+      return true
+    end
+
+    -- Consolidated Snapshot Message
+    if snapshot_message_type == "C" then
+      return true
+    end
+
+    -- Participant Snapshot Message
+    if snapshot_message_type == "P" then
+      return true
+    end
+
+    -- Finra Snapshot Message
+    if snapshot_message_type == "F" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3199,6 +3280,9 @@ end
 local function omi_siac_cqs_snapshot_cta_v2_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_snapshot_cta_v2_1.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cqs_snapshot_cta_v2_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_snapshot_cta_v2_1

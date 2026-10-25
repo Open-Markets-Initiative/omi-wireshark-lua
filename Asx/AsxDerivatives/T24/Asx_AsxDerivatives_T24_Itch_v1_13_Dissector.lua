@@ -5639,11 +5639,200 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+asx_asxderivatives_t24_itch_v1_13.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- Time Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Future Symbol Directory Message
+  if message_type == "f" then
+    return true
+  end
+
+  -- Spread Symbol Directory Message
+  if message_type == "g" then
+    return true
+  end
+
+  -- Option Symbol Directory Message
+  if message_type == "h" then
+    return true
+  end
+
+  -- Order Book State Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Order Added Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Order Replaced Message
+  if message_type == "U" then
+    return true
+  end
+
+  -- Order Volume Cancelled Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Order Deleted Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Implied Order Added Message
+  if message_type == "j" then
+    return true
+  end
+
+  -- Implied Order Replaced Message
+  if message_type == "l" then
+    return true
+  end
+
+  -- Implied Order Deleted Message
+  if message_type == "k" then
+    return true
+  end
+
+  -- Custom Market Order Added Message
+  if message_type == "m" then
+    return true
+  end
+
+  -- Custom Market Order Replaced Message
+  if message_type == "n" then
+    return true
+  end
+
+  -- Custom Market Order Deleted Message
+  if message_type == "r" then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Order Executed With Price Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Spread Executed Message
+  if message_type == "e" then
+    return true
+  end
+
+  -- Trade Spread Execution Chain Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Custom Market Executed Message
+  if message_type == "u" then
+    return true
+  end
+
+  -- Custom Market Trade Message
+  if message_type == "p" then
+    return true
+  end
+
+  -- Trade Cancellation Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Equilibrium Price Auction Info Message
+  if message_type == "Z" then
+    return true
+  end
+
+  -- Open High Low Last Trade Adjustment Message
+  if message_type == "t" then
+    return true
+  end
+
+  -- Market Settlement Message
+  if message_type == "Y" then
+    return true
+  end
+
+  -- Ad Hoc Text Message
+  if message_type == "x" then
+    return true
+  end
+
+  -- Request For Quote Message
+  if message_type == "q" then
+    return true
+  end
+
+  -- Anomalous Order Threshold Publish Message
+  if message_type == "W" then
+    return true
+  end
+
+  -- Volume And Open Interest Message
+  if message_type == "V" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Protocol Version Field
 asx_asxderivatives_t24_itch_v1_13.protocol_version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 3 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 3):string()
 
@@ -5661,6 +5850,9 @@ local function omi_asx_asxderivatives_t24_itch_v1_13_udp_heuristic(buffer, packe
 
   -- Verify Protocol Version
   if not asx_asxderivatives_t24_itch_v1_13.protocol_version.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not asx_asxderivatives_t24_itch_v1_13.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_asx_asxderivatives_t24_itch_v1_13

@@ -1841,7 +1841,7 @@ local function omi_nse_nsecom_recovery_binary_v7_1_tcp_acceptor_heuristic(buffer
   -- Verify packet length
   if not nse_nsecom_recovery_binary_v7_1.packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp packet message dispatch
   if not nse_nsecom_recovery_binary_v7_1.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -1856,7 +1856,7 @@ local function omi_nse_nsecom_recovery_binary_v7_1_tcp_initiator_heuristic(buffe
   -- Verify packet length
   if not nse_nsecom_recovery_binary_v7_1.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nse_nsecom_recovery_binary_v7_1.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

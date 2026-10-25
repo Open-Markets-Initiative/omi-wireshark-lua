@@ -1806,7 +1806,7 @@ local function omi_nyse_options_streamprotocol_pillarstream_v1_1_6_tcp_initiator
   -- Verify packet length
   if not nyse_options_streamprotocol_pillarstream_v1_1_6.client_pillar_message.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client pillar message message dispatch
   if not nyse_options_streamprotocol_pillarstream_v1_1_6.client_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -1821,7 +1821,7 @@ local function omi_nyse_options_streamprotocol_pillarstream_v1_1_6_tcp_acceptor_
   -- Verify packet length
   if not nyse_options_streamprotocol_pillarstream_v1_1_6.server_pillar_message.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server pillar message message dispatch
   if not nyse_options_streamprotocol_pillarstream_v1_1_6.server_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

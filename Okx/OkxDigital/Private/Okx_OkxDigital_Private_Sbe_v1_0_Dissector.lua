@@ -1744,11 +1744,42 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Frame: would its message dispatch accept this frame?
+okx_okxdigital_private_sbe_v1_0.frame.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local template_id = buffer(2, 2):le_uint()
+
+  -- Orders Channel Event Message
+  if template_id == 1100 then
+    return true
+  end
+
+  -- Fills Channel Event Message
+  if template_id == 1101 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
 okx_okxdigital_private_sbe_v1_0.schema_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 4 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(4, 2):le_uint()
 
@@ -1761,6 +1792,11 @@ end
 
 -- Verify Version Field
 okx_okxdigital_private_sbe_v1_0.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 6 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(6, 2):le_uint()
 
@@ -1781,6 +1817,9 @@ local function omi_okx_okxdigital_private_sbe_v1_0_ws_heuristic(buffer, packet, 
 
   -- Verify Version
   if not okx_okxdigital_private_sbe_v1_0.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this websocket frame message dispatch
+  if not okx_okxdigital_private_sbe_v1_0.frame.fingerprint(buffer) then return false end
 
   -- Protocol is valid, dissect this packet: each WebSocket message comes to the heuristic, so the conversation stays the WebSocket's
   omi_okx_okxdigital_private_sbe_v1_0.dissector(buffer, packet, parent)

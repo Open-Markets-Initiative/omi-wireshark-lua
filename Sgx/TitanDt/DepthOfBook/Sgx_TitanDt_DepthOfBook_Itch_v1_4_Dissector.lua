@@ -3127,6 +3127,105 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+sgx_titandt_depthofbook_itch_v1_4.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- Seconds Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- Order Book Directory Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Combination Order Book Directory Message
+  if message_type == "M" then
+    return true
+  end
+
+  -- Tick Size Table Entry Message
+  if message_type == "L" then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Order Book State Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Order Executed With Price Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Order Replace Message
+  if message_type == "U" then
+    return true
+  end
+
+  -- Order Delete Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Equilibrium Price Update Message
+  if message_type == "Z" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3134,6 +3233,9 @@ end
 local function omi_sgx_titandt_depthofbook_itch_v1_4_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not sgx_titandt_depthofbook_itch_v1_4.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not sgx_titandt_depthofbook_itch_v1_4.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_sgx_titandt_depthofbook_itch_v1_4

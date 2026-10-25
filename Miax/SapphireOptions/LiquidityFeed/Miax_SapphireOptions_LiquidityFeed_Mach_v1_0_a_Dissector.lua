@@ -102,6 +102,7 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.username = ProtoField.
 
 -- Miax SapphireOptions LiquidityFeed Mach 1.0.a Framing
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.mach_message = ProtoField.new("Mach Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.machmessage", ftypes.STRING)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.mach_packet_header = ProtoField.new("Mach Packet Header", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.machpacketheader", ftypes.STRING, nil, nil, nil, "Mach packet header (12 bytes)")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sesmpacketheader", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sesmtcppacket", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.tcppacket", ftypes.STRING, nil, nil, nil, "SesM Packet")
@@ -4015,36 +4016,23 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.payload.dissect = function(buffer
   return offset
 end
 
--- Mach Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message = {}
+-- Mach Packet Header
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header = {}
 
--- Calculate size of: Mach Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.size = function(buffer, offset)
-  local index = 0
+-- Size: Mach Packet Header
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.size =
+  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sequence_number.size + 
+  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_length.size + 
+  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_type.size + 
+  miax_sapphireoptions_liquidityfeed_mach_v1_0_a.session_number.size
 
-  index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sequence_number.size
-
-  index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_length.size
-
-  index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_type.size
-
-  index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.session_number.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 1):le_uint()
-  index = index + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
--- Display: Mach Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.display = function(packet, parent, length)
+-- Display: Mach Packet Header
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mach Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Packet Header
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: BinaryU
@@ -4059,6 +4047,45 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields = function(bu
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.session_number.dissect(buffer, index, packet, parent)
 
+  return index
+end
+
+-- Dissect: Mach Packet Header
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.mach_packet_header, buffer(offset, 0))
+    local index = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mach Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message = {}
+
+-- Display: Mach Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mach Message
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields = function(buffer, offset, packet, parent, size_of_mach_message)
+  local index = offset
+
+  -- Mach Packet Header: Struct of 4 fields
+  index, mach_packet_header = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Type
+  local packet_type = buffer(index - 2, 1):le_uint()
+
   -- Payload: Runtime Type with 4 branches
   index = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.payload.dissect(buffer, index, packet, parent, packet_type)
 
@@ -4066,20 +4093,23 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields = function(bu
 end
 
 -- Dissect: Mach Message
-miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.dissect = function(buffer, offset, packet, parent)
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.dissect = function(buffer, offset, packet, parent, size_of_mach_message)
+  local index = offset + size_of_mach_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.mach_message, buffer(offset, 0))
-    local index = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.display(packet, parent, length)
+    local current = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    parent:set_len(size_of_mach_message)
+    local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields(buffer, offset, packet, parent)
+    miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+
+    return index
   end
 end
 
@@ -4088,7 +4118,7 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.udp_packet = {}
 
 -- Verify required size of Udp packet
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.udp_packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sequence_number.size + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_length.size + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.packet_type.size + miax_sapphireoptions_liquidityfeed_mach_v1_0_a.session_number.size
+  return buffer:len() >= miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_packet_header.size
 end
 
 -- Dissect Udp Packet
@@ -4106,11 +4136,16 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.udp_packet.dissect = function(buf
   -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Mach Message: Struct of 5 fields
+  -- Mach Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, mach_message = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Packet Length
+    local packet_length = buffer(index + 8, 2):le_uint()
+
+    -- Runtime Size Of: Mach Message
+    index, mach_message = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.mach_message.dissect(buffer, index, packet, parent, packet_length)
   end
 
   return index
@@ -4148,6 +4183,180 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local packet_type = buffer(10, 1):le_uint()
+
+  -- Heartbeat
+  if packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if packet_type == 2 then
+    return true
+  end
+
+  -- Application Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if packet_type == 3 then
+    if buffer:len() < 13 then
+      return false
+    end
+
+    local message_type = buffer(12, 1):string()
+
+    -- System Time Message
+    if message_type == "1" then
+      return true
+    end
+
+    -- Series Update Message
+    if message_type == "P" then
+      return true
+    end
+
+    -- System State Message
+    if message_type == "S" then
+      return true
+    end
+
+    -- Underlying Trading Status Notification Message
+    if message_type == "H" then
+      return true
+    end
+
+    -- Simple Order Message
+    if message_type == "F" then
+      return true
+    end
+
+    -- Complex Strategy Definition Update Message
+    if message_type == "C" then
+      return true
+    end
+
+    -- Complex Order Message
+    if message_type == "R" then
+      return true
+    end
+
+    -- Order Close Message
+    if message_type == "x" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
+miax_sapphireoptions_liquidityfeed_mach_v1_0_a.tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local sesm_packet_type = buffer(2, 1):string()
+
+  -- Sequenced Data Packet
+  if sesm_packet_type == "s" then
+    return true
+  end
+
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if sesm_packet_type == "U" then
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 1):string()
+
+    -- Refresh Request Message
+    if unsequenced_message_type == "R" then
+      return true
+    end
+
+    -- Refresh Response Message
+    if unsequenced_message_type == "r" then
+      return true
+    end
+
+    -- End Of Refresh Notification Message
+    if unsequenced_message_type == "E" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Login Request
+  if sesm_packet_type == "l" then
+    return true
+  end
+
+  -- Login Response
+  if sesm_packet_type == "r" then
+    return true
+  end
+
+  -- Synchronization Complete
+  if sesm_packet_type == "c" then
+    return true
+  end
+
+  -- Retransmission Request
+  if sesm_packet_type == "a" then
+    return true
+  end
+
+  -- Logout Request
+  if sesm_packet_type == "X" then
+    return true
+  end
+
+  -- Goodbye Packet
+  if sesm_packet_type == "G" then
+    return true
+  end
+
+  -- Trading Session Update
+  if sesm_packet_type == "u" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if sesm_packet_type == "0" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if sesm_packet_type == "1" then
+    return true
+  end
+
+  -- Test Packet
+  if sesm_packet_type == "T" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4155,6 +4364,9 @@ end
 local function omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_sapphireoptions_liquidityfeed_mach_v1_0_a.udp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not miax_sapphireoptions_liquidityfeed_mach_v1_0_a.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a
@@ -4167,6 +4379,9 @@ end
 local function omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_sapphireoptions_liquidityfeed_mach_v1_0_a.tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp tcp packet message dispatch
+  if not miax_sapphireoptions_liquidityfeed_mach_v1_0_a.tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a

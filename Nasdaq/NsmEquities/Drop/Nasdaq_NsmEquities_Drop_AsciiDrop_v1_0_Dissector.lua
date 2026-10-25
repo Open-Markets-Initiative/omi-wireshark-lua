@@ -1591,7 +1591,7 @@ local function omi_nasdaq_nsmequities_drop_asciidrop_v1_0_tcp_acceptor_heuristic
   -- Verify packet length
   if not nasdaq_nsmequities_drop_asciidrop_v1_0.line.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp line message dispatch
   if not nasdaq_nsmequities_drop_asciidrop_v1_0.line.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

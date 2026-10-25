@@ -7331,7 +7331,7 @@ local function omi_n24x_24xequities_memo_sbe_v2_0_tcp_initiator_heuristic(buffer
   -- Verify packet length
   if not n24x_24xequities_memo_sbe_v2_0.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not n24x_24xequities_memo_sbe_v2_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -7346,7 +7346,7 @@ local function omi_n24x_24xequities_memo_sbe_v2_0_tcp_acceptor_heuristic(buffer,
   -- Verify packet length
   if not n24x_24xequities_memo_sbe_v2_0.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not n24x_24xequities_memo_sbe_v2_0.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

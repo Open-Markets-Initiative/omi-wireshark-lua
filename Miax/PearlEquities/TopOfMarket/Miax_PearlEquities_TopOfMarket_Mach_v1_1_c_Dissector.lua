@@ -89,6 +89,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.username = ProtoField.new(
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.c.machmessage", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_packet_header = ProtoField.new("Mach Packet Header", "miax.pearlequities.topofmarket.mach.v1.1.c.machpacketheader", ftypes.STRING, nil, nil, nil, "Mach packet header (12 bytes)")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.tcp_packet = ProtoField.new("Tcp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.tcppacket", ftypes.STRING, nil, nil, nil, "ESesM Packet")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.udp_packet = ProtoField.new("Udp Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.udppacket", ftypes.STRING)
 
@@ -3377,36 +3378,23 @@ miax_pearlequities_topofmarket_mach_v1_1_c.payload.dissect = function(buffer, of
   return offset
 end
 
--- Mach Message
-miax_pearlequities_topofmarket_mach_v1_1_c.mach_message = {}
+-- Mach Packet Header
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header = {}
 
--- Calculate size of: Mach Message
-miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.size = function(buffer, offset)
-  local index = 0
+-- Size: Mach Packet Header
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.size =
+  miax_pearlequities_topofmarket_mach_v1_1_c.sequence_number.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_length.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_type.size + 
+  miax_pearlequities_topofmarket_mach_v1_1_c.session_number.size
 
-  index = index + miax_pearlequities_topofmarket_mach_v1_1_c.sequence_number.size
-
-  index = index + miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_length.size
-
-  index = index + miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_type.size
-
-  index = index + miax_pearlequities_topofmarket_mach_v1_1_c.session_number.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 1):le_uint()
-  index = index + miax_pearlequities_topofmarket_mach_v1_1_c.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
--- Display: Mach Message
-miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.display = function(packet, parent, length)
+-- Display: Mach Packet Header
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mach Message
-miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Packet Header
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: BinaryU
@@ -3421,6 +3409,45 @@ miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields = function(buffer
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearlequities_topofmarket_mach_v1_1_c.session_number.dissect(buffer, index, packet, parent)
 
+  return index
+end
+
+-- Dissect: Mach Packet Header
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_packet_header, buffer(offset, 0))
+    local index = miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mach Message
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_message = {}
+
+-- Display: Mach Message
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mach Message
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields = function(buffer, offset, packet, parent, size_of_mach_message)
+  local index = offset
+
+  -- Mach Packet Header: Struct of 4 fields
+  index, mach_packet_header = miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Mach Packet Type
+  local mach_packet_type = buffer(index - 2, 1):le_uint()
+
   -- Payload: Runtime Type with 4 branches
   index = miax_pearlequities_topofmarket_mach_v1_1_c.payload.dissect(buffer, index, packet, parent, mach_packet_type)
 
@@ -3428,20 +3455,23 @@ miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields = function(buffer
 end
 
 -- Dissect: Mach Message
-miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.dissect = function(buffer, offset, packet, parent)
+miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.dissect = function(buffer, offset, packet, parent, size_of_mach_message)
+  local index = offset + size_of_mach_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_message, buffer(offset, 0))
-    local index = miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.display(packet, parent, length)
+    local current = miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    parent:set_len(size_of_mach_message)
+    local display = miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields(buffer, offset, packet, parent)
+    miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+
+    return index
   end
 end
 
@@ -3450,7 +3480,7 @@ miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet = {}
 
 -- Verify required size of Udp packet
 miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_pearlequities_topofmarket_mach_v1_1_c.sequence_number.size + miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_length.size + miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_type.size + miax_pearlequities_topofmarket_mach_v1_1_c.session_number.size
+  return buffer:len() >= miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.size
 end
 
 -- Dissect Udp Packet
@@ -3468,11 +3498,16 @@ miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.dissect = function(buffer,
   -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Mach Message: Struct of 5 fields
+  -- Mach Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, mach_message = miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Mach Packet Length
+    local mach_packet_length = buffer(index + 8, 2):le_uint()
+
+    -- Runtime Size Of: Mach Message
+    index, mach_message = miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.dissect(buffer, index, packet, parent, mach_packet_length)
   end
 
   return index
@@ -3510,6 +3545,180 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local mach_packet_type = buffer(10, 1):le_uint()
+
+  -- Heartbeat
+  if mach_packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if mach_packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if mach_packet_type == 2 then
+    return true
+  end
+
+  -- Application Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if mach_packet_type == 3 then
+    if buffer:len() < 13 then
+      return false
+    end
+
+    local message_type = buffer(12, 1):uint()
+
+    -- System Time Message
+    if message_type == 49 then
+      return true
+    end
+
+    -- Symbol Update Message
+    if message_type == 1 then
+      return true
+    end
+
+    -- System State Message
+    if message_type == 83 then
+      return true
+    end
+
+    -- Security Trading Status Notification Message
+    if message_type == 4 then
+      return true
+    end
+
+    -- Compact Top Of Market Best Bid And Offer Message
+    if message_type == 2 then
+      return true
+    end
+
+    -- Wide Top Of Market Best Bid And Offer Message
+    if message_type == 3 then
+      return true
+    end
+
+    -- Last Sale Message
+    if message_type == 10 then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if message_type == 11 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
+miax_pearlequities_topofmarket_mach_v1_1_c.tcp_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local esesm_packet_type = buffer(2, 1):string()
+
+  -- Sequenced Data Packet
+  if esesm_packet_type == "s" then
+    return true
+  end
+
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if esesm_packet_type == "U" then
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 1):string()
+
+    -- Refresh Request Message
+    if unsequenced_message_type == "R" then
+      return true
+    end
+
+    -- Refresh Response Message
+    if unsequenced_message_type == "r" then
+      return true
+    end
+
+    -- End Of Refresh Notification Message
+    if unsequenced_message_type == "E" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Login Request
+  if esesm_packet_type == "l" then
+    return true
+  end
+
+  -- Login Response
+  if esesm_packet_type == "r" then
+    return true
+  end
+
+  -- Synchronization Complete
+  if esesm_packet_type == "c" then
+    return true
+  end
+
+  -- Retransmission Request
+  if esesm_packet_type == "a" then
+    return true
+  end
+
+  -- Logout Request
+  if esesm_packet_type == "X" then
+    return true
+  end
+
+  -- Goodbye Packet
+  if esesm_packet_type == "G" then
+    return true
+  end
+
+  -- Trading Session Update
+  if esesm_packet_type == "u" then
+    return true
+  end
+
+  -- Server Heartbeat
+  if esesm_packet_type == "0" then
+    return true
+  end
+
+  -- Client Heartbeat
+  if esesm_packet_type == "1" then
+    return true
+  end
+
+  -- Test Packet
+  if esesm_packet_type == "T" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3517,6 +3726,9 @@ end
 local function omi_miax_pearlequities_topofmarket_mach_v1_1_c_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_topofmarket_mach_v1_1_c
@@ -3529,6 +3741,9 @@ end
 local function omi_miax_pearlequities_topofmarket_mach_v1_1_c_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearlequities_topofmarket_mach_v1_1_c.tcp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp tcp packet message dispatch
+  if not miax_pearlequities_topofmarket_mach_v1_1_c.tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearlequities_topofmarket_mach_v1_1_c

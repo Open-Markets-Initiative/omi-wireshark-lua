@@ -6825,6 +6825,177 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Message: would its message dispatch accept this frame?
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.message.fingerprint = function(buffer)
+  if buffer:len() < 4 then
+    return false
+  end
+
+  local msg_type = buffer(0, 4):uint()
+
+  -- Logon Message
+  if msg_type == 1 then
+    return true
+  end
+
+  -- Logout Message
+  if msg_type == 2 then
+    return true
+  end
+
+  -- Heartbeat Message
+  if msg_type == 3 then
+    return true
+  end
+
+  -- Channel Heartbeat Message
+  if msg_type == 390095 then
+    return true
+  end
+
+  -- Retransmitting Message
+  if msg_type == 390094 then
+    return true
+  end
+
+  -- Client User Information Reporting Message
+  if msg_type == 390093 then
+    return true
+  end
+
+  -- Statistics Of Snapshot Data Channel Message
+  if msg_type == 390090 then
+    return true
+  end
+
+  -- Business Reject Message
+  if msg_type == 8 then
+    return true
+  end
+
+  -- Real Time Market Status Message
+  if msg_type == 390019 then
+    return true
+  end
+
+  -- Real Time Status Of Security Message
+  if msg_type == 390013 then
+    return true
+  end
+
+  -- Announcements Message
+  if msg_type == 390012 then
+    return true
+  end
+
+  -- Snapshot Data Of Cash Auction Message
+  if msg_type == 300111 then
+    return true
+  end
+
+  -- Snapshot Data Of Spot Bond Trading Message
+  if msg_type == 300211 then
+    return true
+  end
+
+  -- Snapshot Data Of After Hour Trading Block Trade Message
+  if msg_type == 300611 then
+    return true
+  end
+
+  -- Snapshot Data Of After Hour Trading Message
+  if msg_type == 303711 then
+    return true
+  end
+
+  -- Snapshot Data Of Eligible Hk Stocks Message
+  if msg_type == 306311 then
+    return true
+  end
+
+  -- Index Snapshot Message
+  if msg_type == 309011 then
+    return true
+  end
+
+  -- Statistic Indicator Snapshot Message
+  if msg_type == 309111 then
+    return true
+  end
+
+  -- Real Time Reference Net Value Of Funds Snapshot Message
+  if msg_type == 309211 then
+    return true
+  end
+
+  -- Order Tick Data In Call Auction Message
+  if msg_type == 300192 then
+    return true
+  end
+
+  -- Order Tick Data Of Negotiable Trade Message
+  if msg_type == 300592 then
+    return true
+  end
+
+  -- Order Tick Data Of Security Lending Message
+  if msg_type == 300792 then
+    return true
+  end
+
+  -- Order Tick Data Of Spot Bond Trading Matching Deal Message
+  if msg_type == 300292 then
+    return true
+  end
+
+  -- Order Tick Data Of Spot Bond Trading Quotation Message
+  if msg_type == 300392 then
+    return true
+  end
+
+  -- Order Tick Data Of Bid Quotation Message
+  if msg_type == 300492 then
+    return true
+  end
+
+  -- Transaction Tick Data In Call Auction Message
+  if msg_type == 300191 then
+    return true
+  end
+
+  -- Transaction Tick Data Of Negotiable Trade Message
+  if msg_type == 300591 then
+    return true
+  end
+
+  -- Transaction Tick Data Of Security Lending Message
+  if msg_type == 300791 then
+    return true
+  end
+
+  -- Transaction Tick Data Of Bond General Pledged Repo Message
+  if msg_type == 300291 then
+    return true
+  end
+
+  -- Transaction Tick Data Of Spot Bond Trading Quotation Message
+  if msg_type == 300391 then
+    return true
+  end
+
+  -- Transaction Tick Data Of Bid Quotation Message
+  if msg_type == 300491 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -6832,6 +7003,9 @@ end
 local function omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp message message dispatch
+  if not szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17

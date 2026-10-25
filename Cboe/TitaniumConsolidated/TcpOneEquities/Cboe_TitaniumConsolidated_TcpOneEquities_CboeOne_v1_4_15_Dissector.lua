@@ -3045,6 +3045,105 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Cboe One Login Message
+  if message_type == 0xA0 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Replay Complete Message
+  if message_type == 0xA1 then
+    return true
+  end
+
+  -- Clear Quote Message
+  if message_type == 0xA2 then
+    return true
+  end
+
+  -- Fractional Symbol Summary Message
+  if message_type == 0xE7 then
+    return true
+  end
+
+  -- Best Quote Update Message
+  if message_type == 0xA5 then
+    return true
+  end
+
+  -- Cboe Market Status Message
+  if message_type == 0xA6 then
+    return true
+  end
+
+  -- Adap Message
+  if message_type == 0xA7 then
+    return true
+  end
+
+  -- Rpi Message
+  if message_type == 0xA8 then
+    return true
+  end
+
+  -- Fractional Trade Message
+  if message_type == 0xE8 then
+    return true
+  end
+
+  -- Fractional Trade Break Message
+  if message_type == 0xE9 then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0xAB then
+    return true
+  end
+
+  -- Opening Closing Price Message
+  if message_type == 0xB0 then
+    return true
+  end
+
+  -- Fractional End Of Day Summary Message
+  if message_type == 0xEA then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3052,6 +3151,9 @@ end
 local function omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15

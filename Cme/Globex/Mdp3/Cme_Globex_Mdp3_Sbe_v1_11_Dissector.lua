@@ -265,6 +265,7 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.settl_currency = ProtoField.new("Settl Curr
 omi_cme_globex_mdp3_sbe_v1_11.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.mdp3.sbe.v1.11.settlpricetype", ftypes.STRING, nil, nil, nil, "SettlPriceType bit set")
 omi_cme_globex_mdp3_sbe_v1_11.fields.side = ProtoField.new("Side", "cme.globex.mdp3.sbe.v1.11.side", ftypes.UINT8, nil, nil, nil, "Side of order")
 omi_cme_globex_mdp3_sbe_v1_11.fields.side_optional = ProtoField.new("Side Optional", "cme.globex.mdp3.sbe.v1.11.sideoptional", ftypes.INT8, nil, nil, nil, "Side requested")
+omi_cme_globex_mdp3_sbe_v1_11.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.globex.mdp3.sbe.v1.11.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_globex_mdp3_sbe_v1_11.fields.snapshot_full_refresh_group = ProtoField.new("Snapshot Full Refresh Group", "cme.globex.mdp3.sbe.v1.11.snapshotfullrefreshgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_11.fields.snapshot_full_refresh_groups = ProtoField.new("Snapshot Full Refresh Groups", "cme.globex.mdp3.sbe.v1.11.snapshotfullrefreshgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_11.fields.snapshot_full_refresh_order_book_group = ProtoField.new("Snapshot Full Refresh Order Book Group", "cme.globex.mdp3.sbe.v1.11.snapshotfullrefreshorderbookgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
@@ -279,7 +280,6 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.strike_price = ProtoField.new("Strike Price
 omi_cme_globex_mdp3_sbe_v1_11.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.globex.mdp3.sbe.v1.11.subfraction", ftypes.UINT8, nil, nil, nil, "Price Denominator of Sub Fraction")
 omi_cme_globex_mdp3_sbe_v1_11.fields.subscription_req_type = ProtoField.new("Subscription Req Type", "cme.globex.mdp3.sbe.v1.11.subscriptionreqtype", ftypes.UINT8, nil, nil, nil, "Subscription Request Type indicates to the type of response expected")
 omi_cme_globex_mdp3_sbe_v1_11.fields.symbol = ProtoField.new("Symbol", "cme.globex.mdp3.sbe.v1.11.symbol", ftypes.STRING, nil, nil, nil, "Instrument Name or Symbol")
-omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.globex.mdp3.sbe.v1.11.tcpmessagesize", ftypes.UINT16, nil, nil, nil, "Message Size")
 omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.11.tcpsendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_sending_time_utc = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.11.tcpsendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_11.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.11.templateid", ftypes.UINT16)
@@ -333,13 +333,13 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.binary_packet_header = ProtoField.new("Bina
 omi_cme_globex_mdp3_sbe_v1_11.fields.client_tcp_frame = ProtoField.new("Client Tcp Frame", "cme.globex.mdp3.sbe.v1.11.clienttcpframe", ftypes.STRING, nil, nil, nil, "One technical header and the message it carries: the unit the wire repeats")
 omi_cme_globex_mdp3_sbe_v1_11.fields.client_tcp_message = ProtoField.new("Client Tcp Message", "cme.globex.mdp3.sbe.v1.11.clienttcpmessage", ftypes.STRING, nil, nil, nil, "Cme Tcp Message sent by the firm to Cme")
 omi_cme_globex_mdp3_sbe_v1_11.fields.client_tcp_packet = ProtoField.new("Client Tcp Packet", "cme.globex.mdp3.sbe.v1.11.clienttcppacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet sent by the firm to Cme")
-omi_cme_globex_mdp3_sbe_v1_11.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.mdp3.sbe.v1.11.clienttechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by the firm to Cme. Tcp Message Size is the last field so this fixed 16 byte header spans everything up to and including the length the reassembly reads.")
+omi_cme_globex_mdp3_sbe_v1_11.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.mdp3.sbe.v1.11.clienttechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by the firm to Cme")
 omi_cme_globex_mdp3_sbe_v1_11.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.11.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
-omi_cme_globex_mdp3_sbe_v1_11.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.11.messageheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
+omi_cme_globex_mdp3_sbe_v1_11.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.11.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_globex_mdp3_sbe_v1_11.fields.server_tcp_frame = ProtoField.new("Server Tcp Frame", "cme.globex.mdp3.sbe.v1.11.servertcpframe", ftypes.STRING, nil, nil, nil, "One technical header and the message it carries: the unit the wire repeats")
 omi_cme_globex_mdp3_sbe_v1_11.fields.server_tcp_message = ProtoField.new("Server Tcp Message", "cme.globex.mdp3.sbe.v1.11.servertcpmessage", ftypes.STRING, nil, nil, nil, "Cme Tcp Message sent by Cme to the firm")
 omi_cme_globex_mdp3_sbe_v1_11.fields.server_tcp_packet = ProtoField.new("Server Tcp Packet", "cme.globex.mdp3.sbe.v1.11.servertcppacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet sent by Cme to the firm")
-omi_cme_globex_mdp3_sbe_v1_11.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.mdp3.sbe.v1.11.servertechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by Cme to the firm. Tcp Message Size is the last field so this fixed 16 byte header spans everything up to and including the length the reassembly reads.")
+omi_cme_globex_mdp3_sbe_v1_11.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.mdp3.sbe.v1.11.servertechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by Cme to the firm")
 omi_cme_globex_mdp3_sbe_v1_11.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.11.udppacket", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet")
 
 -- Cme Globex Mdp3 1.11 Application Messages
@@ -5402,29 +5402,6 @@ cme_globex_mdp3_sbe_v1_11.symbol.dissect = function(buffer, offset, packet, pare
   local display = cme_globex_mdp3_sbe_v1_11.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Tcp Message Size
-cme_globex_mdp3_sbe_v1_11.tcp_message_size = {}
-
--- Size: Tcp Message Size
-cme_globex_mdp3_sbe_v1_11.tcp_message_size.size = 2
-
--- Display: Tcp Message Size
-cme_globex_mdp3_sbe_v1_11.tcp_message_size.display = function(value)
-  return "Tcp Message Size: "..value
-end
-
--- Dissect: Tcp Message Size
-cme_globex_mdp3_sbe_v1_11.tcp_message_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_mdp3_sbe_v1_11.tcp_message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_globex_mdp3_sbe_v1_11.tcp_message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.tcp_message_size, range, value, display)
 
   return offset + length, value
 end
@@ -13604,23 +13581,23 @@ cme_globex_mdp3_sbe_v1_11.server_payload.dissect = function(buffer, offset, pack
   return offset
 end
 
--- Message Header
-cme_globex_mdp3_sbe_v1_11.message_header = {}
+-- Simple Binary Header
+cme_globex_mdp3_sbe_v1_11.simple_binary_header = {}
 
--- Size: Message Header
-cme_globex_mdp3_sbe_v1_11.message_header.size =
+-- Size: Simple Binary Header
+cme_globex_mdp3_sbe_v1_11.simple_binary_header.size =
   cme_globex_mdp3_sbe_v1_11.block_length.size + 
   cme_globex_mdp3_sbe_v1_11.template_id.size + 
   cme_globex_mdp3_sbe_v1_11.schema_id.size + 
   cme_globex_mdp3_sbe_v1_11.version.size
 
--- Display: Message Header
-cme_globex_mdp3_sbe_v1_11.message_header.display = function(packet, parent, length)
+-- Display: Simple Binary Header
+cme_globex_mdp3_sbe_v1_11.simple_binary_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-cme_globex_mdp3_sbe_v1_11.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Binary Header
+cme_globex_mdp3_sbe_v1_11.simple_binary_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: uint16
@@ -13634,6 +13611,50 @@ cme_globex_mdp3_sbe_v1_11.message_header.fields = function(buffer, offset, packe
 
   -- Version: uint16
   index, version = cme_globex_mdp3_sbe_v1_11.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Simple Binary Header
+cme_globex_mdp3_sbe_v1_11.simple_binary_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.simple_binary_header, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_11.simple_binary_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_11.simple_binary_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_11.simple_binary_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Header
+cme_globex_mdp3_sbe_v1_11.message_header = {}
+
+-- Size: Message Header
+cme_globex_mdp3_sbe_v1_11.message_header.size =
+  cme_globex_mdp3_sbe_v1_11.message_size.size + 
+  cme_globex_mdp3_sbe_v1_11.simple_binary_header.size
+
+-- Display: Message Header
+cme_globex_mdp3_sbe_v1_11.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cme_globex_mdp3_sbe_v1_11.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = cme_globex_mdp3_sbe_v1_11.message_size.dissect(buffer, index, packet, parent)
+
+  -- Simple Binary Header: Struct of 4 fields
+  index, simple_binary_header = cme_globex_mdp3_sbe_v1_11.simple_binary_header.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -13682,7 +13703,7 @@ end
 cme_globex_mdp3_sbe_v1_11.server_tcp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_globex_mdp3_sbe_v1_11.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -13719,8 +13740,7 @@ cme_globex_mdp3_sbe_v1_11.server_technical_header = {}
 cme_globex_mdp3_sbe_v1_11.server_technical_header.size =
   cme_globex_mdp3_sbe_v1_11.encoding_type.size + 
   cme_globex_mdp3_sbe_v1_11.message_sequence_number.size + 
-  cme_globex_mdp3_sbe_v1_11.tcp_sending_time.size + 
-  cme_globex_mdp3_sbe_v1_11.tcp_message_size.size
+  cme_globex_mdp3_sbe_v1_11.tcp_sending_time.size
 
 -- Display: Server Technical Header
 cme_globex_mdp3_sbe_v1_11.server_technical_header.display = function(packet, parent, length)
@@ -13739,9 +13759,6 @@ cme_globex_mdp3_sbe_v1_11.server_technical_header.fields = function(buffer, offs
 
   -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, tcp_sending_time = cme_globex_mdp3_sbe_v1_11.tcp_sending_time.dissect(buffer, index, packet, parent)
-
-  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, tcp_message_size = cme_globex_mdp3_sbe_v1_11.tcp_message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -13776,7 +13793,7 @@ end
 cme_globex_mdp3_sbe_v1_11.server_tcp_frame.fields = function(buffer, offset, packet, parent, size_of_server_tcp_frame)
   local index = offset
 
-  -- Server Technical Header: Struct of 4 fields
+  -- Server Technical Header: Struct of 3 fields
   index, server_technical_header = cme_globex_mdp3_sbe_v1_11.server_technical_header.dissect(buffer, index, packet, parent)
 
   -- Server Tcp Message: Struct of 2 fields
@@ -13812,7 +13829,7 @@ local server_tcp_frame_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < cme_globex_mdp3_sbe_v1_11.server_technical_header.size then
+  if remaining < 14 + cme_globex_mdp3_sbe_v1_11.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -14799,7 +14816,7 @@ end
 cme_globex_mdp3_sbe_v1_11.client_tcp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_globex_mdp3_sbe_v1_11.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -14836,8 +14853,7 @@ cme_globex_mdp3_sbe_v1_11.client_technical_header = {}
 cme_globex_mdp3_sbe_v1_11.client_technical_header.size =
   cme_globex_mdp3_sbe_v1_11.encoding_type.size + 
   cme_globex_mdp3_sbe_v1_11.message_sequence_number.size + 
-  cme_globex_mdp3_sbe_v1_11.tcp_sending_time.size + 
-  cme_globex_mdp3_sbe_v1_11.tcp_message_size.size
+  cme_globex_mdp3_sbe_v1_11.tcp_sending_time.size
 
 -- Display: Client Technical Header
 cme_globex_mdp3_sbe_v1_11.client_technical_header.display = function(packet, parent, length)
@@ -14856,9 +14872,6 @@ cme_globex_mdp3_sbe_v1_11.client_technical_header.fields = function(buffer, offs
 
   -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, tcp_sending_time = cme_globex_mdp3_sbe_v1_11.tcp_sending_time.dissect(buffer, index, packet, parent)
-
-  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, tcp_message_size = cme_globex_mdp3_sbe_v1_11.tcp_message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -14893,7 +14906,7 @@ end
 cme_globex_mdp3_sbe_v1_11.client_tcp_frame.fields = function(buffer, offset, packet, parent, size_of_client_tcp_frame)
   local index = offset
 
-  -- Client Technical Header: Struct of 4 fields
+  -- Client Technical Header: Struct of 3 fields
   index, client_technical_header = cme_globex_mdp3_sbe_v1_11.client_technical_header.dissect(buffer, index, packet, parent)
 
   -- Client Tcp Message: Struct of 2 fields
@@ -14929,7 +14942,7 @@ local client_tcp_frame_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < cme_globex_mdp3_sbe_v1_11.client_technical_header.size then
+  if remaining < 14 + cme_globex_mdp3_sbe_v1_11.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -15267,10 +15280,7 @@ end
 cme_globex_mdp3_sbe_v1_11.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_globex_mdp3_sbe_v1_11.message_size.dissect(buffer, index, packet, parent)
-
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_globex_mdp3_sbe_v1_11.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Schema Id
@@ -15287,7 +15297,7 @@ cme_globex_mdp3_sbe_v1_11.message.dissect = function(buffer, offset, packet, par
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.headers then
+  if show.structs then
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.message, buffer(offset, 0))
     local current = cme_globex_mdp3_sbe_v1_11.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -15352,7 +15362,7 @@ cme_globex_mdp3_sbe_v1_11.udp_packet = {}
 
 -- Verify required size of Udp packet
 cme_globex_mdp3_sbe_v1_11.udp_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_globex_mdp3_sbe_v1_11.binary_packet_header.size + cme_globex_mdp3_sbe_v1_11.message_size.size + cme_globex_mdp3_sbe_v1_11.message_header.size
+  return buffer:len() >= cme_globex_mdp3_sbe_v1_11.binary_packet_header.size + cme_globex_mdp3_sbe_v1_11.message_header.size
 end
 
 -- Dissect Udp Packet
@@ -15365,7 +15375,7 @@ cme_globex_mdp3_sbe_v1_11.udp_packet.dissect = function(buffer, packet, parent)
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 3 fields
+  -- Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -15495,6 +15505,209 @@ end
 -----------------------------------------------------------------------
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
+
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+cme_globex_mdp3_sbe_v1_11.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local schema_id = buffer(18, 2):le_uint()
+
+  -- Mktdata Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if schema_id == 1 then
+    if buffer:len() < 18 then
+      return false
+    end
+
+    local template_id = buffer(16, 2):le_uint()
+
+    -- Channel Reset
+    if template_id == 4 then
+      return true
+    end
+
+    -- Admin Heartbeat
+    if template_id == 12 then
+      return true
+    end
+
+    -- Admin Login
+    if template_id == 15 then
+      return true
+    end
+
+    -- Admin Logout
+    if template_id == 16 then
+      return true
+    end
+
+    -- Security Status
+    if template_id == 30 then
+      return true
+    end
+
+    -- Md Incremental Refresh Volume
+    if template_id == 37 then
+      return true
+    end
+
+    -- Quote Request
+    if template_id == 39 then
+      return true
+    end
+
+    -- Md Incremental Refresh Book
+    if template_id == 46 then
+      return true
+    end
+
+    -- Md Incremental Refresh Order Book
+    if template_id == 47 then
+      return true
+    end
+
+    -- Md Incremental Refresh Trade Summary
+    if template_id == 48 then
+      return true
+    end
+
+    -- Md Incremental Refresh Daily Statistics
+    if template_id == 49 then
+      return true
+    end
+
+    -- Md Incremental Refresh Limits Banding
+    if template_id == 50 then
+      return true
+    end
+
+    -- Md Incremental Refresh Session Statistics
+    if template_id == 51 then
+      return true
+    end
+
+    -- Snapshot Full Refresh
+    if template_id == 52 then
+      return true
+    end
+
+    -- Snapshot Full Refresh Order Book
+    if template_id == 53 then
+      return true
+    end
+
+    -- Md Instrument Definition Future
+    if template_id == 54 then
+      return true
+    end
+
+    -- Md Instrument Definition Option
+    if template_id == 55 then
+      return true
+    end
+
+    -- Md Instrument Definition Spread
+    if template_id == 56 then
+      return true
+    end
+
+    -- Md Instrument Definition Fixed Income
+    if template_id == 57 then
+      return true
+    end
+
+    -- Md Instrument Definition Repo
+    if template_id == 58 then
+      return true
+    end
+
+    -- Snapshot Refresh Top Orders
+    if template_id == 59 then
+      return true
+    end
+
+    -- Security Status Workup
+    if template_id == 60 then
+      return true
+    end
+
+    -- Snapshot Full Refresh Tcp
+    if template_id == 61 then
+      return true
+    end
+
+    -- Collateral Market Value
+    if template_id == 62 then
+      return true
+    end
+
+    return false
+  end
+
+  -- Mdpsessionmgmt Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if schema_id == 2 then
+    if buffer:len() < 18 then
+      return false
+    end
+
+    local template_id = buffer(16, 2):le_uint()
+
+    -- Negotiate
+    if template_id == 200 then
+      return true
+    end
+
+    -- Negotiation Reject
+    if template_id == 201 then
+      return true
+    end
+
+    -- Negotiation Response
+    if template_id == 202 then
+      return true
+    end
+
+    -- Terminate
+    if template_id == 203 then
+      return true
+    end
+
+    -- Market Data Request
+    if template_id == 205 then
+      return true
+    end
+
+    -- Request Ack
+    if template_id == 206 then
+      return true
+    end
+
+    -- Request Reject
+    if template_id == 207 then
+      return true
+    end
+
+    -- Security List Request
+    if template_id == 208 then
+      return true
+    end
+
+    -- Security Status Request
+    if template_id == 209 then
+      return true
+    end
+
+    -- Subscriber Heartbeat
+    if template_id == 210 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
 
 -- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
 cme_globex_mdp3_sbe_v1_11.client_tcp_packet.fingerprint = function(buffer)
@@ -15700,6 +15913,11 @@ end
 
 -- Verify Version Field
 cme_globex_mdp3_sbe_v1_11.version.udp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -15716,6 +15934,11 @@ end
 
 -- Verify Encoding Type Field
 cme_globex_mdp3_sbe_v1_11.encoding_type.client_tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 2):le_uint()
 
@@ -15728,6 +15951,11 @@ end
 
 -- Verify Version Field
 cme_globex_mdp3_sbe_v1_11.version.client_tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 22 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -15744,6 +15972,11 @@ end
 
 -- Verify Encoding Type Field
 cme_globex_mdp3_sbe_v1_11.encoding_type.server_tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 2):le_uint()
 
@@ -15756,6 +15989,11 @@ end
 
 -- Verify Version Field
 cme_globex_mdp3_sbe_v1_11.version.server_tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 22 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -15778,6 +16016,9 @@ local function omi_cme_globex_mdp3_sbe_v1_11_udp_heuristic(buffer, packet, paren
   -- Verify Version
   if not cme_globex_mdp3_sbe_v1_11.version.udp_packet_verify(buffer) then return false end
 
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not cme_globex_mdp3_sbe_v1_11.udp_packet.fingerprint(buffer) then return false end
+
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_globex_mdp3_sbe_v1_11
   omi_cme_globex_mdp3_sbe_v1_11.dissector(buffer, packet, parent)
@@ -15796,7 +16037,7 @@ local function omi_cme_globex_mdp3_sbe_v1_11_tcp_initiator_heuristic(buffer, pac
   -- Verify Version
   if not cme_globex_mdp3_sbe_v1_11.version.client_tcp_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client tcp packet message dispatch
   if not cme_globex_mdp3_sbe_v1_11.client_tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -15817,7 +16058,7 @@ local function omi_cme_globex_mdp3_sbe_v1_11_tcp_acceptor_heuristic(buffer, pack
   -- Verify Version
   if not cme_globex_mdp3_sbe_v1_11.version.server_tcp_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server tcp packet message dispatch
   if not cme_globex_mdp3_sbe_v1_11.server_tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

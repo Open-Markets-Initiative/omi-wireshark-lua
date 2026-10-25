@@ -78,6 +78,7 @@ omi_miax_pearloptions_topofmarket_mach_v2_2.fields.underlying_symbol = ProtoFiel
 
 -- Miax PearlOptions TopOfMarket Mach 2.2 Framing
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v2.2.machmessage", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v2_2.fields.mach_packet_header = ProtoField.new("Mach Packet Header", "miax.pearloptions.topofmarket.mach.v2.2.machpacketheader", ftypes.STRING, nil, nil, nil, "Mach packet header (12 bytes)")
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v2.2.packet", ftypes.STRING)
 
 -- Miax PearlOptions TopOfMarket 2.2 Application Messages
@@ -123,10 +124,12 @@ local show = {}
 -- Miax PearlOptions TopOfMarket Mach 2.2 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Miax PearlOptions TopOfMarket Mach 2.2 Show Options
 omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -137,6 +140,9 @@ function omi_miax_pearloptions_topofmarket_mach_v2_2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_application_messages then
     show.application_messages = omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_headers then
+    show.headers = omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_headers
   end
   if show.structs ~= omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_structs then
     show.structs = omi_miax_pearloptions_topofmarket_mach_v2_2.prefs.show_structs
@@ -2922,36 +2928,23 @@ miax_pearloptions_topofmarket_mach_v2_2.payload.dissect = function(buffer, offse
   return offset
 end
 
--- Mach Message
-miax_pearloptions_topofmarket_mach_v2_2.mach_message = {}
+-- Mach Packet Header
+miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header = {}
 
--- Calculate size of: Mach Message
-miax_pearloptions_topofmarket_mach_v2_2.mach_message.size = function(buffer, offset)
-  local index = 0
+-- Size: Mach Packet Header
+miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.size =
+  miax_pearloptions_topofmarket_mach_v2_2.sequence_number.size + 
+  miax_pearloptions_topofmarket_mach_v2_2.packet_length.size + 
+  miax_pearloptions_topofmarket_mach_v2_2.packet_type.size + 
+  miax_pearloptions_topofmarket_mach_v2_2.session_number.size
 
-  index = index + miax_pearloptions_topofmarket_mach_v2_2.sequence_number.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v2_2.packet_length.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v2_2.packet_type.size
-
-  index = index + miax_pearloptions_topofmarket_mach_v2_2.session_number.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 2, 1):le_uint()
-  index = index + miax_pearloptions_topofmarket_mach_v2_2.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
--- Display: Mach Message
-miax_pearloptions_topofmarket_mach_v2_2.mach_message.display = function(packet, parent, length)
+-- Display: Mach Packet Header
+miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mach Message
-miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mach Packet Header
+miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
@@ -2966,6 +2959,45 @@ miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields = function(buffer, o
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_pearloptions_topofmarket_mach_v2_2.session_number.dissect(buffer, index, packet, parent)
 
+  return index
+end
+
+-- Dissect: Mach Packet Header
+miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v2_2.fields.mach_packet_header, buffer(offset, 0))
+    local index = miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mach Message
+miax_pearloptions_topofmarket_mach_v2_2.mach_message = {}
+
+-- Display: Mach Message
+miax_pearloptions_topofmarket_mach_v2_2.mach_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mach Message
+miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields = function(buffer, offset, packet, parent, size_of_mach_message)
+  local index = offset
+
+  -- Mach Packet Header: Struct of 4 fields
+  index, mach_packet_header = miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Type
+  local packet_type = buffer(index - 2, 1):le_uint()
+
   -- Payload: Runtime Type with 4 branches
   index = miax_pearloptions_topofmarket_mach_v2_2.payload.dissect(buffer, index, packet, parent, packet_type)
 
@@ -2973,20 +3005,23 @@ miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields = function(buffer, o
 end
 
 -- Dissect: Mach Message
-miax_pearloptions_topofmarket_mach_v2_2.mach_message.dissect = function(buffer, offset, packet, parent)
+miax_pearloptions_topofmarket_mach_v2_2.mach_message.dissect = function(buffer, offset, packet, parent, size_of_mach_message)
+  local index = offset + size_of_mach_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_topofmarket_mach_v2_2.fields.mach_message, buffer(offset, 0))
-    local index = miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = miax_pearloptions_topofmarket_mach_v2_2.mach_message.display(packet, parent, length)
+    local current = miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    parent:set_len(size_of_mach_message)
+    local display = miax_pearloptions_topofmarket_mach_v2_2.mach_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields(buffer, offset, packet, parent)
+    miax_pearloptions_topofmarket_mach_v2_2.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+
+    return index
   end
 end
 
@@ -2995,7 +3030,7 @@ miax_pearloptions_topofmarket_mach_v2_2.packet = {}
 
 -- Verify required size of Udp packet
 miax_pearloptions_topofmarket_mach_v2_2.packet.requiredsize = function(buffer)
-  return buffer:len() >= miax_pearloptions_topofmarket_mach_v2_2.sequence_number.size + miax_pearloptions_topofmarket_mach_v2_2.packet_length.size + miax_pearloptions_topofmarket_mach_v2_2.packet_type.size + miax_pearloptions_topofmarket_mach_v2_2.session_number.size
+  return buffer:len() >= miax_pearloptions_topofmarket_mach_v2_2.mach_packet_header.size
 end
 
 -- Dissect Packet
@@ -3013,11 +3048,16 @@ miax_pearloptions_topofmarket_mach_v2_2.packet.dissect = function(buffer, packet
   -- Dependency for Mach Message
   local end_of_payload = buffer:len()
 
-  -- Mach Message: Struct of 5 fields
+  -- Mach Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, mach_message = miax_pearloptions_topofmarket_mach_v2_2.mach_message.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Packet Length
+    local packet_length = buffer(index + 8, 2):le_uint()
+
+    -- Runtime Size Of: Mach Message
+    index, mach_message = miax_pearloptions_topofmarket_mach_v2_2.mach_message.dissect(buffer, index, packet, parent, packet_length)
   end
 
   return index
@@ -3047,6 +3087,108 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+miax_pearloptions_topofmarket_mach_v2_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local packet_type = buffer(10, 1):le_uint()
+
+  -- Heartbeat
+  if packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if packet_type == 2 then
+    return true
+  end
+
+  -- Application Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if packet_type == 3 then
+    if buffer:len() < 13 then
+      return false
+    end
+
+    local message_type = buffer(12, 1):string()
+
+    -- System Time Message
+    if message_type == "1" then
+      return true
+    end
+
+    -- Simple Series Update Message
+    if message_type == "P" then
+      return true
+    end
+
+    -- System State Message
+    if message_type == "S" then
+      return true
+    end
+
+    -- Simple Top Of Market Bid Compact Message
+    if message_type == "B" then
+      return true
+    end
+
+    -- Simple Top Of Market Offer Compact Message
+    if message_type == "O" then
+      return true
+    end
+
+    -- Simple Top Of Market Bid Wide Message
+    if message_type == "W" then
+      return true
+    end
+
+    -- Simple Top Of Market Offer Wide Message
+    if message_type == "A" then
+      return true
+    end
+
+    -- Simple Double Sided Top Of Market Compact Message
+    if message_type == "d" then
+      return true
+    end
+
+    -- Simple Double Sided Top Of Market Wide Message
+    if message_type == "D" then
+      return true
+    end
+
+    -- Last Sale Message
+    if message_type == "T" then
+      return true
+    end
+
+    -- Trade Cancel Message
+    if message_type == "X" then
+      return true
+    end
+
+    -- Underlying Trading Status Notification Message
+    if message_type == "H" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3054,6 +3196,9 @@ end
 local function omi_miax_pearloptions_topofmarket_mach_v2_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearloptions_topofmarket_mach_v2_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not miax_pearloptions_topofmarket_mach_v2_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearloptions_topofmarket_mach_v2_2

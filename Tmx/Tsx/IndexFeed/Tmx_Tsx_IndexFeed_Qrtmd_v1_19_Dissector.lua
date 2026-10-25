@@ -1327,11 +1327,42 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+tmx_tsx_indexfeed_qrtmd_v1_19.packet.fingerprint = function(buffer)
+  if buffer:len() < 21 then
+    return false
+  end
+
+  local message_type = buffer(19, 2):string()
+
+  -- S And P Tsx Official Index Level Message
+  if message_type == "K" then
+    return true
+  end
+
+  -- Beginning Of Index Summary Message
+  if message_type == "PA" then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Qrtmd Stx Field
 tmx_tsx_indexfeed_qrtmd_v1_19.qrtmd_stx.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):int()
 
@@ -1349,6 +1380,9 @@ local function omi_tmx_tsx_indexfeed_qrtmd_v1_19_udp_heuristic(buffer, packet, p
 
   -- Verify Qrtmd Stx
   if not tmx_tsx_indexfeed_qrtmd_v1_19.qrtmd_stx.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not tmx_tsx_indexfeed_qrtmd_v1_19.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_tsx_indexfeed_qrtmd_v1_19

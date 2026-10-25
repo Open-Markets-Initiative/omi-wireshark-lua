@@ -61,7 +61,7 @@ omi_siac_cqs_output_cta_v2_10_a.fields.halt_reason = ProtoField.new("Halt Reason
 omi_siac_cqs_output_cta_v2_10_a.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.output.cta.v2.10.a.instrumenttype", ftypes.STRING, nil, nil, nil, "Identifies the instrument type relevant to the quote")
 omi_siac_cqs_output_cta_v2_10_a.fields.ipo = ProtoField.new("Ipo", "siac.cqs.output.cta.v2.10.a.ipo", ftypes.STRING, nil, nil, nil, "Identifies whether the security symbol is an IPO")
 omi_siac_cqs_output_cta_v2_10_a.fields.limit_up_limit_down_luld_indicator = ProtoField.new("Limit Up Limit Down Luld Indicator", "siac.cqs.output.cta.v2.10.a.limituplimitdownluldindicator", ftypes.STRING, nil, nil, nil, "Indicates the effect the Quote has on the Limit Up-Limit Down Price Band range")
-omi_siac_cqs_output_cta_v2_10_a.fields.luld_leverage_ratio = ProtoField.new("Luld Leverage Ratio", "siac.cqs.output.cta.v2.10.a.luldleverageratio", ftypes.UINT32, nil, nil, nil, "Represents the Leverage ratio associated with the LULD Tier of the security symbol. Has implied 6 decimal places")
+omi_siac_cqs_output_cta_v2_10_a.fields.luld_leverage_ratio = ProtoField.new("Luld Leverage Ratio", "siac.cqs.output.cta.v2.10.a.luldleverageratio", ftypes.DOUBLE, nil, nil, nil, "Represents the Leverage ratio associated with the LULD Tier of the security symbol. Has implied 6 decimal places")
 omi_siac_cqs_output_cta_v2_10_a.fields.luld_tier = ProtoField.new("Luld Tier", "siac.cqs.output.cta.v2.10.a.luldtier", ftypes.STRING, nil, nil, nil, "Identifies the Limit Up Limit Down tier of the security symbol")
 omi_siac_cqs_output_cta_v2_10_a.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.output.cta.v2.10.a.marketcondition", ftypes.STRING, nil, nil, nil, "Identifies the market condition of a quote for a security")
 omi_siac_cqs_output_cta_v2_10_a.fields.market_status_message = ProtoField.new("Market Status Message", "siac.cqs.output.cta.v2.10.a.marketstatusmessage", ftypes.STRING, nil, nil, nil, "Market Status Category")
@@ -71,9 +71,9 @@ omi_siac_cqs_output_cta_v2_10_a.fields.message_category = ProtoField.new("Messag
 omi_siac_cqs_output_cta_v2_10_a.fields.message_id = ProtoField.new("Message Id", "siac.cqs.output.cta.v2.10.a.messageid", ftypes.UINT8, nil, nil, nil, "The Message ID identifies the individual message within the block beginning with number one")
 omi_siac_cqs_output_cta_v2_10_a.fields.message_length = ProtoField.new("Message Length", "siac.cqs.output.cta.v2.10.a.messagelength", ftypes.UINT16, nil, nil, nil, "The total length of the message in bytes")
 omi_siac_cqs_output_cta_v2_10_a.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.output.cta.v2.10.a.messagesinblock", ftypes.UINT8, nil, nil, nil, "The Number Of Messages Contained In The Block Data Of The Transmission Block")
-omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.output.cta.v2.10.a.mwcblevel1", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value associated with Level 1 = 7% of Previous Close S&P 500 Value. Has implied 6 decimal places")
-omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v2.10.a.mwcblevel2", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value associated with Level 2 = 13% of Previous Close S&P 500 Value. Has implied 6 decimal places")
-omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.output.cta.v2.10.a.mwcblevel3", ftypes.INT64, nil, nil, nil, "Identifies the daily established drop level value associated with Level 3 = 20% of Previous Close S&P 500 Value. Has implied 6 decimal places")
+omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.output.cta.v2.10.a.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value associated with Level 1 = 7% of Previous Close S&P 500 Value. Has implied 6 decimal places")
+omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.output.cta.v2.10.a.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value associated with Level 2 = 13% of Previous Close S&P 500 Value. Has implied 6 decimal places")
+omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.output.cta.v2.10.a.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value associated with Level 3 = 20% of Previous Close S&P 500 Value. Has implied 6 decimal places")
 omi_siac_cqs_output_cta_v2_10_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "siac.cqs.output.cta.v2.10.a.nanoseconds", ftypes.UINT32, nil, nil, nil, "The Nanosecond Portion Of The Time Currently Rounded To The Nearest Microsecond")
 omi_siac_cqs_output_cta_v2_10_a.fields.national_bbo_indicator = ProtoField.new("National Bbo Indicator", "siac.cqs.output.cta.v2.10.a.nationalbboindicator", ftypes.STRING, nil, nil, nil, "Indicates the effect the new quote has on the National BBO")
 omi_siac_cqs_output_cta_v2_10_a.fields.national_bbo_luld_indicator = ProtoField.new("National Bbo Luld Indicator", "siac.cqs.output.cta.v2.10.a.nationalbboluldindicator", ftypes.STRING, nil, nil, nil, "Indicates the effect that the Limit Up-Limit Down Price Band changes have on the National Best Bid and National Best Offer")
@@ -1439,11 +1439,17 @@ siac_cqs_output_cta_v2_10_a.luld_leverage_ratio.display = function(value)
   return "Luld Leverage Ratio: "..value
 end
 
+-- Translate: Luld Leverage Ratio
+siac_cqs_output_cta_v2_10_a.luld_leverage_ratio.translate = function(raw)
+  return raw/1000000
+end
+
 -- Dissect: Luld Leverage Ratio
 siac_cqs_output_cta_v2_10_a.luld_leverage_ratio.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_10_a.luld_leverage_ratio.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = siac_cqs_output_cta_v2_10_a.luld_leverage_ratio.translate(raw)
   local display = siac_cqs_output_cta_v2_10_a.luld_leverage_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.luld_leverage_ratio, range, value, display)
@@ -1699,11 +1705,17 @@ siac_cqs_output_cta_v2_10_a.mwcb_level_1.display = function(value)
   return "Mwcb Level 1: "..value
 end
 
+-- Translate: Mwcb Level 1
+siac_cqs_output_cta_v2_10_a.mwcb_level_1.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 1
 siac_cqs_output_cta_v2_10_a.mwcb_level_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_10_a.mwcb_level_1.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v2_10_a.mwcb_level_1.translate(raw)
   local display = siac_cqs_output_cta_v2_10_a.mwcb_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_1, range, value, display)
@@ -1722,11 +1734,17 @@ siac_cqs_output_cta_v2_10_a.mwcb_level_2.display = function(value)
   return "Mwcb Level 2: "..value
 end
 
+-- Translate: Mwcb Level 2
+siac_cqs_output_cta_v2_10_a.mwcb_level_2.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 2
 siac_cqs_output_cta_v2_10_a.mwcb_level_2.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_10_a.mwcb_level_2.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v2_10_a.mwcb_level_2.translate(raw)
   local display = siac_cqs_output_cta_v2_10_a.mwcb_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_2, range, value, display)
@@ -1745,11 +1763,17 @@ siac_cqs_output_cta_v2_10_a.mwcb_level_3.display = function(value)
   return "Mwcb Level 3: "..value
 end
 
+-- Translate: Mwcb Level 3
+siac_cqs_output_cta_v2_10_a.mwcb_level_3.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mwcb Level 3
 siac_cqs_output_cta_v2_10_a.mwcb_level_3.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_output_cta_v2_10_a.mwcb_level_3.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = siac_cqs_output_cta_v2_10_a.mwcb_level_3.translate(raw)
   local display = siac_cqs_output_cta_v2_10_a.mwcb_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_output_cta_v2_10_a.fields.mwcb_level_3, range, value, display)
@@ -5511,6 +5535,136 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+siac_cqs_output_cta_v2_10_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_category = buffer(22, 1):string()
+
+  -- Administrative Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "A" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local administrative_message_type = buffer(23, 1):string()
+
+    -- Symbol Reference Data Message
+    if administrative_message_type == "S" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Control Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "C" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local control_message_type = buffer(23, 1):string()
+
+    -- Start Of Day Message
+    if control_message_type == "A" then
+      return true
+    end
+
+    -- Finra Close Message
+    if control_message_type == "C" then
+      return true
+    end
+
+    -- Reset Block Sequence Number Message
+    if control_message_type == "L" then
+      return true
+    end
+
+    -- Finra Open Message
+    if control_message_type == "O" then
+      return true
+    end
+
+    -- Disaster Recovery Data Center Activation Message
+    if control_message_type == "P" then
+      return true
+    end
+
+    -- Line Integrity Message
+    if control_message_type == "T" then
+      return true
+    end
+
+    -- End Of Day Message
+    if control_message_type == "Z" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Market Status Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "M" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local market_status_message_type = buffer(23, 1):string()
+
+    -- Market Wide Circuit Breaker Decline Level Status Message
+    if market_status_message_type == "K" then
+      return true
+    end
+
+    -- Market Wide Circuit Breaker Status Message
+    if market_status_message_type == "L" then
+      return true
+    end
+
+    return false
+  end
+
+  -- Quote Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_category == "Q" then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local quote_message_type = buffer(23, 1):string()
+
+    -- Auction Status Message
+    if quote_message_type == "A" then
+      return true
+    end
+
+    -- Long Quote Message
+    if quote_message_type == "L" then
+      return true
+    end
+
+    -- Short Quote Message
+    if quote_message_type == "Q" then
+      return true
+    end
+
+    -- Special Long Quote Message
+    if quote_message_type == "S" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5518,6 +5672,9 @@ end
 local function omi_siac_cqs_output_cta_v2_10_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cqs_output_cta_v2_10_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not siac_cqs_output_cta_v2_10_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cqs_output_cta_v2_10_a

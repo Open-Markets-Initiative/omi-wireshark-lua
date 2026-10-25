@@ -40,8 +40,8 @@ omi_cme_brokertec_ustreasury_sbe_v10_1.fields.security_alt_id = ProtoField.new("
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.brokertec.ustreasury.sbe.v10.1.securityaltidsource", ftypes.STRING, nil, nil, nil, "Identifies class or source of the SecurityAltID (455) value")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time = ProtoField.new("Sending Time", "cme.brokertec.ustreasury.sbe.v10.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.brokertec.ustreasury.sbe.v10.1.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
+omi_cme_brokertec_ustreasury_sbe_v10_1.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.brokertec.ustreasury.sbe.v10.1.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.symbol = ProtoField.new("Symbol", "cme.brokertec.ustreasury.sbe.v10.1.symbol", ftypes.STRING, nil, nil, nil, "Contract symbol, name")
-omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_message_size = ProtoField.new("Tcp Message Size", "cme.brokertec.ustreasury.sbe.v10.1.tcpmessagesize", ftypes.UINT16, nil, nil, nil, "Message Size")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.brokertec.ustreasury.sbe.v10.1.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.template_id = ProtoField.new("Template Id", "cme.brokertec.ustreasury.sbe.v10.1.templateid", ftypes.UINT16)
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.trade_condition = ProtoField.new("Trade Condition", "cme.brokertec.ustreasury.sbe.v10.1.tradecondition", ftypes.STRING, nil, nil, nil, "List of conditions describing a trade. H= Hit, T=Take")
@@ -54,11 +54,11 @@ omi_cme_brokertec_ustreasury_sbe_v10_1.fields.version = ProtoField.new("Version"
 -- Cme BrokerTec UsTreasury Sbe 10.1 Framing
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.brokertec.ustreasury.sbe.v10.1.binarypacketheader", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet Header")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.brokertec.ustreasury.sbe.v10.1.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
-omi_cme_brokertec_ustreasury_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.brokertec.ustreasury.sbe.v10.1.messageheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
+omi_cme_brokertec_ustreasury_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.brokertec.ustreasury.sbe.v10.1.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_frame = ProtoField.new("Tcp Frame", "cme.brokertec.ustreasury.sbe.v10.1.tcpframe", ftypes.STRING, nil, nil, nil, "One technical header framed Cme Sbe message")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_message = ProtoField.new("Tcp Message", "cme.brokertec.ustreasury.sbe.v10.1.tcpmessage", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.brokertec.ustreasury.sbe.v10.1.tcppacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet")
-omi_cme_brokertec_ustreasury_sbe_v10_1.fields.technical_header = ProtoField.new("Technical Header", "cme.brokertec.ustreasury.sbe.v10.1.technicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header. Tcp Message Size is the last field so this fixed 16 byte header spans everything up to and including the length the reassembly reads.")
+omi_cme_brokertec_ustreasury_sbe_v10_1.fields.technical_header = ProtoField.new("Technical Header", "cme.brokertec.ustreasury.sbe.v10.1.technicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header")
 omi_cme_brokertec_ustreasury_sbe_v10_1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.brokertec.ustreasury.sbe.v10.1.udppacket", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet")
 
 -- Cme BrokerTec UsTreasury 10.1 Application Messages
@@ -739,29 +739,6 @@ cme_brokertec_ustreasury_sbe_v10_1.symbol.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Tcp Message Size
-cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size = {}
-
--- Size: Tcp Message Size
-cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size.size = 2
-
--- Display: Tcp Message Size
-cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size.display = function(value)
-  return "Tcp Message Size: "..value
-end
-
--- Dissect: Tcp Message Size
-cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_message_size, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tcp Sending Time
 cme_brokertec_ustreasury_sbe_v10_1.tcp_sending_time = {}
 
@@ -1355,23 +1332,23 @@ cme_brokertec_ustreasury_sbe_v10_1.payload.dissect = function(buffer, offset, pa
   return offset
 end
 
--- Message Header
-cme_brokertec_ustreasury_sbe_v10_1.message_header = {}
+-- Simple Binary Header
+cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header = {}
 
--- Size: Message Header
-cme_brokertec_ustreasury_sbe_v10_1.message_header.size =
+-- Size: Simple Binary Header
+cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.size =
   cme_brokertec_ustreasury_sbe_v10_1.block_length.size + 
   cme_brokertec_ustreasury_sbe_v10_1.template_id.size + 
   cme_brokertec_ustreasury_sbe_v10_1.schema_id.size + 
   cme_brokertec_ustreasury_sbe_v10_1.version.size
 
--- Display: Message Header
-cme_brokertec_ustreasury_sbe_v10_1.message_header.display = function(packet, parent, length)
+-- Display: Simple Binary Header
+cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-cme_brokertec_ustreasury_sbe_v10_1.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Binary Header
+cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: uint16
@@ -1385,6 +1362,50 @@ cme_brokertec_ustreasury_sbe_v10_1.message_header.fields = function(buffer, offs
 
   -- Version: uint16
   index, version = cme_brokertec_ustreasury_sbe_v10_1.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Simple Binary Header
+cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_brokertec_ustreasury_sbe_v10_1.fields.simple_binary_header, buffer(offset, 0))
+    local index = cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Header
+cme_brokertec_ustreasury_sbe_v10_1.message_header = {}
+
+-- Size: Message Header
+cme_brokertec_ustreasury_sbe_v10_1.message_header.size =
+  cme_brokertec_ustreasury_sbe_v10_1.message_size.size + 
+  cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.size
+
+-- Display: Message Header
+cme_brokertec_ustreasury_sbe_v10_1.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cme_brokertec_ustreasury_sbe_v10_1.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = cme_brokertec_ustreasury_sbe_v10_1.message_size.dissect(buffer, index, packet, parent)
+
+  -- Simple Binary Header: Struct of 4 fields
+  index, simple_binary_header = cme_brokertec_ustreasury_sbe_v10_1.simple_binary_header.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1433,7 +1454,7 @@ end
 cme_brokertec_ustreasury_sbe_v10_1.tcp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_brokertec_ustreasury_sbe_v10_1.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -1447,7 +1468,7 @@ end
 
 -- Dissect: Tcp Message
 cme_brokertec_ustreasury_sbe_v10_1.tcp_message.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_brokertec_ustreasury_sbe_v10_1.fields.tcp_message, buffer(offset, 0))
     local index = cme_brokertec_ustreasury_sbe_v10_1.tcp_message.fields(buffer, offset, packet, parent)
@@ -1470,8 +1491,7 @@ cme_brokertec_ustreasury_sbe_v10_1.technical_header = {}
 cme_brokertec_ustreasury_sbe_v10_1.technical_header.size =
   cme_brokertec_ustreasury_sbe_v10_1.encoding_type.size + 
   cme_brokertec_ustreasury_sbe_v10_1.message_sequence_number.size + 
-  cme_brokertec_ustreasury_sbe_v10_1.tcp_sending_time.size + 
-  cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size.size
+  cme_brokertec_ustreasury_sbe_v10_1.tcp_sending_time.size
 
 -- Display: Technical Header
 cme_brokertec_ustreasury_sbe_v10_1.technical_header.display = function(packet, parent, length)
@@ -1490,9 +1510,6 @@ cme_brokertec_ustreasury_sbe_v10_1.technical_header.fields = function(buffer, of
 
   -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, tcp_sending_time = cme_brokertec_ustreasury_sbe_v10_1.tcp_sending_time.dissect(buffer, index, packet, parent)
-
-  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, tcp_message_size = cme_brokertec_ustreasury_sbe_v10_1.tcp_message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1527,7 +1544,7 @@ end
 cme_brokertec_ustreasury_sbe_v10_1.tcp_frame.fields = function(buffer, offset, packet, parent, size_of_tcp_frame)
   local index = offset
 
-  -- Technical Header: Struct of 4 fields
+  -- Technical Header: Struct of 3 fields
   index, technical_header = cme_brokertec_ustreasury_sbe_v10_1.technical_header.dissect(buffer, index, packet, parent)
 
   -- Tcp Message: Struct of 2 fields
@@ -1563,7 +1580,7 @@ local tcp_frame_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < cme_brokertec_ustreasury_sbe_v10_1.technical_header.size then
+  if remaining < 14 + cme_brokertec_ustreasury_sbe_v10_1.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -1628,10 +1645,7 @@ end
 cme_brokertec_ustreasury_sbe_v10_1.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_brokertec_ustreasury_sbe_v10_1.message_size.dissect(buffer, index, packet, parent)
-
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_brokertec_ustreasury_sbe_v10_1.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -1648,7 +1662,7 @@ cme_brokertec_ustreasury_sbe_v10_1.message.dissect = function(buffer, offset, pa
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.headers then
+  if show.structs then
     parent = parent:add(omi_cme_brokertec_ustreasury_sbe_v10_1.fields.message, buffer(offset, 0))
     local current = cme_brokertec_ustreasury_sbe_v10_1.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)
@@ -1713,7 +1727,7 @@ cme_brokertec_ustreasury_sbe_v10_1.udp_packet = {}
 
 -- Verify required size of Udp packet
 cme_brokertec_ustreasury_sbe_v10_1.udp_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_brokertec_ustreasury_sbe_v10_1.binary_packet_header.size + cme_brokertec_ustreasury_sbe_v10_1.message_size.size + cme_brokertec_ustreasury_sbe_v10_1.message_header.size
+  return buffer:len() >= cme_brokertec_ustreasury_sbe_v10_1.binary_packet_header.size + cme_brokertec_ustreasury_sbe_v10_1.message_header.size
 end
 
 -- Dissect Udp Packet
@@ -1726,7 +1740,7 @@ cme_brokertec_ustreasury_sbe_v10_1.udp_packet.dissect = function(buffer, packet,
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 3 fields
+  -- Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -1773,6 +1787,27 @@ end
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
 
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+cme_brokertec_ustreasury_sbe_v10_1.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 18 then
+    return false
+  end
+
+  local template_id = buffer(16, 2):le_uint()
+
+  -- Md Incremental Refresh Btec
+  if template_id == 405 then
+    return true
+  end
+
+  -- Admin Heartbeat
+  if template_id == 411 then
+    return true
+  end
+
+  return false
+end
+
 -- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
 cme_brokertec_ustreasury_sbe_v10_1.tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 20 then
@@ -1801,6 +1836,11 @@ end
 
 -- Verify Schema Id Field
 cme_brokertec_ustreasury_sbe_v10_1.schema_id.udp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 18 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(18, 2):le_uint()
 
@@ -1813,6 +1853,11 @@ end
 
 -- Verify Version Field
 cme_brokertec_ustreasury_sbe_v10_1.version.udp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -1825,6 +1870,11 @@ end
 
 -- Verify Encoding Type Field
 cme_brokertec_ustreasury_sbe_v10_1.encoding_type.tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 2):le_uint()
 
@@ -1837,6 +1887,11 @@ end
 
 -- Verify Schema Id Field
 cme_brokertec_ustreasury_sbe_v10_1.schema_id.tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -1849,6 +1904,11 @@ end
 
 -- Verify Version Field
 cme_brokertec_ustreasury_sbe_v10_1.version.tcp_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 22 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -1869,6 +1929,9 @@ local function omi_cme_brokertec_ustreasury_sbe_v10_1_udp_heuristic(buffer, pack
 
   -- Verify Version
   if not cme_brokertec_ustreasury_sbe_v10_1.version.udp_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not cme_brokertec_ustreasury_sbe_v10_1.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cme_brokertec_ustreasury_sbe_v10_1
@@ -1891,7 +1954,7 @@ local function omi_cme_brokertec_ustreasury_sbe_v10_1_tcp_acceptor_heuristic(buf
   -- Verify Version
   if not cme_brokertec_ustreasury_sbe_v10_1.version.tcp_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp tcp packet message dispatch
   if not cme_brokertec_ustreasury_sbe_v10_1.tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

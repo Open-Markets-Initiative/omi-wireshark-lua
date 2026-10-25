@@ -19687,11 +19687,307 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+euronext_optiq_orderentrygateway_sbe_v5_56.packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+
+  local template_id = buffer(4, 2):le_uint()
+
+  -- New Order Message
+  if template_id == 1 then
+    return true
+  end
+
+  -- Ack Message
+  if template_id == 3 then
+    return true
+  end
+
+  -- Fill Message
+  if template_id == 4 then
+    return true
+  end
+
+  -- Kill Message
+  if template_id == 5 then
+    return true
+  end
+
+  -- Cancel Replace Message
+  if template_id == 6 then
+    return true
+  end
+
+  -- Reject Message
+  if template_id == 7 then
+    return true
+  end
+
+  -- Quotes Message
+  if template_id == 8 then
+    return true
+  end
+
+  -- Quote Ack Message
+  if template_id == 9 then
+    return true
+  end
+
+  -- Quote Request Message
+  if template_id == 10 then
+    return true
+  end
+
+  -- Cancel Request Message
+  if template_id == 12 then
+    return true
+  end
+
+  -- Mass Cancel Message
+  if template_id == 13 then
+    return true
+  end
+
+  -- Mass Cancel Ack Message
+  if template_id == 14 then
+    return true
+  end
+
+  -- Open Order Request Message
+  if template_id == 15 then
+    return true
+  end
+
+  -- Ownership Request Ack Message
+  if template_id == 17 then
+    return true
+  end
+
+  -- Ownership Request Message
+  if template_id == 18 then
+    return true
+  end
+
+  -- Trade Bust Notification Message
+  if template_id == 19 then
+    return true
+  end
+
+  -- Collar Breach Confirmation Message
+  if template_id == 20 then
+    return true
+  end
+
+  -- Price Input Message
+  if template_id == 28 then
+    return true
+  end
+
+  -- Liquidity Provider Command Message
+  if template_id == 32 then
+    return true
+  end
+
+  -- Ask For Quote Message
+  if template_id == 33 then
+    return true
+  end
+
+  -- Request For Execution Message
+  if template_id == 34 then
+    return true
+  end
+
+  -- Rfq Notification Message
+  if template_id == 35 then
+    return true
+  end
+
+  -- Rfq Matching Status Message
+  if template_id == 36 then
+    return true
+  end
+
+  -- Rfqlp Matching Status Message
+  if template_id == 37 then
+    return true
+  end
+
+  -- User Notification Message
+  if template_id == 39 then
+    return true
+  end
+
+  -- Mm Sign In Message
+  if template_id == 47 then
+    return true
+  end
+
+  -- Mm Sign In Ack Message
+  if template_id == 48 then
+    return true
+  end
+
+  -- Instrument Synchronization List Message
+  if template_id == 50 then
+    return true
+  end
+
+  -- Synchronization Time Message
+  if template_id == 51 then
+    return true
+  end
+
+  -- Security Definition Request Message
+  if template_id == 60 then
+    return true
+  end
+
+  -- Security Definition Ack Message
+  if template_id == 61 then
+    return true
+  end
+
+  -- Mm Protection Request Message
+  if template_id == 62 then
+    return true
+  end
+
+  -- Mm Protection Ack Message
+  if template_id == 63 then
+    return true
+  end
+
+  -- New Wholesale Order Message
+  if template_id == 64 then
+    return true
+  end
+
+  -- Wholesale Order Ack Message
+  if template_id == 65 then
+    return true
+  end
+
+  -- Request For Implied Execution Message
+  if template_id == 66 then
+    return true
+  end
+
+  -- Cross Order Message
+  if template_id == 67 then
+    return true
+  end
+
+  -- Rfq Audit Message
+  if template_id == 72 then
+    return true
+  end
+
+  -- Wave For Liquidity Message
+  if template_id == 73 then
+    return true
+  end
+
+  -- Wave For Liquidity Notification Message
+  if template_id == 74 then
+    return true
+  end
+
+  -- Clear Book Message
+  if template_id == 75 then
+    return true
+  end
+
+  -- Logon Message
+  if template_id == 100 then
+    return true
+  end
+
+  -- Logon Ack Message
+  if template_id == 101 then
+    return true
+  end
+
+  -- Logon Reject Message
+  if template_id == 102 then
+    return true
+  end
+
+  -- Logout Message
+  if template_id == 103 then
+    return true
+  end
+
+  -- Heartbeat Message
+  if template_id == 106 then
+    return true
+  end
+
+  -- Test Request Message
+  if template_id == 107 then
+    return true
+  end
+
+  -- Technical Reject Message
+  if template_id == 108 then
+    return true
+  end
+
+  -- Declaration Entry Message
+  if template_id == 40 then
+    return true
+  end
+
+  -- Declaration Entry Ack Message
+  if template_id == 41 then
+    return true
+  end
+
+  -- Declaration Notice Message
+  if template_id == 42 then
+    return true
+  end
+
+  -- Declaration Cancel And Refusal Message
+  if template_id == 43 then
+    return true
+  end
+
+  -- Fund Price Input Message
+  if template_id == 44 then
+    return true
+  end
+
+  -- Fund Price Input Ack Message
+  if template_id == 45 then
+    return true
+  end
+
+  -- Declaration Entry Reject Message
+  if template_id == 46 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
 euronext_optiq_orderentrygateway_sbe_v5_56.schema_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 6 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(6, 2):le_uint()
 
@@ -19704,6 +20000,11 @@ end
 
 -- Verify Version Field
 euronext_optiq_orderentrygateway_sbe_v5_56.version.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 8 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -19724,6 +20025,9 @@ local function omi_euronext_optiq_orderentrygateway_sbe_v5_56_tcp_heuristic(buff
 
   -- Verify Version
   if not euronext_optiq_orderentrygateway_sbe_v5_56.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not euronext_optiq_orderentrygateway_sbe_v5_56.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_euronext_optiq_orderentrygateway_sbe_v5_56

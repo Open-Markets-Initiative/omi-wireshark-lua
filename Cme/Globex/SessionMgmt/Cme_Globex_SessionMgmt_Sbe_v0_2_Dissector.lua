@@ -57,6 +57,7 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_grou
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.session = ProtoField.new("Session", "cme.globex.sessionmgmt.sbe.v0.2.session", ftypes.STRING, nil, nil, nil, "Session ID")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.globex.sessionmgmt.sbe.v0.2.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.subscription_req_type = ProtoField.new("Subscription Req Type", "cme.globex.sessionmgmt.sbe.v0.2.subscriptionreqtype", ftypes.UINT8, nil, nil, nil, "Subscription Request Type indicates to the type of response expected")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.template_id = ProtoField.new("Template Id", "cme.globex.sessionmgmt.sbe.v0.2.templateid", ftypes.UINT16)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.text = ProtoField.new("Text", "cme.globex.sessionmgmt.sbe.v0.2.text", ftypes.STRING, nil, nil, nil, "Reject reason details")
@@ -67,12 +68,12 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.version = ProtoField.new("Version", "
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_message = ProtoField.new("Client Message", "cme.globex.sessionmgmt.sbe.v0.2.clientmessage", ftypes.STRING, nil, nil, nil, "Cme Session Message sent by the subscriber to Cme")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_packet = ProtoField.new("Client Packet", "cme.globex.sessionmgmt.sbe.v0.2.clientpacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet sent by the subscriber to Cme")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_tcp_frame = ProtoField.new("Client Tcp Frame", "cme.globex.sessionmgmt.sbe.v0.2.clienttcpframe", ftypes.STRING, nil, nil, nil, "One technical header and the message it carries: the unit the wire repeats")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.sessionmgmt.sbe.v0.2.clienttechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by the subscriber to Cme. Message Size is the last field so this fixed 16 byte header spans everything up to and including the length the reassembly reads.")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.message_header = ProtoField.new("Message Header", "cme.globex.sessionmgmt.sbe.v0.2.messageheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.sessionmgmt.sbe.v0.2.clienttechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by the subscriber to Cme")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.message_header = ProtoField.new("Message Header", "cme.globex.sessionmgmt.sbe.v0.2.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_message = ProtoField.new("Server Message", "cme.globex.sessionmgmt.sbe.v0.2.servermessage", ftypes.STRING, nil, nil, nil, "Cme Session Message sent by Cme to the subscriber")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_packet = ProtoField.new("Server Packet", "cme.globex.sessionmgmt.sbe.v0.2.serverpacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet sent by Cme to the subscriber")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_tcp_frame = ProtoField.new("Server Tcp Frame", "cme.globex.sessionmgmt.sbe.v0.2.servertcpframe", ftypes.STRING, nil, nil, nil, "One technical header and the message it carries: the unit the wire repeats")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.sessionmgmt.sbe.v0.2.servertechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by Cme to the subscriber. Message Size is the last field so this fixed 16 byte header spans everything up to and including the length the reassembly reads.")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.sessionmgmt.sbe.v0.2.servertechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by Cme to the subscriber")
 
 -- Cme Globex SessionMgmt 0.2 Application Messages
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.market_data_request = ProtoField.new("Market Data Request", "cme.globex.sessionmgmt.sbe.v0.2.marketdatarequest", ftypes.STRING, nil, nil, nil, "MarketDataRequest")
@@ -1582,23 +1583,23 @@ cme_globex_sessionmgmt_sbe_v0_2.server_payload.dissect = function(buffer, offset
   return offset
 end
 
--- Message Header
-cme_globex_sessionmgmt_sbe_v0_2.message_header = {}
+-- Simple Binary Header
+cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header = {}
 
--- Size: Message Header
-cme_globex_sessionmgmt_sbe_v0_2.message_header.size =
+-- Size: Simple Binary Header
+cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.size =
   cme_globex_sessionmgmt_sbe_v0_2.block_length.size + 
   cme_globex_sessionmgmt_sbe_v0_2.template_id.size + 
   cme_globex_sessionmgmt_sbe_v0_2.schema_id.size + 
   cme_globex_sessionmgmt_sbe_v0_2.version.size
 
--- Display: Message Header
-cme_globex_sessionmgmt_sbe_v0_2.message_header.display = function(packet, parent, length)
+-- Display: Simple Binary Header
+cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-cme_globex_sessionmgmt_sbe_v0_2.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Simple Binary Header
+cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length: uint16
@@ -1612,6 +1613,50 @@ cme_globex_sessionmgmt_sbe_v0_2.message_header.fields = function(buffer, offset,
 
   -- Version: uint16
   index, version = cme_globex_sessionmgmt_sbe_v0_2.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Simple Binary Header
+cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.simple_binary_header, buffer(offset, 0))
+    local index = cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Header
+cme_globex_sessionmgmt_sbe_v0_2.message_header = {}
+
+-- Size: Message Header
+cme_globex_sessionmgmt_sbe_v0_2.message_header.size =
+  cme_globex_sessionmgmt_sbe_v0_2.message_size.size + 
+  cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.size
+
+-- Display: Message Header
+cme_globex_sessionmgmt_sbe_v0_2.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cme_globex_sessionmgmt_sbe_v0_2.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = cme_globex_sessionmgmt_sbe_v0_2.message_size.dissect(buffer, index, packet, parent)
+
+  -- Simple Binary Header: Struct of 4 fields
+  index, simple_binary_header = cme_globex_sessionmgmt_sbe_v0_2.simple_binary_header.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1660,7 +1705,7 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.server_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_globex_sessionmgmt_sbe_v0_2.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -1697,8 +1742,7 @@ cme_globex_sessionmgmt_sbe_v0_2.server_technical_header = {}
 cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.size =
   cme_globex_sessionmgmt_sbe_v0_2.encoding_type.size + 
   cme_globex_sessionmgmt_sbe_v0_2.message_sequence_number.size + 
-  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size + 
-  cme_globex_sessionmgmt_sbe_v0_2.message_size.size
+  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size
 
 -- Display: Server Technical Header
 cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.display = function(packet, parent, length)
@@ -1717,9 +1761,6 @@ cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.fields = function(buffer
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_globex_sessionmgmt_sbe_v0_2.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_globex_sessionmgmt_sbe_v0_2.message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1754,7 +1795,7 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields = function(buffer, offset, packet, parent, size_of_server_tcp_frame)
   local index = offset
 
-  -- Server Technical Header: Struct of 4 fields
+  -- Server Technical Header: Struct of 3 fields
   index, server_technical_header = cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.dissect(buffer, index, packet, parent)
 
   -- Server Message: Struct of 2 fields
@@ -1790,7 +1831,7 @@ local server_tcp_frame_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.size then
+  if remaining < 14 + cme_globex_sessionmgmt_sbe_v0_2.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -2777,7 +2818,7 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.client_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Header: Struct of 4 fields
+  -- Message Header: Struct of 2 fields
   index, message_header = cme_globex_sessionmgmt_sbe_v0_2.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
@@ -2814,8 +2855,7 @@ cme_globex_sessionmgmt_sbe_v0_2.client_technical_header = {}
 cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.size =
   cme_globex_sessionmgmt_sbe_v0_2.encoding_type.size + 
   cme_globex_sessionmgmt_sbe_v0_2.message_sequence_number.size + 
-  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size + 
-  cme_globex_sessionmgmt_sbe_v0_2.message_size.size
+  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size
 
 -- Display: Client Technical Header
 cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.display = function(packet, parent, length)
@@ -2834,9 +2874,6 @@ cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.fields = function(buffer
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_globex_sessionmgmt_sbe_v0_2.sending_time.dissect(buffer, index, packet, parent)
-
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_globex_sessionmgmt_sbe_v0_2.message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2871,7 +2908,7 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields = function(buffer, offset, packet, parent, size_of_client_tcp_frame)
   local index = offset
 
-  -- Client Technical Header: Struct of 4 fields
+  -- Client Technical Header: Struct of 3 fields
   index, client_technical_header = cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.dissect(buffer, index, packet, parent)
 
   -- Client Message: Struct of 2 fields
@@ -2907,7 +2944,7 @@ local client_tcp_frame_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.size then
+  if remaining < 14 + cme_globex_sessionmgmt_sbe_v0_2.message_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3152,6 +3189,11 @@ end
 
 -- Verify Schema Id Field
 cme_globex_sessionmgmt_sbe_v0_2.schema_id.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -3164,6 +3206,11 @@ end
 
 -- Verify Version Field
 cme_globex_sessionmgmt_sbe_v0_2.version.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 22 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -3176,6 +3223,11 @@ end
 
 -- Verify Schema Id Field
 cme_globex_sessionmgmt_sbe_v0_2.schema_id.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(20, 2):le_uint()
 
@@ -3188,6 +3240,11 @@ end
 
 -- Verify Version Field
 cme_globex_sessionmgmt_sbe_v0_2.version.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 22 + 2 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(22, 2):le_uint()
 
@@ -3209,7 +3266,7 @@ local function omi_cme_globex_sessionmgmt_sbe_v0_2_tcp_initiator_heuristic(buffe
   -- Verify Version
   if not cme_globex_sessionmgmt_sbe_v0_2.version.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not cme_globex_sessionmgmt_sbe_v0_2.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -3230,7 +3287,7 @@ local function omi_cme_globex_sessionmgmt_sbe_v0_2_tcp_acceptor_heuristic(buffer
   -- Verify Version
   if not cme_globex_sessionmgmt_sbe_v0_2.version.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not cme_globex_sessionmgmt_sbe_v0_2.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

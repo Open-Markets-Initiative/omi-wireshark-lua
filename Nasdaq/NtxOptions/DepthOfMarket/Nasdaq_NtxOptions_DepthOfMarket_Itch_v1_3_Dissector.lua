@@ -3938,6 +3938,165 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- Seconds Message
+  if message_type == "T" then
+    return true
+  end
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Base Reference Message
+  if message_type == "L" then
+    return true
+  end
+
+  -- Option Directory Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Trading Action Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Option Open Message
+  if message_type == "O" then
+    return true
+  end
+
+  -- Add Order Message Short Form
+  if message_type == "a" then
+    return true
+  end
+
+  -- Add Order Message Long Form
+  if message_type == "A" then
+    return true
+  end
+
+  -- Add Quote Message Short Form
+  if message_type == "j" then
+    return true
+  end
+
+  -- Add Quote Message Long Form
+  if message_type == "J" then
+    return true
+  end
+
+  -- Single Side Executed Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Single Side Order Executed With Price Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Order Cancel Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Single Side Replace Message Short Form
+  if message_type == "u" then
+    return true
+  end
+
+  -- Single Side Replace Message Long Form
+  if message_type == "U" then
+    return true
+  end
+
+  -- Single Side Delete Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Single Side Update Message
+  if message_type == "G" then
+    return true
+  end
+
+  -- Quote Replace Message Short Form
+  if message_type == "k" then
+    return true
+  end
+
+  -- Quote Replace Message Long Form
+  if message_type == "K" then
+    return true
+  end
+
+  -- Quote Delete Message
+  if message_type == "Y" then
+    return true
+  end
+
+  -- Block Delete Message
+  if message_type == "Z" then
+    return true
+  end
+
+  -- Non Auction Options Trade Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Options Cross Trade Message
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Broken Trade Or Order Execution Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Net Order Imbalance Indicator Message
+  if message_type == "I" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3945,6 +4104,9 @@ end
 local function omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_ntxoptions_depthofmarket_itch_v1_3.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_ntxoptions_depthofmarket_itch_v1_3.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3

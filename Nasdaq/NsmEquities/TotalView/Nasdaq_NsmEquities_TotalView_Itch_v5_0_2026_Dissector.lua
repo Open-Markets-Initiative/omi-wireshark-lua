@@ -6542,6 +6542,150 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.server_packet.fingerprint = function
   return false
 end
 
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nasdaq_nsmequities_totalview_itch_v5_0_2026.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_count = buffer(18, 2):uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- End Of Session
+  if message_count == 65535 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 23 then
+    return false
+  end
+
+  local message_type = buffer(22, 1):string()
+
+  -- System Event Message
+  if message_type == "S" then
+    return true
+  end
+
+  -- Stock Directory Message
+  if message_type == "R" then
+    return true
+  end
+
+  -- Stock Trading Action Message
+  if message_type == "H" then
+    return true
+  end
+
+  -- Reg Sho Short Sale Price Test Restricted Indicator Message
+  if message_type == "Y" then
+    return true
+  end
+
+  -- Market Participant Position Message
+  if message_type == "L" then
+    return true
+  end
+
+  -- Mwcb Decline Level Message
+  if message_type == "V" then
+    return true
+  end
+
+  -- Mwcb Status Level Message
+  if message_type == "W" then
+    return true
+  end
+
+  -- Ipo Quoting Period Update
+  if message_type == "K" then
+    return true
+  end
+
+  -- Luld Auction Collar Message
+  if message_type == "J" then
+    return true
+  end
+
+  -- Operational Halt Message
+  if message_type == "h" then
+    return true
+  end
+
+  -- Add Order No Mpid Attribution Message
+  if message_type == "A" then
+    return true
+  end
+
+  -- Add Order With Mpid Attribution Message
+  if message_type == "F" then
+    return true
+  end
+
+  -- Order Executed Message
+  if message_type == "E" then
+    return true
+  end
+
+  -- Order Executed With Price Message
+  if message_type == "C" then
+    return true
+  end
+
+  -- Order Cancel Message
+  if message_type == "X" then
+    return true
+  end
+
+  -- Order Delete Message
+  if message_type == "D" then
+    return true
+  end
+
+  -- Order Replace Message
+  if message_type == "U" then
+    return true
+  end
+
+  -- Non Cross Trade Message
+  if message_type == "P" then
+    return true
+  end
+
+  -- Cross Trade Message
+  if message_type == "Q" then
+    return true
+  end
+
+  -- Broken Trade Message
+  if message_type == "B" then
+    return true
+  end
+
+  -- Net Order Imbalance Indicator Message
+  if message_type == "I" then
+    return true
+  end
+
+  -- Retail Price Improvement Indicator Message
+  if message_type == "N" then
+    return true
+  end
+
+  -- Direct Listing With Capital Raise Price Discovery Message
+  if message_type == "O" then
+    return true
+  end
+
+
+  return false
+end
+
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics
@@ -6552,7 +6696,7 @@ local function omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_initiator_heu
   -- Verify packet length
   if not nasdaq_nsmequities_totalview_itch_v5_0_2026.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nasdaq_nsmequities_totalview_itch_v5_0_2026.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -6567,7 +6711,7 @@ local function omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_acceptor_heur
   -- Verify packet length
   if not nasdaq_nsmequities_totalview_itch_v5_0_2026.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not nasdaq_nsmequities_totalview_itch_v5_0_2026.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -6581,6 +6725,9 @@ end
 local function omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nasdaq_nsmequities_totalview_itch_v5_0_2026.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nasdaq_nsmequities_totalview_itch_v5_0_2026.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_totalview_itch_v5_0_2026

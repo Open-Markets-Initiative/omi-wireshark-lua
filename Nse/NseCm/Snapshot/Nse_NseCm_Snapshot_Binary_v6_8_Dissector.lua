@@ -62,15 +62,15 @@ nse_nsecm_snapshot_binary_v6_8.absolute_time_base = 0
 local show = {}
 
 -- Nse NseCm Snapshot Binary 6.8 Element Dissection Options
-show.headers = true
-show.application_messages = true
 show.structs = true
+show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Nse NseCm Snapshot Binary 6.8 Show Options
-omi_nse_nsecm_snapshot_binary_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
-omi_nse_nsecm_snapshot_binary_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecm_snapshot_binary_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nse_nsecm_snapshot_binary_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsecm_snapshot_binary_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecm_snapshot_binary_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nse_nsecm_snapshot_binary_v6_8.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -587,7 +587,7 @@ end
 
 -- Dissect: Message
 nse_nsecm_snapshot_binary_v6_8.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.headers then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecm_snapshot_binary_v6_8.fields.message, buffer(offset, 0))
     local index = nse_nsecm_snapshot_binary_v6_8.message.fields(buffer, offset, packet, parent, message_index)
@@ -766,7 +766,7 @@ local function omi_nse_nsecm_snapshot_binary_v6_8_tcp_acceptor_heuristic(buffer,
   -- Verify packet length
   if not nse_nsecm_snapshot_binary_v6_8.packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp packet message dispatch
   if not nse_nsecm_snapshot_binary_v6_8.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

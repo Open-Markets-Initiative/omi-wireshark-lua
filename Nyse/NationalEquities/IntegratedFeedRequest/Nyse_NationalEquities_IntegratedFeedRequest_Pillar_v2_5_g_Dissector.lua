@@ -1455,7 +1455,7 @@ local function omi_nyse_nationalequities_integratedfeedrequest_pillar_v2_5_g_tcp
   -- Verify packet length
   if not nyse_nationalequities_integratedfeedrequest_pillar_v2_5_g.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nyse_nationalequities_integratedfeedrequest_pillar_v2_5_g.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -1470,7 +1470,7 @@ local function omi_nyse_nationalequities_integratedfeedrequest_pillar_v2_5_g_tcp
   -- Verify packet length
   if not nyse_nationalequities_integratedfeedrequest_pillar_v2_5_g.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not nyse_nationalequities_integratedfeedrequest_pillar_v2_5_g.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

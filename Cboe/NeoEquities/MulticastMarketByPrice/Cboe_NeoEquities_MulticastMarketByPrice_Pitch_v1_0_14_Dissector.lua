@@ -2260,6 +2260,75 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Unit Clear Message
+  if message_type == 0x97 then
+    return true
+  end
+
+  -- Instrument Directory Message
+  if message_type == 0x60 then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0x61 then
+    return true
+  end
+
+  -- Trade Message
+  if message_type == 0x67 then
+    return true
+  end
+
+  -- Trade Break Message
+  if message_type == 0x68 then
+    return true
+  end
+
+  -- Trade Correction Message
+  if message_type == 0x69 then
+    return true
+  end
+
+  -- Single Side Update Message
+  if message_type == 0x6A then
+    return true
+  end
+
+  -- End Of Session Message
+  if message_type == 0x2D then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2267,6 +2336,9 @@ end
 local function omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14
@@ -2291,7 +2363,7 @@ udp_table:add_for_decode_as(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.14
 --   Date: Monday, February 9, 2026
---   Specification: Cboe Canada Equities Multicast PITCH Specification (2026-05-28).pdf
+--   Specification: Cboe Canada Equities Multicast PITCH Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

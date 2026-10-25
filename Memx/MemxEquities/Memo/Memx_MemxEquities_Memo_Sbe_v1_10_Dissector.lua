@@ -6556,7 +6556,7 @@ local function omi_memx_memxequities_memo_sbe_v1_10_tcp_initiator_heuristic(buff
   -- Verify packet length
   if not memx_memxequities_memo_sbe_v1_10.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not memx_memxequities_memo_sbe_v1_10.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -6571,7 +6571,7 @@ local function omi_memx_memxequities_memo_sbe_v1_10_tcp_acceptor_heuristic(buffe
   -- Verify packet length
   if not memx_memxequities_memo_sbe_v1_10.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not memx_memxequities_memo_sbe_v1_10.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

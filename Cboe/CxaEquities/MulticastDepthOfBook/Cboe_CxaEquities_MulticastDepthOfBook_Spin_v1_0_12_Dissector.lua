@@ -1785,6 +1785,85 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local message_count = buffer(2, 1):le_uint()
+
+  -- Heartbeat
+  if message_count == 0 then
+    return true
+  end
+
+  -- Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 10 then
+    return false
+  end
+
+  local message_type = buffer(9, 1):le_uint()
+
+  -- Login Message
+  if message_type == 0x01 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Spin Image Available Message
+  if message_type == 0x80 then
+    return true
+  end
+
+  -- Spin Request Message
+  if message_type == 0x81 then
+    return true
+  end
+
+  -- Spin Response Message
+  if message_type == 0x82 then
+    return true
+  end
+
+  -- Spin Finished Message
+  if message_type == 0x83 then
+    return true
+  end
+
+  -- Trading Status Message
+  if message_type == 0x3B then
+    return true
+  end
+
+  -- Add Order Message
+  if message_type == 0x37 then
+    return true
+  end
+
+  -- Calculated Value Message
+  if message_type == 0xE3 then
+    return true
+  end
+
+  -- Auction Update Message
+  if message_type == 0x59 then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1792,6 +1871,9 @@ end
 local function omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12

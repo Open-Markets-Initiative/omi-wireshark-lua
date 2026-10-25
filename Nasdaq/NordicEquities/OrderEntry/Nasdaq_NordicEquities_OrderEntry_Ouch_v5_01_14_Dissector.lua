@@ -6455,7 +6455,7 @@ local function omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14_tcp_initiator_
   -- Verify packet length
   if not nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -6470,7 +6470,7 @@ local function omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14_tcp_acceptor_h
   -- Verify packet length
   if not nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet.requiredsize(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

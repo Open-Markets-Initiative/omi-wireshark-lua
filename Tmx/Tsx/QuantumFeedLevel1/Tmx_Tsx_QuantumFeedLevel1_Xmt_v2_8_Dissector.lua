@@ -1032,9 +1032,6 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_8.listing_market.display = function(value)
   if value == "V" then
     return "Listing Market: Tsx Venture (V)"
   end
-  if value == "N" then
-    return "Listing Market: Tsx Na Vex (N)"
-  end
   if value == "Q" then
     return "Listing Market: Nasdaq (Q)"
   end
@@ -2308,7 +2305,7 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_8.stock_status_message.fields = function(buffer
   -- Resume Trade Time: 4 Byte Unsigned Fixed Width Integer Nullable
   index, resume_trade_time = tmx_tsx_quantumfeedlevel1_xmt_v2_8.resume_trade_time.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -2463,7 +2460,7 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_8.trade_cancelled_message.fields = function(buf
   -- Last Sale Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale_price = tmx_tsx_quantumfeedlevel1_xmt_v2_8.last_sale_price.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -2566,7 +2563,7 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_8.trade_report_message.fields = function(buffer
   -- Opening Trade: 1 Byte Ascii String Enum with 2 values
   index, opening_trade = tmx_tsx_quantumfeedlevel1_xmt_v2_8.opening_trade.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -2663,7 +2660,7 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_8.symbol_status_message.fields = function(buffe
   -- Last Sale Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale_price = tmx_tsx_quantumfeedlevel1_xmt_v2_8.last_sale_price.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -3261,11 +3258,75 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet.fingerprint = function(buffer)
+  if buffer:len() < 14 then
+    return false
+  end
+
+  local msg_type = buffer(13, 1):string()
+
+  -- Heartbeat Body
+  if msg_type == "0" then
+    return true
+  end
+
+  -- Business Bodies: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 14 then
+    return false
+  end
+
+  local msg_type = buffer(13, 1):string()
+
+  -- Symbol Status Message
+  if msg_type == "J" then
+    return true
+  end
+
+  -- Trade Report Message
+  if msg_type == "s" then
+    return true
+  end
+
+  -- Trade Cancelled Message
+  if msg_type == "t" then
+    return true
+  end
+
+  -- Moc Imbalance Message
+  if msg_type == "u" then
+    return true
+  end
+
+  -- Stock Status Message
+  if msg_type == "v" then
+    return true
+  end
+
+  -- Quote Message
+  if msg_type == "w" then
+    return true
+  end
+
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
 -- Verify Start Of Frame Field
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.start_of_frame.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -3278,6 +3339,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.protocol_name.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -3298,6 +3364,9 @@ local function omi_tmx_tsx_quantumfeedlevel1_xmt_v2_8_udp_heuristic(buffer, pack
 
   -- Verify Protocol Name
   if not tmx_tsx_quantumfeedlevel1_xmt_v2_8.protocol_name.verify(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_tsx_quantumfeedlevel1_xmt_v2_8

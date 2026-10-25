@@ -1103,9 +1103,6 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.listing_market.display = function(val
   if value == "V" then
     return "Listing Market: Tsx Venture (V)"
   end
-  if value == "N" then
-    return "Listing Market: Tsx Na Vex (N)"
-  end
   if value == "Q" then
     return "Listing Market: Nasdaq (Q)"
   end
@@ -3083,7 +3080,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.stock_status_message.fields = functio
   -- Resume Trade Time: 4 Byte Unsigned Fixed Width Integer Nullable
   index, resume_trade_time = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.resume_trade_time.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -3238,7 +3235,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.trade_cancelled_message.fields = func
   -- Last Sale Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale_price = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.last_sale_price.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -3341,7 +3338,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.trade_report_message.fields = functio
   -- Opening Trade: 1 Byte Ascii String Enum with 2 values
   index, opening_trade = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.opening_trade.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -3438,7 +3435,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.symbol_status_message.fields = functi
   -- Last Sale Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale_price = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.last_sale_price.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: 1 Byte Ascii String Enum with 7 values
+  -- Listing Market: 1 Byte Ascii String Enum with 6 values
   index, listing_market = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.listing_market.dissect(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
@@ -4768,6 +4765,11 @@ end
 
 -- Verify Start Of Frame Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.start_of_frame.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -4780,6 +4782,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.protocol_name.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -4792,6 +4799,11 @@ end
 
 -- Verify Start Of Frame Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.start_of_frame.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(0, 1):uint()
 
@@ -4804,6 +4816,11 @@ end
 
 -- Verify Protocol Name Field
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.protocol_name.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 1 + 1 then
+    return false
+  end
+
   -- Attempt to read field
   local value = buffer(1, 1):string()
 
@@ -4825,7 +4842,7 @@ local function omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8_tcp_initiator_heur
   -- Verify Protocol Name
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.protocol_name.client_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp client packet message dispatch
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
@@ -4846,7 +4863,7 @@ local function omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8_tcp_acceptor_heuri
   -- Verify Protocol Name
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.protocol_name.server_packet_verify(buffer) then return false end
 
-  -- Verify the frame matches this side's fingerprint
+  -- Verify the frame matches this tcp server packet message dispatch
   if not tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet

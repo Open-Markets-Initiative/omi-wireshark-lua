@@ -4664,6 +4664,112 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local msg_type = buffer(18, 2):le_uint()
+
+  -- Add Order
+  if msg_type == 330 then
+    return true
+  end
+
+  -- Aggregate Implied Order
+  if msg_type == 337 then
+    return true
+  end
+
+  -- Aggregate Order Book Update Message
+  if msg_type == 353 then
+    return true
+  end
+
+  -- Calculated Opening Price Message
+  if msg_type == 364 then
+    return true
+  end
+
+  -- Implied Volatility Message
+  if msg_type == 367 then
+    return true
+  end
+
+  -- Market Alert Message
+  if msg_type == 323 then
+    return true
+  end
+
+  -- Open Interest Message
+  if msg_type == 366 then
+    return true
+  end
+
+  -- Commodity Definition
+  if msg_type == 301 then
+    return true
+  end
+
+  -- Class Definition
+  if msg_type == 302 then
+    return true
+  end
+
+  -- Instrument Definition
+  if msg_type == 303 then
+    return true
+  end
+
+  -- Combination Definition
+  if msg_type == 305 then
+    return true
+  end
+
+  -- Refresh Complete
+  if msg_type == 203 then
+    return true
+  end
+
+  -- Market Status
+  if msg_type == 320 then
+    return true
+  end
+
+  -- Instrument Status
+  if msg_type == 321 then
+    return true
+  end
+
+  -- Commodity And Class Status
+  if msg_type == 322 then
+    return true
+  end
+
+  -- Vcm Trigger
+  if msg_type == 324 then
+    return true
+  end
+
+  -- Thm Trigger
+  if msg_type == 325 then
+    return true
+  end
+
+  -- Trade Statistics Message
+  if msg_type == 360 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4671,6 +4777,9 @@ end
 local function omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not hkex_hkexderivatives_combinedrefresh_omd_v2_2.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2
